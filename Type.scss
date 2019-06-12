@@ -1,0 +1,191 @@
+/* @getethos/design-system/Type.scss
+   ========================================================================== */
+
+// Typefaces
+
+:root {
+  --system-sans-font-stack: -apple-system, BlinkMacSystemFont, Roboto,
+    'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --UntitledSans-font-stack: 'UntitledSans', var(--system-sans-font-stack);
+  --Americane-font-stack: 'Americane', var(--UntitledSans-font-stack);
+}
+
+@font-face {
+  font-family: 'Americane';
+  font-weight: 900;
+  src: url('/fonts/Americane-900-Black.woff2') format('woff2'),
+    url('/fonts/Americane-900-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'UntitledSans';
+  font-weight: 400;
+  src: url('/fonts/UntitledSans-400-Regular.woff2') format('woff2'),
+    url('/fonts/UntitledSans-400-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'UntitledSans';
+  font-weight: 500;
+  src: url('/fonts/UntitledSans-500-Medium.woff2') format('woff2'),
+    url('/fonts/UntitledSans-500-Medium.woff') format('woff');
+}
+
+// Sizes
+
+:root {
+  --XXXL-font-size: 48px;
+  --XXXL-mobile-font-size: 36px;
+  --XXL-font-size: 32px;
+  --XXL-mobile-font-size: 28px;
+  --XL-font-size: 22px;
+  --L-font-size: 18px;
+  --M-font-size: 16px;
+  --S-font-size: 14px;
+  --XS-font-size: 12px;
+
+  --Heading-line-height: 1.25;
+  --Text-line-height: 1.6;
+}
+
+.XXXL {
+  font-size: var(--XXXL-mobile-font-size);
+  @media (min-width: 900px) {
+    font-size: var(--XXXL-font-size);
+  }
+}
+
+.XXL {
+  font-size: var(--XXL-mobile-font-size);
+  @media (min-width: 900px) {
+    font-size: var(--XXL-font-size);
+  }
+}
+
+.XL {
+  font-size: var(--XL-font-size);
+}
+
+.L {
+  font-size: var(--L-font-size);
+}
+
+.M {
+  font-size: var(--M-font-size);
+}
+
+.S {
+  font-size: var(--S-font-size);
+}
+
+.XS {
+  font-size: var(--XS-font-size);
+}
+
+// Global defaults
+
+@mixin global-type-defaults {
+  font-family: var(--UntitledSans-font-stack);
+  line-height: var(--Text-line-height);
+  color: var(--Black--translucent);
+}
+
+html {
+  font-size: var(--M-font-size);
+}
+
+body {
+  font-size: var(--M-font-size);
+  @include global-type-defaults;
+}
+
+// Headings
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.Heading {
+  line-height: var(--Heading-line-height);
+  margin: 0;
+}
+
+.Heading.UntitledSans,
+.Heading.UntitledSans.Medium500 {
+  font-family: var(--UntitledSans-font-stack);
+  font-weight: 500;
+  margin: 0;
+}
+
+.Heading.UntitledSans.Regular400 {
+  font-weight: 400;
+}
+
+.Heading.Americane,
+.Heading.Americane.Black900 {
+  font-family: var(--Americane-font-stack);
+  font-weight: 900;
+}
+
+// Text
+
+.Text {
+  @include global-type-defaults;
+  display: block;
+}
+
+.Text b,
+.Text strong,
+.Text.Medium500 {
+  font-weight: 500;
+}
+
+// Colors
+
+.Heading,
+.Text {
+  &.BrandYellow {
+    color: var(--BrandYellow--default);
+  }
+
+  &.BrandBlue {
+    color: var(--BrandBlue--default);
+  }
+
+  &.Black {
+    color: var(--Black--translucent);
+  }
+
+  &.GrayDarkest {
+    color: var(--GrayDarkest--translucent);
+  }
+
+  &.GrayDark {
+    color: var(--GrayDark--translucent);
+  }
+
+  &.GrayLight {
+    color: var(--GrayLight--translucent);
+  }
+
+  &.GrayLightest {
+    color: var(--GrayLightest--translucent);
+  }
+
+  &.White {
+    color: var(--White);
+  }
+
+  &.Sky {
+    color: var(--Sky);
+  }
+}
+
+// Aliases - these shouldn't need custom CSS ideally, but do atm:
+
+.Eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "@getethos/design-system",
+  "version": "0.5",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-sass index.scss design-system.css && yarn format",
+    "develop": "chokidar *.scss -c 'yarn build'",
+    "format": "cd .. && prettier --write ./design-system/*.*s",
+    "test": "cd .. && yarn test ./design-system"
+  },
+  "dependencies": {
+    "cloudinary-react": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-responsive": "^6.1.2"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^1.2.2",
+    "node-sass": "^4.12.0"
+  },
+  "peerDependencies": {
+    "cloudinary-react": "^1.1.0"
+  }
+}

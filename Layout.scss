@@ -1,0 +1,26 @@
+/* @getethos/design-system/Layout.scss
+   ========================================================================== */
+
+.CenterHorizontally {
+  text-align: center;
+}
+
+.Container {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding: 0 24px;
+
+  // This assumes this file is imported via index.scss after Media.scss.
+  @include for-tablet-and-up {
+    padding: 0 var(--Space-40);
+  }
+  @include for-laptop-and-up {
+    padding: 0 var(--Space-72);
+  }
+}
+
+.Layout {
+  width: 100vw;
+  overflow-x: hidden;
+}

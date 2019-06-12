@@ -1,0 +1,26 @@
+/* @getethos/design-system/Colors.scss
+   ========================================================================== */
+
+:root {
+  --BrandYellow--default: #ffd22a;
+  --BrandYellow--hover: #ebc01e;
+  --BrandYellow--active: #ddb016;
+
+  --BrandBlue--default: #4c2ee5;
+  --BrandBlue--hover: #4127c3;
+  --BrandBlue--active: #3520a0;
+
+  --Black--opaque: #303030;
+  --Black--translucent: rgba(0, 0, 0, 0.9);
+  --GrayDarkest--opaque: #666666;
+  --GrayDarkest--translucent: rgba(0, 0, 0, 0.6);
+  --GrayDark--opaque: #8c8c8c;
+  --GrayDark--translucent: rgba(0, 0, 0, 0.45);
+  --GrayLight--opaque: #cccccc;
+  --GrayLight--translucent: rgba(0, 0, 0, 0.2);
+  --GrayLightest--opaque: #e5e5e5;
+  --GrayLightest--translucent: rgba(0, 0, 0, 0.1);
+  --White: #ffffff;
+
+  --Sky: #f0f5fa;
+}

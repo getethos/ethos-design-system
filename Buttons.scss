@@ -1,0 +1,161 @@
+/* @getethos/design-system/Buttons.scss
+   ========================================================================== */
+
+// Defaults
+
+button,
+.Button {
+  font-family: var(--UntitledSans-font-stack);
+  font-weight: 500;
+  line-height: 1.25;
+  border-radius: 3px;
+  border: 1px solid transparent;
+
+  transition: var(--transition-default);
+  transition-property: background-color, border-color, color;
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+}
+
+// Sizes
+
+.Button.Large {
+  font-size: var(--L-font-size);
+  padding: 16px 23px;
+}
+
+.Button.Medium {
+  font-size: var(--M-font-size);
+  padding: 14px 23px;
+}
+
+.Button.Small {
+  font-size: var(--S-font-size);
+  padding: 10px 15px 11px;
+}
+
+.Button.Tiny {
+  font-size: var(--S-font-size);
+  padding: 6px 11px 7px;
+}
+
+// Styles
+
+@mixin light-on-dark-font-smoothing {
+  -webkit-font-smoothing: antialiased; // stackoverflow.com/a/17927764
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Button.Blue {
+  background-color: var(--BrandBlue--default);
+  color: var(--White);
+  @include light-on-dark-font-smoothing;
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--BrandBlue--hover);
+    }
+
+    &:active {
+      background-color: var(--BrandBlue--active);
+    }
+  }
+
+  &[disabled] {
+    background-color: var(--GrayLightest--translucent);
+    color: var(--White);
+  }
+}
+
+.Button.Yellow {
+  background-color: var(--BrandYellow--default);
+  color: var(--Black--opaque);
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--BrandYellow--hover);
+    }
+
+    &:active {
+      background-color: var(--BrandYellow--active);
+    }
+  }
+
+  &[disabled] {
+    background-color: var(--GrayLightest--translucent);
+    color: var(--White);
+  }
+}
+
+.Button.White {
+  background-color: var(--White);
+  color: var(--Black--opaque);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 1px 4px rgba(0, 0, 0, 0.1);
+
+  &:not([disabled]) {
+    &:hover {
+      color: var(--BrandBlue--hover);
+    }
+
+    &:active {
+      color: var(--BrandBlue--active);
+    }
+  }
+
+  &[disabled] {
+    background-color: var(--GrayLightest--translucent);
+    color: var(--White);
+    @include light-on-dark-font-smoothing;
+    box-shadow: none;
+  }
+}
+
+.Button.BlackOutline {
+  border-color: var(--Black--opaque);
+  background-color: var(--White);
+  color: var(--Black--opaque);
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--Black--opaque);
+      color: var(--White);
+    }
+
+    &:active {
+      background-color: var(--Black--opaque);
+      color: var(--White);
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--GrayLightest--translucent);
+    background-color: var(--White);
+    color: var(--GrayLightest--translucent);
+  }
+}
+
+.Button.BlueOutline {
+  border-color: var(--BrandBlue--default);
+  background-color: var(--White);
+  color: var(--BrandBlue--default);
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--BrandBlue--hover);
+      color: var(--White);
+    }
+
+    &:active {
+      background-color: var(--BrandBlue--active);
+      color: var(--White);
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--GrayLightest--translucent);
+    background-color: var(--White);
+    color: var(--GrayLightest--translucent);
+  }
+}

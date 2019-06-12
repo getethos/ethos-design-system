@@ -1,0 +1,19 @@
+/* @getethos/design-system/Spacing.scss
+   ========================================================================== */
+
+.Spacer.flexGrow {
+  flex-grow: 1;
+}
+
+:root {
+  --Space-72: 72px;
+  --Space-56: 56px;
+  --Space-48: 48px;
+  --Space-40: 40px;
+  --Space-32: 32px;
+  --Space-24: 24px;
+  --Space-16: 16px;
+  --Space-12: 12px;
+  --Space-8: 8px;
+  --Space-4: 4px;
+}

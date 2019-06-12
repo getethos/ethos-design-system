@@ -1,0 +1,526 @@
+/* @getethos/design-system v0.5                                               */
+/* @getethos/design-system/Normalize.scss
+   ========================================================================== */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+a {
+  background-color: transparent;
+}
+
+img {
+  border-style: none;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button,
+input {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+[hidden] {
+  display: none;
+}
+
+/* @getethos/design-system/Colors.scss
+   ========================================================================== */
+:root {
+  --BrandYellow--default: #ffd22a;
+  --BrandYellow--hover: #ebc01e;
+  --BrandYellow--active: #ddb016;
+  --BrandBlue--default: #4c2ee5;
+  --BrandBlue--hover: #4127c3;
+  --BrandBlue--active: #3520a0;
+  --Black--opaque: #303030;
+  --Black--translucent: rgba(0, 0, 0, 0.9);
+  --GrayDarkest--opaque: #666666;
+  --GrayDarkest--translucent: rgba(0, 0, 0, 0.6);
+  --GrayDark--opaque: #8c8c8c;
+  --GrayDark--translucent: rgba(0, 0, 0, 0.45);
+  --GrayLight--opaque: #cccccc;
+  --GrayLight--translucent: rgba(0, 0, 0, 0.2);
+  --GrayLightest--opaque: #e5e5e5;
+  --GrayLightest--translucent: rgba(0, 0, 0, 0.1);
+  --White: #ffffff;
+  --Sky: #f0f5fa;
+}
+
+/* @getethos/design-system/Media.scss
+   ========================================================================== */
+/* @getethos/design-system/Animation.scss
+   ========================================================================== */
+:root {
+  --transition-default: all 200ms cubic-bezier(0.21, 0.61, 0.35, 1);
+}
+
+/* @getethos/design-system/Buttons.scss
+   ========================================================================== */
+button,
+.Button {
+  font-family: var(--UntitledSans-font-stack);
+  font-weight: 500;
+  line-height: 1.25;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  transition: var(--transition-default);
+  transition-property: background-color, border-color, color;
+}
+button:not([disabled]),
+.Button:not([disabled]) {
+  cursor: pointer;
+}
+
+.Button.Large {
+  font-size: var(--L-font-size);
+  padding: 16px 23px;
+}
+
+.Button.Medium {
+  font-size: var(--M-font-size);
+  padding: 14px 23px;
+}
+
+.Button.Small {
+  font-size: var(--S-font-size);
+  padding: 10px 15px 11px;
+}
+
+.Button.Tiny {
+  font-size: var(--S-font-size);
+  padding: 6px 11px 7px;
+}
+
+.Button.Blue {
+  background-color: var(--BrandBlue--default);
+  color: var(--White);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.Button.Blue:not([disabled]):hover {
+  background-color: var(--BrandBlue--hover);
+}
+.Button.Blue:not([disabled]):active {
+  background-color: var(--BrandBlue--active);
+}
+.Button.Blue[disabled] {
+  background-color: var(--GrayLightest--translucent);
+  color: var(--White);
+}
+
+.Button.Yellow {
+  background-color: var(--BrandYellow--default);
+  color: var(--Black--opaque);
+}
+.Button.Yellow:not([disabled]):hover {
+  background-color: var(--BrandYellow--hover);
+}
+.Button.Yellow:not([disabled]):active {
+  background-color: var(--BrandYellow--active);
+}
+.Button.Yellow[disabled] {
+  background-color: var(--GrayLightest--translucent);
+  color: var(--White);
+}
+
+.Button.White {
+  background-color: var(--White);
+  color: var(--Black--opaque);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 1px 4px rgba(0, 0, 0, 0.1);
+}
+.Button.White:not([disabled]):hover {
+  color: var(--BrandBlue--hover);
+}
+.Button.White:not([disabled]):active {
+  color: var(--BrandBlue--active);
+}
+.Button.White[disabled] {
+  background-color: var(--GrayLightest--translucent);
+  color: var(--White);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-shadow: none;
+}
+
+.Button.BlackOutline {
+  border-color: var(--Black--opaque);
+  background-color: var(--White);
+  color: var(--Black--opaque);
+}
+.Button.BlackOutline:not([disabled]):hover {
+  background-color: var(--Black--opaque);
+  color: var(--White);
+}
+.Button.BlackOutline:not([disabled]):active {
+  background-color: var(--Black--opaque);
+  color: var(--White);
+}
+.Button.BlackOutline[disabled] {
+  border-color: var(--GrayLightest--translucent);
+  background-color: var(--White);
+  color: var(--GrayLightest--translucent);
+}
+
+.Button.BlueOutline {
+  border-color: var(--BrandBlue--default);
+  background-color: var(--White);
+  color: var(--BrandBlue--default);
+}
+.Button.BlueOutline:not([disabled]):hover {
+  background-color: var(--BrandBlue--hover);
+  color: var(--White);
+}
+.Button.BlueOutline:not([disabled]):active {
+  background-color: var(--BrandBlue--active);
+  color: var(--White);
+}
+.Button.BlueOutline[disabled] {
+  border-color: var(--GrayLightest--translucent);
+  background-color: var(--White);
+  color: var(--GrayLightest--translucent);
+}
+
+/* @getethos/design-system/Images.scss
+   ========================================================================== */
+figure {
+  margin: 0;
+}
+
+.Image {
+  border-radius: 2px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* @getethos/design-system/Layout.scss
+   ========================================================================== */
+.CenterHorizontally {
+  text-align: center;
+}
+
+.Container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+@media (min-width: 600px) {
+  .Container {
+    padding: 0 var(--Space-40);
+  }
+}
+@media (min-width: 900px) {
+  .Container {
+    padding: 0 var(--Space-72);
+  }
+}
+
+.Layout {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+/* @getethos/design-system/Spacing.scss
+   ========================================================================== */
+.Spacer.flexGrow {
+  flex-grow: 1;
+}
+
+:root {
+  --Space-72: 72px;
+  --Space-56: 56px;
+  --Space-48: 48px;
+  --Space-40: 40px;
+  --Space-32: 32px;
+  --Space-24: 24px;
+  --Space-16: 16px;
+  --Space-12: 12px;
+  --Space-8: 8px;
+  --Space-4: 4px;
+}
+
+/* @getethos/design-system/Type.scss
+   ========================================================================== */
+:root {
+  --system-sans-font-stack: -apple-system, BlinkMacSystemFont, Roboto,
+    'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --UntitledSans-font-stack: 'UntitledSans', var(--system-sans-font-stack);
+  --Americane-font-stack: 'Americane', var(--UntitledSans-font-stack);
+}
+
+@font-face {
+  font-family: 'Americane';
+  font-weight: 900;
+  src: url('/fonts/Americane-900-Black.woff2') format('woff2'),
+    url('/fonts/Americane-900-Black.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'UntitledSans';
+  font-weight: 400;
+  src: url('/fonts/UntitledSans-400-Regular.woff2') format('woff2'),
+    url('/fonts/UntitledSans-400-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'UntitledSans';
+  font-weight: 500;
+  src: url('/fonts/UntitledSans-500-Medium.woff2') format('woff2'),
+    url('/fonts/UntitledSans-500-Medium.woff') format('woff');
+}
+
+:root {
+  --XXXL-font-size: 48px;
+  --XXXL-mobile-font-size: 36px;
+  --XXL-font-size: 32px;
+  --XXL-mobile-font-size: 28px;
+  --XL-font-size: 22px;
+  --L-font-size: 18px;
+  --M-font-size: 16px;
+  --S-font-size: 14px;
+  --XS-font-size: 12px;
+  --Heading-line-height: 1.25;
+  --Text-line-height: 1.6;
+}
+
+.XXXL {
+  font-size: var(--XXXL-mobile-font-size);
+}
+@media (min-width: 900px) {
+  .XXXL {
+    font-size: var(--XXXL-font-size);
+  }
+}
+
+.XXL {
+  font-size: var(--XXL-mobile-font-size);
+}
+@media (min-width: 900px) {
+  .XXL {
+    font-size: var(--XXL-font-size);
+  }
+}
+
+.XL {
+  font-size: var(--XL-font-size);
+}
+
+.L {
+  font-size: var(--L-font-size);
+}
+
+.M {
+  font-size: var(--M-font-size);
+}
+
+.S {
+  font-size: var(--S-font-size);
+}
+
+.XS {
+  font-size: var(--XS-font-size);
+}
+
+html {
+  font-size: var(--M-font-size);
+}
+
+body {
+  font-size: var(--M-font-size);
+  font-family: var(--UntitledSans-font-stack);
+  line-height: var(--Text-line-height);
+  color: var(--Black--translucent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.Heading {
+  line-height: var(--Heading-line-height);
+  margin: 0;
+}
+
+.Heading.UntitledSans,
+.Heading.UntitledSans.Medium500 {
+  font-family: var(--UntitledSans-font-stack);
+  font-weight: 500;
+  margin: 0;
+}
+
+.Heading.UntitledSans.Regular400 {
+  font-weight: 400;
+}
+
+.Heading.Americane,
+.Heading.Americane.Black900 {
+  font-family: var(--Americane-font-stack);
+  font-weight: 900;
+}
+
+.Text {
+  font-family: var(--UntitledSans-font-stack);
+  line-height: var(--Text-line-height);
+  color: var(--Black--translucent);
+  display: block;
+}
+
+.Text b,
+.Text strong,
+.Text.Medium500 {
+  font-weight: 500;
+}
+
+.Heading.BrandYellow,
+.Text.BrandYellow {
+  color: var(--BrandYellow--default);
+}
+
+.Heading.BrandBlue,
+.Text.BrandBlue {
+  color: var(--BrandBlue--default);
+}
+
+.Heading.Black,
+.Text.Black {
+  color: var(--Black--translucent);
+}
+
+.Heading.GrayDarkest,
+.Text.GrayDarkest {
+  color: var(--GrayDarkest--translucent);
+}
+
+.Heading.GrayDark,
+.Text.GrayDark {
+  color: var(--GrayDark--translucent);
+}
+
+.Heading.GrayLight,
+.Text.GrayLight {
+  color: var(--GrayLight--translucent);
+}
+
+.Heading.GrayLightest,
+.Text.GrayLightest {
+  color: var(--GrayLightest--translucent);
+}
+
+.Heading.White,
+.Text.White {
+  color: var(--White);
+}
+
+.Heading.Sky,
+.Text.Sky {
+  color: var(--Sky);
+}
+
+.Eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}

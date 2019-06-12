@@ -1,0 +1,181 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Buttons.js { Button } <Button.Large.BlackOutline> matches snapshot 1`] = `
+<button
+  className="Button Large BlackOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Large.Blue> matches snapshot 1`] = `
+<button
+  className="Button Large Blue"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Large.BlueOutline> matches snapshot 1`] = `
+<button
+  className="Button Large BlueOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Large.White> matches snapshot 1`] = `
+<button
+  className="Button Large White"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Large.Yellow> matches snapshot 1`] = `
+<button
+  className="Button Large Yellow"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Medium.BlackOutline> matches snapshot 1`] = `
+<button
+  className="Button Medium BlackOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Medium.Blue> matches snapshot 1`] = `
+<button
+  className="Button Medium Blue"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Medium.BlueOutline> matches snapshot 1`] = `
+<button
+  className="Button Medium BlueOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Medium.White> matches snapshot 1`] = `
+<button
+  className="Button Medium White"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Medium.Yellow> matches snapshot 1`] = `
+<button
+  className="Button Medium Yellow"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Small.BlackOutline> matches snapshot 1`] = `
+<button
+  className="Button Small BlackOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Small.Blue> matches snapshot 1`] = `
+<button
+  className="Button Small Blue"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Small.BlueOutline> matches snapshot 1`] = `
+<button
+  className="Button Small BlueOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Small.White> matches snapshot 1`] = `
+<button
+  className="Button Small White"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Small.Yellow> matches snapshot 1`] = `
+<button
+  className="Button Small Yellow"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Tiny.BlackOutline> matches snapshot 1`] = `
+<button
+  className="Button Tiny BlackOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Tiny.Blue> matches snapshot 1`] = `
+<button
+  className="Button Tiny Blue"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Tiny.BlueOutline> matches snapshot 1`] = `
+<button
+  className="Button Tiny BlueOutline"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Tiny.White> matches snapshot 1`] = `
+<button
+  className="Button Tiny White"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`Buttons.js { Button } <Button.Tiny.Yellow> matches snapshot 1`] = `
+<button
+  className="Button Tiny Yellow"
+  type="button"
+>
+  Click me
+</button>
+`;
