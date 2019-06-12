@@ -4,7 +4,7 @@ import * as Cloudinary from 'cloudinary-react'
 
 // https://cloudinary.com/documentation/image_transformation_reference
 
-export const CLOUDINARY_CLOUD_NAME = 'ethos-media'
+export const CLOUDINARY_CLOUD_NAME = 'getethos'
 
 const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
 

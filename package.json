@@ -1,6 +1,6 @@
 {
   "name": "@getethos/design-system",
-  "version": "0.5",
+  "version": "0.6.2",
   "private": true,
   "license": "UNLICENSED",
   "main": "index.js",
