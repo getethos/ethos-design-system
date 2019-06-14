@@ -1,4 +1,4 @@
-/* @getethos/design-system v0.5                                               */
+/* @getethos/design-system v0.7.0                                             */
 /* @getethos/design-system/Normalize.scss
    ========================================================================== */
 html {
@@ -442,6 +442,7 @@ h5,
 h6,
 .Heading {
   line-height: var(--Heading-line-height);
+  font-weight: 500;
   margin: 0;
 }
 

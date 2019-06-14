@@ -114,7 +114,7 @@ Type.HEADING_ELEMENTS = {
 Type.ELEMENTS = [...Object.values(Type.HEADING_ELEMENTS), 'div', 'span']
 
 Type.PUBLIC_PROPS = {
-  children: PropTypes.string,
+  children: PropTypes.node,
   color: PropTypes.oneOf(Object.values(Type.COLORS)),
   element: PropTypes.oneOf(Type.ELEMENTS),
 }

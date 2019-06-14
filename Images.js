@@ -8,12 +8,12 @@ export const CLOUDINARY_CLOUD_NAME = 'getethos'
 
 const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
 
-export const CloudinaryImage = ({ publicId, ...rest }) => {
+export const CloudinaryImage = ({ publicId, className, ...rest }) => {
   const publicIdFilename = publicId.replace(publicIdBase, '')
   return (
     <Cloudinary.Image
       {...rest}
-      className="Image"
+      className={['Image', className].join(' ')}
       cloudName={CLOUDINARY_CLOUD_NAME}
       dpr={2} // should optimize
       publicId={publicIdFilename}
@@ -24,5 +24,7 @@ export const CloudinaryImage = ({ publicId, ...rest }) => {
 }
 
 CloudinaryImage.propTypes = {
+  // We're trying to avoid/reduce className restyling, but let's try it here:
+  className: PropTypes.string,
   publicId: PropTypes.string.isRequired,
 }

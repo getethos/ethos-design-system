@@ -1,12 +1,12 @@
 {
   "name": "@getethos/design-system",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "private": true,
   "license": "UNLICENSED",
   "main": "index.js",
   "scripts": {
     "build": "node-sass index.scss design-system.css && yarn format",
-    "develop": "chokidar *.scss -c 'yarn build'",
+    "develop": "chokidar *.scss -c 'yarn build' --initial",
     "format": "cd .. && prettier --write ./design-system/*.*s",
     "test": "cd .. && yarn test ./design-system"
   },
