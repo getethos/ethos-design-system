@@ -1,4 +1,4 @@
-/* @getethos/design-system v0.7.0                                             */
+/* @getethos/design-system v0.8.0                                             */
 /* @getethos/design-system/Normalize.scss
    ========================================================================== */
 html {
@@ -145,6 +145,7 @@ textarea {
   --GrayLightest--opaque: #e5e5e5;
   --GrayLightest--translucent: rgba(0, 0, 0, 0.1);
   --White: #ffffff;
+  --White--transparent: rgba(255, 255, 255, 0);
   --Sky: #f0f5fa;
 }
 
@@ -191,6 +192,10 @@ button:not([disabled]),
 .Button.Tiny {
   font-size: var(--S-font-size);
   padding: 6px 11px 7px;
+}
+
+.Button.FullWidth {
+  width: 100%;
 }
 
 .Button.Blue {
@@ -246,7 +251,7 @@ button:not([disabled]),
 
 .Button.BlackOutline {
   border-color: var(--Black--opaque);
-  background-color: var(--White);
+  background-color: var(--White--transparent);
   color: var(--Black--opaque);
 }
 .Button.BlackOutline:not([disabled]):hover {
@@ -259,13 +264,12 @@ button:not([disabled]),
 }
 .Button.BlackOutline[disabled] {
   border-color: var(--GrayLightest--translucent);
-  background-color: var(--White);
   color: var(--GrayLightest--translucent);
 }
 
 .Button.BlueOutline {
   border-color: var(--BrandBlue--default);
-  background-color: var(--White);
+  background-color: var(--White--transparent);
   color: var(--BrandBlue--default);
 }
 .Button.BlueOutline:not([disabled]):hover {
@@ -278,7 +282,6 @@ button:not([disabled]),
 }
 .Button.BlueOutline[disabled] {
   border-color: var(--GrayLightest--translucent);
-  background-color: var(--White);
   color: var(--GrayLightest--translucent);
 }
 
@@ -521,7 +524,31 @@ h6,
   color: var(--Sky);
 }
 
+.Heading.Centered,
+.Text.Centered {
+  text-align: center;
+}
+
 .Eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+
+.Link {
+  color: inherit;
+}
+.Link,
+.Link:active,
+.Link:hover {
+  text-decoration: none;
+}
+.Link.Navlink {
+  color: var(--Black--translucent);
+  text-decoration: none;
+  padding: var(--Space-4) 0;
+  border-bottom: 2px solid transparent;
+}
+.Link.Navlink:active,
+.Link.Navlink:hover {
+  border-bottom-color: var(--Black--translucent);
 }

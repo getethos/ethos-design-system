@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import MediaQuery from 'react-responsive'
 
 export const Media = {
+  PhoneAndTablet,
   PhoneOnly,
   TabletAndUp,
   TabletOnly,
@@ -17,6 +18,8 @@ export const Media = {
 }
 
 Media.QUERIES = {
+  PHONE_AND_TABLET: `(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START -
+    1}px)`,
   PHONE_ONLY: `(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_START - 1}px)`,
   TABLET_AND_UP: `(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`,
   TABLET_ONLY: [
@@ -29,6 +32,12 @@ Media.QUERIES = {
     `(max-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START - 1}px)`,
   ].join(' and '),
   DESKTOP_ONLY: `(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`,
+}
+
+function PhoneAndTablet({ children }) {
+  return (
+    <MediaQuery query={Media.QUERIES.PHONE_AND_TABLET}>{children}</MediaQuery>
+  )
 }
 
 function PhoneOnly({ children }) {
@@ -55,6 +64,7 @@ function DesktopOnly({ children }) {
   return <MediaQuery query={Media.QUERIES.DESKTOP_ONLY}>{children}</MediaQuery>
 }
 
+PhoneAndTablet.propTypes = { children: PropTypes.node.isRequired }
 PhoneOnly.propTypes = { children: PropTypes.node.isRequired }
 TabletAndUp.propTypes = { children: PropTypes.node.isRequired }
 TabletOnly.propTypes = { children: PropTypes.node.isRequired }

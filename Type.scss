@@ -184,9 +184,50 @@ h6,
   }
 }
 
+// Layout
+
+.Heading,
+.Text {
+  &.Centered {
+    text-align: center;
+  }
+}
+
 // Aliases - these shouldn't need custom CSS ideally, but do atm:
 
 .Eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
+}
+
+// Links – WIP. A link could mean a number of things for a given tech stack.
+
+.Link {
+  color: inherit;
+
+  &,
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.Standard {
+    // blue
+  }
+
+  &.Navlink {
+    color: var(--Black--translucent);
+    text-decoration: none;
+    padding: var(--Space-4) 0;
+    border-bottom: 2px solid transparent;
+
+    // transition: var(--transition-default);
+    // transition-property: none;
+
+    &:active,
+    &:hover {
+      // &[aria-current='page'] // if we need to underline the current page later
+      border-bottom-color: var(--Black--translucent);
+    }
+  }
 }

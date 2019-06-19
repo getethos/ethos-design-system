@@ -24,6 +24,7 @@ import { COLORS } from './Colors'
  * Other props may only be specified in this file.
  *
  * @param  {String}  props.children       The text to display
+ * @param  {Boolean} props.centered       Whether to text-align: center
  * @param  {String}  props.element        Override the default <element>
  * @param  {String}  props.subtype        (private) Header vs. Text
  * @param  {String}  props.size           (private) XXL, L, S, etc.
@@ -32,6 +33,7 @@ import { COLORS } from './Colors'
  */
 function Type({
   children,
+  centered,
   color,
   element,
   subtype,
@@ -55,6 +57,7 @@ function Type({
   if (unexpectedProp) throw new TypeError(`Unexpected prop '${unexpectedProp}'`)
 
   const classNames = [subtype, size, typeface, weight, color]
+  if (centered) classNames.push('Centered')
 
   const isHeading = Type.SUBTYPES.HEADING === subtype
   const defaultElement = isHeading ? Type.HEADING_ELEMENTS[size] : 'div'
@@ -111,10 +114,11 @@ Type.HEADING_ELEMENTS = {
   XS: 'h6',
 }
 
-Type.ELEMENTS = [...Object.values(Type.HEADING_ELEMENTS), 'div', 'span']
+Type.ELEMENTS = [...Object.values(Type.HEADING_ELEMENTS), 'div', 'li', 'span']
 
 Type.PUBLIC_PROPS = {
   children: PropTypes.node,
+  centered: PropTypes.bool,
   color: PropTypes.oneOf(Object.values(Type.COLORS)),
   element: PropTypes.oneOf(Type.ELEMENTS),
 }
@@ -384,4 +388,15 @@ export const Eyebrow = (props) => {
       <Heading.XS.Medium {...props} />
     </div>
   )
+}
+
+// Links – WIP. For now let's just export CSS classes and be otherwise agnostic.
+
+export const Link = {
+  CLASS_NAME: 'Link',
+  STYLE_VARIANTS: {
+    STANDARD: 'Standard',
+    NAVLINK: 'Navlink',
+    HAMBURGER_MENU: 'HamburgerMenu',
+  },
 }

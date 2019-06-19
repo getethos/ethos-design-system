@@ -41,6 +41,11 @@ button,
   padding: 6px 11px 7px;
 }
 
+.Button.FullWidth {
+  // This could modify any of the above sizes.
+  width: 100%;
+}
+
 // Styles
 
 @mixin light-on-dark-font-smoothing {
@@ -114,7 +119,7 @@ button,
 
 .Button.BlackOutline {
   border-color: var(--Black--opaque);
-  background-color: var(--White);
+  background-color: var(--White--transparent);
   color: var(--Black--opaque);
 
   &:not([disabled]) {
@@ -131,14 +136,13 @@ button,
 
   &[disabled] {
     border-color: var(--GrayLightest--translucent);
-    background-color: var(--White);
     color: var(--GrayLightest--translucent);
   }
 }
 
 .Button.BlueOutline {
   border-color: var(--BrandBlue--default);
-  background-color: var(--White);
+  background-color: var(--White--transparent);
   color: var(--BrandBlue--default);
 
   &:not([disabled]) {
@@ -155,7 +159,6 @@ button,
 
   &[disabled] {
     border-color: var(--GrayLightest--translucent);
-    background-color: var(--White);
     color: var(--GrayLightest--translucent);
   }
 }

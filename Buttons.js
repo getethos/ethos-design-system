@@ -32,7 +32,15 @@ import PropTypes from 'prop-types'
  * @param  {String}   props.size      The size of the button.
  * @param  {String}   props.style     The color style of the button.
  */
-function Button({ children, disabled, type, size, style, ...unexpectedProps }) {
+function Button({
+  children,
+  disabled,
+  fullWidth,
+  type,
+  size,
+  style,
+  ...unexpectedProps
+}) {
   const isValidHtmlType = Object.values(Button.HTML_TYPES).includes(type)
   const isValidSize = Object.values(Button.SIZES).includes(size)
   const isValidStyle = Object.values(Button.STYLES).includes(style)
@@ -42,12 +50,12 @@ function Button({ children, disabled, type, size, style, ...unexpectedProps }) {
   if (!isValidStyle) throw new TypeError(`Invalid style '${style}'.`)
   if (unexpectedProp) throw new TypeError(`Unexpected prop '${unexpectedProp}'`)
 
+  const classNames = ['Button', size, style, fullWidth ? 'FullWidth' : '']
+    .join(' ')
+    .trim()
+
   return (
-    <button
-      className={['Button', size, style].join(' ')}
-      disabled={disabled}
-      type={type}
-    >
+    <button className={classNames} disabled={disabled} type={type}>
       {children}
     </button>
   )
@@ -58,6 +66,7 @@ Button.HTML_TYPES = { BUTTON: 'button', SUBMIT: 'submit' } // read the docs^
 Button.PUBLIC_PROPS = {
   children: PropTypes.string,
   disabled: PropTypes.bool,
+  fullWidth: PropTypes.bool,
   type: PropTypes.oneOf(Object.values(Button.HTML_TYPES)),
 }
 
