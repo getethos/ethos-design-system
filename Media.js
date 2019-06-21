@@ -3,35 +3,46 @@ import PropTypes from 'prop-types'
 import MediaQuery from 'react-responsive'
 
 export const Media = {
-  PhoneAndTablet,
   PhoneOnly,
-  TabletAndUp,
+  PhoneAndTablet,
   TabletOnly,
-  LaptopAndUp,
+  TabletAndLaptop,
+  TabletAndUp,
   LaptopOnly,
+  LaptopAndUp,
   DesktopOnly,
   BREAKPOINTS: {
-    TABLET_RANGE_START: 600, // TODO: DRY with Sass
+    PHONE_RANGE_END: 599,
+    TABLET_RANGE_START: 600,
+    TABLET_RANGE_END: 899,
     LAPTOP_RANGE_START: 900,
+    LAPTOP_RANGE_END: 1199,
     DESKTOP_RANGE_START: 1200,
   },
 }
 
 Media.QUERIES = {
-  PHONE_AND_TABLET: `(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START -
-    1}px)`,
-  PHONE_ONLY: `(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_START - 1}px)`,
-  TABLET_AND_UP: `(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`,
+  PHONE_ONLY: `(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`,
+  PHONE_AND_TABLET: `(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_END}px)`,
   TABLET_ONLY: [
     `(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`,
-    `(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START - 1}px)`,
+    `(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_END}px)`,
   ].join(' and '),
-  LAPTOP_AND_UP: `(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`,
+  TABLET_AND_LAPTOP: [
+    `(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`,
+    `(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_END}px)`,
+  ].join(' and '),
+  TABLET_AND_UP: `(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`,
   LAPTOP_ONLY: [
     `(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`,
-    `(max-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START - 1}px)`,
+    `(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_END}px)`,
   ].join(' and '),
+  LAPTOP_AND_UP: `(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`,
   DESKTOP_ONLY: `(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`,
+}
+
+function PhoneOnly({ children }) {
+  return <MediaQuery query={Media.QUERIES.PHONE_ONLY}>{children}</MediaQuery>
 }
 
 function PhoneAndTablet({ children }) {
@@ -40,16 +51,18 @@ function PhoneAndTablet({ children }) {
   )
 }
 
-function PhoneOnly({ children }) {
-  return <MediaQuery query={Media.QUERIES.PHONE_ONLY}>{children}</MediaQuery>
+function TabletOnly({ children }) {
+  return <MediaQuery query={Media.QUERIES.TABLET_ONLY}>{children}</MediaQuery>
+}
+
+function TabletAndLaptop({ children }) {
+  return (
+    <MediaQuery query={Media.QUERIES.TABLET_AND_LAPTOP}>{children}</MediaQuery>
+  )
 }
 
 function TabletAndUp({ children }) {
   return <MediaQuery query={Media.QUERIES.TABLET_AND_UP}>{children}</MediaQuery>
-}
-
-function TabletOnly({ children }) {
-  return <MediaQuery query={Media.QUERIES.TABLET_ONLY}>{children}</MediaQuery>
 }
 
 function LaptopAndUp({ children }) {
@@ -66,6 +79,7 @@ function DesktopOnly({ children }) {
 
 PhoneAndTablet.propTypes = { children: PropTypes.node.isRequired }
 PhoneOnly.propTypes = { children: PropTypes.node.isRequired }
+TabletAndLaptop.propTypes = { children: PropTypes.node.isRequired }
 TabletAndUp.propTypes = { children: PropTypes.node.isRequired }
 TabletOnly.propTypes = { children: PropTypes.node.isRequired }
 LaptopAndUp.propTypes = { children: PropTypes.node.isRequired }

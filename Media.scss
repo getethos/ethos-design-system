@@ -14,14 +14,20 @@ $desktop-range-start: 1200px;
   }
 }
 
-@mixin for-tablet-and-up {
-  @media (min-width: $tablet-range-start) {
+@mixin for-tablet-only {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-end) {
     @content;
   }
 }
 
-@mixin for-tablet-only {
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-end) {
+@mixin for-tablet-and-laptop {
+  @media (min-width: $tablet-range-start) and (max-width: $laptop-range-end) {
+    @content;
+  }
+}
+
+@mixin for-tablet-and-up {
+  @media (min-width: $tablet-range-start) {
     @content;
   }
 }
