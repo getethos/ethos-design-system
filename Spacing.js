@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// The `flexGrow` prop should be considered experimental due to its proximity
+// to a recent bug. Consider applying `flex-grow: 1;` elsewhere if you want it.
+
 function Space({ height, flexGrow }) {
   const validHeight = Object.values(Space.HEIGHTS).find((h) => h === height)
   if (!validHeight) throw new TypeError('Invalid height.')

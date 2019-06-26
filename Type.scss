@@ -88,6 +88,9 @@
   font-family: var(--UntitledSans-font-stack);
   line-height: var(--Text-line-height);
   color: var(--Black--translucent);
+
+  // Prevent long words (e.g. URLs) from causing a text box to overflow:
+  word-break: break-word;
 }
 
 html {

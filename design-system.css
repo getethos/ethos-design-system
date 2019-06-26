@@ -1,4 +1,4 @@
-/* @getethos/design-system v0.8.0                                             */
+/* @getethos/design-system v0.8.2                                             */
 /* @getethos/design-system/Normalize.scss
    ========================================================================== */
 html {
@@ -435,6 +435,7 @@ body {
   font-family: var(--UntitledSans-font-stack);
   line-height: var(--Text-line-height);
   color: var(--Black--translucent);
+  word-break: break-word;
 }
 
 h1,
@@ -470,6 +471,7 @@ h6,
   font-family: var(--UntitledSans-font-stack);
   line-height: var(--Text-line-height);
   color: var(--Black--translucent);
+  word-break: break-word;
   display: block;
 }
 
