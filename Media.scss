@@ -20,6 +20,12 @@ $desktop-range-start: 1200px;
   }
 }
 
+@mixin for-phone-and-tablet {
+  @media (max-width: $tablet-range-end) {
+    @content;
+  }
+}
+
 @mixin for-tablet-and-laptop {
   @media (min-width: $tablet-range-start) and (max-width: $laptop-range-end) {
     @content;
