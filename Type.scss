@@ -13,6 +13,7 @@
 @font-face {
   font-family: 'Americane';
   font-weight: 900;
+  font-display: fallback;
   src: url('/fonts/Americane-900-Black.woff2') format('woff2'),
     url('/fonts/Americane-900-Black.woff') format('woff');
 }
@@ -20,6 +21,7 @@
 @font-face {
   font-family: 'UntitledSans';
   font-weight: 400;
+  font-display: fallback;
   src: url('/fonts/UntitledSans-400-Regular.woff2') format('woff2'),
     url('/fonts/UntitledSans-400-Regular.woff') format('woff');
 }
@@ -27,6 +29,7 @@
 @font-face {
   font-family: 'UntitledSans';
   font-weight: 500;
+  font-display: fallback;
   src: url('/fonts/UntitledSans-500-Medium.woff2') format('woff2'),
     url('/fonts/UntitledSans-500-Medium.woff') format('woff');
 }
