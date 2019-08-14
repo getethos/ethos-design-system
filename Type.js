@@ -10,7 +10,7 @@ import { COLORS } from './Colors'
    - `Type` is a private component that returns an element with CSS classes.
    - `Type.scss` (not imported here) implements those CSS classes.
    - `TypeFoundry` is a HOC that creates public components with correct props.
-   - `<Text.M.Regular>`, etc. are the set of Design-approved public components.
+   - `<Caption.Medium500>`, etc. are the Design-approved public components.
    ========================================================================== */
 
 /**
@@ -26,8 +26,7 @@ import { COLORS } from './Colors'
  * @param  {String}  props.children       The text to display
  * @param  {Boolean} props.centered       Whether to text-align: center
  * @param  {String}  props.element        Override the default <element>
- * @param  {String}  props.subtype        (private) Header vs. Text
- * @param  {String}  props.size           (private) XXL, L, S, etc.
+ * @param  {String}  props.subtype        (private) e.g. Caption vs. TitleSmall
  * @param  {String}  props.typeface       (private) Typeface
  * @param  {String}  props.weight         (private) Typeface weight
  */
@@ -37,102 +36,113 @@ function Type({
   color,
   element,
   subtype,
-  size,
   typeface,
   weight,
-  ...unexpectedProps
+  ...rest
 }) {
   // Fail loudly
   const isValidColor = Object.values(Type.COLORS).includes(color)
-  const isValidSubtype = Object.values(Type.SUBTYPES).includes(subtype)
-  const isValidSize = Object.values(Type.SIZES).includes(size)
-  const isValidTypeface = Object.values(Type.TYPEFACES).includes(typeface)
-  const isValidWeight = Object.values(Type.WEIGHTS).includes(weight)
-  const unexpectedProp = Object.keys(unexpectedProps)[0]
   if (!isValidColor) throw new TypeError(`Invalid color '${color}'.`)
-  if (!isValidSubtype) throw new TypeError(`Invalid subtype '${subtype}'.`)
-  if (!isValidSize) throw new TypeError(`Invalid size '${size}'.`)
-  if (!isValidTypeface) throw new TypeError(`Invalid typeface '${typeface}'.`)
-  if (!isValidWeight) throw new TypeError(`Invalid weight '${weight}'.`)
-  if (unexpectedProp) throw new TypeError(`Unexpected prop '${unexpectedProp}'`)
 
-  const classNames = [subtype, size, typeface, weight, color]
+  const isValidSubtype = Object.values(Type.SUBTYPES).includes(subtype)
+  if (!isValidSubtype) throw new TypeError(`Invalid subtype '${subtype}'.`)
+
+  const isValidTypeface = Object.values(Type.TYPEFACES).includes(typeface)
+  if (!isValidTypeface) throw new TypeError(`Invalid typeface '${typeface}'.`)
+
+  const isValidWeight = Object.values(Type.WEIGHTS).includes(weight)
+  if (!isValidWeight) throw new TypeError(`Invalid weight '${weight}'.`)
+
+  const WHITELISTED_PROPS = ['htmlFor', 'data-tid']
+  const unexpectedPropKeys = Object.keys(rest).filter(
+    (prop) => !WHITELISTED_PROPS.includes(prop)
+  )
+  if (unexpectedPropKeys.length > 0)
+    throw new TypeError(`Unexpected props: '${unexpectedPropKeys.join(', ')}'`)
+
+  const classNames = [subtype, typeface, weight, color]
   if (centered) classNames.push('Centered')
 
-  const isHeading = Type.SUBTYPES.HEADING === subtype
-  const defaultElement = isHeading ? Type.HEADING_ELEMENTS[size] : 'div'
-  const Element = element || defaultElement
+  const Element = element || 'div'
 
-  return <Element className={classNames.join(' ')}>{children}</Element>
+  const allowedProps = Object.keys(rest)
+    .filter((prop) => WHITELISTED_PROPS.includes(prop))
+    .reduce((acc, key) => {
+      acc[key] = rest[key]
+      return acc
+    }, {})
+
+  return (
+    <Element className={classNames.join(' ')} {...allowedProps}>
+      {children}
+    </Element>
+  )
 }
 
 Type.SUBTYPES = {
-  HEADING: 'Heading',
-  TEXT: 'Text',
+  CAPTION: 'Caption', // smallest
+  FOOTNOTE: 'Footnote',
+  BODY: 'Body', // default
+  TITLE_SMALL: 'TitleSmall',
+  TITLE_MEDIUM: 'TitleMedium',
+  TITLE_LARGE: 'TitleLarge',
+  TITLE_XLARGE: 'TitleXLarge',
+  TITLE_XXLARGE: 'TitleXXLarge',
 }
 
 Type.TYPEFACES = {
-  AMERICANE: 'Americane',
-  UNTITLED_SANS: 'UntitledSans',
-}
-
-Type.SIZES = {
-  XXXL: 'XXXL',
-  XXL: 'XXL',
-  XL: 'XL',
-  L: 'L',
-  M: 'M',
-  S: 'S',
-  XS: 'XS',
+  THEINHARDT: 'Theinhardt', // sans
+  CAMBON: 'Cambon', // serif
 }
 
 Type.WEIGHTS = {
-  REGULAR: 'Regular400', // currently UntitledSans-only
-  MEDIUM: 'Medium500', // currently UntitledSans-only
-  BLACK: 'Black900', // currently Americane-only
+  // Possibly we shouldn't lump these all together given they vary per typeface.
+  REGULAR_400: 'Regular400',
+  MEDIUM_500: 'Medium500',
+  BOOK_500: 'Book500',
+  DEMI_600: 'Demi600',
 }
 
 Type.COLORS = {
-  BRAND_BLUE: COLORS.BRAND_BLUE,
-  BRAND_YELLOW: COLORS.BRAND_YELLOW,
-  BLACK: COLORS.BLACK,
-  GRAY_DARKEST: COLORS.GRAY_DARKEST,
-  GRAY_DARK: COLORS.GRAY_DARK,
-  GRAY_LIGHT: COLORS.GRAY_LIGHT,
-  GRAY_LIGHTEST: COLORS.GRAY_LIGHTEST,
+  // Brand
+  BRAND_FOREST: COLORS.BRAND_FOREST,
+
+  // Grayscale
+  GRAY_PRIMARY: COLORS.GRAY_PRIMARY,
+  GRAY_SECONDARY: COLORS.GRAY_SECONDARY,
   WHITE: COLORS.WHITE,
-  SKY: COLORS.SKY,
 }
 
-Type.HEADING_ELEMENTS = {
-  XXXL: 'h1',
-  XXL: 'h2',
-  XL: 'h3',
-  L: 'h4',
-  M: 'h5',
-  S: 'h6',
-  XS: 'h6',
+Type.ELEMENTS = {
+  H1: 'h1',
+  H2: 'h2',
+  H3: 'h3',
+  H4: 'h4',
+  H5: 'h5',
+  H6: 'h6',
+  DIV: 'div',
+  LI: 'li',
+  SPAN: 'span',
+  LABEL: 'label',
 }
-
-Type.ELEMENTS = [...Object.values(Type.HEADING_ELEMENTS), 'div', 'li', 'span']
 
 Type.PUBLIC_PROPS = {
   children: PropTypes.node,
   centered: PropTypes.bool,
   color: PropTypes.oneOf(Object.values(Type.COLORS)),
-  element: PropTypes.oneOf(Type.ELEMENTS),
+  element: PropTypes.oneOf(Object.values(Type.ELEMENTS)),
+  htmlFor: PropTypes.string,
+  'data-tid': PropTypes.string,
 }
 
 Type.propTypes = {
   ...Type.PUBLIC_PROPS,
-  subtype: PropTypes.oneOf(Object.values(Type.SUBTYPES)),
-  size: PropTypes.oneOf(Object.values(Type.SIZES)),
   typeface: PropTypes.oneOf(Object.values(Type.TYPEFACES)),
   weight: PropTypes.oneOf(Object.values(Type.WEIGHTS)),
 }
 
 Type.defaultProps = {
-  color: Type.COLORS.BLACK,
+  color: Type.COLORS.GRAY_PRIMARY,
 }
 
 function TypeFoundry(privateProps) {
@@ -141,6 +151,7 @@ function TypeFoundry(privateProps) {
     if (isIllegal) throw new TypeError(`Illegal prop '${prop}'`)
   }
 
+  // TODO: figure out if downstream or upstream is the correct nomenclature here
   const PublicTypeComponent = (downstreamProps) => {
     Object.keys(downstreamProps).forEach(throwIllegalProp)
     return <Type {...downstreamProps} {...privateProps} />
@@ -149,245 +160,203 @@ function TypeFoundry(privateProps) {
   return PublicTypeComponent
 }
 
-export const Heading = {
-  COLORS: { ...Type.COLORS },
-  SIZES: { ...Type.SIZES },
-  XXXL: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XXXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
+export const Caption = {
+  Regular400: TypeFoundry({
+    subtype: Type.SUBTYPES.CAPTION,
+    typeface: Type.TYPEFACES.THEINHARDT,
+    weight: Type.WEIGHTS.REGULAR_400,
+  }),
+  Medium500: TypeFoundry({
+    subtype: Type.SUBTYPES.CAPTION,
+    typeface: Type.TYPEFACES.THEINHARDT,
+    weight: Type.WEIGHTS.MEDIUM_500,
+  }),
+}
+
+export const Footnote = {
+  Regular400: TypeFoundry({
+    subtype: Type.SUBTYPES.FOOTNOTE,
+    typeface: Type.TYPEFACES.THEINHARDT,
+    weight: Type.WEIGHTS.REGULAR_400,
+  }),
+  Medium500: TypeFoundry({
+    subtype: Type.SUBTYPES.FOOTNOTE,
+    typeface: Type.TYPEFACES.THEINHARDT,
+    weight: Type.WEIGHTS.MEDIUM_500,
+  }),
+}
+
+export const Body = {
+  Regular400: TypeFoundry({
+    subtype: Type.SUBTYPES.BODY,
+    typeface: Type.TYPEFACES.THEINHARDT,
+    weight: Type.WEIGHTS.REGULAR_400,
+  }),
+  Medium500: TypeFoundry({
+    subtype: Type.SUBTYPES.BODY,
+    typeface: Type.TYPEFACES.THEINHARDT,
+    weight: Type.WEIGHTS.MEDIUM_500,
+  }),
+}
+
+export const TitleSmall = {
+  Sans: {
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_SMALL,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.REGULAR_400,
     }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XXXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-    Americane: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XXXL,
-      typeface: Type.TYPEFACES.AMERICANE,
-      weight: Type.WEIGHTS.BLACK,
+    Medium500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_SMALL,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.MEDIUM_500,
     }),
   },
-
-  XXL: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
+  Serif: {
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_SMALL,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.REGULAR_400,
     }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
+    Book500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_SMALL,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.BOOK_500,
     }),
-    Americane: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XXL,
-      typeface: Type.TYPEFACES.AMERICANE,
-      weight: Type.WEIGHTS.BLACK,
-    }),
-  },
-
-  XL: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-  },
-
-  L: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.L,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.L,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-  },
-
-  M: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.M,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.M,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-  },
-
-  S: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.S,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.S,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-  },
-
-  XS: {
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XS,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.HEADING,
-      size: Type.SIZES.XS,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
+    Demi600: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_SMALL,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.DEMI_600,
     }),
   },
 }
 
-export const Text = {
-  COLORS: { ...Type.COLORS },
-  SIZES: { ...Type.SIZES },
-  XXXL: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XXXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
+export const TitleMedium = {
+  Sans: {
+    Medium500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_MEDIUM,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.MEDIUM_500,
     }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XXXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_MEDIUM,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.REGULAR_400,
     }),
   },
-
-  XXL: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
+  Serif: {
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_MEDIUM,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.REGULAR_400,
     }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XXL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
+    Book500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_MEDIUM,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.BOOK_500,
     }),
-  },
-
-  XL: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XL,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-  },
-
-  L: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.L,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.L,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-  },
-
-  M: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.M,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.M,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-  },
-
-  S: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.S,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.S,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
-    }),
-  },
-
-  XS: {
-    Regular: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XS,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.REGULAR,
-    }),
-    Medium: TypeFoundry({
-      subtype: Type.SUBTYPES.TEXT,
-      size: Type.SIZES.XS,
-      typeface: Type.TYPEFACES.UNTITLED_SANS,
-      weight: Type.WEIGHTS.MEDIUM,
+    Demi600: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_MEDIUM,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.DEMI_600,
     }),
   },
 }
 
-// Aliases
+export const TitleLarge = {
+  Sans: {
+    Medium500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_LARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.MEDIUM_500,
+    }),
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_LARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.REGULAR_400,
+    }),
+  },
+  Serif: {
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_LARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.REGULAR_400,
+    }),
+    Book500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_LARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.BOOK_500,
+    }),
+    Demi600: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_LARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.DEMI_600,
+    }),
+  },
+}
 
-export const Eyebrow = (props) => {
-  // TODO: add props to the Type component to make this div unnecessary.
-  return (
-    <div className="Eyebrow">
-      <Heading.XS.Medium {...props} />
-    </div>
-  )
+export const TitleXLarge = {
+  Sans: {
+    Medium500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XLARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.MEDIUM_500,
+    }),
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XLARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.REGULAR_400,
+    }),
+  },
+  Serif: {
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XLARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.REGULAR_400,
+    }),
+    Book500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XLARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.BOOK_500,
+    }),
+    Demi600: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XLARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.DEMI_600,
+    }),
+  },
+}
+
+export const TitleXXLarge = {
+  Sans: {
+    Medium500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XXLARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.MEDIUM_500,
+    }),
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XXLARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.REGULAR_400,
+    }),
+  },
+  Serif: {
+    Regular400: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XXLARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.REGULAR_400,
+    }),
+    Book500: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XXLARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.BOOK_500,
+    }),
+    Demi600: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XXLARGE,
+      typeface: Type.TYPEFACES.CAMBON,
+      weight: Type.WEIGHTS.DEMI_600,
+    }),
+  },
 }
 
 // Links – WIP. For now let's just export CSS classes and be otherwise agnostic.
@@ -395,6 +364,7 @@ export const Eyebrow = (props) => {
 export const Link = {
   CLASS_NAME: 'Link',
   STYLE_VARIANTS: {
+    INHERIT: 'Inherit',
     STANDARD: 'Standard',
     NAVLINK: 'Navlink',
     HAMBURGER_MENU: 'HamburgerMenu',

@@ -312,17 +312,17 @@ cliui@^4.0.0:
     strip-ansi "^4.0.0"
     wrap-ansi "^2.0.0"
 
-cloudinary-core@^2.3.0:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.6.3.tgz#6a5c773a8c48cbf5686dfcdd577445ab8efe8d85"
-  integrity sha512-0oEUn1eTuJzLxNdm0OsnAadGN6nMFOVqq+n7dgy6VBP8pGwc5TLkZ8MAHvik03Cv7+JH0tykwkSvYzM7rWY43g==
+cloudinary-core@^2.6.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.7.2.tgz#4237a4d7cc356f05a2806ff55808323aad0ab616"
+  integrity sha512-AFavkgw/QgK9ytwHKt4PhTsKxIuxxNblJQa3hUFgHJjyFLltdfZwETslcQqWdBuRGMu0Z4v1kz6/26WU1M3WwQ==
 
-cloudinary-react@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.1.0.tgz#fc31c678c26bafb46b1967563aee5dbf9d915d41"
-  integrity sha512-7o29x7VnQ9fLwZ+cyupYC4wf5Mn63bbcvBQduyayPFxEo6OoNkDxLGKN6b1JyKdjiVxcRfpZjTPFKNWDbiQDmQ==
+cloudinary-react@^1.1.1:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.1.4.tgz#3a845004e254ecc26887a94a3ea265c635ac5511"
+  integrity sha512-vhR/64//Hgx2o21hqTyJzL4taCB3fB+b2PKG7W/1E0elQON/set0fhfHrTVY3urPcvRvNQYJ8nvqNWcXF3iccg==
   dependencies:
-    cloudinary-core "^2.3.0"
+    cloudinary-core "^2.6.2"
     prop-types "^15.6.2"
 
 code-point-at@^1.0.0:

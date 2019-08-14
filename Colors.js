@@ -2,15 +2,14 @@
 // This map is for high-level colors names (conflating e.g. opaque/transparent).
 // It's also possible we'll need to make this isomorphic with the Sass file.
 module.exports.COLORS = {
-  BRAND_BLUE: 'BrandBlue',
-  BRAND_YELLOW: 'BrandYellow',
+  // Brand
+  BRAND_FOREST: 'BrandForest',
 
-  BLACK: 'Black',
-  GRAY_DARKEST: 'GrayDarkest',
-  GRAY_DARK: 'GrayDark',
-  GRAY_LIGHT: 'GrayLight',
-  GRAY_LIGHTEST: 'GrayLightest',
+  // Grayscales
+  GRAY_PRIMARY: 'GrayPrimary',
+  GRAY_SECONDARY: 'GraySecondary',
+  GRAY_STROKE_AND_DISABLED: 'GrayStrokeAndDisabled',
   WHITE: 'White',
 
-  SKY: 'Sky',
+  // Miscellany
 }

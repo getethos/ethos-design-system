@@ -36,26 +36,38 @@ function Button({
   children,
   disabled,
   fullWidth,
+  name,
   type,
   size,
   style,
-  ...unexpectedProps
+  onClick,
+  isSelected, // only used for Button.*.Stateful, aka SelectableHtmlButtonGroup
+  ...rest
 }) {
   const isValidHtmlType = Object.values(Button.HTML_TYPES).includes(type)
   const isValidSize = Object.values(Button.SIZES).includes(size)
   const isValidStyle = Object.values(Button.STYLES).includes(style)
-  const unexpectedProp = Object.keys(unexpectedProps)[0]
+  // Hyphenated attrs are a little annoying to work with in React.
+  const unexpected = Object.keys(rest).filter((k) => !['data-tid'].includes(k))
+  const unexpectedProp = unexpected[0]
   if (!isValidHtmlType) throw new TypeError(`Invalid HTML type '${type}'.`)
   if (!isValidSize) throw new TypeError(`Invalid size '${size}'.`)
   if (!isValidStyle) throw new TypeError(`Invalid style '${style}'.`)
   if (unexpectedProp) throw new TypeError(`Unexpected prop '${unexpectedProp}'`)
 
-  const classNames = ['Button', size, style, fullWidth ? 'FullWidth' : '']
-    .join(' ')
-    .trim()
+  const classNames = ['Button', size, style]
+  if (fullWidth) classNames.push('fullWidth')
+  if (isSelected) classNames.push('isSelected')
 
   return (
-    <button className={classNames} disabled={disabled} type={type}>
+    <button
+      className={classNames.join(' ')}
+      disabled={disabled}
+      type={type}
+      name={name}
+      onClick={onClick}
+      data-tid={rest['data-tid']}
+    >
       {children}
     </button>
   )
@@ -65,27 +77,29 @@ Button.HTML_TYPES = { BUTTON: 'button', SUBMIT: 'submit' } // read the docs^
 
 Button.PUBLIC_PROPS = {
   children: PropTypes.string,
+  'data-tid': PropTypes.string,
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  isSelected: PropTypes.bool, // only for Stateful style
   type: PropTypes.oneOf(Object.values(Button.HTML_TYPES)),
 }
 
 Button.SIZES = {
-  LARGE: 'Large',
   MEDIUM: 'Medium',
-  SMALL: 'Small',
-  TINY: 'Tiny',
+  UNSIZED: 'Unsized',
 }
 
 Button.STYLES = {
-  BLUE: 'Blue',
-  YELLOW: 'Yellow',
-  WHITE: 'White',
+  BLACK: 'Black',
   BLACK_OUTLINE: 'BlackOutline',
-  BLUE_OUTLINE: 'BlueOutline',
-  // TODO: StatefulButton, which is a distinct visual style plus nonstandard
-  // functionality. The functionality will probably mean it's a new component,
-  // and perhaps this file is just responsible for the markup/styles.
+  // WHITE: 'White', // TODO pending spec
+  WHITE_OUTLINE: 'WhiteOutline',
+  STATEFUL: 'Stateful',
+
+  // For semantic <buttons> that are not styled as buttons:
+  UNSTYLED: 'Unstyled',
 }
 
 Button.propTypes = {
@@ -111,97 +125,28 @@ function ButtonFactory(privateProps) {
 }
 
 const PublicButtonComponents = {
-  Large: {
-    Blue: ButtonFactory({
-      size: Button.SIZES.LARGE,
-      style: Button.STYLES.BLUE,
-    }),
-    Yellow: ButtonFactory({
-      size: Button.SIZES.LARGE,
-      style: Button.STYLES.YELLOW,
-    }),
-    White: ButtonFactory({
-      size: Button.SIZES.LARGE,
-      style: Button.STYLES.WHITE,
-    }),
-    BlackOutline: ButtonFactory({
-      size: Button.SIZES.LARGE,
-      style: Button.STYLES.BLACK_OUTLINE,
-    }),
-    BlueOutline: ButtonFactory({
-      size: Button.SIZES.LARGE,
-      style: Button.STYLES.BLUE_OUTLINE,
-    }),
-  },
-
   Medium: {
-    Blue: ButtonFactory({
+    Black: ButtonFactory({
       size: Button.SIZES.MEDIUM,
-      style: Button.STYLES.BLUE,
-    }),
-    Yellow: ButtonFactory({
-      size: Button.SIZES.MEDIUM,
-      style: Button.STYLES.YELLOW,
-    }),
-    White: ButtonFactory({
-      size: Button.SIZES.MEDIUM,
-      style: Button.STYLES.WHITE,
+      style: Button.STYLES.BLACK,
     }),
     BlackOutline: ButtonFactory({
       size: Button.SIZES.MEDIUM,
       style: Button.STYLES.BLACK_OUTLINE,
     }),
-    BlueOutline: ButtonFactory({
+    WhiteOutline: ButtonFactory({
       size: Button.SIZES.MEDIUM,
-      style: Button.STYLES.BLUE_OUTLINE,
+      style: Button.STYLES.WHITE_OUTLINE,
+    }),
+    Stateful: ButtonFactory({
+      size: Button.SIZES.MEDIUM,
+      style: Button.STYLES.STATEFUL,
     }),
   },
-
-  Small: {
-    Blue: ButtonFactory({
-      size: Button.SIZES.SMALL,
-      style: Button.STYLES.BLUE,
-    }),
-    Yellow: ButtonFactory({
-      size: Button.SIZES.SMALL,
-      style: Button.STYLES.YELLOW,
-    }),
-    White: ButtonFactory({
-      size: Button.SIZES.SMALL,
-      style: Button.STYLES.WHITE,
-    }),
-    BlackOutline: ButtonFactory({
-      size: Button.SIZES.SMALL,
-      style: Button.STYLES.BLACK_OUTLINE,
-    }),
-    BlueOutline: ButtonFactory({
-      size: Button.SIZES.SMALL,
-      style: Button.STYLES.BLUE_OUTLINE,
-    }),
-  },
-
-  Tiny: {
-    Blue: ButtonFactory({
-      size: Button.SIZES.TINY,
-      style: Button.STYLES.BLUE,
-    }),
-    Yellow: ButtonFactory({
-      size: Button.SIZES.TINY,
-      style: Button.STYLES.YELLOW,
-    }),
-    White: ButtonFactory({
-      size: Button.SIZES.TINY,
-      style: Button.STYLES.WHITE,
-    }),
-    BlackOutline: ButtonFactory({
-      size: Button.SIZES.TINY,
-      style: Button.STYLES.BLACK_OUTLINE,
-    }),
-    BlueOutline: ButtonFactory({
-      size: Button.SIZES.TINY,
-      style: Button.STYLES.BLUE_OUTLINE,
-    }),
-  },
+  Unstyled: ButtonFactory({
+    size: Button.SIZES.UNSIZED,
+    style: Button.STYLES.UNSTYLED,
+  }),
 }
 
 export { PublicButtonComponents as Button }

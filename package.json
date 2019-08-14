@@ -1,6 +1,6 @@
 {
   "name": "@getethos/design-system",
-  "version": "0.8.2",
+  "version": "0.9.3",
   "private": true,
   "license": "UNLICENSED",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "test": "cd .. && yarn test ./design-system"
   },
   "dependencies": {
-    "cloudinary-react": "^1.1.0",
+    "cloudinary-react": "^1.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-responsive": "^6.1.2"
@@ -19,8 +19,5 @@
   "devDependencies": {
     "chokidar-cli": "^1.2.2",
     "node-sass": "^4.12.0"
-  },
-  "peerDependencies": {
-    "cloudinary-react": "^1.1.0"
   }
 }

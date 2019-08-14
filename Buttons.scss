@@ -3,12 +3,12 @@
 
 // Defaults
 
+:root {
+  --ButtonMediumStatefulMinWidth: 156px;
+}
+
 button,
 .Button {
-  font-family: var(--UntitledSans-font-stack);
-  font-weight: 500;
-  line-height: 1.25;
-  border-radius: 3px;
   border: 1px solid transparent;
 
   transition: var(--transition-default);
@@ -19,30 +19,17 @@ button,
   }
 }
 
-// Sizes
-
-.Button.Large {
-  font-size: var(--L-font-size);
-  padding: 16px 23px;
-}
+// Dimensions
 
 .Button.Medium {
-  font-size: var(--M-font-size);
-  padding: 14px 23px;
+  $font-size: 19;
+  $line-height: 24;
+  font-size: $font-size * 1px;
+  line-height: $line-height / $font-size;
+  padding: 17px 16px 13px;
 }
 
-.Button.Small {
-  font-size: var(--S-font-size);
-  padding: 10px 15px 11px;
-}
-
-.Button.Tiny {
-  font-size: var(--S-font-size);
-  padding: 6px 11px 7px;
-}
-
-.Button.FullWidth {
-  // This could modify any of the above sizes.
+.Button.fullWidth {
   width: 100%;
 }
 
@@ -53,112 +40,126 @@ button,
   -moz-osx-font-smoothing: grayscale;
 }
 
-.Button.Blue {
-  background-color: var(--BrandBlue--default);
+.Button.Unstyled {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.Button.Black {
+  background-color: var(--GrayPrimary--translucent);
   color: var(--White);
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
     &:hover {
-      background-color: var(--BrandBlue--hover);
+      background-color: var(--GrayDarkHover--translucent);
     }
 
     &:active {
-      background-color: var(--BrandBlue--active);
+      background-color: var(--GrayDarkHover--translucent);
     }
   }
 
   &[disabled] {
-    background-color: var(--GrayLightest--translucent);
+    border-color: var(--Transparent--white);
+    background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
-  }
-}
-
-.Button.Yellow {
-  background-color: var(--BrandYellow--default);
-  color: var(--Black--opaque);
-
-  &:not([disabled]) {
-    &:hover {
-      background-color: var(--BrandYellow--hover);
-    }
-
-    &:active {
-      background-color: var(--BrandYellow--active);
-    }
-  }
-
-  &[disabled] {
-    background-color: var(--GrayLightest--translucent);
-    color: var(--White);
-  }
-}
-
-.Button.White {
-  background-color: var(--White);
-  color: var(--Black--opaque);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1), 0px 1px 4px rgba(0, 0, 0, 0.1);
-
-  &:not([disabled]) {
-    &:hover {
-      color: var(--BrandBlue--hover);
-    }
-
-    &:active {
-      color: var(--BrandBlue--active);
-    }
-  }
-
-  &[disabled] {
-    background-color: var(--GrayLightest--translucent);
-    color: var(--White);
-    @include light-on-dark-font-smoothing;
-    box-shadow: none;
   }
 }
 
 .Button.BlackOutline {
-  border-color: var(--Black--opaque);
-  background-color: var(--White--transparent);
-  color: var(--Black--opaque);
+  border-color: var(--GrayPrimary--opaque);
+  background-color: var(--Transparent--white);
+  color: var(--GrayPrimary--opaque);
 
   &:not([disabled]) {
     &:hover {
-      background-color: var(--Black--opaque);
+      border-color: var(--GrayDarkHover--translucent);
+      background-color: var(--GrayDarkHover--translucent);
       color: var(--White);
     }
 
     &:active {
-      background-color: var(--Black--opaque);
+      border-color: var(--GrayDarkHover--translucent);
+      background-color: var(--GrayDarkHover--translucent);
       color: var(--White);
     }
   }
 
   &[disabled] {
-    border-color: var(--GrayLightest--translucent);
-    color: var(--GrayLightest--translucent);
+    border-color: var(--Transparent--white);
+    background-color: var(--GrayStrokeAndDisabled--translucent);
+    color: var(--White);
   }
 }
 
-.Button.BlueOutline {
-  border-color: var(--BrandBlue--default);
-  background-color: var(--White--transparent);
-  color: var(--BrandBlue--default);
+.Button.WhiteOutline {
+  border-color: var(--White);
+  background-color: var(--Transparent--white);
+  color: var(--White);
 
   &:not([disabled]) {
     &:hover {
-      background-color: var(--BrandBlue--hover);
-      color: var(--White);
+      border-color: var(--White);
+      background-color: var(--White);
+      color: var(--GrayPrimary--translucent);
     }
 
     &:active {
-      background-color: var(--BrandBlue--active);
-      color: var(--White);
+      border-color: var(--White);
+      background-color: var(--White);
+      color: var(--GrayPrimary--translucent);
     }
   }
 
   &[disabled] {
-    border-color: var(--GrayLightest--translucent);
-    color: var(--GrayLightest--translucent);
+    border-color: var(--Transparent--white);
+    background-color: var(--GrayStrokeAndDisabled--translucent);
+    color: var(--White);
+  }
+}
+
+.Button.Stateful {
+  &.Medium {
+    min-width: var(--ButtonMediumStatefulMinWidth);
+  }
+
+  @mixin button-stateful-is-active-or-selected {
+    // These are used in both the HTML "active" state (mid-click), as well as
+    // the custom "is selected" state (this button is in the "on" state).
+    border-color: var(--BrandForest);
+    background-color: var(--BrandForest);
+    color: var(--White);
+  }
+
+  border-color: var(--GrayStrokeAndDisabled--translucent);
+  background-color: var(--Transparent--white);
+  color: var(--GrayPrimary--translucent);
+
+  &:not([disabled]) {
+    &:hover {
+      border-color: var(--GrayStrokeAndDisabled--translucent);
+      background-color: var(--GrayLightHover--translucent);
+      color: var(--GrayPrimary--translucent);
+    }
+
+    &:active {
+      @include button-stateful-is-active-or-selected;
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--Transparent--white);
+    background-color: var(--GrayStrokeAndDisabled--translucent);
+    color: var(--White);
+  }
+
+  // This class will be applied with the button is in the "selected" state, e.g.
+  // after the user clicks it, or if they have previously selected this value.
+  // Note thatthese styles should appear even if the button is disabled, though
+  // this probably only makes sense for `.isSelected` (not `:active`).
+  &.isSelected {
+    @include button-stateful-is-active-or-selected;
   }
 }

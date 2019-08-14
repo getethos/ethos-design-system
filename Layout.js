@@ -67,22 +67,20 @@ class ScrollDetector extends React.Component {
   }
 }
 
-function Container({ children, className, element }) {
+function HorizontallyPaddedContainer({ className, element, ...rest }) {
   const Element = element
   return (
-    <Element className={['Container', className].join(' ').trim()}>
-      {children}
-    </Element>
+    <Element className={['Container', className].join(' ').trim()} {...rest} />
   )
 }
 
-Container.propTypes = {
+HorizontallyPaddedContainer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   element: PropTypes.string,
 }
 
-Container.defaultProps = {
+HorizontallyPaddedContainer.defaultProps = {
   element: 'div',
 }
 
@@ -98,6 +96,7 @@ CenterHorizontally.propTypes = {
 
 Layout.CenterHorizontally = CenterHorizontally
 
-Layout.Container = Container
+Layout.Container = HorizontallyPaddedContainer // overloaded alias, deprecated
+Layout.HorizontallyPaddedContainer = HorizontallyPaddedContainer
 
 Layout.ScrollDetector = ScrollDetector

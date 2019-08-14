@@ -2,26 +2,33 @@
    ========================================================================== */
 
 :root {
-  --BrandYellow--default: #ffd22a;
-  --BrandYellow--hover: #ebc01e;
-  --BrandYellow--active: #ddb016;
+  --BrandSand: #e5e0d9;
+  --BrandDuckegg: #deebff;
+  --BrandSalamander: #fa640a;
+  --BrandButtercup: #fff2e3;
+  --BrandForest: #054742;
+  --BrandMoss: #dbede5;
 
-  --BrandBlue--default: #4c2ee5;
-  --BrandBlue--hover: #4127c3;
-  --BrandBlue--active: #3520a0;
+  // These grays are semantic. We may have a nonsemantic grayscale later.
+  --GrayPrimary--opaque: #272727;
+  --GrayPrimary--translucent: rgba(0, 0, 0, 0.85);
+  --GrayDarkHover--opaque: #373737;
+  --GrayDarkHover--translucent: rgba(0, 0, 0, 0.78);
+  --GraySecondary--opaque: #727272;
+  --GraySecondary--translucent: rgba(0, 0, 0, 0.55);
+  --GrayStrokeAndDisabled--opaque: #cccccc;
+  --GrayStrokeAndDisabled--translucent: rgba(0, 0, 0, 0.2);
+  --GrayLightHover--opaque: #f5f5f5;
+  --GrayLightHover--translucent: rgba(0, 0, 0, 0.04);
 
-  --Black--opaque: #303030;
-  --Black--translucent: rgba(0, 0, 0, 0.9);
-  --GrayDarkest--opaque: #666666;
-  --GrayDarkest--translucent: rgba(0, 0, 0, 0.6);
-  --GrayDark--opaque: #8c8c8c;
-  --GrayDark--translucent: rgba(0, 0, 0, 0.45);
-  --GrayLight--opaque: #cccccc;
-  --GrayLight--translucent: rgba(0, 0, 0, 0.2);
-  --GrayLightest--opaque: #e5e5e5;
-  --GrayLightest--translucent: rgba(0, 0, 0, 0.1);
   --White: #ffffff;
-  --White--transparent: rgba(255, 255, 255, 0);
 
-  --Sky: #f0f5fa;
+  --Transparent--white: rgba(255, 255, 255, 0);
+
+  // For the loading spinner background
+  --BrandMoss--translucent: rgba(219, 237, 229, 0.2);
+
+  // Only use these reds in error states
+  --BrandPasty: #ffe0de;
+  --BrandSunburn: #e11f13;
 }

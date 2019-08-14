@@ -1,26 +1,39 @@
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
 
-.CenterHorizontally {
-  text-align: center;
+:root {
+  --ContainerMaxWidth: 1440px;
+  --ContainerPadding--Phone: var(--Space-24);
+  --ContainerPadding--Tablet: var(--Space-48);
+  --ContainerPadding--Laptop: var(--Space-72);
+  --ContainerPadding--Desktop: var(--Space-80);
 }
 
 .Container {
-  max-width: 1440px;
+  width: 100%;
+  max-width: var(--ContainerMaxWidth);
   margin: 0 auto;
 
-  padding: 0 24px;
-
   // This assumes this file is imported via index.scss after Media.scss.
-  @include for-tablet-and-up {
-    padding: 0 var(--Space-40);
+
+  @include for-phone-only {
+    padding: 0 var(--ContainerPadding--Phone);
   }
-  @include for-laptop-and-up {
-    padding: 0 var(--Space-72);
+  @include for-tablet-only {
+    padding: 0 var(--ContainerPadding--Tablet);
+  }
+  @include for-laptop-only {
+    padding: 0 var(--ContainerPadding--Laptop);
+  }
+  @include for-desktop-only {
+    padding: 0 var(--ContainerPadding--Desktop);
   }
 }
 
 .Layout {
-  width: 100vw;
-  overflow-x: hidden;
+  @mixin prevent-horizontal-scrolling {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  @include prevent-horizontal-scrolling;
 }
