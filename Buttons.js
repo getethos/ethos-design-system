@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
    Legend:
 
    - `Button` is a private component that returns an element with CSS classes.
-   - `Button.scss` (not imported here) implements those CSS classes.
+   - `Buttons.scss` (not imported here) implements those CSS classes.
    - `ButtonFactory` is a HOC that creates public components with correct props.
    - `<Button.Tiny.Blue>`, etc. are the set of Design-approved public buttons.
    ========================================================================== */
