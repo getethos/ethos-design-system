@@ -5,6 +5,7 @@
 
 :root {
   --ButtonMediumStatefulMinWidth: 156px;
+  --ButtonSmallStatefulMinWidth: 104px;
 }
 
 button,
@@ -20,6 +21,14 @@ button,
 }
 
 // Dimensions
+
+.Button.Small {
+  $font-size: 17;
+  $line-height: 24;
+  font-size: $font-size * 1px;
+  line-height: $line-height / $font-size;
+  padding: 17px 16px 13px;
+}
 
 .Button.Medium {
   $font-size: 19;
@@ -125,6 +134,10 @@ button,
     min-width: var(--ButtonMediumStatefulMinWidth);
   }
 
+  &.Small {
+    min-width: var(--ButtonSmallStatefulMinWidth);
+  }
+
   @mixin button-stateful-is-active-or-selected {
     // These are used in both the HTML "active" state (mid-click), as well as
     // the custom "is selected" state (this button is in the "on" state).
@@ -134,7 +147,7 @@ button,
   }
 
   border-color: var(--GrayStrokeAndDisabled--translucent);
-  background-color: var(--Transparent--white);
+  background-color: var(--White);
   color: var(--GrayPrimary--translucent);
 
   &:not([disabled]) {

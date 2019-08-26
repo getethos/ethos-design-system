@@ -87,6 +87,7 @@ Button.PUBLIC_PROPS = {
 }
 
 Button.SIZES = {
+  SMALL: 'Small',
   MEDIUM: 'Medium',
   UNSIZED: 'Unsized',
 }
@@ -140,6 +141,12 @@ const PublicButtonComponents = {
     }),
     Stateful: ButtonFactory({
       size: Button.SIZES.MEDIUM,
+      style: Button.STYLES.STATEFUL,
+    }),
+  },
+  Small: {
+    Stateful: ButtonFactory({
+      size: Button.SIZES.SMALL,
       style: Button.STYLES.STATEFUL,
     }),
   },

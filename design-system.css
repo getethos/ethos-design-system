@@ -163,6 +163,7 @@ textarea {
    ========================================================================== */
 :root {
   --ButtonMediumStatefulMinWidth: 156px;
+  --ButtonSmallStatefulMinWidth: 104px;
 }
 
 button,
@@ -174,6 +175,12 @@ button,
 button:not([disabled]),
 .Button:not([disabled]) {
   cursor: pointer;
+}
+
+.Button.Small {
+  font-size: 17px;
+  line-height: 1.41176;
+  padding: 17px 16px 13px;
 }
 
 .Button.Medium {
@@ -254,11 +261,14 @@ button:not([disabled]),
 
 .Button.Stateful {
   border-color: var(--GrayStrokeAndDisabled--translucent);
-  background-color: var(--Transparent--white);
+  background-color: var(--White);
   color: var(--GrayPrimary--translucent);
 }
 .Button.Stateful.Medium {
   min-width: var(--ButtonMediumStatefulMinWidth);
+}
+.Button.Stateful.Small {
+  min-width: var(--ButtonSmallStatefulMinWidth);
 }
 .Button.Stateful:not([disabled]):hover {
   border-color: var(--GrayStrokeAndDisabled--translucent);
