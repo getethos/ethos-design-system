@@ -157,6 +157,11 @@ button,
       color: var(--GrayPrimary--translucent);
     }
 
+    // Bugfix: Need this one to have more specificity then ^ hover
+    &.isSelected {
+      @include button-stateful-is-active-or-selected;
+    }
+
     &:active {
       @include button-stateful-is-active-or-selected;
     }
@@ -168,9 +173,9 @@ button,
     color: var(--White);
   }
 
-  // This class will be applied with the button is in the "selected" state, e.g.
+  // This class will be applied when the button is in the "selected" state, e.g.
   // after the user clicks it, or if they have previously selected this value.
-  // Note thatthese styles should appear even if the button is disabled, though
+  // Note, that these styles should appear even if the button is disabled, though
   // this probably only makes sense for `.isSelected` (not `:active`).
   &.isSelected {
     @include button-stateful-is-active-or-selected;

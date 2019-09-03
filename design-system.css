@@ -275,6 +275,11 @@ button:not([disabled]),
   background-color: var(--GrayLightHover--translucent);
   color: var(--GrayPrimary--translucent);
 }
+.Button.Stateful:not([disabled]).isSelected {
+  border-color: var(--BrandForest);
+  background-color: var(--BrandForest);
+  color: var(--White);
+}
 .Button.Stateful:not([disabled]):active {
   border-color: var(--BrandForest);
   background-color: var(--BrandForest);
@@ -797,10 +802,8 @@ a:hover,
 }
 
 a,
-a.Standard,
-.Link,
-.Link.Standard {
-  color: var(--BrandBlue--default);
+.Link {
+  color: var(--GrayPrimary--translucent);
 }
 
 .Caption a,

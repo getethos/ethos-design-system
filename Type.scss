@@ -378,6 +378,10 @@ a,
   &:hover {
     text-decoration: none;
   }
+
+  & {
+    color: var(--GrayPrimary--translucent);
+  }
 }
 
 // Subtype components of Type that wrap an anchor tag
