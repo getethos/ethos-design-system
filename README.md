@@ -1,7 +1,7 @@
 # Ethos Design System
 
 A collection of reusable [React](https://reactjs.org/) components, patterns, and design guidelines we use at
-[Ethos](https://ethoslife.com)  to build our digital products.
+[Ethos](https://ethoslife.com) to build our digital products.
 
 ## Installation
 
