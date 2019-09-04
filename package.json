@@ -2,7 +2,7 @@
   "name": "ethos-design-system",
   "version": "0.4.0",
   "description": "Ethos Design System",
-  "main": "index.js",
+  "main": "build/bundle.js",
   "license": "UNLICENSED",
   "scripts": {
     "build": "webpack",
@@ -15,7 +15,8 @@
     "test": "jest",
     "test:coverage": "jest --collectCoverageFrom '[\"src/components/**/*.js\", \"src/hooks/**/*.js\"]' --coverage && open ./coverage/lcov-report/index.html",
     "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
-    "test:update": "jest --updateSnapshot"
+    "test:update": "jest --updateSnapshot",
+    "postinstall": "npm run build"
   },
   "jest": {
     "verbose": true,

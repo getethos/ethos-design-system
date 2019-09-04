@@ -5,6 +5,8 @@ yarn-error.log
 /coverage.data
 /coverage/
 
+build/
+
 src/fonts/
 
 
