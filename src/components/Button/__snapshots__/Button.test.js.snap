@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button default rendering Button.Medium.Black 1`] = `
+<button
+  className="Button Medium Black"
+  data-tid="foo"
+  disabled={false}
+  name="bar"
+  type="button"
+>
+  test
+</button>
+`;
+
+exports[`Button default rendering Stateful isSelected 1`] = `
+<button
+  className="Button Medium Stateful isSelected"
+  data-tid="foo"
+  name="bar"
+  type="button"
+>
+  test
+</button>
+`;

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
+<fieldset
+  className="RadioButtonGroup"
+>
+  <label
+    className="RadioButton"
+  >
+    <span>
+      <input
+        checked={false}
+        data-tid="gender-male"
+        name="gender"
+        onChange={[Function]}
+        type="radio"
+        value="M"
+      />
+      <aside />
+    </span>
+    <div
+      className="Body Theinhardt Regular400 GrayPrimary"
+    >
+      Male
+    </div>
+  </label>
+  <label
+    className="RadioButton"
+  >
+    <span>
+      <input
+        checked={false}
+        data-tid="gender-female"
+        name="gender"
+        onChange={[Function]}
+        type="radio"
+        value="F"
+      />
+      <aside />
+    </span>
+    <div
+      className="Body Theinhardt Regular400 GrayPrimary"
+    >
+      Female
+    </div>
+  </label>
+</fieldset>
+`;

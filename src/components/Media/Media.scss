@@ -1,0 +1,57 @@
+/* @getethos/design-system/Media.scss
+   ========================================================================== */
+
+$phone-range-end: 599px;
+$tablet-range-start: 600px;
+$tablet-range-end: 899px;
+$laptop-range-start: 900px;
+$laptop-range-end: 1199px;
+$desktop-range-start: 1200px;
+
+@mixin for-phone-only {
+  @media (max-width: $phone-range-end) {
+    @content;
+  }
+}
+
+@mixin for-tablet-only {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-end) {
+    @content;
+  }
+}
+
+@mixin for-phone-and-tablet {
+  @media (max-width: $tablet-range-end) {
+    @content;
+  }
+}
+
+@mixin for-tablet-and-laptop {
+  @media (min-width: $tablet-range-start) and (max-width: $laptop-range-end) {
+    @content;
+  }
+}
+
+@mixin for-tablet-and-up {
+  @media (min-width: $tablet-range-start) {
+    @content;
+  }
+}
+
+@mixin for-laptop-and-up {
+  @media (min-width: $laptop-range-start) {
+    @content;
+  }
+}
+
+@mixin for-laptop-only {
+  @media (min-width: $laptop-range-start) and (max-width: $laptop-range-end) {
+    @content;
+  }
+}
+
+@mixin for-desktop-only {
+  @media (min-width: $desktop-range-start) {
+    @content;
+  }
+}

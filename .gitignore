@@ -1,0 +1,10 @@
+.DS_Store
+node_modules
+yarn-error.log
+
+/coverage.data
+/coverage/
+
+src/fonts/
+
+
