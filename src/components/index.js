@@ -8,7 +8,8 @@ export { RadioButtonGroup } from './RadioButtons'
 export { Spacer } from './Spacer'
 export { TextInput } from './Inputs/TextInput'
 export { InfoMessage } from './InfoMessage'
-export { ZipInput } from './Inputs/ZipInput'
+export { ZipInput, ZipInputValidator } from './Inputs/ZipInput'
+
 export {
   Body,
   Caption,

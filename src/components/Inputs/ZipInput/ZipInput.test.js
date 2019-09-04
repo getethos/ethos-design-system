@@ -9,7 +9,7 @@ describe('ZipInput', () => {
         name="le-zip"
         labelCopy="What is your zip code?"
         data-tid='le-zip'
-        onValidation={(errors) => {}}
+        validator={(errors) => {}}
       />).toJSON();
     expect(tree).toMatchSnapshot();
   });
