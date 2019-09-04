@@ -18,6 +18,7 @@ import {
   InfoMessage,
   TextInput,
   ZipInput,
+  ZipInputValidator,
 } from './components/index.js'
 
 import './KitchenSink.scss'
@@ -134,9 +135,11 @@ const KitchenSink = () => {
             name="this-zip-input-example"
             labelCopy="What is your zip code?"
             data-tid='the-zip-input'
-            onValidation={(errors) =>
-              console.log('e.g. if I was a form I\'d get: ', errors)
-            }
+            validator={(zip) => {
+              const errors = ZipInputValidator(zip)
+              // More custom logic here should you wish
+              return errors
+            }}
           />
           <h2>RadioButtonGroup</h2>
           <RadioButtonGroup
