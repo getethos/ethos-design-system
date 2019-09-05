@@ -1,6 +1,6 @@
 export { Logo } from './Logo'
 export { Button } from './Button'
-export { CloudinaryImage } from './Images'
+export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
 export { COLORS } from './Colors'
 export { Layout } from './Layout'
 export { Media } from './Media'
