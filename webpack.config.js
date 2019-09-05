@@ -9,6 +9,8 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),
+    library: 'ethos-design-system',
+    libraryTarget: 'umd',
   },
   plugins: [
     new HtmlWebpackPlugin({
