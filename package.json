@@ -30,6 +30,9 @@
   "dependencies": {
     "pre-commit": "^1.2.2"
   },
+  "peerDependencies": {
+    "cloudinary-react": "^1.1.1"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
@@ -58,5 +61,8 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
-  "pre-commit": ["test", "build"]
+  "pre-commit": [
+    "test",
+    "build"
+  ]
 }
