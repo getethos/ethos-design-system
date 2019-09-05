@@ -64,7 +64,6 @@ const PrivateBirthdateInput = (props) => {
     customErrorMessage: dateRangeErrorMessage,
   })
   */
-
   return (
     <>
       <Body.Regular400
