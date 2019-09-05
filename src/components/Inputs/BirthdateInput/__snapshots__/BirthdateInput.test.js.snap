@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BirthdateInput default rendering 1`] = `
+Array [
+  <label
+    className="Body Theinhardt Regular400 GrayPrimary"
+    htmlFor="birthDate"
+  >
+    What is your birthdate?
+  </label>,
+  <input
+    className="BirthdateInput TextInput"
+    data-tid="le-birthdate"
+    guide={true}
+    keepCharPositions={true}
+    mask={
+      Array [
+        /\\\\d/,
+        /\\\\d/,
+        "/",
+        /\\\\d/,
+        /\\\\d/,
+        "/",
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+      ]
+    }
+    name="birthdate-auto-corrected"
+    pipe={[Function]}
+    placeholder="mm/dd/yyyy"
+    type="text"
+  />,
+  "",
+]
+`;
