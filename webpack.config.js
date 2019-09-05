@@ -12,6 +12,15 @@ module.exports = {
     library: 'ethos-design-system',
     libraryTarget: 'umd',
   },
+  externals: {
+    // add more expected libraries here to reduce bundle size
+    react: {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'react',
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'spotcheck.html',
