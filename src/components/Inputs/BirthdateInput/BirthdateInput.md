@@ -1,0 +1,9 @@
+```jsx
+<BirthdateInput
+  name="birthDate"
+  labelCopy="Birthdate?"
+  data-tid='the-birthdate-input'
+  minAge={20}
+  maxAge={65}
+/>
+```
