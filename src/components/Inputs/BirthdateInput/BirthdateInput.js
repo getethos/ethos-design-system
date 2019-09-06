@@ -74,7 +74,7 @@ const PrivateBirthdateInput = (props) => {
       <MaskedInput
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
-        className='BirthdateInput TextInput'
+        className={!!getError() ? 'BirthdateInput TextInput Error' : 'BirthdateInput TextInput'}
         type='text'
         data-tid={restProps['data-tid']}
         guide={true}
