@@ -25,7 +25,6 @@ export const cleanse = (value) => value.replace(/[_]/g,'').replace('//', '/')
 export const dateStringMatchesFormat = (cleansedDateString, dateFormat) => {
   const pattern = dateRegexByFormat[dateFormat];
   const matchesFormat = pattern.test(cleansedDateString);
-  console.log("matchesFormat: ", matchesFormat)
   if (!matchesFormat) {
     return 'Please enter a valid date.'
   }
