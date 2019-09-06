@@ -37,10 +37,10 @@ function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
 
-  // Generate list of css classes
-  const classNames = ['TextInput']
-
   const onChange = (syntheticReactEvent) => {
+    console.log('NOT NOT getError: ')
+    console.log()
+
     const errMsg = validate(syntheticReactEvent.target.value)
     if (errMsg.length) {
       setError(errMsg)
@@ -60,7 +60,7 @@ function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
       </Body.Regular400>
       <input
         type="text"
-        className={classNames.join(' ')}
+        className={!!getError() ? 'TextInput Error' : 'TextInput'}
         disabled={disabled}
         name={name}
         onChange={onChange}
