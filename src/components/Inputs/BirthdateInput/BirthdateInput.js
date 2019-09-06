@@ -3,28 +3,19 @@ import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 
-// https://github.com/iamkun/dayjs/issues/480
-import * as dayjs_ from 'dayjs';
-const dayjs = (dayjs_).default || dayjs_;
-
+import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { Body, COLORS } from '../../index'
 import {
-  getMinDateValidator,
-  getMaxDateValidator
+  cleanse,
+  DATE_FORMATS,
+  dateMaskByFormat,
+  dateRegexByFormat,
+  dateStringMatchesFormat,
 } from './BirthdateInputValidator.js'
 
-export const DATE_FORMATS = [
-  'mm/dd/yyyy',
-  'mm/yyyy',
-  'mm/yy',
-] 
-
-export const dateMaskByFormat = {
-  'mm/dd/yyyy': [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/],
-  'mm/yyyy': [/\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/],
-  'mm/yy': [/\d/, /\d/, '/', /\d/, /\d/],
-}
+// Riffing off redux-form a bit: "this will be set when the field is blurred"
+let touched = false;
 
 const PrivateBirthdateInput = (props) => {
   const {
@@ -39,31 +30,39 @@ const PrivateBirthdateInput = (props) => {
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, validate] = useErrorMessage(validator)
 
-  /*
-  const maxBirthdate = moment()
-    .subtract(minAge, 'years')
-    .utc()
-    .endOf('day')
-    .toDate()
+  const onBlur = (syntheticReactEvent) => {
+    const cleansed =  cleanse(syntheticReactEvent.target.value)
+    console.log('onBlur called...setting touch true')
+    touched = true;
 
-  const minBirthdate = moment()
-    .subtract(maxAge + 1, 'years')
-    .utc()
-    .startOf('day')
-    .toDate()
+    // First check in valid format as that error takes priority
+    let errMsg = dateStringMatchesFormat(cleansed, dateFormat);
+    if (errMsg.length) {
+      setError(errMsg)
+    } else {
+      // Now we let the validator validate the date range
+      const conformedDate = dayjs(cleansed, dateFormat.toUpperCase())
+      errMsg = validate(conformedDate)
+      if (errMsg.length) {
+        setError(errMsg)
+      } else {
+        // Passed all checks, reset error empty
+        setError('')
+      }
+    }
+  }
 
-  export const dateRangeErrorMessage = `Sorry, you must be ${minAge}–${maxAge}.`
+  const onChange = (syntheticReactEvent) => {
+    if (!touched) return;
+    const cleansed =  cleanse(syntheticReactEvent.target.value)
+    const errMsg = dateStringMatchesFormat(cleansed, dateFormat);
+    if (errMsg.length) {
+      setError(errMsg)
+    } else {
+      setError('')
+    }
+  }
 
-  export const maxDateValidator = getMaxDateValidator({
-    maxDate: maxBirthdate,
-    customErrorMessage: dateRangeErrorMessage,
-  })
-
-  export const minDateValidator = getMinDateValidator({
-    minDate: minBirthdate,
-    customErrorMessage: dateRangeErrorMessage,
-  })
-  */
   return (
     <>
       <Body.Regular400
@@ -73,7 +72,6 @@ const PrivateBirthdateInput = (props) => {
       >
         {labelCopy}
       </Body.Regular400>
-
       <MaskedInput
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
@@ -81,8 +79,8 @@ const PrivateBirthdateInput = (props) => {
         type='text'
         data-tid={restProps['data-tid']}
         guide={true}
-        // onBlur={() => {}}
-        // onChange={() => {}}
+        onBlur={onBlur}
+        onChange={onChange}
         name='birthdate-auto-corrected'
         placeholder={dateFormat}
         keepCharPositions={true}
