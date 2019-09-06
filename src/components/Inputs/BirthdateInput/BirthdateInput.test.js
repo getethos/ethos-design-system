@@ -13,6 +13,7 @@ describe('BirthdateInput', () => {
         <BirthdateInput
           dateFormat='mm/dd/yyyy'
           name="le-birthdate"
+          allCaps={true}
           labelCopy="What is your birthdate?"
           data-tid='le-birthdate'
           validator={(thing) => {}}

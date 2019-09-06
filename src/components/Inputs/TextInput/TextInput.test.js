@@ -8,6 +8,7 @@ describe('TextInput', () => {
       .create(
         <TextInput
           name="nombre"
+          allCaps={true}
           labelCopy="The label"
           data-tid="the-text-input"
           validator={(x) =>

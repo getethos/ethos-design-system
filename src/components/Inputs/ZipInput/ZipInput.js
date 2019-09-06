@@ -11,6 +11,7 @@ export const ZipInput = (props) => {
 ZipInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  allCaps: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func

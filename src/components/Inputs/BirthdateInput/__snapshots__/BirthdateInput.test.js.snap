@@ -3,11 +3,19 @@
 exports[`BirthdateInput default rendering 1`] = `
 Array [
   <label
-    className="Body Theinhardt Regular400 GrayPrimary"
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
     htmlFor="birthDate"
   >
     What is your birthdate?
   </label>,
+  <div
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />,
   <input
     className="BirthdateInput TextInput"
     data-tid="le-birthdate"

@@ -67,6 +67,10 @@ strong {
   &.Centered {
     text-align: center;
   }
+
+  &.AllCaps {
+    text-transform: uppercase;
+  }
 }
 
 // Subtypes
