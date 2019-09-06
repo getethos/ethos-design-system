@@ -12,6 +12,7 @@ Array [
     className="TextInput"
     data-tid="le-zip"
     name="le-zip"
+    onBlur={[Function]}
     onChange={[Function]}
     type="text"
   />,
