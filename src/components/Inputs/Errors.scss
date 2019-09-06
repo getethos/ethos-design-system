@@ -1,0 +1,10 @@
+.Error {
+  border-color: var(--BrandSunburn);
+  border-width: 1px;
+  border-style: solid;
+}
+
+// To beat out things like .TextInput:focus
+.Error:focus {
+  @extend .Error;
+}

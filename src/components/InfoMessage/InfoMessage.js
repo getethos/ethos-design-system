@@ -1,5 +1,5 @@
 import React from 'react'
-import { Body } from '../index'
+import { Footnote } from '../index'
 
 import './InfoMessage.scss'
 
@@ -32,7 +32,7 @@ function InfoMessageFactory(type) {
   const PublicInfoMessageComponent = ({ children }) => {
     return (
       <div className={'InfoMessage ' + className}>
-        <Body.Medium500>{children}</Body.Medium500>
+      <Footnote.Regular400>{children}</Footnote.Regular400>
       </div>
     )
   }
