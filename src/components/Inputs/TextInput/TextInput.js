@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import useRequired from '../../../hooks/useRequired.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
-
-import { Body, COLORS } from '../../index'
+import { Caption, COLORS, Spacer } from '../../index'
 
 /* @getethos/design-system/TextInput.js
 
@@ -13,6 +13,7 @@ import { Body, COLORS } from '../../index'
  *
  * @param  {String}   props.name        Input name and htmlFor prop for label
  * @param  {String}   props.labelCopy   User-visible text of label for input
+ * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
  * @param  {Function} props.validator   Function for validating input
  * @param  {Boolean}  props.disabled  
  */
@@ -20,12 +21,13 @@ import { Body, COLORS } from '../../index'
 // Riffing off redux-form a bit: "this will be set when the field is blurred"
 let touched = false;
 
-function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
+function PrivateTextInput({ disabled, name, labelCopy, allCaps, validator, ...rest }) {
   // Verify that all required props were supplied
   const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
   let allRelevantProps = Object.assign({}, rest, {
     name: name,
     labelCopy: labelCopy,
+    allCaps: allCaps,
   })
   includesRequired(allRelevantProps)
 
@@ -59,13 +61,14 @@ function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
 
   return (
     <>
-      <Body.Regular400
-        element="label"
+      <Caption.Medium500
+        element='label'
+        allCaps={allCaps}
         htmlFor={name}
-        color={COLORS.GRAY_PRIMARY}
       >
         {labelCopy}
-      </Body.Regular400>
+      </Caption.Medium500>
+      <Spacer.H8 />
       <input
         type="text"
         className={!!getError() ? 'TextInput Error' : 'TextInput'}
@@ -84,6 +87,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
+  allCaps: PropTypes.bool,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   onBlur: PropTypes.func,

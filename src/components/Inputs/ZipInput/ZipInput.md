@@ -4,6 +4,7 @@ for any custom or additional logic you may wish to use.
 import { ZipInputValidator } from './index.js';
 <ZipInput
   name="this-zip-input-example"
+  allCaps={true}
   labelCopy="What is your zip code?"
   data-tid='the-zip-input'
   validator={(zip) => {

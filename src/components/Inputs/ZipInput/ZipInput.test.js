@@ -7,6 +7,7 @@ describe('ZipInput', () => {
     const tree = renderer
       .create(<ZipInput
         name="le-zip"
+        allCaps={true}
         labelCopy="What is your zip code?"
         data-tid='le-zip'
         validator={(errors) => {}}
