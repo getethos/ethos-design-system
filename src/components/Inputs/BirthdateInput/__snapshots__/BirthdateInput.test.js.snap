@@ -28,6 +28,8 @@ Array [
       ]
     }
     name="birthdate-auto-corrected"
+    onBlur={[Function]}
+    onChange={[Function]}
     pipe={[Function]}
     placeholder="mm/dd/yyyy"
     type="text"
