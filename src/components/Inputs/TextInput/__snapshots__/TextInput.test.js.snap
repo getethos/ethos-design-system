@@ -12,6 +12,7 @@ Array [
     className="TextInput"
     data-tid="the-text-input"
     name="nombre"
+    onBlur={[Function]}
     onChange={[Function]}
     type="text"
   />,

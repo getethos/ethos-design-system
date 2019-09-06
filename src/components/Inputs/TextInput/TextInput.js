@@ -6,8 +6,6 @@ import useInvalid from '../../../hooks/useInvalid.js'
 
 import { Body, COLORS } from '../../index'
 
-// import './TextInput.scss'
-
 /* @getethos/design-system/TextInput.js
 
 /**
@@ -18,6 +16,9 @@ import { Body, COLORS } from '../../index'
  * @param  {Function} props.validator   Function for validating input
  * @param  {Boolean}  props.disabled  
  */
+
+// Riffing off redux-form a bit: "this will be set when the field is blurred"
+let touched = false;
 
 function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
   // Verify that all required props were supplied
@@ -37,13 +38,23 @@ function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
 
-  const onChange = (syntheticReactEvent) => {
-    const errMsg = validate(syntheticReactEvent.target.value)
+  const doValidation = (value) => {
+    const errMsg = validate(value)
     if (errMsg.length) {
       setError(errMsg)
     } else {
       setError('')
     }
+  }
+
+  const onBlur = (syntheticReactEvent) => {
+    touched = true;
+    doValidation(syntheticReactEvent.target.value)
+  }
+
+  const onChange = (syntheticReactEvent) => {
+    if (!touched) return;
+    doValidation(syntheticReactEvent.target.value)
   }
 
   return (
@@ -61,6 +72,7 @@ function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
         disabled={disabled}
         name={name}
         onChange={onChange}
+        onBlur={onBlur}
         data-tid={rest['data-tid']}
       />
       {getError()}
