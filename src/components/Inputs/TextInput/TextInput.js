@@ -38,9 +38,6 @@ function PrivateTextInput({ disabled, name, labelCopy, validator, ...rest }) {
   const [getError, setError, validate] = useErrorMessage(validator)
 
   const onChange = (syntheticReactEvent) => {
-    console.log('NOT NOT getError: ')
-    console.log()
-
     const errMsg = validate(syntheticReactEvent.target.value)
     if (errMsg.length) {
       setError(errMsg)
