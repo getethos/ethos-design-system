@@ -32,7 +32,6 @@ const PrivateBirthdateInput = (props) => {
 
   const onBlur = (syntheticReactEvent) => {
     const cleansed =  cleanse(syntheticReactEvent.target.value)
-    console.log('onBlur called...setting touch true')
     touched = true;
 
     // First check in valid format as that error takes priority
