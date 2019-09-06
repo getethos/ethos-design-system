@@ -595,6 +595,17 @@ strong {
   text-align: center;
 }
 
+.Caption.AllCaps,
+.Footnote.AllCaps,
+.Body.AllCaps,
+.TitleSmall.AllCaps,
+.TitleMedium.AllCaps,
+.TitleLarge.AllCaps,
+.TitleXLarge.AllCaps,
+.TitleXXLarge.AllCaps {
+  text-transform: uppercase;
+}
+
 @media (max-width: 599px) {
   .Caption {
     font-size: 12px;

@@ -5,7 +5,7 @@ import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrect
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import { Body, COLORS } from '../../index'
+import { Caption, Spacer, COLORS } from '../../index'
 import {
   cleanse,
   DATE_FORMATS,
@@ -23,6 +23,7 @@ const PrivateBirthdateInput = (props) => {
     maxAge,
     name,
     dateFormat,
+    allCaps,
     labelCopy,
     validator,
     ...restProps } = props
@@ -64,13 +65,15 @@ const PrivateBirthdateInput = (props) => {
 
   return (
     <>
-      <Body.Regular400
-        element="label"
+      <Caption.Medium500
+        element='label'
+        allCaps={allCaps}
         htmlFor={name}
         color={COLORS.GRAY_PRIMARY}
       >
         {labelCopy}
-      </Body.Regular400>
+      </Caption.Medium500>
+      <Spacer.H8 />
       <MaskedInput
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
@@ -93,6 +96,7 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   dateFormat: PropTypes.oneOf(DATE_FORMATS),
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  allCaps: PropTypes.bool,
   minAge: PropTypes.number,
   maxAge: PropTypes.number,
   name: PropTypes.string.isRequired,
