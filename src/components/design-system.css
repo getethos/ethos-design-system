@@ -365,6 +365,13 @@ figure {
   border-color: transparent;
 }
 
+.Error,
+.Error:focus {
+  border-color: var(--BrandSunburn);
+  border-width: 1px;
+  border-style: solid;
+}
+
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
 /* @getethos/design-system/Media.scss
