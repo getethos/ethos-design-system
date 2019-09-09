@@ -11,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     library: 'ethos-design-system',
     libraryTarget: 'umd',
+    globalObject: "typeof self !== 'undefined' ? self : this",
   },
   externals: {
     // add more expected libraries here to reduce bundle size
