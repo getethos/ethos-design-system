@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "webpack",
+    "precommit": "echo \"Thanks for running precommit! You should run it to update the bundle whenever you make a change.\" && yarn test && yarn run compile && yarn run build",
     "compile": "node-sass src/components/index.scss src/components/design-system.css && yarn format",
     "develop": "chokidar *.scss -c 'yarn build' --initial",
     "format": "prettier --write \"src/components/**/*.*css\"",
