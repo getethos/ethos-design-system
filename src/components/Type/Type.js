@@ -27,6 +27,7 @@ import { COLORS } from '../Colors'
  *
  * @param  {String}  props.children       The text to display
  * @param  {Boolean} props.centered       Whether to text-align: center
+ * @param  {Boolean} props.allCaps        Whether to text-transform to: uppercase
  * @param  {String}  props.element        Override the default <element>
  * @param  {String}  props.subtype        (private) e.g. Caption vs. TitleSmall
  * @param  {String}  props.typeface       (private) Typeface
@@ -35,6 +36,7 @@ import { COLORS } from '../Colors'
 export const Type = ({
   children,
   centered,
+  allCaps,
   color,
   element,
   subtype,
@@ -63,6 +65,7 @@ export const Type = ({
   // Generate list of css classes
   const classNames = [subtype, typeface, weight, color]
   if (centered) classNames.push('Centered')
+  if (allCaps) classNames.push('AllCaps')
 
   // Defaults to div, but can be overridden
   const Element = element || 'div'
@@ -129,6 +132,7 @@ Type.ELEMENTS = {
 Type.PUBLIC_PROPS = {
   children: PropTypes.node,
   centered: PropTypes.bool,
+  allCaps: PropTypes.bool,
   color: PropTypes.oneOf(Object.values(Type.COLORS)),
   element: PropTypes.oneOf(Object.values(Type.ELEMENTS)),
   htmlFor: PropTypes.string,

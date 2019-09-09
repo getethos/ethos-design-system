@@ -3,17 +3,28 @@
 exports[`TextInput default rendering 1`] = `
 Array [
   <label
-    className="Body Theinhardt Regular400 GrayPrimary"
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
     htmlFor="nombre"
   >
     The label
   </label>,
+  <div
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />,
   <input
     className="TextInput"
     data-tid="the-text-input"
     name="nombre"
+    onBlur={[Function]}
     onChange={[Function]}
+    onPaste={[Function]}
     type="text"
+    value=""
   />,
   "",
 ]

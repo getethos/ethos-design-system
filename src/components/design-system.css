@@ -365,6 +365,13 @@ figure {
   border-color: transparent;
 }
 
+.Error,
+.Error:focus {
+  border-color: var(--BrandSunburn);
+  border-width: 1px;
+  border-style: solid;
+}
+
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
 /* @getethos/design-system/Media.scss
@@ -586,6 +593,17 @@ strong {
 .TitleXLarge.Centered,
 .TitleXXLarge.Centered {
   text-align: center;
+}
+
+.Caption.AllCaps,
+.Footnote.AllCaps,
+.Body.AllCaps,
+.TitleSmall.AllCaps,
+.TitleMedium.AllCaps,
+.TitleLarge.AllCaps,
+.TitleXLarge.AllCaps,
+.TitleXXLarge.AllCaps {
+  text-transform: uppercase;
 }
 
 @media (max-width: 599px) {

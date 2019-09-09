@@ -1,15 +1,7 @@
 .InfoMessage {
-  padding-left: 1em;
-  padding-right: 1em;
   transition: all 150ms ease-in-out;
-  line-height: 1.35;
-  padding-top: 0.85em;
-  padding-bottom: 0.85em;
-  margin-bottom: 1.25rem;
 
   &.error {
-    background-color: var(--BrandPasty);
-    font-weight: 500;
     &,
     a,
     a:hover,
@@ -20,8 +12,6 @@
   }
 
   &.warning {
-    background-color: var(--BrandPasty);
-    font-weight: 500;
     &,
     a,
     a:hover,
@@ -32,8 +22,6 @@
   }
 
   &.success {
-    background: var(--BrandMoss);
-    font-weight: 500;
     &,
     a,
     a:hover,
@@ -44,8 +32,6 @@
   }
 
   &.info {
-    background: var(--BrandDuckegg);
-    font-weight: 500;
     &,
     a,
     a:hover,

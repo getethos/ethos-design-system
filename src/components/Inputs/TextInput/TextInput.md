@@ -1,7 +1,10 @@
 ```jsx
 <TextInput
   name="example"
-  labelCopy="Example: validator is value.length % 2"
+  minLength={5}
+  maxLength={20}
+  allCaps={true}
+  labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
   data-tid='the-text-input'
   validator={(x) =>
     x.length % 2
