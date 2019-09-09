@@ -44,6 +44,8 @@ function PrivateButton({
   children,
   disabled,
   fullWidth,
+  role,
+  ariaLabelId,
   name,
   type,
   size,
@@ -75,8 +77,15 @@ function PrivateButton({
   if (isSelected) classNames.push('isSelected')
   if (arrowIcon) classNames.push('arrowIcon')
 
+  let checked
+  if (isSelected) {
+    classNames.push('isSelected')
+    checked = { 'aria-checked': isSelected }
+  }
+
   return (
     <button
+      {...checked}
       className={classNames.join(' ')}
       disabled={disabled}
       type={type}
@@ -84,7 +93,7 @@ function PrivateButton({
       onClick={onClick}
       data-tid={rest['data-tid']}
     >
-      {children}
+      {ariaLabelId ? <span id={ariaLabelId}>{children}</span> : children}
       {arrowIcon && ArrowIconInline()}
     </button>
   )
@@ -112,6 +121,8 @@ const ArrowIconInline = (props) => {
 PrivateButton.HTML_TYPES = { BUTTON: 'button', SUBMIT: 'submit' } // read the docs^
 
 PrivateButton.PUBLIC_PROPS = {
+  ariaLabelId: PropTypes.string,
+  role: PropTypes.string,
   children: PropTypes.string,
   'data-tid': PropTypes.string,
   disabled: PropTypes.bool,

@@ -14,7 +14,8 @@ exports[`Button default rendering Button.Medium.Black 1`] = `
 
 exports[`Button default rendering Stateful isSelected 1`] = `
 <button
-  className="Button Medium Stateful isSelected"
+  aria-checked={true}
+  className="Button Medium Stateful isSelected isSelected"
   data-tid="foo"
   name="bar"
   type="button"
