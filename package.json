@@ -27,9 +27,7 @@
       ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
-  "dependencies": {
-    "pre-commit": "^1.2.2"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "cloudinary-react": "^1.1.1"
   },
