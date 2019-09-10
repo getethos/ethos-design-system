@@ -88,6 +88,7 @@ function PrivateTextInput({
     }
     doValidation(restrictedVal)
 
+    debugger
     if (!!props.onChange) {
       props.onChange(ev)
     }

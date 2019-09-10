@@ -3,7 +3,7 @@ import { ButtonSelectGroup } from './ButtonSelectGroup'
 import renderer from 'react-test-renderer'
 
 jest.mock('uuid/v4', () => {
-  return jest.fn(() => 1);
+  return jest.fn(() => 1)
 })
 
 describe('ButtonSelectGroup', () => {
@@ -32,7 +32,7 @@ describe('ButtonSelectGroup', () => {
       )
     })
     const tree = renderer.create(
-      <ButtonSelectGroup onSelect={onSelectStub}>
+      <ButtonSelectGroup label="placeholder" onSelect={onSelectStub}>
         {optionButtons}
       </ButtonSelectGroup>
     )
