@@ -1058,42 +1058,42 @@ a,
   background: white;
 }
 
-.root {
+.universal-navbar-root {
   height: var(--Space-64);
   background-color: white;
 }
 
-.mobileRoot {
+.universal-navbar-mobileRoot {
   padding: var(--Space-24) var(--ContainerPadding--Phone);
 }
 
-.rootChild {
+.universal-navbar-rootChild {
   max-width: 1440px;
   margin: 0 auto;
   padding: var(--Space-24);
   height: var(--Space-64);
 }
 @media (min-width: 600px) and (max-width: 899px) {
-  .rootChild {
+  .universal-navbar-rootChild {
     padding: var(--Space-24) var(--ContainerPadding--Tablet);
   }
 }
 @media (min-width: 900px) and (max-width: 1199px) {
-  .rootChild {
+  .universal-navbar-rootChild {
     padding: var(--Space-24) var(--ContainerPadding--Laptop);
   }
 }
 @media (min-width: 1200px) {
-  .rootChild {
+  .universal-navbar-rootChild {
     padding: var(--Space-24) var(--ContainerPadding--Desktop);
   }
 }
 
-.logo {
+.universal-navbar-logo {
   height: 16px;
 }
 
-.paddingLeft {
+.universal-navbar-paddingLeft {
   padding-left: 24px;
 }
 

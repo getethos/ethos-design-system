@@ -3,16 +3,16 @@
 @import './globals-for-cms.scss'; // Tachyons
 @import './TransformingBurgerButton/TransformingBurgerButton.scss';
 
-.root {
+.universal-navbar-root {
   height: var(--Space-64);
   background-color: white;
 }
 
-.mobileRoot {
+.universal-navbar-mobileRoot {
   padding: var(--Space-24) var(--ContainerPadding--Phone);
 }
 
-.rootChild {
+.universal-navbar-rootChild {
   max-width: 1440px;
   margin: 0 auto;
   padding: var(--Space-24);
@@ -29,11 +29,11 @@
   }
 }
 
-.logo {
+.universal-navbar-logo {
   height: 16px;
 }
 
-.paddingLeft {
+.universal-navbar-paddingLeft {
   padding-left: 24px;
 }
 
