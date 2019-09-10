@@ -32,6 +32,7 @@ function PrivateTextInput({
   labelCopy,
   allCaps,
   validator,
+  onChange,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -79,7 +80,7 @@ function PrivateTextInput({
   const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
   const restrict = (val) => val.replace(illegalRegex, '')
 
-  const onChange = (ev) => {
+  const privateOnChange = (ev) => {
     const val = event.target.value
     const restrictedVal = restrict(val)
     setValue(restrictedVal)
@@ -88,9 +89,8 @@ function PrivateTextInput({
     }
     doValidation(restrictedVal)
 
-    debugger
-    if (!!props.onChange) {
-      props.onChange(ev)
+    if (!!onChange) {
+      onChange(ev)
     }
   }
 
@@ -112,7 +112,7 @@ function PrivateTextInput({
         disabled={disabled}
         name={name}
         onPaste={onPaste}
-        onChange={onChange}
+        onChange={privateOnChange}
         onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
