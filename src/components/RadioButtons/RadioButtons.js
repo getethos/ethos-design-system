@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
-import './RadioButtons.scss'
 import { Body } from '../Type/Body.js'
 
 /* @getethos/design-system/RadioButtons.js
