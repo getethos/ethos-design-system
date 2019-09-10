@@ -12,7 +12,6 @@ import {
   // } from 'frontend/packages/design-system' // Funnel
 } from '../index' // CMS
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
-import styles from './UniversalNavbar.scss'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
 
