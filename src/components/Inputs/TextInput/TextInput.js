@@ -1,4 +1,4 @@
-import React ,{ useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 import useRequired from '../../../hooks/useRequired.js'
@@ -22,7 +22,7 @@ import { Caption, COLORS, Spacer } from '../../index'
  */
 
 // Riffing off redux-form a bit: "this will be set when the field is blurred"
-let touched = false;
+let touched = false
 
 function PrivateTextInput({
   disabled,
@@ -54,7 +54,7 @@ function PrivateTextInput({
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
   const [minMaxValidator] = useMinMaxLength(minLength, maxLength)
-  
+
   const [value, setValue] = useState('')
 
   const doValidation = (value) => {
@@ -62,7 +62,7 @@ function PrivateTextInput({
     if (minMaxError) {
       setError(minMaxError)
       return
-    } 
+    }
     const errMsg = validate(value)
     if (errMsg.length) {
       setError(errMsg)
@@ -72,21 +72,25 @@ function PrivateTextInput({
   }
 
   const onBlur = (ev) => {
-    touched = true;
+    touched = true
     doValidation(ev.target.value)
   }
 
-  const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g 
+  const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
   const restrict = (val) => val.replace(illegalRegex, '')
 
   const onChange = (ev) => {
     const val = event.target.value
     const restrictedVal = restrict(val)
-    setValue(restrictedVal);
+    setValue(restrictedVal)
     if (!touched) {
-      return;
+      return
     }
     doValidation(restrictedVal)
+
+    if (!!props.onChange) {
+      props.onChange(ev)
+    }
   }
 
   const onPaste = (ev) => {
@@ -97,11 +101,7 @@ function PrivateTextInput({
 
   return (
     <>
-      <Caption.Medium500
-        element='label'
-        allCaps={allCaps}
-        htmlFor={name}
-      >
+      <Caption.Medium500 element="label" allCaps={allCaps} htmlFor={name}>
         {labelCopy}
       </Caption.Medium500>
       <Spacer.H8 />
