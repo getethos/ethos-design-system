@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import useRequired from '../../../hooks/useRequired.js'
@@ -74,7 +74,7 @@ function PrivateTextInput({
 
   const onBlur = (ev) => {
     touched = true
-    doValidation(ev.target.value)
+    privateOnChange(ev)
   }
 
   const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
