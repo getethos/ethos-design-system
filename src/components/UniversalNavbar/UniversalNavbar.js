@@ -63,7 +63,10 @@ class UniversalNavbar extends React.Component {
     const { showMobileMenu } = this.state
 
     const renderDesktopLink = (l) => (
-      <div key={l.title + 'nonmobile'} className={styles.paddingLeft}>
+      <div
+        key={l.title + 'nonmobile'}
+        className={'universal-navbar-paddingLeft'}
+      >
         <a href={l.href}>{l.title}</a>
       </div>
     )
@@ -91,9 +94,9 @@ class UniversalNavbar extends React.Component {
               </div>
               <div
                 className={
-                  styles.root +
+                  'universal-navbar-root' +
                   ' ' +
-                  styles.mobileRoot +
+                  'universal-navbar-mobileRoot' +
                   ' flex items-center justify-between'
                 }
               >
@@ -104,7 +107,11 @@ class UniversalNavbar extends React.Component {
                   }
                 >
                   <a href="/">
-                    <img className={styles.logo} src={LogoWhite} alt="Ethos" />
+                    <img
+                      className={'universal-navbar-logo'}
+                      src={LogoWhite}
+                      alt="Ethos"
+                    />
                   </a>
                   <Spacer.H56 />
                   {navbarLinks.map((l) => (
@@ -134,13 +141,15 @@ class UniversalNavbar extends React.Component {
             </Media.PhoneOnly>
 
             <Media.TabletAndUp>
-              <div className={styles.root}>
-                <div className={styles.rootChild + ' flex justify-between'}>
+              <div className={'universal-navbar-root'}>
+                <div
+                  className={'universal-navbar-rootChild flex justify-between'}
+                >
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
                     <a href="/">
                       <img
-                        className={styles.logo}
+                        className={'universal-navbar-logo'}
                         src={LogoNotAnimated}
                         alt="Ethos"
                       />
@@ -157,7 +166,7 @@ class UniversalNavbar extends React.Component {
                     <Media.LaptopAndUp>
                       {navbarLinks.slice(-1).map(renderDesktopLink)}
                     </Media.LaptopAndUp>
-                    <div className={styles.paddingLeft}>
+                    <div className={'universal-navbar-paddingLeft'}>
                       {getAnEstimate(false)}
                     </div>
                   </div>
