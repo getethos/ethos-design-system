@@ -1,0 +1,193 @@
+// @import 'packages/design-system/Media.scss'; // Funnel
+@import '../Media/Media.scss'; //CMS
+@import './globals-for-cms.scss'; // Tachyons
+@import './TransformingBurgerButton/TransformingBurgerButton.scss';
+
+.universal-navbar-root {
+  height: var(--Space-64);
+  background-color: white;
+}
+
+.universal-navbar-mobileRoot {
+  padding: var(--Space-24) var(--ContainerPadding--Phone);
+}
+
+.universal-navbar-rootChild {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--Space-24);
+  height: var(--Space-64);
+
+  @include for-tablet-only {
+    padding: var(--Space-24) var(--ContainerPadding--Tablet);
+  }
+  @include for-laptop-only {
+    padding: var(--Space-24) var(--ContainerPadding--Laptop);
+  }
+  @include for-desktop-only {
+    padding: var(--Space-24) var(--ContainerPadding--Desktop);
+  }
+}
+
+.universal-navbar-logo {
+  height: 16px;
+}
+
+.universal-navbar-paddingLeft {
+  padding-left: 24px;
+}
+
+:global {
+  /**
+  * Region:
+  * Manually reproduced version of a WIP Button.Small for "Get an estimate" 
+  * TODO REDESIGN: finalize styling for Button.Small in DS and use it instead
+  */
+  .get-an-estimate .Button.Medium {
+    padding: 9.5px 16px 6.5px;
+    font-size: 15px;
+    line-height: 18px;
+    margin-right: 17px;
+  }
+
+  @include for-tablet-only {
+    /* Same as mobile */
+    .get-an-estimate .Button.Medium {
+      margin-right: 0;
+    }
+  }
+  @include for-laptop-only {
+    /* Very slightly different */
+    .get-an-estimate .Button.Medium {
+      padding: 11.5px 16px 8.5px;
+      font-size: 15.5px;
+      line-height: 20px;
+      margin-right: 0;
+    }
+  }
+  @include for-desktop-only {
+    /* Different */
+    .get-an-estimate .Button.Medium {
+      padding: 11.5px 18px 8.5px;
+      font-size: 15.5px;
+      line-height: 20px;
+      margin-right: 0;
+    }
+  }
+  /* End region */
+
+  /**
+   * Region:
+   * Fancy animated scroll behavior 
+   */
+  @include for-phone-only {
+    .letter:not(.fancyO) {
+      transition-property: all;
+      transition-timing-function: ease-in-out;
+      transition-duration: 0.5s;
+    }
+    .fancyE {
+      transition-delay: 0.3s;
+    }
+    .fancyT {
+      transition-delay: 0.225s;
+    }
+    .fancyH {
+      transition-delay: 0.15s;
+    }
+    .isUnscrolled {
+      .fancyO {
+        transition-delay: 0s;
+        transition-duration: 1s;
+        transition-timing-function: cubic-bezier(0.38, 0.99, 0.39, 0.98);
+      }
+    }
+    .fancyS {
+      transition-delay: 0s;
+    }
+
+    .get-an-estimate.show-when-scrolled {
+      /* When not scrolled, is transparent and starts to the right */
+      transition: transform ease-in-out 0.7s, opacity ease-in-out 0.7s;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .isScrolled {
+      .get-an-estimate.show-when-scrolled {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateX(-15%);
+      }
+    }
+
+    .letter {
+      opacity: 1;
+      width: 150px;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+    }
+    .isScrolled {
+      .letter:not(.fancyO) {
+        opacity: 0;
+        transform: translate(-10px);
+        transition-timing-function: cubic-bezier(0.9, 0.27, 0.62, 0.93);
+      }
+      .fancyE {
+        transition-delay: 0s;
+      }
+      .fancyT {
+        transition-delay: 0.075s;
+      }
+      .fancyH {
+        transition-delay: 0.15s;
+      }
+
+      .fancyO {
+        transition: cubic-bezier(0.76, 0.04, 0.69, 0.37) 1s all;
+        transform: translate(-57px) scale(1.5);
+      }
+
+      .fancyS {
+        transition-delay: 0.3s;
+      }
+    }
+  }
+  /* End region */
+
+  /**
+   * Region:
+   * Big green mobile hamburger menu 
+   */
+  .shownMobileMenu,
+  .hiddenMobileMenu {
+    position: fixed;
+    padding: 24px 24px 40px;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: var(--BrandForest);
+    color: white;
+    z-index: 1;
+    & a,
+    & a:visited,
+    & a:hover {
+      /* TODO REDESIGN: this should be a DS component */
+      font-weight: 300;
+      color: white;
+      text-decoration: unset !important;
+    }
+    .Button.BlackOutline {
+      /* TODO REDESIGN: this should be a DS component */
+      color: white;
+      border-color: white;
+    }
+  }
+  .hiddenMobileMenu {
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* End region */
+}

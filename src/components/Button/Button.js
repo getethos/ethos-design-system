@@ -3,9 +3,6 @@ import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
-import './Button.scss'
-import { styles } from 'ansi-colors'
-
 /* @getethos/design-system/Button.js
 
    Legend:

@@ -1,8 +1,6 @@
 import React from 'react'
 import { Footnote } from '../index'
 
-import './InfoMessage.scss'
-
 const INFO_MESSAGE_TYPES = {
   ERROR: 'ERROR',
   WARNING: 'WARNING',
@@ -32,7 +30,7 @@ function InfoMessageFactory(type) {
   const PublicInfoMessageComponent = ({ children }) => {
     return (
       <div className={'InfoMessage ' + className}>
-      <Footnote.Regular400>{children}</Footnote.Regular400>
+        <Footnote.Regular400>{children}</Footnote.Regular400>
       </div>
     )
   }
