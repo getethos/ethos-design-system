@@ -3,12 +3,14 @@ import React from 'react'
 // onClick is an event handler, showMobileMenu is a boolean
 const TransformingBurgerButton = ({ clickHandler, showMobileMenu }) => {
   return (
-    <span className={showMobileMenu ? styles.showMobileMenu : ''}>
-      <div onClick={clickHandler} className={styles.iconWrapper}>
-        <div className={styles.icon}>
-          <i />
+    <span className="transforming-burger-button">
+      <span className={showMobileMenu ? 'showMobileMenu' : ''}>
+        <div onClick={clickHandler} className={'iconWrapper'}>
+          <div className={'icon'}>
+            <i />
+          </div>
         </div>
-      </div>
+      </span>
     </span>
   )
 }

@@ -1,8 +1,8 @@
 import React from 'react'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
-import LogoNotAnimated from './assets/ethos-logo-black.svg'
-import LogoWhite from './assets/ethos-logo-white.svg'
+import LogoNotAnimated from './assets/ethos-logo-black.js'
+import LogoWhite from './assets/ethos-logo-white.js'
 import {
   Media,
   Button,
@@ -107,11 +107,7 @@ class UniversalNavbar extends React.Component {
                   }
                 >
                   <a href="/">
-                    <img
-                      className={'universal-navbar-logo'}
-                      src={LogoWhite}
-                      alt="Ethos"
-                    />
+                    {LogoWhite({ className: 'universal-navbar-logo' })}
                   </a>
                   <Spacer.H56 />
                   {navbarLinks.map((l) => (
@@ -148,11 +144,7 @@ class UniversalNavbar extends React.Component {
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
                     <a href="/">
-                      <img
-                        className={'universal-navbar-logo'}
-                        src={LogoNotAnimated}
-                        alt="Ethos"
-                      />
+                      {LogoNotAnimated({ className: 'universal-navbar-logo' })}
                     </a>
                     {renderDesktopLink(navbarLinks[0])}
                     {renderDesktopLink(navbarLinks[1])}
