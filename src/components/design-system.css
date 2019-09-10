@@ -997,7 +997,8 @@ a,
   flex-shrink: 0;
 }
 
-.iconWrapper {
+/*Namespace */
+.transforming-burger-button .iconWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1006,19 +1007,19 @@ a,
   height: 16px;
 }
 
-.icon {
+.transforming-burger-button .icon {
   --burger-width: 16px;
   --burger-thickness: 2px;
   cursor: pointer;
   text-decoration: none;
   border-bottom: none;
 }
-.icon:hover,
-.icon:focus,
-.icon:active {
+.transforming-burger-button .icon:hover,
+.transforming-burger-button .icon:focus,
+.transforming-burger-button .icon:active {
   outline: none;
 }
-.icon i {
+.transforming-burger-button .icon i {
   position: relative;
   z-index: 2;
   display: block;
@@ -1027,8 +1028,8 @@ a,
   background: var(--GrayPrimary--translucent);
   transition: all 0.2s ease-out;
 }
-.icon i::before,
-.icon i::after {
+.transforming-burger-button .icon i::before,
+.transforming-burger-button .icon i::after {
   content: '';
   width: var(--burger-width);
   height: var(--burger-thickness);
@@ -1037,22 +1038,22 @@ a,
   left: 0;
   transition: 0.2s ease;
 }
-.icon i::before {
+.transforming-burger-button .icon i::before {
   top: -4px;
 }
-.icon i::after {
+.transforming-burger-button .icon i::after {
   bottom: -4px;
 }
 
-.showMobileMenu i {
+.transforming-burger-button .showMobileMenu i {
   background: transparent;
 }
-.showMobileMenu i::before {
+.transforming-burger-button .showMobileMenu i::before {
   top: 0;
   transform: rotateZ(45deg);
   background: white;
 }
-.showMobileMenu i::after {
+.transforming-burger-button .showMobileMenu i::after {
   bottom: 0;
   transform: rotateZ(-45deg);
   background: white;
@@ -1097,95 +1098,85 @@ a,
   padding-left: 24px;
 }
 
-:global {
-  /**
+/**
   * Region:
   * Manually reproduced version of a WIP Button.Small for "Get an estimate" 
   * TODO REDESIGN: finalize styling for Button.Small in DS and use it instead
   */
-  /* End region */
-  /**
-   * Region:
-   * Fancy animated scroll behavior 
-   */
-  /* End region */
-  /**
-   * Region:
-   * Big green mobile hamburger menu 
-   */
-  /* End region */
-}
-:global .get-an-estimate .Button.Medium {
+.get-an-estimate .Button.Medium {
   padding: 9.5px 16px 6.5px;
   font-size: 15px;
   line-height: 18px;
   margin-right: 17px;
 }
+
 @media (min-width: 600px) and (max-width: 899px) {
-  :global {
-    /* Same as mobile */
-  }
-  :global .get-an-estimate .Button.Medium {
+  /* Same as mobile */
+  .get-an-estimate .Button.Medium {
     margin-right: 0;
   }
 }
+
 @media (min-width: 900px) and (max-width: 1199px) {
-  :global {
-    /* Very slightly different */
-  }
-  :global .get-an-estimate .Button.Medium {
+  /* Very slightly different */
+  .get-an-estimate .Button.Medium {
     padding: 11.5px 16px 8.5px;
     font-size: 15.5px;
     line-height: 20px;
     margin-right: 0;
   }
 }
+
 @media (min-width: 1200px) {
-  :global {
-    /* Different */
-  }
-  :global .get-an-estimate .Button.Medium {
+  /* Different */
+  .get-an-estimate .Button.Medium {
     padding: 11.5px 18px 8.5px;
     font-size: 15.5px;
     line-height: 20px;
     margin-right: 0;
   }
 }
+
+/* End region */
+/**
+   * Region:
+   * Fancy animated scroll behavior 
+   */
 @media (max-width: 599px) {
-  :global .letter:not(.fancyO) {
+  .letter:not(.fancyO) {
     transition-property: all;
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
   }
-  :global .fancyE {
+  .fancyE {
     transition-delay: 0.3s;
   }
-  :global .fancyT {
+  .fancyT {
     transition-delay: 0.225s;
   }
-  :global .fancyH {
+  .fancyH {
     transition-delay: 0.15s;
   }
-  :global .isUnscrolled .fancyO {
+  .isUnscrolled .fancyO {
     transition-delay: 0s;
     transition-duration: 1s;
     transition-timing-function: cubic-bezier(0.38, 0.99, 0.39, 0.98);
   }
-  :global .fancyS {
+  .fancyS {
     transition-delay: 0s;
   }
-  :global .get-an-estimate.show-when-scrolled {
+  .get-an-estimate.show-when-scrolled {
     /* When not scrolled, is transparent and starts to the right */
     transition: transform ease-in-out 0.7s, opacity ease-in-out 0.7s;
     opacity: 0;
     pointer-events: none;
   }
-  :global .isScrolled .get-an-estimate.show-when-scrolled {
+  .isScrolled .get-an-estimate.show-when-scrolled {
     opacity: 1;
     pointer-events: all;
     transform: translateX(-15%);
   }
-  :global .letter {
+  .letter {
     opacity: 1;
     width: 150px;
     position: absolute;
@@ -1193,30 +1184,36 @@ a,
     width: 100%;
     left: 0;
   }
-  :global .isScrolled .letter:not(.fancyO) {
+  .isScrolled .letter:not(.fancyO) {
     opacity: 0;
     transform: translate(-10px);
     transition-timing-function: cubic-bezier(0.9, 0.27, 0.62, 0.93);
   }
-  :global .isScrolled .fancyE {
+  .isScrolled .fancyE {
     transition-delay: 0s;
   }
-  :global .isScrolled .fancyT {
+  .isScrolled .fancyT {
     transition-delay: 0.075s;
   }
-  :global .isScrolled .fancyH {
+  .isScrolled .fancyH {
     transition-delay: 0.15s;
   }
-  :global .isScrolled .fancyO {
+  .isScrolled .fancyO {
     transition: cubic-bezier(0.76, 0.04, 0.69, 0.37) 1s all;
     transform: translate(-57px) scale(1.5);
   }
-  :global .isScrolled .fancyS {
+  .isScrolled .fancyS {
     transition-delay: 0.3s;
   }
 }
-:global .shownMobileMenu,
-:global .hiddenMobileMenu {
+
+/* End region */
+/**
+   * Region:
+   * Big green mobile hamburger menu 
+   */
+.shownMobileMenu,
+.hiddenMobileMenu {
   position: fixed;
   padding: 24px 24px 40px;
   height: 100vh;
@@ -1227,29 +1224,32 @@ a,
   color: white;
   z-index: 1;
 }
-:global .shownMobileMenu a,
-:global .shownMobileMenu a:visited,
-:global .shownMobileMenu a:hover,
-:global .hiddenMobileMenu a,
-:global .hiddenMobileMenu a:visited,
-:global .hiddenMobileMenu a:hover {
+.shownMobileMenu a,
+.shownMobileMenu a:visited,
+.shownMobileMenu a:hover,
+.hiddenMobileMenu a,
+.hiddenMobileMenu a:visited,
+.hiddenMobileMenu a:hover {
   /* TODO REDESIGN: this should be a DS component */
   font-weight: 300;
   color: white;
   text-decoration: unset !important;
 }
-:global .shownMobileMenu .Button.BlackOutline,
-:global .hiddenMobileMenu .Button.BlackOutline {
+.shownMobileMenu .Button.BlackOutline,
+.hiddenMobileMenu .Button.BlackOutline {
   /* TODO REDESIGN: this should be a DS component */
   color: white;
   border-color: white;
 }
-:global .hiddenMobileMenu {
+
+.hiddenMobileMenu {
   opacity: 0;
   pointer-events: none;
 }
 
-.iconWrapper {
+/* End region */
+/*Namespace */
+.transforming-burger-button .iconWrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1258,19 +1258,19 @@ a,
   height: 16px;
 }
 
-.icon {
+.transforming-burger-button .icon {
   --burger-width: 16px;
   --burger-thickness: 2px;
   cursor: pointer;
   text-decoration: none;
   border-bottom: none;
 }
-.icon:hover,
-.icon:focus,
-.icon:active {
+.transforming-burger-button .icon:hover,
+.transforming-burger-button .icon:focus,
+.transforming-burger-button .icon:active {
   outline: none;
 }
-.icon i {
+.transforming-burger-button .icon i {
   position: relative;
   z-index: 2;
   display: block;
@@ -1279,8 +1279,8 @@ a,
   background: var(--GrayPrimary--translucent);
   transition: all 0.2s ease-out;
 }
-.icon i::before,
-.icon i::after {
+.transforming-burger-button .icon i::before,
+.transforming-burger-button .icon i::after {
   content: '';
   width: var(--burger-width);
   height: var(--burger-thickness);
@@ -1289,22 +1289,22 @@ a,
   left: 0;
   transition: 0.2s ease;
 }
-.icon i::before {
+.transforming-burger-button .icon i::before {
   top: -4px;
 }
-.icon i::after {
+.transforming-burger-button .icon i::after {
   bottom: -4px;
 }
 
-.showMobileMenu i {
+.transforming-burger-button .showMobileMenu i {
   background: transparent;
 }
-.showMobileMenu i::before {
+.transforming-burger-button .showMobileMenu i::before {
   top: 0;
   transform: rotateZ(45deg);
   background: white;
 }
-.showMobileMenu i::after {
+.transforming-burger-button .showMobileMenu i::after {
   bottom: 0;
   transform: rotateZ(-45deg);
   background: white;
