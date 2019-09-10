@@ -1,0 +1,66 @@
+/*
+  Flexbox globals
+  Taken from:
+  https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.css
+
+  Don't re-import this in funnel! This is just here to make the 
+  universal navbar work in CMS.
+
+  This is imported globally in the funnel but not the cms yet.
+  Nick used some stuff here to write the universal navbar.
+*/
+
+// :global {
+// These have been shortened a bit during the rebrand process, mostly due to
+// expediency and issues with old/new breakpoints. If we want them back, let's
+// restore once we establish a new pattern for media query helpers/imports.
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+.items-end {
+  align-items: flex-end;
+}
+.items-center {
+  align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+// }

@@ -9,6 +9,7 @@ export { Spacer } from './Spacer'
 export { TextInput } from './Inputs/TextInput'
 export { InfoMessage } from './InfoMessage'
 export { ZipInput, ZipInputValidator } from './Inputs/ZipInput'
+export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 
 export {
   Body,

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as Cloudinary from 'cloudinary-react'
-import './Images.scss'
 
 // https://cloudinary.com/documentation/image_transformation_reference
 

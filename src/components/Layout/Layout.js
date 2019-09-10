@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './Layout.scss'
 
 export function Layout({ children }) {
   return <div className="Layout">{children}</div>
