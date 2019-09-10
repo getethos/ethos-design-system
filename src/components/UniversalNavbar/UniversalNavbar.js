@@ -172,4 +172,4 @@ class UniversalNavbar extends React.Component {
   }
 }
 
-export default UniversalNavbar
+export { UniversalNavbar }
