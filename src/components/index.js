@@ -9,6 +9,10 @@ export { Spacer } from './Spacer'
 export { TextInput } from './Inputs/TextInput'
 export { InfoMessage } from './InfoMessage'
 export { ZipInput, ZipInputValidator } from './Inputs/ZipInput'
+export {
+  BirthdateInput,
+  BirthdateInputValidators,
+} from './Inputs/BirthdateInput/BirthdateInput'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ButtonSelectGroup } from './ButtonSelectGroup'
 
