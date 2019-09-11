@@ -67,7 +67,7 @@ const PrivateBirthdateInput = (props) => {
 
     // TODO stop copying this code in all text inputs
     if (!!onChange) {
-      onChange(ev)
+      onChange(syntheticReactEvent)
     }
   }
 
