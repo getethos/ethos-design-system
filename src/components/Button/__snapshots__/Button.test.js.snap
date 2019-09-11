@@ -23,3 +23,15 @@ exports[`Button default rendering Stateful isSelected 1`] = `
   test
 </button>
 `;
+
+exports[`Button default rendering Stateful isSelected White 1`] = `
+<button
+  aria-checked={true}
+  className="Button Medium Stateful White isSelected isSelected"
+  data-tid="foo"
+  name="bar"
+  type="button"
+>
+  test
+</button>
+`;

@@ -142,6 +142,7 @@ PrivateButton.STYLES = {
   // WHITE: 'White', // TODO pending spec
   WHITE_OUTLINE: 'WhiteOutline',
   STATEFUL: 'Stateful',
+  STATEFUL_WHITE: 'Stateful White',
 
   // For semantic <buttons> that are not styled as buttons:
   UNSTYLED: 'Unstyled',
@@ -163,6 +164,7 @@ function ButtonFactory(privateProps) {
   return PublicButtonComponent
 }
 
+// TODO: We need to figure out a better way to compose these button styles
 export const Button = {
   Medium: {
     Black: ButtonFactory({
@@ -177,10 +179,16 @@ export const Button = {
       size: PrivateButton.SIZES.MEDIUM,
       style: PrivateButton.STYLES.WHITE_OUTLINE,
     }),
-    Stateful: ButtonFactory({
-      size: PrivateButton.SIZES.MEDIUM,
-      style: PrivateButton.STYLES.STATEFUL,
-    }),
+    Stateful: {
+      Default: ButtonFactory({
+        size: PrivateButton.SIZES.MEDIUM,
+        style: PrivateButton.STYLES.STATEFUL,
+      }),
+      White: ButtonFactory({
+        size: PrivateButton.SIZES.MEDIUM,
+        style: PrivateButton.STYLES.STATEFUL_WHITE
+      })
+    }
   },
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,
