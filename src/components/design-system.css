@@ -532,17 +532,6 @@ strong {
   color: var(--BrandForest);
 }
 
-.Caption.BrandSalamander,
-.Footnote.BrandSalamander,
-.Body.BrandSalamander,
-.TitleSmall.BrandSalamander,
-.TitleMedium.BrandSalamander,
-.TitleLarge.BrandSalamander,
-.TitleXLarge.BrandSalamander,
-.TitleXXLarge.BrandSalamander {
-  color: var(--BrandSalamander);
-}
-
 .Caption.GraySecondary,
 .Footnote.GraySecondary,
 .Body.GraySecondary,
