@@ -4,6 +4,7 @@
 export const COLORS = {
   // Brand
   BRAND_FOREST: 'BrandForest',
+  BRAND_SALAMANDER: 'BrandSalamander',
 
   // Grayscales
   GRAY_PRIMARY: 'GrayPrimary',
