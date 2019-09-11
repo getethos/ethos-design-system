@@ -6,13 +6,14 @@ import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrect
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { Caption, Spacer, COLORS } from '../../index'
-import {
+import * as Validators from './BirthdateInputValidator'
+const {
   cleanse,
   DATE_FORMATS,
   dateMaskByFormat,
   dateRegexByFormat,
   dateStringMatchesFormat,
-} from './BirthdateInputValidator.js'
+} = Validators
 
 // Riffing off redux-form a bit: "this will be set when the field is blurred"
 let touched = false
@@ -128,10 +129,4 @@ const BirthdateInputFactory = (privateProps) => {
 
 export const BirthdateInput = BirthdateInputFactory()
 
-export const BirthdateInputValidators = {
-  cleanse,
-  DATE_FORMATS,
-  dateMaskByFormat,
-  dateRegexByFormat,
-  dateStringMatchesFormat,
-}
+export const BirthdateInputValidators = Validators
