@@ -27,6 +27,7 @@ const PrivateBirthdateInput = (props) => {
     allCaps,
     labelCopy,
     validator,
+    onChange,
     ...restProps
   } = props
 
@@ -54,7 +55,7 @@ const PrivateBirthdateInput = (props) => {
     }
   }
 
-  const onChange = (syntheticReactEvent) => {
+  const privateOnChange = (syntheticReactEvent) => {
     if (!touched) return
     const cleansed = cleanse(syntheticReactEvent.target.value)
     const errMsg = dateStringMatchesFormat(cleansed, dateFormat)
@@ -62,6 +63,11 @@ const PrivateBirthdateInput = (props) => {
       setError(errMsg)
     } else {
       setError('')
+    }
+
+    // TODO stop copying this code in all text inputs
+    if (!!onChange) {
+      onChange(ev)
     }
   }
 
@@ -88,7 +94,7 @@ const PrivateBirthdateInput = (props) => {
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}
-        onChange={onChange}
+        onChange={privateOnChange}
         name="birthdate-auto-corrected"
         placeholder={dateFormat}
         keepCharPositions={true}
@@ -108,6 +114,7 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  onChange: PropTypes.func,
 }
 
 PrivateBirthdateInput.propTypes = {
