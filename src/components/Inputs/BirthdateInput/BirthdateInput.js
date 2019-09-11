@@ -56,6 +56,7 @@ const PrivateBirthdateInput = (props) => {
   }
 
   const privateOnChange = (syntheticReactEvent) => {
+    debugger
     if (!touched) return
     const cleansed = cleanse(syntheticReactEvent.target.value)
     const errMsg = dateStringMatchesFormat(cleansed, dateFormat)
