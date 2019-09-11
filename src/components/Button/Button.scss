@@ -153,6 +153,10 @@ button,
     min-width: var(--ButtonMediumStatefulMinWidth);
   }
 
+  &.White {
+    background-color: var(--White);
+  }
+
   @mixin button-stateful-is-active-or-selected {
     // These are used in both the HTML "active" state (mid-click), as well as
     // the custom "is selected" state (this button is in the "on" state).

@@ -18,6 +18,7 @@ import './ButtonGroup.scss'
  * @prop {string} props.label - Set's the caption of the group's label
  * @prop {boolean} [props.allCaps=false] - When set to `true`, the group's label will be displayed in all caps
  * @prop {string} [props.defaultValue] - Optionally sets a default value for the group. If set, the matching option will be set as `isSelected`
+ * @prop {string} [props.buttonStyle] - Optional value that sets the background color of all the buttons in the group (unselected state)
  * @prop {function} [props.onSelect] - Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered`
  *
  * @example ```
@@ -35,10 +36,11 @@ import './ButtonGroup.scss'
  */
 export const ButtonSelectGroup = ({
   label,
-  allCaps = false,
   children,
   defaultValue,
   onSelect,
+  allCaps = false,
+  buttonStyle = 'default',
 }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -80,7 +82,7 @@ export const ButtonSelectGroup = ({
     const isSelected = value === selectedValue
     const onClick = onClickHandler(value, passedHandler)
 
-    return React.cloneElement(child, { ...child.props, isSelected, onClick })
+    return React.cloneElement(child, { ...child.props, isSelected, onClick, buttonStyle })
   })
 
   const labelId = `button-select-group-${uuidv4()}`
@@ -109,10 +111,12 @@ ButtonSelectGroup.propTypes = {
   label: PropTypes.string.isRequired,
   /** When set to `true`, the group's label will be displayed uppercase */
   allCaps: PropTypes.bool,
-  /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
-  onSelect: PropTypes.func,
   /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
   defaultValue: PropTypes.string,
+  /** Optional value that sets the background color of all the buttons in the group (unselected state) */
+  buttonStyle: PropTypes.string,
+  /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
+  onSelect: PropTypes.func,
 }
 
 // Export the option button
