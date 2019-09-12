@@ -134,7 +134,7 @@ const KitchenSink = () => {
           <ZipInput
             name="this-zip-input-example"
             labelCopy="What is your zip code?"
-            data-tid='the-zip-input'
+            data-tid="the-zip-input"
             validator={(zip) => {
               const errors = ZipInputValidator(zip)
               // More custom logic here should you wish

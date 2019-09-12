@@ -4,7 +4,6 @@ import uuidv4 from 'uuid/v4'
 import { OptionButton } from './OptionButton'
 import { Body } from '../Type/Body'
 import { COLORS } from '../Colors'
-import './ButtonGroup.scss'
 
 /**
  **/
@@ -82,7 +81,12 @@ export const ButtonSelectGroup = ({
     const isSelected = value === selectedValue
     const onClick = onClickHandler(value, passedHandler)
 
-    return React.cloneElement(child, { ...child.props, isSelected, onClick, buttonStyle })
+    return React.cloneElement(child, {
+      ...child.props,
+      isSelected,
+      onClick,
+      buttonStyle,
+    })
   })
 
   const labelId = `button-select-group-${uuidv4()}`
