@@ -1,4 +1,5 @@
 import React from 'react'
+import {OPTION_BUTTON_STYLES} from './OptionButton'
 import { ButtonSelectGroup } from './ButtonSelectGroup'
 import renderer from 'react-test-renderer'
 
@@ -7,10 +8,36 @@ jest.mock('uuid/v4', () => {
 })
 
 describe('ButtonSelectGroup', () => {
-  test('The ButtonSelectGroup renders', () => {
+  test('The ButtonSelectGroup renders (default button style, `buttonStyle` not passed)', () => {
     const tree = renderer
       .create(
         <ButtonSelectGroup label="options">
+          <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
+          <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
+        </ButtonSelectGroup>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('The ButtonSelectGroup renders (default button style, `buttonStyle` passed)', () => {
+    const tree = renderer
+      .create(
+        <ButtonSelectGroup buttonStyle={OPTION_BUTTON_STYLES.DEFAULT} label="options">
+          <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
+          <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
+        </ButtonSelectGroup>
+      )
+      .toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
+
+  test('The ButtonSelectGroup renders (white button style)', () => {
+    const tree = renderer
+      .create(
+        <ButtonSelectGroup buttonStyle={OPTION_BUTTON_STYLES.WHITE} label="options">
           <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
           <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
         </ButtonSelectGroup>
@@ -66,7 +93,7 @@ describe('ButtonSelectGroup', () => {
     })
 
     const tree = renderer.create(
-      <ButtonSelectGroup defaultValue={optionValues[0]} onSelect={onSelectStub}>
+      <ButtonSelectGroup label="options" defaultValue={optionValues[0]} onSelect={onSelectStub}>
         {optionButtons}
       </ButtonSelectGroup>
     )
@@ -95,7 +122,7 @@ describe('ButtonSelectGroup', () => {
     const value = 'foo'
 
     const tree = renderer.create(
-      <ButtonSelectGroup onSelect={onSelectStub}>
+      <ButtonSelectGroup label="options" onSelect={onSelectStub}>
         <ButtonSelectGroup.Option value={value} onClick={onClickStub}>
           {value}
         </ButtonSelectGroup.Option>

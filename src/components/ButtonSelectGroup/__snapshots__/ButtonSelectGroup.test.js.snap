@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ButtonSelectGroup The ButtonSelectGroup renders 1`] = `
+exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, \`buttonStyle\` not passed) 1`] = `
 <div
   aria-labelledby="button-select-group-1"
   className="button-select-group"
@@ -32,6 +32,96 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders 1`] = `
     </button>
     <button
       className="Button Medium Stateful"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        id="selection-option-1"
+      >
+        bar
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, \`buttonStyle\` passed) 1`] = `
+<div
+  aria-labelledby="button-select-group-1"
+  className="button-select-group"
+  role="radiogroup"
+>
+  <span
+    className="Body Theinhardt Regular400 GrayPrimary"
+  >
+    <span
+      className="button-group-label"
+      id="button-select-group-1"
+    >
+      options
+    </span>
+  </span>
+  <div
+    className="button-group"
+  >
+    <button
+      className="Button Medium Stateful"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        id="selection-option-1"
+      >
+        foo
+      </span>
+    </button>
+    <button
+      className="Button Medium Stateful"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        id="selection-option-1"
+      >
+        bar
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonSelectGroup The ButtonSelectGroup renders (white button style) 1`] = `
+<div
+  aria-labelledby="button-select-group-1"
+  className="button-select-group"
+  role="radiogroup"
+>
+  <span
+    className="Body Theinhardt Regular400 GrayPrimary"
+  >
+    <span
+      className="button-group-label"
+      id="button-select-group-1"
+    >
+      options
+    </span>
+  </span>
+  <div
+    className="button-group"
+  >
+    <button
+      className="Button Medium Stateful White"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        id="selection-option-1"
+      >
+        foo
+      </span>
+    </button>
+    <button
+      className="Button Medium Stateful White"
       onClick={[Function]}
       type="button"
     >
