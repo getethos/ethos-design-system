@@ -14,7 +14,8 @@ export {
   BirthdateInputValidators,
 } from './Inputs/BirthdateInput/BirthdateInput'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
-export { ButtonSelectGroup, OPTION_BUTTON_STYLES } from './ButtonSelectGroup'
+export { ButtonSelectGroup } from './ButtonSelectGroup/ButtonSelectGroup'
+export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 
 export {
   Body,
