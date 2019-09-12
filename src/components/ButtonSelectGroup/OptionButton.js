@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { Button } from '../Button'
 
+export const OPTION_BUTTON_STYLES = {
+  DEFAULT: 'default',
+  WHITE: 'white'
+}
+
 /**
  * Component renders an option button within a `<ButtonSelectGroup />`
  *
@@ -15,16 +20,28 @@ import { Button } from '../Button'
  *
  * @return {JSX.Element}
  */
-export const OptionButton = ({ children: label, isSelected, onClick }) => (
-  <Button.Medium.Stateful
-    ariaLabelId={`selection-option-${uuidv4()}`}
-    role="radio"
-    onClick={onClick}
-    isSelected={isSelected}
-  >
-    {label}
-  </Button.Medium.Stateful>
-)
+export const OptionButton = ({
+  children: label,
+  isSelected,
+  onClick,
+  buttonStyle,
+}) => {
+  const props = {
+    ariaLabelId: `selection-option-${uuidv4()}`,
+    role: 'radio',
+    onClick: onClick,
+    isSelected: isSelected,
+  }
+
+  switch (buttonStyle) {
+    case OPTION_BUTTON_STYLES.WHITE:
+      return <Button.Medium.Stateful.White {...props}>{label}</Button.Medium.Stateful.White>
+
+    case OPTION_BUTTON_STYLES.DEFAULT:
+    default:
+      return <Button.Medium.Stateful.Default {...props}>{label}</Button.Medium.Stateful.Default>
+  }
+}
 
 OptionButton.propTypes = {
   /** Set's the caption of the button's label */

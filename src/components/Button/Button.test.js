@@ -11,6 +11,8 @@ describe('Button', () => {
       expect(Button.Medium.BlackOutline).toBeDefined()
       expect(Button.Medium.WhiteOutline).toBeDefined()
       expect(Button.Medium.Stateful).toBeDefined()
+      expect(Button.Medium.Stateful.Default).toBeDefined()
+      expect(Button.Medium.Stateful.White).toBeDefined()
       expect(Button.Unstyled).toBeDefined()
     })
   })
@@ -29,9 +31,19 @@ describe('Button', () => {
     test('Stateful isSelected', () => {
       const tree = renderer
         .create(
-          <Button.Medium.Stateful isSelected={true} data-tid="foo" name="bar">
+          <Button.Medium.Stateful.Default isSelected={true} data-tid="foo" name="bar">
             test
-          </Button.Medium.Stateful>
+          </Button.Medium.Stateful.Default>
+        )
+        .toJSON()
+      expect(tree).toMatchSnapshot()
+    })
+    test('Stateful isSelected White', () => {
+      const tree = renderer
+        .create(
+          <Button.Medium.Stateful.White isSelected={true} data-tid="foo" name="bar">
+            test
+          </Button.Medium.Stateful.White>
         )
         .toJSON()
       expect(tree).toMatchSnapshot()

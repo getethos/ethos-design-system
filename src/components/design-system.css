@@ -289,6 +289,9 @@ button:not([disabled]),
 .Button.Stateful.Medium {
   min-width: var(--ButtonMediumStatefulMinWidth);
 }
+.Button.Stateful.White {
+  background-color: var(--White);
+}
 .Button.Stateful:not([disabled]):hover {
   border-color: var(--GrayStrokeAndDisabled--translucent);
   background-color: var(--GrayLightHover--translucent);

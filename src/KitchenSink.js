@@ -44,12 +44,12 @@ const KitchenSink = () => {
           <Button.Medium.WhiteOutline>
             Button.Medium.WhiteOutline
           </Button.Medium.WhiteOutline>
-          <Button.Medium.Stateful>
+          <Button.Medium.Stateful.Default>
             Button.Medium.Stateful
-          </Button.Medium.Stateful>
-          <Button.Medium.Stateful isSelected={true}>
+          </Button.Medium.Stateful.Default>
+          <Button.Medium.Stateful.Default isSelected={true}>
             Button.Medium.Stateful
-          </Button.Medium.Stateful>
+          </Button.Medium.Stateful.Default>
           <Button.Unstyled>Button.Unstyled</Button.Unstyled>
         </section>
         <section>
