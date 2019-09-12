@@ -535,17 +535,6 @@ strong {
   color: var(--BrandForest);
 }
 
-.Caption.BrandSalamander,
-.Footnote.BrandSalamander,
-.Body.BrandSalamander,
-.TitleSmall.BrandSalamander,
-.TitleMedium.BrandSalamander,
-.TitleLarge.BrandSalamander,
-.TitleXLarge.BrandSalamander,
-.TitleXXLarge.BrandSalamander {
-  color: var(--BrandSalamander);
-}
-
 .Caption.GraySecondary,
 .Footnote.GraySecondary,
 .Body.GraySecondary,
@@ -940,6 +929,19 @@ a,
 .Link.Navlink:active,
 .Link.Navlink:hover {
   border-bottom-color: var(--GrayPrimary--translucent);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.button-group > .Button.Stateful {
+  width: 100%;
+  margin-right: var(--Space-8);
+}
+.button-group > .Button.Stateful:last-child {
+  margin-right: 0;
 }
 
 /* @getethos/design-system/Media.scss
