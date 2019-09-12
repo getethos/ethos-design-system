@@ -1,17 +1,17 @@
-import React from 'react'
+import React from "react";
 
-import FancyAnimatedLogo from './FancyAnimatedLogo'
-import LogoNotAnimated from './assets/ethos-logo-black.js'
-import LogoWhite from './assets/ethos-logo-white.js'
+import FancyAnimatedLogo from "./FancyAnimatedLogo";
+import LogoNotAnimated from "./assets/ethos-logo-black.js";
+import LogoWhite from "./assets/ethos-logo-white.js";
 import {
   Media,
   Button,
   Layout,
   Spacer,
-  TitleXLarge,
+  TitleXLarge
   // } from 'frontend/packages/design-system' // Funnel
-} from '../index' // CMS
-import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
+} from "../index"; // CMS
+import TransformingBurgerButton from "./TransformingBurgerButton/TransformingBurgerButton";
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
 
@@ -22,71 +22,71 @@ import TransformingBurgerButton from './TransformingBurgerButton/TransformingBur
  */
 const navbarLinks = [
   {
-    href: '/how-it-works/',
-    title: 'How it works',
+    href: "/how-it-works/",
+    title: "How it works"
   },
   {
-    href: '/why-ethos/',
-    title: 'Why Ethos',
+    href: "/why-ethos/",
+    title: "Why Ethos"
   },
   {
-    href: '/blog/',
-    title: 'Blog',
+    href: "/blog/",
+    title: "Blog"
   },
   {
-    href: '/login/',
-    title: 'Account',
-  },
-]
+    href: "/login/",
+    title: "Account"
+  }
+];
 
 class UniversalNavbar extends React.Component {
   state = {
-    showMobileMenu: false,
-  }
+    showMobileMenu: false
+  };
 
   toggleHamburger = () => {
-    this.setState({ showMobileMenu: !this.state.showMobileMenu })
-  }
+    this.setState({ showMobileMenu: !this.state.showMobileMenu });
+  };
 
   render() {
-    const getAnEstimate = (showWhenScrolled) => (
+    const getAnEstimate = showWhenScrolled => (
       <a
         className={
-          'get-an-estimate ' + (showWhenScrolled ? 'show-when-scrolled' : '')
+          "get-an-estimate " + (showWhenScrolled ? "show-when-scrolled" : "")
         }
         href="/term"
       >
         <Button.Medium.BlackOutline>Check my price</Button.Medium.BlackOutline>
       </a>
-    )
+    );
 
-    const { showMobileMenu } = this.state
+    const { showMobileMenu } = this.state;
 
-    const renderDesktopLink = (l) => (
+    const renderDesktopLink = l => (
       <div
-        key={l.title + 'nonmobile'}
-        className={'universal-navbar-paddingLeft'}
+        key={l.title + "nonmobile"}
+        className={"universal-navbar-paddingLeft"}
       >
         <a href={l.href}>{l.title}</a>
       </div>
-    )
+    );
 
     return (
       <div style={{ height: 64 }}>
         <div
           style={{
-            position: 'fixed',
+            position: "fixed",
             top: 0,
             left: 0,
-            width: '100%',
+            width: "100%",
             height: 100,
-            zIndex: 1,
+            zIndex: 1
           }}
         >
           <Layout.ScrollDetector>
             <Media.PhoneOnly>
               {/* Hamburger button */}
-              <div style={{ zIndex: 2, position: 'fixed', top: 24, right: 24 }}>
+              <div style={{ zIndex: 2, position: "fixed", top: 24, right: 24 }}>
                 <TransformingBurgerButton
                   showMobileMenu={showMobileMenu}
                   clickHandler={this.toggleHamburger}
@@ -94,32 +94,32 @@ class UniversalNavbar extends React.Component {
               </div>
               <div
                 className={
-                  'universal-navbar-root' +
-                  ' ' +
-                  'universal-navbar-mobileRoot' +
-                  ' flex items-center justify-between'
+                  "universal-navbar-root" +
+                  " " +
+                  "universal-navbar-mobileRoot" +
+                  " flex items-center justify-between"
                 }
               >
                 {/* Dark green mobile menu, shows up when hamburger is clicked*/}
                 <div
                   className={
-                    showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
+                    showMobileMenu ? "shownMobileMenu" : "hiddenMobileMenu"
                   }
                 >
                   <a href="/">
-                    {LogoWhite({ className: 'universal-navbar-logo' })}
+                    {LogoWhite({ className: "universal-navbar-logo" })}
                   </a>
                   <Spacer.H56 />
-                  {navbarLinks.map((l) => (
-                    <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
+                  {navbarLinks.map(l => (
+                    <div key={l.title + "mobile"} style={{ marginBottom: 24 }}>
                       <TitleXLarge.Sans.Regular400>
-                        <a key={l.title + 'mobile'} href={l.href}>
+                        <a key={l.title + "mobile"} href={l.href}>
                           {l.title}
                         </a>
                       </TitleXLarge.Sans.Regular400>
                     </div>
                   ))}
-                  <div style={{ position: 'absolute', bottom: 40 }}>
+                  <div style={{ position: "absolute", bottom: 40 }}>
                     <a href="/term">
                       <Button.Medium.BlackOutline>
                         Check my price
@@ -137,14 +137,14 @@ class UniversalNavbar extends React.Component {
             </Media.PhoneOnly>
 
             <Media.TabletAndUp>
-              <div className={'universal-navbar-root'}>
+              <div className={"universal-navbar-root"}>
                 <div
-                  className={'universal-navbar-rootChild flex justify-between'}
+                  className={"universal-navbar-rootChild flex justify-between"}
                 >
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
                     <a href="/">
-                      {LogoNotAnimated({ className: 'universal-navbar-logo' })}
+                      {LogoNotAnimated({ className: "universal-navbar-logo" })}
                     </a>
                     {renderDesktopLink(navbarLinks[0])}
                     {renderDesktopLink(navbarLinks[1])}
@@ -158,7 +158,7 @@ class UniversalNavbar extends React.Component {
                     <Media.LaptopAndUp>
                       {navbarLinks.slice(-1).map(renderDesktopLink)}
                     </Media.LaptopAndUp>
-                    <div className={'universal-navbar-paddingLeft'}>
+                    <div className={"universal-navbar-paddingLeft"}>
                       {getAnEstimate(false)}
                     </div>
                   </div>
@@ -168,8 +168,8 @@ class UniversalNavbar extends React.Component {
           </Layout.ScrollDetector>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export { UniversalNavbar }
+export { UniversalNavbar };
