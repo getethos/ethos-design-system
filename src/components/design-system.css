@@ -467,6 +467,19 @@ figure {
   margin-bottom: var(--Space-16);
 }
 
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.button-group > .Button.Stateful {
+  width: 100%;
+  margin-right: var(--Space-8);
+}
+.button-group > .Button.Stateful:last-child {
+  margin-right: 0;
+}
+
 /* @getethos/design-system/Spacer.scss
    ========================================================================== */
 :root {
