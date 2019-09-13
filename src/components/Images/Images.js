@@ -15,7 +15,8 @@ export const CloudinaryImage = ({ publicId, className, ...rest }) => {
       {...rest}
       className={['Image', className].join(' ')}
       cloudName={CLOUDINARY_CLOUD_NAME}
-      dpr={2} // should optimize
+      dpr="auto"
+      responsive
       publicId={publicIdFilename}
       crop="fill" // aka CSS cover
       secure="true"
