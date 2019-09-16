@@ -944,6 +944,38 @@ a,
   border-bottom-color: var(--GrayPrimary--translucent);
 }
 
+.InfoMessage {
+  transition: all 150ms ease-in-out;
+}
+.InfoMessage.error,
+.InfoMessage.error a,
+.InfoMessage.error a:hover,
+.InfoMessage.error a:active,
+.InfoMessage.error a:visited {
+  color: var(--BrandSunburn);
+}
+.InfoMessage.warning,
+.InfoMessage.warning a,
+.InfoMessage.warning a:hover,
+.InfoMessage.warning a:active,
+.InfoMessage.warning a:visited {
+  color: var(--BrandSunburn);
+}
+.InfoMessage.success,
+.InfoMessage.success a,
+.InfoMessage.success a:hover,
+.InfoMessage.success a:active,
+.InfoMessage.success a:visited {
+  color: var(--BrandForest);
+}
+.InfoMessage.info,
+.InfoMessage.info a,
+.InfoMessage.info a:hover,
+.InfoMessage.info a:active,
+.InfoMessage.info a:visited {
+  color: var(--BrandForest);
+}
+
 /* @getethos/design-system/Media.scss
    ========================================================================== */
 /*

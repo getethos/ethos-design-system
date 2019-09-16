@@ -33,6 +33,7 @@ function PrivateTextInput({
   allCaps,
   validator,
   onChange,
+  forcedErrorMessage,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -59,6 +60,11 @@ function PrivateTextInput({
   const [value, setValue] = useState('')
 
   const doValidation = (value) => {
+    if (forcedErrorMessage) {
+      setError(forcedErrorMessage)
+      return
+    }
+
     const minMaxError = minMaxValidator(value)
     if (minMaxError) {
       setError(minMaxError)
@@ -134,6 +140,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   onFocus: PropTypes.func,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
+  forcedErrorMessage: PropTypes.string,
 }
 
 PrivateTextInput.propTypes = {
