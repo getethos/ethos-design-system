@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { OptionButton } from './OptionButton'
-import { Body } from '../Type/Body'
-import { COLORS } from '../Colors'
+import { InputLabel } from '../Inputs/InputLabel' // Uhh :S
 
 /**
  **/
@@ -96,15 +95,13 @@ export const ButtonSelectGroup = ({
       aria-labelledby={labelId}
       className="button-select-group"
     >
-      <Body.Regular400
+      <InputLabel
         element="span"
-        color={COLORS.GRAY_PRIMARY}
+        id={labelId}
+        name={name}
+        labelCopy={label}
         allCaps={allCaps}
-      >
-        <span id={labelId} className="button-group-label">
-          {label}
-        </span>
-      </Body.Regular400>
+      />
       <div className="button-group">{options}</div>
     </div>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
+import { InputLabel } from '../InputLabel'
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
@@ -78,15 +79,7 @@ const PrivateBirthdateInput = (props) => {
 
   return (
     <>
-      <Caption.Medium500
-        element="label"
-        allCaps={allCaps}
-        htmlFor={name}
-        color={COLORS.GRAY_PRIMARY}
-      >
-        {labelCopy}
-      </Caption.Medium500>
-      <Spacer.H8 />
+      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       <MaskedInput
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}

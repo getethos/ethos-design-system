@@ -29,6 +29,7 @@ import { COLORS } from '../Colors'
  * @param  {Boolean} props.centered       Whether to text-align: center
  * @param  {Boolean} props.allCaps        Whether to text-transform to: uppercase
  * @param  {String}  props.element        Override the default <element>
+ * @param  {String}  props.id             HTML id, used in aria-labelledby
  * @param  {String}  props.subtype        (private) e.g. Caption vs. TitleSmall
  * @param  {String}  props.typeface       (private) Typeface
  * @param  {String}  props.weight         (private) Typeface weight
@@ -54,7 +55,7 @@ export const Type = ({
   const [isValidWeight] = useIncludes(Type.WEIGHTS)
   isValidWeight(weight)
 
-  const WHITELISTED_PROPS = ['htmlFor', 'data-tid']
+  const WHITELISTED_PROPS = ['htmlFor', 'data-tid', 'id']
   const [, isWhiteListedProp] = useIncludes(WHITELISTED_PROPS)
   isWhiteListedProp(rest)
 
@@ -138,6 +139,7 @@ Type.PUBLIC_PROPS = {
   element: PropTypes.oneOf(Object.values(Type.ELEMENTS)),
   htmlFor: PropTypes.string,
   'data-tid': PropTypes.string,
+  id: PropTypes.string,
 }
 
 Type.propTypes = {
