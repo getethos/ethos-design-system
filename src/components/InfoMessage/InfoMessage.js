@@ -8,7 +8,12 @@ const INFO_MESSAGE_TYPES = {
   SUCCESS: 'SUCCESS',
 }
 
-function InfoMessageFactory(type) {
+const INFO_MESSAGE_FORMATS = {
+  TEXT: 'TEXT', // Plain text, no background
+  ALERT: 'ALERT', // Styled like Bootstrap alerts, may get cut eventually
+}
+
+function InfoMessageFactory(type, format) {
   let className = ''
   switch (type) {
     case INFO_MESSAGE_TYPES.ERROR:
@@ -27,6 +32,14 @@ function InfoMessageFactory(type) {
       throw new Error('Improper info message type supplied')
   }
 
+  switch (format) {
+    case INFO_MESSAGE_FORMATS.TEXT:
+      break
+    case INFO_MESSAGE_FORMATS.ALERT:
+      className = className + ' Alert'
+      break
+  }
+
   const PublicInfoMessageComponent = ({ children }) => {
     return (
       <div className={'InfoMessage ' + className}>
@@ -39,10 +52,42 @@ function InfoMessageFactory(type) {
 }
 
 const PublicInfoMessageComponents = {
-  Error: InfoMessageFactory(INFO_MESSAGE_TYPES.ERROR),
-  Warning: InfoMessageFactory(INFO_MESSAGE_TYPES.WARNING),
-  Info: InfoMessageFactory(INFO_MESSAGE_TYPES.INFO),
-  Success: InfoMessageFactory(INFO_MESSAGE_TYPES.SUCCESS),
+  Text: {
+    Error: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.ERROR,
+      INFO_MESSAGE_FORMATS.TEXT
+    ),
+    Warning: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.WARNING,
+      INFO_MESSAGE_FORMATS.TEXT
+    ),
+    Info: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.INFO,
+      INFO_MESSAGE_FORMATS.TEXT
+    ),
+    Success: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.SUCCESS,
+      INFO_MESSAGE_FORMATS.TEXT
+    ),
+  },
+  Alert: {
+    Error: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.ERROR,
+      INFO_MESSAGE_FORMATS.ALERT
+    ),
+    Warning: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.WARNING,
+      INFO_MESSAGE_FORMATS.ALERT
+    ),
+    Info: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.INFO,
+      INFO_MESSAGE_FORMATS.ALERT
+    ),
+    Success: InfoMessageFactory(
+      INFO_MESSAGE_TYPES.SUCCESS,
+      INFO_MESSAGE_FORMATS.ALERT
+    ),
+  },
 }
 
 export const InfoMessage = PublicInfoMessageComponents

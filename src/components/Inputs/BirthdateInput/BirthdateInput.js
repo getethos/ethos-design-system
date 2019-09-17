@@ -28,6 +28,7 @@ const PrivateBirthdateInput = (props) => {
     labelCopy,
     validator,
     onChange,
+    forcedErrorMessage,
     ...restProps
   } = props
 
@@ -40,7 +41,9 @@ const PrivateBirthdateInput = (props) => {
 
     // First check in valid format as that error takes priority
     let errMsg = dateStringMatchesFormat(cleansed, dateFormat)
-    if (errMsg.length) {
+    if (forcedErrorMessage) {
+      setError(forcedErrorMessage)
+    } else if (errMsg.length) {
       setError(errMsg)
     } else {
       // Now we let the validator validate the date range
