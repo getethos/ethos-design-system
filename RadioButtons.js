@@ -142,6 +142,7 @@ export function RadioButtonGroup({
           {...option}
           disabled={disabled || option.disabled}
           required={required}
+          key={`${option.label}-${option.value.toLowerCase()}`}
           {...rest}
         />
       ))}
