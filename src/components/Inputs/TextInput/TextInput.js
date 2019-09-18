@@ -87,7 +87,7 @@ function PrivateTextInput({
   const restrict = (val) => val.replace(illegalRegex, '')
 
   const privateOnChange = (ev) => {
-    const val = event.target.value
+    const val = ev.target.value
     const restrictedVal = restrict(val)
     setValue(restrictedVal)
     if (!touched) {
