@@ -15,7 +15,7 @@ const useErrorMessage = (validator) => {
       return (
         <>
           <Spacer.H8 />
-          <InfoMessage.Text.Error>{displayError} </InfoMessage.Text.Error>
+          <InfoMessage.Error>{displayError} </InfoMessage.Error>
         </>
       )
     }

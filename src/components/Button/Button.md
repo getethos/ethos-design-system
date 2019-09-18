@@ -23,13 +23,15 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
-<Button.Medium.Stateful>Button.Medium.Stateful</Button.Medium.Stateful>
+<Button.Medium.Stateful.Default>
+  Button.Medium.Stateful.Default
+</Button.Medium.Stateful.Default>
 ```
 
 ```jsx
-<Button.Medium.Stateful isSelected={true}>
-  Button.Medium.Stateful
-</Button.Medium.Stateful>
+<Button.Medium.Stateful.Default isSelected={true}>
+  Button.Medium.Stateful.Default
+</Button.Medium.Stateful.Default>
 ```
 
 ```jsx
