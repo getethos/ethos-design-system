@@ -98,7 +98,6 @@ export const ButtonSelectGroup = ({
       <InputLabel
         element="span"
         id={labelId}
-        name={name}
         labelCopy={label}
         allCaps={allCaps}
       />
