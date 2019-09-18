@@ -39,6 +39,7 @@ export const ButtonSelectGroup = ({
   onSelect,
   allCaps = false,
   buttonStyle = 'default',
+  ...rest,
 }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -94,6 +95,7 @@ export const ButtonSelectGroup = ({
       role="radiogroup"
       aria-labelledby={labelId}
       className="button-select-group"
+      data-tid={rest['data-tid']}
     >
       <InputLabel
         element="span"
@@ -118,6 +120,8 @@ ButtonSelectGroup.propTypes = {
   buttonStyle: PropTypes.string,
   /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
   onSelect: PropTypes.func,
+  /** Optional data-tid used as a unique id for targeting test selectors */
+  'data-tid': PropTypes.string,
 }
 
 // Export the option button
