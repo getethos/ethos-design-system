@@ -88,6 +88,7 @@ export const ButtonSelectGroup = ({
     })
   })
 
+  // Use id to connect label and this pseudo-input because of aria-labelledby
   const labelId = `button-select-group-${uuidv4()}`
   return (
     <div
