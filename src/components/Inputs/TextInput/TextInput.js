@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { InputLabel } from '../InputLabel'
+import { InfoMessage } from '../../index'
+import { Spacer } from '../../Spacer'
 import useRequired from '../../../hooks/useRequired.js'
 import useMinMaxLength from '../../../hooks/useMinMaxLength.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
@@ -34,71 +36,75 @@ function PrivateTextInput({
   validator,
   onChange,
   forcedErrorMessage,
+  value,
   ...rest
 }) {
   // Verify that all required props were supplied
-  const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
-  let allRelevantProps = Object.assign({}, rest, {
-    name: name,
-    minLength: minLength,
-    maxLength: maxLength,
-    labelCopy: labelCopy,
-    allCaps: allCaps,
-  })
-  includesRequired(allRelevantProps)
+  // const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
+  // let allRelevantProps = Object.assign({}, rest, {
+  //   name: name,
+  //   minLength: minLength,
+  //   maxLength: maxLength,
+  //   labelCopy: labelCopy,
+  //   allCaps: allCaps,
+  // })
+  // includesRequired(allRelevantProps)
 
   // Verify that no invalid props were supplied
-  const [includesInvalid] = useInvalid(
-    Object.keys(PrivateTextInput.PUBLIC_PROPS)
-  )
-  includesInvalid(rest)
+  // const [includesInvalid] = useInvalid(
+  //   Object.keys(PrivateTextInput.PUBLIC_PROPS)
+  // )
+  // includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, validate] = useErrorMessage(validator)
-  const [minMaxValidator] = useMinMaxLength(minLength, maxLength)
+  // const [getError, setError, validate] = useErrorMessage(validator)
+  // const [minMaxValidator] = useMinMaxLength(minLength, maxLength)
 
-  const [value, setValue] = useState('')
+  // const [value, setValue] = useState('')
 
-  const doValidation = (value) => {
-    if (forcedErrorMessage) {
-      setError(forcedErrorMessage)
-      return
-    }
+  // const doValidation = (value) => {
+  //   if (forcedErrorMessage) {
+  //     setError(forcedErrorMessage)
+  //     return
+  //   }
 
-    const minMaxError = minMaxValidator(value)
-    if (minMaxError) {
-      setError(minMaxError)
-      return
-    }
-    const errMsg = validate(value)
-    if (errMsg.length) {
-      setError(errMsg)
-    } else {
-      setError('')
-    }
+  //   const minMaxError = minMaxValidator(value)
+  //   if (minMaxError) {
+  //     setError(minMaxError)
+  //     return
+  //   }
+  //   const errMsg = validate(value)
+  //   if (errMsg.length) {
+  //     setError(errMsg)
+  //   } else {
+  //     setError('')
+  //   }
+  // }
+
+  const [touched, setTouched] = useState(false)
+
+  const onBlur = (syntheticReactEvent) => {
+    //   const cleansed = cleanse(syntheticReactEvent.target.value)
+    console.log('blurring!')
+    setTouched(true)
   }
 
-  const onBlur = (ev) => {
-    touched = true
-    privateOnChange(ev)
-  }
+  // const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
+  // const restrict = (val) => val.replace(illegalRegex, '')
 
-  const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
-  const restrict = (val) => val.replace(illegalRegex, '')
+  // const privateOnChange = (ev) => {
+  //   const val = event.target.value
+  //   const restrictedVal = restrict(val)
+  //   setValue(restrictedVal)
+  //   if (!touched) {
+  //     return
+  //   }
+  //   doValidation(restrictedVal)
 
-  const privateOnChange = (ev) => {
-    const val = event.target.value
-    const restrictedVal = restrict(val)
-    setValue(restrictedVal)
-    if (!touched) {
-      return
-    }
-    doValidation(restrictedVal)
-
-    if (!!onChange) {
-      onChange(ev)
-    }
-  }
+  //   if (!!onChange) {
+  //     onChange(ev)
+  //   }
+  // }
 
   const onPaste = (ev) => {
     const val = ev.clipboardData.getData('text/plain')
@@ -106,21 +112,29 @@ function PrivateTextInput({
     setValue(restrictedVal)
   }
 
+  const err =
+    touched && forcedErrorMessage ? (
+      <>
+        <Spacer.H8 />
+        <InfoMessage.Text.Error>{forcedErrorMessage} </InfoMessage.Text.Error>
+      </>
+    ) : null
+
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
       <input
         type="text"
-        className={!!getError() ? 'TextInput Error' : 'TextInput'}
+        className={!!err ? 'TextInput Error' : 'TextInput'}
         disabled={disabled}
         name={name}
-        onPaste={onPaste}
-        onChange={privateOnChange}
         onBlur={onBlur}
+        onPaste={onPaste}
+        onChange={onChange}
         value={value}
         data-tid={rest['data-tid']}
       />
-      {getError()}
+      {err}
     </>
   )
 }
