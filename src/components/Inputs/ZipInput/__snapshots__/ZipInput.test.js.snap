@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ZipInput default rendering 1`] = `
+Array [
+  <label
+    className="Body Theinhardt Regular400 GrayPrimary"
+    htmlFor="le-zip"
+  >
+    What is your zip code?
+  </label>,
+  <input
+    className="TextInput"
+    data-tid="le-zip"
+    name="le-zip"
+    onChange={[Function]}
+    type="text"
+  />,
+  "",
+]
+`;

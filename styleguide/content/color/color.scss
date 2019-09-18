@@ -1,0 +1,102 @@
+@import "../../src/components/colors.scss";
+
+.White {
+  color: var(--White);
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+[class^='swatch-'] {
+  height: 216px;
+  width: 216px;
+}
+
+[class^='swatch-'] span:first-child {
+  padding: 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+}
+[class^='swatch-'] span:last-child {
+  padding: 0 16px;
+}
+
+/* Brand */
+.swatch-brand-BrandSand {
+  background-color: var(--BrandSand);
+}
+
+.swatch-brand-BrandDuckegg {
+  background-color: var(--BrandDuckegg);
+}
+
+.swatch-brand-BrandSalamander {
+  background-color: var(--BrandSalamander);
+}
+
+.swatch-brand-BrandButtercup {
+  background-color: var(--BrandButtercup);
+}
+
+.swatch-brand-BrandForest {
+  background-color: var(--BrandForest);
+}
+
+.swatch-brand-BrandMoss {
+  background-color: var(--BrandMoss);
+}
+
+/* Neutrals */
+.swatch-brand-GrayPrimary {
+  background-color: var(--GrayPrimary--opaque);
+}
+
+.swatch-brand-GrayPrimaryTranslucent {
+  background-color: var(--GrayPrimary--translucent);
+}
+
+.swatch-brand-GrayDarkHover {
+  background-color: var(--GrayDarkHover--opaque);
+}
+
+.swatch-brand-GrayDarkHoverTranslucent {
+  background-color: var(--GrayDarkHover--translucent);
+}
+
+.swatch-brand-GraySecondary {
+  background-color: var(--GraySecondary--opaque);
+}
+
+.swatch-brand-GraySecondaryTranslucent {
+  background-color: var(--GraySecondary--translucent);
+}
+
+.swatch-brand-GrayStrokeAndDisabled {
+  background-color: var(--GrayStrokeAndDisabled--opaque);
+}
+
+.swatch-brand-GrayStrokeAndDisabledTranslucent {
+  background-color: var(--GrayStrokeAndDisabled--translucent);
+}
+
+.swatch-brand-GrayLightHover {
+  background-color: var(--GrayLightHover--opaque);
+}
+
+.swatch-brand-GrayLightHoverTranslucent {
+  background-color: var(--GrayLightHover--translucent);
+}
+
+.swatch-brand-White {
+  background-color: var(--White);
+  border: 1px solid rgb(204, 204, 204);
+}
+
+.swatch-brand-BrandMossTranslucent {
+  background-color: var(--BrandMoss--translucent);
+}

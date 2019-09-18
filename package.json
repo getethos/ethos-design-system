@@ -1,24 +1,59 @@
 {
   "name": "@getethos/design-system",
-  "version": "1.0.0",
-  "private": true,
-  "license": "UNLICENSED",
+  "version": "0.4.0",
+  "description": "Ethos Design System",
   "main": "index.js",
+  "license": "UNLICENSED",
   "scripts": {
-    "build": "node-sass index.scss design-system.css && yarn format",
+    "build": "webpack",
+    "compile": "node-sass src/components/index.scss src/components/design-system.css && yarn format",
     "develop": "chokidar *.scss -c 'yarn build' --initial",
-    "format": "cd .. && prettier --write ./design-system/*.*s",
-    "test": "cd .. && yarn test ./design-system"
+    "format": "prettier --write \"src/components/**/*.*css\"",
+    "spotcheck": "yarn compile && echo \"\n*****\n* View the spotcheck at http://localhost:8080/spotcheck.html\n*****\n\" && webpack-dev-server ",
+    "styleguide": "yarn compile && styleguidist server",
+    "styleguide:build": "yarn compile && styleguidist build",
+    "test": "jest",
+    "test:coverage": "jest --collectCoverageFrom '[\"src/components/**/*.js\", \"src/hooks/**/*.js\"]' --coverage && open ./coverage/lcov-report/index.html",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
+    "test:update": "jest --updateSnapshot"
   },
-  "dependencies": {
-    "cloudinary-react": "^1.1.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-responsive": "^6.1.2"
+  "jest": {
+    "verbose": true,
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleNameMapper": {
+      ".+\\.(css|scss)$": "identity-obj-proxy",
+      ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   },
+  "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
     "chokidar-cli": "^1.2.2",
+    "cloudinary-react": "^1.1.1",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "node-sass": "^4.12.0",
-    "prettier": "1.16.3"
+    "prettier": "^1.16.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-responsive": "^8.0.0",
+    "react-styleguidist": "^9.1.16",
+    "react-test-renderer": "^16.9.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.1.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
   }
 }

@@ -1,0 +1,57 @@
+.InfoMessage {
+  padding-left: 1em;
+  padding-right: 1em;
+  transition: all 150ms ease-in-out;
+  line-height: 1.35;
+  padding-top: 0.85em;
+  padding-bottom: 0.85em;
+  margin-bottom: 1.25rem;
+
+  &.error {
+    background-color: var(--BrandPasty);
+    font-weight: 500;
+    &,
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: var(--BrandSunburn);
+    }
+  }
+
+  &.warning {
+    background-color: var(--BrandPasty);
+    font-weight: 500;
+    &,
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: var(--BrandSunburn);
+    }
+  }
+
+  &.success {
+    background: var(--BrandMoss);
+    font-weight: 500;
+    &,
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: var(--BrandForest);
+    }
+  }
+
+  &.info {
+    background: var(--BrandDuckegg);
+    font-weight: 500;
+    &,
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+      color: var(--BrandForest);
+    }
+  }
+}

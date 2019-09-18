@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextInput default rendering 1`] = `
+Array [
+  <label
+    className="Body Theinhardt Regular400 GrayPrimary"
+    htmlFor="nombre"
+  >
+    The label
+  </label>,
+  <input
+    className="TextInput"
+    data-tid="the-text-input"
+    name="nombre"
+    onChange={[Function]}
+    type="text"
+  />,
+  "",
+]
+`;
