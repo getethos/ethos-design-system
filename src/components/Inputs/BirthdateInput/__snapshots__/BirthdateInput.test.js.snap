@@ -4,7 +4,7 @@ exports[`BirthdateInput default rendering 1`] = `
 Array [
   <label
     className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    htmlFor="birthDate"
+    htmlFor="birthdate-auto-corrected"
   >
     What is your birthdate?
   </label>,
@@ -37,11 +37,9 @@ Array [
     }
     name="birthdate-auto-corrected"
     onBlur={[Function]}
-    onChange={[Function]}
     pipe={[Function]}
     placeholder="mm/dd/yyyy"
     type="text"
   />,
-  "",
 ]
 `;

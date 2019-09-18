@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { Caption, COLORS, Spacer } from '../index'
 
-/* @getethos/design-system/TextInput.js
+/* @getethos/design-system/InputLabel.js
 
 /**
  * Consistent label styling for all inputs
@@ -22,14 +22,28 @@ export function InputLabel({
   id,
   allCaps = true,
 }) {
+  // `name` prop should be supplied for most fields, unless
+  // the field uses aria-labelledby
+  let nameOrIdProps = null
+  if (!name && !id) {
+    throw new Error(
+      'InputLabel component requires either a name or an id, you supplied neither'
+    )
+  } else if (!!name && !!id) {
+    throw new Error(
+      'InputLabel component requires either a name or an id, you supplied both'
+    )
+  } else {
+    nameOrIdProps = !!name ? { htmlFor: name } : { id }
+  }
+
   return (
     <>
       <Caption.Medium500
         element={element}
         color={COLORS.GRAY_PRIMARY}
         allCaps={true} // WIP these should be consistent...
-        htmlFor={name}
-        id={id}
+        {...nameOrIdProps}
       >
         {labelCopy}
       </Caption.Medium500>
