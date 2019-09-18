@@ -18,6 +18,7 @@ import { getMinMaxDateValidator } from './BirthdateInputValidator.js'
       dateFormat: 'mm/dd/yyyy',
     })(value)
   }}
+  forcedErrorMessage="asdf"
 />
 ```
 
