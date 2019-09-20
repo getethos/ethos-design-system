@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { TextInput } from '../TextInput'
 
 export const ZipInput = (props) => {
-  return <TextInput {...props} />
+  return <TextInput {...props} type="tel" />
 }
 
 ZipInput.PUBLIC_PROPS = {
