@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
+import { INPUT_MODES } from '../../../constants'
 import { InputLabel } from '../InputLabel'
 import { InfoMessage } from '../../index'
 import { Spacer } from '../../Spacer'
@@ -15,12 +16,13 @@ import useInvalid from '../../../hooks/useInvalid.js'
  * WIP
  *
  * @param  {String}   props.name        Input name and htmlFor prop for label
+ * @param  {String}   props.inputMode   Which keyboard (alpha or numeric) to use
  * @param  {String}   props.labelCopy   User-visible text of label for input
  * @param  {Number}   props.minLength   Min number of characters allowed
- * @param  {Number}   props.maxLength   Max number of characters allowed 
+ * @param  {Number}   props.maxLength   Max number of characters allowed
  * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
  * @param  {Function} props.validator   Function for validating input
- * @param  {Boolean}  props.disabled  
+ * @param  {Boolean}  props.disabled
  */
 
 // Riffing off redux-form a bit: "this will be set when the field is blurred"
@@ -28,6 +30,7 @@ let touched = false
 
 function PrivateTextInput({
   disabled,
+  inputMode,
   name,
   minLength = 0,
   maxLength = Number.MAX_SAFE_INTEGER,
@@ -124,6 +127,7 @@ function PrivateTextInput({
       <InputLabel name={name} labelCopy={labelCopy} />
       <input
         type="text"
+        inputMode={inputMode}
         className={!!err ? 'TextInput Error' : 'TextInput'}
         disabled={disabled}
         name={name}
@@ -141,6 +145,10 @@ function PrivateTextInput({
 PrivateTextInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
+  // This is a newer way to trigger the mobile numeric keypad (old way was
+  // `type='tel'`.) For now, we probably either want to leave this unset, in
+  // which case it is equivalent to 'text', or set 'numeric' for numeric inputs.
+  inputMode: PropTypes.oneOf(Object.values(INPUT_MODES)),
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
   labelCopy: PropTypes.string.isRequired,

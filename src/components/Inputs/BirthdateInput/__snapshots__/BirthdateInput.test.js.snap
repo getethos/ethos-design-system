@@ -20,6 +20,7 @@ Array [
     className="BirthdateInput TextInput"
     data-tid="le-birthdate"
     guide={true}
+    inputMode="numeric"
     keepCharPositions={true}
     mask={
       Array [

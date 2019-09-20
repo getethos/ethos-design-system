@@ -19,6 +19,7 @@ Array [
   <input
     className="TextInput"
     data-tid="le-zip"
+    inputMode="numeric"
     name="le-zip"
     onBlur={[Function]}
     onPaste={[Function]}

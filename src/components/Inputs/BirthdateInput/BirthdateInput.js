@@ -3,12 +3,14 @@ import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 
+import { INPUT_MODES } from '../../../constants'
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { InfoMessage } from '../../index'
 import { InputLabel } from '../InputLabel'
 import { Spacer } from '../../Spacer'
 import * as Validators from './BirthdateInputValidator'
+
 const {
   cleanse,
   DATE_FORMATS,
@@ -99,6 +101,7 @@ const PrivateBirthdateInput = (props) => {
           !!err ? 'BirthdateInput TextInput Error' : 'BirthdateInput TextInput'
         }
         type="text"
+        inputMode={INPUT_MODES.NUMERIC}
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}

@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { INPUT_MODES } from '../../../constants'
 import { TextInput } from '../TextInput'
 
 export const ZipInput = (props) => {
-  return <TextInput {...props} />
+  return <TextInput {...props} inputMode={INPUT_MODES.NUMERIC} />
 }
 
 ZipInput.PUBLIC_PROPS = {
