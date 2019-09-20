@@ -37,7 +37,6 @@ const PrivateBirthdateInput = (props) => {
 
   const onBlur = (syntheticReactEvent) => {
     //   const cleansed = cleanse(syntheticReactEvent.target.value)
-    console.log('blurring!')
     setTouched(true)
   }
 
