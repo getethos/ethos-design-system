@@ -425,6 +425,8 @@ figure {
 
 /* @getethos/design-system/Spacer.scss
    ========================================================================== */
+/* @getethos/design-system/Media.scss
+   ========================================================================== */
 :root {
   --Space-80: 80px;
   --Space-72: 72px;
@@ -448,6 +450,30 @@ figure {
   --NegativeSpace-16: -16px;
   --NegativeSpace-8: -8px;
   --NegativeSpace-4: -4px;
+}
+
+@media (max-width: 599px) {
+  .spacer-height-phone-8 {
+    height: var(--Space-8);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .spacer-height-tablet-16 {
+    height: var(--Space-16);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .spacer-height-laptop-16 {
+    height: var(--Space-16);
+  }
+}
+
+@media (min-width: 1200px) {
+  .spacer-height-desktop-24 {
+    height: var(--Space-24);
+  }
 }
 
 /* @getethos/design-system/Type.scss

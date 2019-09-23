@@ -1,6 +1,8 @@
 /* @getethos/design-system/Spacer.scss
    ========================================================================== */
 
+@import '../Media/Media.scss';
+
 :root {
   --Space-80: 80px;
   --Space-72: 72px;
@@ -25,4 +27,28 @@
   --NegativeSpace-16: -16px;
   --NegativeSpace-8: -8px;
   --NegativeSpace-4: -4px;
+}
+
+@include for-phone-only {
+  .spacer-height-phone-8 {
+    height: var(--Space-8);
+  }
+}
+
+@include for-tablet-only {
+  .spacer-height-tablet-16 {
+    height: var(--Space-16);
+  }
+}
+
+@include for-laptop-only {
+  .spacer-height-laptop-16 {
+    height: var(--Space-16);
+  }
+}
+
+@include for-desktop-only {
+  .spacer-height-desktop-24 {
+    height: var(--Space-24);
+  }
 }

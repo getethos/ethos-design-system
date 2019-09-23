@@ -10,7 +10,7 @@ Leftover code:
 import { Body } from '../Type'
 ;<div>
   <Body.Regular400>Some text above a spacer</Body.Regular400>
-  <Spacer.H24 />
+  <Spacer height={[8, 16, 16, 24]} />
   <Body.Regular400>Some more text</Body.Regular400>
 </div>
 ```
@@ -20,7 +20,7 @@ import { Body } from '../Type'
 ;<div>
   <Body.Regular400>
     Some text.
-    <Spacer.W8 />
+    <Spacer height={[8, 16, 16, 24]} />
     Some more text.
   </Body.Regular400>
 </div>
