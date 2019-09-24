@@ -133,7 +133,7 @@ class UniversalNavbar extends React.Component {
                 <a href="/">
                   <FancyAnimatedLogo />
                 </a>
-                {!hideMobileCta && getAnEstimate(true)}
+                {!this.props.hideMobileCta && getAnEstimate(true)}
               </div>
             </Media.PhoneOnly>
 
