@@ -130,7 +130,7 @@ function PrivateTextInput({
       <input
         type="text"
         inputMode={inputMode}
-        pattern={pattern || 'test'}
+        pattern={pattern}
         className={!!err ? 'TextInput Error' : 'TextInput'}
         disabled={disabled}
         name={name}
