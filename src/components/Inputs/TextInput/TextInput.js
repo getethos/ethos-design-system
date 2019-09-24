@@ -17,6 +17,7 @@ import useInvalid from '../../../hooks/useInvalid.js'
  *
  * @param  {String}   props.name        Input name and htmlFor prop for label
  * @param  {String}   props.inputMode   Which keyboard (alpha or numeric) to use
+ * @param  {String}   props.pattern     Regex for e.g. numeric inputs
  * @param  {String}   props.labelCopy   User-visible text of label for input
  * @param  {Number}   props.minLength   Min number of characters allowed
  * @param  {Number}   props.maxLength   Max number of characters allowed
@@ -129,7 +130,7 @@ function PrivateTextInput({
       <input
         type="text"
         inputMode={inputMode}
-        pattern={pattern}
+        pattern={pattern || 'test'}
         className={!!err ? 'TextInput Error' : 'TextInput'}
         disabled={disabled}
         name={name}
