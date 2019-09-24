@@ -38,6 +38,7 @@ Array [
     }
     name="birthdate-auto-corrected"
     onBlur={[Function]}
+    pattern="[0-9]*"
     pipe={[Function]}
     placeholder="mm/dd/yyyy"
     type="text"

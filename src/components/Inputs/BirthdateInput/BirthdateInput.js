@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 
-import { INPUT_MODES } from '../../../constants'
+import { INPUT_MODES, INPUT_PATTERNS } from '../../../constants'
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { InfoMessage } from '../../index'
@@ -102,6 +102,7 @@ const PrivateBirthdateInput = (props) => {
         }
         type="text"
         inputMode={INPUT_MODES.NUMERIC}
+        pattern={INPUT_PATTERNS.NUMERIC}
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}

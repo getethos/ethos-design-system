@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { INPUT_MODES } from '../../../constants'
+import { INPUT_MODES, INPUT_PATTERNS } from '../../../constants'
 import { InputLabel } from '../InputLabel'
 import { InfoMessage } from '../../index'
 import { Spacer } from '../../Spacer'
@@ -31,6 +31,7 @@ let touched = false
 function PrivateTextInput({
   disabled,
   inputMode,
+  pattern,
   name,
   minLength = 0,
   maxLength = Number.MAX_SAFE_INTEGER,
@@ -128,6 +129,7 @@ function PrivateTextInput({
       <input
         type="text"
         inputMode={inputMode}
+        pattern={pattern}
         className={!!err ? 'TextInput Error' : 'TextInput'}
         disabled={disabled}
         name={name}
@@ -149,6 +151,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   // `type='tel'`.) For now, we probably either want to leave this unset, in
   // which case it is equivalent to 'text', or set 'numeric' for numeric inputs.
   inputMode: PropTypes.oneOf(Object.values(INPUT_MODES)),
+  pattern: PropTypes.oneOf(Object.values(INPUT_PATTERNS)),
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
   labelCopy: PropTypes.string.isRequired,
