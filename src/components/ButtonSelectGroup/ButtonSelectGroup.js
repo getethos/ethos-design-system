@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { OptionButton } from './OptionButton'
-import { Body } from '../Type/Body'
-import { COLORS } from '../Colors'
-import './ButtonGroup.scss'
+import { InputLabel } from '../Inputs/InputLabel' // Uhh :S
 
 /**
  **/
@@ -41,6 +39,7 @@ export const ButtonSelectGroup = ({
   onSelect,
   allCaps = false,
   buttonStyle = 'default',
+  ...rest,
 }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
   const [isAnswered, setIsAnswered] = useState(false)
@@ -82,25 +81,29 @@ export const ButtonSelectGroup = ({
     const isSelected = value === selectedValue
     const onClick = onClickHandler(value, passedHandler)
 
-    return React.cloneElement(child, { ...child.props, isSelected, onClick, buttonStyle })
+    return React.cloneElement(child, {
+      ...child.props,
+      isSelected,
+      onClick,
+      buttonStyle,
+    })
   })
 
+  // Use id to connect label and this pseudo-input because of aria-labelledby
   const labelId = `button-select-group-${uuidv4()}`
   return (
     <div
       role="radiogroup"
       aria-labelledby={labelId}
       className="button-select-group"
+      data-tid={rest['data-tid']}
     >
-      <Body.Regular400
+      <InputLabel
         element="span"
-        color={COLORS.GRAY_PRIMARY}
+        id={labelId}
+        labelCopy={label}
         allCaps={allCaps}
-      >
-        <span id={labelId} className="button-group-label">
-          {label}
-        </span>
-      </Body.Regular400>
+      />
       <div className="button-group">{options}</div>
     </div>
   )
@@ -117,6 +120,8 @@ ButtonSelectGroup.propTypes = {
   buttonStyle: PropTypes.string,
   /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
   onSelect: PropTypes.func,
+  /** Optional data-tid used as a unique id for targeting test selectors */
+  'data-tid': PropTypes.string,
 }
 
 // Export the option button

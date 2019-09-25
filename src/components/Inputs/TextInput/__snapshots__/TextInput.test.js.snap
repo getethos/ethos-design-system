@@ -21,11 +21,8 @@ Array [
     data-tid="the-text-input"
     name="nombre"
     onBlur={[Function]}
-    onChange={[Function]}
     onPaste={[Function]}
     type="text"
-    value=""
   />,
-  "",
 ]
 `;

@@ -113,10 +113,10 @@ const KitchenSink = () => {
         </section>
         <section>
           <h2>InfoMessages</h2>
-          <InfoMessage.Error>Error</InfoMessage.Error>
-          <InfoMessage.Warning>Warning</InfoMessage.Warning>
-          <InfoMessage.Info>Info</InfoMessage.Info>
-          <InfoMessage.Success>Success</InfoMessage.Success>
+          <InfoMessage.Text.Error>Error</InfoMessage.Text.Error>
+          <InfoMessage.Text.Warning>Warning</InfoMessage.Text.Warning>
+          <InfoMessage.Text.Info>Info</InfoMessage.Text.Info>
+          <InfoMessage.Text.Success>Success</InfoMessage.Text.Success>
         </section>
         <section>
           <h2>Inputs</h2>
@@ -134,7 +134,7 @@ const KitchenSink = () => {
           <ZipInput
             name="this-zip-input-example"
             labelCopy="What is your zip code?"
-            data-tid='the-zip-input'
+            data-tid="the-zip-input"
             validator={(zip) => {
               const errors = ZipInputValidator(zip)
               // More custom logic here should you wish

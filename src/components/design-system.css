@@ -467,6 +467,19 @@ figure {
   margin-bottom: var(--Space-16);
 }
 
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.button-group > .Button.Stateful {
+  width: 100%;
+  margin-right: var(--Space-8);
+}
+.button-group > .Button.Stateful:last-child {
+  margin-right: 0;
+}
+
 /* @getethos/design-system/Spacer.scss
    ========================================================================== */
 :root {
@@ -931,17 +944,65 @@ a,
   border-bottom-color: var(--GrayPrimary--translucent);
 }
 
-.button-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.InfoMessage {
+  transition: all 150ms ease-in-out;
 }
-.button-group > .Button.Stateful {
-  width: 100%;
-  margin-right: var(--Space-8);
+.InfoMessage.error,
+.InfoMessage.error a,
+.InfoMessage.error a:hover,
+.InfoMessage.error a:active,
+.InfoMessage.error a:visited {
+  color: var(--BrandSunburn);
 }
-.button-group > .Button.Stateful:last-child {
-  margin-right: 0;
+.InfoMessage.warning,
+.InfoMessage.warning a,
+.InfoMessage.warning a:hover,
+.InfoMessage.warning a:active,
+.InfoMessage.warning a:visited {
+  color: var(--BrandSunburn);
+}
+.InfoMessage.success,
+.InfoMessage.success a,
+.InfoMessage.success a:hover,
+.InfoMessage.success a:active,
+.InfoMessage.success a:visited {
+  color: var(--BrandForest);
+}
+.InfoMessage.info,
+.InfoMessage.info a,
+.InfoMessage.info a:hover,
+.InfoMessage.info a:active,
+.InfoMessage.info a:visited {
+  color: var(--BrandForest);
+}
+.InfoMessage.Alert {
+  padding-left: 1em;
+  padding-right: 1em;
+  transition: all 150ms ease-in-out;
+  line-height: 1.35;
+  padding-top: 0.85em;
+  padding-bottom: 0.85em;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+.InfoMessage.Alert.error {
+  background-color: var(--BrandPasty);
+}
+.InfoMessage.Alert.error,
+.InfoMessage.Alert.error a,
+.InfoMessage.Alert.error a:hover,
+.InfoMessage.Alert.error a:active,
+.InfoMessage.Alert.error a:visited {
+  color: var(--BrandSunburn);
+}
+.InfoMessage.Alert.warning {
+  background-color: var(--BrandPasty);
+}
+.InfoMessage.Alert.success {
+  background: var(--BrandMoss);
+}
+.InfoMessage.Alert.info {
+  background: var(--BrandDuckegg);
 }
 
 /* @getethos/design-system/Media.scss
