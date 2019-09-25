@@ -85,10 +85,6 @@ function PrivateTextInput({
       return
     }
     doValidation(restrictedVal)
-
-    if (!!props.onChange) {
-      props.onChange(ev)
-    }
   }
 
   const onPaste = (ev) => {
@@ -127,7 +123,6 @@ PrivateTextInput.PUBLIC_PROPS = {
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func,
   onFocus: PropTypes.func,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
