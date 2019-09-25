@@ -20,16 +20,3 @@ import { getMinMaxDateValidator } from './BirthdateInputValidator.js'
   }}
 />
 ```
-
-```jsx
-<BirthdateInput
-  name="birthDate"
-  allCaps={true}
-  labelCopy="Birthdate"
-  data-tid="the-birthdate-input"
-  minAge={20}
-  maxAge={65}
-  forcedErrorMessage="Forced"
-  validator={(value) => {}}
-/>
-```

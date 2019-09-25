@@ -6,13 +6,11 @@ import { InputLabel } from '../InputLabel'
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import { Caption, Spacer, COLORS } from '../../index'
 import * as Validators from './BirthdateInputValidator'
 const {
   cleanse,
   DATE_FORMATS,
   dateMaskByFormat,
-  dateRegexByFormat,
   dateStringMatchesFormat,
 } = Validators
 
@@ -28,8 +26,6 @@ const PrivateBirthdateInput = (props) => {
     allCaps,
     labelCopy,
     validator,
-    onChange,
-    forcedErrorMessage,
     ...restProps
   } = props
 
@@ -42,9 +38,7 @@ const PrivateBirthdateInput = (props) => {
 
     // First check in valid format as that error takes priority
     let errMsg = dateStringMatchesFormat(cleansed, dateFormat)
-    if (forcedErrorMessage) {
-      setError(forcedErrorMessage)
-    } else if (errMsg.length) {
+    if (errMsg.length) {
       setError(errMsg)
     } else {
       // Now we let the validator validate the date range
@@ -57,11 +51,9 @@ const PrivateBirthdateInput = (props) => {
         setError('')
       }
     }
-
-    privateOnChange(syntheticReactEvent)
   }
 
-  const privateOnChange = (syntheticReactEvent) => {
+  const onChange = (syntheticReactEvent) => {
     if (!touched) return
     const cleansed = cleanse(syntheticReactEvent.target.value)
     const errMsg = dateStringMatchesFormat(cleansed, dateFormat)
@@ -69,11 +61,6 @@ const PrivateBirthdateInput = (props) => {
       setError(errMsg)
     } else {
       setError('')
-    }
-
-    // TODO stop copying this code in all text inputs
-    if (!!onChange) {
-      onChange(syntheticReactEvent)
     }
   }
 
@@ -92,7 +79,7 @@ const PrivateBirthdateInput = (props) => {
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}
-        onChange={privateOnChange}
+        onChange={onChange}
         name="birthdate-auto-corrected"
         placeholder={dateFormat}
         keepCharPositions={true}

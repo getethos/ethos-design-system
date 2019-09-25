@@ -33,8 +33,6 @@ function PrivateTextInput({
   labelCopy,
   allCaps,
   validator,
-  onChange,
-  forcedErrorMessage,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -61,11 +59,6 @@ function PrivateTextInput({
   const [value, setValue] = useState('')
 
   const doValidation = (value) => {
-    if (forcedErrorMessage) {
-      setError(forcedErrorMessage)
-      return
-    }
-
     const minMaxError = minMaxValidator(value)
     if (minMaxError) {
       setError(minMaxError)
@@ -81,7 +74,6 @@ function PrivateTextInput({
 
   const onBlur = (ev) => {
     touched = true
-    privateOnChange(ev)
   }
 
   const onChange = (ev) => {
@@ -109,7 +101,7 @@ function PrivateTextInput({
         disabled={disabled}
         name={name}
         onPaste={onPaste}
-        onChange={privateOnChange}
+        onChange={onChange}
         onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
@@ -130,7 +122,6 @@ PrivateTextInput.PUBLIC_PROPS = {
   onFocus: PropTypes.func,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
-  forcedErrorMessage: PropTypes.string,
 }
 
 PrivateTextInput.propTypes = {

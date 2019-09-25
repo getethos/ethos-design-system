@@ -11,17 +11,3 @@
   }
 />
 ```
-
-```jsx
-<TextInput
-  name="example"
-  minLength={5}
-  maxLength={20}
-  forcedErrorMessage="Your error message goes here"
-  labelCopy="Error is controlled by prop, appears after first blur, never disappears"
-  data-tid="the-text-input"
-  validator={(x) =>
-    x.length % 2 ? 'Text does not have an even number of characters' : ''
-  }
-/>
-```

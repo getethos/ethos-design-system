@@ -11,11 +11,12 @@ const useErrorMessage = (validator) => {
 
   const getError = () => {
     if (displayError) {
+      debugger
       // WIP do InfoMessage styling later
       return (
         <>
           <Spacer.H8 />
-          <InfoMessage.Error>{displayError} </InfoMessage.Error>
+          <InfoMessage.Text.Error>{displayError} </InfoMessage.Text.Error>
         </>
       )
     }
