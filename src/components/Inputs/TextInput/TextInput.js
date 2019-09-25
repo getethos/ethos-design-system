@@ -5,6 +5,7 @@ import useRequired from '../../../hooks/useRequired.js'
 import useMinMaxLength from '../../../hooks/useMinMaxLength.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
+import reject from '../../../helpers/reject.js'
 import { Caption, COLORS, Spacer } from '../../index'
 
 /* @getethos/design-system/TextInput.js
@@ -75,9 +76,6 @@ function PrivateTextInput({
     touched = true
     doValidation(ev.target.value)
   }
-
-  const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
-  const restrict = (val) => val.replace(illegalRegex, '')
 
   const onChange = (ev) => {
     const val = event.target.value
