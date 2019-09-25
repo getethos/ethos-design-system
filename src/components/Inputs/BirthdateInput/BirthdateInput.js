@@ -2,20 +2,20 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
+import { InputLabel } from '../InputLabel'
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import { Caption, Spacer, COLORS } from '../../index'
-import {
+import * as Validators from './BirthdateInputValidator'
+const {
   cleanse,
   DATE_FORMATS,
   dateMaskByFormat,
-  dateRegexByFormat,
   dateStringMatchesFormat,
-} from './BirthdateInputValidator.js'
+} = Validators
 
 // Riffing off redux-form a bit: "this will be set when the field is blurred"
-let touched = false;
+let touched = false
 
 const PrivateBirthdateInput = (props) => {
   const {
@@ -26,17 +26,18 @@ const PrivateBirthdateInput = (props) => {
     allCaps,
     labelCopy,
     validator,
-    ...restProps } = props
+    ...restProps
+  } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, validate] = useErrorMessage(validator)
 
   const onBlur = (syntheticReactEvent) => {
-    const cleansed =  cleanse(syntheticReactEvent.target.value)
-    touched = true;
+    const cleansed = cleanse(syntheticReactEvent.target.value)
+    touched = true
 
     // First check in valid format as that error takes priority
-    let errMsg = dateStringMatchesFormat(cleansed, dateFormat);
+    let errMsg = dateStringMatchesFormat(cleansed, dateFormat)
     if (errMsg.length) {
       setError(errMsg)
     } else {
@@ -53,9 +54,9 @@ const PrivateBirthdateInput = (props) => {
   }
 
   const onChange = (syntheticReactEvent) => {
-    if (!touched) return;
-    const cleansed =  cleanse(syntheticReactEvent.target.value)
-    const errMsg = dateStringMatchesFormat(cleansed, dateFormat);
+    if (!touched) return
+    const cleansed = cleanse(syntheticReactEvent.target.value)
+    const errMsg = dateStringMatchesFormat(cleansed, dateFormat)
     if (errMsg.length) {
       setError(errMsg)
     } else {
@@ -65,25 +66,21 @@ const PrivateBirthdateInput = (props) => {
 
   return (
     <>
-      <Caption.Medium500
-        element='label'
-        allCaps={allCaps}
-        htmlFor={name}
-        color={COLORS.GRAY_PRIMARY}
-      >
-        {labelCopy}
-      </Caption.Medium500>
-      <Spacer.H8 />
+      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       <MaskedInput
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
-        className={!!getError() ? 'BirthdateInput TextInput Error' : 'BirthdateInput TextInput'}
-        type='text'
+        className={
+          !!getError()
+            ? 'BirthdateInput TextInput Error'
+            : 'BirthdateInput TextInput'
+        }
+        type="text"
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}
         onChange={onChange}
-        name='birthdate-auto-corrected'
+        name="birthdate-auto-corrected"
         placeholder={dateFormat}
         keepCharPositions={true}
       />
@@ -102,6 +99,7 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  onChange: PropTypes.func,
 }
 
 PrivateBirthdateInput.propTypes = {
@@ -109,7 +107,7 @@ PrivateBirthdateInput.propTypes = {
 }
 
 PrivateBirthdateInput.defaultProps = {
-  dateFormat: 'mm\/dd\/yyyy',
+  dateFormat: 'mm/dd/yyyy',
   labelCopy: 'Birthdate',
 }
 
@@ -122,3 +120,5 @@ const BirthdateInputFactory = (privateProps) => {
 }
 
 export const BirthdateInput = BirthdateInputFactory()
+
+export const BirthdateInputValidators = Validators

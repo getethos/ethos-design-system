@@ -1,10 +1,10 @@
 import React from 'react'
-import {OPTION_BUTTON_STYLES} from './OptionButton'
+import { OPTION_BUTTON_STYLES } from './OptionButton'
 import { ButtonSelectGroup } from './ButtonSelectGroup'
 import renderer from 'react-test-renderer'
 
 jest.mock('uuid/v4', () => {
-  return jest.fn(() => 1);
+  return jest.fn(() => 1)
 })
 
 describe('ButtonSelectGroup', () => {
@@ -24,7 +24,10 @@ describe('ButtonSelectGroup', () => {
   test('The ButtonSelectGroup renders (default button style, `buttonStyle` passed)', () => {
     const tree = renderer
       .create(
-        <ButtonSelectGroup buttonStyle={OPTION_BUTTON_STYLES.DEFAULT} label="options">
+        <ButtonSelectGroup
+          buttonStyle={OPTION_BUTTON_STYLES.DEFAULT}
+          label="options"
+        >
           <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
           <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
         </ButtonSelectGroup>
@@ -37,7 +40,10 @@ describe('ButtonSelectGroup', () => {
   test('The ButtonSelectGroup renders (white button style)', () => {
     const tree = renderer
       .create(
-        <ButtonSelectGroup buttonStyle={OPTION_BUTTON_STYLES.WHITE} label="options">
+        <ButtonSelectGroup
+          buttonStyle={OPTION_BUTTON_STYLES.WHITE}
+          label="options"
+        >
           <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
           <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
         </ButtonSelectGroup>
@@ -59,7 +65,7 @@ describe('ButtonSelectGroup', () => {
       )
     })
     const tree = renderer.create(
-      <ButtonSelectGroup onSelect={onSelectStub}>
+      <ButtonSelectGroup label="placeholder" onSelect={onSelectStub}>
         {optionButtons}
       </ButtonSelectGroup>
     )
@@ -93,7 +99,11 @@ describe('ButtonSelectGroup', () => {
     })
 
     const tree = renderer.create(
-      <ButtonSelectGroup label="options" defaultValue={optionValues[0]} onSelect={onSelectStub}>
+      <ButtonSelectGroup
+        label="options"
+        defaultValue={optionValues[0]}
+        onSelect={onSelectStub}
+      >
         {optionButtons}
       </ButtonSelectGroup>
     )

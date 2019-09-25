@@ -40,4 +40,38 @@
       color: var(--BrandForest);
     }
   }
+
+  &.Alert {
+    padding-left: 1em;
+    padding-right: 1em;
+    transition: all 150ms ease-in-out;
+    line-height: 1.35;
+    padding-top: 0.85em;
+    padding-bottom: 0.85em;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+
+    &.error {
+      background-color: var(--BrandPasty);
+      &,
+      a,
+      a:hover,
+      a:active,
+      a:visited {
+        color: var(--BrandSunburn);
+      }
+    }
+
+    &.warning {
+      background-color: var(--BrandPasty);
+    }
+
+    &.success {
+      background: var(--BrandMoss);
+    }
+
+    &.info {
+      background: var(--BrandDuckegg);
+    }
+  }
 }

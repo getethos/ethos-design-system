@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
+import { InputLabel } from '../InputLabel'
 import useRequired from '../../../hooks/useRequired.js'
 import useMinMaxLength from '../../../hooks/useMinMaxLength.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
 import restrict from '../../../helpers/restrict.js'
-import { Caption, COLORS, Spacer } from '../../index'
 
 /* @getethos/design-system/TextInput.js
 
@@ -74,7 +74,6 @@ function PrivateTextInput({
 
   const onBlur = (ev) => {
     touched = true
-    doValidation(ev.target.value)
   }
 
   const onChange = (ev) => {
@@ -95,10 +94,7 @@ function PrivateTextInput({
 
   return (
     <>
-      <Caption.Medium500 element="label" allCaps={allCaps} htmlFor={name}>
-        {labelCopy}
-      </Caption.Medium500>
-      <Spacer.H8 />
+      <InputLabel name={name} labelCopy={labelCopy} />
       <input
         type="text"
         className={!!getError() ? 'TextInput Error' : 'TextInput'}
