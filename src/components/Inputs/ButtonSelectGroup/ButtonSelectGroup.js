@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { OptionButton } from './OptionButton'
-import { InputLabel } from '../InputLabel' // Uhh :S
+import { InputLabel } from '../InputLabel'
 
 /**
  **/
