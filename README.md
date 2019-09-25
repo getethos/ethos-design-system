@@ -18,6 +18,9 @@ When you've made changes, make sure to run `yarn release` to build the js and cs
 
 ## Running the Design System
 
+**First, you'll need to install the fonts to `src/`. Please ask a fellow
+Ethos, or go to the #dev-design-system channel where these are pinned.**
+
 ```
 yarn && yarn styleguide
 ```

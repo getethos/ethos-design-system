@@ -6,6 +6,7 @@ import useRequired from '../../../hooks/useRequired.js'
 import useMinMaxLength from '../../../hooks/useMinMaxLength.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
+import restrict from '../../../helpers/restrict.js'
 
 /* @getethos/design-system/TextInput.js
 
@@ -83,21 +84,14 @@ function PrivateTextInput({
     privateOnChange(ev)
   }
 
-  const illegalRegex = /[*|\":<>[\]{}`\\()';=@&$]/g
-  const restrict = (val) => val.replace(illegalRegex, '')
-
-  const privateOnChange = (ev) => {
-    const val = ev.target.value
+  const onChange = (ev) => {
+    const val = event.target.value
     const restrictedVal = restrict(val)
     setValue(restrictedVal)
     if (!touched) {
       return
     }
     doValidation(restrictedVal)
-
-    if (!!onChange) {
-      onChange(ev)
-    }
   }
 
   const onPaste = (ev) => {
@@ -133,7 +127,6 @@ PrivateTextInput.PUBLIC_PROPS = {
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func,
   onFocus: PropTypes.func,
   minLength: PropTypes.number,
   maxLength: PropTypes.number,
