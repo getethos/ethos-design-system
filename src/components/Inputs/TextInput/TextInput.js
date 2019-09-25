@@ -5,7 +5,7 @@ import useRequired from '../../../hooks/useRequired.js'
 import useMinMaxLength from '../../../hooks/useMinMaxLength.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
-import reject from '../../../helpers/reject.js'
+import restrict from '../../../helpers/restrict.js'
 import { Caption, COLORS, Spacer } from '../../index'
 
 /* @getethos/design-system/TextInput.js
