@@ -11,7 +11,6 @@ const useErrorMessage = (validator) => {
 
   const getError = () => {
     if (displayError) {
-      debugger
       // WIP do InfoMessage styling later
       return (
         <>
