@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
@@ -132,7 +133,7 @@ class UniversalNavbar extends React.Component {
                 <a href="/">
                   <FancyAnimatedLogo />
                 </a>
-                {getAnEstimate(true)}
+                {!this.props.hideMobileCta && getAnEstimate(true)}
               </div>
             </Media.PhoneOnly>
 
@@ -170,6 +171,10 @@ class UniversalNavbar extends React.Component {
       </div>
     )
   }
+}
+
+UniversalNavbar.propTypes = {
+  hideMobileCta: PropTypes.bool,
 }
 
 export { UniversalNavbar }
