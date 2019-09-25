@@ -14,6 +14,9 @@ They are gitignored for copyright reasons.
 
 ## Running the Design System
 
+__First, you'll need to install the fonts to `src/`. Please ask a fellow
+Ethos, or go to the #dev-design-system channel where these are pinned.__
+
   ```
   yarn && yarn styleguide
   ```
