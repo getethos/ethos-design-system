@@ -331,50 +331,6 @@ figure {
   height: auto;
 }
 
-.TextInput {
-  font-size: 19px;
-  line-height: 1.26316;
-  width: 100%;
-  font-family: var(--Theinhardt-font-stack);
-  box-sizing: border-box;
-  background-color: var(--White);
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--GrayStrokeAndDisabled--translucent);
-  padding: 17px 16px 13px;
-  color: var(--GrayPrimary--opaque);
-  border-radius: 0;
-  transition: border-color 250ms ease;
-  outline: 0;
-  margin: 0;
-}
-
-.TextInput:hover {
-  background-color: var(--GrayLightHover--translucent);
-}
-
-.TextInput:focus {
-  border-color: var(--GrayPrimary--opaque);
-  background-color: var(--White);
-}
-
-.TextInput::placeholder {
-  color: var(--GrayStrokeAndDisabled--opaque);
-}
-
-.TextInput:disabled {
-  color: var(--White);
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  border-color: transparent;
-}
-
-.Error,
-.Error:focus {
-  border-color: var(--BrandSunburn);
-  border-width: 1px;
-  border-style: solid;
-}
-
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
 /* @getethos/design-system/Media.scss
@@ -465,19 +421,6 @@ figure {
 }
 .RadioButtonGroup > :not(:last-child) {
   margin-bottom: var(--Space-16);
-}
-
-.button-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-.button-group > .Button.Stateful {
-  width: 100%;
-  margin-right: var(--Space-8);
-}
-.button-group > .Button.Stateful:last-child {
-  margin-right: 0;
 }
 
 /* @getethos/design-system/Spacer.scss
@@ -1452,4 +1395,61 @@ a,
 
 .flex-shrink-0 {
   flex-shrink: 0;
+}
+
+.TextInput {
+  font-size: 19px;
+  line-height: 1.26316;
+  width: 100%;
+  font-family: var(--Theinhardt-font-stack);
+  box-sizing: border-box;
+  background-color: var(--White);
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--GrayStrokeAndDisabled--translucent);
+  padding: 17px 16px 13px;
+  color: var(--GrayPrimary--opaque);
+  border-radius: 0;
+  transition: border-color 250ms ease;
+  outline: 0;
+  margin: 0;
+}
+
+.TextInput:hover {
+  background-color: var(--GrayLightHover--translucent);
+}
+
+.TextInput:focus {
+  border-color: var(--GrayPrimary--opaque);
+  background-color: var(--White);
+}
+
+.TextInput::placeholder {
+  color: var(--GrayStrokeAndDisabled--opaque);
+}
+
+.TextInput:disabled {
+  color: var(--White);
+  background-color: var(--GrayStrokeAndDisabled--translucent);
+  border-color: transparent;
+}
+
+.Error,
+.Error:focus {
+  border-color: var(--BrandSunburn);
+  border-width: 1px;
+  border-style: solid;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.button-group > .Button.Stateful {
+  width: 100%;
+  margin-right: var(--Space-8);
+}
+.button-group > .Button.Stateful:last-child {
+  margin-right: 0;
 }

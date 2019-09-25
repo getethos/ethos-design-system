@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
-import { Button } from '../Button'
+import { Button } from '../../Button'
 
 export const OPTION_BUTTON_STYLES = {
   DEFAULT: 'default',
-  WHITE: 'white'
+  WHITE: 'white',
 }
 
 /**
@@ -35,11 +35,19 @@ export const OptionButton = ({
 
   switch (buttonStyle) {
     case OPTION_BUTTON_STYLES.WHITE:
-      return <Button.Medium.Stateful.White {...props}>{label}</Button.Medium.Stateful.White>
+      return (
+        <Button.Medium.Stateful.White {...props}>
+          {label}
+        </Button.Medium.Stateful.White>
+      )
 
     case OPTION_BUTTON_STYLES.DEFAULT:
     default:
-      return <Button.Medium.Stateful.Default {...props}>{label}</Button.Medium.Stateful.Default>
+      return (
+        <Button.Medium.Stateful.Default {...props}>
+          {label}
+        </Button.Medium.Stateful.Default>
+      )
   }
 }
 

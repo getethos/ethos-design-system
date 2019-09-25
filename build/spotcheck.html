@@ -1,12 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Kitchen Sink</title>
-</head>
-<body>
-  <div id="kitchensink"></div>
-<script type="text/javascript" src="bundle.js"></script></body>
-</html>
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Entry module not found: Error: Can't resolve '/Users/ethos/Documents/ethos/ethos-design-system/src/index.html' in '/Users/ethos/Doc  uments/ethos/ethos-design-system':
+  Error: Can't resolve '/Users/ethos/Documents/ethos/ethos-design-system/src/index.html' in '/Users/ethos/Documents/ethos/ethos-desig  n-system'
+  
+  - compiler.js:79 childCompiler.runAsChild
+    [ethos-design-system]/[html-webpack-plugin]/lib/compiler.js:79:16
+  
+  - Compiler.js:343 compile
+    [ethos-design-system]/[webpack]/lib/Compiler.js:343:11
+  
+  - Compiler.js:671 hooks.afterCompile.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compiler.js:671:15
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compiler.js:668 compilation.seal.err
+    [ethos-design-system]/[webpack]/lib/Compiler.js:668:31
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1385 hooks.optimizeAssets.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1385:35
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1376 hooks.optimizeChunkAssets.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1376:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1371 hooks.additionalAssets.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1371:36
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1367 hooks.optimizeTree.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1367:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1304 Compilation.seal
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1304:27
+  
+  - Compiler.js:665 compilation.finish.err
+    [ethos-design-system]/[webpack]/lib/Compiler.js:665:18
+  
+  - Compilation.js:1224 hooks.finishModules.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1224:4
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [ethos-design-system]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1216 Compilation.finish
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1216:28
+  
+  - Compiler.js:662 hooks.make.callAsync.err
+    [ethos-design-system]/[webpack]/lib/Compiler.js:662:17
+  
+  
+  - Compilation.js:1148 _addModuleChain
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1148:12
+  
+  - Compilation.js:1007 errorAndCallback.bail.err
+    [ethos-design-system]/[webpack]/lib/Compilation.js:1007:6
+  
+</pre><script type="text/javascript" src="bundle.js"></script>
