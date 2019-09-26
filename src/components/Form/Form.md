@@ -19,6 +19,18 @@ import validateTruthy from '../../validators/validateTruthy'
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length % 2 and is between 5 and 7 characters",
       },
+      shorterEvenNumTextInput: {
+        validators: [
+          validateTruthy,
+          validateMinMaxFactory(3, 5),
+          (x) =>
+            x.length % 2
+              ? 'Text does not have an even number of characters'
+              : '',
+        ],
+        labelCopy:
+          "Validation happens after first blur ('touched')     Value's length % 2 and is between 3 and 5 characters",
+      },
     },
     onSubmit: async (formData) => {
       console.log('submitting with form data: ', formData)
@@ -32,6 +44,10 @@ import validateTruthy from '../../validators/validateTruthy'
   {(inputPropFactory, getInputErrors, getFormErrorMessage, getFormIsValid) => (
     <div>
       <TextInput {...inputPropFactory('evenNumTextInput')} />
+
+      <Spacer.H16 />
+
+      <TextInput {...inputPropFactory('shorterEvenNumTextInput')} />
 
       <Spacer.H16 />
 

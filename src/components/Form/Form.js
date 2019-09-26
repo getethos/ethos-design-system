@@ -9,7 +9,7 @@ export function Form({ children, config, render }) {
   // Set up initial values
   let initialValues = {}
   inputNames.forEach((x) => {
-    initialValues[x] = null
+    initialValues[x] = 'err' // by default inputs have "hidden" errors
   })
 
   // Hooks
