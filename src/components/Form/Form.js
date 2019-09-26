@@ -78,10 +78,6 @@ export function Form({ children, config, render }) {
 
     try {
       await config.onSubmit(getInputValues())
-      alert(
-        'form submission successful with values:' +
-          JSON.stringify(getInputValues())
-      )
     } catch (e) {
       setFormErrorMessage('Something bad happened: ' + e.toString())
     }
