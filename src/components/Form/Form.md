@@ -47,6 +47,12 @@ import {
       await new Promise((resolve) => setTimeout(resolve, 500))
       if (!!(Math.floor(Math.random() * 10) % 2)) {
         throw new Error("Oh no, the api is broken (try again, it's random)")
+      } else {
+        alert(
+          'form submission successful with values:' +
+            JSON.stringify(formData) +
+            "\n\nBut try again, it's random"
+        )
       }
     },
   }}
@@ -128,6 +134,12 @@ import {
       await new Promise((resolve) => setTimeout(resolve, 500))
       if (!!(Math.floor(Math.random() * 10) % 2)) {
         throw new Error("Oh no, the api is broken (try again, it's random)")
+      } else {
+        alert(
+          'form submission successful with values:' +
+            JSON.stringify(formData) +
+            "\n\nBut try again, it's random"
+        )
       }
     },
   }}

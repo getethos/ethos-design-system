@@ -42,11 +42,6 @@ export function Form({ children, config, render }) {
 
     try {
       await config.onSubmit(getInputValues())
-      alert(
-        'form submission successful with values:' +
-          JSON.stringify(getInputValues()) +
-          "\n\nBut try again, it's random"
-      )
     } catch (e) {
       setFormErrorMessage('Something bad happened: ' + e.toString())
     }
