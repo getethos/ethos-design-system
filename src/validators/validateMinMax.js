@@ -1,18 +1,16 @@
-import React from 'react'
-
-const useMinMaxLength = (
-  min,
-  max,
+const validateMinMaxFactory = (
+  min = 0,
+  max = Number.MAX_SAFE_INTEGER,
   message = `Must be between ${min} and ${max} characters`
 ) => {
-
-  const minMaxValidator = (value) => {
+  function validateMinMax(value) {
     const valueString = value ? String(value) : ''
     const isInvalidMin = valueString && valueString.length < min
     const isInvalidMax = valueString && valueString.length > max
     return isInvalidMin || isInvalidMax ? message : undefined
   }
-  return [minMaxValidator]
+
+  return validateMinMax
 }
 
-export default useMinMaxLength
+export default validateMinMaxFactory
