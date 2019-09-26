@@ -1,6 +1,7 @@
 ```jsx
 import { TextInput, Spacer, Button, InfoMessage } from '../index'
 import validateMinMaxFactory from '../../validators/validateMinMax'
+import validateTruthy from '../../validators/validateTruthy'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -8,6 +9,7 @@ import validateMinMaxFactory from '../../validators/validateMinMax'
     inputs: {
       evenNumTextInput: {
         validators: [
+          validateTruthy,
           validateMinMaxFactory(5, 7),
           (x) =>
             x.length % 2
