@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ComponentMap from './ComponentMap'
+import ValidatorMap from './ValidatorMap'
 import { useFormState } from '../../hooks/useFormState'
 
 export function Form({ children, config, render }) {
@@ -23,20 +25,6 @@ export function Form({ children, config, render }) {
   ] = useFormState(initialValues)
 
   // Validates form, sets button to disabled if there's an error
-  function inputNamePropsTransformer(inputName) {
-    return {
-      name: inputName,
-      formChangeHandler: setStateFactory(inputName),
-      validator: (input) =>
-        config.inputs[inputName].validators
-          .reduce((errors, validator) => errors.concat(validator(input)), [])
-          .filter((x) => !!x) // remove empty strings
-          .join(', '),
-      labelCopy: config.inputs[inputName].labelCopy,
-      ['data-tid']: [config.formName, config.formId, inputName].join('-'),
-    }
-  }
-
   async function onSubmit(syntheticReactEvent) {
     setFormErrorMessage('')
 
@@ -58,21 +46,33 @@ export function Form({ children, config, render }) {
       await config.onSubmit(getInputValues())
       alert(
         'form submission successful with values:' +
-          JSON.stringify(getInputValues())
+          JSON.stringify(getInputValues()) +
+          "\n\nBut try again, it's random"
       )
     } catch (e) {
       setFormErrorMessage('Something bad happened: ' + e.toString())
     }
   }
 
+  function input(inputName) {
+    const inputConfig = config.inputs[inputName]
+    return ComponentMap(inputConfig.componentName, {
+      name: inputName,
+      formChangeHandler: setStateFactory(inputName),
+      validator: (input) =>
+        inputConfig.validators
+          .map((v) => ValidatorMap(v.name, v.args))
+          .reduce((errors, validator) => errors.concat(validator(input)), [])
+          .filter((x) => !!x) // remove empty strings
+          .join(', '),
+      labelCopy: inputConfig.labelCopy,
+      ['data-tid']: [config.formName, config.formId, inputName].join('-'),
+    })
+  }
+
   return (
     <form onSubmit={onSubmit}>
-      {children(
-        inputNamePropsTransformer,
-        getInputErrors,
-        getFormErrorMessage,
-        getFormIsValid
-      )}
+      {children(input, getInputErrors, getFormErrorMessage, getFormIsValid)}
     </form>
   )
 }
