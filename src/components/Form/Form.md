@@ -7,14 +7,17 @@ import validateTruthy from '../../validators/validateTruthy'
     formName: 'Styleguidist example form',
     formId: '1',
     inputs: {
-      evenNumTextInput: {
+      evenNumText: {
+        componentName: 'TextInput',
         validators: [
-          validateTruthy,
-          validateMinMaxFactory(5, 7),
-          (x) =>
-            x.length % 2
-              ? 'Text does not have an even number of characters'
-              : '',
+          { name: 'truthy' },
+          {
+            name: 'minMax',
+            args: [5, 7],
+          },
+          {
+            name: 'exampleEvenNumber',
+          },
         ],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length % 2 and is between 5 and 7 characters",
@@ -29,9 +32,9 @@ import validateTruthy from '../../validators/validateTruthy'
     },
   }}
 >
-  {(inputPropFactory, getInputErrors, getFormErrorMessage, getFormIsValid) => (
+  {(input, getInputErrors, getFormErrorMessage, getFormIsValid) => (
     <div>
-      <TextInput {...inputPropFactory('evenNumTextInput')} />
+      {input('evenNumText')}
 
       <Spacer.H16 />
 
