@@ -56,6 +56,7 @@ class UniversalNavbar extends React.Component {
           'get-an-estimate ' + (showWhenScrolled ? 'show-when-scrolled' : '')
         }
         href="/term"
+        onClick={this.props.trackCtaClick}
       >
         <Button.Medium.BlackOutline>Check my price</Button.Medium.BlackOutline>
       </a>
@@ -144,7 +145,7 @@ class UniversalNavbar extends React.Component {
                 >
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
-                    <a href="/">
+                    <a href="/" onClick={this.trackCtaClick}>
                       {LogoNotAnimated({ className: 'universal-navbar-logo' })}
                     </a>
                     {renderDesktopLink(navbarLinks[0])}
@@ -174,7 +175,13 @@ class UniversalNavbar extends React.Component {
 }
 
 UniversalNavbar.propTypes = {
-  hideMobileCta: PropTypes.bool,
+  hideMobileCta: PropTypes.bool.isRequired,
+  trackCtaClick: PropTypes.func.isRequired,
+}
+
+UniversalNavbar.defaultProps = {
+  hideMobileCta: false,
+  trackCtaClick: () => {},
 }
 
 export { UniversalNavbar }
