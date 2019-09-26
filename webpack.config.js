@@ -22,12 +22,6 @@ module.exports = {
       root: 'react',
     },
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'spotcheck.html',
-      template: 'src/index.html',
-    }),
-  ],
   mode: 'development',
   module: {
     rules: [

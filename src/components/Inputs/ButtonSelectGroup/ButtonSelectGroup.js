@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { OptionButton } from './OptionButton'
-import { InputLabel } from '../Inputs/InputLabel' // Uhh :S
+import { InputLabel } from '../InputLabel'
 
 /**
  **/
@@ -39,7 +39,7 @@ export const ButtonSelectGroup = ({
   onSelect,
   allCaps = false,
   buttonStyle = 'default',
-  ...rest,
+  ...rest
 }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
   const [isAnswered, setIsAnswered] = useState(false)
