@@ -1,9 +1,6 @@
 ```jsx
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import {
-  ComponentGenerator,
-  ValidatorGenerator,
-} from './StyleguidistExampleStuff'
+import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -43,7 +40,6 @@ import {
       },
     },
     onSubmit: async (formData) => {
-      console.log('submitting with form data: ', formData)
       await new Promise((resolve) => setTimeout(resolve, 500))
       if (!!(Math.floor(Math.random() * 10) % 2)) {
         throw new Error("Oh no, the api is broken (try again, it's random)")
@@ -87,10 +83,7 @@ import {
 
 ```jsx
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import {
-  ComponentGenerator,
-  ValidatorGenerator,
-} from './StyleguidistExampleStuff'
+import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
