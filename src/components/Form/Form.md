@@ -6,7 +6,7 @@ import validateMinMaxFactory from '../../validators/validateMinMax'
     formName: 'Styleguidist example form',
     formId: '1',
     inputs: {
-      evenNumText: {
+      evenNumTextInput: {
         validators: [
           validateMinMaxFactory(5, 7),
           (x) =>
@@ -18,14 +18,18 @@ import validateMinMaxFactory from '../../validators/validateMinMax'
           "Validation happens after first blur ('touched')     Value's length % 2 and is between 5 and 7 characters",
       },
     },
-    onSubmit: (formData) => {
-      console.log('passed in form worked!')
+    onSubmit: async (formData) => {
+      console.log('submitting with form data: ', formData)
+      await new Promise((resolve) => setTimeout(resolve, 500))
+      if (!!(Math.floor(Math.random() * 10) % 2)) {
+        throw new Error("Oh no, the api is broken (try again, it's random)")
+      }
     },
   }}
 >
-  {(inputPropFactory, getInputErrors, getFormErrorMessage) => (
+  {(inputPropFactory, getInputErrors, getFormErrorMessage, getFormIsValid) => (
     <div>
-      <TextInput {...inputPropFactory('evenNumText')} />
+      <TextInput {...inputPropFactory('evenNumTextInput')} />
 
       <Spacer.H16 />
 
@@ -35,7 +39,9 @@ import validateMinMaxFactory from '../../validators/validateMinMax'
         </InfoMessage.Alert.Error>
       )}
 
-      <Button.Medium.Black type="submit">Submit</Button.Medium.Black>
+      <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+        Submit
+      </Button.Medium.Black>
     </div>
   )}
 </Form>

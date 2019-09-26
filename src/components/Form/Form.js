@@ -15,7 +15,8 @@ export function Form({ children, config, render }) {
   // Hooks
   const [
     getInputErrors,
-    setErrorStateFactory,
+    getInputValues,
+    setStateFactory,
     getFormErrorMessage,
     setFormErrorMessage,
     getFormIsValid,
@@ -25,7 +26,7 @@ export function Form({ children, config, render }) {
   function inputNamePropsTransformer(inputName) {
     return {
       name: inputName,
-      formErrorHandler: setErrorStateFactory(inputName),
+      formChangeHandler: setStateFactory(inputName),
       validator: (input) =>
         config.inputs[inputName].validators
           .reduce((errors, validator) => errors.concat(validator(input)), [])
@@ -37,10 +38,12 @@ export function Form({ children, config, render }) {
   }
 
   async function onSubmit(syntheticReactEvent) {
-    console.log('syntheticReactEvent', syntheticReactEvent)
+    setFormErrorMessage('')
+
     syntheticReactEvent.preventDefault()
 
     if (!getFormIsValid()) {
+      // Should already be handled by form itself, but...
       if (getInputErrors()) {
         setFormErrorMessage(
           'One of the inputs was invalid. Errors: ' + getInputErrors()
@@ -52,16 +55,24 @@ export function Form({ children, config, render }) {
     }
 
     try {
-      await config.onSubmit(syntheticReactEvent)
-      alert('form submission successful')
-    } catch {
-      setFormErrorMessage('Form was invalid')
+      await config.onSubmit(getInputValues())
+      alert(
+        'form submission successful with values:' +
+          JSON.stringify(getInputValues())
+      )
+    } catch (e) {
+      setFormErrorMessage('Something bad happened: ' + e.toString())
     }
   }
 
   return (
     <form onSubmit={onSubmit}>
-      {children(inputNamePropsTransformer, getInputErrors, getFormErrorMessage)}
+      {children(
+        inputNamePropsTransformer,
+        getInputErrors,
+        getFormErrorMessage,
+        getFormIsValid
+      )}
     </form>
   )
 }
