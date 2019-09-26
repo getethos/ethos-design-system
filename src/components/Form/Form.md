@@ -53,7 +53,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
     },
   }}
 >
-  {(input, getInputErrors, getFormErrorMessage, getFormIsValid) => (
+  {(input, getFormErrorMessage, getFormIsValid) => (
     <div>
       <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
 
@@ -137,7 +137,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
     },
   }}
 >
-  {(input, getInputErrors, getFormErrorMessage, getFormIsValid) => (
+  {(input, getFormErrorMessage, getFormIsValid) => (
     <div>
       <TitleLarge.Serif.Book500>
         Example Form With Submit Always Enabled

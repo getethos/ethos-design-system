@@ -9,11 +9,8 @@ import { useFormState } from '../../hooks/useFormState'
  * JSX in. See corresponding markdown example for details.
  *
  * The callback provides the following _parameters_:
- * `inputNamePropsTransformer`—takes `inputName` and:
- * - Validates form
- * - Sets button to disabled if there's an error
- *
- * `getInputErrors`—TBD
+ * `input`—takes `inputName` and:
+ * - Notifies form hook of its error status and new value
  *
  * `getFormErrorMessage`—Provides for "form level errors" e.g. for
  * presenting API errors, or messaging that relates to the entire form.
@@ -25,7 +22,8 @@ import { useFormState } from '../../hooks/useFormState'
  *
  * @see See also: `src/hooks/useFormState.js`
  */
-export function Form({ children, config, render }) {
+
+export function Form({ children, config }) {
   const inputNames = Object.keys(config.inputs)
 
   // Set up initial values
@@ -44,7 +42,6 @@ export function Form({ children, config, render }) {
     getFormIsValid,
   ] = useFormState(initialValues)
 
-  // Validates form, sets button to disabled if there's an error
   async function onSubmit(syntheticReactEvent) {
     setFormErrorMessage('')
 
@@ -87,7 +84,7 @@ export function Form({ children, config, render }) {
 
   return (
     <form onSubmit={onSubmit}>
-      {children(input, getInputErrors, getFormErrorMessage, getFormIsValid)}
+      {children(input, getFormErrorMessage, getFormIsValid)}
     </form>
   )
 }
