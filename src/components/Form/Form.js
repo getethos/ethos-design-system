@@ -3,6 +3,28 @@ import PropTypes from 'prop-types'
 
 import { useFormState } from '../../hooks/useFormState'
 
+/**
+ * The `Form` component takes a `config` object, and uses the convention
+ * of providing a callback function that you can place your `children`
+ * JSX in. See corresponding markdown example for details.
+ *
+ * The callback provides the following _parameters_:
+ * `inputNamePropsTransformer`—takes `inputName` and:
+ * - Validates form
+ * - Sets button to disabled if there's an error
+ *
+ * `getInputErrors`—TBD
+ *
+ * `getFormErrorMessage`—Provides for "form level errors" e.g. for
+ * presenting API errors, or messaging that relates to the entire form.
+ * _Note that field level errors (or hints if you will) are handled via
+ * the `validators` at the field level._
+ *
+ * `getFormIsValid`—Call this to determine if the form is generally valid.
+ * Useful for determining whether to disable a submit button for example.
+ *
+ * @see See also: `src/hooks/useFormState.js`
+ */
 export function Form({ children, config, render }) {
   const inputNames = Object.keys(config.inputs)
 
