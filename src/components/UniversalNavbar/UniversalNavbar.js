@@ -122,7 +122,7 @@ class UniversalNavbar extends React.Component {
                     </div>
                   ))}
                   <div style={{ position: 'absolute', bottom: 40 }}>
-                    <a href="/term">
+                    <a href="/term" onClick={this.props.trackCtaClick}>
                       <Button.Medium.BlackOutline>
                         Check my price
                       </Button.Medium.BlackOutline>
@@ -145,7 +145,7 @@ class UniversalNavbar extends React.Component {
                 >
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
-                    <a href="/" onClick={this.trackCtaClick}>
+                    <a href="/">
                       {LogoNotAnimated({ className: 'universal-navbar-logo' })}
                     </a>
                     {renderDesktopLink(navbarLinks[0])}
