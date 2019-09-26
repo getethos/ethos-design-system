@@ -1,7 +1,5 @@
 ```jsx
 import { TextInput, Spacer, Button, InfoMessage } from '../index'
-import validateMinMaxFactory from '../../validators/validateMinMax'
-import validateTruthy from '../../validators/validateTruthy'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -22,6 +20,21 @@ import validateTruthy from '../../validators/validateTruthy'
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length % 2 and is between 5 and 7 characters",
       },
+      shorterEvenNumTextInput: {
+        componentName: 'TextInput',
+        validators: [
+          { name: 'truthy' },
+          {
+            name: 'minMax',
+            args: [3, 5],
+          },
+          {
+            name: 'exampleEvenNumber',
+          },
+        ],
+        labelCopy:
+          "Validation happens after first blur ('touched')     Value's length % 2 and is between 3 and 5 characters",
+      },
     },
     onSubmit: async (formData) => {
       console.log('submitting with form data: ', formData)
@@ -35,6 +48,10 @@ import validateTruthy from '../../validators/validateTruthy'
   {(input, getInputErrors, getFormErrorMessage, getFormIsValid) => (
     <div>
       {input('evenNumText')}
+
+      <Spacer.H16 />
+
+      {input('shorterEvenNumTextInput')}
 
       <Spacer.H16 />
 
