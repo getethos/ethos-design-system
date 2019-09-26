@@ -27,7 +27,7 @@ function PrivateTextInput({
   name,
   labelCopy,
   allCaps,
-  formErrorHandler,
+  formChangeHandler,
   validator,
   ...rest
 }) {
@@ -52,8 +52,8 @@ function PrivateTextInput({
   const [value, setValue] = useState('')
 
   const setErrorWrapper = (errorValue) => {
-    if (!!formErrorHandler) {
-      formErrorHandler(errorValue)
+    if (!!formChangeHandler) {
+      formChangeHandler(value, errorValue)
     }
     setError(errorValue)
   }
