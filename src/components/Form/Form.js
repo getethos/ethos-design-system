@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ComponentMap from './ComponentMap'
-import ValidatorMap from './ValidatorMap'
 import { useFormState } from '../../hooks/useFormState'
 
 export function Form({ children, config, render }) {
@@ -56,12 +54,12 @@ export function Form({ children, config, render }) {
 
   function input(inputName) {
     const inputConfig = config.inputs[inputName]
-    return ComponentMap(inputConfig.componentName, {
+    return config.componentMap(inputConfig.componentName, {
       name: inputName,
       formChangeHandler: setStateFactory(inputName),
       validator: (input) =>
         inputConfig.validators
-          .map((v) => ValidatorMap(v.name, v.args))
+          .map((v) => config.validatorMap(v.name, v.args))
           .reduce((errors, validator) => errors.concat(validator(input)), [])
           .filter((x) => !!x) // remove empty strings
           .join(', '),

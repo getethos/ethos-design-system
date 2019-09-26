@@ -1,9 +1,15 @@
 ```jsx
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
+import {
+  ComponentGenerator,
+  ValidatorGenerator,
+} from './StyleguidistExampleStuff'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
+    componentMap: ComponentGenerator,
+    validatorMap: ValidatorGenerator,
     inputs: {
       evenNumText: {
         componentName: 'TextInput',
@@ -75,10 +81,16 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
 
 ```jsx
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
+import {
+  ComponentGenerator,
+  ValidatorGenerator,
+} from './StyleguidistExampleStuff'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
+    componentMap: ComponentGenerator,
+    validatorMap: ValidatorGenerator,
     inputs: {
       evenNumText: {
         componentName: 'TextInput',
