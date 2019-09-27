@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { InputLabel } from '../InputLabel'
 import useRequired from '../../../hooks/useRequired.js'
-import useMinMaxLength from '../../../hooks/useMinMaxLength.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
 import restrict from '../../../helpers/restrict.js'
@@ -15,8 +14,6 @@ import restrict from '../../../helpers/restrict.js'
  *
  * @param  {String}   props.name        Input name and htmlFor prop for label
  * @param  {String}   props.labelCopy   User-visible text of label for input
- * @param  {Number}   props.minLength   Min number of characters allowed
- * @param  {Number}   props.maxLength   Max number of characters allowed 
  * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
  * @param  {Function} props.validator   Function for validating input
  * @param  {Boolean}  props.disabled  
@@ -28,10 +25,9 @@ let touched = false
 function PrivateTextInput({
   disabled,
   name,
-  minLength = 0,
-  maxLength = Number.MAX_SAFE_INTEGER,
   labelCopy,
   allCaps,
+  formChangeHandler,
   validator,
   ...rest
 }) {
@@ -39,8 +35,6 @@ function PrivateTextInput({
   const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
   let allRelevantProps = Object.assign({}, rest, {
     name: name,
-    minLength: minLength,
-    maxLength: maxLength,
     labelCopy: labelCopy,
     allCaps: allCaps,
   })
@@ -54,26 +48,28 @@ function PrivateTextInput({
 
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
-  const [minMaxValidator] = useMinMaxLength(minLength, maxLength)
 
   const [value, setValue] = useState('')
 
-  const doValidation = (value) => {
-    const minMaxError = minMaxValidator(value)
-    if (minMaxError) {
-      setError(minMaxError)
-      return
+  const setErrorWrapper = (errorValue) => {
+    if (!!formChangeHandler) {
+      formChangeHandler(value, errorValue)
     }
+    setError(errorValue)
+  }
+
+  const doValidation = (value) => {
     const errMsg = validate(value)
     if (errMsg.length) {
-      setError(errMsg)
+      setErrorWrapper(errMsg)
     } else {
-      setError('')
+      setErrorWrapper('')
     }
   }
 
   const onBlur = (ev) => {
     touched = true
+    doValidation(value)
   }
 
   const onChange = (ev) => {
@@ -120,8 +116,6 @@ PrivateTextInput.PUBLIC_PROPS = {
   validator: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
-  minLength: PropTypes.number,
-  maxLength: PropTypes.number,
 }
 
 PrivateTextInput.propTypes = {
