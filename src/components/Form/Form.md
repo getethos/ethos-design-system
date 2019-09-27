@@ -111,6 +111,15 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length and is between 3 and 5 characters",
       },
+      buttonGroup: {
+        componentName: 'ButtonSelectGroup',
+        validators: [{ name: 'truthy' }],
+        labelCopy: 'Either option is valid',
+        options: [
+          { value: 'female', copy: 'Female' },
+          { value: 'male', copy: 'Male' },
+        ],
+      },
     },
     onSubmit: async (formData) => {
       console.log('submitting with form data: ', formData)
@@ -147,7 +156,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 
       <Spacer.H16 />
 
-      {input('shorterEvenNumTextInput')}
+      {input('buttonGroup')}
 
       <Spacer.H16 />
 

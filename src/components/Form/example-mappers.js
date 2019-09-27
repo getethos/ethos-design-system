@@ -2,6 +2,7 @@ import React from 'react'
 import { TextInput } from '../index'
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
+import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 
 function ValidatorGenerator(validatorName, args) {
   switch (validatorName) {
@@ -14,10 +15,20 @@ function ValidatorGenerator(validatorName, args) {
   }
 }
 
-function ComponentGenerator(componentName, props) {
+function ComponentGenerator(componentName, props, options) {
   switch (componentName) {
     case 'TextInput':
       return <TextInput {...props} />
+    case 'ButtonSelectGroup':
+      return (
+        <ButtonSelectGroup {...props}>
+          {options.map((x) => (
+            <ButtonSelectGroup.Option value={x.value}>
+              {x.copy}
+            </ButtonSelectGroup.Option>
+          ))}
+        </ButtonSelectGroup>
+      )
     default:
       throw new Error('whoopsie daisy')
   }
