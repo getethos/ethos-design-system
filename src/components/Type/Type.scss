@@ -8,8 +8,9 @@
 :root {
   --system-sans-font-stack: -apple-system, BlinkMacSystemFont, Roboto,
     'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --system-serif-font-stack: Georgia, 'Times New Roman', serif;
   --Theinhardt-font-stack: Theinhardt, var(--system-sans-font-stack);
-  --Cambon-font-stack: Cambon, var(--Theinhardt-font-stack);
+  --Cambon-font-stack: Cambon, var(--system-serif-font-stack);
 }
 
 .Theinhardt {
