@@ -88,7 +88,7 @@ export function Form({ children, config }) {
     try {
       await config.onSubmit(getInputValues())
     } catch (e) {
-      setFormErrorMessage('Something bad happened: ' + e.toString())
+      setFormErrorMessage(e.toString())
     }
   }
 
