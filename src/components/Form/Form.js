@@ -91,8 +91,7 @@ export function Form({ children, config }) {
       // Pass the form's values to whatever config.onSubmit wants to do
       await config.onSubmit(getInputValues())
     } catch (e) {
-      // API level errors are surfaced via the "getFormErrorMessage" hook
-      setFormErrorMessage('Something bad happened: ' + e.toString())
+      setFormErrorMessage(e.toString())
     }
   }
 

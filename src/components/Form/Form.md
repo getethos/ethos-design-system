@@ -56,8 +56,16 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
   {(input, getFormErrorMessage, getFormIsValid) => (
     <div>
       <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
-
+      
       <Spacer.H16 />
+
+      {getFormErrorMessage() && (
+        <>
+          <InfoMessage.Alert.Error>
+            {getFormErrorMessage()}
+          </InfoMessage.Alert.Error>
+        </>
+      )}
 
       {input('evenNumText')}
 
@@ -66,12 +74,6 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
       {input('shorterEvenNumTextInput')}
 
       <Spacer.H16 />
-
-      {getFormErrorMessage() && (
-        <InfoMessage.Alert.Error>
-          {getFormErrorMessage()}
-        </InfoMessage.Alert.Error>
-      )}
 
       <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
         Submit
@@ -139,6 +141,14 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 
       <Spacer.H16 />
 
+      {getFormErrorMessage() && (
+        <>
+          <InfoMessage.Alert.Error>
+            {getFormErrorMessage()}
+          </InfoMessage.Alert.Error>
+        </>
+      )}
+
       {input('evenNumText')}
 
       <Spacer.H16 />
@@ -146,12 +156,6 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
       {input('buttonGroup')}
 
       <Spacer.H16 />
-
-      {getFormErrorMessage() && (
-        <InfoMessage.Alert.Error>
-          {getFormErrorMessage()}
-        </InfoMessage.Alert.Error>
-      )}
 
       <Button.Medium.Black type="submit">Submit</Button.Medium.Black>
     </div>
