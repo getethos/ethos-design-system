@@ -1,11 +1,6 @@
-import React from 'react'
-import dayjs from '../../../helpers/getDayjs.js'
+import dayjs from '../helpers/getDayjs.js'
 
-export const DATE_FORMATS = [
-  'mm/dd/yyyy',
-  'mm/yyyy',
-  'mm/yy',
-]
+export const DATE_FORMATS = ['mm/dd/yyyy', 'mm/yyyy', 'mm/yy']
 
 export const dateMaskByFormat = {
   'mm/dd/yyyy': [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/],
@@ -20,28 +15,24 @@ export const dateRegexByFormat = {
 }
 
 // first replace removes text-mask's underscores, second fixes like: '2//'
-export const cleanse = (value) => value.replace(/[_]/g,'').replace('//', '/')
+export const cleanse = (value) => value.replace(/[_]/g, '').replace('//', '/')
 
 export const dateStringMatchesFormat = (cleansedDateString, dateFormat) => {
-  const pattern = dateRegexByFormat[dateFormat];
-  const matchesFormat = pattern.test(cleansedDateString);
+  const pattern = dateRegexByFormat[dateFormat]
+  const matchesFormat = pattern.test(cleansedDateString)
   if (!matchesFormat) {
     return 'Please enter a valid date.'
   }
-  return '';
+  return ''
 }
 
 export const getMaxDateValidator = (props) => {
-  const {
-    maxDate,
-    customErrorMessage,
-    dateFormat,
-  } = props
+  const { maxDate, customErrorMessage, dateFormat } = props
 
   return (value) => {
     if (value == null || value === '') return ''
-    const date = dayjs(maxDate);
-    const dayjsFormat = dateFormat.toUpperCase();
+    const date = dayjs(maxDate)
+    const dayjsFormat = dateFormat.toUpperCase()
     const errorMessage =
       customErrorMessage ||
       `Please enter a date before ${date.format(dayjsFormat)}`
@@ -50,17 +41,13 @@ export const getMaxDateValidator = (props) => {
 }
 
 export const getMinDateValidator = (props) => {
-  const {
-    minDate,
-    customErrorMessage,
-    dateFormat,
-  } = props
+  const { minDate, customErrorMessage, dateFormat } = props
 
   return (value) => {
     // Should pass if there is no value
     if (value == null || value === '') return ''
-    const date = dayjs(minDate);
-    const dayjsFormat = dateFormat.toUpperCase();
+    const date = dayjs(minDate)
+    const dayjsFormat = dateFormat.toUpperCase()
     const errorMessage =
       customErrorMessage ||
       `Please enter a date before ${date.format(dayjsFormat)}`
@@ -68,16 +55,12 @@ export const getMinDateValidator = (props) => {
   }
 }
 
-export const getMinMaxDateValidator = (props) => {
-  const {
-    minAge,
-    maxAge,
-    dateFormat,
-    customErrorMessage,
-  } = props;
+export const validateMinMaxDateFactory = (props) => {
+  const { minAge, maxAge, dateFormat, customErrorMessage } = props
 
   return (value) => {
-    const dateRangeErrorMessage = customErrorMessage || `Sorry, you must be ${minAge}–${maxAge}.`
+    const dateRangeErrorMessage =
+      customErrorMessage || `Sorry, you must be ${minAge}–${maxAge}.`
     const minBirthdate = dayjs()
       .subtract(maxAge + 1, 'years')
       .endOf('day')
@@ -92,14 +75,14 @@ export const getMinMaxDateValidator = (props) => {
       maxDate: maxBirthdate,
       customErrorMessage: dateRangeErrorMessage,
       dateFormat,
-    })(value);
+    })(value)
 
     const minError = getMinDateValidator({
       minDate: minBirthdate,
       customErrorMessage: dateRangeErrorMessage,
       dateFormat,
-    })(value);
+    })(value)
 
-    return minError.length || maxError.length ? dateRangeErrorMessage : '';
+    return minError.length || maxError.length ? dateRangeErrorMessage : ''
   }
 }
