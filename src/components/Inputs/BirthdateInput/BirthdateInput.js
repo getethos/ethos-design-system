@@ -6,7 +6,7 @@ import { InputLabel } from '../InputLabel'
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import * as Validators from './BirthdateInputValidator'
+import * as Validators from '../../../validators/BirthdateInputValidator'
 const {
   cleanse,
   DATE_FORMATS,
@@ -19,18 +19,24 @@ let touched = false
 
 const PrivateBirthdateInput = (props) => {
   const {
-    minAge,
-    maxAge,
     name,
     dateFormat,
     allCaps,
     labelCopy,
     validator,
+    formChangeHandler,
     ...restProps
   } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, validate] = useErrorMessage(validator)
+
+  const setErrorWrapper = (cleansed, errorValue) => {
+    if (!!formChangeHandler) {
+      formChangeHandler(cleansed, errorValue)
+    }
+    setError(errorValue)
+  }
 
   const onBlur = (syntheticReactEvent) => {
     const cleansed = cleanse(syntheticReactEvent.target.value)
@@ -39,16 +45,16 @@ const PrivateBirthdateInput = (props) => {
     // First check in valid format as that error takes priority
     let errMsg = dateStringMatchesFormat(cleansed, dateFormat)
     if (errMsg.length) {
-      setError(errMsg)
+      setErrorWrapper(cleansed, errMsg)
     } else {
       // Now we let the validator validate the date range
       const conformedDate = dayjs(cleansed, dateFormat.toUpperCase())
       errMsg = validate(conformedDate)
       if (errMsg.length) {
-        setError(errMsg)
+        setErrorWrapper(cleansed, errMsg)
       } else {
         // Passed all checks, reset error empty
-        setError('')
+        setErrorWrapper(cleansed, '')
       }
     }
   }
@@ -58,9 +64,9 @@ const PrivateBirthdateInput = (props) => {
     const cleansed = cleanse(syntheticReactEvent.target.value)
     const errMsg = dateStringMatchesFormat(cleansed, dateFormat)
     if (errMsg.length) {
-      setError(errMsg)
+      setErrorWrapper(cleansed, errMsg)
     } else {
-      setError('')
+      setErrorWrapper(cleansed, '')
     }
   }
 
@@ -94,8 +100,6 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
-  minAge: PropTypes.number,
-  maxAge: PropTypes.number,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
