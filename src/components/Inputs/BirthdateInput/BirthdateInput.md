@@ -6,7 +6,6 @@ to [redux-form](https://redux-form.com/8.2.2/docs/api/field.md/#2-a-stateless-fu
 import { getMinMaxDateValidator } from './BirthdateInputValidator.js'
 ;<BirthdateInput
   name="birthDate"
-  allCaps={true}
   labelCopy="Birthdate"
   data-tid="the-birthdate-input"
   minAge={20}

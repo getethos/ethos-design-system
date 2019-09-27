@@ -3,6 +3,7 @@ import { TextInput } from '../index'
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
 
 function ValidatorGenerator(validatorName, args) {
   switch (validatorName) {
@@ -22,6 +23,8 @@ function ComponentGenerator(componentName, props, options) {
   switch (componentName) {
     case 'TextInput':
       return <TextInput {...props} />
+    case 'BirthdateInput':
+      return <BirthdateInput {...props} />
     case 'ButtonSelectGroup':
       return (
         <ButtonSelectGroup {...props}>
