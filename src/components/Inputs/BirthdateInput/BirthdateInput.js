@@ -48,7 +48,8 @@ const PrivateBirthdateInput = (props) => {
       setErrorWrapper(cleansed, errMsg)
     } else {
       // Now we let the validator validate the date range
-      const conformedDate = dayjs(cleansed, dateFormat.toUpperCase())
+      const df = dateFormat.toUpperCase()
+      const conformedDate = dayjs(cleansed, df).format(df)
       errMsg = validate(conformedDate)
       if (errMsg.length) {
         setErrorWrapper(cleansed, errMsg)
