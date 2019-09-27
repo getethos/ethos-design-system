@@ -3,14 +3,14 @@
 A collection of reusable [React](https://reactjs.org/) components, patterns, and design guidelines we use at
 [Ethos](https://ethoslife.com) to build our digital products.
 
-## Installation
+## Installing fonts for local development
 
+1. Download `fonts.zip` (pinned to #dev-design-system) and unzip it.
+2. Copy the contents to `src/fonts`, e.g.:
 ```
-yarn add @ethos/ethos-design-system
+$ mkdir -p path/to/ethos-design-system/src/fonts/
+$ cp -a ~/Downloads/fonts/ path/to/ethos-design-system/src/fonts/
 ```
-
-Then, get fonts and add to /src/fonts.
-They are gitignored for copyright reasons.
 
 ## Committing
 
@@ -18,8 +18,7 @@ When you've made changes, make sure to run `yarn release` to build the js and cs
 
 ## Running the Design System
 
-**First, you'll need to install the fonts to `src/`. Please ask a fellow
-Ethos, or go to the #dev-design-system channel where these are pinned.**
+First, you'll need to install the fonts to `src/`. See instructions above.
 
 ```
 yarn && yarn styleguide
