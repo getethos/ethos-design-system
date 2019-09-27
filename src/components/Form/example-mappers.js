@@ -9,9 +9,6 @@ function ValidatorGenerator(validatorName, args) {
       return validateTruthy
     case 'minMax':
       return validateMinMaxFactory.apply(null, args)
-    case 'exampleEvenNumber':
-      return (x) =>
-        x.length % 2 ? 'Text does not have an even number of characters' : ''
     default:
       throw new Error('bad validator name')
   }

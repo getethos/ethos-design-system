@@ -16,12 +16,9 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
             name: 'minMax',
             args: [5, 7],
           },
-          {
-            name: 'exampleEvenNumber',
-          },
         ],
         labelCopy:
-          "Validation happens after first blur ('touched')     Value's length % 2 and is between 5 and 7 characters",
+          "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
       },
       shorterEvenNumTextInput: {
         componentName: 'TextInput',
@@ -31,12 +28,9 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
             name: 'minMax',
             args: [3, 5],
           },
-          {
-            name: 'exampleEvenNumber',
-          },
         ],
         labelCopy:
-          "Validation happens after first blur ('touched')     Value's length % 2 and is between 3 and 5 characters",
+          "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
       },
     },
     onSubmit: async (formData) => {
@@ -101,12 +95,9 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
             name: 'minMax',
             args: [5, 7],
           },
-          {
-            name: 'exampleEvenNumber',
-          },
         ],
         labelCopy:
-          "Validation happens after first blur ('touched')     Value's length % 2 and is between 5 and 7 characters",
+          "Validation happens after first blur ('touched')     Value's length and is between 5 and 7 characters",
       },
       shorterEvenNumTextInput: {
         componentName: 'TextInput',
@@ -116,12 +107,9 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
             name: 'minMax',
             args: [3, 5],
           },
-          {
-            name: 'exampleEvenNumber',
-          },
         ],
         labelCopy:
-          "Validation happens after first blur ('touched')     Value's length % 2 and is between 3 and 5 characters",
+          "Validation happens after first blur ('touched')     Value's length and is between 3 and 5 characters",
       },
     },
     onSubmit: async (formData) => {
