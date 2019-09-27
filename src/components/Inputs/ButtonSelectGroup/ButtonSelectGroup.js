@@ -13,16 +13,17 @@ import { InputLabel } from '../InputLabel'
  * @public
  *
  * @param {object} props - Component Props
- * @prop {string} props.label - Set's the caption of the group's label
- * @prop {boolean} [props.allCaps=false] - When set to `true`, the group's label will be displayed in all caps
+ * @prop {string} props.name - Name of field. default value is a uuid
+ * @prop {string} props.labelCopy - Set's the caption of the group's label
  * @prop {string} [props.defaultValue] - Optionally sets a default value for the group. If set, the matching option will be set as `isSelected`
  * @prop {string} [props.buttonStyle] - Optional value that sets the background color of all the buttons in the group (unselected state)
  * @prop {function} [props.onSelect] - Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered`
+ * @prop {function} [props.formChangeHandler] - Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`.
  *
  * @example ```
  * <ButtonSelectGroup
  *  defaultValue="excellent"
- *  label="Health"
+ *  labelCopy="Health"
  *  onSelect={({ value }) => console.log(value)}
  * >
  *   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
@@ -33,10 +34,12 @@ import { InputLabel } from '../InputLabel'
  * @return {JSX.Element}
  */
 export const ButtonSelectGroup = ({
-  label,
+  labelCopy,
   children,
   defaultValue,
   onSelect,
+  formChangeHandler,
+  name = `button-select-group-${uuidv4()}`,
   allCaps = false,
   buttonStyle = 'default',
   ...rest
@@ -47,6 +50,10 @@ export const ButtonSelectGroup = ({
   useEffect(() => {
     if (onSelect && selectedValue) {
       onSelect({ value: selectedValue, isAnswered })
+    }
+    if (formChangeHandler && selectedValue) {
+      // Update form with the new value and a falsey error message
+      formChangeHandler(selectedValue, '')
     }
   }, [selectedValue])
 
@@ -90,18 +97,17 @@ export const ButtonSelectGroup = ({
   })
 
   // Use id to connect label and this pseudo-input because of aria-labelledby
-  const labelId = `button-select-group-${uuidv4()}`
   return (
     <div
       role="radiogroup"
-      aria-labelledby={labelId}
+      aria-labelledby={name}
       className="button-select-group"
       data-tid={rest['data-tid']}
     >
       <InputLabel
         element="span"
-        id={labelId}
-        labelCopy={label}
+        id={name}
+        labelCopy={labelCopy}
         allCaps={allCaps}
       />
       <div className="button-group">{options}</div>
@@ -111,7 +117,9 @@ export const ButtonSelectGroup = ({
 
 ButtonSelectGroup.propTypes = {
   /** Set's the caption of the group's label */
-  label: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string.isRequired,
+  /** Name of the field, provided a uuid if not supplied. */
+  name: PropTypes.string,
   /** When set to `true`, the group's label will be displayed uppercase */
   allCaps: PropTypes.bool,
   /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
@@ -119,6 +127,8 @@ ButtonSelectGroup.propTypes = {
   /** Optional value that sets the background color of all the buttons in the group (unselected state) */
   buttonStyle: PropTypes.string,
   /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
+  formChangeHandler: PropTypes.func,
+  /** Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`. */
   onSelect: PropTypes.func,
   /** Optional data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string,
