@@ -11,7 +11,7 @@ describe('ButtonSelectGroup', () => {
   test('The ButtonSelectGroup renders (default button style, `buttonStyle` not passed)', () => {
     const tree = renderer
       .create(
-        <ButtonSelectGroup label="options">
+        <ButtonSelectGroup labelCopy="options">
           <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
           <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
         </ButtonSelectGroup>
@@ -26,7 +26,7 @@ describe('ButtonSelectGroup', () => {
       .create(
         <ButtonSelectGroup
           buttonStyle={OPTION_BUTTON_STYLES.DEFAULT}
-          label="options"
+          labelCopy="options"
         >
           <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
           <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
@@ -42,7 +42,7 @@ describe('ButtonSelectGroup', () => {
       .create(
         <ButtonSelectGroup
           buttonStyle={OPTION_BUTTON_STYLES.WHITE}
-          label="options"
+          labelCopy="options"
         >
           <ButtonSelectGroup.Option value="foo">foo</ButtonSelectGroup.Option>
           <ButtonSelectGroup.Option value="bar">bar</ButtonSelectGroup.Option>
@@ -65,7 +65,7 @@ describe('ButtonSelectGroup', () => {
       )
     })
     const tree = renderer.create(
-      <ButtonSelectGroup label="placeholder" onSelect={onSelectStub}>
+      <ButtonSelectGroup labelCopy="placeholder" onSelect={onSelectStub}>
         {optionButtons}
       </ButtonSelectGroup>
     )
@@ -100,7 +100,7 @@ describe('ButtonSelectGroup', () => {
 
     const tree = renderer.create(
       <ButtonSelectGroup
-        label="options"
+        labelCopy="options"
         defaultValue={optionValues[0]}
         onSelect={onSelectStub}
       >
@@ -132,7 +132,7 @@ describe('ButtonSelectGroup', () => {
     const value = 'foo'
 
     const tree = renderer.create(
-      <ButtonSelectGroup label="options" onSelect={onSelectStub}>
+      <ButtonSelectGroup labelCopy="options" onSelect={onSelectStub}>
         <ButtonSelectGroup.Option value={value} onClick={onClickStub}>
           {value}
         </ButtonSelectGroup.Option>
