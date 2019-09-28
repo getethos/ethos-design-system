@@ -26,14 +26,6 @@ yarn && yarn styleguide
 
 Then open [http://localhost:6060](http://localhost:6060) in your browser.
 
-## Kitchen Sink spot check ;)
-
-```
-yarn spotcheck
-```
-
-Then open [http://localhost:8080/spotcheck.html](http://localhost:8080/spotcheck.html) in your browser.
-
 ## Tests
 
 ```

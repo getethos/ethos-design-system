@@ -9,7 +9,9 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, 
   <span
     className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
     id="button-select-group-1"
-  />
+  >
+    options
+  </span>
   <div
     className="Spacer"
     style={
@@ -56,7 +58,9 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, 
   <span
     className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
     id="button-select-group-1"
-  />
+  >
+    options
+  </span>
   <div
     className="Spacer"
     style={
@@ -103,7 +107,9 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (white button style) 1`
   <span
     className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
     id="button-select-group-1"
-  />
+  >
+    options
+  </span>
   <div
     className="Spacer"
     style={

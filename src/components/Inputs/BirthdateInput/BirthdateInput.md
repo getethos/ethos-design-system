@@ -3,16 +3,13 @@ date string corresponds with `dateFormat` (once the field has been `touched` sim
 to [redux-form](https://redux-form.com/8.2.2/docs/api/field.md/#2-a-stateless-function))
 
 ```jsx
-import { getMinMaxDateValidator } from './BirthdateInputValidator.js'
+import { validateMinMaxDateFactory } from '../../../validators/BirthdateInputValidator'
 ;<BirthdateInput
   name="birthDate"
-  allCaps={true}
   labelCopy="Birthdate"
   data-tid="the-birthdate-input"
-  minAge={20}
-  maxAge={65}
   validator={(value) => {
-    return getMinMaxDateValidator({
+    return validateMinMaxDateFactory({
       minAge: 20,
       maxAge: 65,
       dateFormat: 'mm/dd/yyyy',
