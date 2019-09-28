@@ -81,7 +81,6 @@ export function Form({ children, config }) {
       return
     }
 
-    // Await should always be wrapped in a try/catch!
     try {
       // Pass the form's values to whatever config.onSubmit wants to do
       await config.onSubmit(getFieldValues())
@@ -90,8 +89,8 @@ export function Form({ children, config }) {
     }
   }
 
-  // Wrapper for all fields. Essentially this translates the field definition
-  // from the json-friendly `config` prop into a named form field
+  // Wrapper for all fields. Essentially, this translates the field definitions
+  // from the config` prop into a form field with validation and proper callbacks.
   // with the necessary callbacks so the form can track its errors & value.
   function field(fieldName) {
     // This just makes the rest of this easier to read
@@ -102,20 +101,20 @@ export function Form({ children, config }) {
         // Field name. Used in the label to identify the field
         name: fieldName,
 
-        // The single callback which notifies the form of the error and
+        // A callback which notifies the form of the error and
         // value for the field. The field still controls its own state
         // internally, but the form needs to know if it has errors
         // (to know if the form is valid) and what its value is (so it can
         // pass that to the onSubmit wrapper).
         formChangeHandler: setStateFactory(fieldName),
 
-        // Turns all validators from `config` into a single function which
-        // runs all of them and concatenates them into a string.
-        // Requires `config.validatorMap` to be supplied, because the
-        // validators are simple js objects with a name and maybe arguments.
+        // validators are simple js objects with:
+        // - a `name`
+        // - a `get` callback that returns the applied validtor
+        // - optional `arguments` array
         validator: (field) =>
           fieldConfig.validators
-            .map((v) => config.validatorMap(v.name, v.args))
+            .map((v) => v.get(v.args ? v.args : undefined))
             .reduce((errors, validator) => errors.concat(validator(field)), [])
             .filter((x) => !!x) // remove empty strings
             .join(', '),

@@ -1,23 +1,31 @@
 _Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
 
 ```jsx
+import validateTruthy from '../../validators/validateTruthy'
+import validateMinMaxFactory from '../../validators/validateMinMax'
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ValidatorGenerator } from './example-mappers'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
-    validatorMap: ValidatorGenerator,
     fields: {
       evenNumText: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
         validators: [
-          { name: 'truthy' },
+          {
+            name: 'truthy',
+            get: () => {
+              return validateTruthy
+            },
+          },
           {
             name: 'minMax',
             args: [5, 7],
+            get: (args) => {
+              return validateMinMaxFactory.apply(null, args)
+            }
           },
         ],
         labelCopy:
@@ -28,10 +36,18 @@ import { ValidatorGenerator } from './example-mappers'
           return <TextInput {...props} />
         },
         validators: [
-          { name: 'truthy' },
+          {
+            name: 'truthy',
+            get: () => {
+              return validateTruthy
+            },
+          },
           {
             name: 'minMax',
             args: [3, 5],
+            get: (args) => {
+              return validateMinMaxFactory.apply(null, args)
+            }
           },
         ],
         labelCopy:
@@ -85,8 +101,9 @@ import { ValidatorGenerator } from './example-mappers'
 _Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
 
 ```jsx
+import validateTruthy from '../../validators/validateTruthy'
+import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ValidatorGenerator } from './example-mappers'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
 
@@ -94,14 +111,18 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
-    validatorMap: ValidatorGenerator,
     fields: {
       birthdate: {
         component: (props, options) => {
           return <BirthdateInput {...props} />
         },
         validators: [
-          { name: 'truthy' },
+          {
+            name: 'truthy',
+            get: () => {
+              return validateTruthy
+            },
+          },
           {
             name: 'minMaxDate',
             args: [
@@ -111,6 +132,9 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
                 dateFormat: 'mm/dd/yyyy',
               },
             ],
+            get: (args) => {
+              return validateMinMaxDateFactory.apply(null, args)
+            },
           },
         ],
         labelCopy: 'Must be between 20 and 65 years old',
@@ -127,7 +151,14 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
             </ButtonSelectGroup>
           )
         },
-        validators: [{ name: 'truthy' }],
+        validators: [
+          {
+            name: 'truthy',
+            get: () => {
+              return validateTruthy
+            },
+          },
+        ],
         labelCopy: 'Either option is valid',
         options: [
           { value: 'female', copy: 'Female' },
