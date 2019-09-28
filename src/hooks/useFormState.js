@@ -3,12 +3,12 @@ import { useState } from 'react'
 let touched = false
 
 export function useFormState(initialState) {
-  const [inputErrorsState, setInputErrorsState] = useState(initialState)
-  const [inputValuesState, setInputValuesState] = useState(initialState)
+  const [fieldErrorsState, setFieldErrorsState] = useState(initialState)
+  const [fieldValuesState, setFieldValuesState] = useState(initialState)
   const [formErrorState, setFormErrorState] = useState('')
 
-  // Returns a function that updates state for the input, tracked by inputName
-  function setStateFactory(inputName) {
+  // Returns a function that updates state for the field, tracked by fieldName
+  function setStateFactory(fieldName) {
     return (newValue, newError) => {
       touched = true
 
@@ -16,27 +16,27 @@ export function useFormState(initialState) {
       setFormErrorState('')
 
       // Update values state
-      setInputValuesState((inputValuesState) => ({
-        ...inputValuesState,
-        [inputName]: newValue,
+      setFieldValuesState((fieldValuesState) => ({
+        ...fieldValuesState,
+        [fieldName]: newValue,
       }))
 
       // Update errors state
-      setInputErrorsState((inputErrorsState) => ({
-        ...inputErrorsState,
-        [inputName]: newError,
+      setFieldErrorsState((fieldErrorsState) => ({
+        ...fieldErrorsState,
+        [fieldName]: newError,
       }))
     }
   }
 
   // Gets values of all fields, basically just used in form submission
-  function getInputValues() {
-    return inputValuesState
+  function getFieldValues() {
+    return fieldValuesState
   }
 
-  // Checks if any inputs have errors; returns concatenated string
-  function getInputErrors() {
-    return Object.values(inputErrorsState)
+  // Checks if any fields have errors; returns concatenated string
+  function getFieldErrors() {
+    return Object.values(fieldErrorsState)
       .filter((x) => !!x)
       .join(', ')
   }
@@ -57,12 +57,12 @@ export function useFormState(initialState) {
   // Verify form has been touched and also has no errors;
   // Used for determining whether a form is valid
   function getFormIsValid() {
-    return touched && !getInputErrors()
+    return touched && !getFieldErrors()
   }
 
   return [
-    getInputErrors,
-    getInputValues,
+    getFieldErrors,
+    getFieldValues,
     setStateFactory,
     getFormErrorMessage,
     setFormErrorMessage,
