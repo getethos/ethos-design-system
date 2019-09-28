@@ -25,3 +25,14 @@ import { Body } from '../Type'
   </Body.Regular400>
 </div>
 ```
+
+```jsx
+import { Body } from '../Type'
+;<div>
+  <Body.Regular400>
+    Some text with a spacer that has some intentionally bizarre responsiveness
+    <Spacer height={[8, 80, 32, 16]} />
+    Some more text.
+  </Body.Regular400>
+</div>
+```

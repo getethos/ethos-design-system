@@ -28,7 +28,10 @@
       ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0"
+  },
   "peerDependencies": {
     "cloudinary-react": "^1.1.1"
   },

@@ -72,10 +72,13 @@ Spacer.HEIGHTS = [80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 4]
 
 Spacer.WIDTHS = [80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 4]
 
-Spacer.PUBLIC_PROPS = {}
+Spacer.PUBLIC_PROPS = {
+  ['data-tid']: PropTypes.string,
+}
 
 Spacer.propTypes = {
   ...Spacer.PUBLIC_PROPS,
   height: PropTypes.array,
   width: PropTypes.array,
+  ['data-tid']: PropTypes.string,
 }
