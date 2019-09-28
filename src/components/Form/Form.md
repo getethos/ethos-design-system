@@ -47,7 +47,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
     },
   }}
 >
-  {(input, getFormErrorMessage, getFormIsValid) => (
+  {(field, getFormErrorMessage, getFormIsValid) => (
     <div>
       <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
 
@@ -61,11 +61,11 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         </>
       )}
 
-      {input('evenNumText')}
+      {field('evenNumText')}
 
       <Spacer.H16 />
 
-      {input('shorterEvenNumTextInput')}
+      {field('shorterEvenNumTextInput')}
 
       <Spacer.H16 />
 
@@ -129,7 +129,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
     },
   }}
 >
-  {(input, getFormErrorMessage, getFormIsValid) => (
+  {(field, getFormErrorMessage, getFormIsValid) => (
     <div>
       <TitleLarge.Serif.Book500>
         Example Form With Birthdate
@@ -145,11 +145,11 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         </>
       )}
 
-      {input('birthdate')}
+      {field('birthdate')}
 
       <Spacer.H16 />
 
-      {input('buttonGroup')}
+      {field('buttonGroup')}
 
       <Spacer.H16 />
 
