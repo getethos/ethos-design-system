@@ -35,11 +35,11 @@ import { useFormState } from '../../hooks/useFormState'
  */
 
 export function Form({ children, config }) {
-  const inputNames = Object.keys(config.inputs)
+  const fieldNames = Object.keys(config.fields)
 
   // Set up initial values
   let initialValues = {}
-  inputNames.forEach((x) => {
+  fieldNames.forEach((x) => {
     // By default fields have "hidden" errors declared here.
     //
     // Setting the error states to a truthy text means that the initial state
@@ -55,7 +55,7 @@ export function Form({ children, config }) {
 
   // Hooks
   const [
-    getInputErrors,
+    getFieldErrors,
     getInputValues,
     setStateFactory,
     getFormErrorMessage,
@@ -76,10 +76,8 @@ export function Form({ children, config }) {
     // all errors are clear by passing down getFormIsValid() to the `disabled`
     // prop on the submit button, but this is a backup in case they don't.
     if (!getFormIsValid()) {
-      if (getInputErrors()) {
-        setFormErrorMessage(
-          'One of the inputs was invalid. Errors: ' + getInputErrors()
-        )
+      if (getFieldErrors()) {
+        setFormErrorMessage('Errors: ' + getFieldErrors())
       } else {
         setFormErrorMessage("You haven't typed anything yet")
       }
@@ -100,7 +98,7 @@ export function Form({ children, config }) {
   // with the necessary callbacks so the form can track its errors & value.
   function input(inputName) {
     // This just makes the rest of this easier to read
-    const inputConfig = config.inputs[inputName]
+    const inputConfig = config.fields[inputName]
 
     return config.componentMap(
       // Returns a component

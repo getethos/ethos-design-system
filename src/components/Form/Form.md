@@ -7,7 +7,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
     formId: '1',
     componentMap: ComponentGenerator,
     validatorMap: ValidatorGenerator,
-    inputs: {
+    fields: {
       evenNumText: {
         componentName: 'TextInput',
         validators: [
@@ -86,7 +86,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
     formId: '1',
     componentMap: ComponentGenerator,
     validatorMap: ValidatorGenerator,
-    inputs: {
+    fields: {
       birthdate: {
         componentName: 'BirthdateInput',
         validators: [
