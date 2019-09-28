@@ -28,8 +28,8 @@ function ComponentGenerator(componentName, props, options) {
     case 'ButtonSelectGroup':
       return (
         <ButtonSelectGroup {...props}>
-          {options.map((x) => (
-            <ButtonSelectGroup.Option value={x.value}>
+          {options.map((x, i) => (
+            <ButtonSelectGroup.Option value={x.value} key={i}>
               {x.copy}
             </ButtonSelectGroup.Option>
           ))}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
@@ -14,9 +14,6 @@ const {
   dateStringMatchesFormat,
 } = Validators
 
-// Riffing off redux-form a bit: "this will be set when the field is blurred"
-let touched = false
-
 const PrivateBirthdateInput = (props) => {
   const {
     name,
@@ -30,6 +27,7 @@ const PrivateBirthdateInput = (props) => {
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, validate] = useErrorMessage(validator)
+  const [touched, setTouched] = useState(false)
 
   const setErrorWrapper = (cleansed, errorValue) => {
     if (!!formChangeHandler) {
@@ -38,37 +36,45 @@ const PrivateBirthdateInput = (props) => {
     setError(errorValue)
   }
 
-  const onBlur = (syntheticReactEvent) => {
-    const cleansed = cleanse(syntheticReactEvent.target.value)
-    touched = true
+  const callErrorHandlers = (value, handlerFn) => {
+    const cleansed = cleanse(value)
 
-    // First check in valid format as that error takes priority
+    // Check date string format validity
     let errMsg = dateStringMatchesFormat(cleansed, dateFormat)
-    if (errMsg.length) {
-      setErrorWrapper(cleansed, errMsg)
+    const errorMessage = errMsg.length ? errMsg : ''
+    if (errorMessage.length) {
+      handlerFn(value, errorMessage)
     } else {
-      // Now we let the validator validate the date range
+      // Check date range validity
       const df = dateFormat.toUpperCase()
-      const conformedDate = dayjs(cleansed, df).format(df)
-      errMsg = validate(conformedDate)
-      if (errMsg.length) {
-        setErrorWrapper(cleansed, errMsg)
-      } else {
-        // Passed all checks, reset error empty
-        setErrorWrapper(cleansed, '')
-      }
+      const conformedDate = dayjs(value, df).format(df)
+      let dateRangeErrMsg = validate(conformedDate)
+      dateRangeErrMsg = dateRangeErrMsg.length ? dateRangeErrMsg : ''
+      handlerFn(value, dateRangeErrMsg)
     }
   }
 
-  const onChange = (syntheticReactEvent) => {
-    if (!touched) return
-    const cleansed = cleanse(syntheticReactEvent.target.value)
-    const errMsg = dateStringMatchesFormat(cleansed, dateFormat)
-    if (errMsg.length) {
-      setErrorWrapper(cleansed, errMsg)
+  const doValidation = (value, isTouched) => {
+    // User hasn't blurred but we still need to inform form
+    // engine if we're in a valid state or not
+    if (!isTouched && !!formChangeHandler) {
+      callErrorHandlers(value, formChangeHandler)
     } else {
-      setErrorWrapper(cleansed, '')
+      // Have blurred
+      callErrorHandlers(value, setErrorWrapper)
     }
+  }
+
+  const onBlur = (ev) => {
+    // We set touched to change the react state, but it's async and
+    // processing still, so, we use a flag for doValidation
+    setTouched(true)
+    doValidation(ev.target.value, true)
+  }
+
+  const onChange = (ev) => {
+    // We call setTouched in onBlur, so can reliably call getter here
+    doValidation(ev.target.value, touched)
   }
 
   return (
