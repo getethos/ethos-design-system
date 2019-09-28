@@ -50,7 +50,7 @@ export function Form({ children, config }) {
     // If we wanted to have a form be optional, you could have its initial
     // value set to empty string, so the form could be submitted without
     // the field being touched.
-    initialValues[x] = 'No answer supplied for ' + x
+    initialValues[x] = `Initial invalid state for ${x}`
   })
 
   // Hooks
@@ -64,12 +64,9 @@ export function Form({ children, config }) {
   ] = useFormState(initialValues)
 
   // Wrapper for default <form> submit function.
-  async function onSubmit(syntheticReactEvent) {
-    // Set the form-level error to disappear while the form tries to submit.
+  async function onSubmit(ev) {
     setFormErrorMessage('')
-
-    // Prevents normal form submission redirection
-    syntheticReactEvent.preventDefault()
+    ev.preventDefault()
 
     // Check hook state to see if the form has any errors registered.
     // Ideally, forms should not have the submit button be clickable unless
