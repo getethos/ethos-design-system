@@ -19,25 +19,4 @@ function ValidatorGenerator(validatorName, args) {
   }
 }
 
-function ComponentGenerator(componentName, props, options) {
-  switch (componentName) {
-    case 'TextInput':
-      return <TextInput {...props} />
-    case 'BirthdateInput':
-      return <BirthdateInput {...props} />
-    case 'ButtonSelectGroup':
-      return (
-        <ButtonSelectGroup {...props}>
-          {options.map((x, i) => (
-            <ButtonSelectGroup.Option value={x.value} key={i}>
-              {x.copy}
-            </ButtonSelectGroup.Option>
-          ))}
-        </ButtonSelectGroup>
-      )
-    default:
-      throw new Error('whoopsie daisy')
-  }
-}
-
-export { ComponentGenerator, ValidatorGenerator }
+export { ValidatorGenerator }

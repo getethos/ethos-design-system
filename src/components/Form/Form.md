@@ -1,15 +1,18 @@
+_Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
+
 ```jsx
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
+import { ValidatorGenerator } from './example-mappers'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
-    componentMap: ComponentGenerator,
     validatorMap: ValidatorGenerator,
     fields: {
       evenNumText: {
-        componentName: 'TextInput',
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
         validators: [
           { name: 'truthy' },
           {
@@ -21,7 +24,9 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
       },
       shorterEvenNumTextInput: {
-        componentName: 'TextInput',
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
         validators: [
           { name: 'truthy' },
           {
@@ -77,18 +82,24 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 </Form>
 ```
 
+_Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
+
 ```jsx
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
+import { ValidatorGenerator } from './example-mappers'
+import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
+
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
-    componentMap: ComponentGenerator,
     validatorMap: ValidatorGenerator,
     fields: {
       birthdate: {
-        componentName: 'BirthdateInput',
+        component: (props, options) => {
+          return <BirthdateInput {...props} />
+        },
         validators: [
           { name: 'truthy' },
           {
@@ -105,7 +116,17 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         labelCopy: 'Must be between 20 and 65 years old',
       },
       buttonGroup: {
-        componentName: 'ButtonSelectGroup',
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props}>
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
         validators: [{ name: 'truthy' }],
         labelCopy: 'Either option is valid',
         options: [

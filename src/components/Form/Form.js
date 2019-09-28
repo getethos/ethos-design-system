@@ -97,9 +97,7 @@ export function Form({ children, config }) {
     // This just makes the rest of this easier to read
     const fieldConfig = config.fields[fieldName]
 
-    return config.componentMap(
-      // Returns a component
-      fieldConfig.componentName,
+    return fieldConfig.component(
       {
         // Field name. Used in the label to identify the field
         name: fieldName,
