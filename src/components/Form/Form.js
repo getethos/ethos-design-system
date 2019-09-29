@@ -114,7 +114,7 @@ export function Form({ children, config }) {
         // - optional `arguments` array
         validator: (field) =>
           fieldConfig.validators
-            .map((v) => v.get(v.args ? v.args : undefined))
+            .map((v) => v.get())
             .reduce((errors, validator) => errors.concat(validator(field)), [])
             .filter((x) => !!x) // remove empty strings
             .join(', '),

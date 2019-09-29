@@ -15,16 +15,13 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
         },
         validators: [
           {
-            name: 'truthy',
             get: () => {
               return validateTruthy
             },
           },
           {
-            name: 'minMax',
-            args: [5, 7],
-            get: (args) => {
-              return validateMinMaxFactory.apply(null, args)
+            get: () => {
+              return validateMinMaxFactory.call(null, 5, 7)
             }
           },
         ],
@@ -37,16 +34,13 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
         },
         validators: [
           {
-            name: 'truthy',
             get: () => {
               return validateTruthy
             },
           },
           {
-            name: 'minMax',
-            args: [3, 5],
-            get: (args) => {
-              return validateMinMaxFactory.apply(null, args)
+            get: () => {
+              return validateMinMaxFactory.call(null, 3, 5)
             }
           },
         ],
@@ -118,22 +112,13 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
         },
         validators: [
           {
-            name: 'truthy',
             get: () => {
               return validateTruthy
             },
           },
           {
-            name: 'minMaxDate',
-            args: [
-              {
-                minAge: 20,
-                maxAge: 65,
-                dateFormat: 'mm/dd/yyyy',
-              },
-            ],
-            get: (args) => {
-              return validateMinMaxDateFactory.apply(null, args)
+            get: () => {
+              return validateMinMaxDateFactory.call(null, { minAge: 20, maxAge: 65, dateFormat: 'mm/dd/yyyy'})
             },
           },
         ],
@@ -153,7 +138,6 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
         },
         validators: [
           {
-            name: 'truthy',
             get: () => {
               return validateTruthy
             },
