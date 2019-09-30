@@ -108,10 +108,10 @@ export function Form({ children, config }) {
         // pass that to the onSubmit wrapper).
         formChangeHandler: setStateFactory(fieldName),
 
-        // validators are simple js objects with:
-        // - a `name`
-        // - a `get` callback that returns the applied validtor
-        // - optional `arguments` array
+        // validators are functions which return an empty string if they pass
+        // or an error message if they fail.
+        //
+        // if multiple validators fail, their errors will be combined together.
         validator: (field) =>
           fieldConfig.validators
             .reduce((errors, validator) => errors.concat(validator(field)), [])
