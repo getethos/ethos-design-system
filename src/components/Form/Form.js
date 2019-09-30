@@ -122,7 +122,11 @@ export function Form({ children, config }) {
         labelCopy: fieldConfig.labelCopy,
 
         // data-tid is helpful for writing tests.
-        ['data-tid']: [config.formName, config.formId, fieldName].join('-'),
+        // sometimes it's passed in, but if it isn't,
+        // we will automatically generate one
+        ['data-tid']:
+          fieldConfig.tid ||
+          [config.formName, config.formId, fieldName].join('-'),
       },
 
       // For things like ButtonGroupField, which may have options supplied.

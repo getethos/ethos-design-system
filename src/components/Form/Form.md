@@ -16,6 +16,7 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
         validators: [validateTruthy, validateMinMaxFactory.call(null, 5, 7)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
+        tid: 'example-data-tid',
       },
       shorterEvenNumTextInput: {
         component: (props, options) => {
