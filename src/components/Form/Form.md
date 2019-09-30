@@ -13,18 +13,7 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [
-          {
-            get: () => {
-              return validateTruthy
-            },
-          },
-          {
-            get: () => {
-              return validateMinMaxFactory.call(null, 5, 7)
-            }
-          },
-        ],
+        validators: [validateTruthy, validateMinMaxFactory.call(null, 5, 7)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
       },
@@ -32,18 +21,7 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [
-          {
-            get: () => {
-              return validateTruthy
-            },
-          },
-          {
-            get: () => {
-              return validateMinMaxFactory.call(null, 3, 5)
-            }
-          },
-        ],
+        validators: [validateTruthy, validateMinMaxFactory.call(null, 3, 5)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
       },
@@ -100,7 +78,6 @@ import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValida
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
-
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -111,16 +88,12 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
           return <BirthdateInput {...props} />
         },
         validators: [
-          {
-            get: () => {
-              return validateTruthy
-            },
-          },
-          {
-            get: () => {
-              return validateMinMaxDateFactory.call(null, { minAge: 20, maxAge: 65, dateFormat: 'mm/dd/yyyy'})
-            },
-          },
+          validateTruthy,
+          validateMinMaxDateFactory.call(null, {
+            minAge: 20,
+            maxAge: 65,
+            dateFormat: 'mm/dd/yyyy',
+          }),
         ],
         labelCopy: 'Must be between 20 and 65 years old',
       },
@@ -136,13 +109,7 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
             </ButtonSelectGroup>
           )
         },
-        validators: [
-          {
-            get: () => {
-              return validateTruthy
-            },
-          },
-        ],
+        validators: [validateTruthy],
         labelCopy: 'Either option is valid',
         options: [
           { value: 'female', copy: 'Female' },
