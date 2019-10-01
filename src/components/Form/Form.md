@@ -3,12 +3,26 @@ _Note that we've set up the form submission to randomly fail or succeed—so, yo
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
+import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputValidator } from '../index'
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
     fields: {
+      zipCode: {
+        component: (props, options) => {
+          return (
+            <ZipInput {...props} />
+          )
+        },
+        validators: [
+          {
+            get: () => ZipInputValidator
+          },
+        ],
+        name: "this-zip-input-example",
+        labelCopy: "What is your zip code?",
+      },
       evenNumText: {
         component: (props, options) => {
           return <TextInput {...props} />
@@ -60,6 +74,10 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
       <Spacer.H16 />
 
       {field('shorterEvenNumTextInput')}
+
+      <Spacer.H16 />
+
+      {field('zipCode')}
 
       <Spacer.H16 />
 
