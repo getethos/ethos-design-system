@@ -3,11 +3,8 @@
 - 
 
 
-**Manual Testing:**
+**Referencing PR or Branch (e.g. in CMS or monorepo):**
 - 
 
-
-**Notes:**
--
 
 **Screenshots:**
