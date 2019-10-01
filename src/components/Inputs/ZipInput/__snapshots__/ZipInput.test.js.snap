@@ -17,14 +17,24 @@ Array [
     }
   />,
   <input
-    className="TextInput"
+    className="ZipInput TextInput"
     data-tid="le-zip"
+    guide={true}
+    inputMode="numeric"
+    keepCharPositions={true}
+    mask={
+      Array [
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+      ]
+    }
     name="le-zip"
     onBlur={[Function]}
     onChange={[Function]}
-    onPaste={[Function]}
     type="text"
-    value=""
   />,
   "",
 ]
