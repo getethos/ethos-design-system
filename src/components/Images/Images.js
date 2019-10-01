@@ -20,6 +20,7 @@ export const CloudinaryImage = ({ publicId, className, ...rest }) => {
       publicId={publicIdFilename}
       crop="fill" // aka CSS cover
       secure="true"
+      flags="progressive:steep"
     />
   )
 }
