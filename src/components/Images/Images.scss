@@ -1,17 +1,13 @@
 /* @getethos/design-system/Images.scss
    ========================================================================== */
 
-// WIP.
-
+/* Generally used as a wrapper around Image components. */
 figure {
   margin: 0;
 }
 
 .Image {
-  border-radius: 2px;
   display: block;
-
-  // These are consequential, may need to pull out.
   width: 100%;
   height: auto;
 }
