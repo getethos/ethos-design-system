@@ -26,7 +26,7 @@
 <br/>
 
 <ul>
-  <li>Due to not being constrained by the `width` property, this image should be bigger. It should also load a very large, retina-resolution image in comparison to the above image.
+  <li>Due to not being constrained by the `width` property, this image should be bigger on a full width browser window. It should also load a much larger, retina-resolution image in comparison to the above image.
   </li>
   <li>
     Without getting passed in a "width" prop, this image will be higher resolution on all retina displays, despite sometimes displaying smaller. I think this is OK, although it seems off?
@@ -78,8 +78,8 @@
   <br/>
   <ul>
     <li>Crop prop 'crop' passed in to an image that is way too small.</li>
-    <li>This just displays the top left 500x500 pixels at the center of the image.</li>
-    <li>(Note: It's possible to use Cloudinary's facial recognition tech to find and focus on the faces, although this costs more. More information <a style={{color:'blue'}} href="https://cloudinary.com/documentation/advanced_facial_attributes_detection_addon">here</a>.</li>
+    <li>This just displays the 500x500 pixels at the center of the image.</li>
+    <li>(Note: It's possible to use Cloudinary's facial recognition tech to automatically find and focus on the faces, although this costs more. More information <a style={{color:'blue'}} href="https://cloudinary.com/documentation/advanced_facial_attributes_detection_addon">here</a>.)</li>
     <li>Right now we have a variety of 'transformation presets' entered manually instead. If you have access to the cms 1password you can see them <a style={{color:'blue'}} href="https://cloudinary.com/console/media_library/asset/manage/analysis/image/upload/01_NEW%20Lifestyle%20(Rebrand)%2Flife-insurance-father-and-kids-playing">here</a>.</li>
   </ul>
   <CloudinaryImage
