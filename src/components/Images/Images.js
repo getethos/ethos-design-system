@@ -21,6 +21,8 @@ export const CloudinaryImage = ({ publicId, className, crop, ...rest }) => {
       crop={crop} 
       secure="true"
       flags="progressive:semi"
+      fetch_format="auto"
+      quality="auto:eco"
     />
   )
 }
