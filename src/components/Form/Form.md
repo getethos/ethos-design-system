@@ -15,11 +15,7 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputV
             <ZipInput {...props} />
           )
         },
-        validators: [
-          {
-            get: () => ZipInputValidator
-          },
-        ],
+        validators: [ZipInputValidator],
         name: "this-zip-input-example",
         labelCopy: "What is your zip code?",
       },
