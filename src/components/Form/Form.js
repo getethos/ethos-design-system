@@ -108,13 +108,12 @@ export function Form({ children, config }) {
         // pass that to the onSubmit wrapper).
         formChangeHandler: setStateFactory(fieldName),
 
-        // validators are simple js objects with:
-        // - a `name`
-        // - a `get` callback that returns the applied validtor
-        // - optional `arguments` array
+        // validators are functions which return an empty string if they pass
+        // or an error message if they fail.
+        //
+        // if multiple validators fail, their errors will be combined together.
         validator: (field) =>
           fieldConfig.validators
-            .map((v) => v.get())
             .reduce((errors, validator) => errors.concat(validator(field)), [])
             .filter((x) => !!x) // remove empty strings
             .join(', '),
@@ -123,7 +122,11 @@ export function Form({ children, config }) {
         labelCopy: fieldConfig.labelCopy,
 
         // data-tid is helpful for writing tests.
-        ['data-tid']: [config.formName, config.formId, fieldName].join('-'),
+        // sometimes it's passed in, but if it isn't,
+        // we will automatically generate one
+        ['data-tid']:
+          fieldConfig.tid ||
+          [config.formName, config.formId, fieldName].join('-'),
       },
 
       // For things like ButtonGroupField, which may have options supplied.
