@@ -42,7 +42,7 @@ export const CloudinaryImage = ({
     {
       // Find information on image transformations here:
       // https://cloudinary.com/documentation/image_transformations
-      quality: 'auto',
+      quality: 'auto:eco',
       fetchFormat: 'auto',
       srcset: {
         breakpoints: BREAKPOINTS,
