@@ -12,6 +12,7 @@ const {
   DATE_FORMATS,
   dateMaskByFormat,
   dateStringMatchesFormat,
+  validateMinMaxDateFactory,
 } = Validators
 
 const PrivateBirthdateInput = (props) => {
