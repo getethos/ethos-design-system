@@ -1,9 +1,8 @@
-_Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
-
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputValidator } from '../index'
+let count = 0
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -39,13 +38,12 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputV
     },
     onSubmit: async (formData) => {
       await new Promise((resolve) => setTimeout(resolve, 500))
-      if (!!(Math.floor(Math.random() * 10) % 2)) {
-        throw new Error("Oh no, the api is broken (try again, it's random)")
+      if (count++ % 2 === 0) {
+        throw new Error("API Issue (Try again,, it alternates success & failure)")
       } else {
         alert(
           'form submission successful with values:' +
-            JSON.stringify(formData) +
-            "\n\nBut try again, it's random"
+            JSON.stringify(formData)
         )
       }
     },
@@ -101,6 +99,7 @@ import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValida
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
+let count = 0
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -141,15 +140,13 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
       },
     },
     onSubmit: async (formData) => {
-      console.log('submitting with form data: ', formData)
       await new Promise((resolve) => setTimeout(resolve, 500))
-      if (!!(Math.floor(Math.random() * 10) % 2)) {
-        throw new Error("Oh no, the api is broken (try again, it's random)")
+      if (count++ % 2 === 0) {
+        throw new Error("API Issue (Try again,, it alternates success & failure)")
       } else {
         alert(
           'form submission successful with values:' +
-            JSON.stringify(formData) +
-            "\n\nBut try again, it's random"
+            JSON.stringify(formData)
         )
       }
     },
