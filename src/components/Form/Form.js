@@ -117,7 +117,7 @@ export function Form({ children, config }) {
           fieldConfig.validators
             .reduce((errors, validator) => errors.concat(validator(field)), [])
             .filter((x) => !!x) // remove empty strings
-            .join(', '),
+            .join('. '),
 
         // User-visible copy, shows up in the label above the field.
         labelCopy: fieldConfig.labelCopy,
