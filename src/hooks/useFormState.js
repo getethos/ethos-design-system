@@ -29,6 +29,10 @@ export function useFormState(initialState) {
     }
   }
 
+  function getFormInteractedWith() {
+    return touched
+  }
+
   // Gets values of all fields, basically just used in form submission
   function getFieldValues() {
     return fieldValuesState
@@ -67,5 +71,6 @@ export function useFormState(initialState) {
     getFormErrorMessage,
     setFormErrorMessage,
     getFormIsValid,
+    getFormInteractedWith,
   ]
 }

@@ -51,11 +51,19 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputV
     },
   }}
 >
-  {(field, getFormErrorMessage, getFormIsValid) => (
+  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => (
     <div>
       <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
 
       <Spacer.H16 />
+
+      {!!getFormInteractedWith() && (
+        <>
+          <InfoMessage.Alert.Success>
+            {"Form interacted with."}
+          </InfoMessage.Alert.Success>
+        </>
+      )}
 
       {getFormErrorMessage() && (
         <>
@@ -147,13 +155,22 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
     },
   }}
 >
-  {(field, getFormErrorMessage, getFormIsValid) => (
+  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => {
+    return (
     <div>
       <TitleLarge.Serif.Book500>
         Example Form With Birthdate
       </TitleLarge.Serif.Book500>
 
       <Spacer.H16 />
+
+      {!!getFormInteractedWith() && (
+        <>
+          <InfoMessage.Alert.Success>
+            {"Form interacted with."}
+          </InfoMessage.Alert.Success>
+        </>
+      )}
 
       {getFormErrorMessage() && (
         <>
@@ -175,6 +192,7 @@ import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
         Submit
       </Button.Medium.Black>
     </div>
-  )}
+    )
+  }}
 </Form>
 ```
