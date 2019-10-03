@@ -21,7 +21,7 @@ export const CloudinaryImage = ({ publicId, className, crop, ...rest }) => {
       crop={crop} 
       secure="true"
       flags="progressive:semi"
-      fetch_format="auto"
+      // fetch_format="auto" // temporarily removed, causing blurry SVG icons
       quality="auto:eco"
     />
   )
