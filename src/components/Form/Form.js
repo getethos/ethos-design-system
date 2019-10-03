@@ -61,6 +61,7 @@ export function Form({ children, config }) {
     getFormErrorMessage,
     setFormErrorMessage,
     getFormIsValid,
+    getFormInteractedWith,
   ] = useFormState(initialValues)
 
   // Wrapper for default <form> submit function.
@@ -116,7 +117,7 @@ export function Form({ children, config }) {
           fieldConfig.validators
             .reduce((errors, validator) => errors.concat(validator(field)), [])
             .filter((x) => !!x) // remove empty strings
-            .join(', '),
+            .join('. '),
 
         // User-visible copy, shows up in the label above the field.
         labelCopy: fieldConfig.labelCopy,
@@ -138,7 +139,12 @@ export function Form({ children, config }) {
     <form onSubmit={onSubmit}>
       {/* See the top of this file or ./Form.md for help on how to use
         these arguments passed to the children function. */}
-      {children(field, getFormErrorMessage, getFormIsValid)}
+      {children(
+        field,
+        getFormErrorMessage,
+        getFormIsValid,
+        getFormInteractedWith
+      )}
     </form>
   )
 }
