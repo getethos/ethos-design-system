@@ -7,7 +7,7 @@
 ### Base Usage
 
 ```jsx
-<ButtonSelectGroup label="Health">
+<ButtonSelectGroup labelCopy="Health">
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
@@ -19,7 +19,7 @@
 ### Rendering with a `defaultValue` selected
 
 ```jsx
-<ButtonSelectGroup defaultValue="great" label="Health">
+<ButtonSelectGroup defaultValue="great" labelCopy="Health">
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
