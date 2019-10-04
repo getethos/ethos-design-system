@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
+import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
@@ -42,18 +43,25 @@ export const ButtonSelectGroup = ({
   name = `button-select-group-${uuidv4()}`,
   allCaps = false,
   buttonStyle = 'default',
+  validator,
   ...rest
 }) => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
   const [isAnswered, setIsAnswered] = useState(false)
+  // Set up validation hooks
+  const [getError, setError, validate] = useErrorMessage(validator)
 
   useEffect(() => {
     if (onSelect && selectedValue) {
       onSelect({ value: selectedValue, isAnswered })
     }
     if (formChangeHandler && selectedValue) {
+      // Ensure all validators get called
+      let errorMessage = validate(selectedValue)
+      errorMessage = errorMessage.length ? errorMessage : ''
+
       // Update form with the new value and a falsey error message
-      formChangeHandler(selectedValue, '')
+      formChangeHandler(selectedValue, errorMessage)
     }
   }, [selectedValue])
 
@@ -132,6 +140,7 @@ ButtonSelectGroup.propTypes = {
   onSelect: PropTypes.func,
   /** Optional data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string,
+  validator: PropTypes.func,
 }
 
 // Export the option button

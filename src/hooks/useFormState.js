@@ -53,7 +53,7 @@ export function useFormState(initialState) {
     return formErrorState
   }
 
-  // Sets the form error, a string
+  // Sets the form error, a string. Called by Form.js `onSubmit`
   function setFormErrorMessage(msg) {
     setFormErrorState(msg)
   }

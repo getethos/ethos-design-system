@@ -29,6 +29,10 @@ import { useFormState } from '../../hooks/useFormState'
  *    - `getFormIsValid`
  *      — Call this to determine if the form is generally valid.
  *        Useful for determining whether to disable a submit button for example.
+ *    - `getFormInteractedWith`
+ *      — Call to determine if the form has been interacted with. This
+ *        corresponds with a field being entered and a characted typed, a
+ *        button group clicked, etc.
  *    - See corresponding markdown example for details.
  *
  * @see See also: `src/hooks/useFormState.js`
@@ -97,6 +101,15 @@ export function Form({ children, config }) {
     // This just makes the rest of this easier to read
     const fieldConfig = config.fields[fieldName]
 
+    const doValidation = (field) => {
+      return fieldConfig.validators
+        .reduce((errors, validator) => {
+          return errors.concat(validator(field))
+        }, [])
+        .filter((x) => !!x) // remove empty strings
+        .join('. ')
+    }
+
     return fieldConfig.component(
       {
         // Field name. Used in the label to identify the field
@@ -113,11 +126,7 @@ export function Form({ children, config }) {
         // or an error message if they fail.
         //
         // if multiple validators fail, their errors will be combined together.
-        validator: (field) =>
-          fieldConfig.validators
-            .reduce((errors, validator) => errors.concat(validator(field)), [])
-            .filter((x) => !!x) // remove empty strings
-            .join('. '),
+        validator: doValidation,
 
         // User-visible copy, shows up in the label above the field.
         labelCopy: fieldConfig.labelCopy,

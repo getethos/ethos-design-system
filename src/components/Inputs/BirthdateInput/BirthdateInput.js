@@ -46,12 +46,20 @@ const PrivateBirthdateInput = (props) => {
     if (errorMessage.length) {
       handlerFn(value, errorMessage)
     } else {
-      // Check date range validity
+      /**
+       * Note that, only once we get here, do the validators
+       * get called. This is because dateStringMatchesFormat
+       * is a prerequisite at the text-mask level so there's
+       * no point in doing other validations if we don't even
+       * have a date in valid format yet.
+       */
+
+      // Call any validators consumer has setup (e.g. date range)
       const df = dateFormat.toUpperCase()
       const conformedDate = dayjs(value, df).format(df)
-      let dateRangeErrMsg = validate(conformedDate)
-      dateRangeErrMsg = dateRangeErrMsg.length ? dateRangeErrMsg : ''
-      handlerFn(value, dateRangeErrMsg)
+      let errorMessage = validate(conformedDate)
+      errorMessage = errorMessage.length ? errorMessage : ''
+      handlerFn(value, errorMessage)
     }
   }
 

@@ -3,6 +3,12 @@ import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputValidator } from '../index'
 let count = 0
+
+function validateCustom(x) {
+  console.log("validateCustom: I got called...")
+  return !!x ? '' : 'Validate custom error'
+}
+
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -14,7 +20,7 @@ let count = 0
             <ZipInput {...props} />
           )
         },
-        validators: [ZipInputValidator],
+        validators: [validateCustom, ZipInputValidator],
         name: "this-zip-input-example",
         labelCopy: "What is your zip code?",
       },
@@ -22,7 +28,7 @@ let count = 0
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateMinMaxFactory.call(null, 5, 7)],
+        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 5, 7)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
         tid: 'example-data-tid',
@@ -31,13 +37,12 @@ let count = 0
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateMinMaxFactory.call(null, 3, 5)],
+        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 3, 5)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
       },
     },
     onSubmit: async (formData) => {
-      await new Promise((resolve) => setTimeout(resolve, 500))
       if (count++ % 2 === 0) {
         throw new Error("API Issue (Try again,, it alternates success & failure)")
       } else {
@@ -100,6 +105,12 @@ import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
 let count = 0
+
+function validateCustom(x) {
+  console.log("validateCustom: I got called...")
+  return !!x ? '' : 'Validate custom error'
+}
+
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -109,8 +120,11 @@ let count = 0
         component: (props, options) => {
           return <BirthdateInput {...props} />
         },
+        // Note that Birthdate will only call these validators once it's own
+        // internal validation passes e.g. there's a date string in valid format
         validators: [
           validateTruthy,
+          validateCustom,
           validateMinMaxDateFactory.call(null, {
             minAge: 20,
             maxAge: 65,
@@ -131,7 +145,7 @@ let count = 0
             </ButtonSelectGroup>
           )
         },
-        validators: [validateTruthy],
+        validators: [validateCustom, validateTruthy],
         labelCopy: 'Either option is valid',
         options: [
           { value: 'female', copy: 'Female' },
@@ -140,7 +154,6 @@ let count = 0
       },
     },
     onSubmit: async (formData) => {
-      await new Promise((resolve) => setTimeout(resolve, 500))
       if (count++ % 2 === 0) {
         throw new Error("API Issue (Try again,, it alternates success & failure)")
       } else {
