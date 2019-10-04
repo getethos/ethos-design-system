@@ -17,7 +17,6 @@ export function useFormState(initialState) {
 
       // Update values state
       setFieldValuesState((fieldValuesState) => ({
-        console.log('newValue: ', newValue)
         ...fieldValuesState,
         [fieldName]: newValue,
       }))
