@@ -1,57 +1,67 @@
 ```jsx
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
+import validateTruthy from '../../validators/validateTruthy'
+import validateMinMaxFactory from '../../validators/validateMinMax'
+import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputValidator } from '../index'
+let count = 0
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
-    componentMap: ComponentGenerator,
-    validatorMap: ValidatorGenerator,
-    inputs: {
+    fields: {
+      zipCode: {
+        component: (props, options) => {
+          return (
+            <ZipInput {...props} />
+          )
+        },
+        validators: [ZipInputValidator],
+        name: "this-zip-input-example",
+        labelCopy: "What is your zip code?",
+      },
       evenNumText: {
-        componentName: 'TextInput',
-        validators: [
-          { name: 'truthy' },
-          {
-            name: 'minMax',
-            args: [5, 7],
-          },
-        ],
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        validators: [validateTruthy, validateMinMaxFactory.call(null, 5, 7)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
+        tid: 'example-data-tid',
       },
       shorterEvenNumTextInput: {
-        componentName: 'TextInput',
-        validators: [
-          { name: 'truthy' },
-          {
-            name: 'minMax',
-            args: [3, 5],
-          },
-        ],
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        validators: [validateTruthy, validateMinMaxFactory.call(null, 3, 5)],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
       },
     },
     onSubmit: async (formData) => {
       await new Promise((resolve) => setTimeout(resolve, 500))
-      if (!!(Math.floor(Math.random() * 10) % 2)) {
-        throw new Error("Oh no, the api is broken (try again, it's random)")
+      if (count++ % 2 === 0) {
+        throw new Error("API Issue (Try again,, it alternates success & failure)")
       } else {
         alert(
           'form submission successful with values:' +
-            JSON.stringify(formData) +
-            "\n\nBut try again, it's random"
+            JSON.stringify(formData)
         )
       }
     },
   }}
 >
-  {(input, getFormErrorMessage, getFormIsValid) => (
+  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => (
     <div>
       <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
 
       <Spacer.H16 />
+
+      {!!getFormInteractedWith() && (
+        <>
+          <InfoMessage.Alert.Success>
+            {"Form interacted with."}
+          </InfoMessage.Alert.Success>
+        </>
+      )}
 
       {getFormErrorMessage() && (
         <>
@@ -61,11 +71,15 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         </>
       )}
 
-      {input('evenNumText')}
+      {field('evenNumText')}
 
       <Spacer.H16 />
 
-      {input('shorterEvenNumTextInput')}
+      {field('shorterEvenNumTextInput')}
+
+      <Spacer.H16 />
+
+      {field('zipCode')}
 
       <Spacer.H16 />
 
@@ -77,125 +91,47 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 </Form>
 ```
 
+_Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
+
 ```jsx
+import validateTruthy from '../../validators/validateTruthy'
+import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
+import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
+let count = 0
 ;<Form
   config={{
     formName: 'Styleguidist example form',
     formId: '1',
-    componentMap: ComponentGenerator,
-    validatorMap: ValidatorGenerator,
-    inputs: {
-      evenNumText: {
-        componentName: 'TextInput',
-        validators: [
-          { name: 'truthy' },
-          {
-            name: 'minMax',
-            args: [5, 7],
-          },
-        ],
-        labelCopy:
-          "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
-      },
-      shorterEvenNumTextInput: {
-        componentName: 'TextInput',
-        validators: [
-          { name: 'truthy' },
-          {
-            name: 'minMax',
-            args: [3, 5],
-          },
-        ],
-        labelCopy:
-          "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
-      },
-      buttonGroup: {
-        componentName: 'ButtonSelectGroup',
-        validators: [{ name: 'truthy' }],
-        labelCopy: 'Either option is valid',
-        options: [
-          { value: 'female', copy: 'Female' },
-          { value: 'male', copy: 'Male' },
-        ],
-      },
-    },
-    onSubmit: async (formData) => {
-      console.log('submitting with form data: ', formData)
-      await new Promise((resolve) => setTimeout(resolve, 500))
-      if (!!(Math.floor(Math.random() * 10) % 2)) {
-        throw new Error("Oh no, the api is broken (try again, it's random)")
-      } else {
-        alert(
-          'form submission successful with values:' +
-            JSON.stringify(formData) +
-            "\n\nBut try again, it's random"
-        )
-      }
-    },
-  }}
->
-  {(input, getFormErrorMessage, getFormIsValid) => (
-    <div>
-      <TitleLarge.Serif.Book500>
-        Example Form With Submit Always Enabled
-      </TitleLarge.Serif.Book500>
-
-      <Spacer.H16 />
-
-      {getFormErrorMessage() && (
-        <>
-          <InfoMessage.Alert.Error>
-            {getFormErrorMessage()}
-          </InfoMessage.Alert.Error>
-        </>
-      )}
-
-      {input('evenNumText')}
-
-      <Spacer.H16 />
-
-      {input('buttonGroup')}
-
-      <Spacer.H16 />
-
-      <Button.Medium.Black type="submit">Submit</Button.Medium.Black>
-    </div>
-  )}
-</Form>
-```
-
-```jsx
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
-import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
-;<Form
-  config={{
-    formName: 'Styleguidist example form',
-    formId: '1',
-    componentMap: ComponentGenerator,
-    validatorMap: ValidatorGenerator,
-    inputs: {
+    fields: {
       birthdate: {
-        componentName: 'BirthdateInput',
+        component: (props, options) => {
+          return <BirthdateInput {...props} />
+        },
         validators: [
-          { name: 'truthy' },
-          {
-            name: 'minMaxDate',
-            args: [
-              {
-                minAge: 20,
-                maxAge: 65,
-                dateFormat: 'mm/dd/yyyy',
-              },
-            ],
-          },
+          validateTruthy,
+          validateMinMaxDateFactory.call(null, {
+            minAge: 20,
+            maxAge: 65,
+            dateFormat: 'mm/dd/yyyy',
+          }),
         ],
         labelCopy: 'Must be between 20 and 65 years old',
       },
       buttonGroup: {
-        componentName: 'ButtonSelectGroup',
-        validators: [{ name: 'truthy' }],
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props}>
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
+        validators: [validateTruthy],
         labelCopy: 'Either option is valid',
         options: [
           { value: 'female', copy: 'Female' },
@@ -204,21 +140,20 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
       },
     },
     onSubmit: async (formData) => {
-      console.log('submitting with form data: ', formData)
       await new Promise((resolve) => setTimeout(resolve, 500))
-      if (!!(Math.floor(Math.random() * 10) % 2)) {
-        throw new Error("Oh no, the api is broken (try again, it's random)")
+      if (count++ % 2 === 0) {
+        throw new Error("API Issue (Try again,, it alternates success & failure)")
       } else {
         alert(
           'form submission successful with values:' +
-            JSON.stringify(formData) +
-            "\n\nBut try again, it's random"
+            JSON.stringify(formData)
         )
       }
     },
   }}
 >
-  {(input, getFormErrorMessage, getFormIsValid) => (
+  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => {
+    return (
     <div>
       <TitleLarge.Serif.Book500>
         Example Form With Birthdate
@@ -226,6 +161,14 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
 
       <Spacer.H16 />
 
+      {!!getFormInteractedWith() && (
+        <>
+          <InfoMessage.Alert.Success>
+            {"Form interacted with."}
+          </InfoMessage.Alert.Success>
+        </>
+      )}
+
       {getFormErrorMessage() && (
         <>
           <InfoMessage.Alert.Error>
@@ -234,11 +177,11 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         </>
       )}
 
-      {input('birthdate')}
+      {field('birthdate')}
 
       <Spacer.H16 />
 
-      {input('buttonGroup')}
+      {field('buttonGroup')}
 
       <Spacer.H16 />
 
@@ -246,6 +189,7 @@ import { ComponentGenerator, ValidatorGenerator } from './example-mappers'
         Submit
       </Button.Medium.Black>
     </div>
-  )}
+    )
+  }}
 </Form>
 ```

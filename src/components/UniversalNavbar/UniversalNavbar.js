@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
@@ -55,6 +56,7 @@ class UniversalNavbar extends React.Component {
           'get-an-estimate ' + (showWhenScrolled ? 'show-when-scrolled' : '')
         }
         href="/term"
+        onClick={this.props.trackCtaClick}
       >
         <Button.Medium.BlackOutline>Check my price</Button.Medium.BlackOutline>
       </a>
@@ -120,7 +122,7 @@ class UniversalNavbar extends React.Component {
                     </div>
                   ))}
                   <div style={{ position: 'absolute', bottom: 40 }}>
-                    <a href="/term">
+                    <a href="/term" onClick={this.props.trackCtaClick}>
                       <Button.Medium.BlackOutline>
                         Check my price
                       </Button.Medium.BlackOutline>
@@ -132,7 +134,7 @@ class UniversalNavbar extends React.Component {
                 <a href="/">
                   <FancyAnimatedLogo />
                 </a>
-                {getAnEstimate(true)}
+                {!this.props.hideMobileCta && getAnEstimate(true)}
               </div>
             </Media.PhoneOnly>
 
@@ -170,6 +172,16 @@ class UniversalNavbar extends React.Component {
       </div>
     )
   }
+}
+
+UniversalNavbar.propTypes = {
+  hideMobileCta: PropTypes.bool.isRequired,
+  trackCtaClick: PropTypes.func.isRequired,
+}
+
+UniversalNavbar.defaultProps = {
+  hideMobileCta: false,
+  trackCtaClick: () => {},
 }
 
 export { UniversalNavbar }

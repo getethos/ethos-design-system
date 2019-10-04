@@ -7,7 +7,7 @@
 ### Base Usage
 
 ```jsx
-<ButtonSelectGroup label="Health">
+<ButtonSelectGroup labelCopy="Health">
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
@@ -19,7 +19,7 @@
 ### Rendering with a `defaultValue` selected
 
 ```jsx
-<ButtonSelectGroup defaultValue="great" label="Health">
+<ButtonSelectGroup defaultValue="great" labelCopy="Health">
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
@@ -33,7 +33,7 @@
 ```jsx
 <ButtonSelectGroup
   defaultValue="excellent"
-  label="Health"
+  labelCopy="Health"
   onSelect={({ value }) => console.log(value)}
 >
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
@@ -49,7 +49,7 @@
 ```jsx
 <ButtonSelectGroup
   defaultValue="excellent"
-  label="Health"
+  labelCopy="Health"
   onSelect={({ value }) => console.log(value)}
 >
   <ButtonSelectGroup.Option
@@ -78,7 +78,7 @@ import { OPTION_BUTTON_STYLES } from './index.js'
 ;<div style={{ background: '#f5f5f5', padding: '8px 16px' }}>
   <ButtonSelectGroup
     defaultValue="riddikulus"
-    label="Cast Spell"
+    labelCopy="Cast Spell"
     buttonStyle={OPTION_BUTTON_STYLES.WHITE}
   >
     <ButtonSelectGroup.Option value="riddikulus">
@@ -98,7 +98,7 @@ import { OPTION_BUTTON_STYLES } from './index.js'
 ;<div style={{ background: '#f5f5f5', padding: '8px 16px' }}>
   <ButtonSelectGroup
     defaultValue="riddikulus"
-    label="Cast Spell"
+    labelCopy="Cast Spell"
     buttonStyle={OPTION_BUTTON_STYLES.DEFAULT}
   >
     <ButtonSelectGroup.Option value="riddikulus">

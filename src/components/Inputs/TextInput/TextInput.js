@@ -19,9 +19,6 @@ import restrict from '../../../helpers/restrict.js'
  * @param  {Boolean}  props.disabled  
  */
 
-// Riffing off redux-form a bit: "this will be set when the field is blurred"
-let touched = false
-
 function PrivateTextInput({
   disabled,
   name,
@@ -51,6 +48,8 @@ function PrivateTextInput({
 
   const [value, setValue] = useState('')
 
+  const [touched, setTouched] = useState(false)
+
   const setErrorWrapper = (errorValue) => {
     if (!!formChangeHandler) {
       formChangeHandler(value, errorValue)
@@ -58,28 +57,37 @@ function PrivateTextInput({
     setError(errorValue)
   }
 
-  const doValidation = (value) => {
-    const errMsg = validate(value)
-    if (errMsg.length) {
-      setErrorWrapper(errMsg)
-    } else {
-      setErrorWrapper('')
-    }
+  const callErrorHandlers = (value, handlerFn) => {
+    let errorMessage = validate(value)
+    errorMessage = errorMessage.length ? errorMessage : ''
+    handlerFn(errorMessage)
   }
 
-  const onBlur = (ev) => {
-    touched = true
-    doValidation(value)
+  const doValidation = (value, isTouched) => {
+    // User hasn't blurred but we still need to inform form
+    // engine if we're in a valid state or not
+    if (!isTouched && !!formChangeHandler) {
+      callErrorHandlers(value, formChangeHandler)
+    } else {
+      // Have blurred
+      callErrorHandlers(value, setErrorWrapper)
+    }
   }
 
   const onChange = (ev) => {
     const val = event.target.value
     const restrictedVal = restrict(val)
     setValue(restrictedVal)
-    if (!touched) {
-      return
-    }
-    doValidation(restrictedVal)
+
+    // We call setTouched in onBlur, so can reliably call getter here
+    doValidation(restrictedVal, touched)
+  }
+
+  const onBlur = (ev) => {
+    // We set touched to change the react state, but it's async and
+    // processing still, so, we use a flag for doValidation
+    setTouched(true)
+    doValidation(ev.target.value, true)
   }
 
   const onPaste = (ev) => {
