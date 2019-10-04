@@ -34,6 +34,7 @@ Array [
     name="le-zip"
     onBlur={[Function]}
     onChange={[Function]}
+    pattern="[0-9]*"
     type="text"
   />,
   "",
