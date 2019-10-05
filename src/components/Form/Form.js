@@ -61,7 +61,7 @@ export function Form({ children, config }) {
   const [
     getFieldErrors,
     getFieldValues,
-    setStateFactory,
+    setFieldState,
     getFormErrorMessage,
     setFormErrorMessage,
     getFormIsValid,
@@ -101,13 +101,29 @@ export function Form({ children, config }) {
     // This just makes the rest of this easier to read
     const fieldConfig = config.fields[fieldName]
 
-    const doValidation = (field) => {
-      return fieldConfig.validators
-        .reduce((errors, validator) => {
-          return errors.concat(validator(field))
+    const doValidation = (fieldValue) => {
+      if (!fieldConfig.validators) return ''
+
+      const errorMessages = fieldConfig.validators
+        .reduce((errorsAccumulator, validator) => {
+          return errorsAccumulator.concat(validator(fieldValue))
         }, [])
         .filter((x) => !!x) // remove empty strings
         .join('. ')
+
+      // if field was configured with and array of validationSuccess
+      // and we have no errors, we want to call each success hook here
+      if (!errorMessages && fieldConfig.validationSuccess) {
+        doValidationSuccess(fieldValue)
+      }
+      return errorMessages
+    }
+
+    // This supports things like calling analytics upon field validation
+    const doValidationSuccess = (fieldValue) => {
+      fieldConfig.validationSuccess.forEach((postValidationCallback) => {
+        postValidationCallback.call(null, fieldName, fieldValue)
+      })
     }
 
     return fieldConfig.component(
@@ -115,12 +131,15 @@ export function Form({ children, config }) {
         // Field name. Used in the label to identify the field
         name: fieldName,
 
-        // A callback which notifies the form of the error and
-        // value for the field. The field still controls its own state
-        // internally, but the form needs to know if it has errors
-        // (to know if the form is valid) and what its value is (so it can
-        // pass that to the onSubmit wrapper).
-        formChangeHandler: setStateFactory(fieldName),
+        // A callback which fields can call to update the form's errors
+        // and values state for that same field. The field still controls
+        // its own state internally, but the form needs to know if it has
+        // errors (to know if the overall form is valid or not), and what
+        // its value is (so it can later pass that to the onSubmit wrapper).
+        // The validitiy of a form is essentially verified by
+        // `touched && !getFieldErrors()`, and so, setting error and value
+        // states here affects whether the form is ultimately valid or not.
+        formChangeHandler: setFieldState(fieldName),
 
         // validators are functions which return an empty string if they pass
         // or an error message if they fail.
