@@ -148,12 +148,12 @@ export function Form({ children, config }) {
     <form onSubmit={onSubmit}>
       {/* See the top of this file or ./Form.md for help on how to use
         these arguments passed to the children function. */}
-      {children(
+      {children({
         field,
         getFormErrorMessage,
         getFormIsValid,
-        getFormInteractedWith
-      )}
+        getFormInteractedWith,
+      })}
     </form>
   )
 }

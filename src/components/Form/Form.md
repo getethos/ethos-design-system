@@ -54,45 +54,53 @@ function validateCustom(x) {
     },
   }}
 >
-  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => (
-    <div>
-      <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+    return (
+      <div>
+        <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {!!getFormInteractedWith() && (
-        <>
-          <InfoMessage.Alert.Success>
-            {"Form interacted with."}
-          </InfoMessage.Alert.Success>
-        </>
-      )}
+        {!!getFormInteractedWith() && (
+          <>
+            <InfoMessage.Alert.Success>
+              {"Form interacted with."}
+            </InfoMessage.Alert.Success>
+          </>
+        )}
 
-      {getFormErrorMessage() && (
-        <>
-          <InfoMessage.Alert.Error>
-            {getFormErrorMessage()}
-          </InfoMessage.Alert.Error>
-        </>
-      )}
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
 
-      {field('evenNumText')}
+        {field('evenNumText')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {field('shorterEvenNumTextInput')}
+        {field('shorterEvenNumTextInput')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {field('zipCode')}
+        {field('zipCode')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-        Submit
-      </Button.Medium.Black>
-    </div>
-  )}
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
 </Form>
 ```
 
@@ -165,43 +173,49 @@ function validateCustom(x) {
     },
   }}
 >
-  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => {
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
     return (
-    <div>
-      <TitleLarge.Serif.Book500>
-        Example Form With Birthdate
-      </TitleLarge.Serif.Book500>
+      <div>
+        <TitleLarge.Serif.Book500>
+          Example Form With Birthdate
+        </TitleLarge.Serif.Book500>
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {!!getFormInteractedWith() && (
-        <>
-          <InfoMessage.Alert.Success>
-            {"Form interacted with."}
-          </InfoMessage.Alert.Success>
-        </>
-      )}
+        {!!getFormInteractedWith() && (
+          <>
+            <InfoMessage.Alert.Success>
+              {"Form interacted with."}
+            </InfoMessage.Alert.Success>
+          </>
+        )}
 
-      {getFormErrorMessage() && (
-        <>
-          <InfoMessage.Alert.Error>
-            {getFormErrorMessage()}
-          </InfoMessage.Alert.Error>
-        </>
-      )}
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
 
-      {field('birthdate')}
+        {field('birthdate')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {field('buttonGroup')}
+        {field('buttonGroup')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-        Submit
-      </Button.Medium.Black>
-    </div>
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
     )
   }}
 </Form>
