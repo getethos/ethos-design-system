@@ -1,7 +1,7 @@
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputValidator } from '../index'
+import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput } from '../index'
 let count = 0
 
 const validateCustom = (x) => {
@@ -28,7 +28,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
             <ZipInput {...props} />
           )
         },
-        validators: [validateCustom, ZipInputValidator],
+        validators: [validateCustom],
         validationSuccess: [analyticsCustomEvent],
         name: "this-zip-input-example",
         labelCopy: "What is your zip code?",

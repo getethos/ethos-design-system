@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { InputLabel } from '../InputLabel'
+import zipInputValidator from '../../../validators/ZipInputValidator'
 
 export const ZipInput = (props) => {
   const {
@@ -17,17 +18,26 @@ export const ZipInput = (props) => {
   const [getError, setError, validate] = useErrorMessage(validator)
   const [touched, setTouched] = useState(false)
 
-  const setErrorWrapper = (cleansed, errorValue) => {
+  const setErrorWrapper = (value, errorValue) => {
     if (!!formChangeHandler) {
-      formChangeHandler(cleansed, errorValue)
+      formChangeHandler(value, errorValue)
     }
     setError(errorValue)
   }
 
   const callErrorHandlers = (value, handlerFn) => {
-    let errorMessage = validate(value)
-    errorMessage = errorMessage.length ? errorMessage : ''
-    handlerFn(value, errorMessage)
+    /// Check zip format validity
+    let errMsg = zipInputValidator(value)
+    const errorMessage = errMsg.length ? errMsg : ''
+    if (errorMessage.length) {
+      handlerFn(value, errorMessage)
+    } else {
+      // Call any addtional validators the consumer has setup
+      // Note if no validators, we're still safe as validate checks
+      let errorMessage = validate(value)
+      errorMessage = errorMessage.length ? errorMessage : ''
+      handlerFn(value, errorMessage)
+    }
   }
 
   const doValidation = (value, isTouched) => {

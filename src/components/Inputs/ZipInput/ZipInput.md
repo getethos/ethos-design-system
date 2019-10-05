@@ -1,7 +1,6 @@
-The `ZipInput` takes a `validator`, and `ZipInputValidator` gives you validation for valid zip format. You can pass that directly, or, wrap it
-for any custom or additional logic you may wish to use.
+The `ZipInput` takes an optional `validator`, but does prevalidatiiin via the `ZipInputValidator` which validates a valid zip format.
 ```jsx
-import { ZipInput, ZipInputValidator } from './index.js';
+import { ZipInput } from './index.js';
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 <ZipInput
@@ -11,9 +10,8 @@ const formChangeHandlerStub = () => {}
   data-tid='the-zip-input'
   formChangeHandler={formChangeHandlerStub}
   validator={(zip) => {
-    const errors = ZipInputValidator(zip)
-    // More custom logic here should you wish
-    return errors
+    console.log('ZipInput prevalidates valid zipCode, so we\'d only do this if we wanted to add additional validation')
+    return ''
   }}
 />
 ```
