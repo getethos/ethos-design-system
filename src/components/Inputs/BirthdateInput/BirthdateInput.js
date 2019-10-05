@@ -97,8 +97,7 @@ const PrivateBirthdateInput = (props) => {
             ? 'BirthdateInput TextInput Error'
             : 'BirthdateInput TextInput'
         }
-        type="text"
-        inputMode="numeric"
+        type="tel"
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}

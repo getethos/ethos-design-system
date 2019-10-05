@@ -58,9 +58,7 @@ export const ZipInput = (props) => {
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       <MaskedInput
         mask={[/\d/, /\d/, /\d/, /\d/, /\d/]}
-        type="text"
-        inputMode="numeric"
-        pattern="[0-9]*"
+        type="tel"
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}
