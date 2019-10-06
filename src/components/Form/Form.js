@@ -41,6 +41,9 @@ import { useFormState } from '../../hooks/useFormState'
 export function Form({ children, config }) {
   const fieldNames = Object.keys(config.fields)
 
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
+  const formAutocomplete = config.autocompleteOff ? 'off' : 'on'
+
   // Set up initial values
   let initialValues = {}
   fieldNames.forEach((x) => {
@@ -164,7 +167,7 @@ export function Form({ children, config }) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} autoComplete={formAutocomplete}>
       {/* See the top of this file or ./Form.md for help on how to use
         these arguments passed to the children function. */}
       {children({

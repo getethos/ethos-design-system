@@ -20,6 +20,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 ;<Form
   config={{
     formName: 'Styleguidist example form',
+    autocompleteOff: true,
     formId: '1',
     fields: {
       zipCode: {
@@ -141,6 +142,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 ;<Form
   config={{
     formName: 'Styleguidist example form',
+    autocompleteOff: true,
     formId: '1',
     fields: {
       birthdate: {
