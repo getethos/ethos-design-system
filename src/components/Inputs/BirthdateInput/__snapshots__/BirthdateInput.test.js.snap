@@ -20,7 +20,6 @@ Array [
     className="BirthdateInput TextInput"
     data-tid="le-birthdate"
     guide={true}
-    inputMode="numeric"
     keepCharPositions={true}
     mask={
       Array [
@@ -41,7 +40,7 @@ Array [
     onChange={[Function]}
     pipe={[Function]}
     placeholder="mm/dd/yyyy"
-    type="text"
+    type="tel"
   />,
   "",
 ]

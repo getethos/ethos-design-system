@@ -54,7 +54,8 @@ const PrivateBirthdateInput = (props) => {
        * have a date in valid format yet.
        */
 
-      // Call any validators consumer has setup (e.g. date range)
+      // Call addtional validators consumer setup (e.g. date range)
+      // Note if no validators, we're still safe as validate checks
       const df = dateFormat.toUpperCase()
       const conformedDate = dayjs(value, df).format(df)
       let errorMessage = validate(conformedDate)
@@ -97,8 +98,7 @@ const PrivateBirthdateInput = (props) => {
             ? 'BirthdateInput TextInput Error'
             : 'BirthdateInput TextInput'
         }
-        type="text"
-        inputMode="numeric"
+        type="tel"
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}

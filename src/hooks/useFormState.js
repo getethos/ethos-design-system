@@ -8,7 +8,7 @@ export function useFormState(initialState) {
   const [formErrorState, setFormErrorState] = useState('')
 
   // Returns a function that updates state for the field, tracked by fieldName
-  function setStateFactory(fieldName) {
+  function setFieldState(fieldName) {
     return (newValue, newError) => {
       touched = true
 
@@ -67,7 +67,7 @@ export function useFormState(initialState) {
   return [
     getFieldErrors,
     getFieldValues,
-    setStateFactory,
+    setFieldState,
     getFormErrorMessage,
     setFormErrorMessage,
     getFormIsValid,

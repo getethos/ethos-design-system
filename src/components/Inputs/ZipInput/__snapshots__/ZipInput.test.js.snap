@@ -20,7 +20,6 @@ Array [
     className="ZipInput TextInput"
     data-tid="le-zip"
     guide={true}
-    inputMode="numeric"
     keepCharPositions={true}
     mask={
       Array [
@@ -34,8 +33,7 @@ Array [
     name="le-zip"
     onBlur={[Function]}
     onChange={[Function]}
-    pattern="[0-9]*"
-    type="text"
+    type="tel"
   />,
   "",
 ]

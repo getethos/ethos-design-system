@@ -1,17 +1,26 @@
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, ZipInputValidator } from '../index'
+import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput } from '../index'
 let count = 0
 
-function validateCustom(x) {
-  console.log("validateCustom: I got called...")
+const validateCustom = (x) => {
+  console.log("validateCustom got called...")
   return !!x ? '' : 'Validate custom error'
+}
+
+// This will only be called by the form engine after a field is
+// validated and no errors were found (empty error messages string)
+// Note that it's the consumer's responsibility to keep a table
+// lookup or similar to prevent duplicate tracking of valid fields, etc.
+const analyticsCustomEvent = (fieldName, fieldValue) => {
+  console.log("analyticsCustomEvent got called--field name: ", fieldName, "fieldValue: ", fieldValue, "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)")
 }
 
 ;<Form
   config={{
     formName: 'Styleguidist example form',
+    autocompleteOff: true,
     formId: '1',
     fields: {
       zipCode: {
@@ -20,7 +29,8 @@ function validateCustom(x) {
             <ZipInput {...props} />
           )
         },
-        validators: [validateCustom, ZipInputValidator],
+        validators: [validateCustom],
+        validationSuccess: [analyticsCustomEvent],
         name: "this-zip-input-example",
         labelCopy: "What is your zip code?",
       },
@@ -29,6 +39,7 @@ function validateCustom(x) {
           return <TextInput {...props} />
         },
         validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 5, 7)],
+        validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
         tid: 'example-data-tid',
@@ -38,6 +49,7 @@ function validateCustom(x) {
           return <TextInput {...props} />
         },
         validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 3, 5)],
+        validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
       },
@@ -54,45 +66,53 @@ function validateCustom(x) {
     },
   }}
 >
-  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => (
-    <div>
-      <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+    return (
+      <div>
+        <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {!!getFormInteractedWith() && (
-        <>
-          <InfoMessage.Alert.Success>
-            {"Form interacted with."}
-          </InfoMessage.Alert.Success>
-        </>
-      )}
+        {!!getFormInteractedWith() && (
+          <>
+            <InfoMessage.Alert.Success>
+              {"Form interacted with."}
+            </InfoMessage.Alert.Success>
+          </>
+        )}
 
-      {getFormErrorMessage() && (
-        <>
-          <InfoMessage.Alert.Error>
-            {getFormErrorMessage()}
-          </InfoMessage.Alert.Error>
-        </>
-      )}
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
 
-      {field('evenNumText')}
+        {field('evenNumText')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {field('shorterEvenNumTextInput')}
+        {field('shorterEvenNumTextInput')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {field('zipCode')}
+        {field('zipCode')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-        Submit
-      </Button.Medium.Black>
-    </div>
-  )}
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
 </Form>
 ```
 
@@ -111,9 +131,18 @@ function validateCustom(x) {
   return !!x ? '' : 'Validate custom error'
 }
 
+// This will only be called by the form engine after a field is
+// validated and no errors were found (empty error messages string)
+// Note that it's the consumer's responsibility to keep a table
+// lookup or similar to prevent duplicate tracking of valid fields, etc.
+const analyticsCustomEvent = (fieldName, fieldValue) => {
+  console.log("analyticsCustomEvent got called--field name: ", fieldName, "fieldValue: ", fieldValue, "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)")
+}
+
 ;<Form
   config={{
     formName: 'Styleguidist example form',
+    autocompleteOff: true,
     formId: '1',
     fields: {
       birthdate: {
@@ -131,6 +160,7 @@ function validateCustom(x) {
             dateFormat: 'mm/dd/yyyy',
           }),
         ],
+        validationSuccess: [analyticsCustomEvent],
         labelCopy: 'Must be between 20 and 65 years old',
       },
       buttonGroup: {
@@ -146,6 +176,7 @@ function validateCustom(x) {
           )
         },
         validators: [validateCustom, validateTruthy],
+        validationSuccess: [analyticsCustomEvent],
         labelCopy: 'Either option is valid',
         options: [
           { value: 'female', copy: 'Female' },
@@ -165,43 +196,49 @@ function validateCustom(x) {
     },
   }}
 >
-  {(field, getFormErrorMessage, getFormIsValid, getFormInteractedWith) => {
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
     return (
-    <div>
-      <TitleLarge.Serif.Book500>
-        Example Form With Birthdate
-      </TitleLarge.Serif.Book500>
+      <div>
+        <TitleLarge.Serif.Book500>
+          Example Form With Birthdate
+        </TitleLarge.Serif.Book500>
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {!!getFormInteractedWith() && (
-        <>
-          <InfoMessage.Alert.Success>
-            {"Form interacted with."}
-          </InfoMessage.Alert.Success>
-        </>
-      )}
+        {!!getFormInteractedWith() && (
+          <>
+            <InfoMessage.Alert.Success>
+              {"Form interacted with."}
+            </InfoMessage.Alert.Success>
+          </>
+        )}
 
-      {getFormErrorMessage() && (
-        <>
-          <InfoMessage.Alert.Error>
-            {getFormErrorMessage()}
-          </InfoMessage.Alert.Error>
-        </>
-      )}
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
 
-      {field('birthdate')}
+        {field('birthdate')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      {field('buttonGroup')}
+        {field('buttonGroup')}
 
-      <Spacer.H16 />
+        <Spacer.H16 />
 
-      <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-        Submit
-      </Button.Medium.Black>
-    </div>
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
     )
   }}
 </Form>
