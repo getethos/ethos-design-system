@@ -2935,7 +2935,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var dayj
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar illegalRegex = /[*|\\\":<>[\\]{}`\\\\()';=&$]/g;\n\nvar restrict = function restrict(val) {\n  return val.replace(illegalRegex, '');\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (restrict);\n\n//# sourceURL=webpack://ethos-design-system/./src/helpers/restrict.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nvar illegalRegex = /[*|\\\"<>[\\]{}`\\\\;=]/g;\n\nvar restrict = function restrict(val) {\n  return val.replace(illegalRegex, '');\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (restrict);\n\n//# sourceURL=webpack://ethos-design-system/./src/helpers/restrict.js?");
 
 /***/ }),
 
