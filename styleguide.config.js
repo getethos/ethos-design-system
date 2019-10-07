@@ -16,7 +16,7 @@ module.exports = {
     path.join(__dirname, 'styleguide/content/content.scss'),
     path.join(__dirname, 'src/components/design-system.css'),
     path.join(__dirname, 'src/fonts/index.css'),
-    path.join(__dirname, 'src/libs/lazysizes.min.js'),
+    // path.join(__dirname, 'src/libs/lazysizes.min.js'),
   ],
   sections: [
     {

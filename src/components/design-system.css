@@ -320,14 +320,13 @@ button:not([disabled]),
 
 /* @getethos/design-system/Images.scss
    ========================================================================== */
+/* Generally used as a wrapper around Image components. */
 figure {
   margin: 0;
 }
 
 .Image {
-  border-radius: 2px;
   display: block;
-  width: 100%;
   height: auto;
 }
 
