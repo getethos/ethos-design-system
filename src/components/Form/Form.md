@@ -29,7 +29,6 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
             <ZipInput {...props} />
           )
         },
-        validators: [validateCustom],
         validationSuccess: [analyticsCustomEvent],
         name: "this-zip-input-example",
         labelCopy: "What is your zip code?",
