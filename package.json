@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.4-m",
+  "version": "1.1.4-n",
   "description": "Ethos Design System v1",
   "main": "./build/bundle.js",
   "license": "UNLICENSED",
