@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import uuidv4 from 'uuid/v4'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
@@ -74,10 +75,7 @@ class UniversalNavbar extends React.Component {
     const { showMobileMenu } = this.state
 
     const renderDesktopLink = (l) => (
-      <div
-        key={l.title + 'nonmobile'}
-        className={'universal-navbar-paddingLeft'}
-      >
+      <div className={'universal-navbar-paddingLeft'}>
         <Link href={l.href}>{l.title}</Link>
       </div>
     )
@@ -122,11 +120,9 @@ class UniversalNavbar extends React.Component {
                   </Link>
                   <Spacer.H56 />
                   {navbarLinks.map((l) => (
-                    <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
+                    <div key={uuidv4()} style={{ marginBottom: 24 }}>
                       <TitleXLarge.Sans.Regular400>
-                        <Link key={l.title + 'mobile'} href={l.href}>
-                          {l.title}
-                        </Link>
+                        <Link href={l.href}>{l.title}</Link>
                       </TitleXLarge.Sans.Regular400>
                     </div>
                   ))}
