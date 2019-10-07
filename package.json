@@ -29,7 +29,6 @@
     }
   },
   "dependencies": {
-    "cloudinary-core": "^2.7.4",
     "lazysizes": "^5.1.2"
   },
   "peerDependencies": {},
