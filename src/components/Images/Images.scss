@@ -3,12 +3,13 @@
 
 // WIP.
 
+/* Generally used as a wrapper around Image components. */
 figure {
   margin: 0;
 }
 
 .Image {
-  border-radius: 2px;
+  // border-radius: 2px; removed until reason for this being added is confirmed
   display: block;
 
   // These are consequential, may need to pull out.
