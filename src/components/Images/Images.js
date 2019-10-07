@@ -75,8 +75,6 @@ export const CloudinaryImage = ({
     flags: ['progressive:semi'],
   }
 
-  console.log(width[0])
-  console.log(height)
   const phoneImageSettings = {
     ...baseImageSetting,
     width: width[0],
@@ -167,75 +165,75 @@ export const CloudinaryImage = ({
   return (
     <picture>
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
         // srcset="desktop-@3x.webp 3x, desktop-@2x.webp 2x, desktop.webp 1x"
         data-srcset={desktopUrlWebP}
         type="image/webp"
       />
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
         // srcset="laptop-@3x.webp 3x, laptop-@2x.webp 2x, laptop.webp 1x"
         data-srcset={laptopUrlWebP}
         type="image/webp"
       />
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
         // srcset="tablet-@3x.webp 3x, tablet-@2x.webp 2x, tablet.webp 1x"
         data-srcset={tabletUrlWebP}
         type="image/webp"
       />
       <source
-        media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}`}
+        media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`}
         // srcset="phone-@3x.webp 3x, phone-@2x.webp 2x, phone.webp 1x"
         data-srcset={phoneUrlWebP}
         type="image/webp"
       />
 
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
         // srcset="desktop-@3x.jp2 3x, desktop-@2x.jp2 2x, desktop.jp2 1x"
         data-srcset={desktopUrlJp2}
         type="image/jp2"
       />
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
         // srcset="laptop-@3x.jp2 3x, laptop-@2x.jp2 2x, laptop.jp2 1x"
         data-srcset={laptopUrlJp2}
         type="image/jp2"
       />
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
         // srcset="tablet-@3x.jp2 3x, tablet-@2x.jp2 2x, tablet.jp2 1x"
         data-srcset={tabletUrlJp2}
         type="image/jp2"
       />
       <source
-        media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}`}
+        media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`}
         // srcset="phone-@3x.jp2 3x, phone-@2x.jp2 2x, phone.jp2 1x"
         data-srcset={phoneUrlJp2}
         type="image/jp2"
       />
 
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
         // srcset="desktop-@3x.jpg 3x, desktop-@2x.jpg 2x, desktop.jpg 1x"
         data-srcset={desktopUrlJpeg}
         type="image/jpeg"
       />
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
         // srcset="laptop-@3x.jpg 3x, laptop-@2x.jpg 2x, laptop.jpg 1x"
         data-srcset={laptopUrlJpeg}
         type="image/jpeg"
       />
       <source
-        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}`}
+        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
         // srcset="tablet-@3x.jpg 3x, tablet-@2x.jpg 2x, tablet.jpg 1x"
         data-srcset={tabletUrlJpeg}
         type="image/jpeg"
       />
       <img
-        src={phoneUrlJpeg}
+        data-src={phoneUrlJpeg}
         className={['Image lazyload', className].join(' ')}
         alt={alt}
       />
