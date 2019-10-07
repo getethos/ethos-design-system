@@ -50,6 +50,15 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
+    const Link = ({ href, ...props }) => {
+      const PropsLink = this.props.link
+      if (PropsLink) {
+        return <PropsLink to={href} {...props} />
+      }
+
+      return <a href={href} {...props} />
+    }
+
     const getAnEstimate = (showWhenScrolled) => (
       <a
         className={
@@ -69,7 +78,7 @@ class UniversalNavbar extends React.Component {
         key={l.title + 'nonmobile'}
         className={'universal-navbar-paddingLeft'}
       >
-        <a href={l.href}>{l.title}</a>
+        <Link href={l.href}>{l.title}</Link>
       </div>
     )
 
@@ -108,16 +117,16 @@ class UniversalNavbar extends React.Component {
                     showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
                   }
                 >
-                  <a href="/">
+                  <Link href="/">
                     {LogoWhite({ className: 'universal-navbar-logo' })}
-                  </a>
+                  </Link>
                   <Spacer.H56 />
                   {navbarLinks.map((l) => (
                     <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
                       <TitleXLarge.Sans.Regular400>
-                        <a key={l.title + 'mobile'} href={l.href}>
+                        <Link key={l.title + 'mobile'} href={l.href}>
                           {l.title}
-                        </a>
+                        </Link>
                       </TitleXLarge.Sans.Regular400>
                     </div>
                   ))}
@@ -131,9 +140,9 @@ class UniversalNavbar extends React.Component {
                 </div>
 
                 {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-                <a href="/">
+                <Link href="/">
                   <FancyAnimatedLogo />
-                </a>
+                </Link>
                 {!this.props.hideMobileCta && getAnEstimate(true)}
               </div>
             </Media.PhoneOnly>
@@ -145,9 +154,9 @@ class UniversalNavbar extends React.Component {
                 >
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
-                    <a href="/">
+                    <Link href="/">
                       {LogoNotAnimated({ className: 'universal-navbar-logo' })}
-                    </a>
+                    </Link>
                     {renderDesktopLink(navbarLinks[0])}
                     {renderDesktopLink(navbarLinks[1])}
                     <Media.LaptopAndUp>
@@ -177,6 +186,7 @@ class UniversalNavbar extends React.Component {
 UniversalNavbar.propTypes = {
   hideMobileCta: PropTypes.bool.isRequired,
   trackCtaClick: PropTypes.func.isRequired,
+  link: PropTypes.node,
 }
 
 UniversalNavbar.defaultProps = {
