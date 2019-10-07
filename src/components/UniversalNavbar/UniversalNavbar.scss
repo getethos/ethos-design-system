@@ -1,22 +1,51 @@
-// @import 'packages/design-system/Media.scss'; // Funnel
-@import '../Media/Media.scss'; //CMS
-@import './globals-for-cms.scss'; // Tachyons
+@import '../Media/Media.scss';
+@import './globals-for-cms.scss';
 @import './TransformingBurgerButton/TransformingBurgerButton.scss';
 
-.universal-navbar-root {
+// TODO: clean up these naming conventions, and probably move to CSS modules.
+
+.UniversalNavbar--hamburger {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
+
+  @include for-tablet-and-up {
+    display: none;
+  }
+}
+
+.UniversalNavbar--phoneOnly {
   height: var(--Space-64);
   background-color: white;
-}
-
-.universal-navbar-mobileRoot {
   padding: var(--Space-24) var(--ContainerPadding--Phone);
+
+  @include for-tablet-and-up {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.universal-navbar-rootChild {
+.UniversalNavbar--tabletAndUp {
+  height: var(--Space-64);
+  background-color: white;
+
+  display: none;
+  @include for-tablet-and-up {
+    display: block;
+  }
+}
+
+.UniversalNavbar__tabletAndUpContainer {
   max-width: 1440px;
   margin: 0 auto;
   padding: var(--Space-24);
   height: var(--Space-64);
+
+  display: flex;
+  justify-content: space-between;
 
   @include for-tablet-only {
     padding: var(--Space-24) var(--ContainerPadding--Tablet);
@@ -39,7 +68,7 @@
 
 /**
   * Region:
-  * Manually reproduced version of a WIP Button.Small for "Get an estimate" 
+  * Manually reproduced version of a WIP Button.Small for "Get an estimate"
   * TODO REDESIGN: finalize styling for Button.Small in DS and use it instead
   */
 .get-an-estimate .Button.Medium {
@@ -77,7 +106,7 @@
 
 /**
    * Region:
-   * Fancy animated scroll behavior 
+   * Fancy animated scroll behavior
    */
 @include for-phone-only {
   .letter:not(.fancyO) {
@@ -157,7 +186,7 @@
 
 /**
    * Region:
-   * Big green mobile hamburger menu 
+   * Big green mobile hamburger menu
    */
 .shownMobileMenu,
 .hiddenMobileMenu {
