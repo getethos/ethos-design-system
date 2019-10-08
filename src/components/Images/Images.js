@@ -14,12 +14,6 @@ const cld = new cloudinary.Cloudinary({
   cloud_name: CLOUDINARY_CLOUD_NAME,
 })
 
-const BREAKPOINTS = [
-  Media.BREAKPOINTS.TABLET_RANGE_START,
-  Media.BREAKPOINTS.LAPTOP_RANGE_START,
-  Media.BREAKPOINTS.DESKTOP_RANGE_START,
-]
-
 export const CloudinaryImage = ({
   publicId,
   className,
