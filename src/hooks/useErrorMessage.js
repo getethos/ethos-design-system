@@ -3,11 +3,6 @@ import { InfoMessage } from '../components/InfoMessage'
 import { Spacer } from '../components'
 
 const useErrorMessage = (validator) => {
-  // Form's `validationSuccess` won't get called unless we succeed in validating.
-  // But that requires a validator of some kind so this circumnavigates the issue.
-  const noopValidator = () => ''
-  validator = validator ? validator : noopValidator
-
   const [displayError, setDisplayError] = useState('')
 
   const setError = (msg) => {

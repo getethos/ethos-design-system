@@ -105,7 +105,12 @@ export function Form({ children, config }) {
     const fieldConfig = config.fields[fieldName]
 
     const doValidation = (fieldValue) => {
-      if (!fieldConfig.validators) return ''
+      // Form's `validationSuccess` won't get called unless we succeed in validating.
+      // But that requires a validator of some kind so this circumnavigates the issue.
+      const noop = () => ''
+      fieldConfig.validators = fieldConfig.validators
+        ? fieldConfig.validators
+        : [noop]
 
       const errorMessages = fieldConfig.validators
         .reduce((errorsAccumulator, validator) => {
