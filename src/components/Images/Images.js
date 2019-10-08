@@ -39,6 +39,9 @@ export const CloudinaryImage = ({
   )
   includesInvalid(rest)
 
+  const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
+  const publicIdFilename = publicId.replace(publicIdBase, '')
+
   // Serve a simpler version if resource is SVG
   if(publicId.split('.').pop() === 'svg'){
 
@@ -46,7 +49,7 @@ export const CloudinaryImage = ({
       secure: true,
     }
 
-    const svgUrl = cld.url(publicId, baseSvgSettings)
+    const svgUrl = cld.url(publicIdFilename, baseSvgSettings)
 
     return (
       <img
@@ -101,17 +104,17 @@ export const CloudinaryImage = ({
     format: 'jpeg'
   }
 
-  const phoneUrlWebP = cld.url(publicId, {...phoneImageWebP, ...dpr1Setting})
-  const phoneUrlJp2 = cld.url(publicId, {...phoneImageJp2, ...dpr1Setting})
-  const phoneUrlJpeg = cld.url(publicId, {...phoneImageJpeg, ...dpr1Setting})
+  const phoneUrlWebP = cld.url(publicIdFilename, {...phoneImageWebP, ...dpr1Setting})
+  const phoneUrlJp2 = cld.url(publicIdFilename, {...phoneImageJp2, ...dpr1Setting})
+  const phoneUrlJpeg = cld.url(publicIdFilename, {...phoneImageJpeg, ...dpr1Setting})
 
-  const phoneUrlWebP_2x = cld.url(publicId, {...phoneImageWebP, ...dpr2Setting})
-  const phoneUrlJp2_2x = cld.url(publicId, {...phoneImageJp2, ...dpr2Setting})
-  const phoneUrlJpeg_2x = cld.url(publicId, {...phoneImageJpeg, ...dpr2Setting})
+  const phoneUrlWebP_2x = cld.url(publicIdFilename, {...phoneImageWebP, ...dpr2Setting})
+  const phoneUrlJp2_2x = cld.url(publicIdFilename, {...phoneImageJp2, ...dpr2Setting})
+  const phoneUrlJpeg_2x = cld.url(publicIdFilename, {...phoneImageJpeg, ...dpr2Setting})
 
-  const phoneUrlWebP_3x = cld.url(publicId, {...phoneImageWebP, ...dpr3Setting})
-  const phoneUrlJp2_3x = cld.url(publicId, {...phoneImageJp2, ...dpr3Setting})
-  const phoneUrlJpeg_3x = cld.url(publicId, {...phoneImageJpeg, ...dpr3Setting})
+  const phoneUrlWebP_3x = cld.url(publicIdFilename, {...phoneImageWebP, ...dpr3Setting})
+  const phoneUrlJp2_3x = cld.url(publicIdFilename, {...phoneImageJp2, ...dpr3Setting})
+  const phoneUrlJpeg_3x = cld.url(publicIdFilename, {...phoneImageJpeg, ...dpr3Setting})
 
   // ------------------------------
   // Tablet Settings
@@ -122,7 +125,7 @@ export const CloudinaryImage = ({
     ...(!!height[1]) && { height: height[1]},
   }
 
-  const tabletUrl = cld.url(publicId, tabletImageSettings)
+  const tabletUrl = cld.url(publicIdFilename, tabletImageSettings)
 
   const tabletImageWebP = {
     ...tabletImageSettings,
@@ -139,17 +142,17 @@ export const CloudinaryImage = ({
     format: 'jpeg'
   }
 
-  const tabletUrlWebP = cld.url(publicId, {...tabletImageWebP, ...dpr1Setting})
-  const tabletUrlJp2 = cld.url(publicId, {...tabletImageJp2, ...dpr1Setting})
-  const tabletUrlJpeg = cld.url(publicId, {...tabletImageJpeg, ...dpr1Setting})
+  const tabletUrlWebP = cld.url(publicIdFilename, {...tabletImageWebP, ...dpr1Setting})
+  const tabletUrlJp2 = cld.url(publicIdFilename, {...tabletImageJp2, ...dpr1Setting})
+  const tabletUrlJpeg = cld.url(publicIdFilename, {...tabletImageJpeg, ...dpr1Setting})
 
-  const tabletUrlWebP_2x = cld.url(publicId, {...tabletImageWebP, ...dpr2Setting})
-  const tabletUrlJp2_2x = cld.url(publicId, {...tabletImageJp2, ...dpr2Setting})
-  const tabletUrlJpeg_2x = cld.url(publicId, {...tabletImageJpeg, ...dpr2Setting})
+  const tabletUrlWebP_2x = cld.url(publicIdFilename, {...tabletImageWebP, ...dpr2Setting})
+  const tabletUrlJp2_2x = cld.url(publicIdFilename, {...tabletImageJp2, ...dpr2Setting})
+  const tabletUrlJpeg_2x = cld.url(publicIdFilename, {...tabletImageJpeg, ...dpr2Setting})
 
-  const tabletUrlWebP_3x = cld.url(publicId, {...tabletImageWebP, ...dpr3Setting})
-  const tabletUrlJp2_3x = cld.url(publicId, {...tabletImageJp2, ...dpr3Setting})
-  const tabletUrlJpeg_3x = cld.url(publicId, {...tabletImageJpeg, ...dpr3Setting})
+  const tabletUrlWebP_3x = cld.url(publicIdFilename, {...tabletImageWebP, ...dpr3Setting})
+  const tabletUrlJp2_3x = cld.url(publicIdFilename, {...tabletImageJp2, ...dpr3Setting})
+  const tabletUrlJpeg_3x = cld.url(publicIdFilename, {...tabletImageJpeg, ...dpr3Setting})
 
   // ------------------------------
   // Laptop Settings
@@ -160,7 +163,7 @@ export const CloudinaryImage = ({
     ...(!!height[2]) && { height: height[2]},
   }
 
-  const laptopUrl = cld.url(publicId, laptopImageSettings)
+  const laptopUrl = cld.url(publicIdFilename, laptopImageSettings)
 
   const laptopImageWebP = {
     ...laptopImageSettings,
@@ -177,17 +180,17 @@ export const CloudinaryImage = ({
     format: 'jpeg'
   }
 
-  const laptopUrlWebP = cld.url(publicId, {...laptopImageWebP, ...dpr1Setting})
-  const laptopUrlJp2 = cld.url(publicId, {...laptopImageJp2, ...dpr1Setting})
-  const laptopUrlJpeg = cld.url(publicId, {...laptopImageJpeg, ...dpr1Setting})
+  const laptopUrlWebP = cld.url(publicIdFilename, {...laptopImageWebP, ...dpr1Setting})
+  const laptopUrlJp2 = cld.url(publicIdFilename, {...laptopImageJp2, ...dpr1Setting})
+  const laptopUrlJpeg = cld.url(publicIdFilename, {...laptopImageJpeg, ...dpr1Setting})
 
-  const laptopUrlWebP_2x = cld.url(publicId, {...laptopImageWebP, ...dpr2Setting})
-  const laptopUrlJp2_2x = cld.url(publicId, {...laptopImageJp2, ...dpr2Setting})
-  const laptopUrlJpeg_2x = cld.url(publicId, {...laptopImageJpeg, ...dpr2Setting})
+  const laptopUrlWebP_2x = cld.url(publicIdFilename, {...laptopImageWebP, ...dpr2Setting})
+  const laptopUrlJp2_2x = cld.url(publicIdFilename, {...laptopImageJp2, ...dpr2Setting})
+  const laptopUrlJpeg_2x = cld.url(publicIdFilename, {...laptopImageJpeg, ...dpr2Setting})
 
-  const laptopUrlWebP_3x = cld.url(publicId, {...laptopImageWebP, ...dpr3Setting})
-  const laptopUrlJp2_3x = cld.url(publicId, {...laptopImageJp2, ...dpr3Setting})
-  const laptopUrlJpeg_3x = cld.url(publicId, {...laptopImageJpeg, ...dpr3Setting})
+  const laptopUrlWebP_3x = cld.url(publicIdFilename, {...laptopImageWebP, ...dpr3Setting})
+  const laptopUrlJp2_3x = cld.url(publicIdFilename, {...laptopImageJp2, ...dpr3Setting})
+  const laptopUrlJpeg_3x = cld.url(publicIdFilename, {...laptopImageJpeg, ...dpr3Setting})
 
   // ------------------------------
   // Desktop Settings
@@ -198,7 +201,7 @@ export const CloudinaryImage = ({
     ...(!!height[3]) && { height: height[3]},
   }
 
-  const desktopUrl = cld.url(publicId, desktopImageSettings)
+  const desktopUrl = cld.url(publicIdFilename, desktopImageSettings)
 
   const desktopImageWebP = {
     ...desktopImageSettings,
@@ -215,17 +218,17 @@ export const CloudinaryImage = ({
     format: 'jpeg'
   }
 
-  const desktopUrlWebP = cld.url(publicId, {...desktopImageWebP, ...dpr1Setting})
-  const desktopUrlJp2 = cld.url(publicId, {...desktopImageJp2, ...dpr1Setting})
-  const desktopUrlJpeg = cld.url(publicId, {...desktopImageJpeg, ...dpr1Setting})
+  const desktopUrlWebP = cld.url(publicIdFilename, {...desktopImageWebP, ...dpr1Setting})
+  const desktopUrlJp2 = cld.url(publicIdFilename, {...desktopImageJp2, ...dpr1Setting})
+  const desktopUrlJpeg = cld.url(publicIdFilename, {...desktopImageJpeg, ...dpr1Setting})
 
-  const desktopUrlWebP_2x = cld.url(publicId, {...desktopImageWebP, ...dpr2Setting})
-  const desktopUrlJp2_2x = cld.url(publicId, {...desktopImageJp2, ...dpr2Setting})
-  const desktopUrlJpeg_2x = cld.url(publicId, {...desktopImageJpeg, ...dpr2Setting})
+  const desktopUrlWebP_2x = cld.url(publicIdFilename, {...desktopImageWebP, ...dpr2Setting})
+  const desktopUrlJp2_2x = cld.url(publicIdFilename, {...desktopImageJp2, ...dpr2Setting})
+  const desktopUrlJpeg_2x = cld.url(publicIdFilename, {...desktopImageJpeg, ...dpr2Setting})
 
-  const desktopUrlWebP_3x = cld.url(publicId, {...desktopImageWebP, ...dpr3Setting})
-  const desktopUrlJp2_3x = cld.url(publicId, {...desktopImageJp2, ...dpr3Setting})
-  const desktopUrlJpeg_3x = cld.url(publicId, {...desktopImageJpeg, ...dpr3Setting})
+  const desktopUrlWebP_3x = cld.url(publicIdFilename, {...desktopImageWebP, ...dpr3Setting})
+  const desktopUrlJp2_3x = cld.url(publicIdFilename, {...desktopImageJp2, ...dpr3Setting})
+  const desktopUrlJpeg_3x = cld.url(publicIdFilename, {...desktopImageJpeg, ...dpr3Setting})
 
   return (
     <picture>
