@@ -1,12 +1,12 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.4-n",
+  "version": "1.1.5",
   "description": "Ethos Design System v1",
   "main": "./build/bundle.js",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "webpack",
-    "release": "yarn test && yarn run compile-css && yarn run build",
+    "build": "yarn compile-css",
+    "prerelease": "yarn test && yarn build",
     "compile-css": "node-sass src/components/index.scss src/components/design-system.css && yarn format",
     "develop": "chokidar *.scss -c 'yarn build' --initial",
     "format": "prettier --write \"src/components/**/*.*css\"",
@@ -60,7 +60,6 @@
     "text-mask-addons": "^3.8.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   }
 }
