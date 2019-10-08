@@ -45,6 +45,25 @@ export const CloudinaryImage = ({
   )
   includesInvalid(rest)
 
+  // Serve a simpler version if resource is SVG
+  if(publicId.split('.').pop() === 'svg'){
+
+    const baseSvgSettings = {
+      crop: crop,
+      secure: true,
+    }
+
+    const svgUrl = cld.url(publicId, baseSvgSettings)
+
+    return (
+      <img
+        data-src={svgUrl}
+        className={['Image lazyload', className].join(' ')}
+        alt={alt}
+      />
+    )
+  }
+
   const baseImageSettings = {
     quality: 'auto:eco',
     crop: crop,
@@ -266,7 +285,7 @@ export const CloudinaryImage = ({
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        data-srcset={laptopUrlJpeg}
+        data-srcset={`${laptopUrlJpeg_3x} 3x, ${laptopUrlJpeg_2x} 2x, ${laptopUrlJpeg} 1x`}
         type="image/jpeg"
       />
       <source
