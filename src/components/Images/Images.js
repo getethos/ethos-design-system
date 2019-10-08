@@ -49,7 +49,6 @@ export const CloudinaryImage = ({
   if(publicId.split('.').pop() === 'svg'){
 
     const baseSvgSettings = {
-      crop: crop,
       secure: true,
     }
 
