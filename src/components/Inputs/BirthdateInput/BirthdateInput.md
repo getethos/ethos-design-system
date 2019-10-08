@@ -12,7 +12,7 @@ import dayjs from '../../../helpers/getDayjs.js'
 const minimumEligibleAge = 20
 const maximumEligibleAge = 65
 
-const getMinBirthdateLGA = (maxAge) => {
+const getMinBirthdateLga = (maxAge) => {
   // Max age determines the earliest (minimum) allowable birthdate
   const minBirthdate = dayjs()
     .subtract(maxAge, 'years')
@@ -24,7 +24,7 @@ const getMinBirthdateLGA = (maxAge) => {
   return minBirthdate
 }
 
-const getMaxBirthdateLGA = (minAge) => {
+const getMaxBirthdateLga = (minAge) => {
   // Min age determines the latest (maximum) allowable birthdate
   const maxBirthdate = dayjs()
     .subtract(minAge, 'years')
@@ -43,8 +43,8 @@ const getMaxBirthdateLGA = (minAge) => {
     return validateMinMaxDateFactory({
       minAge: minimumEligibleAge,
       maxAge: maximumEligibleAge,
-      minBirthdate: getMinBirthdateLGA(maximumEligibleAge),
-      maxBirthdate: getMaxBirthdateLGA(minimumEligibleAge),
+      minBirthdate: getMinBirthdateLga(maximumEligibleAge),
+      maxBirthdate: getMaxBirthdateLga(minimumEligibleAge),
       dateFormat: 'mm/dd/yyyy',
     })(value)
   }}
