@@ -34,6 +34,8 @@ export const CloudinaryImage = ({
   let allRelevantProps = Object.assign({}, rest, {
     publicId,
     alt,
+    width,
+    height,
   })
   includesRequired(allRelevantProps)
 
@@ -43,197 +45,237 @@ export const CloudinaryImage = ({
   )
   includesInvalid(rest)
 
-  //   const srcSetOptions = Object.assign(
-  //     {},
-  //     {
-  //       // Find information on image transformations here:
-  //       // https://cloudinary.com/documentation/image_transformations
-  //       quality: 'auto:eco',
-  //       // fetchFormat: 'auto',
-  //       srcset: {
-  //         breakpoints: BREAKPOINTS,
-  //         sizes: true,
-  //       },
-  //       dpr: 'auto',
-  //       crop: crop,
-  //       secure: 'true', // for HTTPS
-  //
-  //       // detection: 'adv_face', // https://cloudinary.com/documentation/advanced_facial_attributes_detection_addon
-  //     },
-  //     !!width ? { width } : {},
-  //     !!height ? { height } : {}
-  //   )
-
-  // const srcSet = cld.imageTag(publicId, srcSetOptions).getAttr('srcset')
-
-  // console.log(srcSetOptions)
-  const baseImageSetting = {
-    dpr: 'auto',
+  const baseImageSettings = {
     quality: 'auto:eco',
     crop: crop,
     secure: true,
     flags: ['progressive:semi'],
   }
 
+  const dpr1Setting = {
+    dpr: '1.0'
+  }
+
+  const dpr2Setting = {
+    dpr: '2.0'
+  }
+
+  const dpr3Setting = {
+    dpr: '3.0'
+  }
+
+  // ------------------------------
+  // Phone Settings
+  // ------------------------------
   const phoneImageSettings = {
-    ...baseImageSetting,
+    ...baseImageSettings,
     width: width[0],
     height: height[0],
   }
+
   const phoneImageWebP = {
     ...phoneImageSettings,
     format: 'webp'
   }
+
   const phoneImageJp2 = {
     ...phoneImageSettings,
     format: 'jp2'
   }
+
   const phoneImageJpeg = {
     ...phoneImageSettings,
     format: 'jpeg'
   }
-  const phoneUrlWebP = cld.url(publicId, phoneImageWebP)
-  const phoneUrlJp2 = cld.url(publicId, phoneImageJp2)
-  const phoneUrlJpeg = cld.url(publicId, phoneImageJpeg)
 
+  const phoneUrlWebP = cld.url(publicId, {...phoneImageWebP, ...dpr1Setting})
+  const phoneUrlJp2 = cld.url(publicId, {...phoneImageJp2, ...dpr1Setting})
+  const phoneUrlJpeg = cld.url(publicId, {...phoneImageJpeg, ...dpr1Setting})
+
+  const phoneUrlWebP_2x = cld.url(publicId, {...phoneImageWebP, ...dpr2Setting})
+  const phoneUrlJp2_2x = cld.url(publicId, {...phoneImageJp2, ...dpr2Setting})
+  const phoneUrlJpeg_2x = cld.url(publicId, {...phoneImageJpeg, ...dpr2Setting})
+
+  const phoneUrlWebP_3x = cld.url(publicId, {...phoneImageWebP, ...dpr3Setting})
+  const phoneUrlJp2_3x = cld.url(publicId, {...phoneImageJp2, ...dpr3Setting})
+  const phoneUrlJpeg_3x = cld.url(publicId, {...phoneImageJpeg, ...dpr3Setting})
+
+  // ------------------------------
+  // Tablet Settings
+  // ------------------------------
   const tabletImageSettings = {
-    ...baseImageSetting,
+    ...baseImageSettings,
     width: width[1],
     height: height[1],
   }
+
   const tabletUrl = cld.url(publicId, tabletImageSettings)
+
   const tabletImageWebP = {
     ...tabletImageSettings,
     format: 'webp'
   }
+
   const tabletImageJp2 = {
     ...tabletImageSettings,
     format: 'jp2'
   }
+
   const tabletImageJpeg = {
     ...tabletImageSettings,
     format: 'jpeg'
   }
-  const tabletUrlWebP = cld.url(publicId, tabletImageWebP)
-  const tabletUrlJp2 = cld.url(publicId, tabletImageJp2)
-  const tabletUrlJpeg = cld.url(publicId, tabletImageJpeg)
 
+  const tabletUrlWebP = cld.url(publicId, {...tabletImageWebP, ...dpr1Setting})
+  const tabletUrlJp2 = cld.url(publicId, {...tabletImageJp2, ...dpr1Setting})
+  const tabletUrlJpeg = cld.url(publicId, {...tabletImageJpeg, ...dpr1Setting})
+
+  const tabletUrlWebP_2x = cld.url(publicId, {...tabletImageWebP, ...dpr2Setting})
+  const tabletUrlJp2_2x = cld.url(publicId, {...tabletImageJp2, ...dpr2Setting})
+  const tabletUrlJpeg_2x = cld.url(publicId, {...tabletImageJpeg, ...dpr2Setting})
+
+  const tabletUrlWebP_3x = cld.url(publicId, {...tabletImageWebP, ...dpr3Setting})
+  const tabletUrlJp2_3x = cld.url(publicId, {...tabletImageJp2, ...dpr3Setting})
+  const tabletUrlJpeg_3x = cld.url(publicId, {...tabletImageJpeg, ...dpr3Setting})
+
+  // ------------------------------
+  // Laptop Settings
+  // ------------------------------
   const laptopImageSettings = {
-    ...baseImageSetting,
+    ...baseImageSettings,
     width: width[2],
     height: height[2],
   }
+
   const laptopUrl = cld.url(publicId, laptopImageSettings)
+
   const laptopImageWebP = {
     ...laptopImageSettings,
     format: 'webp'
   }
+
   const laptopImageJp2 = {
     ...laptopImageSettings,
     format: 'jp2'
   }
+
   const laptopImageJpeg = {
     ...laptopImageSettings,
     format: 'jpeg'
   }
-  const laptopUrlWebP = cld.url(publicId, laptopImageWebP)
-  const laptopUrlJp2 = cld.url(publicId, laptopImageJp2)
-  const laptopUrlJpeg = cld.url(publicId, laptopImageJpeg)
 
+  const laptopUrlWebP = cld.url(publicId, {...laptopImageWebP, ...dpr1Setting})
+  const laptopUrlJp2 = cld.url(publicId, {...laptopImageJp2, ...dpr1Setting})
+  const laptopUrlJpeg = cld.url(publicId, {...laptopImageJpeg, ...dpr1Setting})
+
+  const laptopUrlWebP_2x = cld.url(publicId, {...laptopImageWebP, ...dpr2Setting})
+  const laptopUrlJp2_2x = cld.url(publicId, {...laptopImageJp2, ...dpr2Setting})
+  const laptopUrlJpeg_2x = cld.url(publicId, {...laptopImageJpeg, ...dpr2Setting})
+
+  const laptopUrlWebP_3x = cld.url(publicId, {...laptopImageWebP, ...dpr3Setting})
+  const laptopUrlJp2_3x = cld.url(publicId, {...laptopImageJp2, ...dpr3Setting})
+  const laptopUrlJpeg_3x = cld.url(publicId, {...laptopImageJpeg, ...dpr3Setting})
+
+  // ------------------------------
+  // Desktop Settings
+  // ------------------------------
   const desktopImageSettings = {
-    ...baseImageSetting,
+    ...baseImageSettings,
     width: width[3],
     height: height[3],
   }
+
   const desktopUrl = cld.url(publicId, desktopImageSettings)
+
   const desktopImageWebP = {
     ...desktopImageSettings,
     format: 'webp'
   }
+
   const desktopImageJp2 = {
     ...desktopImageSettings,
     format: 'jp2'
   }
+
   const desktopImageJpeg = {
     ...desktopImageSettings,
     format: 'jpeg'
   }
-  const desktopUrlWebP = cld.url(publicId, desktopImageWebP)
-  const desktopUrlJp2 = cld.url(publicId, desktopImageJp2)
-  const desktopUrlJpeg = cld.url(publicId, desktopImageJpeg)
+
+  const desktopUrlWebP = cld.url(publicId, {...desktopImageWebP, ...dpr1Setting})
+  const desktopUrlJp2 = cld.url(publicId, {...desktopImageJp2, ...dpr1Setting})
+  const desktopUrlJpeg = cld.url(publicId, {...desktopImageJpeg, ...dpr1Setting})
+
+  const desktopUrlWebP_2x = cld.url(publicId, {...desktopImageWebP, ...dpr2Setting})
+  const desktopUrlJp2_2x = cld.url(publicId, {...desktopImageJp2, ...dpr2Setting})
+  const desktopUrlJpeg_2x = cld.url(publicId, {...desktopImageJpeg, ...dpr2Setting})
+
+  const desktopUrlWebP_3x = cld.url(publicId, {...desktopImageWebP, ...dpr3Setting})
+  const desktopUrlJp2_3x = cld.url(publicId, {...desktopImageJp2, ...dpr3Setting})
+  const desktopUrlJpeg_3x = cld.url(publicId, {...desktopImageJpeg, ...dpr3Setting})
 
   return (
     <picture>
       <source
         media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
-        // srcset="desktop-@3x.webp 3x, desktop-@2x.webp 2x, desktop.webp 1x"
-        data-srcset={desktopUrlWebP}
+        data-srcset={`${desktopUrlWebP_3x} 3x, ${desktopUrlWebP_2x} 2x, ${desktopUrlWebP} 1x`}
         type="image/webp"
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        // srcset="laptop-@3x.webp 3x, laptop-@2x.webp 2x, laptop.webp 1x"
-        data-srcset={laptopUrlWebP}
+        data-srcset={`${laptopUrlWebP_3x} 3x, ${laptopUrlWebP_2x} 2x, ${laptopUrlWebP} 1x`}
         type="image/webp"
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
-        // srcset="tablet-@3x.webp 3x, tablet-@2x.webp 2x, tablet.webp 1x"
-        data-srcset={tabletUrlWebP}
+        data-srcset={`${tabletUrlWebP_3x} 3x, ${tabletUrlWebP_2x} 2x, ${tabletUrlWebP} 1x`}
         type="image/webp"
       />
       <source
         media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`}
-        // srcset="phone-@3x.webp 3x, phone-@2x.webp 2x, phone.webp 1x"
-        data-srcset={phoneUrlWebP}
+        data-srcset={`${phoneUrlWebP_3x} 3x, ${phoneUrlWebP_2x} 2x, ${phoneUrlWebP} 1x`}
         type="image/webp"
       />
 
       <source
         media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
-        // srcset="desktop-@3x.jp2 3x, desktop-@2x.jp2 2x, desktop.jp2 1x"
-        data-srcset={desktopUrlJp2}
+        data-srcset={`${desktopUrlJp2_3x} 3x, ${desktopUrlJp2_2x} 2x, ${desktopUrlJp2} 1x`}
         type="image/jp2"
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        // srcset="laptop-@3x.jp2 3x, laptop-@2x.jp2 2x, laptop.jp2 1x"
-        data-srcset={laptopUrlJp2}
+        data-srcset={`${laptopUrlJp2_3x} 3x, ${laptopUrlJp2_2x} 2x, ${laptopUrlJp2} 1x`}
         type="image/jp2"
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
-        // srcset="tablet-@3x.jp2 3x, tablet-@2x.jp2 2x, tablet.jp2 1x"
-        data-srcset={tabletUrlJp2}
+        data-srcset={`${tabletUrlJp2_3x} 3x, ${tabletUrlJp2_2x} 2x, ${tabletUrlJp2} 1x`}
         type="image/jp2"
       />
       <source
         media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`}
-        // srcset="phone-@3x.jp2 3x, phone-@2x.jp2 2x, phone.jp2 1x"
-        data-srcset={phoneUrlJp2}
+        data-srcset={`${phoneUrlJp2_3x} 3x, ${phoneUrlJp2_2x} 2x, ${phoneUrlJp2} 1x`}
         type="image/jp2"
       />
 
       <source
         media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
-        // srcset="desktop-@3x.jpg 3x, desktop-@2x.jpg 2x, desktop.jpg 1x"
-        data-srcset={desktopUrlJpeg}
+        data-srcset={`${desktopUrlJpeg_3x} 3x, ${desktopUrlJpeg_2x} 2x, ${desktopUrlJpeg} 1x`}
         type="image/jpeg"
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        // srcset="laptop-@3x.jpg 3x, laptop-@2x.jpg 2x, laptop.jpg 1x"
         data-srcset={laptopUrlJpeg}
         type="image/jpeg"
       />
       <source
         media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
-        // srcset="tablet-@3x.jpg 3x, tablet-@2x.jpg 2x, tablet.jpg 1x"
-        data-srcset={tabletUrlJpeg}
+        data-srcset={`${tabletUrlJpeg_3x} 3x, ${tabletUrlJpeg_2x} 2x, ${tabletUrlJpeg} 1x`}
         type="image/jpeg"
       />
       <img
         data-src={phoneUrlJpeg}
+        data-srcset={`${phoneUrlJpeg_3x} 3x, ${phoneUrlJpeg_2x} 2x, ${phoneUrlJpeg} 1x`}
         className={['Image lazyload', className].join(' ')}
         alt={alt}
       />
