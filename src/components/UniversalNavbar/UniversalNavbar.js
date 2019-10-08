@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import uuidv4 from 'uuid/v4'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
@@ -51,7 +50,7 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
-    const Link = ({ href, ...props }) => {
+    const NavLink = ({ href, ...props }) => {
       const PropsLink = this.props.link
       if (PropsLink) {
         return <PropsLink to={href} {...props} />
@@ -75,8 +74,11 @@ class UniversalNavbar extends React.Component {
     const { showMobileMenu } = this.state
 
     const renderDesktopLink = (l) => (
-      <div className={'universal-navbar-paddingLeft'}>
-        <Link href={l.href}>{l.title}</Link>
+      <div
+        key={l.title + 'nonmobile'}
+        className={'universal-navbar-paddingLeft'}
+      >
+        <NavLink href={l.href}>{l.title}</NavLink>
       </div>
     )
 
@@ -115,14 +117,14 @@ class UniversalNavbar extends React.Component {
                     showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
                   }
                 >
-                  <Link href="/">
+                  <NavLink href="/">
                     {LogoWhite({ className: 'universal-navbar-logo' })}
-                  </Link>
+                  </NavLink>
                   <Spacer.H56 />
                   {navbarLinks.map((l) => (
-                    <div key={uuidv4()} style={{ marginBottom: 24 }}>
+                    <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
                       <TitleXLarge.Sans.Regular400>
-                        <Link href={l.href}>{l.title}</Link>
+                        <NavLink href={l.href}>{l.title}</NavLink>
                       </TitleXLarge.Sans.Regular400>
                     </div>
                   ))}
@@ -136,9 +138,9 @@ class UniversalNavbar extends React.Component {
                 </div>
 
                 {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-                <Link href="/">
+                <NavLink href="/">
                   <FancyAnimatedLogo />
-                </Link>
+                </NavLink>
                 {!this.props.hideMobileCta && getAnEstimate(true)}
               </div>
             </Media.PhoneOnly>
@@ -150,9 +152,9 @@ class UniversalNavbar extends React.Component {
                 >
                   {/* Desktop menu items to the left */}
                   <div className="flex items-center">
-                    <Link href="/">
+                    <NavLink href="/">
                       {LogoNotAnimated({ className: 'universal-navbar-logo' })}
-                    </Link>
+                    </NavLink>
                     {renderDesktopLink(navbarLinks[0])}
                     {renderDesktopLink(navbarLinks[1])}
                     <Media.LaptopAndUp>
