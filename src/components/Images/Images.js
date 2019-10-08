@@ -227,6 +227,16 @@ export const CloudinaryImage = ({
   const desktopUrlJp2_3x = cld.url(publicId, {...desktopImageJp2, ...dpr3Setting})
   const desktopUrlJpeg_3x = cld.url(publicId, {...desktopImageJpeg, ...dpr3Setting})
 
+  console.log(dpr1Setting)
+  console.log(baseImageSettings)
+  console.log(desktopImageWebP)
+
+
+  const testSettings = {...desktopImageWebP, ...dpr1Setting}
+  console.log(testSettings)
+  const testUrl = cld.url(publicId, testSettings)
+  console.log(testUrl)
+
   return (
     <picture>
       <source
