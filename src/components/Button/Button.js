@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
+import styles from './Button.module.scss'
+
 /* @getethos/design-system/Button.js
 
    Legend:
@@ -80,10 +82,14 @@ function PrivateButton({
     checked = { 'aria-checked': isSelected }
   }
 
+  const cssModulesClasses = classNames.map((klass) => {
+    return styles[klass]
+  })
+
   return (
     <button
       {...checked}
-      className={classNames.join(' ')}
+      className={cssModulesClasses.join(' ')}
       disabled={disabled}
       type={type}
       name={name}
@@ -104,7 +110,7 @@ const ArrowIconInline = (props) => {
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="arrowIconInline"
+      className={styles.arrowIconInline}
       {...props}
     >
       <path
@@ -186,9 +192,9 @@ export const Button = {
       }),
       White: ButtonFactory({
         size: PrivateButton.SIZES.MEDIUM,
-        style: PrivateButton.STYLES.STATEFUL_WHITE
-      })
-    }
+        style: PrivateButton.STYLES.STATEFUL_WHITE,
+      }),
+    },
   },
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,

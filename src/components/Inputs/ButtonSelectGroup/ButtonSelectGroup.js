@@ -5,6 +5,7 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
+import styles from './ButtonGroup.module.scss'
 /**
  **/
 
@@ -109,7 +110,7 @@ export const ButtonSelectGroup = ({
     <div
       role="radiogroup"
       aria-labelledby={name}
-      className="button-select-group"
+      className={styles['button-select-group']}
       data-tid={rest['data-tid']}
     >
       <InputLabel
@@ -118,7 +119,7 @@ export const ButtonSelectGroup = ({
         labelCopy={labelCopy}
         allCaps={allCaps}
       />
-      <div className="button-group">{options}</div>
+      <div className={styles['button-group']}>{options}</div>
     </div>
   )
 }
