@@ -20,7 +20,6 @@ const getMinBirthdateLga = (maxAge) => {
     .add(1, 'days')
     .startOf('day')
     .toDate()
-  console.log(minBirthdate)
   return minBirthdate
 }
 
