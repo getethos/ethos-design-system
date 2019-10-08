@@ -28,4 +28,5 @@ module.exports = {
       sectionDepth: 2,
     },
   ],
+  serverPort: 9008,
 }
