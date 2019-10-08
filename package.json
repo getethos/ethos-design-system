@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.5",
+  "version": "1.1.5-a",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "license": "UNLICENSED",
@@ -30,7 +30,10 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "cloudinary-react": "^1.1.1"
+    "cloudinary-react": "^1.1.1",
+    "dayjs": "^1.8.16",
+    "react-text-mask": "^5.4.3",
+    "text-mask-addons": "^3.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -42,7 +45,6 @@
     "chokidar-cli": "^1.2.2",
     "cloudinary-react": "^1.1.1",
     "css-loader": "^3.2.0",
-    "dayjs": "^1.8.16",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
@@ -57,7 +59,6 @@
     "react-text-mask": "^5.4.3",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
-    "text-mask-addons": "^3.8.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
     "webpack-dev-server": "^3.8.0"
