@@ -55,7 +55,7 @@ class UniversalNavbar extends React.Component {
         onClick={this.props.trackCtaClick}
         href={LINKS.TERM.href}
       >
-        <Button.Medium.BlackOutline>Check my price</Button.Medium.BlackOutline>
+        <Button.Small.BlackOutline>Check my price</Button.Small.BlackOutline>
       </a>
     )
 
@@ -112,9 +112,9 @@ class UniversalNavbar extends React.Component {
                 ))}
                 <div style={{ position: 'absolute', bottom: 40 }}>
                   <a href={LINKS.TERM.href}>
-                    <Button.Medium.BlackOutline>
+                    <Button.Medium.WhiteOutline>
                       Check my price
-                    </Button.Medium.BlackOutline>
+                    </Button.Medium.WhiteOutline>
                   </a>
                 </div>
               </div>

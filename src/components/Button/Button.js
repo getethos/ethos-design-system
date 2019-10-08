@@ -138,6 +138,8 @@ PrivateButton.PUBLIC_PROPS = {
 }
 
 PrivateButton.SIZES = {
+  // ***** ONLY USE SMALL IN UniversalNavbar! ***** //
+  SMALL: 'Small',
   MEDIUM: 'Medium',
   UNSIZED: 'Unsized',
 }
@@ -195,6 +197,13 @@ export const Button = {
         style: PrivateButton.STYLES.STATEFUL_WHITE,
       }),
     },
+  },
+  // ***** ONLY USE SMALL IN UniversalNavbar! ***** //
+  Small: {
+    BlackOutline: ButtonFactory({
+      size: PrivateButton.SIZES.SMALL,
+      style: PrivateButton.STYLES.BLACK_OUTLINE,
+    }),
   },
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,

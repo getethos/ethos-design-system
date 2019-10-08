@@ -16,6 +16,14 @@ Set of Design-approved public buttons.
 </Button.Medium.BlackOutline>
 ```
 
+PLEASE ONLY USE IN UniversalNavbar! In fact, have a look at
+UniversalNavbar component to see this in use.
+```jsx
+<Button.Small.BlackOutline>
+  Only use for UniversalNavbar!
+</Button.Small.BlackOutline>
+```
+
 ```jsx
 <Button.Medium.WhiteOutline>
   Button.Medium.WhiteOutline
