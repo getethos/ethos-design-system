@@ -69,8 +69,9 @@ export const CloudinaryImage = ({
   // ------------------------------
   const phoneImageSettings = {
     ...baseImageSettings,
-    width: width[0],
-    height: height[0],
+    // ?  width[0].isInteger() : false,
+    ...(!!width[0]) && { width: width[0]},
+    ...(!!height[0]) && { height: height[0]},
   }
 
   const phoneImageWebP = {
@@ -105,8 +106,8 @@ export const CloudinaryImage = ({
   // ------------------------------
   const tabletImageSettings = {
     ...baseImageSettings,
-    width: width[1],
-    height: height[1],
+    ...(!!width[1]) && { width: width[1]},
+    ...(!!height[1]) && { height: height[1]},
   }
 
   const tabletUrl = cld.url(publicId, tabletImageSettings)
@@ -143,8 +144,8 @@ export const CloudinaryImage = ({
   // ------------------------------
   const laptopImageSettings = {
     ...baseImageSettings,
-    width: width[2],
-    height: height[2],
+    ...(!!width[2]) && { width: width[2]},
+    ...(!!height[2]) && { height: height[2]},
   }
 
   const laptopUrl = cld.url(publicId, laptopImageSettings)
@@ -181,8 +182,8 @@ export const CloudinaryImage = ({
   // ------------------------------
   const desktopImageSettings = {
     ...baseImageSettings,
-    width: width[3],
-    height: height[3],
+    ...(!!width[3]) && { width: width[3]},
+    ...(!!height[3]) && { height: height[3]},
   }
 
   const desktopUrl = cld.url(publicId, desktopImageSettings)
@@ -310,8 +311,14 @@ CloudinaryImage.CROP_METHODS = {
 }
 
 CloudinaryImage.PUBLIC_PROPS = {
-  height: PropTypes.array.isRequired,
-  width: PropTypes.array.isRequired,
+  height: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.bool,
+  ]),
+  width: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.bool,
+  ]),
   className: PropTypes.string,
   alt: PropTypes.string.isRequired,
   publicId: PropTypes.string.isRequired,

@@ -23,5 +23,23 @@
     height={[250,350,450,550]}
     publicId="v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
   />
+  <br/>
+  <p>Test no width</p>
+  <CloudinaryImage
+    crop="fill"
+    alt="father and kids playing"
+    width={false}
+    height={[250,350,450,550]}
+    publicId="v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
+  />
+  <br/>
+  <p>Test no height</p>
+  <CloudinaryImage
+    crop="fill"
+    alt="father and kids playing"
+    width={[250,350,450,550]}
+    height={false}
+    publicId="v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
+  />
 </div>
 ```
