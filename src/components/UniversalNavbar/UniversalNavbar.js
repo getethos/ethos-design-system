@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
 import LogoWhite from './assets/ethos-logo-white.js'
-import { Media, Button, Layout, Spacer, TitleXLarge } from '../index' // CMS
+import { Media, Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
@@ -42,6 +42,7 @@ class UniversalNavbar extends React.Component {
   }
 
   toggleHamburger = () => {
+    // TODO: use functional setState
     this.setState({ showMobileMenu: !this.state.showMobileMenu })
   }
 
