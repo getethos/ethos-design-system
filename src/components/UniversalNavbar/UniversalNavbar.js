@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import uuidv4 from 'uuid/v4'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
@@ -10,7 +11,7 @@ import TransformingBurgerButton from './TransformingBurgerButton/TransformingBur
 // TODO REDESIGN: Lots of sloppy inline styles here.
 // TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
 
-// UPDATE anchor tags to NavLink when /term is an internal link in CMS
+// UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
 const NavLink = ({ href, LinkComponent, ...props }) => {
   if (LinkComponent) {
     return <LinkComponent to={href} {...props} />
@@ -31,18 +32,22 @@ const LINKS = {
   // These are used in the navigation links proper:
   NAVLINKS: [
     {
+      id: uuidv4(),
       href: '/how-it-works/',
       title: 'How it works',
     },
     {
+      id: uuidv4(),
       href: '/why-ethos/',
       title: 'Why Ethos',
     },
     {
+      id: uuidv4(),
       href: '/blog/',
       title: 'Blog',
     },
     {
+      id: uuidv4(),
       href: '/login/',
       title: 'Account',
     },
@@ -76,13 +81,10 @@ class UniversalNavbar extends React.Component {
 
     const { showMobileMenu } = this.state
 
-    const renderDesktopLink = (l) => (
-      <div
-        key={l.title + 'nonmobile'}
-        className={'universal-navbar-paddingLeft'}
-      >
-        <NavLink href={l.href} LinkComponent={LinkComponent}>
-          {l.title}
+    const renderDesktopLink = (link) => (
+      <div key={link.id} className={'universal-navbar-paddingLeft'}>
+        <NavLink href={link.href} LinkComponent={LinkComponent}>
+          {link.title}
         </NavLink>
       </div>
     )
@@ -118,15 +120,16 @@ class UniversalNavbar extends React.Component {
                   {LogoWhite({ className: 'universal-navbar-logo' })}
                 </NavLink>
                 <Spacer.H56 />
-                {LINKS.NAVLINKS.map((l) => (
-                  <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
+                {LINKS.NAVLINKS.map((link) => (
+                  <div key={link.id} style={{ marginBottom: 24 }}>
                     <TitleXLarge.Sans.Regular400>
                       <NavLink
-                        key={l.title + 'mobile'}
-                        href={l.href}
-                        LinkComponent={LinkComponent}
+                        href={link.href}
+                        LinkComponent={
+                          link.href !== '/login/' ? LinkComponent : null
+                        }
                       >
-                        {l.title}
+                        {link.title}
                       </NavLink>
                     </TitleXLarge.Sans.Regular400>
                   </div>
