@@ -60,7 +60,7 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
-    const { LinkComponent } = this.props
+    const { LinkComponent, hideMobileCta } = this.props
 
     const getAnEstimate = (showWhenScrolled) => (
       <a
@@ -144,7 +144,7 @@ class UniversalNavbar extends React.Component {
               <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
                 <FancyAnimatedLogo />
               </NavLink>
-              {getAnEstimate(true)}
+              {!hideMobileCta && getAnEstimate(true)}
             </div>
 
             <div className={'UniversalNavbar--tabletAndUp'}>
