@@ -83,7 +83,10 @@ class UniversalNavbar extends React.Component {
 
     const renderDesktopLink = (link) => (
       <div key={link.id} className={'universal-navbar-paddingLeft'}>
-        <NavLink href={link.href} LinkComponent={LinkComponent}>
+        <NavLink
+          href={link.href}
+          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+        >
           {link.title}
         </NavLink>
       </div>
@@ -191,7 +194,7 @@ UniversalNavbar.propTypes = {
   /** Run analytics function when CTA Button gets clicked */
   trackCtaClick: PropTypes.func.isRequired,
   /** agnotistic Reach and React Router Link */
-  LinkComponent: PropTypes.node,
+  LinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 }
 
 UniversalNavbar.defaultProps = {
