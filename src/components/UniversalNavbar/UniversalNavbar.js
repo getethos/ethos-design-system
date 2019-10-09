@@ -5,7 +5,7 @@ import uuidv4 from 'uuid/v4'
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
 import LogoWhite from './assets/ethos-logo-white.js'
-import { Media, Button, Layout, Spacer, TitleXLarge } from '../index'
+import { Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
@@ -21,7 +21,7 @@ const NavLink = ({ href, LinkComponent, ...props }) => {
 
 NavLink.propTypes = {
   href: PropTypes.string.isRequired,
-  LinkComponent: PropTypes.node,
+  LinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 }
 
 const LINKS = {
@@ -165,16 +165,18 @@ class UniversalNavbar extends React.Component {
                   </NavLink>
                   {renderDesktopLink(LINKS.NAVLINKS[0])}
                   {renderDesktopLink(LINKS.NAVLINKS[1])}
-                  <Media.LaptopAndUp>
+
+                  <div className={'UniversalNavbar--laptopAndUp'}>
                     {renderDesktopLink(LINKS.NAVLINKS[2])}
-                  </Media.LaptopAndUp>
+                  </div>
                 </div>
 
                 {/* Desktop menu items to the right */}
                 <div className="flex items-center">
-                  <Media.LaptopAndUp>
+                  <div className={'UniversalNavbar--laptopAndUp'}>
                     {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
-                  </Media.LaptopAndUp>
+                  </div>
+
                   <div className={'universal-navbar-paddingLeft'}>
                     {getAnEstimate(false)}
                   </div>
