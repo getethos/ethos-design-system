@@ -83,14 +83,16 @@ function PrivateButton({
     checked = { 'aria-checked': isSelected }
   }
 
-  const cssModulesClasses = classNames.map((klass) => {
-    return styles[klass]
-  })
+  const cssModulesClasses = classNames.reduce((accumulator, klass, i) => {
+    return accumulator.concat(
+      `${styles[klass]}${i < classNames.length ? ' ' : ''}`
+    )
+  }, '')
 
   return (
     <button
       {...checked}
-      className={cssModulesClasses.join(' ')}
+      className={cssModulesClasses}
       disabled={disabled}
       type={type}
       name={name}

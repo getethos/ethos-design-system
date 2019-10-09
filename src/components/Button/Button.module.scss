@@ -1,6 +1,7 @@
 // @import "../Animation.scss";
 // @import "../Colors.scss";
 // @import "../Type/Type.scss";
+// @import '../Spacer/Spacer.scss';
 @import '../Media/Media.scss';
 
 // This is currently a one-off implementation for UniversalNavbar
@@ -36,7 +37,7 @@ button,
   $line-height: 24;
   font-size: $font-size * 1px;
   line-height: $line-height / $font-size;
-  padding: 17px 16px 13px;
+  padding: 17px var(--Space-16) 13px;
 }
 
 .Button.fullWidth {
@@ -158,7 +159,7 @@ button,
 // only used on the CMS hero for the CTA 'Check my price' button
 .Button.WhiteCTA {
   background: var(--White);
-  padding: 16px var(--Space-32);
+  padding: var(--Space-16) var(--Space-32);
   @include for-phone-only {
     width: 100%;
     max-width: 400px;
