@@ -16,14 +16,6 @@ Set of Design-approved public buttons.
 </Button.Medium.BlackOutline>
 ```
 
-PLEASE ONLY USE IN UniversalNavbar! In fact, have a look at
-UniversalNavbar component to see this in use.
-```jsx
-<Button.Small.BlackOutline>
-  Only use for UniversalNavbar!
-</Button.Small.BlackOutline>
-```
-
 ```jsx
 <Button.Medium.WhiteOutline>
   Button.Medium.WhiteOutline
@@ -56,4 +48,21 @@ UniversalNavbar component to see this in use.
 
 ```jsx
 <Button.Unstyled>Button.Unstyled</Button.Unstyled>
+```
+
+<strong>The following are only for use in indicated places</strong>
+
+PLEASE ONLY USE IN UniversalNavbar! In fact, have a look at
+UniversalNavbar component to see this in use.
+```jsx
+<Button.Small.BlackOutline>
+  Only use for UniversalNavbar!
+</Button.Small.BlackOutline>
+```
+
+PLEASE ONLY USE FOR CMS hero CTA
+```jsx
+<Button.WhiteCTA>
+  Button.WhiteCTA—Only for CMS hero CTA
+</Button.WhiteCTA>
 ```

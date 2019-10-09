@@ -155,6 +155,9 @@ PrivateButton.STYLES = {
 
   // For semantic <buttons> that are not styled as buttons:
   UNSTYLED: 'Unstyled',
+
+  // Only used for CMS 'Check my price' CTA button on hero
+  WHITE_CTA: 'WhiteCTA',
 }
 
 PrivateButton.propTypes = {
@@ -209,5 +212,9 @@ export const Button = {
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,
     style: PrivateButton.STYLES.UNSTYLED,
+  }),
+  WhiteCTA: ButtonFactory({
+    size: PrivateButton.SIZES.UNSIZED,
+    style: PrivateButton.STYLES.WHITE_CTA,
   }),
 }

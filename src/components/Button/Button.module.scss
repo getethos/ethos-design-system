@@ -154,6 +154,24 @@ button,
   }
 }
 
+// Purposely very specific name WhiteCTA as this is currently
+// only used on the CMS hero for the CTA 'Check my price' button
+.Button.WhiteCTA {
+  background: var(--White);
+  padding: 16px var(--Space-32);
+  @include for-phone-only {
+    width: 100%;
+    max-width: 400px;
+  }
+  @include for-tablet-and-up {
+    width: auto;
+  }
+  &:hover,
+  &:active {
+    background: var(--GrayStrokeAndDisabled--opaque);
+  }
+}
+
 .Button.Stateful {
   &.Medium {
     min-width: var(--ButtonMediumStatefulMinWidth);
