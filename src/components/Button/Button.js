@@ -71,7 +71,8 @@ function PrivateButton({
   includesInvalid(rest)
 
   // Generate list of css classes
-  const classNames = ['Button', size, style]
+  // style may be 'Stateful White' so we need to split that
+  const classNames = ['Button', size].concat(style.split(' '))
   if (fullWidth) classNames.push('fullWidth')
   if (isSelected) classNames.push('isSelected')
   if (arrowIcon) classNames.push('arrowIcon')
