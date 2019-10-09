@@ -126,10 +126,10 @@ class UniversalNavbar extends React.Component {
                       <NavLink
                         href={link.href}
                         LinkComponent={
-                          l.href !== '/login/' ? LinkComponent : null
+                          link.href !== '/login/' ? LinkComponent : null
                         }
                       >
-                        {l.title}
+                        {link.title}
                       </NavLink>
                     </TitleXLarge.Sans.Regular400>
                   </div>
