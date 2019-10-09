@@ -63,6 +63,9 @@ button,
     padding-right: 48px;
     padding-left: 48px;
   }
+  @include for-phone-only {
+    max-width: 480px;
+  }
 }
 // Styles
 
