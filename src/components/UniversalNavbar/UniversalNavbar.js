@@ -10,6 +10,19 @@ import TransformingBurgerButton from './TransformingBurgerButton/TransformingBur
 // TODO REDESIGN: Lots of sloppy inline styles here.
 // TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
 
+// UPDATE anchor tags to NavLink when /term is an internal link in CMS
+const NavLink = ({ href, LinkComponent, ...props }) => {
+  if (LinkComponent) {
+    return <LinkComponent to={href} {...props} />
+  }
+  return <a href={href} {...props} />
+}
+
+NavLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  LinkComponent: PropTypes.node,
+}
+
 const LINKS = {
   // These are used e.g. in the logo and CTA button:
   INDEX: { href: '/' },
@@ -47,13 +60,7 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
-    const NavLink = ({ href, ...props }) => {
-      const PropsLink = this.props.link
-      if (PropsLink) {
-        return <PropsLink to={href} {...props} />
-      }
-      return <a href={href} {...props} />
-    }
+    const { LinkComponent } = this.props
 
     const getAnEstimate = (showWhenScrolled) => (
       <a
@@ -74,7 +81,9 @@ class UniversalNavbar extends React.Component {
         key={l.title + 'nonmobile'}
         className={'universal-navbar-paddingLeft'}
       >
-        <NavLink href={l.href}>{l.title}</NavLink>
+        <NavLink href={l.href} LinkComponent={LinkComponent}>
+          {l.title}
+        </NavLink>
       </div>
     )
 
@@ -105,14 +114,18 @@ class UniversalNavbar extends React.Component {
                   showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
                 }
               >
-                <NavLink href={LINKS.INDEX.href}>
+                <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
                   {LogoWhite({ className: 'universal-navbar-logo' })}
                 </NavLink>
                 <Spacer.H56 />
                 {LINKS.NAVLINKS.map((l) => (
                   <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
                     <TitleXLarge.Sans.Regular400>
-                      <NavLink key={l.title + 'mobile'} href={l.href}>
+                      <NavLink
+                        key={l.title + 'mobile'}
+                        href={l.href}
+                        LinkComponent={LinkComponent}
+                      >
                         {l.title}
                       </NavLink>
                     </TitleXLarge.Sans.Regular400>
@@ -128,7 +141,7 @@ class UniversalNavbar extends React.Component {
               </div>
 
               {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-              <NavLink href={LINKS.INDEX.href}>
+              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
                 <FancyAnimatedLogo />
               </NavLink>
               {getAnEstimate(true)}
@@ -138,7 +151,10 @@ class UniversalNavbar extends React.Component {
               <div className={'UniversalNavbar__tabletAndUpContainer'}>
                 {/* Desktop menu items to the left */}
                 <div className="flex items-center">
-                  <NavLink href={LINKS.INDEX.href}>
+                  <NavLink
+                    href={LINKS.INDEX.href}
+                    LinkComponent={LinkComponent}
+                  >
                     {LogoNotAnimated({ className: 'universal-navbar-logo' })}
                   </NavLink>
                   {renderDesktopLink(LINKS.NAVLINKS[0])}
@@ -169,7 +185,7 @@ class UniversalNavbar extends React.Component {
 UniversalNavbar.propTypes = {
   hideMobileCta: PropTypes.bool.isRequired,
   trackCtaClick: PropTypes.func.isRequired,
-  link: PropTypes.node,
+  LinkComponent: PropTypes.node,
 }
 
 UniversalNavbar.defaultProps = {
