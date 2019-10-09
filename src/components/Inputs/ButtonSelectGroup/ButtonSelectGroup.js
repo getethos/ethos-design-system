@@ -5,7 +5,7 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
-import styles from './ButtonGroup.module.css'
+import styles from './ButtonGroup.module.scss'
 
 /**
  **/
