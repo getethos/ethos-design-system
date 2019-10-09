@@ -6,6 +6,7 @@ import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
 import styles from './ButtonGroup.module.scss'
+
 /**
  **/
 
@@ -110,7 +111,7 @@ export const ButtonSelectGroup = ({
     <div
       role="radiogroup"
       aria-labelledby={name}
-      className={styles['button-select-group']}
+      className="button-select-group"
       data-tid={rest['data-tid']}
     >
       <InputLabel
