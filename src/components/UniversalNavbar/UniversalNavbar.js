@@ -81,13 +81,10 @@ class UniversalNavbar extends React.Component {
 
     const { showMobileMenu } = this.state
 
-    const renderDesktopLink = (l) => (
-      <div
-        key={l.title + 'nonmobile'}
-        className={'universal-navbar-paddingLeft'}
-      >
-        <NavLink href={l.href} LinkComponent={LinkComponent}>
-          {l.title}
+    const renderDesktopLink = (link) => (
+      <div key={link.id} className={'universal-navbar-paddingLeft'}>
+        <NavLink href={link.href} LinkComponent={LinkComponent}>
+          {link.title}
         </NavLink>
       </div>
     )
