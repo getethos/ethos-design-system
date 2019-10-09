@@ -183,8 +183,11 @@ class UniversalNavbar extends React.Component {
 }
 
 UniversalNavbar.propTypes = {
+  /** Hide cta on mobile viewport */
   hideMobileCta: PropTypes.bool.isRequired,
+  /** Run analytics function when CTA Button gets clicked */
   trackCtaClick: PropTypes.func.isRequired,
+  /** agnotistic Reach and React Router Link */
   LinkComponent: PropTypes.node,
 }
 
