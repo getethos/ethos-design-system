@@ -120,7 +120,7 @@ export const ButtonSelectGroup = ({
         labelCopy={labelCopy}
         allCaps={allCaps}
       />
-      <div className={styles['button-group']}>{options}</div>
+      <div className={styles.buttonGroup}>{options}</div>
     </div>
   )
 }
