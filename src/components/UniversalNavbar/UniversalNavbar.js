@@ -21,7 +21,7 @@ const NavLink = ({ href, LinkComponent, ...props }) => {
 
 NavLink.propTypes = {
   href: PropTypes.string.isRequired,
-  LinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  LinkComponent: PropTypes.object,
 }
 
 const LINKS = {
@@ -196,7 +196,7 @@ UniversalNavbar.propTypes = {
   /** Run analytics function when CTA Button gets clicked */
   trackCtaClick: PropTypes.func.isRequired,
   /** agnotistic Reach and React Router Link */
-  LinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  LinkComponent: PropTypes.object,
 }
 
 UniversalNavbar.defaultProps = {
