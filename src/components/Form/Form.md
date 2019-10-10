@@ -119,6 +119,7 @@ _Note that we've set up the form submission to randomly fail or succeed—so, yo
 
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
+import dayjs from '../../helpers/getDayjs.js'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
 import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
@@ -138,6 +139,31 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
   console.log("analyticsCustomEvent got called--field name: ", fieldName, "fieldValue: ", fieldValue, "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)")
 }
 
+const getMinBirthdateLga = (maxAge) => {
+  // Max age determines the earliest (minimum) allowable birthdate
+  const minBirthdate = dayjs()
+    .subtract(maxAge, 'years')
+    .subtract(6, 'months')
+    .add(1, 'days')
+    .startOf('day')
+    .toDate()
+  return minBirthdate
+}
+
+const getMaxBirthdateLga = (minAge) => {
+  // Min age determines the latest (maximum) allowable birthdate
+  const maxBirthdate = dayjs()
+    .subtract(minAge, 'years')
+    .add(6, 'months')
+    .subtract(1, 'day')
+    .endOf('day')
+    .toDate()
+  return maxBirthdate
+}
+
+const minAge = 20
+const maxAge = 65
+
 ;<Form
   config={{
     formName: 'Styleguidist example form',
@@ -154,8 +180,10 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
           validateTruthy,
           validateCustom,
           validateMinMaxDateFactory.call(null, {
-            minAge: 20,
-            maxAge: 65,
+            minAge,
+            maxAge,
+            minBirthdate: getMinBirthdateLga(maxAge),
+            maxBirthdate: getMaxBirthdateLga(minAge),
             dateFormat: 'mm/dd/yyyy',
           }),
         ],
