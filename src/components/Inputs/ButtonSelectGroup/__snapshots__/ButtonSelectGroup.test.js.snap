@@ -21,7 +21,7 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, 
     }
   />
   <div
-    className="button-group"
+    className="buttonGroup"
   >
     <button
       className="Button Medium Stateful"
@@ -70,7 +70,7 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, 
     }
   />
   <div
-    className="button-group"
+    className="buttonGroup"
   >
     <button
       className="Button Medium Stateful"
@@ -119,7 +119,7 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (white button style) 1`
     }
   />
   <div
-    className="button-group"
+    className="buttonGroup"
   >
     <button
       className="Button Medium Stateful White"
