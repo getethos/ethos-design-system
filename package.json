@@ -28,8 +28,7 @@
       ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
-  "dependencies": {},
-  "peerDependencies": {
+  "dependencies": {
     "cloudinary-react": "^1.1.1",
     "dayjs": "^1.8.16",
     "react-text-mask": "^5.4.3",
