@@ -1,44 +1,58 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import uuidv4 from 'uuid/v4'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
 import LogoWhite from './assets/ethos-logo-white.js'
-import {
-  Media,
-  Button,
-  Layout,
-  Spacer,
-  TitleXLarge,
-  // } from 'frontend/packages/design-system' // Funnel
-} from '../index' // CMS
+import { Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
+// TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
 
-/**
- * WIP
- * Almost definitely not the correct way to navigate to a page...
- * Also won't work on CMS
- */
-const navbarLinks = [
-  {
-    href: '/how-it-works/',
-    title: 'How it works',
-  },
-  {
-    href: '/why-ethos/',
-    title: 'Why Ethos',
-  },
-  {
-    href: '/blog/',
-    title: 'Blog',
-  },
-  {
-    href: '/login/',
-    title: 'Account',
-  },
-]
+// UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
+const NavLink = ({ href, LinkComponent, ...props }) => {
+  if (LinkComponent) {
+    return <LinkComponent to={href} {...props} />
+  }
+  return <a href={href} {...props} />
+}
+
+NavLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  LinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+}
+
+const LINKS = {
+  // These are used e.g. in the logo and CTA button:
+  INDEX: { href: '/' },
+  TERM: { href: '/term' },
+
+  // These are used in the navigation links proper:
+  NAVLINKS: [
+    {
+      id: uuidv4(),
+      href: '/how-it-works/',
+      title: 'How it works',
+    },
+    {
+      id: uuidv4(),
+      href: '/why-ethos/',
+      title: 'Why Ethos',
+    },
+    {
+      id: uuidv4(),
+      href: '/blog/',
+      title: 'Blog',
+    },
+    {
+      id: uuidv4(),
+      href: '/login/',
+      title: 'Account',
+    },
+  ],
+}
 
 class UniversalNavbar extends React.Component {
   state = {
@@ -46,17 +60,20 @@ class UniversalNavbar extends React.Component {
   }
 
   toggleHamburger = () => {
+    // TODO: use functional setState
     this.setState({ showMobileMenu: !this.state.showMobileMenu })
   }
 
   render() {
+    const { LinkComponent, hideMobileCta } = this.props
+
     const getAnEstimate = (showWhenScrolled) => (
       <a
         className={
           'get-an-estimate ' + (showWhenScrolled ? 'show-when-scrolled' : '')
         }
-        href="/term"
         onClick={this.props.trackCtaClick}
+        href={LINKS.TERM.href}
       >
         <Button.Medium.BlackOutline>Check my price</Button.Medium.BlackOutline>
       </a>
@@ -64,12 +81,14 @@ class UniversalNavbar extends React.Component {
 
     const { showMobileMenu } = this.state
 
-    const renderDesktopLink = (l) => (
-      <div
-        key={l.title + 'nonmobile'}
-        className={'universal-navbar-paddingLeft'}
-      >
-        <a href={l.href}>{l.title}</a>
+    const renderDesktopLink = (link) => (
+      <div key={link.id} className={'universal-navbar-paddingLeft'}>
+        <NavLink
+          href={link.href}
+          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+        >
+          {link.title}
+        </NavLink>
       </div>
     )
 
@@ -86,87 +105,84 @@ class UniversalNavbar extends React.Component {
           }}
         >
           <Layout.ScrollDetector>
-            <Media.PhoneOnly>
-              {/* Hamburger button */}
-              <div style={{ zIndex: 2, position: 'fixed', top: 24, right: 24 }}>
-                <TransformingBurgerButton
-                  showMobileMenu={showMobileMenu}
-                  clickHandler={this.toggleHamburger}
-                />
-              </div>
+            <div className={'UniversalNavbar--hamburger'}>
+              <TransformingBurgerButton
+                showMobileMenu={showMobileMenu}
+                clickHandler={this.toggleHamburger}
+              />
+            </div>
+
+            <div className={'UniversalNavbar--phoneOnly'}>
+              {/* Dark green mobile menu, shows up when hamburger is clicked */}
               <div
                 className={
-                  'universal-navbar-root' +
-                  ' ' +
-                  'universal-navbar-mobileRoot' +
-                  ' flex items-center justify-between'
+                  showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
                 }
               >
-                {/* Dark green mobile menu, shows up when hamburger is clicked*/}
-                <div
-                  className={
-                    showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
-                  }
-                >
-                  <a href="/">
-                    {LogoWhite({ className: 'universal-navbar-logo' })}
+                <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
+                  {LogoWhite({ className: 'universal-navbar-logo' })}
+                </NavLink>
+                <Spacer.H56 />
+                {LINKS.NAVLINKS.map((link) => (
+                  <div key={link.id} style={{ marginBottom: 24 }}>
+                    <TitleXLarge.Sans.Regular400>
+                      <NavLink
+                        href={link.href}
+                        LinkComponent={
+                          link.href !== '/login/' ? LinkComponent : null
+                        }
+                      >
+                        {link.title}
+                      </NavLink>
+                    </TitleXLarge.Sans.Regular400>
+                  </div>
+                ))}
+                <div style={{ position: 'absolute', bottom: 40 }}>
+                  <a href={LINKS.TERM.href}>
+                    <Button.Medium.BlackOutline>
+                      Check my price
+                    </Button.Medium.BlackOutline>
                   </a>
-                  <Spacer.H56 />
-                  {navbarLinks.map((l) => (
-                    <div key={l.title + 'mobile'} style={{ marginBottom: 24 }}>
-                      <TitleXLarge.Sans.Regular400>
-                        <a key={l.title + 'mobile'} href={l.href}>
-                          {l.title}
-                        </a>
-                      </TitleXLarge.Sans.Regular400>
-                    </div>
-                  ))}
-                  <div style={{ position: 'absolute', bottom: 40 }}>
-                    <a href="/term" onClick={this.props.trackCtaClick}>
-                      <Button.Medium.BlackOutline>
-                        Check my price
-                      </Button.Medium.BlackOutline>
-                    </a>
+                </div>
+              </div>
+
+              {/* Mobile menu items, getAnEstimate only shows when scrolled */}
+              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
+                <FancyAnimatedLogo />
+              </NavLink>
+              {!hideMobileCta && getAnEstimate(true)}
+            </div>
+
+            <div className={'UniversalNavbar--tabletAndUp'}>
+              <div className={'UniversalNavbar__tabletAndUpContainer'}>
+                {/* Desktop menu items to the left */}
+                <div className="flex items-center">
+                  <NavLink
+                    href={LINKS.INDEX.href}
+                    LinkComponent={LinkComponent}
+                  >
+                    {LogoNotAnimated({ className: 'universal-navbar-logo' })}
+                  </NavLink>
+                  {renderDesktopLink(LINKS.NAVLINKS[0])}
+                  {renderDesktopLink(LINKS.NAVLINKS[1])}
+
+                  <div className={'UniversalNavbar--laptopAndUp'}>
+                    {renderDesktopLink(LINKS.NAVLINKS[2])}
                   </div>
                 </div>
 
-                {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-                <a href="/">
-                  <FancyAnimatedLogo />
-                </a>
-                {!this.props.hideMobileCta && getAnEstimate(true)}
-              </div>
-            </Media.PhoneOnly>
-
-            <Media.TabletAndUp>
-              <div className={'universal-navbar-root'}>
-                <div
-                  className={'universal-navbar-rootChild flex justify-between'}
-                >
-                  {/* Desktop menu items to the left */}
-                  <div className="flex items-center">
-                    <a href="/">
-                      {LogoNotAnimated({ className: 'universal-navbar-logo' })}
-                    </a>
-                    {renderDesktopLink(navbarLinks[0])}
-                    {renderDesktopLink(navbarLinks[1])}
-                    <Media.LaptopAndUp>
-                      {renderDesktopLink(navbarLinks[2])}
-                    </Media.LaptopAndUp>
+                {/* Desktop menu items to the right */}
+                <div className="flex items-center">
+                  <div className={'UniversalNavbar--laptopAndUp'}>
+                    {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
                   </div>
 
-                  {/* Desktop menu items to the right */}
-                  <div className="flex items-center">
-                    <Media.LaptopAndUp>
-                      {navbarLinks.slice(-1).map(renderDesktopLink)}
-                    </Media.LaptopAndUp>
-                    <div className={'universal-navbar-paddingLeft'}>
-                      {getAnEstimate(false)}
-                    </div>
+                  <div className={'universal-navbar-paddingLeft'}>
+                    {getAnEstimate(false)}
                   </div>
                 </div>
               </div>
-            </Media.TabletAndUp>
+            </div>
           </Layout.ScrollDetector>
         </div>
       </div>
@@ -175,8 +191,12 @@ class UniversalNavbar extends React.Component {
 }
 
 UniversalNavbar.propTypes = {
+  /** Hide cta on mobile viewport */
   hideMobileCta: PropTypes.bool.isRequired,
+  /** Run analytics function when CTA Button gets clicked */
   trackCtaClick: PropTypes.func.isRequired,
+  /** agnotistic Reach and React Router Link */
+  LinkComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 }
 
 UniversalNavbar.defaultProps = {

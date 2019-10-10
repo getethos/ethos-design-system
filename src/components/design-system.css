@@ -1080,33 +1080,72 @@ a,
   background: white;
 }
 
-.universal-navbar-root {
+.UniversalNavbar--hamburger {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
+}
+@media (min-width: 600px) {
+  .UniversalNavbar--hamburger {
+    display: none;
+  }
+}
+
+.UniversalNavbar--phoneOnly {
   height: var(--Space-64);
   background-color: white;
-}
-
-.universal-navbar-mobileRoot {
   padding: var(--Space-24) var(--ContainerPadding--Phone);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 600px) {
+  .UniversalNavbar--phoneOnly {
+    display: none;
+  }
 }
 
-.universal-navbar-rootChild {
+.UniversalNavbar--tabletAndUp {
+  height: var(--Space-64);
+  background-color: white;
+  display: none;
+}
+@media (min-width: 600px) {
+  .UniversalNavbar--tabletAndUp {
+    display: block;
+  }
+}
+
+.UniversalNavbar--laptopAndUp {
+  display: none;
+}
+@media (min-width: 900px) {
+  .UniversalNavbar--laptopAndUp {
+    display: block;
+  }
+}
+
+.UniversalNavbar__tabletAndUpContainer {
   max-width: 1440px;
   margin: 0 auto;
   padding: var(--Space-24);
   height: var(--Space-64);
+  display: flex;
+  justify-content: space-between;
 }
 @media (min-width: 600px) and (max-width: 899px) {
-  .universal-navbar-rootChild {
+  .UniversalNavbar__tabletAndUpContainer {
     padding: var(--Space-24) var(--ContainerPadding--Tablet);
   }
 }
 @media (min-width: 900px) and (max-width: 1199px) {
-  .universal-navbar-rootChild {
+  .UniversalNavbar__tabletAndUpContainer {
     padding: var(--Space-24) var(--ContainerPadding--Laptop);
   }
 }
 @media (min-width: 1200px) {
-  .universal-navbar-rootChild {
+  .UniversalNavbar__tabletAndUpContainer {
     padding: var(--Space-24) var(--ContainerPadding--Desktop);
   }
 }
@@ -1121,7 +1160,7 @@ a,
 
 /**
   * Region:
-  * Manually reproduced version of a WIP Button.Small for "Get an estimate" 
+  * Manually reproduced version of a WIP Button.Small for "Get an estimate"
   * TODO REDESIGN: finalize styling for Button.Small in DS and use it instead
   */
 .get-an-estimate .Button.Medium {
@@ -1161,7 +1200,7 @@ a,
 /* End region */
 /**
    * Region:
-   * Fancy animated scroll behavior 
+   * Fancy animated scroll behavior
    */
 @media (max-width: 599px) {
   .letter:not(.fancyO) {
@@ -1231,7 +1270,7 @@ a,
 /* End region */
 /**
    * Region:
-   * Big green mobile hamburger menu 
+   * Big green mobile hamburger menu
    */
 .shownMobileMenu,
 .hiddenMobileMenu {
