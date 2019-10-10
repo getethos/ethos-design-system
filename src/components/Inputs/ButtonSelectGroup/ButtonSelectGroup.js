@@ -5,6 +5,8 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
+import styles from './ButtonGroup.module.scss'
+
 /**
  **/
 
@@ -118,7 +120,7 @@ export const ButtonSelectGroup = ({
         labelCopy={labelCopy}
         allCaps={allCaps}
       />
-      <div className="button-group">{options}</div>
+      <div className={styles.buttonGroup}>{options}</div>
     </div>
   )
 }

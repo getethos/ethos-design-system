@@ -31,22 +31,34 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(s*)css$/,
+        test: /\.s?css$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'style-loader' },
+        // So foo.module.scss gets treated as a css module foo.css does not
+        oneOf: [
           {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              sourceMap: true,
-            },
+            test: /\.module\.s?css$/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: 1,
+                  modules: {
+                    localIdentName: '[name]__[local]__[hash:base64:5]',
+                  },
+                  sourceMap: true,
+                },
+              },
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true,
+                },
+              },
+            ],
           },
           {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
+            use: ['style-loader', 'css-loader', 'sass-loader'],
           },
         ],
       },

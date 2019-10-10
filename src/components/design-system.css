@@ -159,165 +159,6 @@ textarea {
   --transition-default: all 200ms cubic-bezier(0.21, 0.61, 0.35, 1);
 }
 
-/* @getethos/design-system/Media.scss
-   ========================================================================== */
-/* @getethos/design-system/Button.scss
-   ========================================================================== */
-:root {
-  --ButtonMediumStatefulMinWidth: 156px;
-}
-
-button,
-.Button {
-  border: 1px solid transparent;
-  font-family: var(--Theinhardt-font-stack);
-  color: var(--GrayPrimary--translucent);
-  transition: var(--transition-default);
-  transition-property: background-color, border-color, color;
-}
-button:not([disabled]),
-.Button:not([disabled]) {
-  cursor: pointer;
-}
-
-.Button.Medium {
-  font-size: 19px;
-  line-height: 1.26316;
-  padding: 17px 16px 13px;
-}
-
-.Button.fullWidth {
-  width: 100%;
-}
-
-.arrowIconInline {
-  margin-right: 3px;
-  margin-top: 2px;
-  margin-left: 7px;
-}
-
-.Button.arrowIcon {
-  display: flex;
-  justify-content: space-between;
-}
-
-@media (min-width: 600px) and (max-width: 1199px) {
-  .Button.arrowIcon.fullWidth {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .Button.arrowIcon.fullWidth {
-    padding-right: 48px;
-    padding-left: 48px;
-  }
-}
-
-.Button.Unstyled {
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.Button.Black {
-  background-color: var(--GrayPrimary--translucent);
-  color: var(--White);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.Button.Black:not([disabled]):hover {
-  background-color: var(--GrayDarkHover--translucent);
-}
-.Button.Black:not([disabled]):active {
-  background-color: var(--GrayDarkHover--translucent);
-}
-.Button.Black[disabled] {
-  border-color: var(--Transparent--white);
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  color: var(--White);
-}
-
-.Button.BlackOutline {
-  border-color: var(--GrayPrimary--opaque);
-  background-color: var(--Transparent--white);
-  color: var(--GrayPrimary--opaque);
-}
-.Button.BlackOutline:not([disabled]):hover {
-  border-color: var(--GrayDarkHover--translucent);
-  background-color: var(--GrayDarkHover--translucent);
-  color: var(--White);
-}
-.Button.BlackOutline:not([disabled]):active {
-  border-color: var(--GrayDarkHover--translucent);
-  background-color: var(--GrayDarkHover--translucent);
-  color: var(--White);
-}
-.Button.BlackOutline[disabled] {
-  border-color: var(--Transparent--white);
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  color: var(--White);
-}
-
-.Button.WhiteOutline {
-  border-color: var(--White);
-  background-color: var(--Transparent--white);
-  color: var(--White);
-}
-.Button.WhiteOutline:not([disabled]):hover {
-  border-color: var(--White);
-  background-color: var(--White);
-  color: var(--GrayPrimary--translucent);
-}
-.Button.WhiteOutline:not([disabled]):active {
-  border-color: var(--White);
-  background-color: var(--White);
-  color: var(--GrayPrimary--translucent);
-}
-.Button.WhiteOutline[disabled] {
-  border-color: var(--Transparent--white);
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  color: var(--White);
-}
-
-.Button.Stateful {
-  border-color: var(--GrayStrokeAndDisabled--translucent);
-  background-color: var(--Transparent--white);
-  color: var(--GrayPrimary--translucent);
-}
-.Button.Stateful.Medium {
-  min-width: var(--ButtonMediumStatefulMinWidth);
-}
-.Button.Stateful.White {
-  background-color: var(--White);
-}
-.Button.Stateful:not([disabled]):hover {
-  border-color: var(--GrayStrokeAndDisabled--translucent);
-  background-color: var(--GrayLightHover--translucent);
-  color: var(--GrayPrimary--translucent);
-}
-.Button.Stateful:not([disabled]).isSelected {
-  border-color: var(--BrandForest);
-  background-color: var(--BrandForest);
-  color: var(--White);
-}
-.Button.Stateful:not([disabled]):active {
-  border-color: var(--BrandForest);
-  background-color: var(--BrandForest);
-  color: var(--White);
-}
-.Button.Stateful[disabled] {
-  border-color: var(--Transparent--white);
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  color: var(--White);
-}
-.Button.Stateful.isSelected {
-  border-color: var(--BrandForest);
-  background-color: var(--BrandForest);
-  color: var(--White);
-}
-
 /* @getethos/design-system/Images.scss
    ========================================================================== */
 figure {
@@ -1159,46 +1000,6 @@ a,
 }
 
 /**
-  * Region:
-  * Manually reproduced version of a WIP Button.Small for "Get an estimate"
-  * TODO REDESIGN: finalize styling for Button.Small in DS and use it instead
-  */
-.get-an-estimate .Button.Medium {
-  padding: 9.5px 16px 6.5px;
-  font-size: 15px;
-  line-height: 18px;
-  margin-right: 17px;
-}
-
-@media (min-width: 600px) and (max-width: 899px) {
-  /* Same as mobile */
-  .get-an-estimate .Button.Medium {
-    margin-right: 0;
-  }
-}
-
-@media (min-width: 900px) and (max-width: 1199px) {
-  /* Very slightly different */
-  .get-an-estimate .Button.Medium {
-    padding: 11.5px 16px 8.5px;
-    font-size: 15.5px;
-    line-height: 20px;
-    margin-right: 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  /* Different */
-  .get-an-estimate .Button.Medium {
-    padding: 11.5px 18px 8.5px;
-    font-size: 15.5px;
-    line-height: 20px;
-    margin-right: 0;
-  }
-}
-
-/* End region */
-/**
    * Region:
    * Fancy animated scroll behavior
    */
@@ -1294,12 +1095,6 @@ a,
   font-weight: 300;
   color: white;
   text-decoration: unset !important;
-}
-.shownMobileMenu .Button.BlackOutline,
-.hiddenMobileMenu .Button.BlackOutline {
-  /* TODO REDESIGN: this should be a DS component */
-  color: white;
-  border-color: white;
 }
 
 .hiddenMobileMenu {
@@ -1479,17 +1274,4 @@ a,
   border-color: var(--BrandSunburn);
   border-width: 1px;
   border-style: solid;
-}
-
-.button-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-.button-group > .Button.Stateful {
-  width: 100%;
-  margin-right: var(--Space-8);
-}
-.button-group > .Button.Stateful:last-child {
-  margin-right: 0;
 }

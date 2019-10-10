@@ -74,44 +74,6 @@
 }
 
 /**
-  * Region:
-  * Manually reproduced version of a WIP Button.Small for "Get an estimate"
-  * TODO REDESIGN: finalize styling for Button.Small in DS and use it instead
-  */
-.get-an-estimate .Button.Medium {
-  padding: 9.5px 16px 6.5px;
-  font-size: 15px;
-  line-height: 18px;
-  margin-right: 17px;
-}
-
-@include for-tablet-only {
-  /* Same as mobile */
-  .get-an-estimate .Button.Medium {
-    margin-right: 0;
-  }
-}
-@include for-laptop-only {
-  /* Very slightly different */
-  .get-an-estimate .Button.Medium {
-    padding: 11.5px 16px 8.5px;
-    font-size: 15.5px;
-    line-height: 20px;
-    margin-right: 0;
-  }
-}
-@include for-desktop-only {
-  /* Different */
-  .get-an-estimate .Button.Medium {
-    padding: 11.5px 18px 8.5px;
-    font-size: 15.5px;
-    line-height: 20px;
-    margin-right: 0;
-  }
-}
-/* End region */
-
-/**
    * Region:
    * Fancy animated scroll behavior
    */
@@ -213,11 +175,6 @@
     font-weight: 300;
     color: white;
     text-decoration: unset !important;
-  }
-  .Button.BlackOutline {
-    /* TODO REDESIGN: this should be a DS component */
-    color: white;
-    border-color: white;
   }
 }
 .hiddenMobileMenu {

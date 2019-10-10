@@ -1,7 +1,11 @@
 // @import "../Animation.scss";
 // @import "../Colors.scss";
 // @import "../Type/Type.scss";
+// @import '../Spacer/Spacer.scss';
 @import '../Media/Media.scss';
+
+// This is currently a one-off implementation for UniversalNavbar
+@import './Button.small.shame.scss';
 
 /* @getethos/design-system/Button.scss
    ========================================================================== */
@@ -33,7 +37,7 @@ button,
   $line-height: 24;
   font-size: $font-size * 1px;
   line-height: $line-height / $font-size;
-  padding: 17px 16px 13px;
+  padding: 17px var(--Space-16) 13px;
 }
 
 .Button.fullWidth {
@@ -59,6 +63,9 @@ button,
   @include for-desktop-only {
     padding-right: 48px;
     padding-left: 48px;
+  }
+  @include for-phone-only {
+    max-width: 480px;
   }
 }
 // Styles
@@ -145,6 +152,24 @@ button,
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+  }
+}
+
+// Purposely very specific name WhiteCTA as this is currently
+// only used on the CMS hero for the CTA 'Check my price' button
+.Button.WhiteCTA {
+  background: var(--White);
+  padding: var(--Space-16) var(--Space-32);
+  @include for-phone-only {
+    width: 100%;
+    max-width: 400px;
+  }
+  @include for-tablet-and-up {
+    width: auto;
+  }
+  &:hover,
+  &:active {
+    background: var(--GrayStrokeAndDisabled--opaque);
   }
 }
 
