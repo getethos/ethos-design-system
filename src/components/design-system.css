@@ -958,6 +958,15 @@ a,
   }
 }
 
+.UniversalNavbar--laptopAndUp {
+  display: none;
+}
+@media (min-width: 900px) {
+  .UniversalNavbar--laptopAndUp {
+    display: block;
+  }
+}
+
 .UniversalNavbar__tabletAndUpContainer {
   max-width: 1440px;
   margin: 0 auto;

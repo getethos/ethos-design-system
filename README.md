@@ -24,7 +24,7 @@ First, you'll need to install the fonts to `src/`. See instructions above.
 yarn && yarn styleguide
 ```
 
-Then open [http://localhost:6060](http://localhost:6060) in your browser.
+Then open [http://localhost:9008](http://localhost:9008) in your browser.
 
 ## Tests
 

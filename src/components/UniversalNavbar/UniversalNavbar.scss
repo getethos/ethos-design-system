@@ -38,6 +38,13 @@
   }
 }
 
+.UniversalNavbar--laptopAndUp {
+  display: none;
+  @include for-laptop-and-up {
+    display: block;
+  }
+}
+
 .UniversalNavbar__tabletAndUpContainer {
   max-width: 1440px;
   margin: 0 auto;
