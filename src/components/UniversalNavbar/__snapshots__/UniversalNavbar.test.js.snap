@@ -114,6 +114,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <PublicTypeComponent>
               <NavLink
+                LinkComponent={null}
                 href="/login/"
               >
                 Account
@@ -198,7 +199,9 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
                 Why Ethos
               </NavLink>
             </div>
-            <LaptopAndUp>
+            <div
+              className="UniversalNavbar--laptopAndUp"
+            >
               <div
                 className="universal-navbar-paddingLeft"
               >
@@ -208,22 +211,25 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
                   Blog
                 </NavLink>
               </div>
-            </LaptopAndUp>
+            </div>
           </div>
           <div
             className="flex items-center"
           >
-            <LaptopAndUp>
+            <div
+              className="UniversalNavbar--laptopAndUp"
+            >
               <div
                 className="universal-navbar-paddingLeft"
               >
                 <NavLink
+                  LinkComponent={null}
                   href="/login/"
                 >
                   Account
                 </NavLink>
               </div>
-            </LaptopAndUp>
+            </div>
             <div
               className="universal-navbar-paddingLeft"
             >
