@@ -8,6 +8,8 @@ import LogoWhite from './assets/ethos-logo-white.js'
 import { Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 
+import styles from  './UniversalNavbar.module.scss'
+
 // TODO REDESIGN: Lots of sloppy inline styles here.
 // TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
 
@@ -82,7 +84,7 @@ class UniversalNavbar extends React.Component {
     const { showMobileMenu } = this.state
 
     const renderDesktopLink = (link) => (
-      <div key={link.id} className={'universal-navbar-paddingLeft'}>
+      <div key={link.id} className={styles.paddingLeft}>
         <NavLink
           href={link.href}
           LinkComponent={link.href !== '/login/' ? LinkComponent : null}
@@ -105,22 +107,22 @@ class UniversalNavbar extends React.Component {
           }}
         >
           <Layout.ScrollDetector>
-            <div className={'UniversalNavbar--hamburger'}>
+            <div className={styles.hamburger}>
               <TransformingBurgerButton
                 showMobileMenu={showMobileMenu}
                 clickHandler={this.toggleHamburger}
               />
             </div>
 
-            <div className={'UniversalNavbar--phoneOnly'}>
+            <div className={styles.phoneOnly}>
               {/* Dark green mobile menu, shows up when hamburger is clicked */}
               <div
                 className={
-                  showMobileMenu ? 'shownMobileMenu' : 'hiddenMobileMenu'
+                  showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
                 }
               >
                 <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
-                  {LogoWhite({ className: 'universal-navbar-logo' })}
+                  {LogoWhite({ className: styles.logo })}
                 </NavLink>
                 <Spacer.H56 />
                 {LINKS.NAVLINKS.map((link) => (
@@ -153,31 +155,31 @@ class UniversalNavbar extends React.Component {
               {!hideMobileCta && getAnEstimate(true)}
             </div>
 
-            <div className={'UniversalNavbar--tabletAndUp'}>
-              <div className={'UniversalNavbar__tabletAndUpContainer'}>
+            <div className={styles.tabletAndUp}>
+              <div className={styles.tabletAndUpContainer}>
                 {/* Desktop menu items to the left */}
                 <div className="flex items-center">
                   <NavLink
                     href={LINKS.INDEX.href}
                     LinkComponent={LinkComponent}
                   >
-                    {LogoNotAnimated({ className: 'universal-navbar-logo' })}
+                    {LogoNotAnimated({ className: styles.logo })}
                   </NavLink>
                   {renderDesktopLink(LINKS.NAVLINKS[0])}
                   {renderDesktopLink(LINKS.NAVLINKS[1])}
 
-                  <div className={'UniversalNavbar--laptopAndUp'}>
+                  <div className={styles.laptopAndUp}>
                     {renderDesktopLink(LINKS.NAVLINKS[2])}
                   </div>
                 </div>
 
                 {/* Desktop menu items to the right */}
                 <div className="flex items-center">
-                  <div className={'UniversalNavbar--laptopAndUp'}>
+                  <div className={styles.laptopAndUp}>
                     {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
                   </div>
 
-                  <div className={'universal-navbar-paddingLeft'}>
+                  <div className={styles.paddingLeft}>
                     {getAnEstimate(false)}
                   </div>
                 </div>

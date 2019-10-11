@@ -25,7 +25,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
       offsetHeight={0}
     >
       <div
-        className="UniversalNavbar--hamburger"
+        className="hamburger"
       >
         <TransformingBurgerButton
           clickHandler={[Function]}
@@ -33,16 +33,16 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
         />
       </div>
       <div
-        className="UniversalNavbar--phoneOnly"
+        className="phoneOnly"
       >
         <div
-          className="hiddenMobileMenu"
+          className="hideMobileMenu"
         >
           <NavLink
             href="/"
           >
             <svg
-              className="universal-navbar-logo"
+              className="logo"
               viewBox="0 0 971.997 180.498"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -154,10 +154,10 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
         </a>
       </div>
       <div
-        className="UniversalNavbar--tabletAndUp"
+        className="tabletAndUp"
       >
         <div
-          className="UniversalNavbar__tabletAndUpContainer"
+          className="tabletAndUpContainer"
         >
           <div
             className="flex items-center"
@@ -166,7 +166,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               href="/"
             >
               <svg
-                className="universal-navbar-logo"
+                className="logo"
                 viewBox="0 0 971.997 180.498"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -182,7 +182,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </svg>
             </NavLink>
             <div
-              className="universal-navbar-paddingLeft"
+              className="paddingLeft"
             >
               <NavLink
                 href="/how-it-works/"
@@ -191,7 +191,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </NavLink>
             </div>
             <div
-              className="universal-navbar-paddingLeft"
+              className="paddingLeft"
             >
               <NavLink
                 href="/why-ethos/"
@@ -200,10 +200,10 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </NavLink>
             </div>
             <div
-              className="UniversalNavbar--laptopAndUp"
+              className="laptopAndUp"
             >
               <div
-                className="universal-navbar-paddingLeft"
+                className="paddingLeft"
               >
                 <NavLink
                   href="/blog/"
@@ -217,10 +217,10 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             className="flex items-center"
           >
             <div
-              className="UniversalNavbar--laptopAndUp"
+              className="laptopAndUp"
             >
               <div
-                className="universal-navbar-paddingLeft"
+                className="paddingLeft"
               >
                 <NavLink
                   LinkComponent={null}
@@ -231,7 +231,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </div>
             </div>
             <div
-              className="universal-navbar-paddingLeft"
+              className="paddingLeft"
             >
               <a
                 className="get-an-estimate "

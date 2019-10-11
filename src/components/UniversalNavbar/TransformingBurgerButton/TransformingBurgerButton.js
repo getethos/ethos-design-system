@@ -1,16 +1,15 @@
 import React from 'react'
+import styles from './TransformingBurgerButton.module.scss'
 
 // onClick is an event handler, showMobileMenu is a boolean
 const TransformingBurgerButton = ({ clickHandler, showMobileMenu }) => {
   return (
-    <span className="transforming-burger-button">
-      <span className={showMobileMenu ? 'showMobileMenu' : ''}>
-        <div onClick={clickHandler} className={'iconWrapper'}>
-          <div className={'icon'}>
-            <i />
-          </div>
+    <span className={showMobileMenu ? styles.showMobileMenu : ''}>
+      <div onClick={clickHandler} className={styles.iconWrapper}>
+        <div className={styles.icon}>
+          <i />
         </div>
-      </span>
+      </div>
     </span>
   )
 }
