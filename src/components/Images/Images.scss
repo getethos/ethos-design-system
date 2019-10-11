@@ -11,8 +11,6 @@ figure {
 .Image {
   // border-radius: 2px; removed until reason for this being added is confirmed
   display: block;
-
-  // These are consequential, may need to pull out.
-  // width: 100%;
+  max-width: 100%;
   height: auto;
 }
