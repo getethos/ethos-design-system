@@ -40,37 +40,37 @@ export const CloudinaryImage = ({
   )
   includesInvalid(rest)
 
-  const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
-  const publicIdFilename = publicId.replace(publicIdBase, '')
+  let publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
+  let publicIdFilename = publicId.replace(publicIdBase, '')
 
-  const imageClasses = lazyload ? 'Image lazyload' : 'Image'
+  let imageClasses = lazyload ? 'Image lazyload' : 'Image'
   if (className) {
     imageClasses = [imageClasses, className].join(' ')
   }
 
   // Serve a simpler version if resource is SVG
   if (publicId.split('.').pop() === 'svg') {
-    const baseSvgSettings = {
+    let baseSvgSettings = {
       secure: true,
     }
 
-    const svgUrl = cld.url(publicIdFilename, baseSvgSettings)
+    let svgUrl = cld.url(publicIdFilename, baseSvgSettings)
 
     return <img data-src={svgUrl} className={imageClasses} alt={alt} />
   }
 
-  const baseImageSettings = {
+  let baseImageSettings = {
     quality: 'auto:eco',
     crop: crop,
     secure: true,
     flags: ['progressive:semi'],
   }
 
-  const fileFormats = ['webp', 'jp2', 'jpeg']
+  let fileFormats = ['webp', 'jp2', 'jpeg']
 
-  const dprSettings = ['1.0', '2.0', '3.0']
+  let dprSettings = ['1.0', '2.0', '3.0']
 
-  const mediaBreakpoints = [
+  let mediaBreakpoints = [
     Media.BREAKPOINTS.DESKTOP_RANGE_START,
     Media.BREAKPOINTS.LAPTOP_RANGE_START,
     Media.BREAKPOINTS.TABLET_RANGE_START,
@@ -88,18 +88,18 @@ export const CloudinaryImage = ({
   }
 
   let sourceTags = []
-  const srcSetAttribute = lazyload ? 'data-srcset' : 'srcSet'
-  const srcAttribute = lazyload ? 'data-src' : 'src'
+  let srcSetAttribute = lazyload ? 'data-srcset' : 'srcSet'
+  let srcAttribute = lazyload ? 'data-src' : 'src'
 
-  for (var format = 0; format < fileFormats.length; format++) {
+  for (let format = 0; format < fileFormats.length; format++) {
     for (
-      var breakpoint = 0;
+      let breakpoint = 0;
       breakpoint < mediaBreakpoints.length;
       breakpoint++
     ) {
       let srcsetData = []
 
-      for (var dpr = 0; dpr < dprSettings.length; dpr++) {
+      for (let dpr = 0; dpr < dprSettings.length; dpr++) {
         let imageSettings = {
           ...baseImageSettings,
           ...(!!width[breakpoint] && { width: width[breakpoint] }),
