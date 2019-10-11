@@ -21,6 +21,7 @@ export const CloudinaryImage = ({
   width,
   height,
   crop,
+  lazyload,
   ...rest
 }) => {
   // Verify that all required props were supplied
@@ -42,22 +43,20 @@ export const CloudinaryImage = ({
   const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
   const publicIdFilename = publicId.replace(publicIdBase, '')
 
-  // Serve a simpler version if resource is SVG
-  if(publicId.split('.').pop() === 'svg'){
+  const imageClasses = lazyload ? 'Image lazyload' : 'Image'
+  if (className) {
+    imageClasses = [imageClasses, className].join(' ')
+  }
 
+  // Serve a simpler version if resource is SVG
+  if (publicId.split('.').pop() === 'svg') {
     const baseSvgSettings = {
       secure: true,
     }
 
     const svgUrl = cld.url(publicIdFilename, baseSvgSettings)
 
-    return (
-      <img
-        data-src={svgUrl}
-        className={['Image lazyload', className].join(' ')}
-        alt={alt}
-      />
-    )
+    return <img data-src={svgUrl} className={imageClasses} alt={alt} />
   }
 
   const baseImageSettings = {
@@ -67,236 +66,99 @@ export const CloudinaryImage = ({
     flags: ['progressive:semi'],
   }
 
-  const dpr1Setting = {
-    dpr: '1.0'
+  const fileFormats = ['webp', 'jp2', 'jpeg']
+
+  const dprSettings = ['1.0', '2.0', '3.0']
+
+  const mediaBreakpoints = [
+    Media.BREAKPOINTS.DESKTOP_RANGE_START,
+    Media.BREAKPOINTS.LAPTOP_RANGE_START,
+    Media.BREAKPOINTS.TABLET_RANGE_START,
+    Media.BREAKPOINTS.PHONE_RANGE_END,
+  ]
+
+  // We are expecting width/height attribute arrays in the order of
+  // Phone/Tablet/Laptop/Desktop but we have to setup media queries
+  // in the opposite order, so we reverse the arrays here.
+  if (width) {
+    width.reverse()
+  }
+  if (height) {
+    height.reverse()
   }
 
-  const dpr2Setting = {
-    dpr: '2.0'
+  let sourceTags = []
+  const srcSetAttribute = lazyload ? 'data-srcset' : 'srcSet'
+  const srcAttribute = lazyload ? 'data-src' : 'src'
+
+  for (var format = 0; format < fileFormats.length; format++) {
+    for (
+      var breakpoint = 0;
+      breakpoint < mediaBreakpoints.length;
+      breakpoint++
+    ) {
+      let srcsetData = []
+
+      for (var dpr = 0; dpr < dprSettings.length; dpr++) {
+        let imageSettings = {
+          ...baseImageSettings,
+          ...(!!width[breakpoint] && { width: width[breakpoint] }),
+          ...(!!height[breakpoint] && { height: height[breakpoint] }),
+          format: fileFormats[format],
+          dpr: dprSettings[dpr],
+        }
+
+        srcsetData.push(
+          cld.url(publicIdFilename, imageSettings) + ` ${dpr + 1}x`
+        )
+      }
+      if (
+        format === fileFormats.length - 1 &&
+        breakpoint === mediaBreakpoints.length - 1
+      ) {
+        let imageSettings = {
+          ...baseImageSettings,
+          format: fileFormats[format],
+          dpr: '1.0',
+        }
+
+        let srcSetAttributeObject = {}
+        srcSetAttributeObject[srcSetAttribute] = srcsetData.join(', ')
+
+        let srcAttributeObject = {}
+        srcAttributeObject[srcAttribute] = cld.url(
+          publicIdFilename,
+          imageSettings
+        )
+
+        sourceTags.push(
+          <img
+            key={`${format}-${breakpoint}`}
+            {...srcAttributeObject}
+            {...srcSetAttributeObject}
+            className={imageClasses}
+            alt={alt}
+          />
+        )
+      } else {
+        let srcSetAttributeObject = {}
+        srcSetAttributeObject[srcSetAttribute] = srcsetData.join(', ')
+
+        let minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
+
+        sourceTags.push(
+          <source
+            key={`${format}-${breakpoint}`}
+            media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
+            {...srcSetAttributeObject}
+            type={`image/${fileFormats[format]}`}
+          />
+        )
+      }
+    }
   }
 
-  const dpr3Setting = {
-    dpr: '3.0'
-  }
-
-  // ------------------------------
-  // Phone Settings
-  // ------------------------------
-  const phoneImageSettings = {
-    ...baseImageSettings,
-    // ?  width[0].isInteger() : false,
-    ...(!!width[0]) && { width: width[0]},
-    ...(!!height[0]) && { height: height[0]},
-  }
-
-  const phoneImageWebP = {
-    ...phoneImageSettings,
-    format: 'webp'
-  }
-
-  const phoneImageJp2 = {
-    ...phoneImageSettings,
-    format: 'jp2'
-  }
-
-  const phoneImageJpeg = {
-    ...phoneImageSettings,
-    format: 'jpeg'
-  }
-
-  const phoneUrlWebP = cld.url(publicIdFilename, {...phoneImageWebP, ...dpr1Setting})
-  const phoneUrlJp2 = cld.url(publicIdFilename, {...phoneImageJp2, ...dpr1Setting})
-  const phoneUrlJpeg = cld.url(publicIdFilename, {...phoneImageJpeg, ...dpr1Setting})
-
-  const phoneUrlWebP_2x = cld.url(publicIdFilename, {...phoneImageWebP, ...dpr2Setting})
-  const phoneUrlJp2_2x = cld.url(publicIdFilename, {...phoneImageJp2, ...dpr2Setting})
-  const phoneUrlJpeg_2x = cld.url(publicIdFilename, {...phoneImageJpeg, ...dpr2Setting})
-
-  const phoneUrlWebP_3x = cld.url(publicIdFilename, {...phoneImageWebP, ...dpr3Setting})
-  const phoneUrlJp2_3x = cld.url(publicIdFilename, {...phoneImageJp2, ...dpr3Setting})
-  const phoneUrlJpeg_3x = cld.url(publicIdFilename, {...phoneImageJpeg, ...dpr3Setting})
-
-  // ------------------------------
-  // Tablet Settings
-  // ------------------------------
-  const tabletImageSettings = {
-    ...baseImageSettings,
-    ...(!!width[1]) && { width: width[1]},
-    ...(!!height[1]) && { height: height[1]},
-  }
-
-  const tabletUrl = cld.url(publicIdFilename, tabletImageSettings)
-
-  const tabletImageWebP = {
-    ...tabletImageSettings,
-    format: 'webp'
-  }
-
-  const tabletImageJp2 = {
-    ...tabletImageSettings,
-    format: 'jp2'
-  }
-
-  const tabletImageJpeg = {
-    ...tabletImageSettings,
-    format: 'jpeg'
-  }
-
-  const tabletUrlWebP = cld.url(publicIdFilename, {...tabletImageWebP, ...dpr1Setting})
-  const tabletUrlJp2 = cld.url(publicIdFilename, {...tabletImageJp2, ...dpr1Setting})
-  const tabletUrlJpeg = cld.url(publicIdFilename, {...tabletImageJpeg, ...dpr1Setting})
-
-  const tabletUrlWebP_2x = cld.url(publicIdFilename, {...tabletImageWebP, ...dpr2Setting})
-  const tabletUrlJp2_2x = cld.url(publicIdFilename, {...tabletImageJp2, ...dpr2Setting})
-  const tabletUrlJpeg_2x = cld.url(publicIdFilename, {...tabletImageJpeg, ...dpr2Setting})
-
-  const tabletUrlWebP_3x = cld.url(publicIdFilename, {...tabletImageWebP, ...dpr3Setting})
-  const tabletUrlJp2_3x = cld.url(publicIdFilename, {...tabletImageJp2, ...dpr3Setting})
-  const tabletUrlJpeg_3x = cld.url(publicIdFilename, {...tabletImageJpeg, ...dpr3Setting})
-
-  // ------------------------------
-  // Laptop Settings
-  // ------------------------------
-  const laptopImageSettings = {
-    ...baseImageSettings,
-    ...(!!width[2]) && { width: width[2]},
-    ...(!!height[2]) && { height: height[2]},
-  }
-
-  const laptopUrl = cld.url(publicIdFilename, laptopImageSettings)
-
-  const laptopImageWebP = {
-    ...laptopImageSettings,
-    format: 'webp'
-  }
-
-  const laptopImageJp2 = {
-    ...laptopImageSettings,
-    format: 'jp2'
-  }
-
-  const laptopImageJpeg = {
-    ...laptopImageSettings,
-    format: 'jpeg'
-  }
-
-  const laptopUrlWebP = cld.url(publicIdFilename, {...laptopImageWebP, ...dpr1Setting})
-  const laptopUrlJp2 = cld.url(publicIdFilename, {...laptopImageJp2, ...dpr1Setting})
-  const laptopUrlJpeg = cld.url(publicIdFilename, {...laptopImageJpeg, ...dpr1Setting})
-
-  const laptopUrlWebP_2x = cld.url(publicIdFilename, {...laptopImageWebP, ...dpr2Setting})
-  const laptopUrlJp2_2x = cld.url(publicIdFilename, {...laptopImageJp2, ...dpr2Setting})
-  const laptopUrlJpeg_2x = cld.url(publicIdFilename, {...laptopImageJpeg, ...dpr2Setting})
-
-  const laptopUrlWebP_3x = cld.url(publicIdFilename, {...laptopImageWebP, ...dpr3Setting})
-  const laptopUrlJp2_3x = cld.url(publicIdFilename, {...laptopImageJp2, ...dpr3Setting})
-  const laptopUrlJpeg_3x = cld.url(publicIdFilename, {...laptopImageJpeg, ...dpr3Setting})
-
-  // ------------------------------
-  // Desktop Settings
-  // ------------------------------
-  const desktopImageSettings = {
-    ...baseImageSettings,
-    ...(!!width[3]) && { width: width[3]},
-    ...(!!height[3]) && { height: height[3]},
-  }
-
-  const desktopUrl = cld.url(publicIdFilename, desktopImageSettings)
-
-  const desktopImageWebP = {
-    ...desktopImageSettings,
-    format: 'webp'
-  }
-
-  const desktopImageJp2 = {
-    ...desktopImageSettings,
-    format: 'jp2'
-  }
-
-  const desktopImageJpeg = {
-    ...desktopImageSettings,
-    format: 'jpeg'
-  }
-
-  const desktopUrlWebP = cld.url(publicIdFilename, {...desktopImageWebP, ...dpr1Setting})
-  const desktopUrlJp2 = cld.url(publicIdFilename, {...desktopImageJp2, ...dpr1Setting})
-  const desktopUrlJpeg = cld.url(publicIdFilename, {...desktopImageJpeg, ...dpr1Setting})
-
-  const desktopUrlWebP_2x = cld.url(publicIdFilename, {...desktopImageWebP, ...dpr2Setting})
-  const desktopUrlJp2_2x = cld.url(publicIdFilename, {...desktopImageJp2, ...dpr2Setting})
-  const desktopUrlJpeg_2x = cld.url(publicIdFilename, {...desktopImageJpeg, ...dpr2Setting})
-
-  const desktopUrlWebP_3x = cld.url(publicIdFilename, {...desktopImageWebP, ...dpr3Setting})
-  const desktopUrlJp2_3x = cld.url(publicIdFilename, {...desktopImageJp2, ...dpr3Setting})
-  const desktopUrlJpeg_3x = cld.url(publicIdFilename, {...desktopImageJpeg, ...dpr3Setting})
-
-  return (
-    <picture>
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
-        data-srcset={`${desktopUrlWebP_3x} 3x, ${desktopUrlWebP_2x} 2x, ${desktopUrlWebP} 1x`}
-        type="image/webp"
-      />
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        data-srcset={`${laptopUrlWebP_3x} 3x, ${laptopUrlWebP_2x} 2x, ${laptopUrlWebP} 1x`}
-        type="image/webp"
-      />
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
-        data-srcset={`${tabletUrlWebP_3x} 3x, ${tabletUrlWebP_2x} 2x, ${tabletUrlWebP} 1x`}
-        type="image/webp"
-      />
-      <source
-        media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`}
-        data-srcset={`${phoneUrlWebP_3x} 3x, ${phoneUrlWebP_2x} 2x, ${phoneUrlWebP} 1x`}
-        type="image/webp"
-      />
-
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
-        data-srcset={`${desktopUrlJp2_3x} 3x, ${desktopUrlJp2_2x} 2x, ${desktopUrlJp2} 1x`}
-        type="image/jp2"
-      />
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        data-srcset={`${laptopUrlJp2_3x} 3x, ${laptopUrlJp2_2x} 2x, ${laptopUrlJp2} 1x`}
-        type="image/jp2"
-      />
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
-        data-srcset={`${tabletUrlJp2_3x} 3x, ${tabletUrlJp2_2x} 2x, ${tabletUrlJp2} 1x`}
-        type="image/jp2"
-      />
-      <source
-        media={`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`}
-        data-srcset={`${phoneUrlJp2_3x} 3x, ${phoneUrlJp2_2x} 2x, ${phoneUrlJp2} 1x`}
-        type="image/jp2"
-      />
-
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.DESKTOP_RANGE_START}px)`}
-        data-srcset={`${desktopUrlJpeg_3x} 3x, ${desktopUrlJpeg_2x} 2x, ${desktopUrlJpeg} 1x`}
-        type="image/jpeg"
-      />
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`}
-        data-srcset={`${laptopUrlJpeg_3x} 3x, ${laptopUrlJpeg_2x} 2x, ${laptopUrlJpeg} 1x`}
-        type="image/jpeg"
-      />
-      <source
-        media={`(min-width: ${Media.BREAKPOINTS.TABLET_RANGE_START}px)`}
-        data-srcset={`${tabletUrlJpeg_3x} 3x, ${tabletUrlJpeg_2x} 2x, ${tabletUrlJpeg} 1x`}
-        type="image/jpeg"
-      />
-      <img
-        data-src={phoneUrlJpeg}
-        data-srcset={`${phoneUrlJpeg_3x} 3x, ${phoneUrlJpeg_2x} 2x, ${phoneUrlJpeg} 1x`}
-        className={['Image lazyload', className].join(' ')}
-        alt={alt}
-      />
-    </picture>
-  )
+  return <picture>{sourceTags}</picture>
 }
 
 /**
@@ -326,22 +188,18 @@ CloudinaryImage.CROP_METHODS = {
 }
 
 CloudinaryImage.PUBLIC_PROPS = {
-  height: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.bool,
-  ]),
-  width: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.bool,
-  ]),
+  height: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  width: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   className: PropTypes.string,
   alt: PropTypes.string.isRequired,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
+  lazyload: PropTypes.bool,
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
+  lazyload: true,
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS
