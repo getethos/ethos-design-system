@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import { InputLabel } from '../InputLabel'
+import styles from '../TextInput/TextInput.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
@@ -87,17 +89,19 @@ const PrivateBirthdateInput = (props) => {
     doValidation(ev.target.value, touched)
   }
 
+  const getClasses = () => {
+    return !!getError() ?
+      `BirthdateInput ${styles.TextInput} ${errorStyles.Error}` :
+      `BirthdateInput ${styles.TextInput}`
+  }
+
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       <MaskedInput
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
-        className={
-          !!getError()
-            ? 'BirthdateInput TextInput Error'
-            : 'BirthdateInput TextInput'
-        }
+        className={getClasses()}
         type="tel"
         data-tid={restProps['data-tid']}
         guide={true}

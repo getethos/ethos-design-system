@@ -4,6 +4,8 @@ import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import { InputLabel } from '../InputLabel'
 import zipInputValidator from '../../../validators/ZipInputValidator'
+import styles from '../TextInput/TextInput.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 export const ZipInput = (props) => {
   const {
@@ -63,6 +65,13 @@ export const ZipInput = (props) => {
     doValidation(ev.target.value, touched)
   }
 
+
+  const getClasses = () => {
+    return !!getError() ?
+      `ZipInput ${styles.TextInput} ${errorStyles.Error}` :
+      `ZipInput ${styles.TextInput}`
+  }
+
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
@@ -74,9 +83,7 @@ export const ZipInput = (props) => {
         onBlur={onBlur}
         onChange={onChange}
         name={props.name}
-        className={
-          !!getError() ? 'ZipInput TextInput Error' : 'ZipInput TextInput'
-        }
+        className={getClasses()}
         keepCharPositions={true}
       />
       {getError()}

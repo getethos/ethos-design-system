@@ -1231,10 +1231,3 @@ a,
 .flex-shrink-0 {
   flex-shrink: 0;
 }
-
-.Error,
-.Error:focus {
-  border-color: var(--BrandSunburn);
-  border-width: 1px;
-  border-style: solid;
-}
