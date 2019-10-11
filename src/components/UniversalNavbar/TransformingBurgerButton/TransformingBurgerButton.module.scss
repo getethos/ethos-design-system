@@ -1,0 +1,76 @@
+// TODO once we remove Colors.scss from design-system.css we'll need to import
+// @import "../Colors.scss";
+
+.iconWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+  cursor: pointer;
+  height: 16px;
+}
+
+.showMobileMenu {
+  // .icon adds an extra level of specificity needed in CSS Modules land
+  .icon {
+    i {
+      background: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotateZ(45deg);
+        background: white;
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotateZ(-45deg);
+        background: white;
+      }
+    }
+  }
+}
+
+.icon {
+  --burger-width: 16px;
+  --burger-thickness: 2px;
+
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: none;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+
+  i {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: var(--burger-width);
+    height: var(--burger-thickness);
+    background: var(--GrayPrimary--translucent);
+    transition: all 0.2s ease-out;
+
+    &::before,
+    &::after {
+      content: '';
+      width: var(--burger-width);
+      height: var(--burger-thickness);
+      background: var(--GrayPrimary--translucent);
+      position: absolute;
+      left: 0;
+      transition: 0.2s ease;
+    }
+
+    &::before {
+      top: -4px;
+    }
+
+    &::after {
+      bottom: -4px;
+    }
+  }
+}
