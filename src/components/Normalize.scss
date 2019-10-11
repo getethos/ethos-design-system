@@ -366,3 +366,11 @@ textarea {
 [hidden] {
   display: none;
 }
+
+// https://github.com/sindresorhus/modern-normalize/pull/13/files#diff-a8823b8d864e2fc23a688edc31b75864R8
+@media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 2dppx) {
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
