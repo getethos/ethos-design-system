@@ -1,3 +1,9 @@
+// TODO -- these are currently come in via globals but we'll need
+// them here once we continue to strip 'em out of design-system.css
+// @import "../Colors.scss";
+// @import "../Type/Type.scss";
+// @import '../Spacer/Spacer.scss';
+
 .TextInput {
   // Same as Type.scss Body. Should we use a mixin?
   $font-size: 19;
@@ -11,8 +17,7 @@
   border-style: solid;
   border-width: 1px;
   border-color: var(--GrayStrokeAndDisabled--translucent);
-  // TODO: Is there a better way to achieve this?
-  padding: 17px 16px 13px;
+  padding: 17px var(--Space-16) 13px;
   color: var(--GrayPrimary--opaque);
   border-radius: 0;
   transition: border-color 250ms ease;
