@@ -7,6 +7,10 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
 import restrict from '../../../helpers/restrict.js'
 
+// TODO -- pull in errors as CSS Modules too
+//import errorStyles from '../Inputs/Errors.module.scss
+import styles from './TextInput.module.scss'
+
 /* @getethos/design-system/TextInput.js
 
 /**
@@ -96,12 +100,17 @@ function PrivateTextInput({
     setValue(restrictedVal)
   }
 
+  const getClasses = () => {
+    // TODO -- use something like ${errorStyles.Error}
+    return !!getError() ? `${styles.TextInput} Error` : `${styles.TextInput}`
+  }
+
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
       <input
         type="text"
-        className={!!getError() ? 'TextInput Error' : 'TextInput'}
+        className={getClasses()}
         disabled={disabled}
         name={name}
         onPaste={onPaste}
