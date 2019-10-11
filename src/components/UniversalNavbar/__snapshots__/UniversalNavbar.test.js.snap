@@ -160,7 +160,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           className="tabletAndUpContainer"
         >
           <div
-            className="flex items-center"
+            className="flex itemsCenter"
           >
             <NavLink
               href="/"
@@ -214,7 +214,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             </div>
           </div>
           <div
-            className="flex items-center"
+            className="flex itemsCenter"
           >
             <div
               className="laptopAndUp"
