@@ -6,7 +6,6 @@ import React from 'react'
  * @prop {function} props.validate - required method returned from useErrorMessage
  * @prop {function} props.setError - required method returned from useErrorMessage
  * @prop {function} [props.formChangeHandler] - Optional callback thats fires after validation
- * @prop {function} [props.doValidation] - Optional and overrides doValidation implemented here
  * @prop {function} [props.callErrorHandlers] - Optional and overrides callErrorHandlers implemented here
  * @prop {function} [props.setErrorWrapper] - Optional and overrides setErrorWrapper implemented here
  *
@@ -31,7 +30,6 @@ const useInputValidation = ({
   validate,
   setError,
   formChangeHandler,
-  doValidation,
   callErrorHandlers,
   setErrorWrapper,
 }) => {
@@ -48,7 +46,7 @@ const useInputValidation = ({
     handlerFn(value, errorMessage)
   }
 
-  const doValidationInternal = doValidation ? doValidation : (value, isTouched) => {
+  const doValidation = (value, isTouched) => {
     // User hasn't blurred but we still need to inform form
     // engine if we're in a valid state or not
     if (!isTouched && !!formChangeHandler) {
@@ -59,7 +57,7 @@ const useInputValidation = ({
     }
   }
 
-  return [doValidationInternal]
+  return [doValidation]
 }
 
 export default useInputValidation
