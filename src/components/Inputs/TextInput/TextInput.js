@@ -53,7 +53,7 @@ function PrivateTextInput({
 
   const [touched, setTouched] = useState(false)
 
-  const setErrorWrapper = (errorValue) => {
+  const setErrorWrapper = (value, errorValue) => {
     if (!!formChangeHandler) {
       formChangeHandler(value, errorValue)
     }
@@ -63,7 +63,7 @@ function PrivateTextInput({
   const callErrorHandlers = (value, handlerFn) => {
     let errorMessage = validate(value)
     errorMessage = errorMessage.length ? errorMessage : ''
-    handlerFn(errorMessage)
+    handlerFn(value, errorMessage)
   }
 
   const doValidation = (value, isTouched) => {
