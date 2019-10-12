@@ -9,6 +9,7 @@ export { Spacer } from './Spacer'
 export { TextInput } from './Inputs/TextInput'
 export { InfoMessage } from './InfoMessage'
 export { ZipInput } from './Inputs/ZipInput'
+export { CheckboxInput } from './Inputs/CheckboxInput'
 export { Form } from './Form'
 export {
   BirthdateInput,
