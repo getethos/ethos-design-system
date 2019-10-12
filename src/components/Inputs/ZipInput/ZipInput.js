@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import { InputLabel } from '../InputLabel'
 import zipInputValidator from '../../../validators/ZipInputValidator'
 import styles from '../TextInput/TextInput.module.scss'
@@ -20,13 +21,7 @@ export const ZipInput = (props) => {
   const [getError, setError, validate] = useErrorMessage(validator)
   const [touched, setTouched] = useState(false)
 
-  const setErrorWrapper = (value, errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(value, errorValue)
-    }
-    setError(errorValue)
-  }
-
+  // This has to come before useInputValidation setup below
   const callErrorHandlers = (value, handlerFn) => {
     /// Check zip format validity
     let errMsg = zipInputValidator(value)
@@ -42,16 +37,7 @@ export const ZipInput = (props) => {
     }
   }
 
-  const doValidation = (value, isTouched) => {
-    // User hasn't blurred but we still need to inform form
-    // engine if we're in a valid state or not
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      // Have blurred
-      callErrorHandlers(value, setErrorWrapper)
-    }
-  }
+  const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
 
   const onBlur = (ev) => {
     // We set touched to change the react state, but it's async and

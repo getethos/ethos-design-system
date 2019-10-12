@@ -5,16 +5,13 @@ import { InputLabel } from '../InputLabel'
 import useRequired from '../../../hooks/useRequired.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
 
 import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
-/* @getethos/design-system/TextInput.js
-
 /**
- * WIP
- *
  * @param  {String}   props.name        Input name and htmlFor prop for label
  * @param  {String}   props.labelCopy   User-visible text of label for input
  * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
@@ -53,29 +50,7 @@ function PrivateTextInput({
 
   const [touched, setTouched] = useState(false)
 
-  const setErrorWrapper = (value, errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(value, errorValue)
-    }
-    setError(errorValue)
-  }
-
-  const callErrorHandlers = (value, handlerFn) => {
-    let errorMessage = validate(value)
-    errorMessage = errorMessage.length ? errorMessage : ''
-    handlerFn(value, errorMessage)
-  }
-
-  const doValidation = (value, isTouched) => {
-    // User hasn't blurred but we still need to inform form
-    // engine if we're in a valid state or not
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      // Have blurred
-      callErrorHandlers(value, setErrorWrapper)
-    }
-  }
+  const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   const onChange = (ev) => {
     const val = event.target.value

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Body } from '../../Type/Body.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import styles from './CheckboxInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
@@ -34,27 +35,7 @@ export const CheckboxInput = ({
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
   const [getError, setError, validate] = useErrorMessage(validator)
-
-  const setErrorWrapper = (value, errorValue) => {
-    if (formChangeHandler) {
-      formChangeHandler(value, errorValue)
-    }
-    setError(errorValue)
-  }
-
-  const callErrorHandlers = (value, handlerFn) => {
-    let errorMessage = validate(value)
-    errorMessage = errorMessage.length ? errorMessage : ''
-    handlerFn(value, errorMessage)
-  }
-
-  const doValidation = (value, isTouched) => {
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      callErrorHandlers(value, setErrorWrapper)
-    }
-  }
+  const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   const onChange = (ev) => {
     if (!touched) setTouched(true)
