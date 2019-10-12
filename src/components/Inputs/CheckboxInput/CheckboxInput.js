@@ -34,7 +34,7 @@ export const CheckboxInput = ({
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
   const [getError, setError, validate] = useErrorMessage(validator)
-  
+
   const setErrorWrapper = (value, errorValue) => {
     if (formChangeHandler) {
       formChangeHandler(value, errorValue)
@@ -77,7 +77,7 @@ export const CheckboxInput = ({
         <div className={styles.checkboxWrapper}>
           <input
             className={styles.CheckboxInput}
-            type="checkbox" 
+            type="checkbox"
             onChange={onChange}
             checked={isChecked}
             {...otherProps}
