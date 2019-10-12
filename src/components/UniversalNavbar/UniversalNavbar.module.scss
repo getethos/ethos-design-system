@@ -1,5 +1,12 @@
 @import '../Media/Media.scss';
-@import './globals-for-cms.scss';
+
+.flex {
+  display: flex;
+}
+
+.itemsCenter {
+  align-items: center;
+}
 
 .hamburger {
   position: fixed;

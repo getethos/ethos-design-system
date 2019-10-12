@@ -14,6 +14,8 @@ html {
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -151,8 +153,6 @@ textarea {
   --BrandSunburn: #e11f13;
 }
 
-/* @getethos/design-system/Media.scss
-   ========================================================================== */
 /* @getethos/design-system/Animation.scss
    ========================================================================== */
 :root {
@@ -173,8 +173,6 @@ figure {
 }
 
 /* @getethos/design-system/Layout.scss
-   ========================================================================== */
-/* @getethos/design-system/Media.scss
    ========================================================================== */
 :root {
   --ContainerMaxWidth: 1440px;
@@ -292,8 +290,6 @@ figure {
 }
 
 /* @getethos/design-system/Type.scss
-   ========================================================================== */
-/* @getethos/design-system/Media.scss
    ========================================================================== */
 :root {
   --system-sans-font-stack: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
@@ -790,8 +786,6 @@ a,
   background: var(--BrandDuckegg);
 }
 
-/* @getethos/design-system/Media.scss
-   ========================================================================== */
 /**
    * Region:
    * Fancy animated scroll behavior
@@ -862,69 +856,3 @@ a,
 }
 
 /* End region */
-/*
-  Flexbox globals
-  Taken from:
-  https://github.com/tachyons-css/tachyons/blob/master/src/_flexbox.css
-
-  Don't re-import this in funnel! This is just here to make the 
-  universal navbar work in CMS.
-
-  This is imported globally in the funnel but not the cms yet.
-  Nick used some stuff here to write the universal navbar.
-*/
-.full-width {
-  width: 100%;
-}
-
-.full-height {
-  height: 100%;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-row {
-  flex-direction: row;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.items-start {
-  align-items: flex-start;
-}
-
-.items-end {
-  align-items: flex-end;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-end {
-  justify-content: flex-end;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.justify-around {
-  justify-content: space-around;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
-}

@@ -158,7 +158,7 @@ class UniversalNavbar extends React.Component {
             <div className={styles.tabletAndUp}>
               <div className={styles.tabletAndUpContainer}>
                 {/* Desktop menu items to the left */}
-                <div className="flex items-center">
+                <div className={`${styles.flex} ${styles.itemsCenter}`}>
                   <NavLink
                     href={LINKS.INDEX.href}
                     LinkComponent={LinkComponent}
@@ -174,7 +174,7 @@ class UniversalNavbar extends React.Component {
                 </div>
 
                 {/* Desktop menu items to the right */}
-                <div className="flex items-center">
+                <div className={`${styles.flex} ${styles.itemsCenter}`}>
                   <div className={styles.laptopAndUp}>
                     {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
                   </div>
