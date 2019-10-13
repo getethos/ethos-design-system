@@ -30,7 +30,7 @@ export const TextMaskedInput = (props) => {
    * only call in to validation if appropriate (maybe they do their own validation)
    */
   const attemptValidation = (value, isTouched) => {
-    if (!validator) return
+    if (props.onChange) return
     doValidation(value, isTouched)
   }
 

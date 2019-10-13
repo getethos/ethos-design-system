@@ -37,7 +37,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 5, 7)],
+        validators: [validateTruthy, validateCustom, validateMinMaxFactory(null, 5, 7)],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
@@ -47,7 +47,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 3, 5)],
+        validators: [validateTruthy, validateCustom, validateMinMaxFactory(null, 3, 5)],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
@@ -121,7 +121,7 @@ _Note that we've set up the form submission to randomly fail or succeed—so, yo
 import validateTruthy from '../../validators/validateTruthy'
 import dayjs from '../../helpers/getDayjs.js'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage } from '../index'
+import { TitleLarge, TextInput, TextMaskedInput, Spacer, Button, InfoMessage } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
 let count = 0
@@ -179,7 +179,7 @@ const maxAge = 65
         validators: [
           validateTruthy,
           validateCustom,
-          validateMinMaxDateFactory.call(null, {
+          validateMinMaxDateFactory({
             minAge,
             maxAge,
             minBirthdate: getMinBirthdateLga(maxAge),
@@ -189,6 +189,32 @@ const maxAge = 65
         ],
         validationSuccess: [analyticsCustomEvent],
         labelCopy: 'Must be between 20 and 65 years old',
+      },
+      ssn: {
+        component: (props, options) => {
+          return (
+            <TextMaskedInput
+              placeholder="0000"
+              mask={[/\d/, /\d/, /\d/, /\d/]}
+              guide={true}
+              keepCharPositions={true}
+              type='text'
+              labelCopy="Last 4 of SSN"
+              name="last4-ssn"
+              data-tid='le-ssn-comp'
+              {...props}
+            />
+          )
+        },
+        labelCopy: 'Last 4 digits of SSN' ,
+        tid: 'le-ssn',
+        validators: [
+          (value) => (
+            value && value.length === 4
+              ? ''
+              : 'Four digits required'
+          )
+        ],
       },
       buttonGroup: {
         component: (props, options) => {
@@ -255,6 +281,10 @@ const maxAge = 65
         )}
 
         {field('birthdate')}
+
+        <Spacer.H16 />
+
+        {field('ssn')}
 
         <Spacer.H16 />
 
