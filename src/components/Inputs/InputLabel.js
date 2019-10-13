@@ -42,7 +42,7 @@ export function InputLabel({
       <Caption.Medium500
         element={element}
         color={COLORS.GRAY_PRIMARY}
-        allCaps={true} // WIP these should be consistent...
+        allCaps={allCaps}
         {...nameOrIdProps}
       >
         {labelCopy}
