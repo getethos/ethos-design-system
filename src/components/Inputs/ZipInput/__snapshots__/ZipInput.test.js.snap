@@ -17,8 +17,9 @@ Array [
     }
   />,
   <input
-    className="ZipInput TextInput"
+    className="TextMaskedInput TextInput"
     data-tid="le-zip"
+    disabled={false}
     guide={true}
     keepCharPositions={true}
     mask={
@@ -33,8 +34,10 @@ Array [
     name="le-zip"
     onBlur={[Function]}
     onChange={[Function]}
+    placeholder=""
     type="tel"
   />,
+  "",
   "",
 ]
 `;
