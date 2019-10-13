@@ -1,27 +1,3 @@
-```jsx
-// formChangeHandler gets wired up automatically if using <Form /> component
-const formChangeHandlerStub = () => {}
-
-;<TextMaskedInput
-  mask={[/a/, /b/, /c/, /d/, /e/]}
-  guide={true}
-  keepCharPositions={true}
-  type='text'
-  allCaps={false}
-  formChangeHandler={formChangeHandlerStub}
-  name="le-masked"
-  labelCopy="Masked Input Example—only 'a' 'b' 'c' 'd' 'e' in that order allowed"
-  data-tid="the-masked-input"
-  validator={(x) => {
-    if (/a{1}b{1}c{1}d{1}e{1}/.test(x)) {
-      return ''
-    } else {
-      return "It's gotta be 'abcde'"
-    }
-  }}
-/>
-```
-
 Last 4 SSN Example
 
 ```jsx
@@ -38,5 +14,32 @@ const formChangeHandlerStub = () => {}
   labelCopy="Last 4 SSN Example"
   data-tid="last4-ssn-example"
   validator={(value) => value && value.length === 4 ? '' : 'Four digits required'}
+/>
+```
+
+Customize the map to your specific use case
+
+```jsx
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
+;<TextMaskedInput
+  mask={[/a/, /b/, /c/, /d/, /e/]}
+  placeholder="abcde"
+  guide={true}
+  keepCharPositions={true}
+  type='text'
+  allCaps={false}
+  formChangeHandler={formChangeHandlerStub}
+  name="le-masked"
+  labelCopy="Masked Input Example—only 'a' 'b' 'c' 'd' 'e' in that order allowed"
+  data-tid="the-masked-input"
+  validator={(x) => {
+    if (/a{1}b{1}c{1}d{1}e{1}/.test(x)) {
+      return ''
+    } else {
+      return "It's gotta be 'abcde'"
+    }
+  }}
 />
 ```
