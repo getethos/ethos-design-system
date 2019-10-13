@@ -25,6 +25,15 @@ export const TextMaskedInput = (props) => {
   const [touched, setTouched] = useState(false)
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
+  /**
+   * We have to handle case where consumer does not pass in a validator and
+   * only call in to validation if appropriate (maybe they do their own validation)
+   */
+  const attemptValidation = (value, isTouched) => {
+    if (!validator) return
+    doValidation(value, isTouched)
+  }
+
   const onChange = (ev) => {
     const val = event.target.value
     const restrictedVal = restrict(val)
@@ -33,7 +42,7 @@ export const TextMaskedInput = (props) => {
     // Used to remove mask characters e.g. abc___ becomes just abc
     const cleansed = cleanse(restrictedVal)
 
-    doValidation(cleansed, touched)
+    attemptValidation(cleansed, touched)
   }
 
   const onBlur = (ev) => {
@@ -42,8 +51,12 @@ export const TextMaskedInput = (props) => {
     setTouched(true)
     const val = ev.target.value
     const cleansed = cleanse(val)
-    doValidation(cleansed, true)
+    attemptValidation(cleansed, true)
   }
+
+  // Prioritizes prop callbacks, but falls back to internal implementation
+  const whichOnBlur = props.onBlur ? props.onBlur : onBlur
+  const whichOnChange = props.onChange ? props.onChange : onChange
 
   const onPaste = (ev) => {
     const val = ev.clipboardData.getData('text/plain')
@@ -67,8 +80,8 @@ export const TextMaskedInput = (props) => {
         type={restProps.type}
         data-tid={restProps['data-tid']}
         guide={restProps.guide}
-        onBlur={onBlur}
-        onChange={onChange}
+        onBlur={whichOnBlur}
+        onChange={whichOnChange}
         name={props.name}
         placeholder={restProps.placeholder}
         className={getClasses()}
@@ -81,6 +94,8 @@ export const TextMaskedInput = (props) => {
 }
 
 TextMaskedInput.PUBLIC_PROPS = {
+  onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   placeholder: PropTypes.string,
   mask: PropTypes.array.isRequired,
   guide: PropTypes.bool,

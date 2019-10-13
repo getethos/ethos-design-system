@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import MaskedInput from 'react-text-mask'
+import { TextMaskedInput } from '../TextMaskedInput'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import { InputLabel } from '../InputLabel'
@@ -60,10 +60,11 @@ export const ZipInput = (props) => {
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
-      <MaskedInput
+      <TextMaskedInput
         mask={[/\d/, /\d/, /\d/, /\d/, /\d/]}
         type="tel"
+        labelCopy={labelCopy}
+        allCaps={allCaps}
         data-tid={restProps['data-tid']}
         guide={true}
         onBlur={onBlur}

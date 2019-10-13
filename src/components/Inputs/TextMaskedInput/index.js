@@ -1,1 +1,1 @@
-export { TextMakedInput } from './TextMaskedInput.js'
+export { TextMaskedInput } from './TextMaskedInput.js'
