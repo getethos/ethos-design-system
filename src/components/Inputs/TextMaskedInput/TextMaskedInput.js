@@ -17,22 +17,18 @@ export const TextMaskedInput = (props) => {
     allCaps,
     validator,
     formChangeHandler,
+    initialValue,
+    doValidation,
     ...restProps
   } = props
 
   const [getError, setError, validate] = useErrorMessage(validator)
-  const [value, setValue] = useState('')
-  const [touched, setTouched] = useState(false)
-  const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
+  const [value, setValue] = useState(initialValue || '')
+  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [internalDoValidation] = useInputValidation({validate, setError, formChangeHandler})
 
-  /**
-   * We have to handle case where consumer does not pass in a validator and
-   * only call in to validation if appropriate (maybe they do their own validation)
-   */
-  const attemptValidation = (value, isTouched) => {
-    if (props.onChange) return
-    doValidation(value, isTouched)
-  }
+  // Prioritizes props.doValidation but falls back to our internal implementation
+  const whichDoValidation = props.doValidation ? props.doValidation : internalDoValidation 
 
   const onChange = (ev) => {
     const val = event.target.value
@@ -42,7 +38,7 @@ export const TextMaskedInput = (props) => {
     // Used to remove mask characters e.g. abc___ becomes just abc
     const cleansed = cleanse(restrictedVal)
 
-    attemptValidation(cleansed, touched)
+    whichDoValidation(cleansed, touched)
   }
 
   const onBlur = (ev) => {
@@ -51,12 +47,8 @@ export const TextMaskedInput = (props) => {
     setTouched(true)
     const val = ev.target.value
     const cleansed = cleanse(val)
-    attemptValidation(cleansed, true)
+    whichDoValidation(cleansed, true)
   }
-
-  // Prioritizes prop callbacks, but falls back to internal implementation
-  const whichOnBlur = props.onBlur ? props.onBlur : onBlur
-  const whichOnChange = props.onChange ? props.onChange : onChange
 
   const onPaste = (ev) => {
     const val = ev.clipboardData.getData('text/plain')
@@ -76,12 +68,14 @@ export const TextMaskedInput = (props) => {
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       <MaskedInput
+        value={value}
         mask={restProps.mask}
         type={restProps.type}
         data-tid={restProps['data-tid']}
         guide={restProps.guide}
-        onBlur={whichOnBlur}
-        onChange={whichOnChange}
+        onChange={onChange}
+        onBlur={onBlur}
+        onPaste={onPaste}
         name={props.name}
         placeholder={restProps.placeholder}
         className={getClasses()}
@@ -94,11 +88,11 @@ export const TextMaskedInput = (props) => {
 }
 
 TextMaskedInput.PUBLIC_PROPS = {
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
+  doValidation: PropTypes.func,
   placeholder: PropTypes.string,
   mask: PropTypes.array.isRequired,
   guide: PropTypes.bool,
+  initialValue: PropTypes.string,
   keepCharPositions: PropTypes.bool,
   type: PropTypes.string.isRequired,
   'data-tid': PropTypes.string.isRequired,

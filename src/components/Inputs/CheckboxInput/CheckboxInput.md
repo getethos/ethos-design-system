@@ -37,3 +37,30 @@ Set to checked and disabled immediately:
   </a>
 </CheckboxInput>
 ```
+
+
+Setting to `checked` should have similar behavior as `TextInput`'s when you set an `intialValue`, in that
+it resulsts in the field being considered as already `touched`. This means you do not have to `blur` for
+field hint error messages to appear. Try unchecking and it should immediately display the error message.
+
+```jsx
+import validateTruthy from '../../../validators/validateTruthy'
+const formChangeHandlerStub = () => {}
+
+<CheckboxInput
+  checked={true}
+  name="le-check2"
+  data-tid="le-tid2"
+  formChangeHandler={formChangeHandlerStub}
+  validator={(x) => {
+    const truthyErr = validateTruthy(x)
+    if (!!truthyErr) return truthyErr
+    return ''
+  }}
+>
+  I agree to the{' '}
+  <a href="/" target="_blank">
+    Agreement
+  </a>
+</CheckboxInput>
+```
