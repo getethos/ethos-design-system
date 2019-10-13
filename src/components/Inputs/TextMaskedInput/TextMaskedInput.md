@@ -21,3 +21,24 @@ const formChangeHandlerStub = () => {}
   }}
 />
 ```
+
+Last 4 SSN Example
+
+```jsx
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
+;<TextMaskedInput
+  mask={[/\d/, /\d/, /\d/, /\d/]}
+  guide={true}
+  keepCharPositions={true}
+  type='text'
+  formChangeHandler={formChangeHandlerStub}
+  name="last4-ssn"
+  labelCopy="Last 4 SSN Example"
+  data-tid="last4-ssn-example"
+  validator={(x) => {
+    return ''
+  }}
+/>
+```
