@@ -27,8 +27,8 @@ Last 4 SSN Example
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
-
 ;<TextMaskedInput
+  placeholder="0000"
   mask={[/\d/, /\d/, /\d/, /\d/]}
   guide={true}
   keepCharPositions={true}
@@ -37,8 +37,6 @@ const formChangeHandlerStub = () => {}
   name="last4-ssn"
   labelCopy="Last 4 SSN Example"
   data-tid="last4-ssn-example"
-  validator={(x) => {
-    return ''
-  }}
+  validator={(value) => value && value.length === 4 ? '' : 'Four digits required'}
 />
 ```

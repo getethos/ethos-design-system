@@ -40,7 +40,9 @@ export const TextMaskedInput = (props) => {
     // We set touched to change the react state, but it's async and
     // processing still, so, we use a flag for doValidation
     setTouched(true)
-    doValidation(ev.target.value, true)
+    const val = ev.target.value
+    const cleansed = cleanse(val)
+    doValidation(cleansed, true)
   }
 
   const onPaste = (ev) => {
@@ -61,16 +63,17 @@ export const TextMaskedInput = (props) => {
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       <MaskedInput
-        mask={props.mask}
-        type={props.type}
+        mask={restProps.mask}
+        type={restProps.type}
         data-tid={restProps['data-tid']}
-        guide={props.guide}
+        guide={restProps.guide}
         onBlur={onBlur}
         onChange={onChange}
         name={props.name}
+        placeholder={restProps.placeholder}
         className={getClasses()}
-        disabled={props.disabled}
-        keepCharPositions={props.keepCharPositions}
+        disabled={restProps.disabled}
+        keepCharPositions={restProps.keepCharPositions}
       />
       {getError()}
     </>
@@ -78,6 +81,7 @@ export const TextMaskedInput = (props) => {
 }
 
 TextMaskedInput.PUBLIC_PROPS = {
+  placeholder: PropTypes.string,
   mask: PropTypes.array.isRequired,
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
@@ -95,6 +99,7 @@ TextMaskedInput.propTypes = {
 }
 
 TextMaskedInput.defaultProps = {
+  placeholder: '',
   guide: true,
   keepCharPositions: true,
   disabled: false,
