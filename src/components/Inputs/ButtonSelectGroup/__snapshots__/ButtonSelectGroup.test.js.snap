@@ -7,7 +7,7 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, 
   role="radiogroup"
 >
   <span
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    className="Caption Theinhardt Medium500 GrayPrimary"
     id="button-select-group-1"
   >
     options
@@ -56,7 +56,7 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, 
   role="radiogroup"
 >
   <span
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    className="Caption Theinhardt Medium500 GrayPrimary"
     id="button-select-group-1"
   >
     options
@@ -105,7 +105,7 @@ exports[`ButtonSelectGroup The ButtonSelectGroup renders (white button style) 1`
   role="radiogroup"
 >
   <span
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    className="Caption Theinhardt Medium500 GrayPrimary"
     id="button-select-group-1"
   >
     options
