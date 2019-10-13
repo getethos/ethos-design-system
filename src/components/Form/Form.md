@@ -199,9 +199,7 @@ const maxAge = 65
               guide={true}
               keepCharPositions={true}
               type='text'
-              labelCopy="Last 4 of SSN"
               name="last4-ssn"
-              data-tid='le-ssn-comp'
               {...props}
             />
           )
