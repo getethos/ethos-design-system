@@ -37,7 +37,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateCustom, validateMinMaxFactory(null, 5, 7)],
+        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 5, 7)],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
@@ -47,7 +47,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateCustom, validateMinMaxFactory(null, 3, 5)],
+        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 3, 5)],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
