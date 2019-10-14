@@ -126,9 +126,9 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
 let count = 0
 
-function validateCustom(x) {
-  console.log("validateCustom: I got called...")
-  return !!x ? '' : 'Validate custom error'
+function validateIllegal(x) {
+  console.log("validateIllegal: I got called...")
+  return x === 'illegal' ? 'That\'s an illegal option! Choose another.' : ''
 }
 
 // This will only be called by the form engine after a field is
@@ -178,7 +178,6 @@ const maxAge = 65
         // internal validation passes e.g. there's a date string in valid format
         validators: [
           validateTruthy,
-          validateCustom,
           validateMinMaxDateFactory({
             minAge,
             maxAge,
@@ -217,7 +216,10 @@ const maxAge = 65
       buttonGroup: {
         component: (props, options) => {
           return (
-            <ButtonSelectGroup {...props}>
+            <ButtonSelectGroup
+              {...props}
+              defaultValue="often"
+            >
               {options.map((x, i) => (
                 <ButtonSelectGroup.Option value={x.value} key={i}>
                   {x.copy}
@@ -226,12 +228,15 @@ const maxAge = 65
             </ButtonSelectGroup>
           )
         },
-        validators: [validateCustom, validateTruthy],
+        validators: [validateIllegal],
         validationSuccess: [analyticsCustomEvent],
-        labelCopy: 'Either option is valid',
+        labelCopy: 'How often?',
         options: [
-          { value: 'female', copy: 'Female' },
-          { value: 'male', copy: 'Male' },
+          { value: 'always', copy: 'Always' },
+          { value: 'rarely', copy: 'Rarely' },
+          { value: 'never', copy: 'Never' },
+          { value: 'often', copy: 'Often' },
+          { value: 'illegal', copy: 'Illegal Option' },
         ],
       },
     },

@@ -61,8 +61,9 @@ export const ButtonSelectGroup = ({
       // Ensure all validators get called
       let errorMessage = validate(selectedValue)
       errorMessage = errorMessage.length ? errorMessage : ''
+      setError(errorMessage)
 
-      // Update form with the new value and a falsey error message
+      // Update form with the new value and a falsy error message
       formChangeHandler(selectedValue, errorMessage)
     }
   }, [selectedValue])
@@ -108,20 +109,23 @@ export const ButtonSelectGroup = ({
 
   // Use id to connect label and this pseudo-input because of aria-labelledby
   return (
-    <div
-      role="radiogroup"
-      aria-labelledby={name}
-      className="button-select-group"
-      data-tid={rest['data-tid']}
-    >
-      <InputLabel
-        element="span"
-        id={name}
-        labelCopy={labelCopy}
-        allCaps={allCaps}
-      />
-      <div className={styles.buttonGroup}>{options}</div>
-    </div>
+    <>
+      <div
+        role="radiogroup"
+        aria-labelledby={name}
+        className="button-select-group"
+        data-tid={rest['data-tid']}
+      >
+        <InputLabel
+          element="span"
+          id={name}
+          labelCopy={labelCopy}
+          allCaps={allCaps}
+        />
+        <div className={styles.buttonGroup}>{options}</div>
+      </div>
+      {getError()}
+    </>
   )
 }
 
