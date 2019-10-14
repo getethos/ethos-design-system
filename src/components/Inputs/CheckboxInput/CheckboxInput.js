@@ -45,7 +45,7 @@ export const CheckboxInput = ({
   }
 
   const onKeyPress = (ev) => {
-    if (ev.key === 'Enter') {
+    if (ev.key === 'Space' || ev.keyCode === 32) {
       const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
       doValidation(!val, touched)
       setIsChecked(!val)
@@ -89,6 +89,4 @@ CheckboxInput.propTypes = {
   allCaps: PropTypes.bool,
   validator: PropTypes.func,
   formChangeHandler: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
 }
