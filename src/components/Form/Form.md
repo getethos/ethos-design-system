@@ -218,7 +218,7 @@ const maxAge = 65
           return (
             <ButtonSelectGroup
               {...props}
-              defaultValue="often"
+              intialValue="often"
             >
               {options.map((x, i) => (
                 <ButtonSelectGroup.Option value={x.value} key={i}>

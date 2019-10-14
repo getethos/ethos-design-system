@@ -18,14 +18,14 @@ import styles from './ButtonGroup.module.scss'
  * @param {object} props - Component Props
  * @prop {string} props.name - Name of field. default value is a uuid
  * @prop {string} props.labelCopy - Set's the caption of the group's label
- * @prop {string} [props.defaultValue] - Optionally sets a default value for the group. If set, the matching option will be set as `isSelected`
+ * @prop {string} [props.initialValue] - Optionally sets a default value for the group. If set, the matching option will be set as `isSelected`
  * @prop {string} [props.buttonStyle] - Optional value that sets the background color of all the buttons in the group (unselected state)
  * @prop {function} [props.onSelect] - Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered`
  * @prop {function} [props.formChangeHandler] - Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`.
  *
  * @example ```
  * <ButtonSelectGroup
- *  defaultValue="excellent"
+ *  initialValue="excellent"
  *  labelCopy="Health"
  *  onSelect={({ value }) => console.log(value)}
  * >
@@ -39,7 +39,7 @@ import styles from './ButtonGroup.module.scss'
 export const ButtonSelectGroup = ({
   labelCopy,
   children,
-  defaultValue,
+  initialValue,
   onSelect,
   formChangeHandler,
   name = `button-select-group-${uuidv4()}`,
@@ -48,7 +48,7 @@ export const ButtonSelectGroup = ({
   validator,
   ...rest
 }) => {
-  const [selectedValue, setSelectedValue] = useState(defaultValue)
+  const [selectedValue, setSelectedValue] = useState(initialValue)
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
@@ -137,7 +137,7 @@ ButtonSelectGroup.propTypes = {
   /** When set to `true`, the group's label will be displayed uppercase */
   allCaps: PropTypes.bool,
   /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
-  defaultValue: PropTypes.string,
+  initialValue: PropTypes.string,
   /** Optional value that sets the background color of all the buttons in the group (unselected state) */
   buttonStyle: PropTypes.string,
   /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
