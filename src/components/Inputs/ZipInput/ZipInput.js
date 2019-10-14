@@ -15,14 +15,17 @@ export const ZipInput = (props) => {
     allCaps,
     validator,
     formChangeHandler,
+    initialValue,
     ...restProps
   } = props
 
   const [getError, setError, validate] = useErrorMessage(validator)
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [value, setValue] = useState(initialValue || '')
 
   // This has to come before useInputValidation setup below
   const callErrorHandlers = (value, handlerFn) => {
+    console.log("callErrorHandlers called")
     /// Check zip format validity
     let errMsg = zipInputValidator(value)
     const errorMessage = errMsg.length ? errMsg : ''
@@ -39,19 +42,6 @@ export const ZipInput = (props) => {
 
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
 
-  const onBlur = (ev) => {
-    // We set touched to change the react state, but it's async and
-    // processing still, so, we use a flag for doValidation
-    setTouched(true)
-    doValidation(ev.target.value, true)
-  }
-
-  const onChange = (ev) => {
-    // We call setTouched in onBlur, so can reliably call getter here
-    doValidation(ev.target.value, touched)
-  }
-
-
   const getClasses = () => {
     return !!getError() ?
       `ZipInput ${styles.TextInput} ${errorStyles.Error}` :
@@ -61,14 +51,16 @@ export const ZipInput = (props) => {
   return (
     <>
       <TextMaskedInput
+        initialValue={value}
         mask={[/\d/, /\d/, /\d/, /\d/, /\d/]}
+        pipe={props.pipe}
+        placeholder={props.placeholder}
         type="tel"
         labelCopy={labelCopy}
         allCaps={allCaps}
         data-tid={restProps['data-tid']}
         guide={true}
-        onBlur={onBlur}
-        onChange={onChange}
+        doValidation={doValidation}
         name={props.name}
         className={getClasses()}
         keepCharPositions={true}

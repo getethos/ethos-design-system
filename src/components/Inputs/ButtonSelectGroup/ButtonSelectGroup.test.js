@@ -86,7 +86,7 @@ describe('ButtonSelectGroup', () => {
     })
   })
 
-  test('When passed a `defaultValue` renders with that value selected, and sets a new option as selected when clicked', () => {
+  test('When passed a `initialValue` renders with that value selected, and sets a new option as selected when clicked', () => {
     const onSelectStub = jest.fn()
     const optionValues = ['foo', 'bar']
 
@@ -101,7 +101,7 @@ describe('ButtonSelectGroup', () => {
     const tree = renderer.create(
       <ButtonSelectGroup
         labelCopy="options"
-        defaultValue={optionValues[0]}
+        initialValue={optionValues[0]}
         onSelect={onSelectStub}
       >
         {optionButtons}

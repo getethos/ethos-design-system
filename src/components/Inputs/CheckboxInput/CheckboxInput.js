@@ -28,10 +28,10 @@ export const CheckboxInput = ({
   validator,
   children,
   name,
-  checked,
+  initialValue,
   ...rest
 }) => {
-  const initialChecked = checked ? checked : false
+  const initialChecked = initialValue ? initialValue : false
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
   const [getError, setError, validate] = useErrorMessage(validator)
@@ -39,10 +39,17 @@ export const CheckboxInput = ({
 
   const onChange = (ev) => {
     if (!touched) setTouched(true)
-    const target = ev.target;
-    const val = target.type === 'checkbox' ? target.checked : target.value;
+    const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
     doValidation(val, touched)
     setIsChecked(val)
+  }
+
+  const onKeyPress = (ev) => {
+    if (ev.key === 'Space' || ev.keyCode === 32) {
+      const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
+      doValidation(!val, touched)
+      setIsChecked(!val)
+    }
   }
 
   const getClasses = () => {
@@ -60,6 +67,7 @@ export const CheckboxInput = ({
             className={styles.CheckboxInput}
             type="checkbox"
             onChange={onChange}
+            onKeyPress={onKeyPress}
             checked={isChecked}
             {...otherProps}
           />
@@ -75,12 +83,10 @@ export const CheckboxInput = ({
 CheckboxInput.propTypes = {
   name: PropTypes.string.isRequired, // must be unique
   'data-tid': PropTypes.string.isRequired,
-  checked: PropTypes.bool,
+  initialValue: PropTypes.bool,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
   validator: PropTypes.func,
   formChangeHandler: PropTypes.func,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
 }

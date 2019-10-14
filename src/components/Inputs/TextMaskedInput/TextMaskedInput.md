@@ -17,13 +17,16 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-Customize the map to your specific use case
+Customize the map to your specific use case. This one sets an `intialValue` which results
+in the field being considered as already `touched`. This means you do not have to `blur` for
+field hint error messages to appear.
 
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 
 ;<TextMaskedInput
+  initialValue='abc'
   mask={[/a/, /b/, /c/, /d/, /e/]}
   placeholder="abcde"
   guide={true}

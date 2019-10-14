@@ -34,10 +34,15 @@ const getMaxBirthdateLga = (minAge) => {
   return maxBirthdate
 }
 
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
 ;<BirthdateInput
   name="birthDate"
   labelCopy="Birthdate"
+  allCaps={true}
   data-tid="the-birthdate-input"
+  formChangeHandler={formChangeHandlerStub}
   validator={(value) => {
     return validateMinMaxDateFactory({
       minAge: minimumEligibleAge,
@@ -49,3 +54,59 @@ const getMaxBirthdateLga = (minAge) => {
   }}
 />
 ```
+
+This one sets an `intialValue` which results in the field being considered as
+already `touched`. This means you do not have to `blur` for field hint error
+messages to appear.
+
+```jsx
+import { validateMinMaxDateFactory } from '../../../validators/BirthdateInputValidator'
+import dayjs from '../../../helpers/getDayjs.js'
+
+const minimumEligibleAge = 20
+const maximumEligibleAge = 65
+
+const getMinBirthdateLga = (maxAge) => {
+  // Max age determines the earliest (minimum) allowable birthdate
+  const minBirthdate = dayjs()
+    .subtract(maxAge, 'years')
+    .subtract(6, 'months')
+    .add(1, 'days')
+    .startOf('day')
+    .toDate()
+  return minBirthdate
+}
+
+const getMaxBirthdateLga = (minAge) => {
+  // Min age determines the latest (maximum) allowable birthdate
+  const maxBirthdate = dayjs()
+    .subtract(minAge, 'years')
+    .add(6, 'months')
+    .subtract(1, 'day')
+    .endOf('day')
+    .toDate()
+  return maxBirthdate
+}
+
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
+;<BirthdateInput
+  initialValue="09/12/"
+  name="birthDate"
+  labelCopy="Birthdate"
+  allCaps={true}
+  data-tid="the-birthdate-input"
+  formChangeHandler={formChangeHandlerStub}
+  validator={(value) => {
+    return validateMinMaxDateFactory({
+      minAge: minimumEligibleAge,
+      maxAge: maximumEligibleAge,
+      minBirthdate: getMinBirthdateLga(maximumEligibleAge),
+      maxBirthdate: getMaxBirthdateLga(minimumEligibleAge),
+      dateFormat: 'mm/dd/yyyy',
+    })(value)
+  }}
+/>
+```
+

@@ -26,6 +26,7 @@ function PrivateTextInput({
   allCaps,
   formChangeHandler,
   validator,
+  initialValue,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -46,9 +47,9 @@ function PrivateTextInput({
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
 
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(initialValue || '')
 
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
 
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
@@ -102,6 +103,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  initialValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   onBlur: PropTypes.func,

@@ -34,8 +34,10 @@ Array [
     name="le-zip"
     onBlur={[Function]}
     onChange={[Function]}
+    onPaste={[Function]}
     placeholder=""
     type="tel"
+    value=""
   />,
   "",
   "",

@@ -3,8 +3,8 @@
 import validateTruthy from '../../../validators/validateTruthy'
 const formChangeHandlerStub = () => {}
 <CheckboxInput
-  name="le-check"
-  data-tid="le-tid"
+  name="le-check-unchecked"
+  data-tid="le-tid-unchecked"
   formChangeHandler={formChangeHandlerStub}
   validator={(x) => {
     const truthyErr = validateTruthy(x)
@@ -26,12 +26,40 @@ const formChangeHandlerStub = () => {}
 Set to checked and disabled immediately:
 ```jsx
 <CheckboxInput
-  checked={true}
+  initialValue={true}
   name="le-check2"
   disabled={true}
   data-tid="le-tid2"
 >
   I answered for you...mwa ha ha. I agree to the{' '}
+  <a href="/" target="_blank">
+    Agreement
+  </a>
+</CheckboxInput>
+```
+
+
+This one sets an `intialValue` which results in the field being considered as
+already `touched`. This means you do not have to `blur` for field hint error
+messages to appear. _Note, you can think of initialValue as "checked" if that
+helps—true results in a checked checkbox, false results in unchecked._
+
+```jsx
+import validateTruthy from '../../../validators/validateTruthy'
+const formChangeHandlerStub = () => {}
+
+<CheckboxInput
+  initialValue={true}
+  name="le-check3"
+  data-tid="le-tid-checked"
+  formChangeHandler={formChangeHandlerStub}
+  validator={(x) => {
+    const truthyErr = validateTruthy(x)
+    if (!!truthyErr) return truthyErr
+    return ''
+  }}
+>
+  I agree to the{' '}
   <a href="/" target="_blank">
     Agreement
   </a>

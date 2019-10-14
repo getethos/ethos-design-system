@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import MaskedInput from 'react-text-mask'
+import { TextMaskedInput } from '../TextMaskedInput'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import { InputLabel } from '../InputLabel'
 import styles from '../TextInput/TextInput.module.scss'
@@ -27,12 +27,14 @@ const PrivateBirthdateInput = (props) => {
     labelCopy,
     validator,
     formChangeHandler,
+    initialValue,
     ...restProps
   } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, validate] = useErrorMessage(validator)
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [value, setValue] = useState(initialValue || '')
 
   const callErrorHandlers = (value, handlerFn) => {
     const cleansed = cleanse(value)
@@ -63,18 +65,6 @@ const PrivateBirthdateInput = (props) => {
 
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
 
-  const onBlur = (ev) => {
-    // We set touched to change the react state, but it's async and
-    // processing still, so, we use a flag for doValidation
-    setTouched(true)
-    doValidation(ev.target.value, true)
-  }
-
-  const onChange = (ev) => {
-    // We call setTouched in onBlur, so can reliably call getter here
-    doValidation(ev.target.value, touched)
-  }
-
   const getClasses = () => {
     return !!getError() ?
       `BirthdateInput ${styles.TextInput} ${errorStyles.Error}` :
@@ -83,16 +73,17 @@ const PrivateBirthdateInput = (props) => {
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
-      <MaskedInput
+      <TextMaskedInput
+        initialValue={value}
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
         className={getClasses()}
         type="tel"
+        labelCopy={labelCopy}
+        allCaps={allCaps}
         data-tid={restProps['data-tid']}
         guide={true}
-        onBlur={onBlur}
-        onChange={onChange}
+        doValidation={doValidation}
         name="birthdate-auto-corrected"
         placeholder={dateFormat}
         keepCharPositions={true}
