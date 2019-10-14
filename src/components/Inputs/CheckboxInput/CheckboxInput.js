@@ -39,10 +39,17 @@ export const CheckboxInput = ({
 
   const onChange = (ev) => {
     if (!touched) setTouched(true)
-    const target = ev.target;
-    const val = target.type === 'checkbox' ? target.checked : target.value;
+    const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
     doValidation(val, touched)
     setIsChecked(val)
+  }
+
+  const onKeyPress = (ev) => {
+    if (ev.key === 'Enter') {
+      const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
+      doValidation(!val, touched)
+      setIsChecked(!val)
+    }
   }
 
   const getClasses = () => {
@@ -60,6 +67,7 @@ export const CheckboxInput = ({
             className={styles.CheckboxInput}
             type="checkbox"
             onChange={onChange}
+            onKeyPress={onKeyPress}
             checked={isChecked}
             {...otherProps}
           />
