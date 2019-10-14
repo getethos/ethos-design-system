@@ -44,12 +44,25 @@ strong {
 .TitleLarge,
 .TitleXLarge,
 .TitleXXLarge {
+  // Brand colors
   &.BrandForest {
     color: var(--BrandForest);
   }
+  &.BrandSalamander {
+    color: var(--BrandSalamander);
+  }
 
+  // Grayscales
+  // &.GrayPrimary is the default.
+  &.GrayStrokeAndDisabled {
+    color: var(--GrayStrokeAndDisabled--translucent);
+  }
   &.GraySecondary {
     color: var(--GraySecondary--translucent);
+  }
+
+  &.White {
+    color: var(--White);
   }
 
   &.Regular400 {
