@@ -34,10 +34,15 @@ const getMaxBirthdateLga = (minAge) => {
   return maxBirthdate
 }
 
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
 ;<BirthdateInput
   name="birthDate"
   labelCopy="Birthdate"
+  allCaps={true}
   data-tid="the-birthdate-input"
+  formChangeHandler={formChangeHandlerStub}
   validator={(value) => {
     return validateMinMaxDateFactory({
       minAge: minimumEligibleAge,
