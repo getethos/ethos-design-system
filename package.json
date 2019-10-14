@@ -15,7 +15,7 @@
     "styleguide:build": "yarn compile-css && styleguidist build",
     "test": "jest",
     "test:coverage": "jest --collectCoverageFrom '[\"src/components/**/*.js\", \"src/hooks/**/*.js\"]' --coverage && open ./coverage/lcov-report/index.html",
-    "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot"
   },
   "jest": {
@@ -34,7 +34,6 @@
     "react-text-mask": "^5.4.3",
     "text-mask-addons": "^3.8.0"
   },
-  "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
