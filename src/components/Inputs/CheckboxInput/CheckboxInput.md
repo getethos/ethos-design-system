@@ -26,7 +26,7 @@ const formChangeHandlerStub = () => {}
 Set to checked and disabled immediately:
 ```jsx
 <CheckboxInput
-  checked={true}
+  initialValue={true}
   name="le-check2"
   disabled={true}
   data-tid="le-tid2"
@@ -39,16 +39,17 @@ Set to checked and disabled immediately:
 ```
 
 
-Setting to `checked` should have similar behavior as `TextInput`'s when you set an `intialValue`, in that
-it resulsts in the field being considered as already `touched`. This means you do not have to `blur` for
-field hint error messages to appear. Try unchecking and it should immediately display the error message.
+This one sets an `intialValue` which results in the field being considered as
+already `touched`. This means you do not have to `blur` for field hint error
+messages to appear. _Note, you can think of initialValue as "checked" if that
+helps—true results in a checked checkbox, false results in unchecked._
 
 ```jsx
 import validateTruthy from '../../../validators/validateTruthy'
 const formChangeHandlerStub = () => {}
 
 <CheckboxInput
-  checked={true}
+  initialValue={true}
   name="le-check2"
   data-tid="le-tid2"
   formChangeHandler={formChangeHandlerStub}

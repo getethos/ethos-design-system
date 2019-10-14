@@ -28,10 +28,10 @@ export const CheckboxInput = ({
   validator,
   children,
   name,
-  checked,
+  initialValue,
   ...rest
 }) => {
-  const initialChecked = checked ? checked : false
+  const initialChecked = initialValue ? initialValue : false
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
   const [getError, setError, validate] = useErrorMessage(validator)
@@ -83,7 +83,7 @@ export const CheckboxInput = ({
 CheckboxInput.propTypes = {
   name: PropTypes.string.isRequired, // must be unique
   'data-tid': PropTypes.string.isRequired,
-  checked: PropTypes.bool,
+  initialValue: PropTypes.bool,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
