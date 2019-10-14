@@ -3,8 +3,8 @@
 import validateTruthy from '../../../validators/validateTruthy'
 const formChangeHandlerStub = () => {}
 <CheckboxInput
-  name="le-check"
-  data-tid="le-tid"
+  name="le-check-unchecked"
+  data-tid="le-tid-unchecked"
   formChangeHandler={formChangeHandlerStub}
   validator={(x) => {
     const truthyErr = validateTruthy(x)
@@ -50,8 +50,8 @@ const formChangeHandlerStub = () => {}
 
 <CheckboxInput
   initialValue={true}
-  name="le-check2"
-  data-tid="le-tid2"
+  name="le-check3"
+  data-tid="le-tid-checked"
   formChangeHandler={formChangeHandlerStub}
   validator={(x) => {
     const truthyErr = validateTruthy(x)
