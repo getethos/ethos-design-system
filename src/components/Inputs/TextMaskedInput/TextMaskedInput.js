@@ -81,6 +81,7 @@ export const TextMaskedInput = (props) => {
         className={getClasses()}
         disabled={restProps.disabled}
         keepCharPositions={restProps.keepCharPositions}
+        pipe={restProps.pipe}
       />
       {getError()}
     </>
@@ -94,6 +95,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   guide: PropTypes.bool,
   initialValue: PropTypes.string,
   keepCharPositions: PropTypes.bool,
+  pipe: PropTypes.func,
   type: PropTypes.string.isRequired,
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
