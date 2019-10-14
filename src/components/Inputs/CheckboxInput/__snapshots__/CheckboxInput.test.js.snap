@@ -16,6 +16,7 @@ Array [
         id="le-check"
         name="le-check"
         onChange={[Function]}
+        onKeyPress={[Function]}
         type="checkbox"
       />
       <svg
