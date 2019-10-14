@@ -8,7 +8,9 @@ import errorStyles from '../Errors.module.scss'
 
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import * as Validators from '../../../validators/BirthdateInputValidator'
+
 const {
   cleanse,
   DATE_FORMATS,
@@ -31,13 +33,6 @@ const PrivateBirthdateInput = (props) => {
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, validate] = useErrorMessage(validator)
   const [touched, setTouched] = useState(false)
-
-  const setErrorWrapper = (cleansed, errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(cleansed, errorValue)
-    }
-    setError(errorValue)
-  }
 
   const callErrorHandlers = (value, handlerFn) => {
     const cleansed = cleanse(value)
@@ -66,16 +61,7 @@ const PrivateBirthdateInput = (props) => {
     }
   }
 
-  const doValidation = (value, isTouched) => {
-    // User hasn't blurred but we still need to inform form
-    // engine if we're in a valid state or not
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      // Have blurred
-      callErrorHandlers(value, setErrorWrapper)
-    }
-  }
+  const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
 
   const onBlur = (ev) => {
     // We set touched to change the react state, but it's async and

@@ -134,37 +134,43 @@ export function Form({ children, config }) {
       })
     }
 
+    const fieldComponent = {
+      // Field name. Used in the label to identify the field
+      name: fieldName,
+
+      // A callback which fields can call to update the form's errors
+      // and values state for that same field. The field still controls
+      // its own state internally, but the form needs to know if it has
+      // errors (to know if the overall form is valid or not), and what
+      // its value is (so it can later pass that to the onSubmit wrapper).
+      // The validitiy of a form is essentially verified by
+      // `touched && !getFieldErrors()`, and so, setting error and value
+      // states here affects whether the form is ultimately valid or not.
+      formChangeHandler: setFieldState(fieldName),
+
+      // validators are functions which return an empty string if they pass
+      // or an error message if they fail.
+      //
+      // if multiple validators fail, their errors will be combined together.
+      validator: doValidation,
+
+
+      // data-tid is helpful for writing tests.
+      // sometimes it's passed in, but if it isn't,
+      // we will automatically generate one
+      ['data-tid']:
+        fieldConfig.tid ||
+        [config.formName, config.formId, fieldName].join('-'),
+    }
+
+    // User-visible copy, shows up in the label above the field. Most inputs
+    // have this, but CheckboxInputs do not so we only add if it applies.
+    if (fieldConfig.labelCopy) {
+      fieldComponent.labelCopy = fieldConfig.labelCopy
+    }
+
     return fieldConfig.component(
-      {
-        // Field name. Used in the label to identify the field
-        name: fieldName,
-
-        // A callback which fields can call to update the form's errors
-        // and values state for that same field. The field still controls
-        // its own state internally, but the form needs to know if it has
-        // errors (to know if the overall form is valid or not), and what
-        // its value is (so it can later pass that to the onSubmit wrapper).
-        // The validitiy of a form is essentially verified by
-        // `touched && !getFieldErrors()`, and so, setting error and value
-        // states here affects whether the form is ultimately valid or not.
-        formChangeHandler: setFieldState(fieldName),
-
-        // validators are functions which return an empty string if they pass
-        // or an error message if they fail.
-        //
-        // if multiple validators fail, their errors will be combined together.
-        validator: doValidation,
-
-        // User-visible copy, shows up in the label above the field.
-        labelCopy: fieldConfig.labelCopy,
-
-        // data-tid is helpful for writing tests.
-        // sometimes it's passed in, but if it isn't,
-        // we will automatically generate one
-        ['data-tid']:
-          fieldConfig.tid ||
-          [config.formName, config.formId, fieldName].join('-'),
-      },
+      fieldComponent,
 
       // For things like ButtonGroupField, which may have options supplied.
       fieldConfig.options || null

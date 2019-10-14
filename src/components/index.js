@@ -7,8 +7,10 @@ export { Media } from './Media'
 export { RadioButtonGroup } from './RadioButtons'
 export { Spacer } from './Spacer'
 export { TextInput } from './Inputs/TextInput'
+export { TextMaskedInput } from './Inputs/TextMaskedInput'
 export { InfoMessage } from './InfoMessage'
 export { ZipInput } from './Inputs/ZipInput'
+export { CheckboxInput } from './Inputs/CheckboxInput'
 export { Form } from './Form'
 export {
   BirthdateInput,

@@ -153,8 +153,6 @@ textarea {
   --BrandSunburn: #e11f13;
 }
 
-/* @getethos/design-system/Media.scss
-   ========================================================================== */
 /* @getethos/design-system/Animation.scss
    ========================================================================== */
 :root {
@@ -175,8 +173,6 @@ figure {
 }
 
 /* @getethos/design-system/Layout.scss
-   ========================================================================== */
-/* @getethos/design-system/Media.scss
    ========================================================================== */
 :root {
   --ContainerMaxWidth: 1440px;
@@ -294,8 +290,6 @@ figure {
 }
 
 /* @getethos/design-system/Type.scss
-   ========================================================================== */
-/* @getethos/design-system/Media.scss
    ========================================================================== */
 :root {
   --system-sans-font-stack: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
@@ -792,8 +786,6 @@ a,
   background: var(--BrandDuckegg);
 }
 
-/* @getethos/design-system/Media.scss
-   ========================================================================== */
 /**
    * Region:
    * Fancy animated scroll behavior
