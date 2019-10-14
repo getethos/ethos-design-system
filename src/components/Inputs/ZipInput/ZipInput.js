@@ -53,6 +53,8 @@ export const ZipInput = (props) => {
       <TextMaskedInput
         initialValue={value}
         mask={[/\d/, /\d/, /\d/, /\d/, /\d/]}
+        pipe={props.pipe}
+        placeholder={props.placeholder}
         type="tel"
         labelCopy={labelCopy}
         allCaps={allCaps}
