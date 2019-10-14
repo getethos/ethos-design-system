@@ -329,6 +329,28 @@ strong {
   color: var(--BrandForest);
 }
 
+.Caption.BrandSalamander,
+.Footnote.BrandSalamander,
+.Body.BrandSalamander,
+.TitleSmall.BrandSalamander,
+.TitleMedium.BrandSalamander,
+.TitleLarge.BrandSalamander,
+.TitleXLarge.BrandSalamander,
+.TitleXXLarge.BrandSalamander {
+  color: var(--BrandSalamander);
+}
+
+.Caption.GrayStrokeAndDisabled,
+.Footnote.GrayStrokeAndDisabled,
+.Body.GrayStrokeAndDisabled,
+.TitleSmall.GrayStrokeAndDisabled,
+.TitleMedium.GrayStrokeAndDisabled,
+.TitleLarge.GrayStrokeAndDisabled,
+.TitleXLarge.GrayStrokeAndDisabled,
+.TitleXXLarge.GrayStrokeAndDisabled {
+  color: var(--GrayStrokeAndDisabled--translucent);
+}
+
 .Caption.GraySecondary,
 .Footnote.GraySecondary,
 .Body.GraySecondary,
@@ -338,6 +360,17 @@ strong {
 .TitleXLarge.GraySecondary,
 .TitleXXLarge.GraySecondary {
   color: var(--GraySecondary--translucent);
+}
+
+.Caption.White,
+.Footnote.White,
+.Body.White,
+.TitleSmall.White,
+.TitleMedium.White,
+.TitleLarge.White,
+.TitleXLarge.White,
+.TitleXXLarge.White {
+  color: var(--White);
 }
 
 .Caption.Regular400,
