@@ -3,7 +3,7 @@
 exports[`BirthdateInput default rendering 1`] = `
 Array [
   <label
-    className="Caption Theinhardt Medium500 GrayPrimary"
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
     htmlFor="birthdate-auto-corrected"
   >
     What is your birthdate?
