@@ -43,7 +43,7 @@ export const ButtonSelectGroup = ({
   onSelect,
   formChangeHandler,
   name = `button-select-group-${uuidv4()}`,
-  allCaps = false,
+  allCaps = true,
   buttonStyle = 'default',
   validator,
   ...rest
