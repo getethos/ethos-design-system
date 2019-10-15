@@ -22,7 +22,7 @@ Array [
       }
     />
     <div
-      className="buttonGroup"
+      className="buttonGroup fullWidth"
     >
       <button
         className="Button Medium Stateful"
@@ -74,7 +74,7 @@ Array [
       }
     />
     <div
-      className="buttonGroup"
+      className="buttonGroup fullWidth"
     >
       <button
         className="Button Medium Stateful"
@@ -126,7 +126,7 @@ Array [
       }
     />
     <div
-      className="buttonGroup"
+      className="buttonGroup fullWidth"
     >
       <button
         className="Button Medium Stateful White"
