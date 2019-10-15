@@ -1,4 +1,4 @@
-const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@-_.!#$%^&*])[a-zA-Z0-9@-_.!#$%^&*]{8,100}$/
+const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[@!#$%^&*-])[a-zA-Z0-9@!#$%^&*-]{8,100}$/
 
 const PASSWORD_CREATION_MIN_LENGTH = 8
 const PASSWORD_CREATION_MIN_LENGTH_ERROR_MESSAGE = `Password must contain at least ${PASSWORD_CREATION_MIN_LENGTH} characters and have 3 of the following: a number, lowercase letter, uppercase letter, and special character.`

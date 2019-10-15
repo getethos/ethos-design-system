@@ -4,6 +4,8 @@ import validatePassword from './validatePassword.js'
 describe('validatePassword', () => {
   test('valid passwords', () => {
     expect(validatePassword('AbcAbc!23').length).toBe(0)
+    expect(validatePassword('AbcAbc@23').length).toBe(0)
+    expect(validatePassword('AbcAbc-23').length).toBe(0)
     expect(validatePassword('!AbcAbc23').length).toBe(0)
     expect(validatePassword('!23AbcAbc').length).toBe(0)
     expect(validatePassword('!#$%^&*1Ab').length).toBe(0)
