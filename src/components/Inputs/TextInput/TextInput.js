@@ -20,6 +20,7 @@ import errorStyles from '../Errors.module.scss'
  */
 
 function PrivateTextInput({
+  type,
   disabled,
   name,
   labelCopy,
@@ -27,6 +28,7 @@ function PrivateTextInput({
   formChangeHandler,
   validator,
   initialValue,
+  restrictIllegal,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -55,7 +57,7 @@ function PrivateTextInput({
 
   const onChange = (ev) => {
     const val = event.target.value
-    const restrictedVal = restrict(val)
+    const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
 
     // We call setTouched in onBlur, so can reliably call getter here
@@ -71,7 +73,7 @@ function PrivateTextInput({
 
   const onPaste = (ev) => {
     const val = ev.clipboardData.getData('text/plain')
-    const restrictedVal = restrict(val)
+    const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
   }
 
@@ -83,7 +85,7 @@ function PrivateTextInput({
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
       <input
-        type="text"
+        type={type}
         className={getClasses()}
         disabled={disabled}
         name={name}
@@ -99,6 +101,7 @@ function PrivateTextInput({
 }
 
 PrivateTextInput.PUBLIC_PROPS = {
+  type: PropTypes.string,
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
@@ -108,10 +111,16 @@ PrivateTextInput.PUBLIC_PROPS = {
   validator: PropTypes.func,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  restrictIllegal: PropTypes.bool,
 }
 
 PrivateTextInput.propTypes = {
   ...PrivateTextInput.PUBLIC_PROPS,
+}
+
+PrivateTextInput.defaultProps = {
+  type: 'text',
+  restrictIllegal: true,
 }
 
 function TextInputFactory(privateProps) {
