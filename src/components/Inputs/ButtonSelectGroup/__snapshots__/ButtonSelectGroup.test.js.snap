@@ -8,7 +8,7 @@ Array [
     role="radiogroup"
   >
     <span
-      className="Caption Theinhardt Medium500 GrayPrimary"
+      className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
       id="button-select-group-1"
     >
       options
@@ -60,7 +60,7 @@ Array [
     role="radiogroup"
   >
     <span
-      className="Caption Theinhardt Medium500 GrayPrimary"
+      className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
       id="button-select-group-1"
     >
       options
@@ -112,7 +112,7 @@ Array [
     role="radiogroup"
   >
     <span
-      className="Caption Theinhardt Medium500 GrayPrimary"
+      className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
       id="button-select-group-1"
     >
       options
