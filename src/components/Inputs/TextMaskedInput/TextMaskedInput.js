@@ -114,6 +114,6 @@ TextMaskedInput.defaultProps = {
   guide: true,
   keepCharPositions: true,
   disabled: false,
-  allCaps: false,
+  allCaps: true,
 }
 
