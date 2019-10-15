@@ -31,7 +31,7 @@ export const TextMaskedInput = (props) => {
   const whichDoValidation = props.doValidation ? props.doValidation : internalDoValidation 
 
   const onChange = (ev) => {
-    const val = event.target.value
+    const val = ev.target.value
     const restrictedVal = restrict(val)
     setValue(restrictedVal)
 
