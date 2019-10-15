@@ -1,14 +1,18 @@
-.buttonGroup {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
 // Button.Stateful is no longer available w/CSS Modules but
 // it's always such a button if you look at component JSX
 .buttonGroup > button {
-  width: 100%;
   margin-right: var(--Space-8);
+}
+
+// fullWidth is default.
+.buttonGroup.fullWidth {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  & > button {
+    width: 100%;
+  }
 }
 
 .buttonGroup > button:last-child {

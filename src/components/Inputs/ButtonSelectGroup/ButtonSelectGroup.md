@@ -110,3 +110,15 @@ import { OPTION_BUTTON_STYLES } from './index.js'
   </ButtonSelectGroup>
 </div>
 ```
+
+### Group when `fullWidth` is false
+
+```jsx
+<ButtonSelectGroup fullWidth={false} labelCopy="Health">
+  <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value="excellent">
+    Exellent
+  </ButtonSelectGroup.Option>
+</ButtonSelectGroup>
+```

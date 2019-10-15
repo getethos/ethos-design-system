@@ -46,6 +46,7 @@ export const ButtonSelectGroup = ({
   allCaps = false,
   buttonStyle = 'default',
   validator,
+  fullWidth = true,
   ...rest
 }) => {
   const [selectedValue, setSelectedValue] = useState(initialValue)
@@ -107,6 +108,9 @@ export const ButtonSelectGroup = ({
     })
   })
 
+  const optionsContainerClassNames = [styles.buttonGroup]
+  if (fullWidth) optionsContainerClassNames.push(styles.fullWidth)
+
   // Use id to connect label and this pseudo-input because of aria-labelledby
   return (
     <>
@@ -122,7 +126,7 @@ export const ButtonSelectGroup = ({
           labelCopy={labelCopy}
           allCaps={allCaps}
         />
-        <div className={styles.buttonGroup}>{options}</div>
+        <div className={optionsContainerClassNames.join(' ')}>{options}</div>
       </div>
       {getError()}
     </>
@@ -147,6 +151,8 @@ ButtonSelectGroup.propTypes = {
   /** Optional data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string,
   validator: PropTypes.func,
+  /** Optional, makes the group width 100%. Defaults to true */
+  fullWidth: PropTypes.bool,
 }
 
 // Export the option button
