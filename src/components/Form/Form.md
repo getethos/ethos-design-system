@@ -119,6 +119,7 @@ _Note that we've set up the form submission to randomly fail or succeed—so, yo
 
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
+import validateExists from '../../validators/validateExists'
 import dayjs from '../../helpers/getDayjs.js'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
 import { TitleLarge, TextInput, TextMaskedInput, Spacer, Button, InfoMessage } from '../index'
@@ -129,14 +130,6 @@ let count = 0
 function validateIllegal(x) {
   console.log("validateIllegal: I got called...")
   return x === 'illegal' ? 'That\'s an illegal option! Choose another.' : ''
-}
-
-function validateExists(x) {
-  // If anything but undefined
-  if (typeof x !== 'undefined') {
-    return ''
-  }
-  return 'Please provide a value'
 }
 
 // This will only be called by the form engine after a field is
