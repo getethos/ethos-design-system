@@ -39,7 +39,7 @@ import styles from './ButtonGroup.module.scss'
 export const ButtonSelectGroup = ({
   labelCopy,
   children,
-  initialValue,
+  initialValue = undefined,
   onSelect,
   formChangeHandler,
   name = `button-select-group-${uuidv4()}`,
@@ -55,10 +55,13 @@ export const ButtonSelectGroup = ({
   const [getError, setError, validate] = useErrorMessage(validator)
 
   useEffect(() => {
-    if (onSelect && selectedValue) {
+    // `isSelectedValue` allows `false` to work properly and validate
+    // For example, if we have two buttons yes & no mapped to booleans
+    const isSelectedValue = typeof selectedValue !== "undefined"
+    if (onSelect && isSelectedValue) {
       onSelect({ value: selectedValue, isAnswered })
     }
-    if (formChangeHandler && selectedValue) {
+    if (formChangeHandler && isSelectedValue) {
       // Ensure all validators get called
       let errorMessage = validate(selectedValue)
       errorMessage = errorMessage.length ? errorMessage : ''
@@ -67,7 +70,7 @@ export const ButtonSelectGroup = ({
       // Update form with the new value and a falsy error message
       formChangeHandler(selectedValue, errorMessage)
     }
-  }, [selectedValue])
+  }, [selectedValue, isAnswered])
 
   /**
    * Handles a click event on an descending `<OptionButton/>`
