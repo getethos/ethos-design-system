@@ -16,8 +16,8 @@ const questionGroups = [
       component: (props, options) => {
         return <TextInput {...props} />
       },
-      validators: [validateTruthy],
-      labelCopy: 'Validator: `validateTruthy`',
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Validator: value must be "a"',
       tid: 'example-data-tid',
     },
   },
@@ -26,7 +26,8 @@ const questionGroups = [
       component: (props, options) => {
         return <TextInput {...props} />
       },
-      labelCopy: 'No validators supplied',
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Validator: value must be "a" again',
       tid: 'example-data-tid',
     },
   },
@@ -35,76 +36,159 @@ const questionGroups = [
 const questionNames = ['one', 'two'] // same as keys in questionGroups
 
 ;<TestFormWrapper>
-  {({ count, setCount }) => (
-    <Form
-      config={{
-        formName: 'Styleguidist example form',
-        autocompleteOff: true,
-        formId: '1',
-        autocompleteOff: true,
-        fields: questionGroups[count],
-        resetFormOnSubmit: true,
-        onSubmit: async (formData) => {
-          if (count === 0) {
-            // Go to the next set of questions
-            setCount(count + 1)
-          } else {
-            // Submit the form -- it will actually still have formData
-            // from the first set of questions, too
-            alert(
-              'form submission successful with values:' +
-                JSON.stringify(formData)
+  {({ count, setCount }) => {
+    if (count === 0) {
+      return (
+        <Form
+          config={{
+            formName: 'Styleguidist example form',
+            autocompleteOff: true,
+            formId: '1',
+            autocompleteOff: true,
+            fields: questionGroups[0],
+            resetFormOnSubmit: true,
+            onSubmit: async (formData) => {
+              if (count === 0) {
+                // Go to the next set of questions
+                setCount(count + 1)
+              } else {
+                // Submit the form -- it will actually still have formData
+                // from the first set of questions, too
+                alert(
+                  'form submission successful with values:' +
+                    JSON.stringify(formData)
+                )
+              }
+            },
+          }}
+        >
+          {(api) => {
+            const {
+              field,
+              getFormIsValid,
+              debugEntireFormState, // REMOVE
+            } = api
+            return (
+              <div>
+                <TitleLarge.Serif.Book500>
+                  Form with dynamically changing questions. Form #{count}
+                </TitleLarge.Serif.Book500>
+
+                <Spacer.H16 />
+
+                {field(questionNames[count])}
+
+                <Spacer.H16 />
+
+                <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+                  Submit
+                </Button.Medium.Black>
+                <div>
+                  <code>
+                    {' '}
+                    fieldErrorsState:{' '}
+                    {JSON.stringify(
+                      debugEntireFormState().fieldErrorsState
+                    )}{' '}
+                  </code>
+                </div>
+                <div>
+                  <code>
+                    {' '}
+                    fieldValuesState:{' '}
+                    {JSON.stringify(
+                      debugEntireFormState().fieldValuesState
+                    )}{' '}
+                  </code>
+                </div>
+                <div>
+                  <code>
+                    formErrorState:{' '}
+                    {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
+                  </code>
+                </div>
+              </div>
             )
-          }
-        },
-      }}
-    >
-      {(api) => {
-        const {
-          field,
-          getFormIsValid,
-          debugEntireFormState, // REMOVE
-        } = api
-        return (
-          <div>
-            <TitleLarge.Serif.Book500>
-              Form with dynamically changing questions. Form #{count}
-            </TitleLarge.Serif.Book500>
+          }}
+        </Form>
+      )
+    } else {
+      return (
+        <Form
+          config={{
+            formName: 'Styleguidist example form',
+            autocompleteOff: true,
+            formId: '1',
+            autocompleteOff: true,
+            fields: questionGroups[1],
+            resetFormOnSubmit: true,
+            onSubmit: async (formData) => {
+              if (count === 0) {
+                // Go to the next set of questions
+                setCount(count + 1)
+              } else {
+                // Submit the form -- it will actually still have formData
+                // from the first set of questions, too
+                alert(
+                  'form submission successful with values:' +
+                    JSON.stringify(formData)
+                )
+              }
+            },
+          }}
+        >
+          {(api) => {
+            const {
+              field,
+              getFormIsValid,
+              debugEntireFormState, // REMOVE
+            } = api
+            return (
+              <div>
+                <TitleLarge.Serif.Book500>
+                  Form with dynamically changing questions. Form #{count}
+                </TitleLarge.Serif.Book500>
 
-            <Spacer.H16 />
+                <Spacer.H16 />
 
-            {field(questionNames[count])}
+                {field(questionNames[count])}
 
-            <Spacer.H16 />
+                <Spacer.H16 />
 
-            <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-              Submit
-            </Button.Medium.Black>
-            <div>
-              <code>
-                {' '}
-                fieldErrorsState:{' '}
-                {JSON.stringify(debugEntireFormState().fieldErrorsState)}{' '}
-              </code>
-            </div>
-            <div>
-              <code>
-                {' '}
-                fieldValuesState:{' '}
-                {JSON.stringify(debugEntireFormState().fieldValuesState)}{' '}
-              </code>
-            </div>
-            <div>
-              <code>
-                formErrorState:{' '}
-                {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
-              </code>
-            </div>
-          </div>
-        )
-      }}
-    </Form>
-  )}
+                <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+                  Submit
+                </Button.Medium.Black>
+                <div>
+                  <code>
+                    {' '}
+                    fieldErrorsState:{' '}
+                    {JSON.stringify(
+                      debugEntireFormState().fieldErrorsState
+                    )}{' '}
+                  </code>
+                </div>
+                <div>
+                  <code>
+                    {' '}
+                    fieldValuesState:{' '}
+                    {JSON.stringify(
+                      debugEntireFormState().fieldValuesState
+                    )}{' '}
+                  </code>
+                </div>
+                <div>
+                  <code>
+                    formErrorState:{' '}
+                    {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
+                  </code>
+                </div>
+              </div>
+            )
+          }}
+        </Form>
+      )
+    }
+  }}
 </TestFormWrapper>
 ```
 
