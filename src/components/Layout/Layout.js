@@ -89,17 +89,7 @@ HorizontallyPaddedContainer.defaultProps = {
   element: 'div',
 }
 
-function CenterHorizontally({ children }) {
-  return <div className="CenterHorizontally">{children}</div>
-}
-
-CenterHorizontally.propTypes = {
-  children: PropTypes.node,
-}
-
 // Exports
-
-Layout.CenterHorizontally = CenterHorizontally
 
 Layout.Container = HorizontallyPaddedContainer // overloaded alias, deprecated
 Layout.HorizontallyPaddedContainer = HorizontallyPaddedContainer
