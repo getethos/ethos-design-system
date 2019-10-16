@@ -13,8 +13,6 @@
   max-width: var(--ContainerMaxWidth);
   margin: 0 auto;
 
-  // This assumes this file is imported via index.scss after Media.scss.
-
   @include for-phone-only {
     padding: 0 var(--ContainerPadding--Phone);
   }
