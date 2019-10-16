@@ -1,6 +1,9 @@
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
 
+// This file contains variables that currently need to be included in the CSS
+// bundle (design-system.css). Other styles should go in Layout.module.scss.
+
 :root {
   --ContainerMaxWidth: 1440px;
   --ContainerPadding--Phone: var(--Space-24);
