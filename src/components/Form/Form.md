@@ -217,6 +217,16 @@ const maxAge = 65
           "Field marked optional true can be left blank",
         tid: 'optional-field-data-tid',
       },
+      optionalFieldWithValidation: {
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        validators: [(val) => val.length > 2 ? '2 chars max allowed' : ''],
+        optional: true,
+        labelCopy:
+          "optional with validation",
+        tid: 'optional-validation-field-data-tid',
+      },
       ssn: {
         component: (props, options) => {
           return (
@@ -319,6 +329,10 @@ const maxAge = 65
         <Spacer.H16 />
 
         {field('optionalField')}
+
+        <Spacer.H16 />
+
+        {field('optionalFieldWithValidation')}
 
         <Spacer.H16 />
 
