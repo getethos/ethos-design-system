@@ -645,7 +645,11 @@ const questionNames = ['one', 'two', 'three', 'four', 'five'] // same as keys in
       </Form>
     )
 
-    // Switch off so that the dom is different every time.
+    // This is how the dynamic form rerenders from scratch when submitted.
+    // We return the form on even form "pages," and wrap it in a div
+    // on odd "pages."
+    //
+    // This feels like a hack but it works
     switch (count) {
       case 0:
       case 2:
