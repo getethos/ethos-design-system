@@ -7,6 +7,13 @@ export function useFormState(initialState) {
   const [fieldValuesState, setFieldValuesState] = useState(initialState)
   const [formErrorState, setFormErrorState] = useState('')
 
+  // Wipes form state clean. Use when submitting a dynamic form to
+  // reset the formIsValid logic and such.
+  function resetFormState(newInitialState) {
+    setFieldErrorsState(newInitialState)
+    setFieldValuesState(newInitialState)
+  }
+
   // Returns a function that updates state for the field, tracked by fieldName
   function setFieldState(fieldName) {
     return (newValue, newError) => {
@@ -64,6 +71,22 @@ export function useFormState(initialState) {
     return touched && !getFieldErrors()
   }
 
+  // Styleguideist doesn't work very well with debugger and seems to absorb
+  // console.logs. This may be useful in dev, but shouldn't get anywhere
+  // near production.
+  // Maybe use like this:
+  // <code>
+  //   {JSON.stringify(debugEntireFormState())}
+  // </code>
+
+  function debugEntireFormState() {
+    return {
+      fieldErrorsState,
+      fieldValuesState,
+      formErrorState,
+    }
+  }
+
   return [
     getFieldErrors,
     getFieldValues,
@@ -72,5 +95,7 @@ export function useFormState(initialState) {
     setFormErrorMessage,
     getFormIsValid,
     getFormInteractedWith,
+    resetFormState,
+    debugEntireFormState,
   ]
 }
