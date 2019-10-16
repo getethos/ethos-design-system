@@ -27,6 +27,7 @@ export const CheckboxInput = ({
   formChangeHandler,
   validator,
   children,
+  optional,
   name,
   initialValue,
   ...rest
@@ -81,6 +82,7 @@ export const CheckboxInput = ({
 }
 
 CheckboxInput.propTypes = {
+  optional: PropTypes.bool,
   name: PropTypes.string.isRequired, // must be unique
   'data-tid': PropTypes.string.isRequired,
   initialValue: PropTypes.bool,

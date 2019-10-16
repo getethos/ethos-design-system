@@ -208,6 +208,15 @@ const maxAge = 65
         validationSuccess: [analyticsCustomEvent],
         labelCopy: 'Must be between 20 and 65 years old',
       },
+      optionalField: {
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        optional: true,
+        labelCopy:
+          "Field marked optional true can be left blank",
+        tid: 'optional-field-data-tid',
+      },
       ssn: {
         component: (props, options) => {
           return (
@@ -306,6 +315,10 @@ const maxAge = 65
         <Spacer.H16 />
 
         {field('birthdate')}
+
+        <Spacer.H16 />
+
+        {field('optionalField')}
 
         <Spacer.H16 />
 

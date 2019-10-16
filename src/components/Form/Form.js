@@ -46,7 +46,12 @@ export function Form({ children, config }) {
 
   // Set up initial values
   let initialValues = {}
-  fieldNames.forEach((x) => {
+  fieldNames.forEach((fieldName) => {
+    console.log('in fieldNames.forEach...')
+    // We don't do the preinitialize to non empty string trick for optional
+    // fields as we'd like those to only be validated upon entering something
+    if (!!config.fields[fieldName].optional) return
+
     // By default fields have "hidden" errors declared here.
     //
     // Setting the error states to a truthy text means that the initial state
@@ -57,7 +62,7 @@ export function Form({ children, config }) {
     // If we wanted to have a form be optional, you could have its initial
     // value set to empty string, so the form could be submitted without
     // the field being touched.
-    initialValues[x] = `Initial invalid state for ${x}`
+    initialValues[fieldName] = `Initial invalid state for ${fieldName}`
   })
 
   // Hooks
@@ -169,11 +174,17 @@ export function Form({ children, config }) {
       fieldComponent.labelCopy = fieldConfig.labelCopy
     }
 
+    // We need to be able to to signify that the form is in a valid state
+    // regardless of whether an optional field is "filled out" or not.
+    if (fieldConfig.optional) {
+      fieldComponent.optional = fieldConfig.optional
+    }
+
     return fieldConfig.component(
       fieldComponent,
 
       // For things like ButtonGroupField, which may have options supplied.
-      fieldConfig.options || null
+      fieldConfig.options || undefined
     )
   }
 
