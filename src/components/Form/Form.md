@@ -1,125 +1,4 @@
 ```jsx
-import { TestFormWrapper } from './TestFormWrapper.js'
-import validateTruthy from '../../validators/validateTruthy'
-import {
-  TitleLarge,
-  TextInput,
-  Spacer,
-  Button,
-  InfoMessage,
-  ZipInput,
-} from '../index'
-
-const questionGroups = [
-  {
-    one: {
-      component: (props, options) => {
-        return <TextInput {...props} />
-      },
-      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
-      labelCopy: 'Validator: value must be "a"',
-      tid: 'example-data-tid',
-    },
-  },
-  {
-    two: {
-      component: (props, options) => {
-        return <TextInput {...props} />
-      },
-      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
-      labelCopy: 'Validator: value must be "a" again',
-      tid: 'example-data-tid',
-    },
-  },
-]
-
-const questionNames = ['one', 'two'] // same as keys in questionGroups
-
-;<TestFormWrapper>
-  {({ count, setCount }) => {
-    const form = (
-      <Form
-        config={{
-          formName: 'Styleguidist example form',
-          formId: '1',
-          autocompleteOff: true,
-          fields: questionGroups[count],
-          onSubmit: async (formData) => {
-            if (count === 0) {
-              // Go to the next set of questions
-              setCount(count + 1)
-            } else {
-              // Submit the form -- it will actually still have formData
-              // from the first set of questions, too
-              alert(
-                'form submission successful with values:' +
-                  JSON.stringify(formData)
-              )
-            }
-          },
-        }}
-      >
-        {(api) => {
-          const {
-            field,
-            getFormIsValid,
-            debugEntireFormState, // REMOVE
-          } = api
-          return (
-            <div>
-              <TitleLarge.Serif.Book500>
-                Form with dynamically changing questions. Form #{count}
-              </TitleLarge.Serif.Book500>
-
-              <Spacer.H16 />
-
-              {field(questionNames[count])}
-
-              <Spacer.H16 />
-
-              <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-                Submit
-              </Button.Medium.Black>
-              <div>
-                <code>
-                  {' '}
-                  fieldErrorsState:{' '}
-                  {JSON.stringify(debugEntireFormState().fieldErrorsState)}{' '}
-                </code>
-              </div>
-              <div>
-                <code>
-                  {' '}
-                  fieldValuesState:{' '}
-                  {JSON.stringify(debugEntireFormState().fieldValuesState)}{' '}
-                </code>
-              </div>
-              <div>
-                <code>
-                  formErrorState:{' '}
-                  {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
-                </code>
-              </div>
-            </div>
-          )
-        }}
-      </Form>
-    )
-
-    switch (count) {
-      case 0:
-        return form
-      case 1:
-        return <div>{form}</div>
-    }
-    if (count === 0) {
-      return <div>{form}</div>
-    } else if (count === 0) return
-  }}
-</TestFormWrapper>
-```
-
-```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import {
@@ -605,4 +484,178 @@ import {
     )
   }}
 </Form>
+```
+
+```jsx
+import { useState } from 'react'
+import { TestFormWrapper } from './TestFormWrapper.js'
+import validateTruthy from '../../validators/validateTruthy'
+import {
+  TitleLarge,
+  TitleSmall,
+  TextInput,
+  Spacer,
+  Button,
+  InfoMessage,
+  ZipInput,
+} from '../index'
+
+const questionGroups = [
+  {
+    one: {
+      component: (props, options) => {
+        return <TextInput {...props} />
+      },
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Validator: value must be "a"',
+      tid: 'example-data-tid',
+    },
+  },
+  {
+    two: {
+      component: (props, options) => {
+        return <TextInput {...props} />
+      },
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Same, must be a',
+      tid: 'example-data-tid',
+    },
+  },
+  {
+    three: {
+      component: (props, options) => {
+        return <TextInput {...props} />
+      },
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Same, must be a',
+      tid: 'example-data-tid',
+    },
+  },
+  {
+    four: {
+      component: (props, options) => {
+        return <TextInput {...props} />
+      },
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Same, must be a',
+      tid: 'example-data-tid',
+    },
+  },
+  {
+    five: {
+      component: (props, options) => {
+        return <TextInput {...props} />
+      },
+      validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+      labelCopy: 'Same, must be a',
+      tid: 'example-data-tid',
+    },
+  },
+]
+
+const questionNames = ['one', 'two', 'three', 'four', 'five'] // same as keys in questionGroups
+
+;<TestFormWrapper>
+  {({ count, setCount }) => {
+    const [finalFormData, setFinalFormData] = useState({})
+    const form = (
+      <Form
+        config={{
+          formName: 'Styleguidist example form',
+          formId: '1',
+          autocompleteOff: true,
+          fields: questionGroups[count],
+          onSubmit: async (formData) => {
+            const spreaded = { ...finalFormData, ...formData }
+            if (count < questionGroups.length - 1) {
+              // Go to the next set of questions
+              setCount(count + 1)
+              setFinalFormData(spreaded)
+            } else {
+              // Submit the form -- it will actually still have formData
+              // from the first set of questions, too
+              alert(
+                'form submission successful with values:' +
+                  JSON.stringify(spreaded)
+              )
+            }
+          },
+        }}
+      >
+        {(api) => {
+          const {
+            field,
+            getFormIsValid,
+            debugEntireFormState, // REMOVE
+          } = api
+          return (
+            <div>
+              <TitleLarge.Serif.Book500>
+                Form with dynamically changing questions
+              </TitleLarge.Serif.Book500>
+              <Spacer.H16 />
+
+              <TitleSmall.Serif.Book500>Form #{count}</TitleSmall.Serif.Book500>
+
+              {count === questionGroups.length - 1 ? (
+                <>
+                  <Spacer.H16 />
+                  <TitleSmall.Serif.Book500>
+                    This is the final form!
+                  </TitleSmall.Serif.Book500>
+                </>
+              ) : null}
+
+              <Spacer.H16 />
+
+              {field(questionNames[count])}
+
+              <Spacer.H16 />
+
+              <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+                Submit
+              </Button.Medium.Black>
+
+              <Spacer.H16 />
+              <TitleSmall.Serif.Book500>Debug section</TitleSmall.Serif.Book500>
+              <div>
+                <code>
+                  {' '}
+                  fieldErrorsState (from useFormState):{' '}
+                  {JSON.stringify(debugEntireFormState().fieldErrorsState)}{' '}
+                </code>
+              </div>
+              <div>
+                <code>
+                  {' '}
+                  fieldValuesState (from useFormState):{' '}
+                  {JSON.stringify(debugEntireFormState().fieldValuesState)}{' '}
+                </code>
+              </div>
+              <div>
+                <code>
+                  {' '}
+                  finalFormData (from the example hook here):{' '}
+                  {JSON.stringify(finalFormData)}{' '}
+                </code>
+              </div>
+            </div>
+          )
+        }}
+      </Form>
+    )
+
+    // Switch off so that the dom is different every time.
+    switch (count) {
+      case 0:
+      case 2:
+      case 4:
+        return form
+      case 1:
+      case 3:
+      default:
+        return <div>{form}</div>
+    }
+  }}
+</TestFormWrapper>
 ```
