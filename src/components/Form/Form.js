@@ -47,7 +47,6 @@ export function Form({ children, config }) {
   // Set up initial values
   let initialValues = {}
   fieldNames.forEach((fieldName) => {
-    console.log('in fieldNames.forEach...')
     // We don't do the preinitialize to non empty string trick for optional
     // fields as we'd like those to only be validated upon entering something
     if (!!config.fields[fieldName].optional) return
