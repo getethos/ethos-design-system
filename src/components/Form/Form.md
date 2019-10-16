@@ -1,5 +1,5 @@
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
+import validateExists from '../../validators/validateExists'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import {
   TitleLarge,
@@ -49,7 +49,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
           return <TextInput {...props} />
         },
         validators: [
-          validateTruthy,
+          validateExists,
           validateCustom,
           validateMinMaxFactory.call(null, 5, 7),
         ],
@@ -63,7 +63,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
           return <TextInput {...props} />
         },
         validators: [
-          validateTruthy,
+          validateExists,
           validateCustom,
           validateMinMaxFactory.call(null, 3, 5),
         ],
@@ -138,7 +138,6 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 _Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
 
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
 import validateExists from '../../validators/validateExists'
 import dayjs from '../../helpers/getDayjs.js'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
@@ -229,7 +228,7 @@ const maxAge = 65
         // Note that Birthdate will only call these validators once it's own
         // internal validation passes e.g. there's a date string in valid format
         validators: [
-          validateTruthy,
+          validateExists,
           validateMinMaxDateFactory({
             minAge,
             maxAge,
@@ -355,9 +354,10 @@ const maxAge = 65
 ```
 
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
+import validateExists from '../../validators/validateExists'
 import {
   TitleLarge,
+  TitleSmall,
   TextInput,
   Spacer,
   Button,
@@ -374,15 +374,17 @@ import {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy],
-        labelCopy: 'Validator: `validateTruthy`',
+        validators: [validateExists],
+        labelCopy: 'Validator: `validateExists`',
         tid: 'example-data-tid',
       },
       noValidator: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        labelCopy: 'No validators supplied',
+        labelCopy:
+          'No validators supplied, but you still have to focus and blur. ' +
+          'Functionally identical to the above component!',
         tid: 'example-data-tid',
       },
     },
@@ -398,74 +400,14 @@ import {
     return (
       <div>
         <TitleLarge.Serif.Book500>
-          Form with a field without a validator (Possibly bad)
+          Form with a field without a validator
         </TitleLarge.Serif.Book500>
 
         <Spacer.H16 />
 
-        {field('anything')}
-
-        <Spacer.H16 />
-
-        {field('noValidator')}
-
-        <Spacer.H16 />
-
-        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-          Submit
-        </Button.Medium.Black>
-      </div>
-    )
-  }}
-</Form>
-```
-
-```jsx
-import validateTruthy from '../../validators/validateTruthy'
-import {
-  TitleLarge,
-  TextInput,
-  Spacer,
-  Button,
-  InfoMessage,
-  ZipInput,
-} from '../index'
-;<Form
-  config={{
-    formName: 'Styleguidist example form',
-    autocompleteOff: true,
-    formId: '1',
-    fields: {
-      anything: {
-        component: (props, options) => {
-          return <TextInput {...props} />
-        },
-        validators: [validateTruthy],
-        labelCopy: 'Validator: `validateTruthy`',
-        tid: 'example-data-tid',
-      },
-      noValidator: {
-        component: (props, options) => {
-          return <TextInput {...props} />
-        },
-        labelCopy: 'No validators supplied',
-        tid: 'example-data-tid',
-      },
-    },
-    onSubmit: async (formData) => {
-      alert(
-        'form submission successful with values:' + JSON.stringify(formData)
-      )
-    },
-  }}
->
-  {(api) => {
-    const { field, getFormIsValid } = api
-    return (
-      <div>
-        <TitleLarge.Serif.Book500>
-          Form with a field without a validator (Possibly bad)
-        </TitleLarge.Serif.Book500>
+        <TitleSmall.Serif.Book500>
+          Is this the behavior we want?
+        </TitleSmall.Serif.Book500>
 
         <Spacer.H16 />
 
@@ -489,7 +431,7 @@ import {
 ```jsx
 import { useState } from 'react'
 import { TestFormWrapper } from './TestFormWrapper.js'
-import validateTruthy from '../../validators/validateTruthy'
+import validateExists from '../../validators/validateExists'
 import {
   TitleLarge,
   TitleSmall,
