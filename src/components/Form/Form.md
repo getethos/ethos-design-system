@@ -131,6 +131,14 @@ function validateIllegal(x) {
   return x === 'illegal' ? 'That\'s an illegal option! Choose another.' : ''
 }
 
+function validateExists(x) {
+  // If anything but undefined
+  if (typeof x !== 'undefined') {
+    return ''
+  }
+  return 'Please provide a value'
+}
+
 // This will only be called by the form engine after a field is
 // validated and no errors were found (empty error messages string)
 // Note that it's the consumer's responsibility to keep a table
@@ -170,6 +178,24 @@ const maxAge = 65
     autocompleteOff: true,
     formId: '1',
     fields: {
+      booleanGroup: {
+        component: (props, options) => (
+          <ButtonSelectGroup fullWidth={false} {...props}>
+            {options.map((x) => (
+              <ButtonSelectGroup.Option value={x.value} key={x.id}>
+                {x.copy}
+              </ButtonSelectGroup.Option>
+            ))}
+          </ButtonSelectGroup>
+        ),
+        labelCopy: 'Booleans Are Tricky',
+        validators: [validateExists],
+        options: [
+          { value: true, copy: 'True', id: 1 },
+          { value: false, copy: 'False', id: 2 },
+        ],
+        tid: 'booleanGroup-tid',
+      },
       birthdate: {
         component: (props, options) => {
           return <BirthdateInput {...props} />
@@ -233,9 +259,8 @@ const maxAge = 65
         labelCopy: 'How often?',
         options: [
           { value: 'always', copy: 'Always' },
-          { value: 'rarely', copy: 'Rarely' },
+          { value: 'often', copy: 'Sometimes' },
           { value: 'never', copy: 'Never' },
-          { value: 'often', copy: 'Often' },
           { value: 'illegal', copy: 'Illegal Option' },
         ],
       },
@@ -283,6 +308,10 @@ const maxAge = 65
           </>
         )}
 
+        {field('buttonGroup')}
+
+        <Spacer.H16 />
+
         {field('birthdate')}
 
         <Spacer.H16 />
@@ -291,7 +320,7 @@ const maxAge = 65
 
         <Spacer.H16 />
 
-        {field('buttonGroup')}
+        {field('booleanGroup')}
 
         <Spacer.H16 />
 
