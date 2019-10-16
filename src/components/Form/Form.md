@@ -37,157 +37,84 @@ const questionNames = ['one', 'two'] // same as keys in questionGroups
 
 ;<TestFormWrapper>
   {({ count, setCount }) => {
-    if (count === 0) {
-      return (
-        <Form
-          config={{
-            formName: 'Styleguidist example form',
-            autocompleteOff: true,
-            formId: '1',
-            autocompleteOff: true,
-            fields: questionGroups[0],
-            resetFormOnSubmit: true,
-            onSubmit: async (formData) => {
-              if (count === 0) {
-                // Go to the next set of questions
-                setCount(count + 1)
-              } else {
-                // Submit the form -- it will actually still have formData
-                // from the first set of questions, too
-                alert(
-                  'form submission successful with values:' +
-                    JSON.stringify(formData)
-                )
-              }
-            },
-          }}
-        >
-          {(api) => {
-            const {
-              field,
-              getFormIsValid,
-              debugEntireFormState, // REMOVE
-            } = api
-            return (
+    const form = (
+      <Form
+        config={{
+          formName: 'Styleguidist example form',
+          formId: '1',
+          autocompleteOff: true,
+          fields: questionGroups[count],
+          onSubmit: async (formData) => {
+            if (count === 0) {
+              // Go to the next set of questions
+              setCount(count + 1)
+            } else {
+              // Submit the form -- it will actually still have formData
+              // from the first set of questions, too
+              alert(
+                'form submission successful with values:' +
+                  JSON.stringify(formData)
+              )
+            }
+          },
+        }}
+      >
+        {(api) => {
+          const {
+            field,
+            getFormIsValid,
+            debugEntireFormState, // REMOVE
+          } = api
+          return (
+            <div>
+              <TitleLarge.Serif.Book500>
+                Form with dynamically changing questions. Form #{count}
+              </TitleLarge.Serif.Book500>
+
+              <Spacer.H16 />
+
+              {field(questionNames[count])}
+
+              <Spacer.H16 />
+
+              <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+                Submit
+              </Button.Medium.Black>
               <div>
-                <TitleLarge.Serif.Book500>
-                  Form with dynamically changing questions. Form #{count}
-                </TitleLarge.Serif.Book500>
-
-                <Spacer.H16 />
-
-                {field(questionNames[count])}
-
-                <Spacer.H16 />
-
-                <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-                  Submit
-                </Button.Medium.Black>
-                <div>
-                  <code>
-                    {' '}
-                    fieldErrorsState:{' '}
-                    {JSON.stringify(
-                      debugEntireFormState().fieldErrorsState
-                    )}{' '}
-                  </code>
-                </div>
-                <div>
-                  <code>
-                    {' '}
-                    fieldValuesState:{' '}
-                    {JSON.stringify(
-                      debugEntireFormState().fieldValuesState
-                    )}{' '}
-                  </code>
-                </div>
-                <div>
-                  <code>
-                    formErrorState:{' '}
-                    {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
-                  </code>
-                </div>
+                <code>
+                  {' '}
+                  fieldErrorsState:{' '}
+                  {JSON.stringify(debugEntireFormState().fieldErrorsState)}{' '}
+                </code>
               </div>
-            )
-          }}
-        </Form>
-      )
-    } else {
-      return (
-        <Form
-          config={{
-            formName: 'Styleguidist example form',
-            autocompleteOff: true,
-            formId: '1',
-            autocompleteOff: true,
-            fields: questionGroups[1],
-            resetFormOnSubmit: true,
-            onSubmit: async (formData) => {
-              if (count === 0) {
-                // Go to the next set of questions
-                setCount(count + 1)
-              } else {
-                // Submit the form -- it will actually still have formData
-                // from the first set of questions, too
-                alert(
-                  'form submission successful with values:' +
-                    JSON.stringify(formData)
-                )
-              }
-            },
-          }}
-        >
-          {(api) => {
-            const {
-              field,
-              getFormIsValid,
-              debugEntireFormState, // REMOVE
-            } = api
-            return (
               <div>
-                <TitleLarge.Serif.Book500>
-                  Form with dynamically changing questions. Form #{count}
-                </TitleLarge.Serif.Book500>
-
-                <Spacer.H16 />
-
-                {field(questionNames[count])}
-
-                <Spacer.H16 />
-
-                <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-                  Submit
-                </Button.Medium.Black>
-                <div>
-                  <code>
-                    {' '}
-                    fieldErrorsState:{' '}
-                    {JSON.stringify(
-                      debugEntireFormState().fieldErrorsState
-                    )}{' '}
-                  </code>
-                </div>
-                <div>
-                  <code>
-                    {' '}
-                    fieldValuesState:{' '}
-                    {JSON.stringify(
-                      debugEntireFormState().fieldValuesState
-                    )}{' '}
-                  </code>
-                </div>
-                <div>
-                  <code>
-                    formErrorState:{' '}
-                    {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
-                  </code>
-                </div>
+                <code>
+                  {' '}
+                  fieldValuesState:{' '}
+                  {JSON.stringify(debugEntireFormState().fieldValuesState)}{' '}
+                </code>
               </div>
-            )
-          }}
-        </Form>
-      )
+              <div>
+                <code>
+                  formErrorState:{' '}
+                  {JSON.stringify(debugEntireFormState().formErrorState)}{' '}
+                </code>
+              </div>
+            </div>
+          )
+        }}
+      </Form>
+    )
+
+    switch (count) {
+      case 0:
+        return form
+      case 1:
+        return <div>{form}</div>
     }
+    if (count === 0) {
+      return <div>{form}</div>
+    } else if (count === 0) return
   }}
 </TestFormWrapper>
 ```

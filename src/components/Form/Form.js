@@ -69,7 +69,6 @@ export function Form({ children, config }) {
     setFormErrorMessage,
     getFormIsValid,
     getFormInteractedWith,
-    resetFormState,
     debugEntireFormState, // REMOVE
   ] = useFormState(initialValues)
 
@@ -94,18 +93,6 @@ export function Form({ children, config }) {
     try {
       // Pass the form's values to whatever config.onSubmit wants to do
       await config.onSubmit(getFieldValues())
-
-      // If the appropriate config value is passed in,
-      // After form data has been used, reset it to the new default.
-      if (config.resetFormOnSubmit) {
-        alert(JSON.stringify(config.fields))
-        let newInitialValues = {}
-        Object.keys(config.fields).forEach((x) => {
-          newInitialValues[x] = `Initial invalid state for ${x}`
-        })
-
-        resetFormState(newInitialValues)
-      }
     } catch (e) {
       setFormErrorMessage(e.toString())
     }
