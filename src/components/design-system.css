@@ -181,37 +181,6 @@ figure {
   --ContainerPadding--Desktop: var(--Space-80);
 }
 
-.Container {
-  width: 100%;
-  max-width: var(--ContainerMaxWidth);
-  margin: 0 auto;
-}
-@media (max-width: 599px) {
-  .Container {
-    padding: 0 var(--ContainerPadding--Phone);
-  }
-}
-@media (min-width: 600px) and (max-width: 899px) {
-  .Container {
-    padding: 0 var(--ContainerPadding--Tablet);
-  }
-}
-@media (min-width: 900px) and (max-width: 1199px) {
-  .Container {
-    padding: 0 var(--ContainerPadding--Laptop);
-  }
-}
-@media (min-width: 1200px) {
-  .Container {
-    padding: 0 var(--ContainerPadding--Desktop);
-  }
-}
-
-.Layout {
-  width: 100%;
-  overflow-x: hidden;
-}
-
 .RadioButton {
   display: flex;
 }

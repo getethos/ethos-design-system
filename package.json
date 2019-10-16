@@ -8,7 +8,7 @@
     "build": "yarn compile-css",
     "prerelease": "yarn test && yarn build",
     "compile-css": "node-sass src/components/index.scss src/components/design-system.css && yarn format",
-    "develop": "chokidar *.scss -c 'yarn build' --initial",
+    "develop": "chokidar src/**/*.scss -c 'yarn build' --initial",
     "format": "prettier --write \"src/components/**/*.*css\"",
     "spotcheck": "yarn compile-css && echo \"\n*****\n* View the spotcheck at http://localhost:8080/spotcheck.html\n*****\n\" && webpack-dev-server ",
     "stats": "node bin/generateStats.js --write",

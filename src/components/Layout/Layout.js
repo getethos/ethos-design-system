@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import styles from './Layout.module.scss'
+
 export function Layout({ children }) {
-  return <div className="Layout">{children}</div>
+  return <div className={styles.Layout}>{children}</div>
 }
 
 Layout.propTypes = {
@@ -70,7 +72,10 @@ class ScrollDetector extends React.Component {
 function HorizontallyPaddedContainer({ className, element, ...rest }) {
   const Element = element
   return (
-    <Element className={['Container', className].join(' ').trim()} {...rest} />
+    <Element
+      className={[styles.Container, className].join(' ').trim()}
+      {...rest}
+    />
   )
 }
 
