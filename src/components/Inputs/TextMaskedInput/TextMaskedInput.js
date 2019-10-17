@@ -12,6 +12,7 @@ import errorStyles from '../Errors.module.scss'
 
 export const TextMaskedInput = (props) => {
   const {
+    optional,
     name,
     labelCopy,
     allCaps,
@@ -89,6 +90,7 @@ export const TextMaskedInput = (props) => {
 }
 
 TextMaskedInput.PUBLIC_PROPS = {
+  optional: PropTypes.bool,
   doValidation: PropTypes.func,
   placeholder: PropTypes.string,
   mask: PropTypes.array.isRequired,

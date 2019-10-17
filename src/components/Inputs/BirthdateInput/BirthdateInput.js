@@ -22,6 +22,7 @@ const {
 const PrivateBirthdateInput = (props) => {
   const {
     name,
+    optional,
     dateFormat,
     allCaps,
     labelCopy,
@@ -75,6 +76,7 @@ const PrivateBirthdateInput = (props) => {
     <>
       <TextMaskedInput
         initialValue={value}
+        optional={optional}
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
         className={getClasses()}
@@ -94,6 +96,7 @@ const PrivateBirthdateInput = (props) => {
 }
 
 PrivateBirthdateInput.PUBLIC_PROPS = {
+  optional: PropTypes.bool,
   dateFormat: PropTypes.oneOf(DATE_FORMATS),
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,

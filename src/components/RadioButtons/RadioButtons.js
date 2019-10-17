@@ -43,6 +43,7 @@ import { Body } from '../Type/Body.js'
 function RadioButton({
   name,
   value,
+  optional,
   checked,
   required,
   disabled,
@@ -81,6 +82,7 @@ RadioButton.CLASS_NAME = 'RadioButton'
 
 RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
+  optional: PropTypes.bool,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   required: PropTypes.bool,
