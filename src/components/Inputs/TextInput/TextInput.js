@@ -90,6 +90,7 @@ function PrivateTextInput({
         className={getClasses()}
         disabled={disabled}
         name={name}
+        placeholder={rest.placeholder}
         onPaste={onPaste}
         onChange={onChange}
         onBlur={onBlur}
@@ -111,6 +112,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   initialValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  placeholder: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   restrictIllegal: PropTypes.bool,
@@ -122,6 +124,7 @@ PrivateTextInput.propTypes = {
 
 PrivateTextInput.defaultProps = {
   type: 'text',
+  placeholder: '',
   restrictIllegal: true,
 }
 

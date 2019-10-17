@@ -16,14 +16,14 @@ export function useFormState(initialState) {
       setFormErrorState('')
 
       // Update values state
-      setFieldValuesState((fieldValuesState) => ({
-        ...fieldValuesState,
+      setFieldValuesState((fieldValuesStatePrevious) => ({
+        ...fieldValuesStatePrevious,
         [fieldName]: newValue,
       }))
 
       // Update errors state
-      setFieldErrorsState((fieldErrorsState) => ({
-        ...fieldErrorsState,
+      setFieldErrorsState((fieldErrorsStatePrevious) => ({
+        ...fieldErrorsStatePrevious,
         [fieldName]: newError,
       }))
     }

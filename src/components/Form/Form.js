@@ -193,6 +193,8 @@ export function Form({ children, config }) {
         these arguments passed to the children function. */}
       {children({
         field,
+        errors: getFieldErrors(),
+        values: getFieldValues(),
         getFormErrorMessage,
         getFormIsValid,
         getFormInteractedWith,
