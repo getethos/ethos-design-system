@@ -187,25 +187,9 @@ function FormGroup({ children }) {
         }}
       </Form>
     )
-
-    // This is how the dynamic form rerenders from scratch when submitted.
-    // We return the form on even form "pages," and wrap it in a div
-    // on odd "pages."
-    //
-    // This feels like a hack but it works
-    /*
-    switch (group) {
-      case 0:
-      case 2:
-      case 4:
-        return form
-      case 1:
-      case 3:
-      default:
-        return <div>{form}</div>
-    }
-    */
-    return <div data-group={group}>{form}</div>
+    return group % 2 === 0
+      ? form
+      : <>{form}</>
   }}
 </FormGroup>
 ```
