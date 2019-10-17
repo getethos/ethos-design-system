@@ -1,6 +1,5 @@
 ```jsx
 import { useState } from 'react'
-//import { FormGroup } from './FormGroup.js'
 import validateExists from '../../validators/validateExists'
 import {
   TitleLarge,
@@ -12,11 +11,10 @@ import {
   ZipInput,
 } from '../index'
 
-
 const questionGroups = {
   one: {
     fields: {
-      one: {
+      questionOne: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
@@ -28,7 +26,7 @@ const questionGroups = {
   },
   two: {
     fields: {
-      two: {
+      questionTwo: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
@@ -40,7 +38,7 @@ const questionGroups = {
   },
   three: {
     fields: {
-      three: {
+      questionThree: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
@@ -52,7 +50,7 @@ const questionGroups = {
   },
   four: {
     fields: {
-      four: {
+      questionFour: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
@@ -64,7 +62,7 @@ const questionGroups = {
   },
   five: {
     fields: {
-      five: {
+      questionFive: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
@@ -94,16 +92,18 @@ function FormGroup({ children }) {
 ;<FormGroup>
   {({ group, setGroup }) => {
     const [finalFormData, setFinalFormData] = useState({})
-    const current = questionGroups[questionNames[group]]
-    console.log('current question group', current)
+    const question = questionGroups[questionNames[group]]
+    const questionFields = question.fields
+    console.log('question: ', question, 'questionFields: ', questionFields)
 
     const form = (
+    //return (
       <Form
         config={{
           formName: 'Styleguidist example form',
-          formId: '1',
+          formId: {group},
           autocompleteOff: true,
-          fields: questionGroups[questionNames[group]].fields,
+          fields: questionFields,
           onSubmit: async (formData) => {
             const spreaded = { ...finalFormData, ...formData }
             //if (group < questionGroups.length - 1) {
@@ -128,6 +128,7 @@ function FormGroup({ children }) {
             getFormIsValid,
             debugEntireFormState, // REMOVE
           } = api
+          //console.log(questionFields)
           return (
             <div>
               <TitleLarge.Serif.Book500>
@@ -148,7 +149,9 @@ function FormGroup({ children }) {
 
               <Spacer.H16 />
 
-              {field(questionNames[group].toString())}
+              { Object.keys(questionFields).map((name) => (
+                  field(name)
+              ))}
 
               <Spacer.H16 />
 
@@ -190,6 +193,7 @@ function FormGroup({ children }) {
     // on odd "pages."
     //
     // This feels like a hack but it works
+    /*
     switch (group) {
       case 0:
       case 2:
@@ -200,6 +204,8 @@ function FormGroup({ children }) {
       default:
         return <div>{form}</div>
     }
+    */
+    return <div data-group={group}>{form}</div>
   }}
 </FormGroup>
 ```
