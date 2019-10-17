@@ -76,120 +76,109 @@ const questionGroups = {
 
 const questionNames = Object.keys(questionGroups)
 
-function FormGroup({ children }) {
+const FormGroup = () => {
   const [group, setGroup] = useState(0)
+  const [finalFormData, setFinalFormData] = useState({})
+  const question = questionGroups[questionNames[group]]
+  const questionFields = question.fields
 
-  return (
-    <>
-      {children({
-        group,
-        setGroup,
-      })}
-    </>
+  // https://reactjs.org/docs/fragments.html#keyed-fragments
+  const rerenderForm = () => (
+    <React.Fragment key={group}>
+      {form}
+    </React.Fragment>
   )
+
+  const form = (
+    <Form
+      config={{
+        formName: 'Form Groups',
+        formId: {group},
+        autocompleteOff: true,
+        fields: questionFields,
+        onSubmit: async (formData) => {
+          const spreaded = { ...finalFormData, ...formData }
+          if (group < questionNames.length - 1) {
+            // Go to the next set of questions
+            setGroup(group + 1)
+            setFinalFormData(spreaded)
+          } else {
+            // Submit the form -- it will actually still have formData
+            // from the first set of questions, too
+            alert(
+              'form submission successful with values:' +
+                JSON.stringify(spreaded)
+            )
+          }
+        },
+      }}
+    >
+      {(api) => {
+        const {
+          field,
+          getFormIsValid,
+          debugEntireFormState, // REMOVE
+        } = api
+        return (
+          <div>
+            <TitleLarge.Serif.Book500>
+              Form with dynamically changing questions
+            </TitleLarge.Serif.Book500>
+            <Spacer.H16 />
+
+            <TitleSmall.Serif.Book500>Form #{group}</TitleSmall.Serif.Book500>
+
+            {group === questionNames.length - 1 ? (
+              <>
+                <Spacer.H16 />
+                <TitleSmall.Serif.Book500>
+                  This is the final form!
+                </TitleSmall.Serif.Book500>
+              </>
+            ) : null}
+
+            <Spacer.H16 />
+
+            { Object.keys(questionFields).map((name) => (
+                field(name)
+            ))}
+
+            <Spacer.H16 />
+
+            <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+              Submit
+            </Button.Medium.Black>
+
+            <Spacer.H16 />
+            <TitleSmall.Serif.Book500>Debug section</TitleSmall.Serif.Book500>
+            <div>
+              <code>
+                {' '}
+                fieldErrorsState (from useFormState):{' '}
+                {JSON.stringify(debugEntireFormState().fieldErrorsState)}{' '}
+              </code>
+            </div>
+            <div>
+              <code>
+                {' '}
+                fieldValuesState (from useFormState):{' '}
+                {JSON.stringify(debugEntireFormState().fieldValuesState)}{' '}
+              </code>
+            </div>
+            <div>
+              <code>
+                {' '}
+                finalFormData (from the example hook here):{' '}
+                {JSON.stringify(finalFormData)}{' '}
+              </code>
+            </div>
+          </div>
+        )
+      }}
+    </Form>
+  )
+  return rerenderForm()
 }
 
-;<FormGroup>
-  {({ group, setGroup }) => {
-    const [finalFormData, setFinalFormData] = useState({})
-    const question = questionGroups[questionNames[group]]
-    const questionFields = question.fields
-    console.log('question: ', question, 'questionFields: ', questionFields)
-
-    const form = (
-    //return (
-      <Form
-        config={{
-          formName: 'Styleguidist example form',
-          formId: {group},
-          autocompleteOff: true,
-          fields: questionFields,
-          onSubmit: async (formData) => {
-            const spreaded = { ...finalFormData, ...formData }
-            //if (group < questionGroups.length - 1) {
-            if (group < questionNames.length - 1) {
-              // Go to the next set of questions
-              setGroup(group + 1)
-              setFinalFormData(spreaded)
-            } else {
-              // Submit the form -- it will actually still have formData
-              // from the first set of questions, too
-              alert(
-                'form submission successful with values:' +
-                  JSON.stringify(spreaded)
-              )
-            }
-          },
-        }}
-      >
-        {(api) => {
-          const {
-            field,
-            getFormIsValid,
-            debugEntireFormState, // REMOVE
-          } = api
-          //console.log(questionFields)
-          return (
-            <div>
-              <TitleLarge.Serif.Book500>
-                Form with dynamically changing questions
-              </TitleLarge.Serif.Book500>
-              <Spacer.H16 />
-
-              <TitleSmall.Serif.Book500>Form #{group}</TitleSmall.Serif.Book500>
-
-              {group === questionNames.length - 1 ? (
-                <>
-                  <Spacer.H16 />
-                  <TitleSmall.Serif.Book500>
-                    This is the final form!
-                  </TitleSmall.Serif.Book500>
-                </>
-              ) : null}
-
-              <Spacer.H16 />
-
-              { Object.keys(questionFields).map((name) => (
-                  field(name)
-              ))}
-
-              <Spacer.H16 />
-
-              <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-                Submit
-              </Button.Medium.Black>
-
-              <Spacer.H16 />
-              <TitleSmall.Serif.Book500>Debug section</TitleSmall.Serif.Book500>
-              <div>
-                <code>
-                  {' '}
-                  fieldErrorsState (from useFormState):{' '}
-                  {JSON.stringify(debugEntireFormState().fieldErrorsState)}{' '}
-                </code>
-              </div>
-              <div>
-                <code>
-                  {' '}
-                  fieldValuesState (from useFormState):{' '}
-                  {JSON.stringify(debugEntireFormState().fieldValuesState)}{' '}
-                </code>
-              </div>
-              <div>
-                <code>
-                  {' '}
-                  finalFormData (from the example hook here):{' '}
-                  {JSON.stringify(finalFormData)}{' '}
-                </code>
-              </div>
-            </div>
-          )
-        }}
-      </Form>
-    )
-    return group % 2 === 0
-      ? form
-      : <>{form}</>
-  }}
-</FormGroup>
+;<FormGroup />
 ```
