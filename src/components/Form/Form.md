@@ -363,7 +363,7 @@ This is a transitional component tha will soon go away. We have plans to allow f
 import { useState } from 'react'
 import uuidv4 from 'uuid/v4'
 import validateExists from '../../validators/validateExists'
-import DangerouslyUseFormGroups from './DangerouslyUseFormGroups.js'
+import { DangerouslyUseFormGroups } from './DangerouslyUseFormGroups.js'
 
 import {
   TitleLarge,

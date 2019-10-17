@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function DangerouslyUseFormGroups({ children }) {
+export function DangerouslyUseFormGroups({ children }) {
   const [group, setGroup] = useState(0)
   return (
     <React.Fragment key={group}>
