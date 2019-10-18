@@ -12,7 +12,9 @@ import { useFormState } from '../../hooks/useFormState'
  *  - All Fields used in the Form notify the Form of their value and error state
  *    whenever changed
  *  - The Form only controls form-level errors; Fields control and display their
- *    own errors.
+ *    own errors. However, there is an exception—`formTouched` is passed into
+ *.   fields, as it should take precedence over field `touched`. Correspondingly,
+ *.   a field should call the prop `setFieldTouched` which informs the form engine.
  *  - Visible errors in Fields are passed to Form and are exact representations
  *    of the errors which prevent the Form from being submitted.
  *  - The Form uses the "Function as Child Component" pattern, and supplies
@@ -21,6 +23,14 @@ import { useFormState } from '../../hooks/useFormState'
  *      — A function which takes an argument, `fieldName`,
  *        and provides it a set of props which serve to notify the Form
  *        of changes in error state and value state
+ *    - `errors`
+ *      — Provides the underlying "form level errors" mapped by field name.
+ *.       This can be useful as a shorthand when used to conditionally display
+ *        other fields e.g. `{ !errors.field1 && field('field2')}`
+ *    - `values`
+ *      — Provides the underlying "form level values" mapped by field name.
+ *.       This can be useful as a shorthand when used to conditionally display
+ *        other fields e.g. `{ values.field1 && field('field2')}`
  *    - `getFormErrorMessage`
  *      — Provides for "form level errors" e.g. for presenting API errors,
  *        or messaging that relates to the entire form.

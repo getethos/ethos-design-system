@@ -40,7 +40,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 5, 7)],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
-          "Validation happens after first blur ('touched')     Value's length is between 5 and 7 characters",
+          "Validation happens after first form blur ('touched')--Value's length is between 5 and 7 characters",
         tid: 'example-data-tid',
       },
       shorterEvenNumTextInput: {
@@ -50,7 +50,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 3, 5)],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
-          "Validation happens after first blur ('touched')     Value's length is between 3 and 5 characters",
+          "Value's length is between 3 and 5 characters (validation after first form blur)",
       },
     },
     onSubmit: async (formData) => {
@@ -466,8 +466,6 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
       getFormIsValid,
       getFormInteractedWith,
     } = api
-    console.log('values', JSON.stringify(values, null, '     '))
-    console.log('errors', JSON.stringify(errors, null, '     '))
     return (
       <div>
         <TitleLarge.Serif.Book500>
