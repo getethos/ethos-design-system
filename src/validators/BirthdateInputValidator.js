@@ -14,9 +14,6 @@ export const dateRegexByFormat = {
   'mm/yy': /\d\d\/\d\d/,
 }
 
-// first replace removes text-mask's underscores, second fixes like: '2//'
-export const cleanse = (value) => value.replace(/[,_]/g, '').replace('//', '/')
-
 export const dateStringMatchesFormat = (cleansedDateString, dateFormat) => {
   const pattern = dateRegexByFormat[dateFormat]
   const matchesFormat = pattern.test(cleansedDateString)

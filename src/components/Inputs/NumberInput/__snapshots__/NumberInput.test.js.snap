@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberInput default rendering 1`] = `
+Array [
+  <label
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    htmlFor="the-number-input-example"
+  >
+    Enter a number (must be even to validate)
+  </label>,
+  <div
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />,
+  <input
+    className="TextMaskedInput TextInput"
+    data-tid="the-number-input"
+    disabled={false}
+    mask={[Function]}
+    name="the-number-input-example"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPaste={[Function]}
+    placeholder="number input"
+    type="tel"
+    value="123"
+  />,
+  "",
+]
+`;
