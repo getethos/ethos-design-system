@@ -22,7 +22,7 @@ export const ZipInput = (props) => {
     ...restProps
   } = props
 
-  const [getError, setError, , validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(val ? true : false)
   const [value, setValue] = useState(val || '')
@@ -51,6 +51,13 @@ export const ZipInput = (props) => {
       `ZipInput ${styles.TextInput}`
   }
 
+  const getErrors = () => {
+    console.log("In TextMaskedInput getErrors")
+    return getError()
+      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || ''
+  }
+
   return (
     <>
       <TextMaskedInput
@@ -73,6 +80,7 @@ export const ZipInput = (props) => {
         setFieldTouched={restProps.setFieldTouched}
       />
     </>
+    {getErrors()}
   )
 }
 

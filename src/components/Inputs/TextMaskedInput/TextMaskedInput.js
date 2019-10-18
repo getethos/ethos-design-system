@@ -34,7 +34,7 @@ export const TextMaskedInput = (props) => {
   const [internalDoValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   // Prioritizes props.doValidation but falls back to our internal implementation
-  const whichDoValidation = props.doValidation ? props.doValidation : internalDoValidation 
+  const whichDoValidation = doValidation ? doValidation : internalDoValidation
 
   const onChange = (ev) => {
     const val = ev.target.value
@@ -49,7 +49,9 @@ export const TextMaskedInput = (props) => {
 
   const setAllTouched = () => {
     setTouched(true)
-    setFieldTouched(true)
+    if (!!setFieldTouched) {
+      setFieldTouched(true)
+    }
   }
 
   const onBlur = (ev) => {
@@ -100,7 +102,7 @@ export const TextMaskedInput = (props) => {
         keepCharPositions={restProps.keepCharPositions}
         pipe={restProps.pipe}
       />
-      {getErrors()}
+      {!doValidation && getErrors()}
     </>
   )
 }

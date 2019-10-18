@@ -36,7 +36,7 @@ const PrivateBirthdateInput = (props) => {
   } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
-  const [getError, setError, , validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(val ? true : false)
   const [value, setValue] = useState(val || '')
@@ -76,6 +76,13 @@ const PrivateBirthdateInput = (props) => {
       `BirthdateInput ${styles.TextInput}`
   }
 
+  const getErrors = () => {
+    console.log("In TextMaskedInput getErrors")
+    return getError()
+      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || ''
+  }
+
   return (
     <>
       <TextMaskedInput
@@ -98,6 +105,7 @@ const PrivateBirthdateInput = (props) => {
         formTouched={formTouched}
         setFieldTouched={restProps.setFieldTouched}
       />
+      {getErrors()}
     </>
   )
 }

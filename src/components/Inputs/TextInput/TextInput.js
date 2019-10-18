@@ -74,7 +74,9 @@ function PrivateTextInput({
     // processing still, so, we use a flag for doValidation
     setTouched(true)
     // Also tell the form we've been touched
-    setFieldTouched(true)
+    if (!!setFieldTouched) {
+      setFieldTouched(true)
+    }
   }
 
   const onBlur = (ev) => {
