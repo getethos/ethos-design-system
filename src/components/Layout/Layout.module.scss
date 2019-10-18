@@ -1,0 +1,27 @@
+@import '~ethos-design-system/src/components/Media/Media.scss';
+
+.Layout {
+  // The concept of a top-level reusable "Layout" component may be an antipattern.
+  // Let's be slow to add more styles here.
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.Container {
+  width: 100%;
+  max-width: var(--ContainerMaxWidth);
+  margin: 0 auto;
+
+  @include for-phone-only {
+    padding: 0 var(--ContainerPadding--Phone);
+  }
+  @include for-tablet-only {
+    padding: 0 var(--ContainerPadding--Tablet);
+  }
+  @include for-laptop-only {
+    padding: 0 var(--ContainerPadding--Laptop);
+  }
+  @include for-desktop-only {
+    padding: 0 var(--ContainerPadding--Desktop);
+  }
+}
