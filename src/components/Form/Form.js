@@ -138,6 +138,9 @@ export function Form({ children, config }) {
       })
     }
 
+    const values = getFieldValues()
+    const currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
+
     const fieldComponent = {
       // Field name. Used in the label to identify the field
       name: fieldName,
@@ -158,6 +161,9 @@ export function Form({ children, config }) {
       // if multiple validators fail, their errors will be combined together.
       validator: doValidation,
 
+      // A field may start with an undefined value, or, an `initialValue` that is
+      // non-empty. However, on renders we want to push the current updated value
+      currentValue: currentFieldValue,
 
       // data-tid is helpful for writing tests.
       // sometimes it's passed in, but if it isn't,

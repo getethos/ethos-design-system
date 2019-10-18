@@ -29,9 +29,12 @@ function PrivateTextInput({
   formChangeHandler,
   validator,
   initialValue,
+  currentValue,
   restrictIllegal,
   ...rest
 }) {
+  console.log('PrivateTextInput called with args: ', arguments)
+
   // Verify that all required props were supplied
   const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
   let allRelevantProps = Object.assign({}, rest, {
@@ -50,7 +53,7 @@ function PrivateTextInput({
   // Set up validation hooks
   const [getError, setError, validate] = useErrorMessage(validator)
 
-  const [value, setValue] = useState(initialValue || '')
+  const [value, setValue] = useState(currentValue || initialValue || '')
 
   const [touched, setTouched] = useState(initialValue ? true : false)
 
@@ -110,6 +113,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
   initialValue: PropTypes.string,
+  currentValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
