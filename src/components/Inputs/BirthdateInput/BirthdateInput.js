@@ -7,6 +7,7 @@ import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
 import dayjs from '../../../helpers/getDayjs.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import * as Validators from '../../../validators/BirthdateInputValidator'
@@ -29,13 +30,17 @@ const PrivateBirthdateInput = (props) => {
     validator,
     formChangeHandler,
     initialValue,
+    currentValue,
+    currentError,
+    formTouched,
     ...restProps
   } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
-  const [getError, setError, validate] = useErrorMessage(validator)
-  const [touched, setTouched] = useState(initialValue ? true : false)
-  const [value, setValue] = useState(initialValue || '')
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
+  const val = currentValue || initialValue
+  const [touched, setTouched] = useState(val ? true : false)
+  const [value, setValue] = useState(val || '')
 
   const callErrorHandlers = (value, handlerFn) => {
     const cleansed = cleanse(value)
@@ -89,8 +94,12 @@ const PrivateBirthdateInput = (props) => {
         name="birthdate-auto-corrected"
         placeholder={dateFormat}
         keepCharPositions={true}
+        currentValue={currentValue}
+        currentError={currentError}
+        formTouched={formTouched}
+        setFieldTouched={restProps.setFieldTouched}
       />
-      {getError()}
+      {getError(currentError, formTouched)}
     </>
   )
 }
@@ -104,7 +113,7 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
-  onChange: PropTypes.func,
+  initialValue: PropTypes.string,
 }
 
 PrivateBirthdateInput.propTypes = {

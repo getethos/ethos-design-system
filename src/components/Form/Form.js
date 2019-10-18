@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { useFormState } from '../../hooks/useFormState'
+import { INIT_INVALID } from '../../helpers/constants.js'
 
 /**
  * Some underlying principles of this component:
@@ -12,7 +13,9 @@ import { useFormState } from '../../hooks/useFormState'
  *  - All Fields used in the Form notify the Form of their value and error state
  *    whenever changed
  *  - The Form only controls form-level errors; Fields control and display their
- *    own errors.
+ *    own errors. However, there is an exception—`formTouched` is passed into
+ *.   fields, as it should take precedence over field `touched`. Correspondingly,
+ *.   a field should call the prop `setFieldTouched` which informs the form engine.
  *  - Visible errors in Fields are passed to Form and are exact representations
  *    of the errors which prevent the Form from being submitted.
  *  - The Form uses the "Function as Child Component" pattern, and supplies
@@ -21,6 +24,16 @@ import { useFormState } from '../../hooks/useFormState'
  *      — A function which takes an argument, `fieldName`,
  *        and provides it a set of props which serve to notify the Form
  *        of changes in error state and value state
+ *    - `getFieldErrors`
+ *      — Provides the underlying "form level errors" mapped by field name.
+ *.       This can be useful as a shorthand when used to conditionally display
+ *        of fields. For example you do: `const errors = getFieldErrors()` and
+ *        then in the JSX: `{ !errors.field1 && field('field2')}`
+ *    - `getFieldValues`
+ *      — Provides the underlying "form level values" mapped by field name.
+ *.       This can be useful as a shorthand when used to conditionally display
+ *        of fields. For example you do: `const values = getFieldValues()` and
+ *        then in the JSX: `{ values.field1 && field('field2')}`
  *    - `getFormErrorMessage`
  *      — Provides for "form level errors" e.g. for presenting API errors,
  *        or messaging that relates to the entire form.
@@ -45,7 +58,8 @@ export function Form({ children, config }) {
   const formAutocomplete = config.autocompleteOff ? 'off' : 'on'
 
   // Set up initial values
-  let initialValues = {}
+  const initialValues = {}
+
   fieldNames.forEach((fieldName) => {
     // We don't do the preinitialize to non empty string trick for optional
     // fields as we'd like those to only be validated upon entering something
@@ -61,11 +75,14 @@ export function Form({ children, config }) {
     // If we wanted to have a form be optional, you could have its initial
     // value set to empty string, so the form could be submitted without
     // the field being touched.
-    initialValues[fieldName] = `Initial invalid state for ${fieldName}`
+    initialValues[fieldName] = INIT_INVALID
   })
 
   // Hooks
   const [
+    touched,
+    setFormTouched,
+    getFieldErrorsString,
     getFieldErrors,
     getFieldValues,
     setFieldState,
@@ -85,8 +102,8 @@ export function Form({ children, config }) {
     // all errors are clear by passing down getFormIsValid() to the `disabled`
     // prop on the submit button, but this is a backup in case they don't.
     if (!getFormIsValid()) {
-      if (getFieldErrors()) {
-        setFormErrorMessage('Errors: ' + getFieldErrors())
+      if (getFieldErrorsString()) {
+        setFormErrorMessage('Errors: ' + getFieldErrorsString())
       } else {
         setFormErrorMessage("You haven't typed anything yet")
       }
@@ -138,6 +155,13 @@ export function Form({ children, config }) {
       })
     }
 
+    const values = getFieldValues()
+    let currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
+    currentFieldValue = currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
+
+    const errors = getFieldErrors()
+    const currentFieldError = errors && errors[fieldName] ? errors[fieldName] : ''
+
     const fieldComponent = {
       // Field name. Used in the label to identify the field
       name: fieldName,
@@ -148,7 +172,7 @@ export function Form({ children, config }) {
       // errors (to know if the overall form is valid or not), and what
       // its value is (so it can later pass that to the onSubmit wrapper).
       // The validitiy of a form is essentially verified by
-      // `touched && !getFieldErrors()`, and so, setting error and value
+      // `touched && !getFieldErrorsString()`, and so, setting error and value
       // states here affects whether the form is ultimately valid or not.
       formChangeHandler: setFieldState(fieldName),
 
@@ -158,6 +182,20 @@ export function Form({ children, config }) {
       // if multiple validators fail, their errors will be combined together.
       validator: doValidation,
 
+      // A field may start with an undefined value, or, an `initialValue` that is
+      // non-empty. However, on renders we want to push the current updated value
+      currentValue: currentFieldValue,
+
+      // Same thing for errors--we want to push those back to the field on render
+      currentError: currentFieldError,
+
+      // If we've "touched" anywhere in form, that should take precedence over
+      // field level "touched" e.g. if we toggle and rerender we do not want to
+      // force the user to have to blur off the field to see a pre-existing error
+      formTouched: touched,
+
+      // The field needs to inform form if touched so form can in turn keep track
+      setFieldTouched: setFormTouched,
 
       // data-tid is helpful for writing tests.
       // sometimes it's passed in, but if it isn't,
@@ -193,6 +231,8 @@ export function Form({ children, config }) {
         these arguments passed to the children function. */}
       {children({
         field,
+        getFieldErrors,
+        getFieldValues,
         getFormErrorMessage,
         getFormIsValid,
         getFormInteractedWith,

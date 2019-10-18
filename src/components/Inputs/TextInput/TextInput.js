@@ -7,6 +7,7 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 
 import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
@@ -29,6 +30,10 @@ function PrivateTextInput({
   formChangeHandler,
   validator,
   initialValue,
+  currentValue,
+  currentError,
+  formTouched,
+  setFieldTouched,
   restrictIllegal,
   ...rest
 }) {
@@ -48,9 +53,9 @@ function PrivateTextInput({
   includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
 
-  const [value, setValue] = useState(initialValue || '')
+  const [value, setValue] = useState(currentValue || initialValue || '')
 
   const [touched, setTouched] = useState(initialValue ? true : false)
 
@@ -65,10 +70,18 @@ function PrivateTextInput({
     doValidation(restrictedVal, touched)
   }
 
-  const onBlur = (ev) => {
+  const setAllTouched = () => {
     // We set touched to change the react state, but it's async and
     // processing still, so, we use a flag for doValidation
     setTouched(true)
+    // Also tell the form we've been touched
+    if (!!setFieldTouched) {
+      setFieldTouched(true)
+    }
+  }
+
+  const onBlur = (ev) => {
+    setAllTouched()
     doValidation(ev.target.value, true)
   }
 
@@ -90,13 +103,14 @@ function PrivateTextInput({
         className={getClasses()}
         disabled={disabled}
         name={name}
+        placeholder={rest.placeholder}
         onPaste={onPaste}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
       />
-      {getError()}
+      {getError(currentError, formTouched)}
     </>
   )
 }
@@ -111,6 +125,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   initialValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  placeholder: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   restrictIllegal: PropTypes.bool,
@@ -122,6 +137,7 @@ PrivateTextInput.propTypes = {
 
 PrivateTextInput.defaultProps = {
   type: 'text',
+  placeholder: '',
   restrictIllegal: true,
 }
 

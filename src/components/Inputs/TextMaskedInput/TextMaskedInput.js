@@ -4,6 +4,7 @@ import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import { InputLabel } from '../InputLabel'
 import { cleanse } from '../../../validators/BirthdateInputValidator'
 
@@ -19,17 +20,22 @@ export const TextMaskedInput = (props) => {
     validator,
     formChangeHandler,
     initialValue,
+    currentValue,
+    currentError,
+    formTouched,
+    setFieldTouched,
     doValidation,
     ...restProps
   } = props
 
-  const [getError, setError, validate] = useErrorMessage(validator)
-  const [value, setValue] = useState(initialValue || '')
-  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
+  const val = currentValue || initialValue
+  const [value, setValue] = useState(val || '')
+  const [touched, setTouched] = useState(val ? true : false)
   const [internalDoValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   // Prioritizes props.doValidation but falls back to our internal implementation
-  const whichDoValidation = props.doValidation ? props.doValidation : internalDoValidation 
+  const whichDoValidation = doValidation ? doValidation : internalDoValidation
 
   const onChange = (ev) => {
     const val = ev.target.value
@@ -42,10 +48,17 @@ export const TextMaskedInput = (props) => {
     whichDoValidation(cleansed, touched)
   }
 
+  const setAllTouched = () => {
+    setTouched(true)
+    if (!!setFieldTouched) {
+      setFieldTouched(true)
+    }
+  }
+
   const onBlur = (ev) => {
     // We set touched to change the react state, but it's async and
     // processing still, so, we use a flag for doValidation
-    setTouched(true)
+    setAllTouched()
     const val = ev.target.value
     const cleansed = cleanse(val)
     whichDoValidation(cleansed, true)
@@ -84,7 +97,7 @@ export const TextMaskedInput = (props) => {
         keepCharPositions={restProps.keepCharPositions}
         pipe={restProps.pipe}
       />
-      {getError()}
+      {!doValidation && getError(currentError, formTouched)} 
     </>
   )
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Body } from '../../Type/Body.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import styles from './CheckboxInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
@@ -30,12 +31,16 @@ export const CheckboxInput = ({
   optional,
   name,
   initialValue,
+  currentValue,
+  currentError,
+  formTouched,
   ...rest
 }) => {
-  const initialChecked = initialValue ? initialValue : false
+
+  const initialChecked = currentValue || initialValue || false 
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
-  const [getError, setError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   const onChange = (ev) => {
@@ -76,7 +81,7 @@ export const CheckboxInput = ({
         </div>
         <Body.Regular400>{children}</Body.Regular400>
       </label>
-      {getError()}
+      {getError(currentError, formTouched)}
     </>
   )
 }
