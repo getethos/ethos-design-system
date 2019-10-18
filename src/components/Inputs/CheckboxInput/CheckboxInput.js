@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Body } from '../../Type/Body.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import styles from './CheckboxInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
@@ -64,7 +65,7 @@ export const CheckboxInput = ({
 
   const getErrors = () => {
     return getError()
-      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
       || ''
   }
 

@@ -4,6 +4,7 @@ import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import { InputLabel } from '../InputLabel'
 import { cleanse } from '../../../validators/BirthdateInputValidator'
 
@@ -79,7 +80,7 @@ export const TextMaskedInput = (props) => {
 
   const getErrors = () => {
     return getError()
-      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
       || ''
   }
 

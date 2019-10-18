@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { useFormState } from '../../hooks/useFormState'
+import { INIT_INVALID } from '../../helpers/constants.js'
 
 /**
  * Some underlying principles of this component:
@@ -72,7 +73,7 @@ export function Form({ children, config }) {
     // If we wanted to have a form be optional, you could have its initial
     // value set to empty string, so the form could be submitted without
     // the field being touched.
-    initialValues[fieldName] = 'INVALID'
+    initialValues[fieldName] = INIT_INVALID
   })
 
   // Hooks
@@ -154,7 +155,7 @@ export function Form({ children, config }) {
 
     const values = getFieldValues()
     let currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
-    currentFieldValue = currentFieldValue !== 'INVALID' ? currentFieldValue : ''
+    currentFieldValue = currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
 
     const errors = getFieldErrors()
     const currentFieldError = errors && errors[fieldName] ? errors[fieldName] : ''

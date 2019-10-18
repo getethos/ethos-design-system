@@ -7,6 +7,7 @@ import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
 import dayjs from '../../../helpers/getDayjs.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import * as Validators from '../../../validators/BirthdateInputValidator'
@@ -79,7 +80,7 @@ const PrivateBirthdateInput = (props) => {
   const getErrors = () => {
     console.log("In TextMaskedInput getErrors")
     return getError()
-      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
       || ''
   }
 

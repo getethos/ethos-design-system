@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { TextMaskedInput } from '../TextMaskedInput'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
+import { INIT_INVALID } from '../../../helpers/constants.js'
 import { InputLabel } from '../InputLabel'
 import zipInputValidator from '../../../validators/ZipInputValidator'
 import styles from '../TextInput/TextInput.module.scss'
@@ -54,7 +55,7 @@ export const ZipInput = (props) => {
   const getErrors = () => {
     console.log("In TextMaskedInput getErrors")
     return getError()
-      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
       || ''
   }
 
