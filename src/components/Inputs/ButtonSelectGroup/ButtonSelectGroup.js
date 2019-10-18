@@ -119,12 +119,6 @@ export const ButtonSelectGroup = ({
   const optionsContainerClassNames = [styles.buttonGroup]
   if (fullWidth) optionsContainerClassNames.push(styles.fullWidth)
 
-  const getErrors = () => {
-    return getError()
-      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
-      || ''
-  }
-
   // Use id to connect label and this pseudo-input because of aria-labelledby
   return (
     <>
@@ -142,7 +136,7 @@ export const ButtonSelectGroup = ({
         />
         <div className={optionsContainerClassNames.join(' ')}>{options}</div>
       </div>
-      {getErrors()}
+      {getError(currentError, formTouched)}
     </>
   )
 }

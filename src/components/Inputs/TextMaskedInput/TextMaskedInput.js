@@ -78,12 +78,6 @@ export const TextMaskedInput = (props) => {
       `TextMaskedInput ${styles.TextInput}`
   }
 
-  const getErrors = () => {
-    return getError()
-      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
-      || ''
-  }
-
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
@@ -103,7 +97,7 @@ export const TextMaskedInput = (props) => {
         keepCharPositions={restProps.keepCharPositions}
         pipe={restProps.pipe}
       />
-      {!doValidation && getErrors()}
+      {!doValidation && getError(currentError, formTouched)} 
     </>
   )
 }

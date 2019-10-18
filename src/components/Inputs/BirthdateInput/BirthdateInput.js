@@ -77,13 +77,6 @@ const PrivateBirthdateInput = (props) => {
       `BirthdateInput ${styles.TextInput}`
   }
 
-  const getErrors = () => {
-    console.log("In TextMaskedInput getErrors")
-    return getError()
-      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
-      || ''
-  }
-
   return (
     <>
       <TextMaskedInput
@@ -106,7 +99,7 @@ const PrivateBirthdateInput = (props) => {
         formTouched={formTouched}
         setFieldTouched={restProps.setFieldTouched}
       />
-      {getErrors()}
+      {getError(currentError, formTouched)}
     </>
   )
 }

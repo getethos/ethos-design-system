@@ -62,13 +62,6 @@ export const CheckboxInput = ({
     return !!getError() ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
   }
 
-
-  const getErrors = () => {
-    return getError()
-      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
-      || ''
-  }
-
   const id = name
   const otherProps = { ...rest, id, name }
 
@@ -88,7 +81,7 @@ export const CheckboxInput = ({
         </div>
         <Body.Regular400>{children}</Body.Regular400>
       </label>
-      {getErrors()}
+      {getError(currentError, formTouched)}
     </>
   )
 }

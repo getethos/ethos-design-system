@@ -95,12 +95,6 @@ function PrivateTextInput({
     return !!getError() ? `${styles.TextInput} ${errorStyles.Error}` : `${styles.TextInput}`
   }
 
-  const getErrors = () => {
-    return getError()
-      || (currentError !== INIT_INVALID && formTouched && getFormattedError(currentError))
-      || ''
-  }
-
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
@@ -116,7 +110,7 @@ function PrivateTextInput({
         value={value}
         data-tid={rest['data-tid']}
       />
-      {getErrors()}
+      {getError(currentError, formTouched)}
     </>
   )
 }
