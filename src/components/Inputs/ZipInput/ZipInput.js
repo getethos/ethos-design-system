@@ -79,8 +79,8 @@ export const ZipInput = (props) => {
         formTouched={formTouched}
         setFieldTouched={restProps.setFieldTouched}
       />
+      {getErrors()}
     </>
-    {getErrors()}
   )
 }
 
