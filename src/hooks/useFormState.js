@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+let iteractedWith = false
 let touched = false
 
 export function useFormState(initialState) {
@@ -10,7 +11,7 @@ export function useFormState(initialState) {
   // Returns a function that updates state for the field, tracked by fieldName
   function setFieldState(fieldName) {
     return (newValue, newError) => {
-      touched = true
+      iteractedWith = true
 
       // Reset form errors if they exist
       setFormErrorState('')
@@ -30,7 +31,7 @@ export function useFormState(initialState) {
   }
 
   function getFormInteractedWith() {
-    return touched
+    return iteractedWith
   }
 
   // Gets values of all fields, basically just used in form submission
@@ -38,8 +39,12 @@ export function useFormState(initialState) {
     return fieldValuesState
   }
 
-  // Checks if any fields have errors; returns concatenated string
   function getFieldErrors() {
+    return fieldErrorsState
+  }
+
+  // Checks if any fields have errors; returns concatenated string
+  function getFieldErrorsString() {
     return Object.values(fieldErrorsState)
       .filter((x) => !!x)
       .join(', ')
@@ -58,13 +63,20 @@ export function useFormState(initialState) {
     setFormErrorState(msg)
   }
 
-  // Verify form has been touched and also has no errors;
+  function setFormTouched() {
+    touched = true
+  }
+
+  // Verify form has been iteractedWith and also has no errors;
   // Used for determining whether a form is valid
   function getFormIsValid() {
-    return touched && !getFieldErrors()
+    return touched && !getFieldErrorsString()
   }
 
   return [
+    touched,
+    setFormTouched,
+    getFieldErrorsString,
     getFieldErrors,
     getFieldValues,
     setFieldState,

@@ -40,6 +40,9 @@ export const ButtonSelectGroup = ({
   labelCopy,
   children,
   initialValue = undefined,
+  currentValue,
+  currentError,
+  formTouched,
   onSelect,
   formChangeHandler,
   name = `button-select-group-${uuidv4()}`,
@@ -49,10 +52,11 @@ export const ButtonSelectGroup = ({
   fullWidth = true,
   ...rest
 }) => {
-  const [selectedValue, setSelectedValue] = useState(initialValue)
+  const initialSelected = currentValue || initialValue || undefined 
+  const [selectedValue, setSelectedValue] = useState(initialSelected)
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks
-  const [getError, setError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
 
   useEffect(() => {
     // `isSelectedValue` allows `false` to work properly and validate
@@ -114,6 +118,12 @@ export const ButtonSelectGroup = ({
   const optionsContainerClassNames = [styles.buttonGroup]
   if (fullWidth) optionsContainerClassNames.push(styles.fullWidth)
 
+  const getErrors = () => {
+    return getError()
+      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || ''
+  }
+
   // Use id to connect label and this pseudo-input because of aria-labelledby
   return (
     <>
@@ -131,7 +141,7 @@ export const ButtonSelectGroup = ({
         />
         <div className={optionsContainerClassNames.join(' ')}>{options}</div>
       </div>
-      {getError()}
+      {getErrors()}
     </>
   )
 }

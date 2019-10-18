@@ -30,12 +30,16 @@ export const CheckboxInput = ({
   optional,
   name,
   initialValue,
+  currentValue,
+  currentError,
+  formTouched,
   ...rest
 }) => {
-  const initialChecked = initialValue ? initialValue : false
+
+  const initialChecked = currentValue || initialValue || false 
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
-  const [getError, setError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   const onChange = (ev) => {
@@ -57,6 +61,13 @@ export const CheckboxInput = ({
     return !!getError() ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
   }
 
+
+  const getErrors = () => {
+    return getError()
+      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || ''
+  }
+
   const id = name
   const otherProps = { ...rest, id, name }
 
@@ -76,7 +87,7 @@ export const CheckboxInput = ({
         </div>
         <Body.Regular400>{children}</Body.Regular400>
       </label>
-      {getError()}
+      {getErrors()}
     </>
   )
 }

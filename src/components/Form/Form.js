@@ -45,7 +45,8 @@ export function Form({ children, config }) {
   const formAutocomplete = config.autocompleteOff ? 'off' : 'on'
 
   // Set up initial values
-  let initialValues = {}
+  const initialValues = {}
+
   fieldNames.forEach((fieldName) => {
     // We don't do the preinitialize to non empty string trick for optional
     // fields as we'd like those to only be validated upon entering something
@@ -61,11 +62,14 @@ export function Form({ children, config }) {
     // If we wanted to have a form be optional, you could have its initial
     // value set to empty string, so the form could be submitted without
     // the field being touched.
-    initialValues[fieldName] = `Initial invalid state for ${fieldName}`
+    initialValues[fieldName] = 'INVALID'
   })
 
   // Hooks
   const [
+    touched,
+    setFormTouched,
+    getFieldErrorsString,
     getFieldErrors,
     getFieldValues,
     setFieldState,
@@ -85,8 +89,8 @@ export function Form({ children, config }) {
     // all errors are clear by passing down getFormIsValid() to the `disabled`
     // prop on the submit button, but this is a backup in case they don't.
     if (!getFormIsValid()) {
-      if (getFieldErrors()) {
-        setFormErrorMessage('Errors: ' + getFieldErrors())
+      if (getFieldErrorsString()) {
+        setFormErrorMessage('Errors: ' + getFieldErrorsString())
       } else {
         setFormErrorMessage("You haven't typed anything yet")
       }
@@ -139,7 +143,11 @@ export function Form({ children, config }) {
     }
 
     const values = getFieldValues()
-    const currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
+    let currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
+    currentFieldValue = currentFieldValue !== 'INVALID' ? currentFieldValue : ''
+
+    const errors = getFieldErrors()
+    const currentFieldError = errors && errors[fieldName] ? errors[fieldName] : ''
 
     const fieldComponent = {
       // Field name. Used in the label to identify the field
@@ -151,7 +159,7 @@ export function Form({ children, config }) {
       // errors (to know if the overall form is valid or not), and what
       // its value is (so it can later pass that to the onSubmit wrapper).
       // The validitiy of a form is essentially verified by
-      // `touched && !getFieldErrors()`, and so, setting error and value
+      // `touched && !getFieldErrorsString()`, and so, setting error and value
       // states here affects whether the form is ultimately valid or not.
       formChangeHandler: setFieldState(fieldName),
 
@@ -164,6 +172,17 @@ export function Form({ children, config }) {
       // A field may start with an undefined value, or, an `initialValue` that is
       // non-empty. However, on renders we want to push the current updated value
       currentValue: currentFieldValue,
+
+      // Same thing for errors--we want to push those back to the field on render
+      currentError: currentFieldError,
+
+      // If we've "touched" anywhere in form, that should take precedence over
+      // field level "touched" e.g. if we toggle and rerender we do not want to
+      // force the user to have to blur off the field to see a pre-existing error
+      formTouched: touched,
+
+      // The field needs to inform form if touched so form can in turn keep track
+      setFieldTouched: setFormTouched,
 
       // data-tid is helpful for writing tests.
       // sometimes it's passed in, but if it isn't,

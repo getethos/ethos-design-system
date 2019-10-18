@@ -12,10 +12,17 @@ const useErrorMessage = (validator) => {
   const getError = () => {
     if (displayError) {
       // WIP do InfoMessage styling later
+      return getFormattedError(displayError)
+    }
+    return ''
+  }
+
+  const getFormattedError = (msg) => {
+    if (msg) {
       return (
         <>
           <Spacer.H8 />
-          <InfoMessage.Text.Error>{displayError} </InfoMessage.Text.Error>
+          <InfoMessage.Text.Error>{msg} </InfoMessage.Text.Error>
         </>
       )
     }
@@ -26,7 +33,7 @@ const useErrorMessage = (validator) => {
     return validator.call(null, thingToValidate)
   }
 
-  return [getError, setError, validate]
+  return [getError, setError, getFormattedError, validate]
 }
 
 export default useErrorMessage

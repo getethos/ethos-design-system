@@ -30,11 +30,12 @@ function PrivateTextInput({
   validator,
   initialValue,
   currentValue,
+  currentError,
+  formTouched,
+  setFieldTouched,
   restrictIllegal,
   ...rest
 }) {
-  console.log('PrivateTextInput called with args: ', arguments)
-
   // Verify that all required props were supplied
   const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
   let allRelevantProps = Object.assign({}, rest, {
@@ -51,7 +52,7 @@ function PrivateTextInput({
   includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
 
   const [value, setValue] = useState(currentValue || initialValue || '')
 
@@ -68,10 +69,16 @@ function PrivateTextInput({
     doValidation(restrictedVal, touched)
   }
 
-  const onBlur = (ev) => {
+  const setAllTouched = () => {
     // We set touched to change the react state, but it's async and
     // processing still, so, we use a flag for doValidation
     setTouched(true)
+    // Also tell the form we've been touched
+    setFieldTouched(true)
+  }
+
+  const onBlur = (ev) => {
+    setAllTouched()
     doValidation(ev.target.value, true)
   }
 
@@ -83,6 +90,12 @@ function PrivateTextInput({
 
   const getClasses = () => {
     return !!getError() ? `${styles.TextInput} ${errorStyles.Error}` : `${styles.TextInput}`
+  }
+
+  const getErrors = () => {
+    return getError()
+      || (currentError !== 'INVALID' && formTouched && getFormattedError(currentError))
+      || ''
   }
 
   return (
@@ -100,7 +113,7 @@ function PrivateTextInput({
         value={value}
         data-tid={rest['data-tid']}
       />
-      {getError()}
+      {getErrors()}
     </>
   )
 }
@@ -113,7 +126,6 @@ PrivateTextInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
   initialValue: PropTypes.string,
-  currentValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   placeholder: PropTypes.string,

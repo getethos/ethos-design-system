@@ -16,16 +16,19 @@ export const ZipInput = (props) => {
     validator,
     formChangeHandler,
     initialValue,
+    currentValue,
+    currentError,
+    formTouched,
     ...restProps
   } = props
 
-  const [getError, setError, validate] = useErrorMessage(validator)
-  const [touched, setTouched] = useState(initialValue ? true : false)
-  const [value, setValue] = useState(initialValue || '')
+  const [getError, setError, , validate] = useErrorMessage(validator)
+  const val = currentValue || initialValue
+  const [touched, setTouched] = useState(val ? true : false)
+  const [value, setValue] = useState(val || '')
 
   // This has to come before useInputValidation setup below
   const callErrorHandlers = (value, handlerFn) => {
-    console.log("callErrorHandlers called")
     /// Check zip format validity
     let errMsg = zipInputValidator(value)
     const errorMessage = errMsg.length ? errMsg : ''
@@ -64,8 +67,11 @@ export const ZipInput = (props) => {
         name={props.name}
         className={getClasses()}
         keepCharPositions={true}
+        currentValue={currentValue}
+        currentError={currentError}
+        formTouched={formTouched}
+        setFieldTouched={restProps.setFieldTouched}
       />
-      {getError()}
     </>
   )
 }
@@ -77,6 +83,7 @@ ZipInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  initialValue: PropTypes.string,
 }
 
 ZipInput.propTypes = {
