@@ -14,6 +14,7 @@ export const TextMaskedInput = (props) => {
   const {
     optional,
     name,
+    mask,
     labelCopy,
     allCaps,
     validator,
@@ -77,25 +78,50 @@ export const TextMaskedInput = (props) => {
       `TextMaskedInput ${styles.TextInput}`
   }
 
+  const getMaskedInputByType = (mask) => {
+    let makeProps = {}
+    if (typeof mask === 'function') {
+      return (
+        <MaskedInput
+          value={value}
+          mask={mask}
+          type={restProps.type}
+          data-tid={restProps['data-tid']}
+          onChange={onChange}
+          onBlur={onBlur}
+          onPaste={onPaste}
+          name={props.name}
+          placeholder={restProps.placeholder}
+          className={getClasses()}
+          disabled={restProps.disabled}
+        />
+      )
+    } else {
+      return (
+        <MaskedInput
+          value={value}
+          mask={mask}
+          type={restProps.type}
+          data-tid={restProps['data-tid']}
+          guide={restProps.guide}
+          onChange={onChange}
+          onBlur={onBlur}
+          onPaste={onPaste}
+          name={props.name}
+          placeholder={restProps.placeholder}
+          className={getClasses()}
+          disabled={restProps.disabled}
+          keepCharPositions={restProps.keepCharPositions}
+          pipe={restProps.pipe}
+        />
+      )
+    }
+  }
+
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
-      <MaskedInput
-        value={value}
-        mask={restProps.mask}
-        type={restProps.type}
-        data-tid={restProps['data-tid']}
-        guide={restProps.guide}
-        onChange={onChange}
-        onBlur={onBlur}
-        onPaste={onPaste}
-        name={props.name}
-        placeholder={restProps.placeholder}
-        className={getClasses()}
-        disabled={restProps.disabled}
-        keepCharPositions={restProps.keepCharPositions}
-        pipe={restProps.pipe}
-      />
+      {getMaskedInputByType(mask)}
       {!doValidation && getError(currentError, formTouched)} 
     </>
   )
@@ -105,7 +131,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   optional: PropTypes.bool,
   doValidation: PropTypes.func,
   placeholder: PropTypes.string,
-  mask: PropTypes.array.isRequired,
+  mask: PropTypes.oneOfType([PropTypes.array, PropTypes.func]).isRequired,
   guide: PropTypes.bool,
   initialValue: PropTypes.string,
   keepCharPositions: PropTypes.bool,
