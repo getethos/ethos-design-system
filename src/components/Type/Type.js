@@ -101,6 +101,7 @@ Type.TYPEFACES = {
 
 Type.WEIGHTS = {
   // Possibly we shouldn't lump these all together given they vary per typeface.
+  LIGHT_300: 'Light300',
   REGULAR_400: 'Regular400',
   MEDIUM_500: 'Medium500',
   BOOK_500: 'Book500',

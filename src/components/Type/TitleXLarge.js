@@ -2,6 +2,11 @@ import { Type, TypeFoundry } from './Type.js'
 
 export const TitleXLarge = {
   Sans: {
+    Light300: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_XLARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.LIGHT_300,
+    }),
     Medium500: TypeFoundry({
       subtype: Type.SUBTYPES.TITLE_XLARGE,
       typeface: Type.TYPEFACES.THEINHARDT,
