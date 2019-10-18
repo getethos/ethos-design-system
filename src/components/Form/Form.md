@@ -460,12 +460,14 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
   {(api) => {
     const {
       field,
-      errors,
-      values,
+      getFieldErrors,
+      getFieldValues,
       getFormErrorMessage,
       getFormIsValid,
       getFormInteractedWith,
     } = api
+    const values = getFieldValues()
+    const errors = getFieldErrors()
     return (
       <div>
         <TitleLarge.Serif.Book500>
@@ -499,7 +501,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 
         <Spacer.H16 />
 
-        { values.field1 && field('field3')}
+        { !errors.field1 && values.field1 && field('field3')}
 
         <Spacer.H16 />
 

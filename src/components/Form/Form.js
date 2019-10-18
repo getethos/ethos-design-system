@@ -24,14 +24,16 @@ import { INIT_INVALID } from '../../helpers/constants.js'
  *      — A function which takes an argument, `fieldName`,
  *        and provides it a set of props which serve to notify the Form
  *        of changes in error state and value state
- *    - `errors`
+ *    - `getFieldErrors`
  *      — Provides the underlying "form level errors" mapped by field name.
  *.       This can be useful as a shorthand when used to conditionally display
- *        other fields e.g. `{ !errors.field1 && field('field2')}`
- *    - `values`
+ *        of fields. For example you do: `const errors = getFieldErrors()` and
+ *        then in the JSX: `{ !errors.field1 && field('field2')}`
+ *    - `getFieldValues`
  *      — Provides the underlying "form level values" mapped by field name.
  *.       This can be useful as a shorthand when used to conditionally display
- *        other fields e.g. `{ values.field1 && field('field2')}`
+ *        of fields. For example you do: `const values = getFieldValues()` and
+ *        then in the JSX: `{ values.field1 && field('field2')}`
  *    - `getFormErrorMessage`
  *      — Provides for "form level errors" e.g. for presenting API errors,
  *        or messaging that relates to the entire form.
@@ -229,8 +231,8 @@ export function Form({ children, config }) {
         these arguments passed to the children function. */}
       {children({
         field,
-        errors: getFieldErrors(),
-        values: getFieldValues(),
+        getFieldErrors,
+        getFieldValues,
         getFormErrorMessage,
         getFormIsValid,
         getFormInteractedWith,
