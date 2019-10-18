@@ -17,3 +17,8 @@
 ```jsx
 <TitleMedium.Sans.Regular400>We offer modern, ethical life insurance</TitleMedium.Sans.Regular400>
 ```
+
+```jsx
+<TitleMedium.Sans.Light300>We offer modern, ethical life insurance</TitleMedium.Sans.Light300>
+```
+

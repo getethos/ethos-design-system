@@ -2,6 +2,11 @@ import { Type, TypeFoundry } from './Type.js'
 
 export const TitleLarge = {
   Sans: {
+    Light300: TypeFoundry({
+      subtype: Type.SUBTYPES.TITLE_LARGE,
+      typeface: Type.TYPEFACES.THEINHARDT,
+      weight: Type.WEIGHTS.LIGHT_300,
+    }),
     Medium500: TypeFoundry({
       subtype: Type.SUBTYPES.TITLE_LARGE,
       typeface: Type.TYPEFACES.THEINHARDT,

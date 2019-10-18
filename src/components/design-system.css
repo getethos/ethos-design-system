@@ -341,47 +341,6 @@ strong {
   color: var(--White);
 }
 
-.Caption.Regular400,
-.Footnote.Regular400,
-.Body.Regular400,
-.TitleSmall.Regular400,
-.TitleMedium.Regular400,
-.TitleLarge.Regular400,
-.TitleXLarge.Regular400,
-.TitleXXLarge.Regular400 {
-  font-weight: 400;
-}
-
-.Caption.Book500,
-.Caption.Medium500,
-.Footnote.Book500,
-.Footnote.Medium500,
-.Body.Book500,
-.Body.Medium500,
-.TitleSmall.Book500,
-.TitleSmall.Medium500,
-.TitleMedium.Book500,
-.TitleMedium.Medium500,
-.TitleLarge.Book500,
-.TitleLarge.Medium500,
-.TitleXLarge.Book500,
-.TitleXLarge.Medium500,
-.TitleXXLarge.Book500,
-.TitleXXLarge.Medium500 {
-  font-weight: 500;
-}
-
-.Caption.Demi600,
-.Footnote.Demi600,
-.Body.Demi600,
-.TitleSmall.Demi600,
-.TitleMedium.Demi600,
-.TitleLarge.Demi600,
-.TitleXLarge.Demi600,
-.TitleXXLarge.Demi600 {
-  font-weight: 600;
-}
-
 .Caption.Centered,
 .Footnote.Centered,
 .Body.Centered,
@@ -402,6 +361,23 @@ strong {
 .TitleXLarge.AllCaps,
 .TitleXXLarge.AllCaps {
   text-transform: uppercase;
+}
+
+.Light300 {
+  font-weight: 300;
+}
+
+.Regular400 {
+  font-weight: 400;
+}
+
+.Book500,
+.Medium500 {
+  font-weight: 500;
+}
+
+.Demi600 {
+  font-weight: 600;
 }
 
 @media (max-width: 599px) {

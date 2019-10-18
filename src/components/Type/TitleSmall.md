@@ -19,5 +19,10 @@
 ```
 
 ```jsx
+<TitleSmall.Sans.Light300>We offer modern, ethical life insurance</TitleSmall.Sans.Light300>
+```
+
+```jsx
 <TitleSmall.Sans.Regular400 element='label'>I should be a label element. Inspect me to see :)</TitleSmall.Sans.Regular400>
 ```
+
