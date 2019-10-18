@@ -466,8 +466,8 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
       getFormIsValid,
       getFormInteractedWith,
     } = api
-    console.log('errors: ', errors)
-    console.log('values: ', values)
+    console.log('values', JSON.stringify(values, null, '     '))
+    console.log('errors', JSON.stringify(errors, null, '     '))
     return (
       <div>
         <TitleLarge.Serif.Book500>
