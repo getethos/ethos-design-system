@@ -7,8 +7,6 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
-import { INIT_INVALID } from '../../../helpers/constants.js'
-
 import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 

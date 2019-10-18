@@ -5,9 +5,7 @@ import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrect
 import { InputLabel } from '../InputLabel'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
-
 import dayjs from '../../../helpers/getDayjs.js'
-import { INIT_INVALID } from '../../../helpers/constants.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import * as Validators from '../../../validators/BirthdateInputValidator'

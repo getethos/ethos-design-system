@@ -4,7 +4,6 @@ import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
-import { INIT_INVALID } from '../../../helpers/constants.js'
 import { InputLabel } from '../InputLabel'
 import { cleanse } from '../../../validators/BirthdateInputValidator'
 
