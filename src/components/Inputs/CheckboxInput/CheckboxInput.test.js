@@ -2,7 +2,7 @@ import React from 'react'
 import { CheckboxInput } from './CheckboxInput'
 import renderer from 'react-test-renderer'
 
-const formChangeHandlerStub = () => {}
+const formChangeHandlerStub = jest.fn()
 
 describe('CheckboxInput', () => {
   it('default rendering', () => {
