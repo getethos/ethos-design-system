@@ -21,6 +21,7 @@ export const NumberInput = (props) => {
   const {
     name,
     type,
+    mask,
     disabled,
     labelCopy,
     allCaps,
@@ -30,18 +31,20 @@ export const NumberInput = (props) => {
     currentValue,
     currentError,
     formTouched,
+    placeholder,
+    setFieldTouched,
     ...restProps
   } = props
 
-  const mask = restProps.mask || integerMask
+  const internalMask = mask || integerMask
 
   return (
     <>
       <TextMaskedInput
         initialValue={initialValue}
         disabled={disabled}
-        mask={mask}
-        placeholder={restProps.placeholder}
+        mask={internalMask}
+        placeholder={placeholder}
         type={type}
         labelCopy={labelCopy}
         allCaps={allCaps}
@@ -50,7 +53,7 @@ export const NumberInput = (props) => {
         currentValue={currentValue}
         currentError={currentError}
         formTouched={formTouched}
-        setFieldTouched={restProps.setFieldTouched}
+        setFieldTouched={setFieldTouched}
         validator={validator}
         formChangeHandler={formChangeHandler}
       />
