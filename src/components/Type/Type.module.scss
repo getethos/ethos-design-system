@@ -19,6 +19,7 @@
 .TitleXLarge,
 .TitleXXLarge {
   // Brand colors
+
   &.BrandForest {
     color: var(--BrandForest);
   }
@@ -27,10 +28,15 @@
   }
 
   // Grayscales
-  // &.GrayPrimary is the default.
+
+  &.GrayPrimary {
+    color: var(--GrayPrimary--translucent);
+  }
+
   &.GrayStrokeAndDisabled {
     color: var(--GrayStrokeAndDisabled--translucent);
   }
+
   &.GraySecondary {
     color: var(--GraySecondary--translucent);
   }
@@ -38,6 +44,8 @@
   &.White {
     color: var(--White);
   }
+
+  // Misc.
 
   &.Centered {
     text-align: center;

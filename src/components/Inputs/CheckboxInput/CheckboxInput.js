@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { COLORS } from '../../Colors.js'
 import { Body } from '../../Type/Body.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
@@ -36,14 +37,14 @@ export const CheckboxInput = ({
   ...rest
 }) => {
 
-  const initialChecked = currentValue || initialValue || false 
+  const initialChecked = currentValue || initialValue || false
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
   const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   const onChange = (ev) => {
-    // It feels like a checkbox isn't something you blur off of, so I'm electing to 
+    // It feels like a checkbox isn't something you blur off of, so I'm electing to
     // call a checkbox touched when you check it
     if (!touched) setTouched(true)
     const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
@@ -80,7 +81,7 @@ export const CheckboxInput = ({
           />
           <Facade />
         </div>
-        <Body.Regular400>{children}</Body.Regular400>
+        <Body.Regular400 color={COLORS.GRAY_PRIMARY}>{children}</Body.Regular400>
       </label>
       {getError(currentError, formTouched)}
     </>

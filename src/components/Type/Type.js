@@ -48,7 +48,7 @@ export const Type = ({
 }) => {
   // Verify that color, subtype, typeface, and weight were valid enum values
   const [isValidColor] = useIncludes(Type.COLORS)
-  isValidColor(color)
+  color && isValidColor(color)
   const [isValidSubtype] = useIncludes(Type.SUBTYPES)
   isValidSubtype(subtype)
   const [isValidTypeface] = useIncludes(Type.TYPEFACES)
@@ -65,12 +65,8 @@ export const Type = ({
   includesInvalid(rest)
 
   // Generate list of css classes
-  const classNames = [
-    styles[subtype],
-    styles[typeface],
-    styles[weight],
-    styles[color],
-  ]
+  const classNames = [styles[subtype], styles[typeface], styles[weight]]
+  if (color) classNames.push(styles[color])
   if (centered) classNames.push(styles.Centered)
   if (allCaps) classNames.push(styles.AllCaps)
 
@@ -156,11 +152,6 @@ Type.propTypes = {
   weight: PropTypes.oneOf(Object.values(Type.WEIGHTS)),
 }
 
-Type.defaultProps = {
-  color: Type.COLORS.GRAY_PRIMARY,
-}
-
-// function TypeFoundry(privateProps) {
 export const TypeFoundry = (privateProps) => {
   function throwIllegalProp(prop) {
     const isIllegal = !Object.keys(Type.PUBLIC_PROPS).includes(prop)
