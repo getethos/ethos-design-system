@@ -1,0 +1,59 @@
+HelpTips
+
+Above
+```jsx
+import styles from './example.module.scss'
+
+;<div className={styles.example}>
+  <HelpTips
+    labelCopy="Aria label"
+    helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+    data-tid="the-help-tip"
+    position="above"
+  />
+</div>
+```
+
+Below—`min-width` defaults to 500, but you can override that.
+```jsx
+import styles from './example.module.scss'
+
+;<div className={styles.example}>
+  <HelpTips
+    min-width={800}
+    className="parent"
+    labelCopy="aria label"
+    helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+    data-tid="the-help-tip"
+    position="below"
+  />
+</div>
+```
+
+Left
+```jsx
+import styles from './example.module.scss'
+
+;<div className={styles.example}>
+  <HelpTips
+    labelCopy="aria label"
+    helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+    data-tid="the-help-tip"
+    position="left"
+  />
+</div>
+```
+
+Right
+```jsx
+import styles from './example.module.scss'
+
+;<div className={styles.example}>
+<HelpTips
+  labelCopy="aria label"
+  helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+  data-tid="the-help-tip"
+  position="right"
+/>
+</div>
+```

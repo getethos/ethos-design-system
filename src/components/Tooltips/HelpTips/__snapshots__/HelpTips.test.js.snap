@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelpTips default rendering 1`] = `
+<div
+  aria-label="Aria label copy"
+  data-tid="le-help-tip"
+>
+  <span
+    className="info"
+    data-pos="above"
+  >
+    i
+  </span>
+  <span
+    className="tip"
+    style={
+      Object {
+        "minWidth": 500,
+      }
+    }
+  >
+    this is the tip message
+  </span>
+</div>
+`;
