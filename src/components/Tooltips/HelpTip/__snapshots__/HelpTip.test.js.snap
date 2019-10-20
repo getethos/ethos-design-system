@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HelpTips default rendering 1`] = `
+exports[`HelpTip default rendering 1`] = `
 <div
   aria-label="Aria label copy"
   data-tid="le-help-tip"
