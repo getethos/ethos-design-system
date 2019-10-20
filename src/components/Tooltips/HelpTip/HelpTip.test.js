@@ -1,14 +1,14 @@
 import React from 'react'
-import { HelpTips } from './HelpTips'
+import { HelpTip } from './HelpTip'
 import renderer from 'react-test-renderer'
 
 const formChangeHandlerStub = jest.fn()
 
-describe('HelpTips', () => {
+describe('HelpTip', () => {
   it('default rendering', () => {
     const tree = renderer
       .create(
-        <HelpTips
+        <HelpTip
           labelCopy="Aria label copy"
           helpCopy="this is the tip message"
           data-tid="le-help-tip"

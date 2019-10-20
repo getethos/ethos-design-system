@@ -1,11 +1,11 @@
-HelpTips
+HelpTip
 
 Above
+
 ```jsx
 import styles from './example.module.scss'
-
 ;<div className={styles.example}>
-  <HelpTips
+  <HelpTip
     labelCopy="Aria label"
     helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
     data-tid="the-help-tip"
@@ -15,11 +15,11 @@ import styles from './example.module.scss'
 ```
 
 Below—`min-width` defaults to 500, but you can override that.
+
 ```jsx
 import styles from './example.module.scss'
-
 ;<div className={styles.example}>
-  <HelpTips
+  <HelpTip
     min-width={800}
     className="parent"
     labelCopy="aria label"
@@ -31,11 +31,11 @@ import styles from './example.module.scss'
 ```
 
 Left
+
 ```jsx
 import styles from './example.module.scss'
-
 ;<div className={styles.example}>
-  <HelpTips
+  <HelpTip
     labelCopy="aria label"
     helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
     data-tid="the-help-tip"
@@ -45,15 +45,15 @@ import styles from './example.module.scss'
 ```
 
 Right
+
 ```jsx
 import styles from './example.module.scss'
-
 ;<div className={styles.example}>
-<HelpTips
-  labelCopy="aria label"
-  helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
-  data-tid="the-help-tip"
-  position="right"
-/>
+  <HelpTip
+    labelCopy="aria label"
+    helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+    data-tid="the-help-tip"
+    position="right"
+  />
 </div>
 ```
