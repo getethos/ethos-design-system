@@ -11,6 +11,9 @@ const formChangeHandlerStub = () => {}
   placeholder='number input'
   formChangeHandler={formChangeHandlerStub}
   validator={(n) => {
+    if (n > Number.MAX_SAFE_INTEGER) {
+      return 'Number too large—you have exceeded JavaScript\s powers!!'
+    }
     return n % 2 === 0 ? '' : 'Must be an even number'
   }}
 />
