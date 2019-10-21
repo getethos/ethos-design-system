@@ -1,0 +1,2 @@
+# These components use a Stage 3 proposal (class statics):
+src/components/UniversalNavbar/UniversalNavbar.js
