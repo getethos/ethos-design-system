@@ -52,7 +52,7 @@ const PrivateEmailInput = (props) => {
         formTouched={formTouched}
         setFieldTouched={restProps.setFieldTouched}
       />
-      {getError(currentError, formTouched)}
+      {getError(currentError, touched)}
     </>
   )
 }
