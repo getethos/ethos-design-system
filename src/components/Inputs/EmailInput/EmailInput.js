@@ -1,39 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { TextInput } from '../TextInput'
-import styles from '../TextInput/TextInput.module.scss'
-import errorStyles from '../Errors.module.scss'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import EmailFormatValidator from '../../../validators/EmailValidator'
 
-const PrivateEmailInput = (props) => {
+export const EmailInput = (props) => {
   const {
     name,
     optional,
     allCaps,
     labelCopy,
-    validator,
-    formChangeHandler,
     initialValue,
-    currentValue,
-    currentError,
-    formTouched,
     placeholder,
+    value,
+    disabled,
     ...restProps
   } = props
-
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
-  const val = currentValue || initialValue
-  const [touched, setTouched] = useState(val ? true : false)
-  const [value, setValue] = useState(val || '')
-
-  const getClasses = () => {
-    return !!getError()
-      ? `BirthdateInput ${styles.TextInput} ${errorStyles.Error}`
-      : `BirthdateInput ${styles.TextInput}`
-  }
 
   return (
     <>
@@ -44,20 +25,16 @@ const PrivateEmailInput = (props) => {
         initialValue={value}
         optional={optional}
         type="email"
+        disabled={disabled}
         data-tid={restProps['data-tid']}
         placeholder={placeholder}
-        currentValue={currentValue}
         validator={EmailFormatValidator}
-        currentError={currentError}
-        formTouched={formTouched}
-        setFieldTouched={restProps.setFieldTouched}
       />
-      {getError(currentError, touched)}
     </>
   )
 }
 
-PrivateEmailInput.PUBLIC_PROPS = {
+EmailInput.propTypes = {
   optional: PropTypes.bool,
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
@@ -68,22 +45,8 @@ PrivateEmailInput.PUBLIC_PROPS = {
   initialValue: PropTypes.string,
 }
 
-PrivateEmailInput.propTypes = {
-  ...PrivateEmailInput.PUBLIC_PROPS,
-}
-
-PrivateEmailInput.defaultProps = {
+EmailInput.defaultProps = {
   labelCopy: 'Email',
 }
-
-const EmailInputFactory = (privateProps) => {
-  const PublicEmailInputComponent = (downstreamProps) => {
-    return <PrivateEmailInput {...downstreamProps} {...privateProps} />
-  }
-
-  return PublicEmailInputComponent
-}
-
-export const EmailInput = EmailInputFactory()
 
 export const EmailInputValidators = EmailFormatValidator
