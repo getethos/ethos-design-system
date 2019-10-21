@@ -146,7 +146,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   setTouched: PropTypes.func,
-  getTouched: PropTypes.func,
+  getTouched: PropTypes.bool,
 }
 
 TextMaskedInput.propTypes = {
