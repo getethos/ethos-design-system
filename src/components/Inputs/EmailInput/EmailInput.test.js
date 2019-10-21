@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 
 // TODO: make a helper
 // https://github.com/text-mask/text-mask/issues/427
-jest.mock('react-text-mask', () => (props) => <input type="text" {...props} />)
+jest.mock('react-text-mask', () => (props) => <input type="email" {...props} />)
 
 const formChangeHandlerStub = jest.fn()
 
@@ -13,16 +13,12 @@ describe('EmailInput', () => {
     const tree = renderer
       .create(
         <EmailInput
-          initialValue="123"
-          name="the-number-input-example"
+          name="the-email-input-example"
           allCaps={true}
-          labelCopy="Enter a number (must be even to validate)"
-          data-tid="the-number-input"
-          placeholder="number input"
+          labelCopy="Your email"
+          data-tid="the-email-input"
+          placeholder="example@ethoslife.com"
           formChangeHandler={formChangeHandlerStub}
-          validator={(n) => {
-            return n % 2 === 0 ? '' : 'Must be an even number'
-          }}
         />
       )
       .toJSON()
