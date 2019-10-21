@@ -25,9 +25,7 @@
   },
   "jest": {
     "verbose": true,
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/"
-    ],
+    "testPathIgnorePatterns": ["<rootDir>/node_modules/"],
     "moduleNameMapper": {
       ".+\\.(css|scss)$": "identity-obj-proxy",
       ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
@@ -67,5 +65,8 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
     "webpack-dev-server": "^3.8.0"
+  },
+  "engines": {
+    "node": "^10.16.3"
   }
 }
