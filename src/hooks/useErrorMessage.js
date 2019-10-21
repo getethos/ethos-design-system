@@ -11,7 +11,6 @@ const useErrorMessage = (validator) => {
   }
 
   const getError = (currentError, fieldTouched) => {
-    console.log('getError--currentError: ', currentError, ' fieldTouched: ', fieldTouched, 'displayError: ', displayError)
     if (displayError) {
       return getFormattedError(displayError)
     } else {
