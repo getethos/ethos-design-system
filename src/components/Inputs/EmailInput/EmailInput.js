@@ -20,7 +20,7 @@ export const EmailInput = (props) => {
   return (
     <>
       <TextInput
-        name="email-input"
+        name={name}
         labelCopy={labelCopy}
         allCaps={allCaps}
         initialValue={value}
