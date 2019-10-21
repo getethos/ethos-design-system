@@ -20,7 +20,7 @@ function Space({ height, width, flexGrow, ...rest }) {
   if (validWidth) style.width = validWidth
   if (validHeight) style.height = validHeight
 
-  return <div className="Spacer" style={style} />
+  return <div className="Spacer" style={style} aria-hidden />
 }
 
 Space.HEIGHTS = {

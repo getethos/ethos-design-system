@@ -9,6 +9,7 @@ Array [
     What is your birthdate?
   </label>,
   <div
+    aria-hidden={true}
     className="Spacer"
     style={
       Object {
