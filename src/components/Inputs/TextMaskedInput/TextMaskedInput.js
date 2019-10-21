@@ -18,6 +18,8 @@ export const TextMaskedInput = (props) => {
     labelCopy,
     allCaps,
     validator,
+    getTouched,
+    setTouched,
     formChangeHandler,
     initialValue,
     currentValue,
@@ -31,10 +33,10 @@ export const TextMaskedInput = (props) => {
   const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
-  const [touched, setTouched] = useState(val ? true : false)
+  const [internalTouched, internalSetTouched] = useState( false)
+  const whichTouched = getTouched ? getTouched : internalTouched
+  const whichSetTouched = setTouched ? setTouched : internalSetTouched
   const [internalDoValidation] = useInputValidation({validate, setError, formChangeHandler})
-
-  // Prioritizes props.doValidation but falls back to our internal implementation
   const whichDoValidation = doValidation ? doValidation : internalDoValidation
 
   const onChange = (ev) => {
@@ -45,11 +47,11 @@ export const TextMaskedInput = (props) => {
     // Used to remove mask characters e.g. abc___ becomes just abc
     const cleansed = cleanse(restrictedVal)
 
-    whichDoValidation(cleansed, touched)
+    whichDoValidation(cleansed, whichTouched)
   }
 
   const setAllTouched = () => {
-    setTouched(true)
+    whichSetTouched(true)
     if (!!setFieldTouched) {
       setFieldTouched(true)
     }
@@ -73,7 +75,7 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    return !!getError() ?
+    return !!getError(currentError, whichTouched) ?
       `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}` :
       `TextMaskedInput ${styles.TextInput}`
   }
@@ -122,7 +124,7 @@ export const TextMaskedInput = (props) => {
     <>
       <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       {getMaskedInputByType(mask)}
-      {!doValidation && getError(currentError, formTouched)} 
+      {!doValidation && getError(currentError, whichTouched)} 
     </>
   )
 }
@@ -143,6 +145,8 @@ TextMaskedInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  setTouched: PropTypes.func,
+  getTouched: PropTypes.func,
 }
 
 TextMaskedInput.propTypes = {

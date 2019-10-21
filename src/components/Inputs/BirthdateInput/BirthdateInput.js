@@ -37,7 +37,7 @@ const PrivateBirthdateInput = (props) => {
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
   const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
-  const [touched, setTouched] = useState(val ? true : false)
+  const [touched, setTouched] = useState(false)
   const [value, setValue] = useState(val || '')
 
   const callErrorHandlers = (value, handlerFn) => {
@@ -96,8 +96,10 @@ const PrivateBirthdateInput = (props) => {
         currentError={currentError}
         formTouched={formTouched}
         setFieldTouched={restProps.setFieldTouched}
+        getTouched={touched}
+        setTouched={setTouched}
       />
-      {getError(currentError, formTouched)}
+      {getError(currentError, touched)}
     </>
   )
 }

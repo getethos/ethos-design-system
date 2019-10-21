@@ -10,14 +10,15 @@ const useErrorMessage = (validator) => {
     setDisplayError(msg)
   }
 
-  const getError = (currentError, formTouched) => {
+  const getError = (currentError, fieldTouched) => {
+    console.log('getError--currentError: ', currentError, ' fieldTouched: ', fieldTouched, 'displayError: ', displayError)
     if (displayError) {
       return getFormattedError(displayError)
     } else {
       // If we don't have a display error we still have to account for the
       // the form state's currentError. For example, the user toggles a field
       // off then back on...this will cause a rerender with no display error
-      if (currentError && formTouched && currentError !== INIT_INVALID) {
+      if (currentError && fieldTouched && currentError !== INIT_INVALID) {
         return getFormattedError(currentError)
       }
     }
