@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { TextInput } from '../TextInput'
 import EmailFormatValidator from '../../../validators/EmailValidator'
@@ -11,10 +11,11 @@ export const EmailInput = (props) => {
     labelCopy,
     initialValue,
     placeholder,
-    value,
     disabled,
     ...restProps
   } = props
+
+  const [value, setValue] = useState(initialValue || '')
 
   return (
     <>
@@ -25,7 +26,6 @@ export const EmailInput = (props) => {
         initialValue={value}
         optional={optional}
         type="email"
-        disabled={disabled}
         data-tid={restProps['data-tid']}
         placeholder={placeholder}
         validator={EmailFormatValidator}
@@ -48,5 +48,3 @@ EmailInput.propTypes = {
 EmailInput.defaultProps = {
   labelCopy: 'Email',
 }
-
-export const EmailInputValidators = EmailFormatValidator
