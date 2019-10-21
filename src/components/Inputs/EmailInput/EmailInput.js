@@ -29,6 +29,7 @@ export const EmailInput = (props) => {
         data-tid={restProps['data-tid']}
         placeholder={placeholder}
         validator={EmailFormatValidator}
+        {...restProps}
       />
     </>
   )

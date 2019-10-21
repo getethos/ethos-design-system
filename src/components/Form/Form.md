@@ -1,7 +1,8 @@
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput } from '../index'
+import EmailFormatValidator from '../../validators/EmailValidator'
+import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, EmailInput } from '../index'
 let count = 0
 
 const validateCustom = (x) => {
@@ -32,6 +33,18 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         validationSuccess: [analyticsCustomEvent],
         name: "this-zip-input-example",
         labelCopy: "What is your zip code?",
+      },
+      email: {
+        component: (props, options) => {
+          return (
+            <EmailInput {...props} placeholder="example@ethoslife.com"/>
+          )
+        },
+        validators: [EmailFormatValidator],
+        validationSuccess: [analyticsCustomEvent],
+        name: "the-email-input-example",
+        labelCopy: "Your email",
+        tid: 'the-email-tid',
       },
       evenNumText: {
         component: (props, options) => {
@@ -99,6 +112,10 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         <Spacer.H16 />
 
         {field('shorterEvenNumTextInput')}
+
+        <Spacer.H16 />
+
+        {field('email')}
 
         <Spacer.H16 />
 

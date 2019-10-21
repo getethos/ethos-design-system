@@ -1,5 +1,5 @@
 ```jsx
-import { EmailFormatValidator } from '../../../validators/EmailValidator'
+import EmailFormatValidator from '../../../validators/EmailValidator'
 import { EmailInput } from './index.js'
 const formChangeHandlerStub = () => {}
 ;<EmailInput
@@ -8,6 +8,7 @@ const formChangeHandlerStub = () => {}
   labelCopy="Your email"
   data-tid="the-email-input"
   placeholder="example@ethoslife.com"
+  validator={EmailFormatValidator}
   formChangeHandler={formChangeHandlerStub}
 />
 ```
@@ -15,7 +16,7 @@ const formChangeHandlerStub = () => {}
 In the case where someone is returning to a form and you already have their email (i.e. editing a profile page), you can set `initialValue` which will prepopulate the form.
 
 ```jsx
-import { EmailFormatValidator } from '../../../validators/EmailValidator'
+import EmailFormatValidator from '../../../validators/EmailValidator'
 import { EmailInput } from './index.js'
 const formChangeHandlerStub = () => {}
 ;<EmailInput
@@ -25,6 +26,7 @@ const formChangeHandlerStub = () => {}
   initialValue="rob@ethoslife.com"
   data-tid="the-email-input"
   placeholder="example@ethoslife.com"
+  validator={EmailFormatValidator}
   formChangeHandler={formChangeHandlerStub}
 />
 ```
