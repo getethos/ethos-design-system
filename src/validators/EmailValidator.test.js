@@ -10,9 +10,13 @@ describe('EmailFormatValidator', () => {
     expect(emailFormatValidator('@ethoslife.com').length === 0).toBeFalsy()
     expect(emailFormatValidator('rob@spam@ethos.com').length === 0).toBeFalsy()
     expect(emailFormatValidator('rob@ethos,com').length === 0).toBeFalsy()
+    expect(emailFormatValidator('rob@ethos...com').length === 0).toBeFalsy()
 
     // Valid Emails
     expect(emailFormatValidator('r@ethoslife.com').length === 0).toBeTruthy()
+    expect(
+      emailFormatValidator('rob@stage.ethos.com').length === 0
+    ).toBeTruthy()
     expect(emailFormatValidator('rob@ethoslife.com').length === 0).toBeTruthy()
     expect(emailFormatValidator('rob+spam@ethos.com').length === 0).toBeTruthy()
     expect(emailFormatValidator('rob.spam@ethos.com').length === 0).toBeTruthy()
