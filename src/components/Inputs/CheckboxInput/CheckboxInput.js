@@ -43,6 +43,8 @@ export const CheckboxInput = ({
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
   const onChange = (ev) => {
+    // It feels like a checkbox isn't something you blur off of, so I'm electing to 
+    // call a checkbox touched when you check it
     if (!touched) setTouched(true)
     const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
     doValidation(val, touched)
@@ -58,7 +60,7 @@ export const CheckboxInput = ({
   }
 
   const getClasses = () => {
-    return !!getError() ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
+    return !!getError(currentError, touched) ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
   }
 
   const id = name

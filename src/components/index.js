@@ -18,7 +18,8 @@ export {
 } from './Inputs/BirthdateInput/BirthdateInput'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ButtonSelectGroup } from './Inputs/ButtonSelectGroup/ButtonSelectGroup'
-export { OPTION_BUTTON_STYLES } from './Inputs//ButtonSelectGroup/OptionButton'
+export { NumberInput } from './Inputs/NumberInput/NumberInput'
+export { OPTION_BUTTON_STYLES } from './Inputs/ButtonSelectGroup/OptionButton'
 
 export {
   Body,
