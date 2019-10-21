@@ -46,7 +46,7 @@ export const ZipInput = (props) => {
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
 
   const getClasses = () => {
-    return !!getError() ?
+    return !!getError(currentError, touched) ?
       `ZipInput ${styles.TextInput} ${errorStyles.Error}` :
       `ZipInput ${styles.TextInput}`
   }

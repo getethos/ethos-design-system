@@ -70,7 +70,7 @@ const PrivateBirthdateInput = (props) => {
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
 
   const getClasses = () => {
-    return !!getError() ?
+    return !!getError(currentError, touched) ?
       `BirthdateInput ${styles.TextInput} ${errorStyles.Error}` :
       `BirthdateInput ${styles.TextInput}`
   }

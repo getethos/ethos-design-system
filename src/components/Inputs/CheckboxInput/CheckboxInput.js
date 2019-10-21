@@ -60,7 +60,7 @@ export const CheckboxInput = ({
   }
 
   const getClasses = () => {
-    return !!getError() ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
+    return !!getError(currentError, touched) ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
   }
 
   const id = name

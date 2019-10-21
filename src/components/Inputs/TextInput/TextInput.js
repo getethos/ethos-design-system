@@ -55,7 +55,7 @@ function PrivateTextInput({
 
   const [value, setValue] = useState(currentValue || initialValue || '')
 
-  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [touched, setTouched] = useState(false)
 
   const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
 
@@ -90,7 +90,7 @@ function PrivateTextInput({
   }
 
   const getClasses = () => {
-    return !!getError() ? `${styles.TextInput} ${errorStyles.Error}` : `${styles.TextInput}`
+    return !!getError(currentError, touched) ? `${styles.TextInput} ${errorStyles.Error}` : `${styles.TextInput}`
   }
 
   return (
@@ -108,7 +108,7 @@ function PrivateTextInput({
         value={value}
         data-tid={rest['data-tid']}
       />
-      {getError(currentError, formTouched)}
+      {getError(currentError, touched)}
     </>
   )
 }
