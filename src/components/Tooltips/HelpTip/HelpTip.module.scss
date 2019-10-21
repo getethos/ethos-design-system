@@ -1,0 +1,61 @@
+/* TODO ONCE Css modules land */
+/* @import "../Colors.scss"; */
+/* @import '../Spacer/Spacer.scss'; */
+
+[aria-label] {
+  position: relative;
+  top: -2px;
+  cursor: pointer;
+  display: inline-flex;
+  margin-left: 5px;
+}
+
+.info {
+  top: -2px;
+  padding: var(--Space-4) 0px 0px;
+  background: var(--GraySecondary--translucent);
+  color: white;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 400;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.tip {
+  position: absolute;
+  top: -5px;
+  left: 0px;
+  pointer-events: none;
+  background-color: white;
+  border: 1px solid rgb(230, 230, 230);
+  padding: 5px;
+  will-change: transform;
+  transform: translate3d(0px, -44px, 0px);
+  opacity: 0;
+}
+
+[aria-label]:hover [data-pos="above"] + span {
+  opacity: 1;
+  /* TODO: Maybe we make all these smarter w/calc or something?? */
+  transform: translate(-50%, -100%);
+}
+
+[aria-label]:hover [data-pos="below"] + span {
+  opacity: 1;
+  transform: translate(-50%, 65%);
+}
+
+[aria-label]:hover [data-pos="left"] + span {
+  opacity: 1;
+  transform: translate(-101%, -25%);
+}
+
+[aria-label]:hover [data-pos="right"] + span {
+  opacity: 1;
+  transform: translate(5%, -25%);
+}

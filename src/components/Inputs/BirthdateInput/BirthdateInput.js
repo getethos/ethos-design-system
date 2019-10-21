@@ -8,7 +8,7 @@ import errorStyles from '../Errors.module.scss'
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
-import * as Validators from '../../../validators/BirthdateInputValidator'
+import * as Validators from '../../../validators/BirthdateInputValidator.js'
 import { cleanse } from '../../../validators/NumberValidator.js'
 
 const {

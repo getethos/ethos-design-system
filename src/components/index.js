@@ -20,6 +20,7 @@ export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ButtonSelectGroup } from './Inputs/ButtonSelectGroup/ButtonSelectGroup'
 export { NumberInput } from './Inputs/NumberInput/NumberInput'
 export { OPTION_BUTTON_STYLES } from './Inputs/ButtonSelectGroup/OptionButton'
+export { HelpTip } from './Tooltips/HelpTip/HelpTip'
 
 export {
   Body,
