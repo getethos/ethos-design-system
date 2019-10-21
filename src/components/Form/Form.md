@@ -1,7 +1,7 @@
 ```jsx
 import validateTruthy from '../../validators/validateTruthy'
 import validateMinMaxFactory from '../../validators/validateMinMax'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput } from '../index'
+import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, HelpTip } from '../index'
 let count = 0
 
 const validateCustom = (x) => {

@@ -4,7 +4,10 @@
 
 [aria-label] {
   position: relative;
+  top: -2px;
   cursor: pointer;
+  display: inline-flex;
+  margin-left: 5px;
 }
 
 .info {

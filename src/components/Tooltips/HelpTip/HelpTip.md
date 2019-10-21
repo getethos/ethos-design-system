@@ -44,6 +44,22 @@ import styles from './example.module.scss'
 </div>
 ```
 
+alignLeftTo—in this example we've aligned to `body` so look at the __top left of viewport__
+
+```jsx
+import styles from './example.module.scss'
+
+;<div className={styles.example}>
+  <HelpTip
+    labelCopy="aria label"
+    helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+    data-tid="the-help-tip"
+    position="left"
+    alignLeftTo="body"
+  />
+</div>
+```
+
 Right
 
 ```jsx

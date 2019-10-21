@@ -46,22 +46,34 @@ helps—true results in a checked checkbox, false results in unchecked._
 
 ```jsx
 import validateTruthy from '../../../validators/validateTruthy'
+import { HelpTip } from '../../index'
+
 const formChangeHandlerStub = () => {}
 
-<CheckboxInput
-  initialValue={true}
-  name="le-check3"
-  data-tid="le-tid-checked"
-  formChangeHandler={formChangeHandlerStub}
-  validator={(x) => {
-    const truthyErr = validateTruthy(x)
-    if (!!truthyErr) return truthyErr
-    return ''
-  }}
->
-  I agree to the{' '}
-  <a href="/" target="_blank">
-    Agreement
-  </a>
-</CheckboxInput>
+<>
+  <CheckboxInput
+    initialValue={true}
+    name="le-check3"
+    data-tid="le-tid-checked"
+    formChangeHandler={formChangeHandlerStub}
+    validator={(x) => {
+      const truthyErr = validateTruthy(x)
+      if (!!truthyErr) return truthyErr
+      return ''
+    }}
+  >
+    I agree to the{' '}
+    <a href="/" target="_blank">
+      Agreement
+    </a>
+    <HelpTip
+      labelCopy="Zipcode helptip"
+      helpCopy="Including skin cancer (including basal cell and squamous cell), melanoma, lymphoma, leukemia, tumor, polyp, any other abnormal growth, any other type of cancer"
+      data-tid="zip-help-tip"
+      position="above"
+      alignLeftTo="[data-tid='le-tid-checked']"
+    />
+  </CheckboxInput>
+</>
+
 ```
