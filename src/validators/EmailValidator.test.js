@@ -5,12 +5,14 @@ describe('EmailFormatValidator', () => {
     // Invalid Emails
     expect(emailFormatValidator('test_string').length === 0).toBeFalsy()
     expect(emailFormatValidator('james@ethoslife.').length === 0).toBeFalsy()
+    expect(emailFormatValidator('james@ethoslife.c').length === 0).toBeFalsy()
     expect(emailFormatValidator('ethoslife.com').length === 0).toBeFalsy()
     expect(emailFormatValidator('@ethoslife.com').length === 0).toBeFalsy()
     expect(emailFormatValidator('rob@spam@ethos.com').length === 0).toBeFalsy()
     expect(emailFormatValidator('rob@ethos,com').length === 0).toBeFalsy()
 
     // Valid Emails
+    expect(emailFormatValidator('r@ethoslife.com').length === 0).toBeTruthy()
     expect(emailFormatValidator('rob@ethoslife.com').length === 0).toBeTruthy()
     expect(emailFormatValidator('rob+spam@ethos.com').length === 0).toBeTruthy()
     expect(emailFormatValidator('rob.spam@ethos.com').length === 0).toBeTruthy()
