@@ -1,7 +1,11 @@
 // Button.Stateful is no longer available w/CSS Modules but
 // it's always such a button if you look at component JSX
-.buttonGroup > button {
+.buttonGroup:not(.column) > button {
   margin-right: var(--Space-8);
+}
+
+.buttonGroup.column > button {
+  margin-bottom: var(--Space-8);
 }
 
 // fullWidth is default.
@@ -12,6 +16,9 @@
   width: 100%;
   & > button {
     width: 100%;
+  }
+  &.column {
+    flex-direction: column;
   }
 }
 

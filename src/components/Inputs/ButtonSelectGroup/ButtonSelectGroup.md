@@ -16,10 +16,10 @@
 </ButtonSelectGroup>
 ```
 
-### Rendering with a `initialValue` selected
+### Rendering with a `initialValue` selected, also column prop
 
 ```jsx
-<ButtonSelectGroup initialValue={false} labelCopy="Yes no">
+<ButtonSelectGroup initialValue={false} column labelCopy="Yes no">
   <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
 </ButtonSelectGroup>

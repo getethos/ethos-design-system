@@ -44,6 +44,7 @@ export const ButtonSelectGroup = ({
   currentError,
   formTouched,
   onSelect,
+  column,
   formChangeHandler,
   name = `button-select-group-${uuidv4()}`,
   allCaps = true,
@@ -120,6 +121,7 @@ export const ButtonSelectGroup = ({
 
   const optionsContainerClassNames = [styles.buttonGroup]
   if (fullWidth) optionsContainerClassNames.push(styles.fullWidth)
+  if (column) optionsContainerClassNames.push(styles.column)
 
   // Use id to connect label and this pseudo-input because of aria-labelledby
   return (
@@ -158,6 +160,8 @@ ButtonSelectGroup.propTypes = {
   formChangeHandler: PropTypes.func,
   /** Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`. */
   onSelect: PropTypes.func,
+  /** When set to `true`, the group will display as flex column */
+  column: PropTypes.bool,
   /** Optional data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string,
   validator: PropTypes.func,
