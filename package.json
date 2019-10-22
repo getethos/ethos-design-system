@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.7",
+  "version": "1.1.7a",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "license": "UNLICENSED",
@@ -25,7 +25,9 @@
   },
   "jest": {
     "verbose": true,
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
     "moduleNameMapper": {
       ".+\\.(css|scss)$": "identity-obj-proxy",
       ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
