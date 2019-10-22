@@ -11,7 +11,7 @@
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
@@ -19,12 +19,9 @@
 ### Rendering with a `initialValue` selected
 
 ```jsx
-<ButtonSelectGroup initialValue="great" labelCopy="Health">
-  <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
-  <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
-  <ButtonSelectGroup.Option value="excellent">
-    Exellent
-  </ButtonSelectGroup.Option>
+<ButtonSelectGroup initialValue={false} labelCopy="Yes no">
+  <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
 
@@ -39,7 +36,7 @@
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
@@ -60,7 +57,7 @@
   </ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
@@ -118,7 +115,7 @@ import { OPTION_BUTTON_STYLES } from './index.js'
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
