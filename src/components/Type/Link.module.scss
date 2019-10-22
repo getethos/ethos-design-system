@@ -6,25 +6,13 @@
   &:hover {
     text-decoration: none;
   }
+}
 
-  // Style variants
+// Style variants
 
-  &.Standard {
-  }
+&.Standard {
+}
 
-  &.Inherit {
-    color: inherit;
-  }
-
-  &.Navlink {
-    color: var(--GrayPrimary--translucent);
-    text-decoration: none;
-    padding: var(--Space-4) 0;
-    border-bottom: 2px solid transparent;
-
-    &:active,
-    &:hover {
-      border-bottom-color: var(--GrayPrimary--translucent);
-    }
-  }
+&.Inherit {
+  color: inherit;
 }

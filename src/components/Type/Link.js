@@ -8,7 +8,6 @@ export const Link = {
   STYLE_VARIANTS: {
     INHERIT: 'Inherit',
     STANDARD: 'Standard',
-    NAVLINK: 'Navlink',
   },
   styles,
 }
