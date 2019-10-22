@@ -54,11 +54,12 @@ export const ButtonSelectGroup = ({
   ...rest
 }) => {
   let initialSelected
-  if (currentValue || typeof currentValue === "boolean") {
+  if (currentValue || typeof currentValue === 'boolean') {
     initialSelected = currentValue
-  } else if (initialValue || typeof initialValue === "boolean") {
+  } else if (initialValue || typeof initialValue === 'boolean') {
     initialSelected = initialValue
   }
+
   const [selectedValue, setSelectedValue] = useState(initialSelected)
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks

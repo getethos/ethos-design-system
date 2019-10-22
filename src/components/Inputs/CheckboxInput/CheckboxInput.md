@@ -1,22 +1,18 @@
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
-import validateTruthy from '../../../validators/validateTruthy'
+import validateExists from '../../../validators/validateExists'
 const formChangeHandlerStub = () => {}
-<CheckboxInput
+;<CheckboxInput
   name="le-check-unchecked"
   data-tid="le-tid-unchecked"
   formChangeHandler={formChangeHandlerStub}
-  validator={(x) => {
-    const truthyErr = validateTruthy(x)
-    if (!!truthyErr) return truthyErr
-    return ''
-  }}
+  validator={validateExists}
 >
   I agree to the{' '}
   <a href="/" target="_blank">
     Agreement
-  </a>
-  {' '}, and the{' '}
+  </a>{' '}
+  , and the{' '}
   <a href="/" target="_blank">
     Other Agreement
   </a>
@@ -24,6 +20,7 @@ const formChangeHandlerStub = () => {}
 ```
 
 Set to checked and disabled immediately:
+
 ```jsx
 <CheckboxInput
   initialValue={true}
@@ -38,26 +35,21 @@ Set to checked and disabled immediately:
 </CheckboxInput>
 ```
 
-
 This one sets an `intialValue` which results in the field being considered as
 already `touched`. This means you do not have to `blur` for field hint error
 messages to appear. _Note, you can think of initialValue as "checked" if that
 helps—true results in a checked checkbox, false results in unchecked._
 
 ```jsx
-import validateTruthy from '../../../validators/validateTruthy'
+import validateExists from '../../../validators/validateExists'
 const formChangeHandlerStub = () => {}
 
-<CheckboxInput
+;<CheckboxInput
   initialValue={true}
   name="le-check3"
   data-tid="le-tid-checked"
   formChangeHandler={formChangeHandlerStub}
-  validator={(x) => {
-    const truthyErr = validateTruthy(x)
-    if (!!truthyErr) return truthyErr
-    return ''
-  }}
+  validator={validateExists}
 >
   I agree to the{' '}
   <a href="/" target="_blank">
