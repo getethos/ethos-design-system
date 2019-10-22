@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailInput default rendering 1`] = `
+Array [
+  <label
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    htmlFor="the-email-input-example"
+  >
+    Your email
+  </label>,
+  <div
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />,
+  <input
+    className="TextInput"
+    data-tid="the-email-input"
+    name="the-email-input-example"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPaste={[Function]}
+    placeholder="example@ethoslife.com"
+    type="email"
+    value=""
+  />,
+  "",
+]
+`;
