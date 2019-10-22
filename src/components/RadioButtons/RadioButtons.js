@@ -4,6 +4,7 @@ import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
 import { Body } from '../Type/Body.js'
+import { COLORS } from '../Colors.js'
 
 /* @getethos/design-system/RadioButtons.js
 
@@ -73,7 +74,7 @@ function RadioButton({
         />
         <aside />
       </span>
-      <Body.Regular400>{label}</Body.Regular400>
+      <Body.Regular400 color={COLORS.GRAY_PRIMARY}>{label}</Body.Regular400>
     </label>
   )
 }
@@ -114,7 +115,7 @@ RadioButton.propTypes = {
  * @param {String}     name      The name of the field, e.g. 'faveColor'
  * @param {Array}      options   Props passed to the individual radios
  * @param {String}     value     The currently selected option.value
- * @param {Boolean     disabled  Whether this radio group is disabled
+ * @param {Boolean}    disabled  Whether this radio group is disabled
  * @param {Boolean}    required  Whether this radio group is required
  * @param {...Object}  rest      Mostly redux-form Field input/meta props
  */
