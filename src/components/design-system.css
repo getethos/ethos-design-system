@@ -1,4 +1,4 @@
-/* @getethos/design-system v1.0.0                                             */
+/* @getethos/design-system v1.1                                               */
 /* @getethos/design-system/Normalize.scss
    ========================================================================== */
 html {
@@ -179,55 +179,6 @@ figure {
   --ContainerPadding--Tablet: var(--Space-48);
   --ContainerPadding--Laptop: var(--Space-72);
   --ContainerPadding--Desktop: var(--Space-80);
-}
-
-.RadioButton {
-  display: flex;
-}
-.RadioButton span {
-  height: var(--Space-24);
-  width: var(--Space-24);
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  margin-right: var(--Space-16);
-  padding: 3px;
-}
-.RadioButton input {
-  visibility: hidden;
-  position: absolute;
-}
-.RadioButton aside {
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: var(--transition-default);
-  transition-property: background-color, border-width, border-color;
-}
-.RadioButton input:hover ~ aside {
-  background-color: var(--GrayLightHover--translucent);
-}
-.RadioButton input:not(:checked) ~ aside {
-  border: 1px solid var(--GrayStrokeAndDisabled--translucent);
-}
-.RadioButton input:checked ~ aside {
-  border: 5px solid var(--BrandForest);
-  background-color: var(--White);
-}
-.RadioButton > div:last-child {
-  position: relative;
-  top: 0.15em;
-}
-
-.RadioButtonGroup {
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-.RadioButtonGroup > :not(:last-child) {
-  margin-bottom: var(--Space-16);
 }
 
 /* @getethos/design-system/Spacer.scss

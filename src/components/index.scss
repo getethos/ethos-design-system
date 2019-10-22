@@ -1,4 +1,8 @@
-/* @getethos/design-system v1.0.0                                             */
+/* @getethos/design-system v1.1                                               */
+
+// This manifest of global stylesheets for the main CSS bundle should shrink
+// over time, given we have deprecated global CSS classes. We should try to
+// lose everything below but normalization and variables.
 
 @import './Normalize';
 
@@ -8,7 +12,6 @@
 @import './Animation';
 @import './Images/Images';
 @import './Layout/Layout';
-@import './RadioButtons/RadioButtons';
 @import './Spacer/Spacer';
 @import './Type/Type';
 
