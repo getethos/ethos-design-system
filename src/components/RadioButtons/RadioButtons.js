@@ -5,6 +5,9 @@ import useInvalid from '../../hooks/useInvalid.js'
 
 import { Body } from '../Type/Body.js'
 import { COLORS } from '../Colors.js'
+import styles from '../RadioButtons.module.scss'
+
+// Note: RadioButtonGroup does not currently work (may have broken circa v0.9).
 
 /* @getethos/design-system/RadioButtons.js
 
@@ -12,7 +15,7 @@ import { COLORS } from '../Colors.js'
 
    - `RadioButton` is an HTML radio button with a styled façade and label.
    - `RadioButtonGroup` is a stack of the above, mostly agnostic of any library.
-   - `RadioButtons.scss` (not imported here) styles these components.
+   - `RadioButtons.module.scss` styles these components.
    ========================================================================== */
 
 /**
@@ -60,7 +63,7 @@ function RadioButton({
   includesInvalid(rest)
 
   return (
-    <label className={RadioButton.CLASS_NAME}>
+    <label className={styles.RadioButton}>
       <span>
         <input
           type="radio"
@@ -78,8 +81,6 @@ function RadioButton({
     </label>
   )
 }
-
-RadioButton.CLASS_NAME = 'RadioButton'
 
 RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
@@ -139,7 +140,7 @@ export function RadioButtonGroup({
   })
 
   return (
-    <fieldset className={RadioButtonGroup.CLASS_NAME}>
+    <fieldset className={styles.RadioButtonGroup}>
       {finalOptions.map((option) => (
         <RadioButton
           {...option}
@@ -152,8 +153,6 @@ export function RadioButtonGroup({
     </fieldset>
   )
 }
-
-RadioButtonGroup.CLASS_NAME = 'RadioButtonGroup'
 
 RadioButtonGroup.PUBLIC_PROPS = {
   name: PropTypes.string,
