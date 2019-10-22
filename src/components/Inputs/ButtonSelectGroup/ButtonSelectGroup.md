@@ -16,10 +16,28 @@
 </ButtonSelectGroup>
 ```
 
-### Rendering with a `initialValue` selected, also column prop
+### Rendering with a `initialValue` selected, and column prop
 
 ```jsx
 <ButtonSelectGroup initialValue={false} column labelCopy="Yes no">
+  <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
+</ButtonSelectGroup>
+```
+
+### Using a `validator`
+
+```jsx
+// replace following line with validateExists
+import validateTruthy from '../../../validators/validateTruthy'
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
+;<ButtonSelectGroup
+  column labelCopy="Click False to see bug---TODO replace all validateTruthy with validateExists"
+  validator={validateTruthy}
+  formChangeHandler={formChangeHandlerStub}
+>
   <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
 </ButtonSelectGroup>

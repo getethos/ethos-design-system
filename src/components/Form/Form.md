@@ -199,7 +199,8 @@ const maxAge = 65
           </ButtonSelectGroup>
         ),
         labelCopy: 'Booleans Are Tricky',
-        validators: [validateExists],
+        // TODO: remove following and leave: validators: [validateExists],
+        validators: [validateTruthy],
         options: [
           { value: true, copy: 'True', id: 1 },
           { value: false, copy: 'False', id: 2 },
