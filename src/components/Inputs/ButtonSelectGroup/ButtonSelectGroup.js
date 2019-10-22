@@ -153,7 +153,7 @@ ButtonSelectGroup.propTypes = {
   /** When set to `true`, the group's label will be displayed uppercase */
   allCaps: PropTypes.bool,
   /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
-  initialValue: PropTypes.string,
+  initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** Optional value that sets the background color of all the buttons in the group (unselected state) */
   buttonStyle: PropTypes.string,
   /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
