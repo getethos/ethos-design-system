@@ -54,11 +54,10 @@ export const ButtonSelectGroup = ({
   ...rest
 }) => {
 
-  /*
-  Swap these...this has the old bug:
-
   const initialSelected =
     currentValue !== undefined ? currentValue : initialValue
+  /*
+  Swap above (bug) with this:
   // let initialSelected
   // if (currentValue || typeof currentValue === "boolean") {
   //   initialSelected = currentValue
