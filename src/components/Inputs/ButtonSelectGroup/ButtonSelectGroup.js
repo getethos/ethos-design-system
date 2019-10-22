@@ -52,16 +52,19 @@ export const ButtonSelectGroup = ({
   fullWidth = true,
   ...rest
 }) => {
-  const initialSelected = currentValue || initialValue || undefined 
+  const initialSelected =
+    currentValue !== undefined ? currentValue : initialValue
   const [selectedValue, setSelectedValue] = useState(initialSelected)
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
 
   useEffect(() => {
     // `isSelectedValue` allows `false` to work properly and validate
     // For example, if we have two buttons yes & no mapped to booleans
-    const isSelectedValue = typeof selectedValue !== "undefined"
+    const isSelectedValue = typeof selectedValue !== 'undefined'
     if (onSelect && isSelectedValue) {
       onSelect({ value: selectedValue, isAnswered })
     }
