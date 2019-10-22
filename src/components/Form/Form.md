@@ -1,12 +1,20 @@
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
+import validateExists from '../../validators/validateExists'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import EmailFormatValidator from '../../validators/EmailValidator'
-import { TitleLarge, TextInput, Spacer, Button, InfoMessage, ZipInput, EmailInput } from '../index'
+import {
+  TitleLarge,
+  TextInput,
+  Spacer,
+  Button,
+  InfoMessage,
+  ZipInput,
+  EmailInput,
+} from '../index'
 let count = 0
 
 const validateCustom = (x) => {
-  console.log("validateCustom got called...")
+  console.log('validateCustom got called...')
   return !!x ? '' : 'Validate custom error'
 }
 
@@ -15,7 +23,13 @@ const validateCustom = (x) => {
 // Note that it's the consumer's responsibility to keep a table
 // lookup or similar to prevent duplicate tracking of valid fields, etc.
 const analyticsCustomEvent = (fieldName, fieldValue) => {
-  console.log("analyticsCustomEvent got called--field name: ", fieldName, "fieldValue: ", fieldValue, "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)")
+  console.log(
+    'analyticsCustomEvent got called--field name: ',
+    fieldName,
+    'fieldValue: ',
+    fieldValue,
+    "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)"
+  )
 }
 
 ;<Form
@@ -26,31 +40,31 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
     fields: {
       zipCode: {
         component: (props, options) => {
-          return (
-            <ZipInput {...props} />
-          )
+          return <ZipInput {...props} />
         },
         validationSuccess: [analyticsCustomEvent],
-        name: "this-zip-input-example",
-        labelCopy: "What is your zip code?",
+        name: 'this-zip-input-example',
+        labelCopy: 'What is your zip code?',
       },
       email: {
         component: (props, options) => {
-          return (
-            <EmailInput {...props} placeholder="example@ethoslife.com"/>
-          )
+          return <EmailInput {...props} placeholder="example@ethoslife.com" />
         },
         validators: [EmailFormatValidator],
         validationSuccess: [analyticsCustomEvent],
-        name: "the-email-input-example",
-        labelCopy: "Your email",
+        name: 'the-email-input-example',
+        labelCopy: 'Your email',
         tid: 'the-email-tid',
       },
       evenNumText: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 5, 7)],
+        validators: [
+          validateExists,
+          validateCustom,
+          validateMinMaxFactory.call(null, 5, 7),
+        ],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Validation happens after first form blur ('touched')--Value's length is between 5 and 7 characters",
@@ -60,7 +74,11 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [validateTruthy, validateCustom, validateMinMaxFactory.call(null, 3, 5)],
+        validators: [
+          validateExists,
+          validateCustom,
+          validateMinMaxFactory.call(null, 3, 5),
+        ],
         validationSuccess: [analyticsCustomEvent],
         labelCopy:
           "Value's length is between 3 and 5 characters (validation after first form blur)",
@@ -68,11 +86,12 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
     },
     onSubmit: async (formData) => {
       if (count++ % 2 === 0) {
-        throw new Error("API Issue (Try again,, it alternates success & failure)")
+        throw new Error(
+          'API Issue (Try again,, it alternates success & failure)'
+        )
       } else {
         alert(
-          'form submission successful with values:' +
-            JSON.stringify(formData)
+          'form submission successful with values:' + JSON.stringify(formData)
         )
       }
     },
@@ -94,7 +113,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         {!!getFormInteractedWith() && (
           <>
             <InfoMessage.Alert.Success>
-              {"Form interacted with."}
+              {'Form interacted with.'}
             </InfoMessage.Alert.Success>
           </>
         )}
@@ -135,18 +154,24 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 _Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
 
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
 import validateExists from '../../validators/validateExists'
 import dayjs from '../../helpers/getDayjs.js'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
-import { TitleLarge, TextInput, TextMaskedInput, Spacer, Button, InfoMessage } from '../index'
+import {
+  TitleLarge,
+  TextInput,
+  TextMaskedInput,
+  Spacer,
+  Button,
+  InfoMessage,
+} from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
 let count = 0
 
 function validateIllegal(x) {
-  console.log("validateIllegal: I got called...")
-  return x === 'illegal' ? 'That\'s an illegal option! Choose another.' : ''
+  console.log('validateIllegal: I got called...')
+  return x === 'illegal' ? "That's an illegal option! Choose another." : ''
 }
 
 // This will only be called by the form engine after a field is
@@ -154,7 +179,13 @@ function validateIllegal(x) {
 // Note that it's the consumer's responsibility to keep a table
 // lookup or similar to prevent duplicate tracking of valid fields, etc.
 const analyticsCustomEvent = (fieldName, fieldValue) => {
-  console.log("analyticsCustomEvent got called--field name: ", fieldName, "fieldValue: ", fieldValue, "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)")
+  console.log(
+    'analyticsCustomEvent got called--field name: ',
+    fieldName,
+    'fieldValue: ',
+    fieldValue,
+    "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)"
+  )
 }
 
 const getMinBirthdateLga = (maxAge) => {
@@ -199,8 +230,7 @@ const maxAge = 65
           </ButtonSelectGroup>
         ),
         labelCopy: 'Booleans Are Tricky',
-        // TODO: remove following and leave: validators: [validateExists],
-        validators: [validateTruthy],
+        validators: [validateExists],
         options: [
           { value: true, copy: 'True', id: 1 },
           { value: false, copy: 'False', id: 2 },
@@ -214,7 +244,7 @@ const maxAge = 65
         // Note that Birthdate will only call these validators once it's own
         // internal validation passes e.g. there's a date string in valid format
         validators: [
-          validateTruthy,
+          validateExists,
           validateMinMaxDateFactory({
             minAge,
             maxAge,
@@ -231,18 +261,16 @@ const maxAge = 65
           return <TextInput {...props} />
         },
         optional: true,
-        labelCopy:
-          "Field marked optional true can be left blank",
+        labelCopy: 'Field marked optional true can be left blank',
         tid: 'optional-field-data-tid',
       },
       optionalFieldWithValidation: {
         component: (props, options) => {
           return <TextInput {...props} />
         },
-        validators: [(val) => val.length > 2 ? '2 chars max allowed' : ''],
+        validators: [(val) => (val.length > 2 ? '2 chars max allowed' : '')],
         optional: true,
-        labelCopy:
-          "optional with validation",
+        labelCopy: 'optional with validation',
         tid: 'optional-validation-field-data-tid',
       },
       ssn: {
@@ -253,29 +281,23 @@ const maxAge = 65
               mask={[/\d/, /\d/, /\d/, /\d/]}
               guide={true}
               keepCharPositions={true}
-              type='text'
+              type="text"
               name="last4-ssn"
               {...props}
             />
           )
         },
-        labelCopy: 'Last 4 digits of SSN' ,
+        labelCopy: 'Last 4 digits of SSN',
         tid: 'le-ssn',
         validators: [
-          (value) => (
-            value && value.length === 4
-              ? ''
-              : 'Four digits required'
-          )
+          (value) =>
+            value && value.length === 4 ? '' : 'Four digits required',
         ],
       },
       buttonGroup: {
         component: (props, options) => {
           return (
-            <ButtonSelectGroup
-              {...props}
-              intialValue="often"
-            >
+            <ButtonSelectGroup {...props} intialValue="often">
               {options.map((x, i) => (
                 <ButtonSelectGroup.Option value={x.value} key={i}>
                   {x.copy}
@@ -297,11 +319,12 @@ const maxAge = 65
     },
     onSubmit: async (formData) => {
       if (count++ % 2 === 0) {
-        throw new Error("API Issue (Try again,, it alternates success & failure)")
+        throw new Error(
+          'API Issue (Try again,, it alternates success & failure)'
+        )
       } else {
         alert(
-          'form submission successful with values:' +
-            JSON.stringify(formData)
+          'form submission successful with values:' + JSON.stringify(formData)
         )
       }
     },
@@ -325,7 +348,7 @@ const maxAge = 65
         {!!getFormInteractedWith() && (
           <>
             <InfoMessage.Alert.Success>
-              {"Form interacted with."}
+              {'Form interacted with.'}
             </InfoMessage.Alert.Success>
           </>
         )}
@@ -374,16 +397,22 @@ const maxAge = 65
 Dynamic Fields Examples
 
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
 import validateExists from '../../validators/validateExists'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
-import { TitleLarge, TextInput, TextMaskedInput, Spacer, Button, InfoMessage } from '../index'
+import {
+  TitleLarge,
+  TextInput,
+  TextMaskedInput,
+  Spacer,
+  Button,
+  InfoMessage,
+} from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 let count = 0
 
 function validateIllegal(x) {
-  console.log("validateIllegal: I got called...")
-  return x === 'illegal' ? 'That\'s an illegal option! Choose another.' : ''
+  console.log('validateIllegal: I got called...')
+  return x === 'illegal' ? "That's an illegal option! Choose another." : ''
 }
 
 // This will only be called by the form engine after a field is
@@ -391,7 +420,13 @@ function validateIllegal(x) {
 // Note that it's the consumer's responsibility to keep a table
 // lookup or similar to prevent duplicate tracking of valid fields, etc.
 const analyticsCustomEvent = (fieldName, fieldValue) => {
-  console.log("analyticsCustomEvent got called--field name: ", fieldName, "fieldValue: ", fieldValue, "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)")
+  console.log(
+    'analyticsCustomEvent got called--field name: ',
+    fieldName,
+    'fieldValue: ',
+    fieldValue,
+    "--means no validation errors, so we'd likely call something like sendAnalyticsEvent(fieldName, fieldValue)"
+  )
 }
 
 ;<Form
@@ -403,10 +438,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
       buttonGroup: {
         component: (props, options) => {
           return (
-            <ButtonSelectGroup
-              {...props}
-              intialValue="often"
-            >
+            <ButtonSelectGroup {...props} intialValue="often">
               {options.map((x, i) => (
                 <ButtonSelectGroup.Option value={x.value} key={i}>
                   {x.copy}
@@ -425,51 +457,52 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
       },
       field1: {
         component: (props, options) => {
-          return <TextInput
-            placeholder = "field 1 depends on choice 1--enter something for another dynamic field"
-            {...props}
-          />
+          return (
+            <TextInput
+              placeholder="field 1 depends on choice 1--enter something for another dynamic field"
+              {...props}
+            />
+          )
         },
-        validators: [(val) => val.length > 2 ? '2 chars max allowed' : ''],
+        validators: [(val) => (val.length > 2 ? '2 chars max allowed' : '')],
         optional: true,
-        labelCopy:
-          "optional with validation",
+        labelCopy: 'optional with validation',
         tid: 'field-1-text-input',
       },
       field2: {
         component: (props, options) => {
-          return <TextInput
-            placeholder = "field 2 depends on choice 2"
-            {...props}
-          />
+          return (
+            <TextInput placeholder="field 2 depends on choice 2" {...props} />
+          )
         },
-        validators: [(val) => val.length > 2 ? '2 chars max allowed' : ''],
+        validators: [(val) => (val.length > 2 ? '2 chars max allowed' : '')],
         optional: true,
-        labelCopy:
-          "optional with validation",
+        labelCopy: 'optional with validation',
         tid: 'field-2-text-input',
       },
       field3: {
         component: (props, options) => {
-          return <TextInput
-            placeholder = "field 3 depends on input in field 1"
-            {...props}
-          />
+          return (
+            <TextInput
+              placeholder="field 3 depends on input in field 1"
+              {...props}
+            />
+          )
         },
-        validators: [(val) => val.length > 2 ? '2 chars max allowed' : ''],
+        validators: [(val) => (val.length > 2 ? '2 chars max allowed' : '')],
         optional: true,
-        labelCopy:
-          "optional with validation",
+        labelCopy: 'optional with validation',
         tid: 'field-3-text-input',
       },
     },
     onSubmit: async (formData) => {
       if (count++ % 2 === 0) {
-        throw new Error("API Issue (Try again,, it alternates success & failure)")
+        throw new Error(
+          'API Issue (Try again,, it alternates success & failure)'
+        )
       } else {
         alert(
-          'form submission successful with values:' +
-            JSON.stringify(formData)
+          'form submission successful with values:' + JSON.stringify(formData)
         )
       }
     },
@@ -488,16 +521,14 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
     const errors = getFieldErrors()
     return (
       <div>
-        <TitleLarge.Serif.Book500>
-          Dynamic Fields
-        </TitleLarge.Serif.Book500>
+        <TitleLarge.Serif.Book500>Dynamic Fields</TitleLarge.Serif.Book500>
 
         <Spacer.H16 />
 
         {!!getFormInteractedWith() && (
           <>
             <InfoMessage.Alert.Success>
-              {"Form interacted with."}
+              {'Form interacted with.'}
             </InfoMessage.Alert.Success>
           </>
         )}
@@ -514,12 +545,12 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 
         <Spacer.H16 />
 
-        {values.buttonGroup == "toggle-1" && field('field1')}
-        {values.buttonGroup == "toggle-2" && field('field2')}
+        {values.buttonGroup == 'toggle-1' && field('field1')}
+        {values.buttonGroup == 'toggle-2' && field('field2')}
 
         <Spacer.H16 />
 
-        { !errors.field1 && values.field1 && field('field3')}
+        {!errors.field1 && values.field1 && field('field3')}
 
         <Spacer.H16 />
 
@@ -564,7 +595,7 @@ const questionGroups = {
         labelCopy: 'Type in an "a" and click Submit (do this 3 times)',
         tid: 'example-data-tid-1',
       },
-    }
+    },
   },
   two: {
     fields: {
@@ -576,7 +607,7 @@ const questionGroups = {
         labelCopy: 'Type in an "a" and click Submit (do it again)',
         tid: 'example-data-tid-2',
       },
-    }
+    },
   },
   three: {
     fields: {
@@ -588,7 +619,7 @@ const questionGroups = {
         labelCopy: 'Type in an "a" and click Submit (last one I promise!)',
         tid: 'example-data-tid-3',
       },
-    }
+    },
   },
 }
 
@@ -600,70 +631,67 @@ const questionNames = Object.keys(questionGroups)
     const question = questionGroups[questionNames[group]]
     const questionFields = question.fields
 
-    return <Form
-      config={{
-        formName: 'Form Groups',
-        formId: {group},
-        autocompleteOff: true,
-        fields: questionFields,
-        onSubmit: async (formData) => {
-          const spreaded = { ...finalFormData, ...formData }
-          if (group < questionNames.length - 1) {
-            // Go to the next set of questions
-            setGroup(group + 1)
-            setFinalFormData(spreaded)
-          } else {
-            // Submit the form -- it will actually still have formData
-            // from the first set of questions, too
-            alert(
-              'form submission successful with values:' +
-                JSON.stringify(spreaded)
-            )
-          }
-        },
-      }}
-    >
-      {(api) => {
-        const {
-          field,
-          getFormIsValid,
-        } = api
-        return (
-          <div>
-            <TitleLarge.Serif.Book500>
-              DangerouslyUseFormGroups—This is going away! Use at own risk :)
-            </TitleLarge.Serif.Book500>
-            <Spacer.H16 />
+    return (
+      <Form
+        config={{
+          formName: 'Form Groups',
+          formId: { group },
+          autocompleteOff: true,
+          fields: questionFields,
+          onSubmit: async (formData) => {
+            const spreaded = { ...finalFormData, ...formData }
+            if (group < questionNames.length - 1) {
+              // Go to the next set of questions
+              setGroup(group + 1)
+              setFinalFormData(spreaded)
+            } else {
+              // Submit the form -- it will actually still have formData
+              // from the first set of questions, too
+              alert(
+                'form submission successful with values:' +
+                  JSON.stringify(spreaded)
+              )
+            }
+          },
+        }}
+      >
+        {(api) => {
+          const { field, getFormIsValid } = api
+          return (
+            <div>
+              <TitleLarge.Serif.Book500>
+                DangerouslyUseFormGroups—This is going away! Use at own risk :)
+              </TitleLarge.Serif.Book500>
+              <Spacer.H16 />
 
-            <TitleSmall.Serif.Book500>Form #{group}</TitleSmall.Serif.Book500>
+              <TitleSmall.Serif.Book500>Form #{group}</TitleSmall.Serif.Book500>
 
-            {group === questionNames.length - 1 ? (
-              <>
-                <Spacer.H16 />
-                <TitleSmall.Serif.Book500>
-                  This is the final form!
-                </TitleSmall.Serif.Book500>
-              </>
-            ) : null}
+              {group === questionNames.length - 1 ? (
+                <>
+                  <Spacer.H16 />
+                  <TitleSmall.Serif.Book500>
+                    This is the final form!
+                  </TitleSmall.Serif.Book500>
+                </>
+              ) : null}
 
-            <Spacer.H16 />
+              <Spacer.H16 />
 
-            {/* Our fields loop for the current question group's fields follows */}
-            { Object.keys(questionFields).map((name) => (
-              <React.Fragment key="{uuidv4()}">
-                {field(name)}
-              </React.Fragment>
-            ))}
+              {/* Our fields loop for the current question group's fields follows */}
+              {Object.keys(questionFields).map((name) => (
+                <React.Fragment key="{uuidv4()}">{field(name)}</React.Fragment>
+              ))}
 
-            <Spacer.H16 />
+              <Spacer.H16 />
 
-            <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
-              Submit
-            </Button.Medium.Black>
-          </div>
-        )
-      }}
-    </Form>
+              <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+                Submit
+              </Button.Medium.Black>
+            </div>
+          )
+        }}
+      </Form>
+    )
   }}
 </DangerouslyUseFormGroups>
 ```

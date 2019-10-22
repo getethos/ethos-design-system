@@ -28,14 +28,14 @@
 ### Using a `validator`
 
 ```jsx
-// replace following line with validateExists
-import validateTruthy from '../../../validators/validateTruthy'
+import validateExists from '../../../validators/validateExists'
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 
 ;<ButtonSelectGroup
-  column labelCopy="Click False to see bug---TODO replace all validateTruthy with validateExists"
-  validator={validateTruthy}
+  column
+  labelCopy="Validator should not error when false is clicked"
+  validator={validateExists}
   formChangeHandler={formChangeHandlerStub}
 >
   <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
