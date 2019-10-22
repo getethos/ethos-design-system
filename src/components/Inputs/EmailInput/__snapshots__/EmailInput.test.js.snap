@@ -4,7 +4,7 @@ exports[`EmailInput default rendering 1`] = `
 Array [
   <label
     className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    htmlFor="email-input"
+    htmlFor="the-email-input-example"
   >
     Your email
   </label>,
@@ -19,7 +19,7 @@ Array [
   <input
     className="TextInput"
     data-tid="the-email-input"
-    name="email-input"
+    name="the-email-input-example"
     onBlur={[Function]}
     onChange={[Function]}
     onPaste={[Function]}
