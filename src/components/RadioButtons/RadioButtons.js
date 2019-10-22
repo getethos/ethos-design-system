@@ -5,7 +5,7 @@ import useInvalid from '../../hooks/useInvalid.js'
 
 import { Body } from '../Type/Body.js'
 import { COLORS } from '../Colors.js'
-import styles from '../RadioButtons.module.scss'
+import styles from './RadioButtons.module.scss'
 
 // Note: RadioButtonGroup does not currently work (may have broken circa v0.9).
 
