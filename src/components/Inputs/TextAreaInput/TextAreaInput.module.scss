@@ -1,9 +1,4 @@
-// TODO -- these are currently come in via globals but we'll need
-// them here once we continue to strip 'em out of design-system.css
-// @import "../Colors.scss";
-// @import "../Type/Type.scss";
-// @import '../Spacer/Spacer.scss';
-
+// Wow so easy
 @import '../TextInput/TextInput.module.scss';
 
 .TextAreaInput {
@@ -13,25 +8,3 @@
 .Resize {
   resize: vertical;
 }
-
-/*
-.TextAreaInput:hover {
-  background-color: var(--GrayLightHover--translucent);
-}
-
-.TextAreaInput:focus {
-  border-color: var(--GrayPrimary--opaque);
-  background-color: var(--White);
-}
-
-.TextAreaInput::placeholder {
-  // It's $gray-64 / #a3a3a3 in ethos, but going to try to limit # of grays
-  color: var(--GrayStrokeAndDisabled--opaque);
-}
-
-.TextAreaInput:disabled {
-  color: var(--White);
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  border-color: transparent;
-}
-*/
