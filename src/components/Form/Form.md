@@ -164,6 +164,7 @@ import {
   Spacer,
   Button,
   InfoMessage,
+  TextAreaInput,
 } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
@@ -229,7 +230,7 @@ const maxAge = 65
             ))}
           </ButtonSelectGroup>
         ),
-        labelCopy: 'Booleans Are Tricky',
+        labelCopy: 'Booleans Are Tricky -- false should count as valid here',
         validators: [validateExists],
         options: [
           { value: true, copy: 'True', id: 1 },
@@ -261,7 +262,7 @@ const maxAge = 65
           return <TextInput {...props} />
         },
         optional: true,
-        labelCopy: 'Field marked optional true can be left blank',
+        labelCopy: 'Field marked optional true can be left blank and untouched',
         tid: 'optional-field-data-tid',
       },
       optionalFieldWithValidation: {
@@ -315,6 +316,14 @@ const maxAge = 65
           { value: 'never', copy: 'Never' },
           { value: 'illegal', copy: 'Illegal Option' },
         ],
+      },
+      optionalTextAreaField: {
+        component: (props, options) => {
+          return <TextAreaInput resize={true} {...props} />
+        },
+        optional: true,
+        labelCopy: 'Optional textarea',
+        tid: 'optional-textarea-field-data-tid',
       },
     },
     onSubmit: async (formData) => {
@@ -374,6 +383,10 @@ const maxAge = 65
         <Spacer.H16 />
 
         {field('optionalFieldWithValidation')}
+
+        <Spacer.H16 />
+
+        {field('optionalTextAreaField')}
 
         <Spacer.H16 />
 
