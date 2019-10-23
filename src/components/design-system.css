@@ -229,33 +229,13 @@ strong {
   font-weight: 500;
 }
 
+a {
+  color: var(--GrayPrimary--translucent);
+}
 a,
 a:active,
-a:hover,
-.Link,
-.Link:active,
-.Link:hover {
+a:hover {
   text-decoration: none;
-}
-
-a,
-.Link {
-  color: var(--GrayPrimary--translucent);
-}
-
-.Link.Inherit {
-  color: inherit;
-}
-
-.Link.Navlink {
-  color: var(--GrayPrimary--translucent);
-  text-decoration: none;
-  padding: var(--Space-4) 0;
-  border-bottom: 2px solid transparent;
-}
-.Link.Navlink:active,
-.Link.Navlink:hover {
-  border-bottom-color: var(--GrayPrimary--translucent);
 }
 
 /**

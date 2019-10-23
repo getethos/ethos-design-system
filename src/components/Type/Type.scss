@@ -31,37 +31,12 @@ strong {
 // the complications from JS routers with <Link>s that are not standard <a>s.
 // See also ./Type.module.scss.
 
-a,
-.Link {
+a {
   &,
   &:active,
   &:hover {
     text-decoration: none;
   }
 
-  & {
-    color: var(--GrayPrimary--translucent);
-  }
-}
-
-.Link {
-  &.Inherit {
-    color: inherit;
-  }
-
-  &.Navlink {
-    color: var(--GrayPrimary--translucent);
-    text-decoration: none;
-    padding: var(--Space-4) 0;
-    border-bottom: 2px solid transparent;
-
-    // transition: var(--transition-default);
-    // transition-property: none;
-
-    &:active,
-    &:hover {
-      // &[aria-current='page'] // if we need to underline the current page later
-      border-bottom-color: var(--GrayPrimary--translucent);
-    }
-  }
+  color: var(--GrayPrimary--translucent);
 }
