@@ -64,9 +64,6 @@ button,
     padding-right: 48px;
     padding-left: 48px;
   }
-  @include for-phone-only {
-    max-width: 480px;
-  }
 }
 // Styles
 
@@ -162,7 +159,6 @@ button,
   padding: var(--Space-16) var(--Space-32);
   @include for-phone-only {
     width: 100%;
-    max-width: 400px;
   }
   @include for-tablet-and-up {
     width: auto;

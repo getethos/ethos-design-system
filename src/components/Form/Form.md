@@ -1,5 +1,5 @@
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
+import validateExists from '../../validators/validateExists'
 import validateMinMaxFactory from '../../validators/validateMinMax'
 import EmailFormatValidator from '../../validators/EmailValidator'
 import {
@@ -61,7 +61,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
           return <TextInput {...props} />
         },
         validators: [
-          validateTruthy,
+          validateExists,
           validateCustom,
           validateMinMaxFactory.call(null, 5, 7),
         ],
@@ -75,7 +75,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
           return <TextInput {...props} />
         },
         validators: [
-          validateTruthy,
+          validateExists,
           validateCustom,
           validateMinMaxFactory.call(null, 3, 5),
         ],
@@ -154,7 +154,6 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 _Note that we've set up the form submission to randomly fail or succeed—so, you're encouraged to resubmit until you've seen both!_
 
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
 import validateExists from '../../validators/validateExists'
 import dayjs from '../../helpers/getDayjs.js'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
@@ -246,7 +245,7 @@ const maxAge = 65
         // Note that Birthdate will only call these validators once it's own
         // internal validation passes e.g. there's a date string in valid format
         validators: [
-          validateTruthy,
+          validateExists,
           validateMinMaxDateFactory({
             minAge,
             maxAge,
@@ -411,7 +410,6 @@ const maxAge = 65
 Dynamic Fields Examples
 
 ```jsx
-import validateTruthy from '../../validators/validateTruthy'
 import validateExists from '../../validators/validateExists'
 import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
 import {
