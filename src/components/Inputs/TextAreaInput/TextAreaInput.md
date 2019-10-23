@@ -9,7 +9,7 @@ const formChangeHandlerStub = () => {}
   labelCopy="TextAreaInput"
   data-tid="the-textarea-input"
   formChangeHandler={formChangeHandlerStub}
-  validator={() => ''}
+  validator={() => 'This always fails'}
 />
 ```
 
