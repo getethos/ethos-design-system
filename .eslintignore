@@ -1,0 +1,5 @@
+# Linting these requires removing new language features, or adding babel-eslint
+# https://www.npmjs.com/package/babel-eslint#how-does-it-work
+src/components/Layout/Layout.js
+src/components/UniversalNavbar/UniversalNavbar.js
+
