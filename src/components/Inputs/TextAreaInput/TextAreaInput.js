@@ -66,7 +66,7 @@ function PrivateTextAreaInput({
   })
 
   const onChange = (ev) => {
-    const val = event.target.value
+    const val = ev.target.value
     const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
 
