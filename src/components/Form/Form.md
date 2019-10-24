@@ -1,3 +1,106 @@
+### Dynamic field issue
+
+```jsx
+import {
+  TitleLarge,
+  TextInput,
+  TextMaskedInput,
+  Spacer,
+  Button,
+  InfoMessage,
+} from '../index'
+import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+;<Form
+  config={{
+    formName: 'Dynamic fields example form',
+    autocompleteOff: true,
+    formId: '1',
+    fields: {
+      buttonGroup2: {
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props} intialValue="often">
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
+        labelCopy: 'Toggle dynamic fields',
+        options: [
+          { value: 'toggle-1', copy: 'x' },
+          { value: 'toggle-2', copy: 'y' },
+        ],
+      },
+      buttonGroup: {
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props} intialValue="often">
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
+        labelCopy: 'Toggle dynamic fields',
+        options: [
+          { value: 'toggle-1', copy: 'Show next question' },
+          { value: 'toggle-2', copy: 'I refuse, please let me submit' },
+        ],
+      },
+    },
+    onSubmit: async (formData) => {
+      alert(
+        'form submission successful with values:' + JSON.stringify(formData)
+      )
+    },
+  }}
+>
+  {(api) => {
+    const {
+      field,
+      getFieldErrors,
+      getFieldValues,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+    const values = getFieldValues()
+    const errors = getFieldErrors()
+    return (
+      <div>
+        <TitleLarge.Serif.Book500>Dynamic Fields</TitleLarge.Serif.Book500>
+
+        <Spacer.H16 />
+
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
+
+        {field('buttonGroup')}
+        <Spacer.H16 />
+
+        {values.buttonGroup == 'toggle-1' && field('buttonGroup2')}
+
+        <Spacer.H16 />
+
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
+</Form>
+```
+
 ```jsx
 import validateExists from '../../validators/validateExists'
 import validateMinMaxFactory from '../../validators/validateMinMax'
