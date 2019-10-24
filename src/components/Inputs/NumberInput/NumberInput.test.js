@@ -1,5 +1,5 @@
 import React from 'react'
-import { NumberInput } from './index.js';
+import { NumberInput } from './index.js'
 import renderer from 'react-test-renderer'
 
 // TODO: make a helper
@@ -12,18 +12,18 @@ describe('NumberInput', () => {
   it('default rendering', () => {
     const tree = renderer
       .create(
-         <NumberInput
+        <NumberInput
           initialValue="123"
           name="the-number-input-example"
           allCaps={true}
           labelCopy="Enter a number (must be even to validate)"
-          data-tid='the-number-input'
-          placeholder='number input'
+          data-tid="the-number-input"
+          placeholder="number input"
           formChangeHandler={formChangeHandlerStub}
           validator={(n) => {
             return n % 2 === 0 ? '' : 'Must be an even number'
           }}
-        /> 
+        />
       )
       .toJSON()
     expect(tree).toMatchSnapshot()

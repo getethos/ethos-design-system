@@ -63,7 +63,7 @@ export function Form({ children, config }) {
   fieldNames.forEach((fieldName) => {
     // We don't do the preinitialize to non empty string trick for optional
     // fields as we'd like those to only be validated upon entering something
-    if (!!config.fields[fieldName].optional) return
+    if (config.fields[fieldName].optional) return
 
     // By default fields have "hidden" errors declared here.
     //
@@ -157,10 +157,12 @@ export function Form({ children, config }) {
 
     const values = getFieldValues()
     let currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
-    currentFieldValue = currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
+    currentFieldValue =
+      currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
 
     const errors = getFieldErrors()
-    const currentFieldError = errors && errors[fieldName] ? errors[fieldName] : ''
+    const currentFieldError =
+      errors && errors[fieldName] ? errors[fieldName] : ''
 
     const fieldComponent = {
       // Field name. Used in the label to identify the field
@@ -200,7 +202,7 @@ export function Form({ children, config }) {
       // data-tid is helpful for writing tests.
       // sometimes it's passed in, but if it isn't,
       // we will automatically generate one
-      ['data-tid']:
+      'data-tid':
         fieldConfig.tid ||
         [config.formName, config.formId, fieldName].join('-'),
     }

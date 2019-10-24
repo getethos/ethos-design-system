@@ -7,7 +7,7 @@ describe('useErrorMessage hook', () => {
   test('validate callback', () => {
     const validatorMock = jest.fn().mockReturnValue('problemo')
     testHook(() => {
-      const [,,, validate] = useErrorMessage(validatorMock)
+      const [, , , validate] = useErrorMessage(validatorMock)
       validate('foo')
       expect(validatorMock.mock.calls.length).toBe(1)
       expect(validatorMock.mock.calls[0][0]).toBe('foo')
