@@ -70,7 +70,7 @@ export function useFormState(initialState) {
   // Verify form has been iteractedWith and also has no errors;
   // Used for determining whether a form is valid
   function getFormIsValid() {
-    return touched && !getFieldErrorsString()
+    return iteractedWith && !getFieldErrorsString()
   }
 
   return [
