@@ -407,7 +407,7 @@ const maxAge = 65
 </Form>
 ```
 
-Dynamic Fields Examples
+### Dynamic Fields Examples
 
 ```jsx
 import validateExists from '../../validators/validateExists'
@@ -576,6 +576,8 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 </Form>
 ```
 
+### Hiding dynamic fields
+
 Dynamic fields & hidden fields—if you call `hide` when a dynamic field is hidden, it
 will not be considered in determining form validity. Further, if the hidden field has
 been previously interacted with, it's value will also be ignored.
@@ -611,7 +613,11 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
         labelCopy: 'Toggle dynamic fields',
         options: [
           { value: 'toggle-1', copy: 'Show next question' },
-          { value: 'toggle-2', copy: 'If dynamic field below is hidden, clicking me should still enable submit button' },
+          {
+            value: 'toggle-2',
+            copy:
+              'If dynamic field below is hidden, clicking me should still enable submit button',
+          },
         ],
       },
       buttonGroup2: {
@@ -654,10 +660,6 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
     const errors = getFieldErrors()
     return (
       <div>
-        <TitleLarge.Serif.Book500>Dynamic Fields</TitleLarge.Serif.Book500>
-
-        <Spacer.H16 />
-
         {getFormErrorMessage() && (
           <>
             <InfoMessage.Alert.Error>
@@ -669,9 +671,143 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
         {field('buttonGroup')}
         <Spacer.H16 />
 
-        {values.buttonGroup == 'toggle-1' ? field('buttonGroup2') : hide('buttonGroup2')} 
+        {values.buttonGroup == 'toggle-1'
+          ? field('buttonGroup2')
+          : hide('buttonGroup2')}
         <Spacer.H16 />
 
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
+</Form>
+```
+
+### Nested dynamic forms
+
+```jsx
+import {
+  TitleLarge,
+  TextInput,
+  TextMaskedInput,
+  Spacer,
+  Button,
+  InfoMessage,
+} from '../index'
+import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+;<Form
+  config={{
+    formName: 'Dynamic fields example form',
+    autocompleteOff: true,
+    formId: '1',
+    fields: {
+      buttonGroup: {
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props} intialValue="often">
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
+        labelCopy: 'Question 1/3',
+        options: [
+          { value: '1', copy: 'Show next question' },
+          {
+            value: '2',
+            copy:
+              'If dynamic field below is hidden, clicking me should still enable submit button',
+          },
+        ],
+      },
+      buttonGroup2: {
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props} intialValue="often">
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
+        labelCopy: 'Question 2/3',
+        options: [
+          { value: '1', copy: 'Show next question' },
+          {
+            value: '2',
+            copy:
+              'If dynamic field below is hidden, clicking me should still enable submit button',
+          },
+        ],
+      },
+      buttonGroup3: {
+        component: (props, options) => {
+          return (
+            <ButtonSelectGroup {...props} intialValue="often">
+              {options.map((x, i) => (
+                <ButtonSelectGroup.Option value={x.value} key={i}>
+                  {x.copy}
+                </ButtonSelectGroup.Option>
+              ))}
+            </ButtonSelectGroup>
+          )
+        },
+        labelCopy: 'Question 3/3',
+        options: [
+          { value: '1', copy: 'Last question answer 1' },
+          { value: '2', copy: 'Last question answer 2' },
+        ],
+      },
+    },
+    onSubmit: async (formData) => {
+      alert(
+        'form submission successful with values:' + JSON.stringify(formData)
+      )
+    },
+  }}
+>
+  {(api) => {
+    const {
+      field,
+      hide,
+      getFieldErrors,
+      getFieldValues,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+    const values = getFieldValues()
+    const errors = getFieldErrors()
+    return (
+      <div>
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
+        {field('buttonGroup')}
+        <Spacer.H16 />
+        {values.buttonGroup === '1'
+          ? field('buttonGroup2')
+          : () => {
+              hide('buttonGroup2')
+              hide('buttonGroup3')
+              return null
+            }}
+        <Spacer.H16 />
+        {values.buttonGroup2 === '1'
+          ? field('buttonGroup3')
+          : hide('buttonGroup3')}
+        <Spacer.H16 />
         <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
           Submit
         </Button.Medium.Black>
@@ -813,4 +949,3 @@ const questionNames = Object.keys(questionGroups)
   }}
 </DangerouslyUseFormGroups>
 ```
-
