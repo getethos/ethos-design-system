@@ -22,7 +22,9 @@ export const ZipInput = (props) => {
     ...restProps
   } = props
 
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(false)
   const [value, setValue] = useState(val || '')
@@ -43,7 +45,12 @@ export const ZipInput = (props) => {
     }
   }
 
-  const [doValidation] = useInputValidation({validate, setError, formChangeHandler, callErrorHandlers})
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+    callErrorHandlers,
+  })
 
   const getClasses = () => {
     return !!getError(currentError, touched) ?
