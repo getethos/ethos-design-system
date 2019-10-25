@@ -1,0 +1,15 @@
+Rename this file from BugInForm.md.example to BugInForm.md to "activate" the demo so react-styleguidist can see it
+```jsx
+import {
+  Form,
+  TitleLarge,
+  TextInput,
+  TextMaskedInput,
+  Spacer,
+  Button,
+  InfoMessage,
+} from '../index'
+import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+
+alert('Copy a single ;<Form>... example from Form.md in to here to produce a single example')
+```

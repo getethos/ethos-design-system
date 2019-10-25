@@ -90,6 +90,7 @@ export function Form({ children, config }) {
     setFormErrorMessage,
     getFormIsValid,
     getFormInteractedWith,
+    setFieldsHidden,
   ] = useFormState(initialValues)
 
   // Wrapper for default <form> submit function.
@@ -118,12 +119,19 @@ export function Form({ children, config }) {
     }
   }
 
+  function hide(fieldName) {
+    const fieldConfig = config.fields[fieldName]
+    setFieldsHidden(fieldName, true)
+  }
+
   // Wrapper for all fields. Essentially, this translates the field definitions
   // from the config` prop into a form field with validation and proper callbacks.
   // with the necessary callbacks so the form can track its errors & value.
   function field(fieldName) {
     // This just makes the rest of this easier to read
     const fieldConfig = config.fields[fieldName]
+
+    setFieldsHidden(fieldName, false)
 
     const doValidation = (fieldValue) => {
       // Form's `validationSuccess` won't get called unless we succeed in validating.
@@ -157,10 +165,12 @@ export function Form({ children, config }) {
 
     const values = getFieldValues()
     let currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
-    currentFieldValue = currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
+    currentFieldValue =
+      currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
 
     const errors = getFieldErrors()
-    const currentFieldError = errors && errors[fieldName] ? errors[fieldName] : ''
+    const currentFieldError =
+      errors && errors[fieldName] ? errors[fieldName] : ''
 
     const fieldComponent = {
       // Field name. Used in the label to identify the field
@@ -231,6 +241,7 @@ export function Form({ children, config }) {
         these arguments passed to the children function. */}
       {children({
         field,
+        hide,
         getFieldErrors,
         getFieldValues,
         getFormErrorMessage,

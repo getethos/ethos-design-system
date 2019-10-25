@@ -1,17 +1,26 @@
 import { useState } from 'react'
 
-let iteractedWith = false
+let interactedWith = false
 let touched = false
+let hiddenFields = {}
 
 export function useFormState(initialState) {
   const [fieldErrorsState, setFieldErrorsState] = useState(initialState)
   const [fieldValuesState, setFieldValuesState] = useState(initialState)
   const [formErrorState, setFormErrorState] = useState('')
 
+  // No fields are considered hidden initially. Within the JSX, consumer can
+  // call hide('fieldName'), and from there we can update setFieldsHidden
+  const initialHiddenState = {}
+  Object.keys(initialState).map((key) => {
+    initialHiddenState[key] = false
+  })
+  const [fieldsHiddenState, setFieldsHiddenState] = useState(initialHiddenState)
+
   // Returns a function that updates state for the field, tracked by fieldName
   function setFieldState(fieldName) {
     return (newValue, newError) => {
-      iteractedWith = true
+      interactedWith = true
 
       // Reset form errors if they exist
       setFormErrorState('')
@@ -31,21 +40,23 @@ export function useFormState(initialState) {
   }
 
   function getFormInteractedWith() {
-    return iteractedWith
+    return interactedWith
   }
 
   // Gets values of all fields, basically just used in form submission
   function getFieldValues() {
-    return fieldValuesState
+    const filteredFieldValues = _filterHiddenFields(fieldValuesState)
+    return filteredFieldValues
   }
 
   function getFieldErrors() {
-    return fieldErrorsState
+    const filteredFieldErrors = _filterHiddenFields(fieldErrorsState)
+    return filteredFieldErrors
   }
 
   // Checks if any fields have errors; returns concatenated string
   function getFieldErrorsString() {
-    return Object.values(fieldErrorsState)
+    return Object.values(getFieldErrors())
       .filter((x) => !!x)
       .join(', ')
   }
@@ -58,6 +69,17 @@ export function useFormState(initialState) {
     return formErrorState
   }
 
+  function _filterHiddenFields(obj) {
+    const filteredObj = {}
+    Object.keys(obj).forEach((key) => {
+      // If not hidden field, add to considered field errors
+      if (!hiddenFields[key]) {
+        filteredObj[key] = obj[key]
+      }
+    })
+    return filteredObj
+  }
+
   // Sets the form error, a string. Called by Form.js `onSubmit`
   function setFormErrorMessage(msg) {
     setFormErrorState(msg)
@@ -67,10 +89,16 @@ export function useFormState(initialState) {
     touched = true
   }
 
-  // Verify form has been iteractedWith and also has no errors;
+  // Verify form has been interactedWith and also has no errors;
   // Used for determining whether a form is valid
   function getFormIsValid() {
-    return touched && !getFieldErrorsString()
+    return interactedWith && !getFieldErrorsString()
+  }
+
+  function setFieldsHidden(fieldName, bool) {
+    const hiddenField = {}
+    hiddenField[fieldName] = bool
+    hiddenFields = Object.assign({}, hiddenFields, hiddenField)
   }
 
   return [
@@ -84,5 +112,6 @@ export function useFormState(initialState) {
     setFormErrorMessage,
     getFormIsValid,
     getFormInteractedWith,
+    setFieldsHidden,
   ]
 }
