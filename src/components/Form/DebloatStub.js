@@ -1,5 +1,7 @@
+import React from 'react'
 import validatePassword from '../../validators/validatePassword'
 import EmailFormatValidator from '../../validators/EmailValidator'
+import { EmailInput, PasswordInput } from '../index'
 
 // This might be plucked out of routeData.data.emailpage.fields or something similar
 const json = {
@@ -24,6 +26,15 @@ const validatorsTable = {
   EmailFormatValidator: EmailFormatValidator,
 }
 
+const componentsTable = {
+  email: (props, options) => {
+    return <EmailInput {...props} placeholder={json.email.placeholder} />
+  },
+  password: (props, options) => {
+    return <PasswordInput {...props} placeholder={json.password.placeholder} />
+  },
+}
+
 // Assumes json has been parsed already
 const mapJsonToFields = (json) => {
   const fields = {}
@@ -37,6 +48,7 @@ const mapJsonToFields = (json) => {
 
     fields[fieldKey] = field
     fields[fieldKey].validators = validators
+    fields[fieldKey].component = componentsTable[fieldKey]
   })
   return fields
 }

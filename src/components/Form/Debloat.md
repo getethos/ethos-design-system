@@ -22,17 +22,9 @@ let count = 1;
     formId: '1',
     fields: {
       email: {
-        // Seems like this component field JSX property may have to start out partially declarative 
-        component: (props, options) => {
-          return <EmailInput {...props} placeholder={formFields.email.placeholder} />
-        },
-        // See DebloatStub.js
         ...formFields.email
       },
       password: {
-        component: (props, options) => {
-          return <PasswordInput {...props} placeholder={formFields.password.placeholder} />
-        },
         ...formFields.password
       },
     },
