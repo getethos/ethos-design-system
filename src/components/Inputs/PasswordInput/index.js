@@ -1,1 +1,1 @@
-export { TextInput } from './TextInput.js'
+export { PasswordInput } from './PasswordInput.js'
