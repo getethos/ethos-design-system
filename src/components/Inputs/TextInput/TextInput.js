@@ -15,7 +15,7 @@ import errorStyles from '../Errors.module.scss'
  * @param  {String}   props.labelCopy   User-visible text of label for input
  * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
  * @param  {Function} props.validator   Function for validating input
- * @param  {Boolean}  props.disabled  
+ * @param  {Boolean}  props.disabled
  */
 
 function PrivateTextInput({
@@ -51,13 +51,19 @@ function PrivateTextInput({
   includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
 
   const [value, setValue] = useState(currentValue || initialValue || '')
 
   const [touched, setTouched] = useState(false)
 
-  const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+  })
 
   const onChange = (ev) => {
     const val = ev.target.value
@@ -73,7 +79,7 @@ function PrivateTextInput({
     // processing still, so, we use a flag for doValidation
     setTouched(true)
     // Also tell the form we've been touched
-    if (!!setFieldTouched) {
+    if (setFieldTouched) {
       setFieldTouched(true)
     }
   }
@@ -90,7 +96,9 @@ function PrivateTextInput({
   }
 
   const getClasses = () => {
-    return !!getError(currentError, touched) ? `${styles.TextInput} ${errorStyles.Error}` : `${styles.TextInput}`
+    return getError(currentError, touched)
+      ? `${styles.TextInput} ${errorStyles.Error}`
+      : `${styles.TextInput}`
   }
 
   return (

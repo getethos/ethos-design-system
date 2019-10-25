@@ -66,7 +66,7 @@ function PrivateTextAreaInput({
   })
 
   const onChange = (ev) => {
-    const val = event.target.value
+    const val = ev.target.value
     const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
 
@@ -79,7 +79,7 @@ function PrivateTextAreaInput({
     // processing still, so, we use a flag for doValidation
     setTouched(true)
     // Also tell the form we've been touched
-    if (!!setFieldTouched) {
+    if (setFieldTouched) {
       setFieldTouched(true)
     }
   }
@@ -96,7 +96,7 @@ function PrivateTextAreaInput({
   }
 
   const classes = [styles.TextAreaInput]
-  if (!!getError(currentError, touched)) {
+  if (getError(currentError, touched)) {
     classes.push(errorStyles.Error)
   }
   if (resize) {

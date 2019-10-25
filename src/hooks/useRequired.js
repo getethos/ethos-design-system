@@ -8,7 +8,7 @@ const useRequired = (requiredProps) => {
 
     // prop's missing, or, it's there but its value undefined or null
     requiredProps.forEach((prop) => {
-      const val = actualProps[prop];
+      const val = actualProps[prop]
       if (!keys.includes(prop) || val === null || val === undefined) {
         missingProps.push(prop)
       }

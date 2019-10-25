@@ -36,32 +36,41 @@ export const CheckboxInput = ({
   formTouched,
   ...rest
 }) => {
-
   const initialChecked = currentValue || initialValue || false
   const [touched, setTouched] = useState(initialChecked)
   const [isChecked, setIsChecked] = useState(initialChecked)
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(validator)
-  const [doValidation] = useInputValidation({validate, setError, formChangeHandler})
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+  })
 
   const onChange = (ev) => {
     // It feels like a checkbox isn't something you blur off of, so I'm electing to
     // call a checkbox touched when you check it
     if (!touched) setTouched(true)
-    const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
+    const val =
+      ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
     doValidation(val, touched)
     setIsChecked(val)
   }
 
   const onKeyPress = (ev) => {
     if (ev.key === 'Space' || ev.keyCode === 32) {
-      const val = ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value;
+      const val =
+        ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
       doValidation(!val, touched)
       setIsChecked(!val)
     }
   }
 
   const getClasses = () => {
-    return !!getError(currentError, touched) ? `${styles.CheckboxInput} ${errorStyles.Error}` : `${styles.CheckboxInput}`
+    return getError(currentError, touched)
+      ? `${styles.CheckboxInput} ${errorStyles.Error}`
+      : `${styles.CheckboxInput}`
   }
 
   const id = name
@@ -81,7 +90,9 @@ export const CheckboxInput = ({
           />
           <Facade />
         </div>
-        <Body.Regular400 color={COLORS.GRAY_PRIMARY}>{children}</Body.Regular400>
+        <Body.Regular400 color={COLORS.GRAY_PRIMARY}>
+          {children}
+        </Body.Regular400>
       </label>
       {getError(currentError, formTouched)}
     </>

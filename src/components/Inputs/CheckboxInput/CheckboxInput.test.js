@@ -12,7 +12,7 @@ describe('CheckboxInput', () => {
           name="le-check"
           data-tid="le-tid"
           formChangeHandler={formChangeHandlerStub}
-          validator={(x) => x === true ? '' : 'Nope!'}
+          validator={(x) => (x === true ? '' : 'Nope!')}
         >
           I agree to the{' '}
           <a href="/" target="_blank">

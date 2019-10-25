@@ -34,7 +34,7 @@ export function InputLabel({
       'InputLabel component requires either a name or an id, you supplied both'
     )
   } else {
-    nameOrIdProps = !!name ? { htmlFor: name } : { id }
+    nameOrIdProps = name ? { htmlFor: name } : { id }
   }
 
   return (

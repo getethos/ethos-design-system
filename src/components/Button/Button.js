@@ -85,7 +85,9 @@ function PrivateButton({
 
   const cssModulesClasses = classNames.reduce(
     (accumulator, klass, i) =>
-      accumulator.concat(`${styles[klass]}${i < classNames.length - 1 ? ' ' : ''}`),
+      accumulator.concat(
+        `${styles[klass]}${i < classNames.length - 1 ? ' ' : ''}`
+      ),
     ''
   )
 

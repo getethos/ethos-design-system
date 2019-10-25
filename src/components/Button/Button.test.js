@@ -31,7 +31,11 @@ describe('Button', () => {
     test('Stateful isSelected', () => {
       const tree = renderer
         .create(
-          <Button.Medium.Stateful.Default isSelected={true} data-tid="foo" name="bar">
+          <Button.Medium.Stateful.Default
+            isSelected={true}
+            data-tid="foo"
+            name="bar"
+          >
             test
           </Button.Medium.Stateful.Default>
         )
@@ -41,7 +45,11 @@ describe('Button', () => {
     test('Stateful isSelected White', () => {
       const tree = renderer
         .create(
-          <Button.Medium.Stateful.White isSelected={true} data-tid="foo" name="bar">
+          <Button.Medium.Stateful.White
+            isSelected={true}
+            data-tid="foo"
+            name="bar"
+          >
             test
           </Button.Medium.Stateful.White>
         )
