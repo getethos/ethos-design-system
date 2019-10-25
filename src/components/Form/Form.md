@@ -798,11 +798,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
         <Spacer.H16 />
         {values.buttonGroup === '1'
           ? field('buttonGroup2')
-          : () => {
-              hide('buttonGroup2')
-              hide('buttonGroup3')
-              return null
-            }}
+          : hide('buttonGroup2') && hide('buttonGroup3')}
         <Spacer.H16 />
         {values.buttonGroup2 === '1'
           ? field('buttonGroup3')
