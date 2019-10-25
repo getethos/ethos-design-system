@@ -16,6 +16,17 @@ Layout.propTypes = {
  * (Later, it might be better rewritten as an HOC or without the extra <div>.)
  */
 class ScrollDetector extends React.Component {
+  static propTypes = {
+    className: PropTypes.string,
+    element: PropTypes.string,
+    offsetHeight: PropTypes.number,
+  }
+
+  static defaultProps = {
+    element: 'div',
+    offsetHeight: 0,
+  }
+
   state = {
     isScrolled: false,
   }
@@ -56,17 +67,6 @@ class ScrollDetector extends React.Component {
 
     return <Element className={classNames.join(' ')} {...rest} />
   }
-}
-
-ScrollDetector.propTypes = {
-  className: PropTypes.string,
-  element: PropTypes.string,
-  offsetHeight: PropTypes.number,
-}
-
-ScrollDetector.defaultProps = {
-  element: 'div',
-  offsetHeight: 0,
 }
 
 function HorizontallyPaddedContainer({ className, element, ...rest }) {
