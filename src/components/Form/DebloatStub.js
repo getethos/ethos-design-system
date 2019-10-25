@@ -39,14 +39,13 @@ const componentsTable = {
 const mapJsonToFields = (json) => {
   const fields = {}
   Object.keys(json).forEach((fieldKey) => {
-    const field = json[fieldKey]
     fields[fieldKey] = {}
+    const field = json[fieldKey]
+    fields[fieldKey] = field
     const validators = field.validators.reduce((acc, validator) => {
       acc.push(validatorsTable[validator])
       return acc
     }, [])
-
-    fields[fieldKey] = field
     fields[fieldKey].validators = validators
     fields[fieldKey].component = componentsTable[fieldKey]
   })
