@@ -1,6 +1,6 @@
-// TODO once we remove Colors.scss from design-system.css we'll need to import
-// @import "../Colors.scss";
-
+/* TODO once we remove Colors.scss from design-system.css we'll need to import
+@import "../Colors.scss";
+*/
 .iconWrapper {
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 .showMobileMenu {
-  // .icon adds an extra level of specificity needed in CSS Modules land
+  /* .icon adds an extra level of specificity needed in CSS Modules land */
   .icon {
     i {
       background: transparent;

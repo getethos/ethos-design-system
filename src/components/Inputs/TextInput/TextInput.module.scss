@@ -1,11 +1,12 @@
-// TODO -- these are currently come in via globals but we'll need
-// them here once we continue to strip 'em out of design-system.css
-// @import "../Colors.scss";
-// @import "../Type/Type.scss";
-// @import '../Spacer/Spacer.scss';
+/* TODO -- these are currently come in via globals but we'll need
+   them here once we continue to strip 'em out of design-system.css
+@import "../Colors.scss";
+@import "../Type/Type.scss";
+@import '../Spacer/Spacer.scss';
+*/
 
 .TextInput {
-  // Same as Type.scss Body. Should we use a mixin?
+  /* Same as Type.scss Body. Should we use a mixin? */
   $font-size: 19;
   $line-height: 24;
   font-size: $font-size * 1px;
@@ -35,7 +36,7 @@
 }
 
 .TextInput::placeholder {
-  // It's $gray-64 / #a3a3a3 in ethos, but going to try to limit # of grays
+  /* It's $gray-64 / #a3a3a3 in ethos, but going to try to limit # of grays */
   color: var(--GrayStrokeAndDisabled--opaque);
 }
 

@@ -1,16 +1,18 @@
-// @import "../Animation.scss";
-// @import "../Colors.scss";
-// @import "../Type/Type.scss";
-// @import '../Spacer/Spacer.scss';
+/*
+@import "../Animation.scss";
+@import "../Colors.scss";
+@import "../Type/Type.scss";
+@import '../Spacer/Spacer.scss';
+*/
 @import '../Media/Media.scss';
 
-// This is currently a one-off implementation for UniversalNavbar
+/* This is currently a one-off implementation for UniversalNavbar */
 @import './Button.small.shame.scss';
 
 /* @getethos/design-system/Button.scss
    ========================================================================== */
 
-// Defaults
+/* Defaults */
 
 :root {
   --ButtonMediumStatefulMinWidth: 156px;
@@ -30,7 +32,7 @@ button,
   }
 }
 
-// Dimensions
+/* Dimensions */
 
 .Button.Medium {
   $font-size: 19;
@@ -65,10 +67,11 @@ button,
     padding-left: 48px;
   }
 }
-// Styles
+/* Styles */
 
 @mixin light-on-dark-font-smoothing {
-  -webkit-font-smoothing: antialiased; // stackoverflow.com/a/17927764
+  /* stackoverflow.com/a/17927764 */
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -152,8 +155,8 @@ button,
   }
 }
 
-// Purposely very specific name WhiteCTA as this is currently
-// only used on the CMS hero for the CTA 'Check my price' button
+/* Purposely very specific name WhiteCTA as this is currently */
+/* only used on the CMS hero for the CTA 'Check my price' button */
 .Button.WhiteCTA {
   background: var(--White);
   padding: var(--Space-16) var(--Space-32);
@@ -179,8 +182,8 @@ button,
   }
 
   @mixin button-stateful-is-active-or-selected {
-    // These are used in both the HTML "active" state (mid-click), as well as
-    // the custom "is selected" state (this button is in the "on" state).
+    /* These are used in both the HTML "active" state (mid-click), as well as */
+    /* the custom "is selected" state (this button is in the "on" state). */
     border-color: var(--BrandForest);
     background-color: var(--BrandForest);
     color: var(--White);
@@ -197,7 +200,7 @@ button,
       color: var(--GrayPrimary--translucent);
     }
 
-    // Bugfix: Need this one to have more specificity then ^ hover
+    /* Bugfix: Need this one to have more specificity then ^ hover */
     &.isSelected {
       @include button-stateful-is-active-or-selected;
     }
@@ -213,10 +216,12 @@ button,
     color: var(--White);
   }
 
-  // This class will be applied with the button is in the "selected" state, e.g.
-  // after the user clicks it, or if they have previously selected this value.
-  // Note thatthese styles should appear even if the button is disabled, though
-  // this probably only makes sense for `.isSelected` (not `:active`).
+  /*
+  This class will be applied with the button is in the "selected" state, e.g.
+  after the user clicks it, or if they have previously selected this value.
+  Note thatthese styles should appear even if the button is disabled, though
+  this probably only makes sense for `.isSelected` (not `:active`).
+  */
   &.isSelected {
     @include button-stateful-is-active-or-selected;
   }
