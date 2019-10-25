@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-let iteractedWith = false
+let interactedWith = false
 let touched = false
 let hiddenFields = {}
 
@@ -20,7 +20,7 @@ export function useFormState(initialState) {
   // Returns a function that updates state for the field, tracked by fieldName
   function setFieldState(fieldName) {
     return (newValue, newError) => {
-      iteractedWith = true
+      interactedWith = true
 
       // Reset form errors if they exist
       setFormErrorState('')
@@ -40,7 +40,7 @@ export function useFormState(initialState) {
   }
 
   function getFormInteractedWith() {
-    return iteractedWith
+    return interactedWith
   }
 
   // Gets values of all fields, basically just used in form submission
@@ -89,14 +89,10 @@ export function useFormState(initialState) {
     touched = true
   }
 
-  // Verify form has been iteractedWith and also has no errors;
+  // Verify form has been interactedWith and also has no errors;
   // Used for determining whether a form is valid
   function getFormIsValid() {
-    return iteractedWith && !getFieldErrorsString()
-  }
-
-  function getFieldsHidden() {
-    return hiddenFields
+    return interactedWith && !getFieldErrorsString()
   }
 
   function setFieldsHidden(fieldName, bool) {
