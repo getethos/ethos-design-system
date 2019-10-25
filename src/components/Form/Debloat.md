@@ -22,16 +22,16 @@ let count = 1;
     formId: '1',
     fields: {
       email: {
-        // Seems like the component may start out less smart and be declarative like we have here
+        // Seems like this component field JSX property may have to start out partially declarative 
         component: (props, options) => {
-          return <EmailInput {...props} placeholder="example@ethoslife.com" />
+          return <EmailInput {...props} placeholder={formFields.email.placeholder} />
         },
-        // But these got built smart :) See DebloatStub.js
+        // See DebloatStub.js
         ...formFields.email
       },
       password: {
         component: (props, options) => {
-          return <PasswordInput {...props} placeholder="password..." />
+          return <PasswordInput {...props} placeholder={formFields.password.placeholder} />
         },
         ...formFields.password
       },
