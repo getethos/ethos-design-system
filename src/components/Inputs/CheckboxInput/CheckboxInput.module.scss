@@ -30,7 +30,7 @@
   opacity: 0;
 }
 
-// State
+/* State */
 .CheckboxInput:not(:checked) ~ .Facade {
   &:hover {
     background-color: var(--GrayLightHover--translucent);

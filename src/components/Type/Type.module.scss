@@ -8,8 +8,7 @@
   font-family: var(--Cambon-font-stack);
 }
 
-// Type utilities (colors, weights, alignment)
-
+/* Type utilities (colors, weights, alignment) */
 .Caption,
 .Footnote,
 .Body,
@@ -18,7 +17,7 @@
 .TitleLarge,
 .TitleXLarge,
 .TitleXXLarge {
-  // Brand colors
+  /* Brand colors */
 
   &.BrandForest {
     color: var(--BrandForest);
@@ -27,7 +26,7 @@
     color: var(--BrandSalamander);
   }
 
-  // Grayscales
+  /* Grayscales */
 
   &.GrayPrimary {
     color: var(--GrayPrimary--translucent);
@@ -45,7 +44,7 @@
     color: var(--White);
   }
 
-  // Misc.
+  /* Misc. */
 
   &.Centered {
     text-align: center;
@@ -73,7 +72,7 @@
   font-weight: 600;
 }
 
-// Subtypes
+/* Subtypes */
 
 .Caption {
   @include for-phone-only {
@@ -375,10 +374,11 @@ h6,
   }
 }
 
-// TODO: come up with a comprehensive plan for links and link styles. This is
-// complicated by the number of design features we may need to support, plus
-// the complications from JS routers with <Link>s that are not standard <a>s.
-// See also ./Type.scss.
+/* TODO: come up with a comprehensive plan for links and link styles. This is
+   complicated by the number of design features we may need to support, plus
+   the complications from JS routers with <Link>s that are not standard <a>s.
+   See also ./Type.scss.
+*/
 
 .Caption,
 .Footnote,

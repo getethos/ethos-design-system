@@ -1,8 +1,8 @@
 @import '../Media/Media.scss';
 
 .Layout {
-  // The concept of a top-level reusable "Layout" component may be an antipattern.
-  // Let's be slow to add more styles here.
+  /* The concept of a top-level reusable "Layout" component may be an antipattern. */
+  /* Let's be slow to add more styles here. */
   width: 100%;
   overflow-x: hidden;
 }
