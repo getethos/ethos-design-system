@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { InputLabel } from '../InputLabel'
@@ -57,7 +57,7 @@ function PrivateTextAreaInput({
 
   const [value, setValue] = useState(currentValue || initialValue || '')
 
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
 
   const [doValidation] = useInputValidation({
     validate,
@@ -83,6 +83,15 @@ function PrivateTextAreaInput({
       setFieldTouched(true)
     }
   }
+
+  // Initial Value aka prefilled—are considered "touched", but must prevalidate
+  // which will in turn update the internal form state as to their validity
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('TextAreaInput useEffect -- calling doValidation')
+      doValidation(initialValue, '')
+    }
+  }, [])
 
   const onBlur = (ev) => {
     setAllTouched()

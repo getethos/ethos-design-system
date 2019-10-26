@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
@@ -35,7 +35,9 @@ export const TextMaskedInput = (props) => {
   )
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
-  const [internalTouched, internalSetTouched] = useState(false)
+  const [internalTouched, internalSetTouched] = useState(
+    initialValue ? true : false
+  )
   const whichTouched = getTouched ? getTouched : internalTouched
   const whichSetTouched = setTouched ? setTouched : internalSetTouched
   const [internalDoValidation] = useInputValidation({
@@ -63,6 +65,16 @@ export const TextMaskedInput = (props) => {
     }
   }
 
+  // Initial Value aka prefilled—are considered "touched", but must prevalidate
+  // which will in turn update the internal form state as to their validity
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('TextMaskedInput useEffect -- calling formChangeHandler')
+      const cleansed = cleanse(initialValue)
+      whichDoValidation(cleansed, true)
+    }
+  }, [])
+
   const onBlur = (ev) => {
     // We set touched to change the react state, but it's async and
     // processing still, so, we use a flag for doValidation
@@ -81,9 +93,9 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    return !!getError(currentError, whichTouched) ?
-      `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}` :
-      `TextMaskedInput ${styles.TextInput}`
+    return !!getError(currentError, whichTouched)
+      ? `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}`
+      : `TextMaskedInput ${styles.TextInput}`
   }
 
   const getMaskedInputByType = (mask) => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { TextMaskedInput } from '../TextMaskedInput'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
@@ -39,7 +39,7 @@ const PrivateBirthdateInput = (props) => {
     validator
   )
   const val = currentValue || initialValue
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
   const [value, setValue] = useState(val || '')
 
   const callErrorHandlers = (value, handlerFn) => {
@@ -69,6 +69,15 @@ const PrivateBirthdateInput = (props) => {
     }
   }
 
+  // Initial Value aka prefilled—are considered "touched", but must prevalidate
+  // which will in turn update the internal form state as to their validity
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('BirthdateInput useEffect -- calling doValidation')
+      doValidation(initialValue, true)
+    }
+  }, [])
+
   const [doValidation] = useInputValidation({
     validate,
     setError,
@@ -77,9 +86,9 @@ const PrivateBirthdateInput = (props) => {
   })
 
   const getClasses = () => {
-    return !!getError(currentError, touched) ?
-      `BirthdateInput ${styles.TextInput} ${errorStyles.Error}` :
-      `BirthdateInput ${styles.TextInput}`
+    return !!getError(currentError, touched)
+      ? `BirthdateInput ${styles.TextInput} ${errorStyles.Error}`
+      : `BirthdateInput ${styles.TextInput}`
   }
 
   return (
