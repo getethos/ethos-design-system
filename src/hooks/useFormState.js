@@ -10,7 +10,7 @@ export function useFormState(initialState) {
   const [formErrorState, setFormErrorState] = useState('')
 
   // No fields are considered hidden initially. Within the JSX, consumer can
-  // call hide('fieldName'), and from there we can update setFieldsHidden
+  // call markHidden('fieldName'), and from there we can update setFieldsHidden
   const initialHiddenState = {}
   Object.keys(initialState).map((key) => {
     initialHiddenState[key] = false

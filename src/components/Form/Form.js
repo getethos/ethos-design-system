@@ -119,9 +119,10 @@ export function Form({ children, config }) {
     }
   }
 
-  function hide(fieldName) {
+  function markHidden(fieldName) {
     const fieldConfig = config.fields[fieldName]
     setFieldsHidden(fieldName, true)
+    return true
   }
 
   // Wrapper for all fields. Essentially, this translates the field definitions
@@ -241,7 +242,7 @@ export function Form({ children, config }) {
         these arguments passed to the children function. */}
       {children({
         field,
-        hide,
+        markHidden,
         getFieldErrors,
         getFieldValues,
         getFormErrorMessage,
