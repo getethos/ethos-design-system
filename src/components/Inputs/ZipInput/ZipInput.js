@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { TextMaskedInput } from '../TextMaskedInput'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
@@ -26,7 +26,7 @@ export const ZipInput = (props) => {
     validator
   )
   const val = currentValue || initialValue
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
   const [value, setValue] = useState(val || '')
 
   // This has to come before useInputValidation setup below
@@ -45,6 +45,13 @@ export const ZipInput = (props) => {
     }
   }
 
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('ZipInput useEffect -- calling doValidation')
+      formChangeHandler(initialValue, '')
+    }
+  }, [])
+
   const [doValidation] = useInputValidation({
     validate,
     setError,
@@ -53,9 +60,9 @@ export const ZipInput = (props) => {
   })
 
   const getClasses = () => {
-    return !!getError(currentError, touched) ?
-      `ZipInput ${styles.TextInput} ${errorStyles.Error}` :
-      `ZipInput ${styles.TextInput}`
+    return !!getError(currentError, touched)
+      ? `ZipInput ${styles.TextInput} ${errorStyles.Error}`
+      : `ZipInput ${styles.TextInput}`
   }
 
   return (
