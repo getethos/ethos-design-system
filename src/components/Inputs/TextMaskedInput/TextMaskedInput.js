@@ -60,7 +60,7 @@ export const TextMaskedInput = (props) => {
 
   const setAllTouched = () => {
     whichSetTouched(true)
-    if (setFieldTouched) {
+    if (!!setFieldTouched) {
       setFieldTouched(true)
     }
   }

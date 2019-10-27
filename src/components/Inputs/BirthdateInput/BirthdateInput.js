@@ -31,6 +31,7 @@ const PrivateBirthdateInput = (props) => {
     currentValue,
     currentError,
     formTouched,
+    setFieldTouched,
     ...restProps
   } = props
 
@@ -111,7 +112,7 @@ const PrivateBirthdateInput = (props) => {
         currentValue={currentValue}
         currentError={currentError}
         formTouched={formTouched}
-        setFieldTouched={restProps.setFieldTouched}
+        setFieldTouched={setFieldTouched}
         getTouched={touched}
         setTouched={setTouched}
       />
