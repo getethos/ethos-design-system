@@ -211,9 +211,7 @@ export function Form({ children, config }) {
       // data-tid is helpful for writing tests.
       // sometimes it's passed in, but if it isn't,
       // we will automatically generate one
-      'data-tid':
-        fieldConfig.tid ||
-        [config.formName, config.formId, fieldName].join('-'),
+      'data-tid': fieldConfig.tid || [config.formId, fieldName].join('-'),
     }
 
     // User-visible copy, shows up in the label above the field. Most inputs
