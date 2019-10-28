@@ -48,4 +48,45 @@ describe('FormDynamic', () => {
       cy.get('[data-tid="button-dynamic-submit2"]').should('not.be.disabled')
     })
   })
+
+  describe('Nested dynamic forms', () => {
+    it('unhidden fields that are untouched disable submit', () => {
+      cy.get('[data-tid="nested-group-level1"] button:first-child').trigger(
+        'click'
+      )
+      cy.get('[data-tid="nested-group-level2"]').should('be.visible')
+      cy.get('[data-tid="nested-group-level3"]').should('not.be.visible')
+      cy.get('[data-tid="button-dynamic-submit3"]').should('be.disabled')
+    })
+
+    it('unhidden fields that are untouched disable submit', () => {
+      cy.get('[data-tid="nested-group-level1"] button:first-child').trigger(
+        'click'
+      )
+      cy.get('[data-tid="nested-group-level2"]').should('be.visible')
+
+      cy.get('[data-tid="nested-group-level2"] button:first-child').trigger(
+        'click'
+      )
+      cy.get('[data-tid="nested-group-level3"]').should('be.visible')
+      cy.get('[data-tid="button-dynamic-submit3"]').should('be.disabled')
+    })
+
+    it('unhidden fields that all touched enables submit', () => {
+      cy.get('[data-tid="nested-group-level1"] button:first-child').trigger(
+        'click'
+      )
+      cy.get('[data-tid="nested-group-level2"]').should('be.visible')
+
+      cy.get('[data-tid="nested-group-level2"] button:first-child').trigger(
+        'click'
+      )
+      cy.get('[data-tid="nested-group-level3"]').should('be.visible')
+
+      cy.get('[data-tid="nested-group-level3"] button:first-child').trigger(
+        'click'
+      )
+      cy.get('[data-tid="button-dynamic-submit3"]').should('not.be.disabled')
+    })
+  })
 })

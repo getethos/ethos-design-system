@@ -296,7 +296,7 @@ import {
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 ;<Form
   config={{
-    formName: 'Dynamic fields example form',
+    formName: 'Nested dynamic forms',
     autocompleteOff: true,
     formId: '1',
     fields: {
@@ -312,6 +312,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
             </ButtonSelectGroup>
           )
         },
+        tid: 'nested-group-level1',
         labelCopy: 'Question 1/3',
         options: [
           { value: '1', copy: 'Show next question' },
@@ -335,6 +336,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
           )
         },
         labelCopy: 'Question 2/3',
+        tid: 'nested-group-level2',
         options: [
           { value: '1', copy: 'Show next question' },
           {
@@ -357,6 +359,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
           )
         },
         labelCopy: 'Question 3/3',
+        tid: 'nested-group-level3',
         options: [
           { value: '1', copy: 'Last question answer 1' },
           { value: '2', copy: 'Last question answer 2' },
