@@ -34,6 +34,7 @@ export const CheckboxInput = ({
   currentValue,
   currentError,
   formTouched,
+  setFieldTouched,
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
@@ -65,6 +66,7 @@ export const CheckboxInput = ({
       ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
     doValidation(val, touched)
     setIsChecked(val)
+    setFieldTouched(true)
   }
 
   const onKeyPress = (ev) => {
@@ -73,6 +75,7 @@ export const CheckboxInput = ({
         ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
       doValidation(!val, touched)
       setIsChecked(!val)
+      setFieldTouched(true)
     }
   }
 
