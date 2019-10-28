@@ -578,7 +578,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 
 ### Hiding dynamic fields
 
-Dynamic fields & hidden fields—if you call `hide` when a dynamic field is hidden, it
+Dynamic fields & hidden fields—if you call `markHidden` when a dynamic field is hidden, it
 will not be considered in determining form validity. Further, if the hidden field has
 been previously interacted with, it's value will also be ignored.
 
@@ -649,7 +649,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
   {(api) => {
     const {
       field,
-      hide,
+      markHidden,
       getFieldErrors,
       getFieldValues,
       getFormErrorMessage,
@@ -673,7 +673,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
 
         {values.buttonGroup == 'toggle-1'
           ? field('buttonGroup2')
-          : hide('buttonGroup2')}
+          : markHidden('buttonGroup2')}
         <Spacer.H16 />
 
         <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
@@ -776,7 +776,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
   {(api) => {
     const {
       field,
-      hide,
+      markHidden,
       getFieldErrors,
       getFieldValues,
       getFormErrorMessage,
@@ -798,11 +798,11 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
         <Spacer.H16 />
         {values.buttonGroup === '1'
           ? field('buttonGroup2')
-          : hide('buttonGroup2') && hide('buttonGroup3')}
+          : markHidden('buttonGroup2') && markHidden('buttonGroup3')}
         <Spacer.H16 />
         {values.buttonGroup2 === '1'
           ? field('buttonGroup3')
-          : hide('buttonGroup3')}
+          : markHidden('buttonGroup3')}
         <Spacer.H16 />
         <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
           Submit
