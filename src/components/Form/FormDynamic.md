@@ -36,7 +36,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 
 ;<Form
   config={{
-    formName: 'Dynamic fields example form',
+    formName: 'Dynamic Fields Examples',
     autocompleteOff: true,
     formId: '1',
     fields: {
@@ -54,6 +54,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         },
         validators: [validateIllegal],
         validationSuccess: [analyticsCustomEvent],
+        tid: 'toggle-dynamic-fields',
         labelCopy: 'Toggle dynamic fields',
         options: [
           { value: 'toggle-1', copy: 'Toggle Field 1' },
@@ -159,7 +160,7 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 
         <Spacer.H16 />
 
-        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit" data-tid="button-dynamic-submit">
           Submit
         </Button.Medium.Black>
       </div>
@@ -187,7 +188,7 @@ import {
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
 ;<Form
   config={{
-    formName: 'Dynamic fields example form',
+    formName: 'Hiding dynamic fields',
     autocompleteOff: true,
     formId: '1',
     fields: {
@@ -204,6 +205,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
           )
         },
         labelCopy: 'Toggle dynamic fields',
+        tid: 'toggle-dynamic-fields2',
         options: [
           { value: 'toggle-1', copy: 'Show next question' },
           {
@@ -225,6 +227,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
             </ButtonSelectGroup>
           )
         },
+        tid: 'toggled-buttons2',
         labelCopy: 'Toggle dynamic fields',
         options: [
           { value: 'toggle-1', copy: 'x' },
@@ -269,7 +272,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
           : hide('buttonGroup2')}
         <Spacer.H16 />
 
-        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit" data-tid="button-dynamic-submit2">
           Submit
         </Button.Medium.Black>
       </div>
@@ -398,7 +401,7 @@ import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup
           ? field('buttonGroup3')
           : hide('buttonGroup3')}
         <Spacer.H16 />
-        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit" data-tid="button-dynamic-submit3">
           Submit
         </Button.Medium.Black>
       </div>
