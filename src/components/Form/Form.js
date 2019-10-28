@@ -120,7 +120,6 @@ export function Form({ children, config }) {
   }
 
   function markHidden(fieldName) {
-    const fieldConfig = config.fields[fieldName]
     setFieldsHidden(fieldName, true)
     // allows for chaining with && if needed
     return true
