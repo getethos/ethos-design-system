@@ -27,7 +27,7 @@ describe('FormDynamic', () => {
     })
   })
 
-  describe('Hiding dynamic fields', () => {
+  describe('Hidden dynamic fields', () => {
     it('nothing touched then submit disabled', () => {
       cy.get('[data-tid="button-dynamic-submit2"]').should('be.disabled')
     })
