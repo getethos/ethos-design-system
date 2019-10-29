@@ -62,7 +62,7 @@ Then do following to setup debugging in Chrome:
 Our end to end integration tests use Cypress. To run Cypress locally do:
 
 ```
-yarn e2e:ci
+yarn e2e:dev
 ```
 
 The Cypress application will open up and it should be self evident how to run the specs by just clicking around the Cypress interface.
