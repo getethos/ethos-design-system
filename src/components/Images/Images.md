@@ -8,7 +8,7 @@
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
     lazyload={false}
   />
-  <div style={{ height: 1000 }}>Test lazy loading</div>
+  <div style={{ height: 100 }}>Test lazy loading</div>
   <CloudinaryImage
     crop="fill"
     alt="father and kids playing"
@@ -16,7 +16,7 @@
     height={[250,350,450,550]}
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
   />
-  <div style={{ height: 1000 }}>Test lazy loading</div>
+  <div style={{ height: 100 }}>Test lazy loading</div>
   <CloudinaryImage
     crop="fit"
     alt="father and kids playing"
@@ -24,7 +24,7 @@
     height={[250,350,450,550]}
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
   />
-  <div style={{ height: 1000 }}>Test lazy loading</div>
+  <div style={{ height: 100 }}>Test lazy loading</div>
   <CloudinaryImage
     crop="crop"
     alt="father and kids playing"
@@ -37,7 +37,6 @@
   <CloudinaryImage
     crop="fill"
     alt="father and kids playing"
-    width={false}
     height={[250,350,450,550]}
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
   />
@@ -47,7 +46,6 @@
     crop="fill"
     alt="father and kids playing"
     width={[250,350,450,550]}
-    height={false}
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
   />
   <br/>
@@ -55,8 +53,6 @@
   <CloudinaryImage
     crop="fill"
     alt="icon test"
-    width={false}
-    height={false}
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565206784/02_Icons/Icon_slot_3_Duckegg_ktjkor.svg"
   />
 </div>
