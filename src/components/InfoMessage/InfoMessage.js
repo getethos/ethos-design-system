@@ -1,5 +1,6 @@
 import React from 'react'
 import { Footnote } from '../index'
+import styles from './InfoMessage.module.scss'
 
 const INFO_MESSAGE_TYPES = {
   ERROR: 'ERROR',
@@ -14,19 +15,19 @@ const INFO_MESSAGE_FORMATS = {
 }
 
 function InfoMessageFactory(type, format) {
-  let className = ''
+  let classNames = ''
   switch (type) {
     case INFO_MESSAGE_TYPES.ERROR:
-      className = 'error'
+      classNames = styles.error
       break
     case INFO_MESSAGE_TYPES.WARNING:
-      className = 'warning'
+      classNames = styles.warning
       break
     case INFO_MESSAGE_TYPES.INFO:
-      className = 'info'
+      classNames = styles.info
       break
     case INFO_MESSAGE_TYPES.SUCCESS:
-      className = 'success'
+      classNames = styles.success
       break
     default:
       throw new Error('Improper info message type supplied')
@@ -36,13 +37,13 @@ function InfoMessageFactory(type, format) {
     case INFO_MESSAGE_FORMATS.TEXT:
       break
     case INFO_MESSAGE_FORMATS.ALERT:
-      className = className + ' Alert'
+      classNames = `${classNames} ${styles.Alert}`
       break
   }
 
   const PublicInfoMessageComponent = ({ children }) => {
     return (
-      <div className={'InfoMessage ' + className}>
+      <div className={`${styles.InfoMessage} ${classNames}`}>
         <Footnote.Regular400>{children}</Footnote.Regular400>
       </div>
     )

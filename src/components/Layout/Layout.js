@@ -1,8 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import styles from './Layout.module.scss'
+
 export function Layout({ children }) {
-  return <div className="Layout">{children}</div>
+  return <div className={styles.Layout}>{children}</div>
 }
 
 Layout.propTypes = {
@@ -14,17 +16,6 @@ Layout.propTypes = {
  * (Later, it might be better rewritten as an HOC or without the extra <div>.)
  */
 class ScrollDetector extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    element: PropTypes.string,
-    offsetHeight: PropTypes.number,
-  }
-
-  static defaultProps = {
-    element: 'div',
-    offsetHeight: 0,
-  }
-
   state = {
     isScrolled: false,
   }
@@ -67,10 +58,24 @@ class ScrollDetector extends React.Component {
   }
 }
 
+ScrollDetector.propTypes = {
+  className: PropTypes.string,
+  element: PropTypes.string,
+  offsetHeight: PropTypes.number,
+}
+
+ScrollDetector.defaultProps = {
+  element: 'div',
+  offsetHeight: 0,
+}
+
 function HorizontallyPaddedContainer({ className, element, ...rest }) {
   const Element = element
   return (
-    <Element className={['Container', className].join(' ').trim()} {...rest} />
+    <Element
+      className={[styles.Container, className].join(' ').trim()}
+      {...rest}
+    />
   )
 }
 
@@ -84,17 +89,7 @@ HorizontallyPaddedContainer.defaultProps = {
   element: 'div',
 }
 
-function CenterHorizontally({ children }) {
-  return <div className="CenterHorizontally">{children}</div>
-}
-
-CenterHorizontally.propTypes = {
-  children: PropTypes.node,
-}
-
 // Exports
-
-Layout.CenterHorizontally = CenterHorizontally
 
 Layout.Container = HorizontallyPaddedContainer // overloaded alias, deprecated
 Layout.HorizontallyPaddedContainer = HorizontallyPaddedContainer

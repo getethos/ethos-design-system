@@ -4,6 +4,10 @@ import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
 import { Body } from '../Type/Body.js'
+import { COLORS } from '../Colors.js'
+import styles from './RadioButtons.module.scss'
+
+// Note: RadioButtonGroup does not currently work (may have broken circa v0.9).
 
 /* @getethos/design-system/RadioButtons.js
 
@@ -11,7 +15,7 @@ import { Body } from '../Type/Body.js'
 
    - `RadioButton` is an HTML radio button with a styled façade and label.
    - `RadioButtonGroup` is a stack of the above, mostly agnostic of any library.
-   - `RadioButtons.scss` (not imported here) styles these components.
+   - `RadioButtons.module.scss` styles these components.
    ========================================================================== */
 
 /**
@@ -43,6 +47,7 @@ import { Body } from '../Type/Body.js'
 function RadioButton({
   name,
   value,
+  optional,
   checked,
   required,
   disabled,
@@ -58,7 +63,7 @@ function RadioButton({
   includesInvalid(rest)
 
   return (
-    <label className={RadioButton.CLASS_NAME}>
+    <label className={styles.RadioButton}>
       <span>
         <input
           type="radio"
@@ -72,15 +77,14 @@ function RadioButton({
         />
         <aside />
       </span>
-      <Body.Regular400>{label}</Body.Regular400>
+      <Body.Regular400 color={COLORS.GRAY_PRIMARY}>{label}</Body.Regular400>
     </label>
   )
 }
 
-RadioButton.CLASS_NAME = 'RadioButton'
-
 RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
+  optional: PropTypes.bool,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   required: PropTypes.bool,
@@ -112,7 +116,7 @@ RadioButton.propTypes = {
  * @param {String}     name      The name of the field, e.g. 'faveColor'
  * @param {Array}      options   Props passed to the individual radios
  * @param {String}     value     The currently selected option.value
- * @param {Boolean     disabled  Whether this radio group is disabled
+ * @param {Boolean}    disabled  Whether this radio group is disabled
  * @param {Boolean}    required  Whether this radio group is required
  * @param {...Object}  rest      Mostly redux-form Field input/meta props
  */
@@ -136,7 +140,7 @@ export function RadioButtonGroup({
   })
 
   return (
-    <fieldset className={RadioButtonGroup.CLASS_NAME}>
+    <fieldset className={styles.RadioButtonGroup}>
       {finalOptions.map((option) => (
         <RadioButton
           {...option}
@@ -149,8 +153,6 @@ export function RadioButtonGroup({
     </fieldset>
   )
 }
-
-RadioButtonGroup.CLASS_NAME = 'RadioButtonGroup'
 
 RadioButtonGroup.PUBLIC_PROPS = {
   name: PropTypes.string,

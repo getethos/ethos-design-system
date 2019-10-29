@@ -8,6 +8,7 @@ module.exports = {
   title: 'Design System',
   skipComponentsWithoutExample: true,
   exampleMode: 'expand',
+  usageMode: 'expand',
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.js$/, '.md')
   },
@@ -28,4 +29,5 @@ module.exports = {
       sectionDepth: 2,
     },
   ],
+  serverPort: 9008,
 }

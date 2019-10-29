@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
+import styles from './Button.module.scss'
+
 /* @getethos/design-system/Button.js
 
    Legend:
@@ -69,7 +71,8 @@ function PrivateButton({
   includesInvalid(rest)
 
   // Generate list of css classes
-  const classNames = ['Button', size, style]
+  // style may be 'Stateful White' so we need to split that
+  const classNames = ['Button', size].concat(style.split(' '))
   if (fullWidth) classNames.push('fullWidth')
   if (isSelected) classNames.push('isSelected')
   if (arrowIcon) classNames.push('arrowIcon')
@@ -80,10 +83,18 @@ function PrivateButton({
     checked = { 'aria-checked': isSelected }
   }
 
+  const cssModulesClasses = classNames.reduce(
+    (accumulator, klass, i) =>
+      accumulator.concat(
+        `${styles[klass]}${i < classNames.length - 1 ? ' ' : ''}`
+      ),
+    ''
+  )
+
   return (
     <button
       {...checked}
-      className={classNames.join(' ')}
+      className={cssModulesClasses}
       disabled={disabled}
       type={type}
       name={name}
@@ -104,7 +115,7 @@ const ArrowIconInline = (props) => {
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="arrowIconInline"
+      className={styles.arrowIconInline}
       {...props}
     >
       <path
@@ -132,6 +143,8 @@ PrivateButton.PUBLIC_PROPS = {
 }
 
 PrivateButton.SIZES = {
+  // ***** ONLY USE SMALL IN UniversalNavbar! ***** //
+  SMALL: 'Small',
   MEDIUM: 'Medium',
   UNSIZED: 'Unsized',
 }
@@ -146,6 +159,9 @@ PrivateButton.STYLES = {
 
   // For semantic <buttons> that are not styled as buttons:
   UNSTYLED: 'Unstyled',
+
+  // Only used for CMS 'Check my price' CTA button on hero
+  WHITE_CTA: 'WhiteCTA',
 }
 
 PrivateButton.propTypes = {
@@ -186,12 +202,23 @@ export const Button = {
       }),
       White: ButtonFactory({
         size: PrivateButton.SIZES.MEDIUM,
-        style: PrivateButton.STYLES.STATEFUL_WHITE
-      })
-    }
+        style: PrivateButton.STYLES.STATEFUL_WHITE,
+      }),
+    },
+  },
+  // ***** ONLY USE SMALL IN UniversalNavbar! ***** //
+  Small: {
+    BlackOutline: ButtonFactory({
+      size: PrivateButton.SIZES.SMALL,
+      style: PrivateButton.STYLES.BLACK_OUTLINE,
+    }),
   },
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,
     style: PrivateButton.STYLES.UNSTYLED,
+  }),
+  WhiteCTA: ButtonFactory({
+    size: PrivateButton.SIZES.UNSIZED,
+    style: PrivateButton.STYLES.WHITE_CTA,
   }),
 }

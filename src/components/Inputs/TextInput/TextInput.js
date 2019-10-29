@@ -1,31 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { InputLabel } from '../InputLabel'
 import useRequired from '../../../hooks/useRequired.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInvalid from '../../../hooks/useInvalid.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
-
-/* @getethos/design-system/TextInput.js
+import styles from './TextInput.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 /**
- * WIP
- *
  * @param  {String}   props.name        Input name and htmlFor prop for label
  * @param  {String}   props.labelCopy   User-visible text of label for input
  * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
  * @param  {Function} props.validator   Function for validating input
- * @param  {Boolean}  props.disabled  
+ * @param  {Boolean}  props.disabled
  */
 
 function PrivateTextInput({
+  type,
   disabled,
   name,
   labelCopy,
+  optional,
   allCaps,
   formChangeHandler,
   validator,
+  initialValue,
+  currentValue,
+  currentError,
+  formTouched,
+  setFieldTouched,
+  restrictIllegal,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -44,90 +51,109 @@ function PrivateTextInput({
   includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, validate] = useErrorMessage(validator)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
 
-  const [value, setValue] = useState('')
+  const [value, setValue] = useState(currentValue || initialValue || '')
 
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
 
-  const setErrorWrapper = (errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(value, errorValue)
-    }
-    setError(errorValue)
-  }
-
-  const callErrorHandlers = (value, handlerFn) => {
-    let errorMessage = validate(value)
-    errorMessage = errorMessage.length ? errorMessage : ''
-    handlerFn(errorMessage)
-  }
-
-  const doValidation = (value, isTouched) => {
-    // User hasn't blurred but we still need to inform form
-    // engine if we're in a valid state or not
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      // Have blurred
-      callErrorHandlers(value, setErrorWrapper)
-    }
-  }
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+  })
 
   const onChange = (ev) => {
-    const val = event.target.value
-    const restrictedVal = restrict(val)
+    const val = ev.target.value
+    const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
 
     // We call setTouched in onBlur, so can reliably call getter here
     doValidation(restrictedVal, touched)
   }
 
-  const onBlur = (ev) => {
+  const setAllTouched = () => {
     // We set touched to change the react state, but it's async and
     // processing still, so, we use a flag for doValidation
     setTouched(true)
+    // Also tell the form we've been touched
+    if (!!setFieldTouched) {
+      setFieldTouched(true)
+    }
+  }
+
+  // Initial Value aka prefilled—are considered "touched", but must prevalidate
+  // which will in turn update the internal form state as to their validity
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('TextInput useEffect -- calling doValidation')
+      doValidation(initialValue, true)
+    }
+  }, [])
+
+  const onBlur = (ev) => {
+    setAllTouched()
     doValidation(ev.target.value, true)
   }
 
   const onPaste = (ev) => {
     const val = ev.clipboardData.getData('text/plain')
-    const restrictedVal = restrict(val)
+    const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
+  }
+
+  const getClasses = () => {
+    return getError(currentError, touched)
+      ? `${styles.TextInput} ${errorStyles.Error}`
+      : `${styles.TextInput}`
   }
 
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
       <input
-        type="text"
-        className={!!getError() ? 'TextInput Error' : 'TextInput'}
+        type={type}
+        className={getClasses()}
         disabled={disabled}
         name={name}
+        placeholder={rest.placeholder}
         onPaste={onPaste}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
       />
-      {getError()}
+      {getError(currentError, touched)}
     </>
   )
 }
 
 PrivateTextInput.PUBLIC_PROPS = {
+  optional: PropTypes.bool,
+  type: PropTypes.string,
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  initialValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  placeholder: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  restrictIllegal: PropTypes.bool,
 }
 
 PrivateTextInput.propTypes = {
   ...PrivateTextInput.PUBLIC_PROPS,
+}
+
+PrivateTextInput.defaultProps = {
+  type: 'text',
+  placeholder: '',
+  restrictIllegal: true,
 }
 
 function TextInputFactory(privateProps) {

@@ -1,22 +1,29 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.4-m",
+  "version": "1.1.8-a",
   "description": "Ethos Design System v1",
-  "main": "./build/bundle.js",
+  "main": "./src/components/index.js",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "webpack",
-    "release": "yarn test && yarn run compile-css && yarn run build",
+    "build": "yarn compile-css",
     "compile-css": "node-sass src/components/index.scss src/components/design-system.css && yarn format",
-    "develop": "chokidar *.scss -c 'yarn build' --initial",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --browser chrome --record",
+    "develop": "chokidar src/**/*.scss -c 'yarn build' --initial",
+    "e2e:ci": "CYPRESS_SUPPORT=y yarn run build && start-server-and-test styleguide http://localhost:9008 cy:open",
+    "e2e:dev": "CYPRESS_SUPPORT=y start-server-and-test styleguide http://localhost:9008 cy:open",
     "format": "prettier --write \"src/components/**/*.*css\"",
+    "lint": "eslint src",
+    "prerelease": "yarn test && yarn build",
     "spotcheck": "yarn compile-css && echo \"\n*****\n* View the spotcheck at http://localhost:8080/spotcheck.html\n*****\n\" && webpack-dev-server ",
+    "stats": "node bin/generateStats.js --write",
     "styleguide": "yarn compile-css && styleguidist server",
     "styleguide:build": "yarn compile-css && styleguidist build",
-    "test": "jest",
+    "test": "jest && yarn test:scss",
     "test:coverage": "jest --collectCoverageFrom '[\"src/components/**/*.js\", \"src/hooks/**/*.js\"]' --coverage && open ./coverage/lcov-report/index.html",
-    "test:debug": "node --inspect node_modules/.bin/jest --runInBand",
-    "test:update": "jest --updateSnapshot"
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
+    "test:update": "jest --updateSnapshot",
+    "test:scss": "./scss-test.sh"
   },
   "jest": {
     "verbose": true,
@@ -28,21 +35,35 @@
       ".+\\.(jpg|jpeg|png|gif|svg|)$": "<rootDir>/__mocks__/fileMock.js"
     }
   },
-  "dependencies": {},
-  "peerDependencies": {},
+  "dependencies": {
+    "dayjs": "^1.8.16",
+    "react-text-mask": "^5.4.3",
+    "text-mask-addons": "^3.8.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "chokidar-cli": "^1.2.2",
     "cloudinary-core": "^2.7.4",
     "css-loader": "^3.2.0",
-    "dayjs": "^1.8.16",
+    "css-tree": "^1.0.0-alpha.36",
+    "cypress": "^3.4.1",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.20.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.16.0",
     "file-loader": "^4.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "lazysizes": "^5.1.2",
@@ -53,13 +74,16 @@
     "react-responsive": "^8.0.0",
     "react-styleguidist": "^9.1.16",
     "react-test-renderer": "^16.9.0",
-    "react-text-mask": "^5.4.3",
     "sass-loader": "^8.0.0",
+    "start-server-and-test": "^1.10.5",
     "style-loader": "^1.0.0",
-    "text-mask-addons": "^3.8.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
   }
 }

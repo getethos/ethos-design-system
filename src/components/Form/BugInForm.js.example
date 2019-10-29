@@ -1,0 +1,2 @@
+// Rename this file from BugInForm.js.example to BugInForm.js to "activate" the demo so react-styleguidist can see it
+export function BugInForm() {}

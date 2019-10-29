@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextAreaInput default rendering 1`] = `
+Array [
+  <label
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    htmlFor="nombre"
+  >
+    The label
+  </label>,
+  <div
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />,
+  <textarea
+    className="TextAreaInput Resize"
+    data-tid="the-text-input"
+    name="nombre"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPaste={[Function]}
+    placeholder=""
+    value=""
+  />,
+  "",
+]
+`;

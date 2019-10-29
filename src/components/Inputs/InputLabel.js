@@ -34,7 +34,7 @@ export function InputLabel({
       'InputLabel component requires either a name or an id, you supplied both'
     )
   } else {
-    nameOrIdProps = !!name ? { htmlFor: name } : { id }
+    nameOrIdProps = name ? { htmlFor: name } : { id }
   }
 
   return (
@@ -42,7 +42,7 @@ export function InputLabel({
       <Caption.Medium500
         element={element}
         color={COLORS.GRAY_PRIMARY}
-        allCaps={true} // WIP these should be consistent...
+        allCaps={allCaps}
         {...nameOrIdProps}
       >
         {labelCopy}

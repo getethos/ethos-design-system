@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import MaskedInput from 'react-text-mask'
+import { TextMaskedInput } from '../TextMaskedInput'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import { InputLabel } from '../InputLabel'
 import zipInputValidator from '../../../validators/ZipInputValidator'
+import styles from '../TextInput/TextInput.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 export const ZipInput = (props) => {
   const {
@@ -12,19 +15,21 @@ export const ZipInput = (props) => {
     allCaps,
     validator,
     formChangeHandler,
+    initialValue,
+    currentValue,
+    currentError,
+    formTouched,
     ...restProps
   } = props
 
-  const [getError, setError, validate] = useErrorMessage(validator)
-  const [touched, setTouched] = useState(false)
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
+  const val = currentValue || initialValue
+  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [value, setValue] = useState(val || '')
 
-  const setErrorWrapper = (value, errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(value, errorValue)
-    }
-    setError(errorValue)
-  }
-
+  // This has to come before useInputValidation setup below
   const callErrorHandlers = (value, handlerFn) => {
     /// Check zip format validity
     let errMsg = zipInputValidator(value)
@@ -40,46 +45,50 @@ export const ZipInput = (props) => {
     }
   }
 
-  const doValidation = (value, isTouched) => {
-    // User hasn't blurred but we still need to inform form
-    // engine if we're in a valid state or not
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      // Have blurred
-      callErrorHandlers(value, setErrorWrapper)
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('ZipInput useEffect -- calling doValidation')
+      formChangeHandler(initialValue, '')
     }
-  }
+  }, [])
 
-  const onBlur = (ev) => {
-    // We set touched to change the react state, but it's async and
-    // processing still, so, we use a flag for doValidation
-    setTouched(true)
-    doValidation(ev.target.value, true)
-  }
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+    callErrorHandlers,
+  })
 
-  const onChange = (ev) => {
-    // We call setTouched in onBlur, so can reliably call getter here
-    doValidation(ev.target.value, touched)
+  const getClasses = () => {
+    return !!getError(currentError, touched)
+      ? `ZipInput ${styles.TextInput} ${errorStyles.Error}`
+      : `ZipInput ${styles.TextInput}`
   }
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
-      <MaskedInput
+      <TextMaskedInput
+        initialValue={value}
         mask={[/\d/, /\d/, /\d/, /\d/, /\d/]}
+        pipe={props.pipe}
+        placeholder={props.placeholder}
         type="tel"
+        labelCopy={labelCopy}
+        allCaps={allCaps}
         data-tid={restProps['data-tid']}
         guide={true}
-        onBlur={onBlur}
-        onChange={onChange}
+        doValidation={doValidation}
         name={props.name}
-        className={
-          !!getError() ? 'ZipInput TextInput Error' : 'ZipInput TextInput'
-        }
+        className={getClasses()}
         keepCharPositions={true}
+        currentValue={currentValue}
+        currentError={currentError}
+        formTouched={formTouched}
+        setFieldTouched={restProps.setFieldTouched}
+        getTouched={touched}
+        setTouched={setTouched}
       />
-      {getError()}
+      {getError(currentError, touched)}
     </>
   )
 }
@@ -91,6 +100,7 @@ ZipInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
+  initialValue: PropTypes.string,
 }
 
 ZipInput.propTypes = {

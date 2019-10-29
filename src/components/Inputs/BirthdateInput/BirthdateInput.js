@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import MaskedInput from 'react-text-mask'
+import { TextMaskedInput } from '../TextMaskedInput'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import { InputLabel } from '../InputLabel'
-
+import styles from '../TextInput/TextInput.module.scss'
+import errorStyles from '../Errors.module.scss'
 import dayjs from '../../../helpers/getDayjs.js'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
+import useInputValidation from '../../../hooks/useInputValidation.js'
 import * as Validators from '../../../validators/BirthdateInputValidator'
+import { cleanse } from '../../../validators/NumberValidator.js'
+
 const {
-  cleanse,
   DATE_FORMATS,
   dateMaskByFormat,
   dateStringMatchesFormat,
@@ -18,24 +21,27 @@ const {
 const PrivateBirthdateInput = (props) => {
   const {
     name,
+    optional,
     dateFormat,
     allCaps,
     labelCopy,
     validator,
     formChangeHandler,
+    initialValue,
+    currentValue,
+    currentError,
+    formTouched,
+    setFieldTouched,
     ...restProps
   } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
-  const [getError, setError, validate] = useErrorMessage(validator)
-  const [touched, setTouched] = useState(false)
-
-  const setErrorWrapper = (cleansed, errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(cleansed, errorValue)
-    }
-    setError(errorValue)
-  }
+  const [getError, setError, getFormattedError, validate] = useErrorMessage(
+    validator
+  )
+  const val = currentValue || initialValue
+  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [value, setValue] = useState(val || '')
 
   const callErrorHandlers = (value, handlerFn) => {
     const cleansed = cleanse(value)
@@ -64,55 +70,59 @@ const PrivateBirthdateInput = (props) => {
     }
   }
 
-  const doValidation = (value, isTouched) => {
-    // User hasn't blurred but we still need to inform form
-    // engine if we're in a valid state or not
-    if (!isTouched && !!formChangeHandler) {
-      callErrorHandlers(value, formChangeHandler)
-    } else {
-      // Have blurred
-      callErrorHandlers(value, setErrorWrapper)
+  // Initial Value aka prefilled—are considered "touched", but must prevalidate
+  // which will in turn update the internal form state as to their validity
+  useEffect(() => {
+    if (!!formChangeHandler && initialValue) {
+      console.log('BirthdateInput useEffect -- calling doValidation')
+      doValidation(initialValue, true)
     }
-  }
+  }, [])
 
-  const onBlur = (ev) => {
-    // We set touched to change the react state, but it's async and
-    // processing still, so, we use a flag for doValidation
-    setTouched(true)
-    doValidation(ev.target.value, true)
-  }
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+    callErrorHandlers,
+  })
 
-  const onChange = (ev) => {
-    // We call setTouched in onBlur, so can reliably call getter here
-    doValidation(ev.target.value, touched)
+  const getClasses = () => {
+    return !!getError(currentError, touched)
+      ? `BirthdateInput ${styles.TextInput} ${errorStyles.Error}`
+      : `BirthdateInput ${styles.TextInput}`
   }
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
-      <MaskedInput
+      <TextMaskedInput
+        initialValue={value}
+        optional={optional}
         mask={dateMaskByFormat[dateFormat]}
         pipe={autoCorrectedDatePipe}
-        className={
-          !!getError()
-            ? 'BirthdateInput TextInput Error'
-            : 'BirthdateInput TextInput'
-        }
+        className={getClasses()}
         type="tel"
+        labelCopy={labelCopy}
+        allCaps={allCaps}
         data-tid={restProps['data-tid']}
         guide={true}
-        onBlur={onBlur}
-        onChange={onChange}
+        doValidation={doValidation}
         name="birthdate-auto-corrected"
         placeholder={dateFormat}
         keepCharPositions={true}
+        currentValue={currentValue}
+        currentError={currentError}
+        formTouched={formTouched}
+        setFieldTouched={setFieldTouched}
+        getTouched={touched}
+        setTouched={setTouched}
       />
-      {getError()}
+      {getError(currentError, touched)}
     </>
   )
 }
 
 PrivateBirthdateInput.PUBLIC_PROPS = {
+  optional: PropTypes.bool,
   dateFormat: PropTypes.oneOf(DATE_FORMATS),
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
@@ -120,7 +130,7 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
-  onChange: PropTypes.func,
+  initialValue: PropTypes.string,
 }
 
 PrivateBirthdateInput.propTypes = {

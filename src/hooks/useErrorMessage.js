@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { InfoMessage } from '../components/InfoMessage'
 import { Spacer } from '../components'
+import { INIT_INVALID } from '../helpers/constants.js'
 
 const useErrorMessage = (validator) => {
   const [displayError, setDisplayError] = useState('')
@@ -9,13 +10,26 @@ const useErrorMessage = (validator) => {
     setDisplayError(msg)
   }
 
-  const getError = () => {
+  const getError = (currentError, fieldTouched) => {
     if (displayError) {
-      // WIP do InfoMessage styling later
+      return getFormattedError(displayError)
+    } else {
+      // If we don't have a display error we still have to account for the
+      // the form state's currentError. For example, the user toggles a field
+      // off then back on...this will cause a rerender with no display error
+      if (currentError && fieldTouched && currentError !== INIT_INVALID) {
+        return getFormattedError(currentError)
+      }
+    }
+    return ''
+  }
+
+  const getFormattedError = (msg) => {
+    if (msg) {
       return (
         <>
           <Spacer.H8 />
-          <InfoMessage.Text.Error>{displayError} </InfoMessage.Text.Error>
+          <InfoMessage.Text.Error>{msg} </InfoMessage.Text.Error>
         </>
       )
     }
@@ -26,7 +40,7 @@ const useErrorMessage = (validator) => {
     return validator.call(null, thingToValidate)
   }
 
-  return [getError, setError, validate]
+  return [getError, setError, getFormattedError, validate]
 }
 
 export default useErrorMessage

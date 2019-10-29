@@ -4,13 +4,14 @@ import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 import { COLORS } from '../Colors'
+import styles from './Type.module.scss'
 
 /* @getethos/design-system/Type.js
 
    Legend:
 
    - `Type` is a private component that returns an element with CSS classes.
-   - `Type.scss` (not imported here) implements those CSS classes.
+   - `Type.module.scss` styles the element via the classes.
    - `TypeFoundry` is a HOC that creates public components with correct props.
    - `<Caption.Medium500>`, etc. are the Design-approved public components.
    ========================================================================== */
@@ -47,7 +48,7 @@ export const Type = ({
 }) => {
   // Verify that color, subtype, typeface, and weight were valid enum values
   const [isValidColor] = useIncludes(Type.COLORS)
-  isValidColor(color)
+  color && isValidColor(color)
   const [isValidSubtype] = useIncludes(Type.SUBTYPES)
   isValidSubtype(subtype)
   const [isValidTypeface] = useIncludes(Type.TYPEFACES)
@@ -64,9 +65,10 @@ export const Type = ({
   includesInvalid(rest)
 
   // Generate list of css classes
-  const classNames = [subtype, typeface, weight, color]
-  if (centered) classNames.push('Centered')
-  if (allCaps) classNames.push('AllCaps')
+  const classNames = [styles[subtype], styles[typeface], styles[weight]]
+  if (color) classNames.push(styles[color])
+  if (centered) classNames.push(styles.Centered)
+  if (allCaps) classNames.push(styles.AllCaps)
 
   // Defaults to div, but can be overridden
   const Element = element || 'div'
@@ -101,6 +103,7 @@ Type.TYPEFACES = {
 
 Type.WEIGHTS = {
   // Possibly we shouldn't lump these all together given they vary per typeface.
+  LIGHT_300: 'Light300',
   REGULAR_400: 'Regular400',
   MEDIUM_500: 'Medium500',
   BOOK_500: 'Book500',
@@ -115,6 +118,7 @@ Type.COLORS = {
   // Grayscale
   GRAY_PRIMARY: COLORS.GRAY_PRIMARY,
   GRAY_SECONDARY: COLORS.GRAY_SECONDARY,
+  GRAY_STROKE_AND_DISABLED: COLORS.GRAY_STROKE_AND_DISABLED,
   WHITE: COLORS.WHITE,
 }
 
@@ -148,11 +152,6 @@ Type.propTypes = {
   weight: PropTypes.oneOf(Object.values(Type.WEIGHTS)),
 }
 
-Type.defaultProps = {
-  color: Type.COLORS.GRAY_PRIMARY,
-}
-
-// function TypeFoundry(privateProps) {
 export const TypeFoundry = (privateProps) => {
   function throwIllegalProp(prop) {
     const isIllegal = !Object.keys(Type.PUBLIC_PROPS).includes(prop)

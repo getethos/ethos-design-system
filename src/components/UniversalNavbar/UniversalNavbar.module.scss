@@ -1,0 +1,107 @@
+@import '../Media/Media.scss';
+
+.flex {
+  display: flex;
+}
+
+.itemsCenter {
+  align-items: center;
+}
+
+.hamburger {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
+
+  @include for-tablet-and-up {
+    display: none;
+  }
+}
+
+.phoneOnly {
+  height: var(--Space-64);
+  background-color: white;
+  padding: var(--Space-24) var(--ContainerPadding--Phone);
+
+  @include for-tablet-and-up {
+    display: none;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tabletAndUp {
+  height: var(--Space-64);
+  background-color: white;
+
+  display: none;
+  @include for-tablet-and-up {
+    display: block;
+  }
+}
+
+.laptopAndUp {
+  display: none;
+  @include for-laptop-and-up {
+    display: block;
+  }
+}
+
+.tabletAndUpContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--Space-24);
+  height: var(--Space-64);
+
+  display: flex;
+  justify-content: space-between;
+
+  @include for-tablet-only {
+    padding: var(--Space-24) var(--ContainerPadding--Tablet);
+  }
+  @include for-laptop-only {
+    padding: var(--Space-24) var(--ContainerPadding--Laptop);
+  }
+  @include for-desktop-only {
+    padding: var(--Space-24) var(--ContainerPadding--Desktop);
+  }
+}
+
+.logo {
+  height: 16px;
+}
+
+.paddingLeft {
+  padding-left: 24px;
+}
+
+/**
+ * Big green mobile hamburger menu
+ */
+.mobileMenu {
+  position: fixed;
+  padding: 24px 24px 40px;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: var(--BrandForest);
+  color: white;
+  z-index: 1;
+  & a,
+  & a:visited,
+  & a:hover {
+    /* TODO REDESIGN: this should be a DS component */
+    font-weight: 300;
+    color: white;
+    text-decoration: unset !important;
+  }
+}
+
+.hideMobileMenu {
+  composes: mobileMenu;
+  opacity: 0;
+  pointer-events: none;
+}

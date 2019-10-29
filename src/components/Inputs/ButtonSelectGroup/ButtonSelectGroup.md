@@ -11,20 +11,35 @@
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
 
-### Rendering with a `defaultValue` selected
+### Rendering with a `initialValue` selected, and column prop
 
 ```jsx
-<ButtonSelectGroup defaultValue="great" labelCopy="Health">
-  <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
-  <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
-  <ButtonSelectGroup.Option value="excellent">
-    Exellent
-  </ButtonSelectGroup.Option>
+<ButtonSelectGroup initialValue={false} column labelCopy="Yes no">
+  <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
+</ButtonSelectGroup>
+```
+
+### Using a `validator`
+
+```jsx
+import validateExists from '../../../validators/validateExists'
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
+;<ButtonSelectGroup
+  column
+  labelCopy="Validator should not error when false is clicked"
+  validator={validateExists}
+  formChangeHandler={formChangeHandlerStub}
+>
+  <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
 
@@ -32,14 +47,14 @@
 
 ```jsx
 <ButtonSelectGroup
-  defaultValue="excellent"
+  initialValue="excellent"
   labelCopy="Health"
   onSelect={({ value }) => console.log(value)}
 >
   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
@@ -48,7 +63,7 @@
 
 ```jsx
 <ButtonSelectGroup
-  defaultValue="excellent"
+  initialValue="excellent"
   labelCopy="Health"
   onSelect={({ value }) => console.log(value)}
 >
@@ -60,7 +75,7 @@
   </ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
   <ButtonSelectGroup.Option value="excellent">
-    Exellent
+    Excellent
   </ButtonSelectGroup.Option>
 </ButtonSelectGroup>
 ```
@@ -77,7 +92,7 @@ There are currently two options: `WHITE` and `DEFAULT`. If `buttonStyle` is not 
 import { OPTION_BUTTON_STYLES } from './index.js'
 ;<div style={{ background: '#f5f5f5', padding: '8px 16px' }}>
   <ButtonSelectGroup
-    defaultValue="riddikulus"
+    initialValue="riddikulus"
     labelCopy="Cast Spell"
     buttonStyle={OPTION_BUTTON_STYLES.WHITE}
   >
@@ -97,7 +112,7 @@ import { OPTION_BUTTON_STYLES } from './index.js'
 import { OPTION_BUTTON_STYLES } from './index.js'
 ;<div style={{ background: '#f5f5f5', padding: '8px 16px' }}>
   <ButtonSelectGroup
-    defaultValue="riddikulus"
+    initialValue="riddikulus"
     labelCopy="Cast Spell"
     buttonStyle={OPTION_BUTTON_STYLES.DEFAULT}
   >
@@ -109,4 +124,16 @@ import { OPTION_BUTTON_STYLES } from './index.js'
     </ButtonSelectGroup.Option>
   </ButtonSelectGroup>
 </div>
+```
+
+### Group when `fullWidth` is false
+
+```jsx
+<ButtonSelectGroup fullWidth={false} labelCopy="Health">
+  <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value="great">Great</ButtonSelectGroup.Option>
+  <ButtonSelectGroup.Option value="excellent">
+    Excellent
+  </ButtonSelectGroup.Option>
+</ButtonSelectGroup>
 ```

@@ -1,0 +1,49 @@
+.root {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkboxWrapper {
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  margin-right: 19px;
+}
+
+.Facade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+  transition: border-color 250ms ease;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  background-color: transparent;
+  border-color: var(--GrayStrokeAndDisabled--translucent);
+  border-style: solid;
+  border-width: 1px;
+}
+
+.CheckboxInput {
+  position: absolute;
+  opacity: 0;
+}
+
+/* State */
+.CheckboxInput:not(:checked) ~ .Facade {
+  &:hover {
+    background-color: var(--GrayLightHover--translucent);
+  }
+}
+
+.CheckboxInput:checked ~ .Facade {
+  background-color: var(--BrandForest);
+  border-width: 0px;
+  opacity: 1;
+  fill: var(--white);
+}
+
+.CheckboxInput:focus ~ .Facade {
+  border-color: var(--GrayPrimary--opaque);
+}

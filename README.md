@@ -3,6 +3,14 @@
 A collection of reusable [React](https://reactjs.org/) components, patterns, and design guidelines we use at
 [Ethos](https://ethoslife.com) to build our digital products.
 
+## Prequisites
+
+See the `package.json` for node `engines`—you need to have that version of node installed via `nvm` specifically:
+
+```shell
+nvm install v10.16.3 # then do `nvm list` to ensure version is available
+```
+
 ## Installing fonts for local development
 
 1. Download `fonts.zip` (pinned to #dev-design-system) and unzip it.
@@ -24,7 +32,7 @@ First, you'll need to install the fonts to `src/`. See instructions above.
 yarn && yarn styleguide
 ```
 
-Then open [http://localhost:6060](http://localhost:6060) in your browser.
+Then open [http://localhost:9008](http://localhost:9008) in your browser.
 
 ## Tests
 

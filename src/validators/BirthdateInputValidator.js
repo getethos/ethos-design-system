@@ -14,9 +14,6 @@ export const dateRegexByFormat = {
   'mm/yy': /\d\d\/\d\d/,
 }
 
-// first replace removes text-mask's underscores, second fixes like: '2//'
-export const cleanse = (value) => value.replace(/[_]/g, '').replace('//', '/')
-
 export const dateStringMatchesFormat = (cleansedDateString, dateFormat) => {
   const pattern = dateRegexByFormat[dateFormat]
   const matchesFormat = pattern.test(cleansedDateString)
@@ -56,20 +53,18 @@ export const getMinDateValidator = (props) => {
 }
 
 export const validateMinMaxDateFactory = (props) => {
-  const { minAge, maxAge, dateFormat, customErrorMessage } = props
+  const {
+    minBirthdate,
+    maxBirthdate,
+    minAge,
+    maxAge,
+    dateFormat,
+    customErrorMessage,
+  } = props
 
   return (value) => {
     const dateRangeErrorMessage =
       customErrorMessage || `Sorry, you must be ${minAge}–${maxAge}.`
-    const minBirthdate = dayjs()
-      .subtract(maxAge + 1, 'years')
-      .endOf('day')
-      .toDate()
-
-    const maxBirthdate = dayjs()
-      .subtract(minAge, 'years')
-      .endOf('day')
-      .toDate()
 
     const maxError = getMaxDateValidator({
       maxDate: maxBirthdate,

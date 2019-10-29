@@ -7,8 +7,12 @@ export { Media } from './Media'
 export { RadioButtonGroup } from './RadioButtons'
 export { Spacer } from './Spacer'
 export { TextInput } from './Inputs/TextInput'
+export { TextAreaInput } from './Inputs/TextAreaInput'
+export { EmailInput } from './Inputs/EmailInput'
+export { TextMaskedInput } from './Inputs/TextMaskedInput'
 export { InfoMessage } from './InfoMessage'
 export { ZipInput } from './Inputs/ZipInput'
+export { CheckboxInput } from './Inputs/CheckboxInput'
 export { Form } from './Form'
 export {
   BirthdateInput,
@@ -16,7 +20,8 @@ export {
 } from './Inputs/BirthdateInput/BirthdateInput'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ButtonSelectGroup } from './Inputs/ButtonSelectGroup/ButtonSelectGroup'
-export { OPTION_BUTTON_STYLES } from './Inputs//ButtonSelectGroup/OptionButton'
+export { NumberInput } from './Inputs/NumberInput/NumberInput'
+export { OPTION_BUTTON_STYLES } from './Inputs/ButtonSelectGroup/OptionButton'
 
 export {
   Body,

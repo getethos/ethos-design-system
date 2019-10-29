@@ -1,148 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, \`buttonStyle\` not passed) 1`] = `
-<div
-  aria-labelledby="button-select-group-1"
-  className="button-select-group"
-  role="radiogroup"
->
-  <span
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    id="button-select-group-1"
-  >
-    options
-  </span>
+Array [
   <div
-    className="Spacer"
-    style={
-      Object {
-        "height": 8,
+    aria-labelledby="button-select-group-1"
+    className="button-select-group"
+    role="radiogroup"
+  >
+    <span
+      className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+      id="button-select-group-1"
+    >
+      options
+    </span>
+    <div
+      className="Spacer"
+      style={
+        Object {
+          "height": 8,
+        }
       }
-    }
-  />
-  <div
-    className="button-group"
-  >
-    <button
-      className="Button Medium Stateful"
-      onClick={[Function]}
-      type="button"
+    />
+    <div
+      className="buttonGroup fullWidth"
     >
-      <span
-        id="selection-option-1"
+      <button
+        className="Button Medium Stateful"
+        onClick={[Function]}
+        type="button"
       >
-        foo
-      </span>
-    </button>
-    <button
-      className="Button Medium Stateful"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        id="selection-option-1"
+        <span
+          id="selection-option-1"
+        >
+          foo
+        </span>
+      </button>
+      <button
+        className="Button Medium Stateful"
+        onClick={[Function]}
+        type="button"
       >
-        bar
-      </span>
-    </button>
-  </div>
-</div>
+        <span
+          id="selection-option-1"
+        >
+          bar
+        </span>
+      </button>
+    </div>
+  </div>,
+  "",
+]
 `;
 
 exports[`ButtonSelectGroup The ButtonSelectGroup renders (default button style, \`buttonStyle\` passed) 1`] = `
-<div
-  aria-labelledby="button-select-group-1"
-  className="button-select-group"
-  role="radiogroup"
->
-  <span
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    id="button-select-group-1"
-  >
-    options
-  </span>
+Array [
   <div
-    className="Spacer"
-    style={
-      Object {
-        "height": 8,
+    aria-labelledby="button-select-group-1"
+    className="button-select-group"
+    role="radiogroup"
+  >
+    <span
+      className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+      id="button-select-group-1"
+    >
+      options
+    </span>
+    <div
+      className="Spacer"
+      style={
+        Object {
+          "height": 8,
+        }
       }
-    }
-  />
-  <div
-    className="button-group"
-  >
-    <button
-      className="Button Medium Stateful"
-      onClick={[Function]}
-      type="button"
+    />
+    <div
+      className="buttonGroup fullWidth"
     >
-      <span
-        id="selection-option-1"
+      <button
+        className="Button Medium Stateful"
+        onClick={[Function]}
+        type="button"
       >
-        foo
-      </span>
-    </button>
-    <button
-      className="Button Medium Stateful"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        id="selection-option-1"
+        <span
+          id="selection-option-1"
+        >
+          foo
+        </span>
+      </button>
+      <button
+        className="Button Medium Stateful"
+        onClick={[Function]}
+        type="button"
       >
-        bar
-      </span>
-    </button>
-  </div>
-</div>
+        <span
+          id="selection-option-1"
+        >
+          bar
+        </span>
+      </button>
+    </div>
+  </div>,
+  "",
+]
 `;
 
 exports[`ButtonSelectGroup The ButtonSelectGroup renders (white button style) 1`] = `
-<div
-  aria-labelledby="button-select-group-1"
-  className="button-select-group"
-  role="radiogroup"
->
-  <span
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    id="button-select-group-1"
-  >
-    options
-  </span>
+Array [
   <div
-    className="Spacer"
-    style={
-      Object {
-        "height": 8,
+    aria-labelledby="button-select-group-1"
+    className="button-select-group"
+    role="radiogroup"
+  >
+    <span
+      className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+      id="button-select-group-1"
+    >
+      options
+    </span>
+    <div
+      className="Spacer"
+      style={
+        Object {
+          "height": 8,
+        }
       }
-    }
-  />
-  <div
-    className="button-group"
-  >
-    <button
-      className="Button Medium Stateful White"
-      onClick={[Function]}
-      type="button"
+    />
+    <div
+      className="buttonGroup fullWidth"
     >
-      <span
-        id="selection-option-1"
+      <button
+        className="Button Medium Stateful White"
+        onClick={[Function]}
+        type="button"
       >
-        foo
-      </span>
-    </button>
-    <button
-      className="Button Medium Stateful White"
-      onClick={[Function]}
-      type="button"
-    >
-      <span
-        id="selection-option-1"
+        <span
+          id="selection-option-1"
+        >
+          foo
+        </span>
+      </button>
+      <button
+        className="Button Medium Stateful White"
+        onClick={[Function]}
+        type="button"
       >
-        bar
-      </span>
-    </button>
-  </div>
-</div>
+        <span
+          id="selection-option-1"
+        >
+          bar
+        </span>
+      </button>
+    </div>
+  </div>,
+  "",
+]
 `;
