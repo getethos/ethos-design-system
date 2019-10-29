@@ -1,5 +1,20 @@
 ```jsx
-import formFields from './DebloatStub.js'
+/**
+ * The idea is json, component lookup table, and validator lookup table
+ * can be defined as needed and on a per use case basis.
+ */
+
+import { json, componentsTable, validatorsTable } from './DebloatStub.js'
+
+/**
+ * The resolver is injected with json, and lookup tables, so, theoretically
+ * it should be able to map arbitrary configurations, provided it can still 
+ * understand and map them properly.
+ */
+
+import mapJsonToFields from './Resolver.js'
+
+const formFields = mapJsonToFields(json, componentsTable, validatorsTable)
 
 import {
   TitleLarge,
