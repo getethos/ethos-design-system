@@ -4,15 +4,27 @@ import cloudinary from 'cloudinary-core'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
 import { Media } from '../Media/Media'
+import uuidv4 from 'uuid/v4'
 import lazysizes from 'lazysizes'
 
 // https://cloudinary.com/documentation/image_transformation_reference
-
 export const CLOUDINARY_CLOUD_NAME = 'getethos'
-
 const cld = new cloudinary.Cloudinary({
   cloud_name: CLOUDINARY_CLOUD_NAME,
 })
+export const IMAGE_FILE_TYPES = {
+  SVG: 'svg',
+  WEBP: 'webp',
+  JP2: 'jp2',
+  JPEG: 'jpeg',
+}
+
+const mediaBreakpoints = [
+  Media.BREAKPOINTS.DESKTOP_RANGE_START,
+  Media.BREAKPOINTS.LAPTOP_RANGE_START,
+  Media.BREAKPOINTS.TABLET_RANGE_START,
+  Media.BREAKPOINTS.PHONE_RANGE_END,
+]
 
 export const CloudinaryImage = ({
   publicId,
@@ -21,9 +33,9 @@ export const CloudinaryImage = ({
   width,
   height,
   crop,
-  lazyload,
   ...rest
 }) => {
+
   // Verify that all required props were supplied
   const [includesRequired] = useRequired(['publicId', 'alt'])
   let allRelevantProps = Object.assign({}, rest, {
@@ -40,125 +52,105 @@ export const CloudinaryImage = ({
   )
   includesInvalid(rest)
 
-  let publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
-  let publicIdFilename = publicId.replace(publicIdBase, '')
-
-  let imageClasses = lazyload ? 'Image lazyload' : 'Image'
-  if (className) {
-    imageClasses = [imageClasses, className].join(' ')
-  }
-
-  // Serve a simpler version if resource is SVG
-  if (publicId.split('.').pop() === 'svg') {
-    let baseSvgSettings = {
-      secure: true,
-    }
-
-    let svgUrl = cld.url(publicIdFilename, baseSvgSettings)
-
-    return <img data-src={svgUrl} className={imageClasses} alt={alt} />
-  }
-
-  let baseImageSettings = {
+  const { WEBP, JP2, JPEG, SVG } = IMAGE_FILE_TYPES
+  const baseImageSettings = {
     quality: 'auto:eco',
     crop: crop,
     secure: true,
     flags: ['progressive:semi'],
   }
+  let imageClasses = ['Image lazyload', className]
 
-  let fileFormats = ['webp', 'jp2', 'jpeg']
+  const buildImageTag = () => {
+    const format = fileFormats.slice(-1)[0]
+    let imageSettings = {
+      ...baseImageSettings,
+      format: format,
+      dpr: '1.0',
+    }
 
-  let dprSettings = ['1.0', '2.0', '3.0']
-
-  let mediaBreakpoints = [
-    Media.BREAKPOINTS.DESKTOP_RANGE_START,
-    Media.BREAKPOINTS.LAPTOP_RANGE_START,
-    Media.BREAKPOINTS.TABLET_RANGE_START,
-    Media.BREAKPOINTS.PHONE_RANGE_END,
-  ]
-
-  // We are expecting width/height attribute arrays in the order of
-  // Phone/Tablet/Laptop/Desktop but we have to setup media queries
-  // in the opposite order, so we reverse the arrays here.
-  if (width) {
-    width.reverse()
-  }
-  if (height) {
-    height.reverse()
+    return(
+      <img
+        key={`${uuidv4()}`}
+        data-src={cld.url(filePath(),imageSettings)}
+        className={imageClasses.join(' ')}
+        alt={alt}
+      />
+    )
   }
 
-  let sourceTags = []
-  let srcSetAttribute = lazyload ? 'data-srcset' : 'srcSet'
-  let srcAttribute = lazyload ? 'data-src' : 'src'
+  const buildSrcTags = (format) => {
+    const dprSettings = ['1.0', '2.0', '3.0']
+    let sourceTags = []
 
-  for (let format = 0; format < fileFormats.length; format++) {
+    // We are expecting width/height attribute arrays in the order of
+    // Phone/Tablet/Laptop/Desktop but we have to setup media queries
+    // in the opposite order, so we reverse the arrays here.
+    if (width) {
+      width.sort().reverse()
+    }
+    if (height) {
+      height.sort().reverse()
+    }
+    
     for (
       let breakpoint = 0;
       breakpoint < mediaBreakpoints.length;
       breakpoint++
-    ) {
-      let srcsetData = []
-
-      for (let dpr = 0; dpr < dprSettings.length; dpr++) {
-        let imageSettings = {
-          ...baseImageSettings,
-          ...(!!width[breakpoint] && { width: width[breakpoint] }),
-          ...(!!height[breakpoint] && { height: height[breakpoint] }),
-          format: fileFormats[format],
-          dpr: dprSettings[dpr],
-        }
-
-        srcsetData.push(
-          cld.url(publicIdFilename, imageSettings) + ` ${dpr + 1}x`
-        )
-      }
-      if (
-        format === fileFormats.length - 1 &&
-        breakpoint === mediaBreakpoints.length - 1
       ) {
-        let imageSettings = {
+
+      const srcsetData = dprSettings.map((dpr, indx)=>{
+        const imageSettings = {
           ...baseImageSettings,
-          format: fileFormats[format],
-          dpr: '1.0',
+          ...(width && !!width[breakpoint] && { width: width[breakpoint] }),
+          ...(height && !!height[breakpoint] && { height: height[breakpoint] }),
+          format: format,
+          dpr: dpr,
         }
 
-        let srcSetAttributeObject = {}
-        srcSetAttributeObject[srcSetAttribute] = srcsetData.join(', ')
+        return cld.url(filePath(), imageSettings) + ` ${indx + 1}x`
+      })
 
-        let srcAttributeObject = {}
-        srcAttributeObject[srcAttribute] = cld.url(
-          publicIdFilename,
-          imageSettings
-        )
-
-        sourceTags.push(
-          <img
-            key={`${format}-${breakpoint}`}
-            {...srcAttributeObject}
-            {...srcSetAttributeObject}
-            className={imageClasses}
-            alt={alt}
-          />
-        )
-      } else {
-        let srcSetAttributeObject = {}
-        srcSetAttributeObject[srcSetAttribute] = srcsetData.join(', ')
-
-        let minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
-
-        sourceTags.push(
-          <source
-            key={`${format}-${breakpoint}`}
-            media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
-            {...srcSetAttributeObject}
-            type={`image/${fileFormats[format]}`}
-          />
-        )
-      }
+      let minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
+      sourceTags.push(<source
+        key={`${uuidv4()}`}
+        media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
+        data-srcset= {srcsetData.join(', ')}
+        type={`image/${format}`}
+      />)
+      
     }
+    return sourceTags
   }
 
-  return <picture>{sourceTags}</picture>
+  const filePath = () => {
+    let publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
+    return publicId.replace(publicIdBase, '')
+  }
+
+  const isSvg = (publicId) => {
+    return publicId.split('.').pop() === SVG
+  }
+
+  const renderSvg = () =>{
+      let baseSvgSettings = {
+        secure: true,
+      }
+  
+      let svgUrl = cld.url(filePath(), baseSvgSettings)
+      return <img data-src={svgUrl} className={imageClasses.join(' ')} alt={alt} />
+  }
+
+  // Serve a simpler version if resource is SVG
+  if(isSvg(publicId)) return renderSvg()
+
+  const fileFormats = [WEBP, JP2, JPEG] // Ordered by performance from highest -> least, browsers use first match
+  return (
+    <picture>
+      {fileFormats.map(format => buildSrcTags(format))}
+      {buildImageTag()}
+    </picture>
+  )
 }
 
 /**
@@ -188,18 +180,16 @@ CloudinaryImage.CROP_METHODS = {
 }
 
 CloudinaryImage.PUBLIC_PROPS = {
-  height: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  width: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  height: PropTypes.array,
+  width: PropTypes.array,
   className: PropTypes.string,
   alt: PropTypes.string.isRequired,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
-  lazyload: PropTypes.bool,
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
-  lazyload: true,
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS
