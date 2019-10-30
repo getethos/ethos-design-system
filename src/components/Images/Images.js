@@ -60,6 +60,8 @@ export const CloudinaryImage = ({
     flags: ['progressive:semi'],
   }
   let imageClasses = ['Image lazyload', className]
+  width && width.reverse()
+  height && height.reverse()
 
   const buildImageTag = () => {
     const format = fileFormats.slice(-1)[0]
@@ -86,12 +88,7 @@ export const CloudinaryImage = ({
     // We are expecting width/height attribute arrays in the order of
     // Phone/Tablet/Laptop/Desktop but we have to setup media queries
     // in the opposite order, so we reverse the arrays here.
-    if (width) {
-      width.reverse()
-    }
-    if (height) {
-      height.reverse()
-    }
+    
     
     for (
       let breakpoint = 0;
