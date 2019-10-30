@@ -12,7 +12,6 @@ describe('BirthdateInput', () => {
       .create(
         <BirthdateInput
           dateFormat="mm/dd/yyyy"
-          name="le-birthdate"
           labelCopy="What is your birthdate?"
           data-tid="le-birthdate"
           validator={(thing) => {}}
