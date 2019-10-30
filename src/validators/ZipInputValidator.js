@@ -1,5 +1,3 @@
-import React from 'react'
-
 // Currently, we only support USA. When we start to support
 // other locales, refer to http://html5pattern.com/Postal_Codes.
 const validZipRegex = /^(\d{5})$/

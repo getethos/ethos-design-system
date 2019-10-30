@@ -48,7 +48,7 @@ class ScrollDetector extends React.Component {
   }
 
   render() {
-    const { className, element, offsetHeight, ...rest } = this.props
+    const { className, element, ...rest } = this.props
     const { isScrolled } = this.state
 
     const Element = element

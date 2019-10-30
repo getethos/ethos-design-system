@@ -1,4 +1,3 @@
-import React from 'react'
 import validateExists from './validateExists.js'
 
 describe('validateExists', () => {

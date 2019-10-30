@@ -1,5 +1,3 @@
-import React from 'react'
-
 /**
  * Custom  hook for boiler-plate validation logic
  *
