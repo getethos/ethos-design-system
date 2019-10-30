@@ -87,10 +87,10 @@ export const CloudinaryImage = ({
     // Phone/Tablet/Laptop/Desktop but we have to setup media queries
     // in the opposite order, so we reverse the arrays here.
     if (width) {
-      width.sort().reverse()
+      width.reverse()
     }
     if (height) {
-      height.sort().reverse()
+      height.reverse()
     }
     
     for (
