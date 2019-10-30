@@ -20,7 +20,7 @@ class ScrollDetector extends React.Component {
     isScrolled: false,
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.addScrollListener()
   }
 
