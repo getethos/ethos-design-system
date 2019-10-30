@@ -1,5 +1,3 @@
-import React from 'react'
-
 const useIncludes = (list) => {
   const includesValueOrThrow = (item) => {
     const isValid = Object.values(list).includes(item)

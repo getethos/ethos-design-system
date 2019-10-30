@@ -15,7 +15,7 @@ describe('ZipInput', () => {
           allCaps={true}
           labelCopy="What is your zip code?"
           data-tid="le-zip"
-          validator={(errors) => {}}
+          validator={() => {}}
         />
       )
       .toJSON()

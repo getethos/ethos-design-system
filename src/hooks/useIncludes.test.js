@@ -1,4 +1,3 @@
-import React from 'react'
 import useIncludes from './useIncludes.js'
 
 describe('useIncludes hook', () => {

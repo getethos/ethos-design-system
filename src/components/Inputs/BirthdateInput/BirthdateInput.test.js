@@ -14,7 +14,7 @@ describe('BirthdateInput', () => {
           dateFormat="mm/dd/yyyy"
           labelCopy="What is your birthdate?"
           data-tid="le-birthdate"
-          validator={(thing) => {}}
+          validator={() => {}}
           name="birthDate"
           minAge={20}
           maxAge={65}
