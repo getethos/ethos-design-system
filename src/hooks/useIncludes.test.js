@@ -21,13 +21,13 @@ describe('useIncludes hook', () => {
     }).toThrow(/Invalid item \'nope\'/)
   })
 
-  test.only('valid single keys do not throw', () => {
+  test('valid single keys do not throw', () => {
     const whitelist = ['yogabba']
     const [, includesKeysOrThrow] = useIncludes(whitelist)
     expect(includesKeysOrThrow({ yogabba: 'y' })).toBeUndefined()
   })
 
-  test.only('invalid single key throws', () => {
+  test('invalid single key throws', () => {
     const whitelist = ['yogabba']
     const [, includesKeysOrThrow] = useIncludes(whitelist)
     expect(() => {
@@ -35,7 +35,7 @@ describe('useIncludes hook', () => {
     }).toThrow(/Unexpected props: 'nope'/)
   })
 
-  test.only('validates multiple keys', () => {
+  test('validates multiple keys', () => {
     const whitelist = ['a', 'b', 'c']
     const [, includesKeysOrThrow] = useIncludes(whitelist)
     expect(includesKeysOrThrow({ a: 'valid' })).toBeUndefined()
@@ -43,7 +43,7 @@ describe('useIncludes hook', () => {
     expect(includesKeysOrThrow({ c: 'valid' })).toBeUndefined()
   })
 
-  test.only('validates multiple keys and throws if invalid', () => {
+  test('validates multiple keys and throws if invalid', () => {
     const whitelist = ['a', 'b', 'c']
     const [, includesKeysOrThrow] = useIncludes(whitelist)
     expect(() => {
