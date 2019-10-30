@@ -1,3 +1,5 @@
+const foo = 'this should lint error'
+
 const useRequired = (requiredProps) => {
   const includesRequired = (actualProps) => {
     const missingProps = []
