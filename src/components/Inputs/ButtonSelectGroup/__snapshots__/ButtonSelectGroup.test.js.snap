@@ -27,6 +27,7 @@ Array [
       <button
         className="Button Medium Stateful"
         onClick={[Function]}
+        role="radio"
         type="button"
       >
         <span
@@ -38,6 +39,7 @@ Array [
       <button
         className="Button Medium Stateful"
         onClick={[Function]}
+        role="radio"
         type="button"
       >
         <span
@@ -79,6 +81,7 @@ Array [
       <button
         className="Button Medium Stateful"
         onClick={[Function]}
+        role="radio"
         type="button"
       >
         <span
@@ -90,6 +93,7 @@ Array [
       <button
         className="Button Medium Stateful"
         onClick={[Function]}
+        role="radio"
         type="button"
       >
         <span
@@ -131,6 +135,7 @@ Array [
       <button
         className="Button Medium Stateful White"
         onClick={[Function]}
+        role="radio"
         type="button"
       >
         <span
@@ -142,6 +147,7 @@ Array [
       <button
         className="Button Medium Stateful White"
         onClick={[Function]}
+        role="radio"
         type="button"
       >
         <span
