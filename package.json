@@ -13,7 +13,7 @@
     "e2e:ci": "CYPRESS_SUPPORT=y yarn run build && start-server-and-test styleguide http://localhost:9008 cy:open",
     "e2e:dev": "CYPRESS_SUPPORT=y start-server-and-test styleguide http://localhost:9008 cy:open",
     "format": "prettier --write \"src/components/**/*.*css\"",
-    "lint": "eslint src",
+    "lint": "eslint src --max-warnings 82",
     "prerelease": "yarn test && yarn build",
     "spotcheck": "yarn compile-css && echo \"\n*****\n* View the spotcheck at http://localhost:8080/spotcheck.html\n*****\n\" && webpack-dev-server ",
     "stats": "node bin/generateStats.js --write",
