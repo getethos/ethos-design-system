@@ -87,7 +87,7 @@ const PrivateBirthdateInput = (props) => {
   })
 
   const getClasses = () => {
-    return !!getError(currentError, touched)
+    return getError(currentError, touched)
       ? `BirthdateInput ${styles.TextInput} ${errorStyles.Error}`
       : `BirthdateInput ${styles.TextInput}`
   }

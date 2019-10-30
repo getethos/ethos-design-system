@@ -60,7 +60,7 @@ export const TextMaskedInput = (props) => {
 
   const setAllTouched = () => {
     whichSetTouched(true)
-    if (!!setFieldTouched) {
+    if (setFieldTouched) {
       setFieldTouched(true)
     }
   }
@@ -93,7 +93,7 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    return !!getError(currentError, whichTouched)
+    return getError(currentError, whichTouched)
       ? `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}`
       : `TextMaskedInput ${styles.TextInput}`
   }

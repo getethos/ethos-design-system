@@ -79,7 +79,7 @@ function PrivateTextAreaInput({
     // processing still, so, we use a flag for doValidation
     setTouched(true)
     // Also tell the form we've been touched
-    if (!!setFieldTouched) {
+    if (setFieldTouched) {
       setFieldTouched(true)
     }
   }

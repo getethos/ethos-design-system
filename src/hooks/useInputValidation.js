@@ -36,7 +36,7 @@ const useInputValidation = ({
   const setErrorWrapperInternal = setErrorWrapper
     ? setErrorWrapper
     : (value, errorValue) => {
-        if (!!formChangeHandler) {
+        if (formChangeHandler) {
           formChangeHandler(value, errorValue)
         }
         setError(errorValue)
