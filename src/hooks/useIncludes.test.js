@@ -18,7 +18,7 @@ describe('useIncludes hook', () => {
 
     expect(() => {
       isLegalSizeValue('nope')
-    }).toThrow(/Invalid item \'nope\'/)
+    }).toThrow(/Invalid item 'nope'/)
   })
 
   test('valid single keys do not throw', () => {
