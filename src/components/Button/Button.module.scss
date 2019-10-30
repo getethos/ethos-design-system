@@ -52,6 +52,13 @@ button,
   margin-left: 7px;
 }
 
+.backArrowIconInline {
+  margin-right: 10px;
+  margin-top: 3px;
+  margin-left: 4px;
+  transform: rotate(180deg);
+}
+
 .Button.arrowIcon {
   display: flex;
   justify-content: space-between;
