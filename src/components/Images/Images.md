@@ -1,5 +1,5 @@
 
- ## Cloudinary crop settings:
+ ## Cloudinary crop:
   https://cloudinary.com/documentation/image_transformation_reference#crop_parameter
 
 * fill: Create an image with the exact given width and height without distorting the
@@ -17,7 +17,6 @@
       proportions are retained and so is the size of the graphics.
       Similar to CSS background-size "auto".
 
-
 ```jsx
 import {
   TitleSmall,
@@ -28,8 +27,6 @@ import {
   ZipInput,
   EmailInput,
 } from '../index'
-
-
 
 ;<div style={{ width: 400 }}>
   <TitleSmall.Serif.Book500>Minimal Props</TitleSmall.Serif.Book500>
@@ -71,6 +68,14 @@ import {
     crop="crop"
   />
   <Spacer.H24/>
+
+  <TitleSmall.Serif.Book500>SVG</TitleSmall.Serif.Book500>
+  <Spacer.H24/>
+  <CloudinaryImage
+  crop="fill"
+  alt="icon test"
+  publicId="https://res.cloudinary.com/getethos/image/upload/v1565206784/02_Icons/Icon_slot_3_Duckegg_ktjkor.svg"
+  />
      
 </div>
 ```
