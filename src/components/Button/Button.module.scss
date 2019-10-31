@@ -23,6 +23,9 @@ button,
   border: 1px solid transparent;
   font-family: var(--Theinhardt-font-stack);
   color: var(--GrayPrimary--translucent);
+  path: {
+    fill: var(--GrayPrimary--translucent);
+  }
 
   transition: var(--transition-default);
   transition-property: background-color, border-color, color;
@@ -86,11 +89,21 @@ button,
   background: none;
   border: none;
   padding: 0;
+  .arrowIconInline {
+    margin-top: 1px;
+  }
+
+  .backArrowIconInline {
+    margin-top: 1px;
+  }
 }
 
 .Button.Black {
   background-color: var(--GrayPrimary--translucent);
   color: var(--White);
+  path {
+    fill: var(--White);
+  }
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
@@ -107,6 +120,9 @@ button,
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+    path {
+      fill: var(--White);
+    }
   }
 }
 
@@ -114,18 +130,27 @@ button,
   border-color: var(--GrayPrimary--opaque);
   background-color: var(--Transparent--white);
   color: var(--GrayPrimary--opaque);
+  path {
+    fill: var(--GrayPrimary--opaque);
+  }
 
   &:not([disabled]) {
     &:hover {
       border-color: var(--GrayDarkHover--translucent);
       background-color: var(--GrayDarkHover--translucent);
       color: var(--White);
+      path {
+        fill: var(--White);
+      }
     }
 
     &:active {
       border-color: var(--GrayDarkHover--translucent);
       background-color: var(--GrayDarkHover--translucent);
       color: var(--White);
+      path {
+        fill: var(--White);
+      }
     }
   }
 
@@ -133,6 +158,9 @@ button,
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+    path {
+      fill: var(--White);
+    }
   }
 }
 
@@ -140,18 +168,27 @@ button,
   border-color: var(--White);
   background-color: var(--Transparent--white);
   color: var(--White);
+  path {
+    fill: var(--White);
+  }
 
   &:not([disabled]) {
     &:hover {
       border-color: var(--White);
       background-color: var(--White);
       color: var(--GrayPrimary--translucent);
+      path {
+        fill: var(--GrayPrimary--translucent);
+      }
     }
 
     &:active {
       border-color: var(--White);
       background-color: var(--White);
       color: var(--GrayPrimary--translucent);
+      path {
+        fill: var(--GrayPrimary--translucent);
+      }
     }
   }
 
@@ -159,6 +196,9 @@ button,
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+    path {
+      fill: var(--White);
+    }
   }
 }
 
@@ -194,17 +234,26 @@ button,
     border-color: var(--BrandForest);
     background-color: var(--BrandForest);
     color: var(--White);
+    path {
+      fill: var(--White);
+    }
   }
 
   border-color: var(--GrayStrokeAndDisabled--translucent);
   background-color: var(--Transparent--white);
   color: var(--GrayPrimary--translucent);
+  path {
+    fill: var(--GrayPrimary--translucent);
+  }
 
   &:not([disabled]) {
     &:hover {
       border-color: var(--GrayStrokeAndDisabled--translucent);
       background-color: var(--GrayLightHover--translucent);
       color: var(--GrayPrimary--translucent);
+      path {
+        fill: var(--GrayPrimary--translucent);
+      }
     }
 
     /* Bugfix: Need this one to have more specificity then ^ hover */
@@ -221,6 +270,9 @@ button,
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+    path {
+      fill: var(--White);
+    }
   }
 
   /*
