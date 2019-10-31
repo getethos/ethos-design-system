@@ -15,7 +15,7 @@ export const EmailInput = (props) => {
     ...restProps
   } = props
 
-  const [value, setValue] = useState(initialValue || '')
+  const [value] = useState(initialValue || '')
 
   return (
     <>

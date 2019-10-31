@@ -14,7 +14,6 @@ const { DATE_FORMATS, dateMaskByFormat, dateStringMatchesFormat } = Validators
 
 const PrivateBirthdateInput = (props) => {
   const {
-    name,
     optional,
     dateFormat,
     allCaps,
@@ -30,12 +29,10 @@ const PrivateBirthdateInput = (props) => {
   } = props
 
   const autoCorrectedDatePipe = createAutoCorrectedDatePipe('mm/dd/yyyy')
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
-  const [value, setValue] = useState(val || '')
+  const [value] = useState(val || '')
 
   const callErrorHandlers = (value, handlerFn) => {
     const cleansed = cleanse(value)

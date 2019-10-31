@@ -39,9 +39,7 @@ export const CheckboxInput = ({
   const initialChecked = currentValue || initialValue || false
   const [touched, setTouched] = useState(initialValue ? true : false)
   const [isChecked, setIsChecked] = useState(initialChecked)
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const [doValidation] = useInputValidation({
     validate,
     setError,

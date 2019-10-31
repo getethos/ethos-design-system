@@ -74,7 +74,7 @@ describe('ButtonSelectGroup', () => {
     const group = tree.root
     const options = group.findAllByType(ButtonSelectGroup.Option)
 
-    const [first, ...rest] = options
+    const [first] = options
 
     renderer.act(() => {
       first.props.onClick()
