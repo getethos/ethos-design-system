@@ -13,7 +13,7 @@ cache:
 env:
   - NODE_ENV=ci
 script:
-  - yarn lint
+  # - yarn lint
   - yarn test
   - yarn e2e:ci
 after_success:
