@@ -169,7 +169,8 @@ figure {
 .Image {
   display: block;
   max-width: 100%;
-  height: auto;
+  width: 100%;
+  object-fit: cover;
 }
 
 /* @getethos/design-system/Layout.scss
