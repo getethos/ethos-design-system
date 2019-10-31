@@ -37,6 +37,7 @@ import styles from './Button.module.scss'
  * @param  {String}   props.style       The color style of the button.
  * @param  {Boolean}  props.arrowIcon   Whether the arrow icon is displayed
  *                                      (behaves differently when fullWidth)
+ * @param  {Boolean}  props.backArrowIcon   Back arrow icon
  */
 
 function PrivateButton({
@@ -52,6 +53,7 @@ function PrivateButton({
   onClick,
   isSelected, // only used for Button.*.Stateful, aka SelectableHtmlButtonGroup
   arrowIcon,
+  backArrowIcon,
   ...rest
 }) {
   // Verify that size, type, and style were valid enum values
@@ -75,7 +77,7 @@ function PrivateButton({
   const classNames = ['Button', size].concat(style.split(' '))
   if (fullWidth) classNames.push('fullWidth')
   if (isSelected) classNames.push('isSelected')
-  if (arrowIcon) classNames.push('arrowIcon')
+  if (arrowIcon || backArrowIcon) classNames.push('arrowIcon')
 
   let checked
   if (isSelected) {
@@ -101,13 +103,14 @@ function PrivateButton({
       onClick={onClick}
       data-tid={rest['data-tid']}
     >
+      {backArrowIcon && ArrowIconInline(true)}
       {ariaLabelId ? <span id={ariaLabelId}>{children}</span> : children}
       {arrowIcon && ArrowIconInline()}
     </button>
   )
 }
 
-const ArrowIconInline = (props) => {
+const ArrowIconInline = (shouldFlip) => {
   return (
     <svg
       width="14"
@@ -115,8 +118,9 @@ const ArrowIconInline = (props) => {
       viewBox="0 0 14 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={styles.arrowIconInline}
-      {...props}
+      className={
+        shouldFlip ? styles.backArrowIconInline : styles.arrowIconInline
+      }
     >
       <path
         d="M7.00016 0.333374L5.82516 1.50837L10.4752 6.16671H0.333496V7.83337H10.4752L5.82516 12.4917L7.00016 13.6667L13.6668 7.00004L7.00016 0.333374Z"
@@ -140,6 +144,7 @@ PrivateButton.PUBLIC_PROPS = {
   isSelected: PropTypes.bool, // only for Stateful style
   type: PropTypes.oneOf(Object.values(PrivateButton.HTML_TYPES)),
   arrowIcon: PropTypes.bool,
+  backArrowIcon: PropTypes.bool,
 }
 
 PrivateButton.SIZES = {

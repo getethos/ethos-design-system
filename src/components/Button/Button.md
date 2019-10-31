@@ -47,6 +47,18 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
+<Button.Medium.Black backArrowIcon>
+  Button.Medium.Black + backArrowIcon
+</Button.Medium.Black>
+```
+
+```jsx
+<Button.Medium.Black fullWidth backArrowIcon>
+  Button.Medium.Black + fullWidth + backArrowIcon
+</Button.Medium.Black>
+```
+
+```jsx
 <Button.Unstyled>Button.Unstyled</Button.Unstyled>
 ```
 
@@ -54,6 +66,7 @@ Set of Design-approved public buttons.
 
 PLEASE ONLY USE IN UniversalNavbar! In fact, have a look at
 UniversalNavbar component to see this in use.
+
 ```jsx
 <Button.Small.BlackOutline>
   Only use for UniversalNavbar!
@@ -61,8 +74,7 @@ UniversalNavbar component to see this in use.
 ```
 
 PLEASE ONLY USE FOR CMS hero CTA
+
 ```jsx
-<Button.WhiteCTA>
-  Button.WhiteCTA—Only for CMS hero CTA
-</Button.WhiteCTA>
+<Button.WhiteCTA>Button.WhiteCTA—Only for CMS hero CTA</Button.WhiteCTA>
 ```
