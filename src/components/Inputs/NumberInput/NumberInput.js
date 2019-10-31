@@ -25,7 +25,6 @@ export const NumberInput = (props) => {
     initialValue,
     currentValue,
     currentError,
-    formTouched,
     placeholder,
     setFieldTouched,
     ...restProps
@@ -47,7 +46,6 @@ export const NumberInput = (props) => {
         name={name}
         currentValue={currentValue}
         currentError={currentError}
-        formTouched={formTouched}
         setFieldTouched={setFieldTouched}
         validator={validator}
         formChangeHandler={formChangeHandler}
@@ -60,6 +58,11 @@ NumberInput.propTypes = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  currentValue: PropTypes.string,
+  currentError: PropTypes.string,
+  placeholder: PropTypes.string,
+  formChangeHandler: PropTypes.func,
+  setFieldTouched: PropTypes.func,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,

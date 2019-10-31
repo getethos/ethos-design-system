@@ -23,14 +23,12 @@ function PrivateTextAreaInput({
   disabled,
   name,
   labelCopy,
-  optional,
   allCaps,
   formChangeHandler,
   validator,
   initialValue,
   currentValue,
   currentError,
-  formTouched,
   setFieldTouched,
   restrictIllegal,
   ...rest
@@ -131,7 +129,6 @@ function PrivateTextAreaInput({
 
 PrivateTextAreaInput.PUBLIC_PROPS = {
   resize: PropTypes.bool,
-  optional: PropTypes.bool,
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,

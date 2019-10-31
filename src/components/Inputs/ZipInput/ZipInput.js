@@ -75,7 +75,7 @@ export const ZipInput = (props) => {
         data-tid={restProps['data-tid']}
         guide={true}
         doValidation={doValidation}
-        name={props.name}
+        name={name}
         className={getClasses()}
         keepCharPositions={true}
         currentValue={currentValue}
