@@ -22,12 +22,10 @@ export const ZipInput = (props) => {
     ...restProps
   } = props
 
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
-  const [value, setValue] = useState(val || '')
+  const [value] = useState(val || '')
 
   // This has to come before useInputValidation setup below
   const callErrorHandlers = (value, handlerFn) => {

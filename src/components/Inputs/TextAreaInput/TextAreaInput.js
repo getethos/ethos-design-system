@@ -51,9 +51,7 @@ function PrivateTextAreaInput({
   includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
 
   const [value, setValue] = useState(currentValue || initialValue || '')
 
