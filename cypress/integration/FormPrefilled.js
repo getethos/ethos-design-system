@@ -4,6 +4,7 @@ describe('FormPrefilled', () => {
   })
 
   it('fully prefilled form should result in submit button enabled', () => {
+    cy.wait(200)
     cy.getByTid('button-prefilled-submit').should('not.be.disabled')
   })
 
