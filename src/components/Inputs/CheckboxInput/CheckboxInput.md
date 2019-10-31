@@ -6,7 +6,13 @@ const formChangeHandlerStub = () => {}
   name="le-check-unchecked"
   data-tid="le-tid-unchecked"
   formChangeHandler={formChangeHandlerStub}
-  validator={validateExists}
+  validator={(n) => {
+    // We only will accept the value of true!
+    if (n === true) {
+      return ''
+    }
+    return 'You must agree to submit form'
+  }}
 >
   I agree to the{' '}
   <a href="/" target="_blank">
@@ -49,7 +55,13 @@ const formChangeHandlerStub = () => {}
   name="le-check3"
   data-tid="le-tid-checked"
   formChangeHandler={formChangeHandlerStub}
-  validator={validateExists}
+  validator={(n) => {
+    // We only will accept the value of true!
+    if (n === true) {
+      return ''
+    }
+    return 'You must agree to submit form'
+  }}
 >
   I agree to the{' '}
   <a href="/" target="_blank">

@@ -20,6 +20,9 @@
   height: 18px;
   overflow: hidden;
   background-color: transparent;
+}
+
+.FacadeBorder {
   border-color: var(--GrayStrokeAndDisabled--translucent);
   border-style: solid;
   border-width: 1px;
@@ -44,6 +47,8 @@
   fill: var(--white);
 }
 
-.CheckboxInput:focus ~ .Facade {
+// Hack—this ensures that our Errors.module.scss does not get overriden by this rule
+// (normal focus causes dark gray, while the error still results in red border)
+.CheckboxInput:focus ~ .Facade:not(:global(.FacadeError)) {
   border-color: var(--GrayPrimary--opaque);
 }

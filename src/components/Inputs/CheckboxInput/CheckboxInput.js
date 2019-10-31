@@ -7,10 +7,10 @@ import useInputValidation from '../../../hooks/useInputValidation.js'
 import styles from './CheckboxInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
-const Facade = () => {
+const Facade = ({ classes }) => {
   return (
     <svg
-      className={styles.Facade}
+      className={classes}
       width="18"
       height="18"
       fill="none"
@@ -63,7 +63,9 @@ export const CheckboxInput = ({
       ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
     doValidation(val, touched)
     setIsChecked(val)
-    setFieldTouched(true)
+    if (setFieldTouched) {
+      setFieldTouched(true)
+    }
   }
 
   const onKeyPress = (ev) => {
@@ -72,8 +74,16 @@ export const CheckboxInput = ({
         ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
       doValidation(!val, touched)
       setIsChecked(!val)
-      setFieldTouched(true)
+      if (setFieldTouched) {
+        setFieldTouched(true)
+      }
     }
+  }
+
+  const getFacadeClasses = () => {
+    return getError(currentError, touched)
+      ? `${styles.Facade} FacadeError ${errorStyles.Error}`
+      : `${styles.Facade} ${styles.FacadeBorder}`
   }
 
   const getClasses = () => {
@@ -90,20 +100,20 @@ export const CheckboxInput = ({
       <label htmlFor={id} className={styles.root}>
         <div className={styles.checkboxWrapper}>
           <input
-            className={styles.CheckboxInput}
+            className={getClasses()}
             type="checkbox"
             onChange={onChange}
             onKeyPress={onKeyPress}
             checked={isChecked}
             {...otherProps}
           />
-          <Facade />
+          <Facade classes={getFacadeClasses()} />
         </div>
         <Body.Regular400 color={COLORS.GRAY_PRIMARY}>
           {children}
         </Body.Regular400>
       </label>
-      {getError(currentError, formTouched)}
+      {getError(currentError, touched)}
     </>
   )
 }
@@ -111,7 +121,11 @@ export const CheckboxInput = ({
 CheckboxInput.propTypes = {
   name: PropTypes.string.isRequired, // must be unique
   'data-tid': PropTypes.string.isRequired,
-  initialValue: PropTypes.bool,
+  initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  currentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  formTouched: PropTypes.bool,
+  setFieldTouched: PropTypes.func,
+  currentError: PropTypes.string,
   children: PropTypes.node.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
