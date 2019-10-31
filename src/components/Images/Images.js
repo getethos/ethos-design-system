@@ -69,7 +69,7 @@ export const CloudinaryImage = ({
     return(
       <img
         key={`${uuidv4()}`}
-        data-src={cld.url(filePath(),imageSettings)}
+        data-src={cld.url(filePath(publicId),imageSettings)}
         className={imageClasses.join(' ')}
         alt={alt}
       />
@@ -100,7 +100,7 @@ export const CloudinaryImage = ({
           dpr: dpr,
         }
 
-        return cld.url(filePath(), imageSettings) + ` ${indx + 1}x`
+        return cld.url(filePath(publicId), imageSettings) + ` ${indx + 1}x`
       })
 
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
@@ -115,11 +115,6 @@ export const CloudinaryImage = ({
     return sourceTags
   }
 
-  const filePath = () => {
-    const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
-    return publicId.replace(publicIdBase, '')
-  }
-
   const isSvg = (publicId) => {
     return publicId.split('.').pop() === SVG
   }
@@ -129,7 +124,7 @@ export const CloudinaryImage = ({
         secure: true,
       }
   
-      const svgUrl = cld.url(filePath(), baseSvgSettings)
+      const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
       return <img data-src={svgUrl} className={imageClasses.join(' ')} alt={alt} />
   }
 
@@ -143,6 +138,11 @@ export const CloudinaryImage = ({
       {buildImageTag()}
     </picture>
   )
+}
+
+export const filePath = (publicId) => {
+  const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
+  return publicId.replace(publicIdBase, '')
 }
 
 /**
