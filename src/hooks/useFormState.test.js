@@ -12,11 +12,11 @@ describe('useFormState hook', () => {
         getFieldErrors,
         getFieldValues,
         ,
-        getFormErrorMessage,
+        ,
         ,
         getFormIsValid,
         ,
-        setFieldsHidden,
+        ,
       ] = useFormState(initialState)
       expect(getFieldErrorsString()).toEqual('')
       expect(getFieldErrors()).toEqual(initialState)
@@ -35,11 +35,11 @@ describe('useFormState hook', () => {
         getFieldErrors,
         getFieldValues,
         ,
-        getFormErrorMessage,
+        ,
         ,
         getFormIsValid,
         ,
-        setFieldsHidden,
+        ,
       ] = useFormState(initialState)
       expect(getFieldErrorsString()).toEqual('error1, error2')
       expect(getFieldErrors()).toEqual(initialState)
@@ -58,7 +58,7 @@ describe('useFormState hook', () => {
         getFieldErrors,
         getFieldValues,
         ,
-        getFormErrorMessage,
+        ,
         ,
         getFormIsValid,
         ,
