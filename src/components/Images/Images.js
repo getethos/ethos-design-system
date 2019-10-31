@@ -38,7 +38,7 @@ export const CloudinaryImage = ({
 
   // Verify that all required props were supplied
   const [includesRequired] = useRequired(['publicId', 'alt'])
-  let allRelevantProps = Object.assign({}, rest, {
+  const allRelevantProps = Object.assign({}, rest, {
     publicId,
     alt,
     width,
@@ -60,12 +60,13 @@ export const CloudinaryImage = ({
     flags: ['progressive:semi'],
   }
   let imageClasses = ['Image lazyload', className]
-  width && width.reverse()
-  height && height.reverse()
+  let reverseWidth, reverseHeight
+  width && (reverseWidth = width.slice().reverse())
+  height && (reverseHeight = height.slice().reverse())
 
   const buildImageTag = () => {
     const format = fileFormats.slice(-1)[0]
-    let imageSettings = {
+    const imageSettings = {
       ...baseImageSettings,
       format: format,
       dpr: '1.0',
@@ -99,8 +100,8 @@ export const CloudinaryImage = ({
       const srcsetData = dprSettings.map((dpr, indx)=>{
         const imageSettings = {
           ...baseImageSettings,
-          ...(width && !!width[breakpoint] && { width: width[breakpoint] }),
-          ...(height && !!height[breakpoint] && { height: height[breakpoint] }),
+          ...(reverseWidth && !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
+          ...(reverseHeight && !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
           format: format,
           dpr: dpr,
         }
@@ -108,7 +109,7 @@ export const CloudinaryImage = ({
         return cld.url(filePath(), imageSettings) + ` ${indx + 1}x`
       })
 
-      let minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
+      const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
       sourceTags.push(<source
         key={`${uuidv4()}`}
         media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
@@ -121,7 +122,7 @@ export const CloudinaryImage = ({
   }
 
   const filePath = () => {
-    let publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
+    const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
     return publicId.replace(publicIdBase, '')
   }
 
@@ -130,11 +131,11 @@ export const CloudinaryImage = ({
   }
 
   const renderSvg = () =>{
-      let baseSvgSettings = {
+      const baseSvgSettings = {
         secure: true,
       }
   
-      let svgUrl = cld.url(filePath(), baseSvgSettings)
+      const svgUrl = cld.url(filePath(), baseSvgSettings)
       return <img data-src={svgUrl} className={imageClasses.join(' ')} alt={alt} />
   }
 
