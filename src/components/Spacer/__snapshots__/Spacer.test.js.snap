@@ -240,18 +240,6 @@ exports[`Spacer matches snapshot Spacer.W64 1`] = `
 />
 `;
 
-exports[`Spacer matches snapshot Spacer.W64 2`] = `
-<div
-  aria-hidden={true}
-  className="Spacer"
-  style={
-    Object {
-      "width": 64,
-    }
-  }
-/>
-`;
-
 exports[`Spacer matches snapshot Spacer.W72 1`] = `
 <div
   aria-hidden={true}
