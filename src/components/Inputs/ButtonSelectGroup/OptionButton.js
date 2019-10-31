@@ -52,6 +52,7 @@ export const OptionButton = ({
 }
 
 OptionButton.propTypes = {
+  buttonStyle: PropTypes.oneOf(Object.values(OPTION_BUTTON_STYLES)),
   /** Set's the caption of the button's label */
   label: PropTypes.string,
   /** When set to `true`, the button will display as `selected` */
