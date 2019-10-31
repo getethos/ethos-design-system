@@ -1,11 +1,20 @@
 language: node_js
-
 install:
   - yarn
-
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+install: yarn install --frozen-lockfile
+cache:
+  yarn: true
+  directories:
+    - ~/.cache
+env:
+  - NODE_ENV=ci
 script:
-  - yarn lint
+  # - yarn lint
   - yarn test
-
+  - yarn e2e:ci
 after_success:
   - yarn build

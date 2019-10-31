@@ -5,7 +5,7 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
 import { InputLabel } from '../InputLabel'
-import { cleanse } from '../../../validators/NumberValidator.js'
+import cleanse from '../../../helpers/cleanse.js'
 
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'

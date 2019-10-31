@@ -45,6 +45,7 @@ describe('FormDynamic', () => {
         'click'
       )
       cy.get('[data-tid="toggled-buttons2"]').should('not.be.visible')
+      cy.wait(200)
       cy.get('[data-tid="button-dynamic-submit2"]').should('not.be.disabled')
     })
   })
@@ -86,6 +87,7 @@ describe('FormDynamic', () => {
       cy.get('[data-tid="nested-group-level3"] button:first-child').trigger(
         'click'
       )
+      cy.wait(200)
       cy.get('[data-tid="button-dynamic-submit3"]').should('not.be.disabled')
     })
   })

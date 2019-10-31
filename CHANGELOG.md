@@ -18,6 +18,38 @@ will track minor and up.
   </summary>
 </details>
 
+## 1.1.8-b (October 30, 2019)
+- Add aria-hidden, tests to Spacer (a11y fix)
+- Travis CI to run Cypress e2e integration specs
+- hide becomes markHidden (#117)
+- Add eslint
+- Add husky hooks
+- Add textarea input
+- remove max-width on fullWidth phone viewport buttons (#109)
+- Move Link to CSS modules
+- Remove validateTruthy completely
+- Add 'column' property which stacks buttons
+- Convert RadioButtons.js to CSS modules (#97)
+- Fix button select group initial falsy value not working (#98)
+- Add Email Input and Email Validation
+- Convert Type to CSS modules (#82)
+- Dynamic fields support
+- Adds the Light300 font
+- Convert Layout components to CSS modules
+- Move Layout components to CSS modules
+- Measure CSS stats
+- Creates a validateExists and comments deprecated for validateTruthy
+- Refactors ButtonSelectGroup.js to properly handle false as a valid option value. Add a Boolean yes/no with corresponding true/false in Form example.
+- Convert InfoMessage to css module
+- ButtonSelectGroup now has a fullWidth prop, defaults to true
+- Remove radius from Images
+- Support Initial Field Values. `intialValue` now prefills and sets touched for fields
+- BirthdateInput now uses TextMaskedInput. Also, fix example which was missing formChangeHandlerStub
+- Support pipe and placeholder in the TextMaskedInput component
+- Fixes the validation in ButtonSelectGroup.js which never appeared to show form hint errors. Made a better example in Form.md which shows how this all works.
+- Adds onKeyPress / ENTER support for the checkbox so we can toggle with keyboard only interaction
+
+
 ## 1.1.5-h (October 13, 2019)
 - EDS now offers a `TextMaskedInput` which can be used as a primitive for building things like...wait for it:
 - Last 4 SSN—this is in the `TextMaskedInput` .md example

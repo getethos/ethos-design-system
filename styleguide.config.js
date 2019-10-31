@@ -1,4 +1,13 @@
 const path = require('path')
+const isCi = process.env.NODE_ENV === 'ci'
+
+requirePaths = [
+  path.join(__dirname, 'styleguide/content/content.scss'),
+  path.join(__dirname, 'src/components/design-system.css'),
+]
+if (!isCi) {
+  requirePaths.push(path.join(__dirname, 'src/fonts/index.css'))
+}
 
 // Configuration for react-styleguidist which outputs design system by
 // globbing our src/components directory for React components with .md examples
@@ -13,11 +22,7 @@ module.exports = {
     return componentPath.replace(/\.js$/, '.md')
   },
   pagePerSection: true,
-  require: [
-    path.join(__dirname, 'styleguide/content/content.scss'),
-    path.join(__dirname, 'src/components/design-system.css'),
-    path.join(__dirname, 'src/fonts/index.css'),
-  ],
+  require: requirePaths,
   sections: [
     {
       name: 'Colors',
