@@ -1,4 +1,3 @@
-import React from 'react'
 import restrict from './restrict.js'
 
 describe('restrict', () => {

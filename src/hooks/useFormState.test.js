@@ -1,5 +1,3 @@
-import React from 'react'
-import renderer from 'react-test-renderer'
 import { useFormState } from './useFormState.js'
 import testHook from './testHook.js'
 

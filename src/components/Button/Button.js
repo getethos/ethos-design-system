@@ -102,6 +102,7 @@ function PrivateButton({
       name={name}
       onClick={onClick}
       data-tid={rest['data-tid']}
+      role={role}
     >
       {backArrowIcon && ArrowIconInline(true)}
       {ariaLabelId ? <span id={ariaLabelId}>{children}</span> : children}

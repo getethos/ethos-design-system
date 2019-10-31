@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import useInvalid from '../../hooks/useInvalid.js'
 
-function Space({ height, width, flexGrow, ...rest }) {
+function Space({ height, width, ...rest }) {
   // Verify that height and/or width were valid enum values
   const validHeight = Object.values(Space.HEIGHTS).find((h) => h === height)
   if (height && !validHeight) throw new TypeError('Invalid height.')

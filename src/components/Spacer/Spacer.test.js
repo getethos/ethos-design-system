@@ -1,4 +1,3 @@
-import React from 'react'
 import { Spacer } from './Spacer.js'
 import renderer from 'react-test-renderer'
 

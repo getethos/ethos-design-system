@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { TextMaskedInput } from '../TextMaskedInput'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
-import { InputLabel } from '../InputLabel'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 import dayjs from '../../../helpers/getDayjs.js'
@@ -11,12 +10,7 @@ import useInputValidation from '../../../hooks/useInputValidation.js'
 import * as Validators from '../../../validators/BirthdateInputValidator'
 import { cleanse } from '../../../validators/NumberValidator.js'
 
-const {
-  DATE_FORMATS,
-  dateMaskByFormat,
-  dateStringMatchesFormat,
-  validateMinMaxDateFactory,
-} = Validators
+const { DATE_FORMATS, dateMaskByFormat, dateStringMatchesFormat } = Validators
 
 const PrivateBirthdateInput = (props) => {
   const {
