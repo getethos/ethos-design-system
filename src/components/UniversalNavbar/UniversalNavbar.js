@@ -67,7 +67,7 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
-    const { LinkComponent, hideMobileCta } = this.props
+    const { LinkComponent, hideMobileCta, hideDesktopCta } = this.props
 
     const getAnEstimate = (showWhenScrolled) => (
       <a
@@ -180,7 +180,7 @@ class UniversalNavbar extends React.Component {
                   </div>
 
                   <div className={styles.paddingLeft}>
-                    {getAnEstimate(false)}
+                    {!hideDesktopCta && getAnEstimate(false)}
                   </div>
                 </div>
               </div>
@@ -194,15 +194,18 @@ class UniversalNavbar extends React.Component {
 
 UniversalNavbar.propTypes = {
   /** Hide cta on mobile viewport */
-  hideMobileCta: PropTypes.bool.isRequired,
+  hideMobileCta: PropTypes.bool,
+  /** Hide cta on desktop */
+  hideDesktopCta: PropTypes.bool,
   /** Run analytics function when CTA Button gets clicked */
-  trackCtaClick: PropTypes.func.isRequired,
+  trackCtaClick: PropTypes.func,
   /** agnotistic Reach and React Router Link */
   LinkComponent: PropTypes.object,
 }
 
 UniversalNavbar.defaultProps = {
   hideMobileCta: false,
+  hideDesktopCta: false,
   trackCtaClick: () => {},
 }
 
