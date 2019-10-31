@@ -9,6 +9,7 @@ Array [
     Enter a number (must be even to validate)
   </label>,
   <div
+    aria-hidden={true}
     className="Spacer"
     style={
       Object {

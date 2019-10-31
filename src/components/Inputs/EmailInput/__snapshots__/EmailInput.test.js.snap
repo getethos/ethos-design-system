@@ -9,6 +9,7 @@ Array [
     Your email
   </label>,
   <div
+    aria-hidden={true}
     className="Spacer"
     style={
       Object {
