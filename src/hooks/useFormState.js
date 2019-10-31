@@ -15,7 +15,6 @@ export function useFormState(initialState) {
   Object.keys(initialState).map((key) => {
     initialHiddenState[key] = false
   })
-  const [fieldsHiddenState, setFieldsHiddenState] = useState(initialHiddenState)
 
   // Returns a function that updates state for the field, tracked by fieldName
   function setFieldState(fieldName) {

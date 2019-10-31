@@ -2,7 +2,6 @@ const useRequired = (requiredProps) => {
   const includesRequired = (actualProps) => {
     const missingProps = []
     const keys = Object.keys(actualProps)
-    const vals = Object.values(actualProps)
 
     // prop's missing, or, it's there but its value undefined or null
     requiredProps.forEach((prop) => {
