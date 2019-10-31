@@ -38,6 +38,7 @@ export const EmailInput = (props) => {
 EmailInput.propTypes = {
   optional: PropTypes.bool,
   'data-tid': PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
   name: PropTypes.string.isRequired,
@@ -48,4 +49,5 @@ EmailInput.propTypes = {
 
 EmailInput.defaultProps = {
   labelCopy: 'Email',
+  placeholder: '',
 }

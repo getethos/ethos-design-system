@@ -12,7 +12,6 @@ import errorStyles from '../Errors.module.scss'
 
 export const TextMaskedInput = (props) => {
   const {
-    optional,
     name,
     mask,
     labelCopy,
@@ -24,7 +23,6 @@ export const TextMaskedInput = (props) => {
     initialValue,
     currentValue,
     currentError,
-    formTouched,
     setFieldTouched,
     doValidation,
     ...restProps
@@ -97,7 +95,6 @@ export const TextMaskedInput = (props) => {
   }
 
   const getMaskedInputByType = (mask) => {
-    let makeProps = {}
     if (typeof mask === 'function') {
       return (
         <MaskedInput
@@ -146,7 +143,6 @@ export const TextMaskedInput = (props) => {
 }
 
 TextMaskedInput.PUBLIC_PROPS = {
-  optional: PropTypes.bool,
   doValidation: PropTypes.func,
   placeholder: PropTypes.string,
   mask: PropTypes.oneOfType([PropTypes.array, PropTypes.func]).isRequired,
