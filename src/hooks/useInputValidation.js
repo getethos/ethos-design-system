@@ -33,18 +33,22 @@ const useInputValidation = ({
   callErrorHandlers,
   setErrorWrapper,
 }) => {
-  const setErrorWrapperInternal = setErrorWrapper ? setErrorWrapper : (value, errorValue) => {
-    if (!!formChangeHandler) {
-      formChangeHandler(value, errorValue)
-    }
-    setError(errorValue)
-  }
+  const setErrorWrapperInternal = setErrorWrapper
+    ? setErrorWrapper
+    : (value, errorValue) => {
+        if (formChangeHandler) {
+          formChangeHandler(value, errorValue)
+        }
+        setError(errorValue)
+      }
 
-  const callErrorHandlersInternal = callErrorHandlers ? callErrorHandlers : (value, handlerFn) => {
-    let errorMessage = validate(value)
-    errorMessage = errorMessage.length ? errorMessage : ''
-    handlerFn(value, errorMessage)
-  }
+  const callErrorHandlersInternal = callErrorHandlers
+    ? callErrorHandlers
+    : (value, handlerFn) => {
+        let errorMessage = validate(value)
+        errorMessage = errorMessage.length ? errorMessage : ''
+        handlerFn(value, errorMessage)
+      }
 
   const doValidation = (value, isTouched) => {
     // User hasn't blurred but we still need to inform form

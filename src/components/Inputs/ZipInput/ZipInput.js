@@ -60,7 +60,7 @@ export const ZipInput = (props) => {
   })
 
   const getClasses = () => {
-    return !!getError(currentError, touched)
+    return getError(currentError, touched)
       ? `ZipInput ${styles.TextInput} ${errorStyles.Error}`
       : `ZipInput ${styles.TextInput}`
   }

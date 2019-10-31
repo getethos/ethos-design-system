@@ -8,7 +8,7 @@ import LogoWhite from './assets/ethos-logo-white.js'
 import { Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 
-import styles from  './UniversalNavbar.module.scss'
+import styles from './UniversalNavbar.module.scss'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
 // TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
