@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { useFormState } from '../../hooks/useFormState'
 import { INIT_INVALID } from '../../helpers/constants.js'
@@ -248,4 +249,9 @@ export function Form({ children, config }) {
       })}
     </form>
   )
+}
+
+Form.propTypes = {
+  children: PropTypes.func.isRequired,
+  config: PropTypes.object,
 }
