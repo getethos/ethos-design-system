@@ -23,6 +23,9 @@ const Facade = ({ classes }) => {
     </svg>
   )
 }
+Facade.propTypes = {
+  classes: PropTypes.string.isRequired,
+}
 
 export const CheckboxInput = ({
   formChangeHandler,
@@ -32,7 +35,6 @@ export const CheckboxInput = ({
   initialValue,
   currentValue,
   currentError,
-  formTouched,
   setFieldTouched,
   ...rest
 }) => {
@@ -123,7 +125,6 @@ CheckboxInput.propTypes = {
   'data-tid': PropTypes.string.isRequired,
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   currentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  formTouched: PropTypes.bool,
   setFieldTouched: PropTypes.func,
   currentError: PropTypes.string,
   children: PropTypes.node.isRequired,
