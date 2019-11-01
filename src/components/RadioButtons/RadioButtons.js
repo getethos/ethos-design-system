@@ -47,7 +47,6 @@ import styles from './RadioButtons.module.scss'
 function RadioButton({
   name,
   value,
-  optional,
   checked,
   required,
   disabled,
@@ -84,7 +83,6 @@ function RadioButton({
 
 RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
-  optional: PropTypes.bool,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   required: PropTypes.bool,

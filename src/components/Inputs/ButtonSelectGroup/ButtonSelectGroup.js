@@ -63,9 +63,7 @@ export const ButtonSelectGroup = ({
   const [selectedValue, setSelectedValue] = useState(initialSelected)
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
 
   useEffect(() => {
     // `isSelectedValue` allows `false` to work properly and validate
@@ -151,6 +149,7 @@ export const ButtonSelectGroup = ({
 }
 
 ButtonSelectGroup.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   /** Set's the caption of the group's label */
   labelCopy: PropTypes.string.isRequired,
   /** Name of the field, provided a uuid if not supplied. */

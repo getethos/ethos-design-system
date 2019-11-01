@@ -6,7 +6,7 @@ import fancyH from './assets/fancy-h.js'
 import fancyO from './assets/fancy-o.js'
 import fancyS from './assets/fancy-s.js'
 
-const FancyAnimatedLogo = (props) => {
+const FancyAnimatedLogo = () => {
   return (
     <div
       role="img"

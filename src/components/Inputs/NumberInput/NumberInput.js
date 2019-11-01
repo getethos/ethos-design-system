@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 // https://github.com/text-mask/text-mask/tree/master/addons
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { TextMaskedInput } from '../TextMaskedInput'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import useInputValidation from '../../../hooks/useInputValidation.js'
-import { InputLabel } from '../InputLabel'
-import styles from '../TextInput/TextInput.module.scss'
-import errorStyles from '../Errors.module.scss'
 
 export const integerMask = createNumberMask({
   allowDecimal: false,
@@ -30,7 +25,6 @@ export const NumberInput = (props) => {
     initialValue,
     currentValue,
     currentError,
-    formTouched,
     placeholder,
     setFieldTouched,
     ...restProps
@@ -52,7 +46,6 @@ export const NumberInput = (props) => {
         name={name}
         currentValue={currentValue}
         currentError={currentError}
-        formTouched={formTouched}
         setFieldTouched={setFieldTouched}
         validator={validator}
         formChangeHandler={formChangeHandler}
@@ -65,6 +58,11 @@ NumberInput.propTypes = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  currentValue: PropTypes.string,
+  currentError: PropTypes.string,
+  placeholder: PropTypes.string,
+  formChangeHandler: PropTypes.func,
+  setFieldTouched: PropTypes.func,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,

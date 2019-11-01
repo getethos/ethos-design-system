@@ -23,14 +23,12 @@ function PrivateTextAreaInput({
   disabled,
   name,
   labelCopy,
-  optional,
   allCaps,
   formChangeHandler,
   validator,
   initialValue,
   currentValue,
   currentError,
-  formTouched,
   setFieldTouched,
   restrictIllegal,
   ...rest
@@ -51,9 +49,7 @@ function PrivateTextAreaInput({
   includesInvalid(rest)
 
   // Set up validation hooks
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
 
   const [value, setValue] = useState(currentValue || initialValue || '')
 
@@ -79,7 +75,7 @@ function PrivateTextAreaInput({
     // processing still, so, we use a flag for doValidation
     setTouched(true)
     // Also tell the form we've been touched
-    if (!!setFieldTouched) {
+    if (setFieldTouched) {
       setFieldTouched(true)
     }
   }
@@ -133,7 +129,6 @@ function PrivateTextAreaInput({
 
 PrivateTextAreaInput.PUBLIC_PROPS = {
   resize: PropTypes.bool,
-  optional: PropTypes.bool,
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,

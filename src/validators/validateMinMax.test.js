@@ -1,4 +1,3 @@
-import React from 'react'
 import validateMinMaxFactory from './validateMinMax.js'
 
 describe('validateMinMax', () => {

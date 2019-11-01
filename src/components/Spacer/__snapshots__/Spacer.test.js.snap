@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacer matches snapshot Spacer.H4 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 4,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H8 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 8,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H16 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 16,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H24 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 24,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H32 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 32,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H40 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 40,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H48 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 48,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H56 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 56,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H64 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 64,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H72 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 72,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.H80 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "height": 80,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W4 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 4,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W8 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 8,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W16 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 16,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W24 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 24,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W32 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 32,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W40 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 40,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W48 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 48,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W56 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 56,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W64 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 64,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W72 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 72,
+    }
+  }
+/>
+`;
+
+exports[`Spacer matches snapshot Spacer.W80 1`] = `
+<div
+  aria-hidden={true}
+  className="Spacer"
+  style={
+    Object {
+      "width": 80,
+    }
+  }
+/>
+`;

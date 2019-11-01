@@ -1,4 +1,3 @@
-import React from 'react'
 import validatePassword from './validatePassword.js'
 
 describe('validatePassword', () => {

@@ -5,14 +5,13 @@ import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import restrict from '../../../helpers/restrict.js'
 import { InputLabel } from '../InputLabel'
-import { cleanse } from '../../../validators/NumberValidator.js'
+import cleanse from '../../../helpers/cleanse.js'
 
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
 export const TextMaskedInput = (props) => {
   const {
-    optional,
     name,
     mask,
     labelCopy,
@@ -24,15 +23,12 @@ export const TextMaskedInput = (props) => {
     initialValue,
     currentValue,
     currentError,
-    formTouched,
     setFieldTouched,
     doValidation,
     ...restProps
   } = props
 
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
   const [internalTouched, internalSetTouched] = useState(
@@ -60,7 +56,7 @@ export const TextMaskedInput = (props) => {
 
   const setAllTouched = () => {
     whichSetTouched(true)
-    if (!!setFieldTouched) {
+    if (setFieldTouched) {
       setFieldTouched(true)
     }
   }
@@ -93,13 +89,12 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    return !!getError(currentError, whichTouched)
+    return getError(currentError, whichTouched)
       ? `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}`
       : `TextMaskedInput ${styles.TextInput}`
   }
 
   const getMaskedInputByType = (mask) => {
-    let makeProps = {}
     if (typeof mask === 'function') {
       return (
         <MaskedInput
@@ -148,7 +143,6 @@ export const TextMaskedInput = (props) => {
 }
 
 TextMaskedInput.PUBLIC_PROPS = {
-  optional: PropTypes.bool,
   doValidation: PropTypes.func,
   placeholder: PropTypes.string,
   mask: PropTypes.oneOfType([PropTypes.array, PropTypes.func]).isRequired,

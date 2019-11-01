@@ -57,6 +57,18 @@ Then do following to setup debugging in Chrome:
 - Open Chrome and type following in the address bar: chrome://inspect
 - Click on "Open dedicated DevTools for Node"
 
+### Cypress E2E
+
+Our end to end integration tests use Cypress. To run Cypress locally do:
+
+```
+yarn e2e:dev
+```
+
+The Cypress application will open up and it should be self evident how to run the specs by just clicking around the Cypress interface.
+
+_Our CI/CD is setup via Travis—you can find its configuration at `.travis.yml`_
+
 ## Verify that the Design System works within CMS
 
 Subject to change.

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { TextMaskedInput } from '../TextMaskedInput'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
-import { InputLabel } from '../InputLabel'
 import zipInputValidator from '../../../validators/ZipInputValidator'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
@@ -22,12 +21,10 @@ export const ZipInput = (props) => {
     ...restProps
   } = props
 
-  const [getError, setError, getFormattedError, validate] = useErrorMessage(
-    validator
-  )
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
-  const [value, setValue] = useState(val || '')
+  const [value] = useState(val || '')
 
   // This has to come before useInputValidation setup below
   const callErrorHandlers = (value, handlerFn) => {
@@ -60,7 +57,7 @@ export const ZipInput = (props) => {
   })
 
   const getClasses = () => {
-    return !!getError(currentError, touched)
+    return getError(currentError, touched)
       ? `ZipInput ${styles.TextInput} ${errorStyles.Error}`
       : `ZipInput ${styles.TextInput}`
   }
@@ -78,7 +75,7 @@ export const ZipInput = (props) => {
         data-tid={restProps['data-tid']}
         guide={true}
         doValidation={doValidation}
-        name={props.name}
+        name={name}
         className={getClasses()}
         keepCharPositions={true}
         currentValue={currentValue}

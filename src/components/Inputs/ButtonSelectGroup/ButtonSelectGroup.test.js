@@ -74,13 +74,13 @@ describe('ButtonSelectGroup', () => {
     const group = tree.root
     const options = group.findAllByType(ButtonSelectGroup.Option)
 
-    const [first, ...rest] = options
+    const [first] = options
 
     renderer.act(() => {
       first.props.onClick()
     })
 
-    expect(onSelectStub).toBeCalledWith({
+    expect(onSelectStub).toHaveBeenCalledWith({
       value: optionValues[0],
       isAnswered: true,
     })
@@ -120,7 +120,7 @@ describe('ButtonSelectGroup', () => {
       last.props.onClick()
     })
 
-    expect(onSelectStub).toBeCalledWith({
+    expect(onSelectStub).toHaveBeenCalledWith({
       value: optionValues[1],
       isAnswered: true,
     })
@@ -147,8 +147,8 @@ describe('ButtonSelectGroup', () => {
       option.props.onClick()
     })
 
-    expect(onClickStub).toBeCalled()
-    expect(onSelectStub).toBeCalledWith({
+    expect(onClickStub).toHaveBeenCalled()
+    expect(onSelectStub).toHaveBeenCalledWith({
       value,
       isAnswered: true,
     })

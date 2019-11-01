@@ -1,5 +1,3 @@
-import React from 'react'
-import renderer from 'react-test-renderer'
 import { useFormState } from './useFormState.js'
 import testHook from './testHook.js'
 
@@ -14,11 +12,11 @@ describe('useFormState hook', () => {
         getFieldErrors,
         getFieldValues,
         ,
-        getFormErrorMessage,
+        ,
         ,
         getFormIsValid,
         ,
-        setFieldsHidden,
+        ,
       ] = useFormState(initialState)
       expect(getFieldErrorsString()).toEqual('')
       expect(getFieldErrors()).toEqual(initialState)
@@ -37,11 +35,11 @@ describe('useFormState hook', () => {
         getFieldErrors,
         getFieldValues,
         ,
-        getFormErrorMessage,
+        ,
         ,
         getFormIsValid,
         ,
-        setFieldsHidden,
+        ,
       ] = useFormState(initialState)
       expect(getFieldErrorsString()).toEqual('error1, error2')
       expect(getFieldErrors()).toEqual(initialState)
@@ -60,7 +58,7 @@ describe('useFormState hook', () => {
         getFieldErrors,
         getFieldValues,
         ,
-        getFormErrorMessage,
+        ,
         ,
         getFormIsValid,
         ,

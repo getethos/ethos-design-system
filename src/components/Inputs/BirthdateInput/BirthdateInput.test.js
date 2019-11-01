@@ -12,10 +12,9 @@ describe('BirthdateInput', () => {
       .create(
         <BirthdateInput
           dateFormat="mm/dd/yyyy"
-          name="le-birthdate"
           labelCopy="What is your birthdate?"
           data-tid="le-birthdate"
-          validator={(thing) => {}}
+          validator={() => {}}
           name="birthDate"
           minAge={20}
           maxAge={65}

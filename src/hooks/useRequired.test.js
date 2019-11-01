@@ -1,4 +1,3 @@
-import React from 'react'
 import useRequired from './useRequired.js'
 
 describe('useRequired hook', () => {

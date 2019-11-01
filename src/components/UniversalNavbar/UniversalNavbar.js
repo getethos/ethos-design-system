@@ -8,7 +8,7 @@ import LogoWhite from './assets/ethos-logo-white.js'
 import { Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 
-import styles from  './UniversalNavbar.module.scss'
+import styles from './UniversalNavbar.module.scss'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
 // TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
@@ -67,7 +67,7 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
-    const { LinkComponent, hideMobileCta } = this.props
+    const { LinkComponent, hideMobileCta, hideDesktopCta } = this.props
 
     const getAnEstimate = (showWhenScrolled) => (
       <a
@@ -180,7 +180,7 @@ class UniversalNavbar extends React.Component {
                   </div>
 
                   <div className={styles.paddingLeft}>
-                    {getAnEstimate(false)}
+                    {!hideDesktopCta && getAnEstimate(false)}
                   </div>
                 </div>
               </div>
@@ -194,15 +194,18 @@ class UniversalNavbar extends React.Component {
 
 UniversalNavbar.propTypes = {
   /** Hide cta on mobile viewport */
-  hideMobileCta: PropTypes.bool.isRequired,
+  hideMobileCta: PropTypes.bool,
+  /** Hide cta on desktop */
+  hideDesktopCta: PropTypes.bool,
   /** Run analytics function when CTA Button gets clicked */
-  trackCtaClick: PropTypes.func.isRequired,
+  trackCtaClick: PropTypes.func,
   /** agnotistic Reach and React Router Link */
   LinkComponent: PropTypes.object,
 }
 
 UniversalNavbar.defaultProps = {
   hideMobileCta: false,
+  hideDesktopCta: false,
   trackCtaClick: () => {},
 }
 
