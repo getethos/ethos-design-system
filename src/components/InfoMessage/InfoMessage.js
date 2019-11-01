@@ -50,7 +50,8 @@ function InfoMessageFactory(type, format) {
     )
   }
   PublicInfoMessageComponent.propTypes = {
-    children: PropTypes.string,
+    // We can have string, array, object, etc., so any for children prop
+    children: PropTypes.any,
   }
 
   return PublicInfoMessageComponent

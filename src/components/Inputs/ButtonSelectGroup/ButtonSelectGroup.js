@@ -149,11 +149,10 @@ export const ButtonSelectGroup = ({
 }
 
 ButtonSelectGroup.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.instanceOf(OptionButton)).isRequired,
   formTouched: PropTypes.bool,
   currentValue: PropTypes.string,
   currentError: PropTypes.string,
-
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   /** Set's the caption of the group's label */
   labelCopy: PropTypes.string.isRequired,
   /** Name of the field, provided a uuid if not supplied. */

@@ -35,6 +35,7 @@ export const CheckboxInput = ({
   initialValue,
   currentValue,
   currentError,
+  formTouched,
   setFieldTouched,
   ...rest
 }) => {
