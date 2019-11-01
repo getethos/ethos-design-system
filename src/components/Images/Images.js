@@ -6,6 +6,7 @@ import useInvalid from '../../hooks/useInvalid.js'
 import { Media } from '../Media/Media'
 import uuidv4 from 'uuid/v4'
 import lazysizes from 'lazysizes'
+import styles from './Images.module.scss'
 
 // https://cloudinary.com/documentation/image_transformation_reference
 export const CLOUDINARY_CLOUD_NAME = 'getethos'
@@ -53,7 +54,7 @@ export const CloudinaryImage = ({
     secure: true,
     flags: ['progressive:semi'],
   }
-  let imageClasses = ['Image lazyload', className]
+  let imageClasses = ['lazyload', className]
   let reverseWidth, reverseHeight
   width && (reverseWidth = width.slice().reverse())
   height && (reverseHeight = height.slice().reverse())
@@ -70,7 +71,7 @@ export const CloudinaryImage = ({
       <img
         key={`${uuidv4()}`}
         data-src={cld.url(filePath(publicId),imageSettings)}
-        className={imageClasses.join(' ')}
+        className={[styles.Image, ...imageClasses].join(' ')}
         alt={alt}
       />
     )
@@ -125,7 +126,7 @@ export const CloudinaryImage = ({
       }
   
       const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
-      return <img data-src={svgUrl} className={imageClasses.join(' ')} alt={alt} />
+      return <img data-src={svgUrl} className={[styles.Svg, ...imageClasses].join(' ')} alt={alt} />
   }
 
   // Serve a simpler version if resource is SVG

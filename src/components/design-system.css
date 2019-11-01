@@ -159,20 +159,6 @@ textarea {
   --transition-default: all 200ms cubic-bezier(0.21, 0.61, 0.35, 1);
 }
 
-/* @getethos/design-system/Images.scss
-   ========================================================================== */
-/* Generally used as a wrapper around Image components. */
-figure {
-  margin: 0;
-}
-
-.Image {
-  display: block;
-  max-width: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
 :root {
