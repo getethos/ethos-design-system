@@ -31,12 +31,14 @@ export const CheckboxInput = ({
   formChangeHandler,
   validator,
   children,
+  disabled,
   name,
   initialValue,
   currentValue,
   currentError,
-  formTouched,
   setFieldTouched,
+  // TODO: pushed in from Form.js but not used here
+  formTouched, // eslint-disable-line no-unused-vars
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
@@ -95,20 +97,20 @@ export const CheckboxInput = ({
       : `${styles.CheckboxInput}`
   }
 
-  const id = name
-  const otherProps = { ...rest, id, name }
-
   return (
     <>
-      <label htmlFor={id} className={styles.root}>
+      <label htmlFor={name} className={styles.root}>
         <div className={styles.checkboxWrapper}>
           <input
             className={getClasses()}
             type="checkbox"
             onChange={onChange}
+            data-tid={rest['data-tid']}
             onKeyPress={onKeyPress}
+            disabled={disabled}
             checked={isChecked}
-            {...otherProps}
+            id={name}
+            name={name}
           />
           <Facade classes={getFacadeClasses()} />
         </div>
@@ -122,6 +124,7 @@ export const CheckboxInput = ({
 }
 
 CheckboxInput.propTypes = {
+  formTouched: PropTypes.bool,
   name: PropTypes.string.isRequired, // must be unique
   'data-tid': PropTypes.string.isRequired,
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
