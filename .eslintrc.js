@@ -27,7 +27,6 @@ module.exports = {
   ],
 
   rules: {
-    // TODO: (1) fix these warnings, (2) remove --max-warnings in package.json.
     'no-unused-vars': 'warn',
     'react/prop-types': 'warn',
   },
