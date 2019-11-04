@@ -1,13 +1,11 @@
 Set of Design-approved public buttons.
 
-```jsx
-<Button.Medium.Black>Button.Medium.Black</Button.Medium.Black>
-```
+---
+
+## Color + border styles
 
 ```jsx
-<Button.Medium.Black fullWidth>
-  Button.Medium.Black fullWidth
-</Button.Medium.Black>
+<Button.Medium.Black>Button.Medium.Black</Button.Medium.Black>
 ```
 
 ```jsx
@@ -17,9 +15,16 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
-<Button.Medium.WhiteOutline>
-  Button.Medium.WhiteOutline
-</Button.Medium.WhiteOutline>
+<div style={{ backgroundColor: 'var(--BrandForest)', padding: 20 }}>
+  <strong style={{ color: 'white' }}>
+    Background supplied so the button is visible.
+  </strong>
+  <br />
+  <br />
+  <Button.Medium.WhiteOutline>
+    Button.Medium.WhiteOutline
+  </Button.Medium.WhiteOutline>
+</div>
 ```
 
 ```jsx
@@ -35,14 +40,28 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
-<Button.Medium.Black arrowIcon>
-  Button.Medium.Black with arrowIcon
+<Button.Unstyled>Button.Unstyled</Button.Unstyled>
+```
+
+---
+
+## Fullwidth prop
+
+```jsx
+<Button.Medium.Black fullWidth>
+  Button.Medium.Black fullWidth
 </Button.Medium.Black>
 ```
 
+---
+
+## Arrow icons
+
+#### Forward + back
+
 ```jsx
-<Button.Medium.Black fullWidth arrowIcon>
-  Button.Medium.Black + fullWidth + arrowIcon
+<Button.Medium.Black arrowIcon>
+  Button.Medium.Black with arrowIcon
 </Button.Medium.Black>
 ```
 
@@ -52,17 +71,49 @@ Set of Design-approved public buttons.
 </Button.Medium.Black>
 ```
 
+#### Fullwidth
+
+```jsx
+<Button.Medium.Black fullWidth arrowIcon>
+  Button.Medium.Black + fullWidth + arrowIcon
+</Button.Medium.Black>
+```
+
 ```jsx
 <Button.Medium.Black fullWidth backArrowIcon>
   Button.Medium.Black + fullWidth + backArrowIcon
 </Button.Medium.Black>
 ```
 
+#### Colors + colors when hovered
+
 ```jsx
-<Button.Unstyled>Button.Unstyled</Button.Unstyled>
+<Button.Medium.Stateful.Default arrowIcon>
+  Button.Medium.Stateful.Default + arrowIcon
+</Button.Medium.Stateful.Default>
 ```
 
-<strong>The following are only for use in indicated places</strong>
+```jsx
+<Button.Medium.BlackOutline arrowIcon>
+  Button.Medium.BlackOutline + arrowIcon
+</Button.Medium.BlackOutline>
+```
+
+```jsx
+<Button.Unstyled arrowIcon>
+  Button.Unstyled + arrowIcon (different margin on arrow)
+</Button.Unstyled>
+```
+
+```jsx
+<Button.Unstyled backArrowIcon>Button.Unstyled + backArrowIcon</Button.Unstyled>
+```
+
+---
+
+## Do not use
+
+#### The following are only for use in indicated places
 
 PLEASE ONLY USE IN UniversalNavbar! In fact, have a look at
 UniversalNavbar component to see this in use.
