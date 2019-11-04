@@ -26,11 +26,6 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
 
-  rules: {
-    'no-unused-vars': 'warn',
-    'react/prop-types': 'warn',
-  },
-
   // https://eslint.org/docs/user-guide/configuring#specifying-parser
   // This is necessary for various ES language features we use.
   parser: 'babel-eslint',
