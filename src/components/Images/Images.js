@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cloudinary from 'cloudinary-core'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
-import { Media } from '../Media/Media'
+
+import cloudinary from 'cloudinary-core'
 import uuidv4 from 'uuid/v4'
 import lazysizes from 'lazysizes'
+
+import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
 
 // https://cloudinary.com/documentation/image_transformation_reference
