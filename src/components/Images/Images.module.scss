@@ -23,12 +23,10 @@ figure {
 }
 
 .blur-up {
-  -webkit-filter: blur(5px);
   filter: blur(5px);
   transition: filter 500ms, -webkit-filter 500ms;
 }
 
 .blur-up:global(.lazyloaded) {
-  -webkit-filter: blur(0);
   filter: blur(0);
 }
