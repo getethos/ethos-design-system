@@ -72,7 +72,7 @@ export const CloudinaryImage = ({
     return (
       <img
         key={`${uuidv4()}`}
-        className={[styles.Image, styles['blur-up'], ...imageClasses].join(' ')}
+        className={[styles.Image, styles['blurUp'], ...imageClasses].join(' ')}
         src={cld.url(filePath(publicId), {transformation: 'unsupported', ...baseImageSettings})}
         srcSet={srcSet}
         alt={alt}
