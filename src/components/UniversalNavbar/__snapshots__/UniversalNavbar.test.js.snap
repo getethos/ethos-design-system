@@ -99,9 +99,9 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <PublicTypeComponent>
               <NavLink
-                href="/blog/"
+                href="/faq/"
               >
-                Blog
+                FAQ
               </NavLink>
             </PublicTypeComponent>
           </div>
@@ -206,9 +206,9 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
                 className="paddingLeft"
               >
                 <NavLink
-                  href="/blog/"
+                  href="/faq/"
                 >
-                  Blog
+                  FAQ
                 </NavLink>
               </div>
             </div>
