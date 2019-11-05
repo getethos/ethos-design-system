@@ -49,7 +49,6 @@ export const CloudinaryImage = ({
   )
   includesInvalid(rest)
 
-  const { WEBP, JP2, JPEG, SVG } = CloudinaryImage.IMAGE_FILE_TYPES
   const baseImageSettings = {
     quality: 'auto:eco',
     crop: crop,
@@ -125,7 +124,7 @@ export const CloudinaryImage = ({
   }
 
   const isSvg = (publicId) => {
-    return publicId.split('.').pop() === SVG
+    return publicId.split('.').pop() === 'svg'
   }
 
   const renderSvg = () =>{
@@ -140,7 +139,6 @@ export const CloudinaryImage = ({
   // Serve a simpler version if resource is SVG
   if(isSvg(publicId)) return renderSvg()
 
-  const fileFormats = [WEBP, JP2, JPEG] // Ordered by performance from highest -> least, browsers use first match
   return (
     <picture>
       {buildTags()}
@@ -177,13 +175,6 @@ CloudinaryImage.CROP_METHODS = {
   FILL: 'fill',
   FIT: 'fit',
   CROP: 'crop',
-}
-
-CloudinaryImage.IMAGE_FILE_TYPES = {
-  SVG: 'svg',
-  WEBP: 'webp',
-  JP2: 'jp2',
-  JPEG: 'jpeg',
 }
 
 CloudinaryImage.PUBLIC_PROPS = {
