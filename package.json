@@ -19,7 +19,7 @@
     "stats": "node bin/generateStats.js --write",
     "styleguide": "yarn compile-css && styleguidist server",
     "styleguide:build": "yarn compile-css && styleguidist build",
-    "test": "jest && yarn test:scss",
+    "test": "yarn test:scss && jest",
     "test:coverage": "jest --collectCoverageFrom '[\"src/components/**/*.js\", \"src/hooks/**/*.js\"]' --coverage && open ./coverage/lcov-report/index.html",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot",
