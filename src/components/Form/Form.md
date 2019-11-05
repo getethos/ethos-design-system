@@ -17,26 +17,25 @@ let count = 0
 
 const READY_TODAY = `I'm ready today`
 const NEXT_7_DAYS = 'In the next 7 days'
+const IN_1_2_MONTHS = 'In 1 to 2 months'
+const AFTER_3_MONTHS = 'After 3 months'
+
 const IntentOptions = [
   {
     value: READY_TODAY,
-    label: READY_TODAY,
     description: READY_TODAY,
   },
   {
     value: NEXT_7_DAYS,
-    label: NEXT_7_DAYS,
     description: NEXT_7_DAYS,
   },
   {
-    value: 'In 1 to 2 months',
-    label: 'In 1 to 2 months',
-    description: 'In 1 to 2 months',
+    value: IN_1_2_MONTHS,
+    description: IN_1_2_MONTHS,
   },
   {
-    value: 'After 3 months',
-    label: 'After 3 months',
-    description: 'After 3 months',
+    value: AFTER_3_MONTHS,
+    description: AFTER_3_MONTHS,
   },
 ];
 
@@ -84,11 +83,11 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         tid: 'the-email-tid',
       },
       intent: {
-        component: (props, options) => {
+        component: (props, opts) => {
           return <RadioButtonGroup
             {...props}
             onChange={({ value }) => console.log(value)}
-            options={IntentOptions.map((t) => ({
+            options={opts.map((t) => ({
               name: t.value,
               value: t.value,
               label: t.description,
