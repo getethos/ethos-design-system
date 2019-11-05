@@ -14,6 +14,8 @@ const cld = new cloudinary.Cloudinary({
   cloud_name: CLOUDINARY_CLOUD_NAME,
 })
 
+window.cld = cld
+
 const mediaBreakpoints = [
   Media.BREAKPOINTS.DESKTOP_RANGE_START,
   Media.BREAKPOINTS.LAPTOP_RANGE_START,
@@ -52,6 +54,7 @@ export const CloudinaryImage = ({
     quality: 'auto:eco',
     crop: crop,
     secure: true,
+    fetchFormat: 'auto',
     flags: ['progressive:semi'],
   }
   let imageClasses = ['lazyload', className]
@@ -59,32 +62,30 @@ export const CloudinaryImage = ({
   width && (reverseWidth = width.slice().reverse())
   height && (reverseHeight = height.slice().reverse())
 
-  const buildImageTag = () => {
-    const format = fileFormats.slice(-1)[0]
-    const imageSettings = {
-      ...baseImageSettings,
-      format: format,
-      dpr: '1.0',
-    }
+  const buildImageTag = (srcSet) => {
 
-    return(
+
+    // srcSet is the LQIP image, src is the fallback image for older browsers
+    // that do not support the 'srcSet' attribute (IE zero support)
+    return (
       <img
         key={`${uuidv4()}`}
-        data-src={cld.url(filePath(publicId),imageSettings)}
-        className={[styles.Image, ...imageClasses].join(' ')}
+        className={[styles.Image, styles['blur-up'], ...imageClasses].join(' ')}
+        src={cld.url(filePath(publicId), {transformation: 'unsupported', ...baseImageSettings})}
+        srcSet={srcSet}
         alt={alt}
       />
     )
   }
 
-  const buildSrcTags = (format) => {
+  const buildTags = () => {
     const dprSettings = ['1.0', '2.0', '3.0']
-    let sourceTags = []
+    let tags = []
+    let imageSrcSet = []
 
     // We are expecting width/height attribute arrays in the order of
     // Phone/Tablet/Laptop/Desktop but we have to setup media queries
     // in the opposite order, so we reverse the arrays here.
-    
     
     for (
       let breakpoint = 0;
@@ -92,28 +93,35 @@ export const CloudinaryImage = ({
       breakpoint++
       ) {
 
-      const srcsetData = dprSettings.map((dpr, indx)=>{
-        const imageSettings = {
-          ...baseImageSettings,
-          ...(reverseWidth && !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
-          ...(reverseHeight && !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
-          format: format,
-          dpr: dpr,
-        }
+      const imageSettings = {
+        ...baseImageSettings,
+        ...(reverseWidth && !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
+        ...(reverseHeight && !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
+      }
 
-        return cld.url(filePath(publicId), imageSettings) + ` ${indx + 1}x`
+      const srcsetData = dprSettings.map((dpr, indx)=>{
+        const sourceSettings = {
+          ...imageSettings,
+          dpr
+        }
+        return cld.url(filePath(publicId), sourceSettings) + ` ${indx + 1}x`
       })
 
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
-      sourceTags.push(<source
+      tags.push(<source
         key={`${uuidv4()}`}
         media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
         data-srcset= {srcsetData.join(', ')}
-        type={`image/${format}`}
       />)
-      
+
+      imageSrcSet.push(cld.url(filePath(publicId), {
+        ...imageSettings,
+        transformation: 'lqip'
+      }))
     }
-    return sourceTags
+
+    tags.push(buildImageTag(imageSrcSet.slice(-1)))
+    return tags
   }
 
   const isSvg = (publicId) => {
@@ -135,8 +143,7 @@ export const CloudinaryImage = ({
   const fileFormats = [WEBP, JP2, JPEG] // Ordered by performance from highest -> least, browsers use first match
   return (
     <picture>
-      {fileFormats.map(format => buildSrcTags(format))}
-      {buildImageTag()}
+      {buildTags()}
     </picture>
   )
 }
