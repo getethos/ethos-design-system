@@ -7,6 +7,19 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
   role="radiogroup"
 >
   <label
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    htmlFor="gender"
+  />
+  <div
+    aria-hidden={true}
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />
+  <label
     className="RadioButton"
   >
     <span>
