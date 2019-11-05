@@ -108,7 +108,7 @@ export function RadioButtonGroup({
     const { value, onClick: passedHandler } = o
     const checked = value === selectedValue
     const onClick = onClickHandler(value, passedHandler)
-    return { ...o, name, checked, onClick }
+    return { ...o, name, checked, onClick, onChange }
   })
 
   return (
