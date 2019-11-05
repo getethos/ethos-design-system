@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import uuidv4 from 'uuid/v4'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
@@ -89,6 +91,7 @@ RadioButton.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.node.isRequired, // user-facing text label
   'data-tid': PropTypes.string,
+  onClick: PropTypes.func,
 
   // These will appear if RadioButtonGroup is used with redux-form:
   onBlur: PropTypes.func,
@@ -119,13 +122,58 @@ RadioButton.propTypes = {
  * @param {...Object}  rest      Mostly redux-form Field input/meta props
  */
 export function RadioButtonGroup({
-  name,
   options,
   value,
+  onSelect,
+  formChangeHandler,
+  name = `radio-button-group-${uuidv4()}`,
+  initialValue = undefined,
+  currentValue,
+  currentError,
+  formTouched,
   disabled,
+  validator,
   required,
   ...rest // includes redux-form props, e.g. input.onChange
 }) {
+  console.log('initialValue: ', initialValue)
+  let initialSelected
+  if (currentValue || typeof currentValue === 'boolean') {
+    initialSelected = currentValue
+  } else if (initialValue || typeof initialValue === 'boolean') {
+    initialSelected = initialValue
+  }
+
+  const [selectedValue, setSelectedValue] = useState(initialSelected)
+  const [isAnswered, setIsAnswered] = useState(false)
+  const [getError, setError, , validate] = useErrorMessage(validator)
+
+  useEffect(() => {
+    const isSelectedValue = typeof selectedValue !== 'undefined'
+    if (onSelect && isSelectedValue) {
+      onSelect({ value: selectedValue, isAnswered })
+    }
+    if (formChangeHandler && isSelectedValue) {
+      // Ensure all validators get called
+      let errorMessage = validate(selectedValue)
+      errorMessage = errorMessage.length ? errorMessage : ''
+      setError(errorMessage)
+
+      // Update form with the new value and a falsy error message
+      formChangeHandler(selectedValue, errorMessage)
+    }
+  }, [selectedValue, isAnswered])
+
+  function onClickHandler(value, clickHandler) {
+    return (evt) => {
+      setSelectedValue(value)
+      if (!isAnswered) {
+        setIsAnswered(true)
+      }
+      return clickHandler && clickHandler(evt)
+    }
+  }
+
   // Passing `disabled` at the group/field level disables all options. You can
   // also disable an individual option/radio button via `option.disabled`.
   // Not supported yet: autoComplete, tabIndex (not obviously necessary)
@@ -133,12 +181,20 @@ export function RadioButtonGroup({
   // Which option is selected? Add the `checked` attribute to that one.
   // We must also add the `name` to each option.
   const finalOptions = options.map((o) => {
-    const checked = o.value === value
-    return { ...o, name, checked }
+    const { value, onClick: passedHandler } = o
+    const checked = value === selectedValue
+    const onClick = onClickHandler(value, passedHandler)
+    return { ...o, name, checked, onClick }
   })
 
+  console.log('Final Options: ', finalOptions)
   return (
-    <fieldset className={styles.RadioButtonGroup}>
+    <fieldset
+      role="radiogroup"
+      className={styles.RadioButtonGroup}
+      data-tid={rest['data-tid']}
+      aria-labelledby={name}
+    >
       {finalOptions.map((option) => (
         <RadioButton
           {...option}
@@ -148,6 +204,7 @@ export function RadioButtonGroup({
           {...rest}
         />
       ))}
+      {getError(currentError, formTouched)}
     </fieldset>
   )
 }
@@ -156,6 +213,14 @@ RadioButtonGroup.PUBLIC_PROPS = {
   name: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)).isRequired,
   value: PropTypes.string,
+  initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  formTouched: PropTypes.bool,
+  currentValue: PropTypes.string,
+  currentError: PropTypes.string,
+  formChangeHandler: PropTypes.func,
+  onSelect: PropTypes.func,
+  'data-tid': PropTypes.string,
+  validator: PropTypes.func,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
 }

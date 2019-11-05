@@ -2,7 +2,9 @@
 
 exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
 <fieldset
+  aria-labelledby="gender"
   className="RadioButtonGroup"
+  role="radiogroup"
 >
   <label
     className="RadioButton"
@@ -13,6 +15,7 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
         data-tid="gender-male"
         name="gender"
         onChange={[Function]}
+        onClick={[Function]}
         type="radio"
         value="M"
       />
@@ -33,6 +36,7 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
         data-tid="gender-female"
         name="gender"
         onChange={[Function]}
+        onClick={[Function]}
         type="radio"
         value="F"
       />
@@ -44,5 +48,6 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
       Female
     </div>
   </label>
+  
 </fieldset>
 `;
