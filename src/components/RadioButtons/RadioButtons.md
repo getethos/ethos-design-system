@@ -27,7 +27,7 @@ const IntentOptions = [
 <RadioButtonGroup
   name='intent'
   initialValue={READY_TODAY}
-  onSelect={({ value }) => console.log(value)}
+  onChange={({ value }) => console.log(value)}
   options={IntentOptions.map((t) => ({
     name: t.value,
     value: t.value,

@@ -8,8 +8,8 @@ describe('RadioButtonGroup', () => {
       expect(RadioButtonGroup).toBeDefined()
     })
 
-    test('sets `initialValue` and `onSelect` handler callback fires', () => {
-      const onSelectStub = jest.fn()
+    test('sets `initialValue` and `onChange` handler callback fires', () => {
+      const onChangeStub = jest.fn()
       const optionValues = ['foo', 'bar']
 
       const optionsRadios = optionValues.map((t) => ({
@@ -22,7 +22,7 @@ describe('RadioButtonGroup', () => {
         <RadioButtonGroup
           name="intent"
           initialValue={optionValues[0]}
-          onSelect={onSelectStub}
+          onChange={onChangeStub}
           options={optionsRadios}
         />
       )
@@ -39,7 +39,7 @@ describe('RadioButtonGroup', () => {
         first.props.onClick()
       })
 
-      expect(onSelectStub).toHaveBeenCalledWith({
+      expect(onChangeStub).toHaveBeenCalledWith({
         value: optionValues[0],
         isAnswered: true,
       })
@@ -78,7 +78,7 @@ describe('RadioButtonGroup', () => {
         .create(
           <RadioButtonGroup
             name="gender"
-            value="Female"
+            initialValue="M"
             onChange={() => {}}
             options={[
               {

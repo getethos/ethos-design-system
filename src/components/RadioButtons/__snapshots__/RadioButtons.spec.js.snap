@@ -11,10 +11,9 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
   >
     <span>
       <input
-        checked={false}
+        checked={true}
         data-tid="gender-male"
         name="gender"
-        onChange={[Function]}
         onClick={[Function]}
         type="radio"
         value="M"
@@ -35,7 +34,6 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
         checked={false}
         data-tid="gender-female"
         name="gender"
-        onChange={[Function]}
         onClick={[Function]}
         type="radio"
         value="F"
