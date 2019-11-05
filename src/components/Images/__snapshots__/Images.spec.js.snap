@@ -3,69 +3,26 @@
 exports[`CloudinaryImage default rendering CloudinaryImage 1`] = `
 <picture>
   <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.webp 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.webp 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.webp 3x"
+    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,f_auto,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.png 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,f_auto,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.png 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,f_auto,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.png 3x"
     media="(min-width: 1200px)"
-    type="image/webp"
   />
   <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.webp 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.webp 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.webp 3x"
+    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,f_auto,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.png 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,f_auto,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.png 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,f_auto,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.png 3x"
     media="(min-width: 900px)"
-    type="image/webp"
   />
   <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.webp 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.webp 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.webp 3x"
+    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,f_auto,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.png 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,f_auto,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.png 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,f_auto,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.png 3x"
     media="(min-width: 600px)"
-    type="image/webp"
   />
   <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.webp 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.webp 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.webp 3x"
+    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,f_auto,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.png 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,f_auto,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.png 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,f_auto,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.png 3x"
     media="(max-width: 599px)"
-    type="image/webp"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.jp2 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.jp2 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.jp2 3x"
-    media="(min-width: 1200px)"
-    type="image/jp2"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.jp2 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.jp2 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.jp2 3x"
-    media="(min-width: 900px)"
-    type="image/jp2"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.jp2 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.jp2 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.jp2 3x"
-    media="(min-width: 600px)"
-    type="image/jp2"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.jp2 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.jp2 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.jp2 3x"
-    media="(max-width: 599px)"
-    type="image/jp2"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.jpeg 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.jpeg 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_400,q_auto:eco,w_400/v1/something.com/otherthing.jpeg 3x"
-    media="(min-width: 1200px)"
-    type="image/jpeg"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.jpeg 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.jpeg 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_300,q_auto:eco,w_300/v1/something.com/otherthing.jpeg 3x"
-    media="(min-width: 900px)"
-    type="image/jpeg"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.jpeg 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.jpeg 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_200,q_auto:eco,w_200/v1/something.com/otherthing.jpeg 3x"
-    media="(min-width: 600px)"
-    type="image/jpeg"
-  />
-  <source
-    data-srcset="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.jpeg 1x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_2.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.jpeg 2x, https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_3.0,fl_progressive:semi,h_100,q_auto:eco,w_100/v1/something.com/otherthing.jpeg 3x"
-    media="(max-width: 599px)"
-    type="image/jpeg"
   />
   <img
     alt="alt text"
-    className="Image lazyload testImage"
-    data-src="https://res.cloudinary.com/getethos/image/upload/c_fill,dpr_1.0,fl_progressive:semi,q_auto:eco/v1/something.com/otherthing.jpeg"
+    className="Image blurUp lazyload testImage"
+    src="https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,q_auto:eco,t_unsupported/v1/something.com/otherthing.png"
+    srcSet="https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_400,q_auto:eco,t_lqip,w_400/v1/something.com/otherthing.png 1200w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_300,q_auto:eco,t_lqip,w_300/v1/something.com/otherthing.png 900w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_200,q_auto:eco,t_lqip,w_200/v1/something.com/otherthing.png 600w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_100,q_auto:eco,t_lqip,w_100/v1/something.com/otherthing.png 599w"
   />
 </picture>
 `;
