@@ -32,7 +32,6 @@ export const CloudinaryImage = ({
   crop,
   ...rest
 }) => {
-
   // Verify that all required props were supplied
   const [includesRequired] = useRequired(['publicId', 'alt'])
   const allRelevantProps = Object.assign({}, rest, {
@@ -58,20 +57,18 @@ export const CloudinaryImage = ({
   }
   let imageClasses = ['lazyload', className]
   let reverseWidth, reverseHeight
-  
-  if(width) {
+
+  if (width) {
     reverseWidth = width.slice().reverse()
   }
-  if(height){
+  if (height) {
     reverseHeight = height.slice().reverse()
   }
 
   const buildImageTag = (srcSet) => {
-
-    const srcSetString = srcSet.map((url,index) => {
+    const srcSetString = srcSet.map((url, index) => {
       return `${url} ${mediaBreakpoints[index]}w`
     })
-
 
     // srcSet is the LQIP image, src is the fallback image for older browsers
     // that do not support the 'srcSet' attribute (IE zero support)
@@ -79,7 +76,10 @@ export const CloudinaryImage = ({
       <img
         key={`${uuidv4()}`}
         className={[styles.Image, styles['blurUp'], ...imageClasses].join(' ')}
-        src={cld.url(filePath(publicId), {transformation: 'unsupported', ...baseImageSettings})}
+        src={cld.url(filePath(publicId), {
+          transformation: 'unsupported',
+          ...baseImageSettings,
+        })}
         srcSet={srcSetString.join(', ')}
         alt={alt}
       />
@@ -94,38 +94,43 @@ export const CloudinaryImage = ({
     // We are expecting width/height attribute arrays in the order of
     // Phone/Tablet/Laptop/Desktop but we have to setup media queries
     // in the opposite order, so we reverse the arrays here.
-    
+
     for (
       let breakpoint = 0;
       breakpoint < mediaBreakpoints.length;
       breakpoint++
-      ) {
-
+    ) {
       const imageSettings = {
         ...baseImageSettings,
-        ...(reverseWidth && !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
-        ...(reverseHeight && !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
+        ...(reverseWidth &&
+          !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
+        ...(reverseHeight &&
+          !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
       }
 
-      const srcsetData = dprSettings.map((dpr, indx)=>{
+      const srcsetData = dprSettings.map((dpr, indx) => {
         const sourceSettings = {
           ...imageSettings,
-          dpr
+          dpr,
         }
         return cld.url(filePath(publicId), sourceSettings) + ` ${indx + 1}x`
       })
 
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
-      tags.push(<source
-        key={`${uuidv4()}`}
-        media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
-        data-srcset= {srcsetData.join(', ')}
-      />)
+      tags.push(
+        <source
+          key={`${uuidv4()}`}
+          media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
+          data-srcset={srcsetData.join(', ')}
+        />
+      )
 
-      imageSrcSet.push(cld.url(filePath(publicId), {
-        ...imageSettings,
-        transformation: 'lqip'
-      }))
+      imageSrcSet.push(
+        cld.url(filePath(publicId), {
+          ...imageSettings,
+          transformation: 'lqip',
+        })
+      )
     }
 
     tags.push(buildImageTag(imageSrcSet))
@@ -136,23 +141,25 @@ export const CloudinaryImage = ({
     return publicId.split('.').pop() === 'svg'
   }
 
-  const renderSvg = () =>{
-      const baseSvgSettings = {
-        secure: true,
-      }
-  
-      const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
-      return <img data-src={svgUrl} className={[styles.Svg, ...imageClasses].join(' ')} alt={alt} />
+  const renderSvg = () => {
+    const baseSvgSettings = {
+      secure: true,
+    }
+
+    const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
+    return (
+      <img
+        data-src={svgUrl}
+        className={[styles.Svg, ...imageClasses].join(' ')}
+        alt={alt}
+      />
+    )
   }
 
   // Serve a simpler version if resource is SVG
-  if(isSvg(publicId)) return renderSvg()
+  if (isSvg(publicId)) return renderSvg()
 
-  return (
-    <picture>
-      {buildTags()}
-    </picture>
-  )
+  return <picture>{buildTags()}</picture>
 }
 
 export const filePath = (publicId) => {
