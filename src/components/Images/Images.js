@@ -49,15 +49,20 @@ export const CloudinaryImage = ({
 
   const baseImageSettings = {
     quality: 'auto:eco',
-    crop: crop,
+    crop,
     secure: true,
     fetchFormat: 'auto',
     flags: ['progressive:semi'],
   }
   let imageClasses = ['lazyload', className]
   let reverseWidth, reverseHeight
-  width && (reverseWidth = width.slice().reverse())
-  height && (reverseHeight = height.slice().reverse())
+  
+  if(width) {
+    reverseWidth = width.slice().reverse()
+  }
+  if(height){
+    reverseHeight = height.slice().reverse()
+  }
 
   const buildImageTag = (srcSet) => {
 
