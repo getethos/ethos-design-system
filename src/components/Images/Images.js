@@ -81,13 +81,10 @@ export const CloudinaryImage = ({
         className={[styles.Image, styles['blurUp'], ...imageClasses].join(' ')}
         src={cld.url(filePath(publicId), {transformation: 'unsupported', ...baseImageSettings})}
         srcSet={srcSetString.join(', ')}
-        // srcSet={'https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_200,q_auto:eco,t_lqip,w_100/v1565712179/01_NEW%20Lifestyle%20(Rebrand)/life-insurance-father-and-kids-playing.jpg 1000w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_200,q_auto:eco,t_lqip,w_100/v1565712179/01_NEW%20Lifestyle%20(Rebrand)/life-insurance-father-and-son-building.jpg 600w'}
         alt={alt}
       />
     )
   }
-
- 
 
   const buildTags = () => {
     const dprSettings = ['1.0', '2.0', '3.0']
