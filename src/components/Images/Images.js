@@ -5,6 +5,7 @@ import useInvalid from '../../hooks/useInvalid.js'
 
 import cloudinary from 'cloudinary-core'
 import uuidv4 from 'uuid/v4'
+// eslint-disable-next-line
 import lazysizes from 'lazysizes'
 
 import { Media } from '../Media/Media'
