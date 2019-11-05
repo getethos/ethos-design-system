@@ -8,10 +8,37 @@ import {
   Spacer,
   Button,
   InfoMessage,
+  RadioButtonGroup,
   ZipInput,
   EmailInput,
 } from '../index'
 let count = 0
+
+
+const READY_TODAY = `I'm ready today`
+const NEXT_7_DAYS = 'In the next 7 days'
+const IntentOptions = [
+  {
+    value: READY_TODAY,
+    label: READY_TODAY,
+    description: READY_TODAY,
+  },
+  {
+    value: NEXT_7_DAYS,
+    label: NEXT_7_DAYS,
+    description: NEXT_7_DAYS,
+  },
+  {
+    value: 'In 1 to 2 months',
+    label: 'In 1 to 2 months',
+    description: 'In 1 to 2 months',
+  },
+  {
+    value: 'After 3 months',
+    label: 'After 3 months',
+    description: 'After 3 months',
+  },
+];
 
 const validateCustom = (x) => {
   console.log('validateCustom got called...')
@@ -56,19 +83,22 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         labelCopy: 'Your email',
         tid: 'the-email-tid',
       },
-      evenNumText: {
+      intent: {
         component: (props, options) => {
-          return <TextInput {...props} />
+          return <RadioButtonGroup
+            {...props}
+            onChange={({ value }) => console.log(value)}
+            options={IntentOptions.map((t) => ({
+              name: t.value,
+              value: t.value,
+              label: t.description,
+            }))}
+          />
         },
-        validators: [
-          validateExists,
-          validateCustom,
-          validateMinMaxFactory.call(null, 5, 7),
-        ],
-        validationSuccess: [analyticsCustomEvent],
-        labelCopy:
-          "Validation happens after first form blur ('touched')--Value's length is between 5 and 7 characters",
-        tid: 'example-data-tid',
+        name: 'intent',
+        tid: 'radioGroup-tid',
+        validators: [validateExists],
+        options: IntentOptions,
       },
       shorterEvenNumTextInput: {
         component: (props, options) => {
@@ -126,11 +156,11 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
           </>
         )}
 
-        {field('evenNumText')}
+        {field('shorterEvenNumTextInput')}
 
         <Spacer.H16 />
 
-        {field('shorterEvenNumTextInput')}
+        {field('intent')}
 
         <Spacer.H16 />
 

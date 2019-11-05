@@ -9,7 +9,17 @@ import { Body } from '../Type/Body.js'
 import { COLORS } from '../Colors.js'
 import styles from './RadioButtons.module.scss'
 
-function RadioButton({ name, checked, required, disabled, label, ...rest }) {
+function RadioButton({
+  name,
+  value,
+  checked,
+  required,
+  disabled,
+  label,
+  onClick,
+  onChange,
+  ...rest
+}) {
   const [, includesKeysOrThrow] = useIncludes(['name', 'label'])
   includesKeysOrThrow({ name, label })
   const [includesInvalid] = useInvalid(Object.keys(RadioButton.propTypes))
@@ -21,11 +31,13 @@ function RadioButton({ name, checked, required, disabled, label, ...rest }) {
         <input
           type="radio"
           name={name}
+          value={value}
           checked={checked}
+          onClick={onClick}
+          onChange={onChange}
           required={required}
           disabled={disabled}
           data-tid={rest['data-tid']}
-          {...rest}
         />
         <aside />
       </span>
@@ -124,7 +136,6 @@ export function RadioButtonGroup({
           disabled={disabled || option.disabled}
           required={required}
           key={`${option.label}-${option.value.toLowerCase()}`}
-          {...rest}
         />
       ))}
       {getError(currentError, formTouched)}
