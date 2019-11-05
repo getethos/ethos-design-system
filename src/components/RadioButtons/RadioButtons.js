@@ -5,6 +5,7 @@ import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
+import { InputLabel } from '../Inputs/InputLabel'
 import { Body } from '../Type/Body.js'
 import { COLORS } from '../Colors.js'
 import styles from './RadioButtons.module.scss'
@@ -76,6 +77,7 @@ export function RadioButtonGroup({
   disabled,
   validator,
   required,
+  labelCopy,
   ...rest
 }) {
   let initialSelected
@@ -130,6 +132,7 @@ export function RadioButtonGroup({
       data-tid={rest['data-tid']}
       aria-labelledby={name}
     >
+      <InputLabel name={name} labelCopy={labelCopy} />
       {finalOptions.map((option) => (
         <RadioButton
           {...option}
@@ -153,6 +156,7 @@ RadioButtonGroup.PUBLIC_PROPS = {
   formChangeHandler: PropTypes.func,
   onChange: PropTypes.func,
   'data-tid': PropTypes.string,
+  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   disabled: PropTypes.bool,
   required: PropTypes.bool,

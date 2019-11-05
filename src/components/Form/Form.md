@@ -14,7 +14,6 @@ import {
 } from '../index'
 let count = 0
 
-
 const READY_TODAY = `I'm ready today`
 const NEXT_7_DAYS = 'In the next 7 days'
 const IN_1_2_MONTHS = 'In 1 to 2 months'
@@ -37,7 +36,7 @@ const IntentOptions = [
     value: AFTER_3_MONTHS,
     description: AFTER_3_MONTHS,
   },
-];
+]
 
 const validateCustom = (x) => {
   console.log('validateCustom got called...')
@@ -84,18 +83,21 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
       },
       intent: {
         component: (props, opts) => {
-          return <RadioButtonGroup
-            {...props}
-            onChange={({ value }) => console.log(value)}
-            options={opts.map((t) => ({
-              name: t.value,
-              value: t.value,
-              label: t.description,
-            }))}
-          />
+          return (
+            <RadioButtonGroup
+              {...props}
+              onChange={({ value }) => console.log(value)}
+              options={opts.map((t) => ({
+                name: t.value,
+                value: t.value,
+                label: t.description,
+              }))}
+            />
+          )
         },
         name: 'intent',
         tid: 'radioGroup-tid',
+        labelCopy: 'Radio Button Intent',
         validators: [validateExists],
         options: IntentOptions,
       },
