@@ -130,7 +130,6 @@ export function RadioButtonGroup({
 
   const validationRadio = () => {
     let errorMessage = validate(selectedValue)
-    console.log('error', errorMessage)
     errorMessage = errorMessage.length ? errorMessage : ''
     setError(errorMessage)
     if (formChangeHandler) {
