@@ -85,6 +85,7 @@ RadioButton.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   checked: PropTypes.bool,
+  tabIndex: PropTypes.number,
   required: PropTypes.bool,
   disabled: PropTypes.bool,
   label: PropTypes.node.isRequired,
@@ -122,7 +123,6 @@ export function RadioButtonGroup({
     initialSelected = initialValue
   }
 
-  const [touched, setTouched] = useState(initialSelected ? true : false)
   const [selectedValue, setSelectedValue] = useState(initialSelected)
   const [isAnswered, setIsAnswered] = useState(false)
   const resolvedValidator = validator ? validator : () => ''
@@ -170,8 +170,7 @@ export function RadioButtonGroup({
     return { ...o, name, checked, onClick, onChange }
   })
 
-  const handleBlur = (ev) => {
-    setTouched(true)
+  const handleBlur = () => {
     validationRadio()
   }
 
@@ -201,11 +200,12 @@ export function RadioButtonGroup({
         }
       }
 
+      const newValue = event.target.getAttribute('value')
+
       switch (event.keyCode) {
         case codes.SPACE:
         case codes.RETURN:
           // If on span or input with the radio value
-          const newValue = event.target.getAttribute('value')
           if (newValue) {
             setSelectedValue(newValue)
           }
@@ -284,7 +284,6 @@ RadioButtonGroup.PUBLIC_PROPS = {
   formChangeHandler: PropTypes.func,
   onChange: PropTypes.func,
   'data-tid': PropTypes.string,
-  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   disabled: PropTypes.bool,
   required: PropTypes.bool,

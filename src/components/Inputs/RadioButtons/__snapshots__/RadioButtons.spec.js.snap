@@ -4,6 +4,7 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
 <fieldset
   aria-labelledby="gender"
   className="RadioButtonGroup"
+  onBlur={[Function]}
   onKeyDown={[Function]}
   role="radiogroup"
 >
@@ -13,19 +14,6 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
   >
     When would you like to apply?
   </span>
-  <div
-    aria-hidden={true}
-    className="Spacer"
-    style={
-      Object {
-        "height": 8,
-      }
-    }
-  />
-  <label
-    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    htmlFor="gender"
-  />
   <div
     aria-hidden={true}
     className="Spacer"
