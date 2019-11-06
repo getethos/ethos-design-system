@@ -133,7 +133,6 @@ export function RadioButtonGroup({
     errorMessage = errorMessage.length ? errorMessage : ''
     setError(errorMessage)
     if (formChangeHandler) {
-      // Update form with the new value and a falsy error message
       formChangeHandler(selectedValue, errorMessage)
     }
   }
@@ -182,7 +181,7 @@ export function RadioButtonGroup({
       const last = allRadioValues.length - 1
       const index = allRadioValues.findIndex((i) => i == selectedValue)
       event.persist()
-      var flag = false
+      let keyActedOn = false
       function setPrevious() {
         if (index === 0) {
           setSelectedValue(allRadioValues[last])
@@ -208,23 +207,23 @@ export function RadioButtonGroup({
           if (newValue) {
             setSelectedValue(newValue)
           }
-          flag = true
+          keyActedOn = true
           break
         case codes.UP:
         case codes.LEFT:
           setPrevious()
-          flag = true
+          keyActedOn = true
           break
         case codes.DOWN:
         case codes.RIGHT:
           setNext()
-          flag = true
+          keyActedOn = true
           break
         default:
           break
       }
 
-      if (flag) {
+      if (keyActedOn) {
         event.stopPropagation()
         event.preventDefault()
       }
