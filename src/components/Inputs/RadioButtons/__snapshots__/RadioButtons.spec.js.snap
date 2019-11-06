@@ -4,12 +4,33 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
 <fieldset
   aria-labelledby="gender"
   className="RadioButtonGroup"
+  onKeyDown={[Function]}
   role="radiogroup"
 >
+  <span
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    id="gender"
+  >
+    When would you like to apply?
+  </span>
+  <div
+    aria-hidden={true}
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />
   <label
     className="RadioButton"
   >
-    <span>
+    <span
+      aria-checked={true}
+      role="radio"
+      tabIndex={0}
+      value="M"
+    >
       <input
         checked={true}
         data-tid="gender-male"
@@ -30,7 +51,12 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
   <label
     className="RadioButton"
   >
-    <span>
+    <span
+      aria-checked={false}
+      role="radio"
+      tabIndex={-1}
+      value="F"
+    >
       <input
         checked={false}
         data-tid="gender-female"

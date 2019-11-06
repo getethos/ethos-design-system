@@ -1,6 +1,9 @@
 import React from 'react'
-import { RadioButtonGroup } from './RadioButtons.js'
+import { RadioButtonGroup, focusHelper } from './RadioButtons.js'
 import renderer from 'react-test-renderer'
+
+var focusOnTargetSpy = jest.fn()
+jest.spyOn(focusHelper, 'focus').mockImplementation(focusOnTargetSpy)
 
 describe('RadioButtonGroup', () => {
   describe('API', () => {
@@ -21,6 +24,7 @@ describe('RadioButtonGroup', () => {
       const tree = renderer.create(
         <RadioButtonGroup
           name="intent"
+          labelCopy="When would you like to apply?"
           initialValue={optionValues[0]}
           onChange={onChangeStub}
           options={optionsRadios}
@@ -51,6 +55,7 @@ describe('RadioButtonGroup', () => {
       const tree = renderer.create(
         <RadioButtonGroup
           name="intent"
+          labelCopy="When would you like to apply?"
           options={[
             {
               label: value,
@@ -79,6 +84,7 @@ describe('RadioButtonGroup', () => {
           <RadioButtonGroup
             name="gender"
             initialValue="M"
+            labelCopy="When would you like to apply?"
             onChange={() => {}}
             options={[
               {
