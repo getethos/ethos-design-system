@@ -104,7 +104,6 @@ export function RadioButtonGroup({
   onChange,
   formChangeHandler,
   allCaps = true,
-  labelCopy,
   name = `radio-button-group-${uuidv4()}`,
   initialValue = undefined,
   currentValue,
@@ -113,6 +112,7 @@ export function RadioButtonGroup({
   disabled,
   validator,
   required,
+  labelCopy,
   ...rest
 }) {
   let initialSelected
@@ -122,24 +122,27 @@ export function RadioButtonGroup({
     initialSelected = initialValue
   }
 
+  const [touched, setTouched] = useState(initialSelected ? true : false)
   const [selectedValue, setSelectedValue] = useState(initialSelected)
   const [isAnswered, setIsAnswered] = useState(false)
   const resolvedValidator = validator ? validator : () => ''
   const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
 
+  const validationRadio = () => {
+    let errorMessage = validate(selectedValue)
+    console.log('error', errorMessage)
+    errorMessage = errorMessage.length ? errorMessage : ''
+    setError(errorMessage)
+    if (formChangeHandler) {
+      // Update form with the new value and a falsy error message
+      formChangeHandler(selectedValue, errorMessage)
+    }
+  }
   useEffect(() => {
     const isSelectedValue = typeof selectedValue !== 'undefined'
     if (onChange && isSelectedValue) {
       onChange({ value: selectedValue, isAnswered })
-    }
-    if (formChangeHandler && isSelectedValue) {
-      // Ensure all validators get called
-      let errorMessage = validate(selectedValue)
-      errorMessage = errorMessage.length ? errorMessage : ''
-      setError(errorMessage)
-
-      // Update form with the new value and a falsy error message
-      formChangeHandler(selectedValue, errorMessage)
+      validationRadio()
     }
   }, [selectedValue, isAnswered])
 
@@ -166,6 +169,11 @@ export function RadioButtonGroup({
     const onClick = onClickHandler(value, passedHandler)
     return { ...o, name, checked, onClick, onChange }
   })
+
+  const handleBlur = (ev) => {
+    setTouched(true)
+    validationRadio()
+  }
 
   // This key handling essentially allows us to comply with the spec. See their example:
   // https://www.w3.org/TR/wai-aria-practices/examples/radio/radio-1/js/radioGroup.js
@@ -232,6 +240,7 @@ export function RadioButtonGroup({
       data-tid={rest['data-tid']}
       aria-labelledby={name}
       onKeyDown={handleKeyDown}
+      onBlur={handleBlur}
     >
       <InputLabel
         element="span"
@@ -275,6 +284,7 @@ RadioButtonGroup.PUBLIC_PROPS = {
   formChangeHandler: PropTypes.func,
   onChange: PropTypes.func,
   'data-tid': PropTypes.string,
+  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
