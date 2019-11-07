@@ -67,10 +67,13 @@ export const CloudinaryImage = ({
   }
 
   const buildImageTag = (srcSet) => {
-    const srcSetString = srcSet.map((url, index) => {
-      if(index === 0) return `${url} ${mediaBreakpoints[index]+1}w`
-      return `${url} ${mediaBreakpoints[index-1]}w`
-    }).reverse().join(', ')
+    const srcSetString = srcSet
+      .map((url, index) => {
+        if (index === 0) return `${url} ${mediaBreakpoints[index] + 1}w`
+        return `${url} ${mediaBreakpoints[index - 1]}w`
+      })
+      .reverse()
+      .join(', ')
 
     // srcSet is the LQIP image, src is the fallback image for older browsers
     // that do not support the 'srcSet' attribute (IE zero support)
@@ -127,9 +130,13 @@ export const CloudinaryImage = ({
         />
       )
 
-      const urlWithChainedTransformation =  cld.imageTag(filePath(publicId),imageSettings).transformation()
-      .chain().transformation('lqip')
-      .getParent().getAttr('src')
+      const urlWithChainedTransformation = cld
+        .imageTag(filePath(publicId), imageSettings)
+        .transformation()
+        .chain()
+        .transformation('lqip')
+        .getParent()
+        .getAttr('src')
 
       imageSrcSet.push(urlWithChainedTransformation)
     }
@@ -164,7 +171,7 @@ export const CloudinaryImage = ({
 }
 
 export const filePath = (publicId) => {
-  if(!publicId) return ''
+  if (!publicId) return ''
   const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
   return publicId.replace(publicIdBase, '')
 }
