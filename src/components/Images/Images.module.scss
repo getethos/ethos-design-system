@@ -1,0 +1,30 @@
+/* @getethos/design-system/Images.scss
+   ========================================================================== */
+
+/* WIP. */
+
+/* Generally used as a wrapper around Image components. */
+figure {
+  margin: 0;
+}
+
+.Image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.Svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blurUp {
+  filter: blur(5px);
+  transition: filter 500ms;
+
+  &:global(.lazyloaded) {
+    filter: blur(0);
+  }
+}

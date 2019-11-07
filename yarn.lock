@@ -2409,14 +2409,6 @@ cloudinary-core@^2.7.4:
   resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.7.4.tgz#35db9b8a851ca7ef9feace6e98496a8455de6663"
   integrity sha512-toaZSJVvpY1bQhqhin6atI1DPfloE/wOS9T6lriHsZVvdNyQu+c9AyNznM5/4NquI2oLr4G2gGgeX0tImnFUaQ==
 
-cloudinary-react@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.2.1.tgz#5a5b062986eff9b6c16871aa1ba293f75201e37a"
-  integrity sha512-VQewBSHToPC8huKeDf5oaAiKyF/A/l8FsuPeuxAZH19U3lxWmEKx7HiicmsU4LuyZ7fEjdVD/9a8NjhQng2dFQ==
-  dependencies:
-    cloudinary-core "^2.7.4"
-    prop-types "^15.6.2"
-
 clsx@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.0.4.tgz#0c0171f6d5cb2fe83848463c15fcc26b4df8c2ec"
@@ -5898,6 +5890,10 @@ kleur@^3.0.2, kleur@^3.0.3:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
 
+lazysizes@^5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/lazysizes/-/lazysizes-5.1.2.tgz#1baf41b8f3f2aef1054120e41c6efd0e83d417a3"
+  integrity sha512-j9hQgryLCwQ0EGRr282RS6h3UHLbJnbaS/VfrADOvduhfnFpmcsdPVygdWrlu1hsYgKTjhOiLCVI75RKd3fsvg==
 lazy-ass@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/lazy-ass/-/lazy-ass-1.6.0.tgz#7999655e8646c17f089fdd187d150d3324d54513"
