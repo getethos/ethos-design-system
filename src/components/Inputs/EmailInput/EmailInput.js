@@ -27,6 +27,7 @@ export const EmailInput = (props) => {
         optional={optional}
         type="email"
         data-tid={restProps['data-tid']}
+        disabled={disabled}
         placeholder={placeholder}
         validator={EmailFormatValidator}
         {...restProps}

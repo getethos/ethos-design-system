@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Footnote } from '../index'
 import styles from './InfoMessage.module.scss'
 
@@ -47,6 +48,10 @@ function InfoMessageFactory(type, format) {
         <Footnote.Regular400>{children}</Footnote.Regular400>
       </div>
     )
+  }
+  PublicInfoMessageComponent.propTypes = {
+    // We can have string, array, object, etc., so any for children prop
+    children: PropTypes.any,
   }
 
   return PublicInfoMessageComponent
