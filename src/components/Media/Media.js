@@ -1,6 +1,46 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import MediaQuery from 'react-responsive'
+import styles from './Media.module.scss'
+
+const MEDIA_RANGES = [
+  'PhoneOnly',
+  'PhoneAndTablet',
+  'TabletOnly',
+  'TabletAndLaptop',
+  'TabletAndUp',
+  'LaptopAndUp',
+  'LaptopOnly',
+  'DesktopOnly',
+]
+
+export function MediaElement({ children, Element = 'div', ...rest }) {
+  const rangeMap = MEDIA_RANGES.reduce(
+    (rangeMap, currentRange) => ({
+      ...map,
+      [currentRange]: (
+        <Element
+          {...rest}
+          className={[className, styles[currentRange]].join(' ')}
+        >
+          {children}
+        </Element>
+      ),
+    }),
+    {}
+  )
+  return rangeMap
+}
+
+export function MediaDiv(props) {
+  return <MediaElement {...props} Element="div" />
+}
+
+export function MediaSpan(props) {
+  return <MediaElement {...props} Element="span" />
+}
+
+// Deprecated
 
 export const Media = {
   PhoneOnly,
