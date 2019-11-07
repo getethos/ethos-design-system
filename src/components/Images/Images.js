@@ -164,7 +164,7 @@ export const CloudinaryImage = ({
 }
 
 export const filePath = (publicId) => {
-  if(!publicId) throw new Error('filePath() requires a publicId')
+  if(!publicId) return ''
   const publicIdBase = `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/image/upload/`
   return publicId.replace(publicIdBase, '')
 }
