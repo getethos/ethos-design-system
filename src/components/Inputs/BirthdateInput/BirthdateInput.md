@@ -1,3 +1,66 @@
+BirthdateInput used as a single field form that's prefilled
+
+```jsx
+import validateExists from '../../../validators/validateExists'
+
+import {
+  TitleLarge,
+  Form,
+  Spacer,
+  Button,
+  InfoMessage,
+} from '../../index'
+
+;<Form
+  config={{
+    formName: 'Prefilled w/Birthdate',
+    formId: '1',
+    fields: {
+      birthdate: {
+        component: (props, options) => {
+          return (
+            <BirthdateInput
+              initialValue='08/19/2019'
+              {...props}
+            />
+          )
+        },
+        labelCopy: ' ',
+        tid: 'birthdate-prefilled-tid',
+        validators: [validateExists],
+      },
+    },
+    onSubmit: async (formData) => {},
+  }}
+>
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+    return (
+      <div>
+        <TitleLarge.Serif.Book500>
+          Example Birthdate Prefilled
+        </TitleLarge.Serif.Book500>
+
+        <Spacer.H16 />
+
+        {field('birthdate')}
+
+        <Spacer.H16 />
+
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Continue
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
+</Form>
+```
+
 The BirthdateInput takes a validator, but will also internally validate that the
 date string corresponds with `dateFormat` (once the field has been `touched` similar
 to [redux-form](https://redux-form.com/8.2.2/docs/api/field.md/#2-a-stateless-function))
