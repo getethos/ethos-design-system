@@ -475,30 +475,6 @@ const questionGroups = {
   },
   two: {
     fields: {
-      questionTwo: {
-        component: (props, options) => {
-          return <TextInput {...props} />
-        },
-        validators: [(x) => (x === 'a' ? '' : 'Must be a')],
-        labelCopy: 'Type in an "a" and click Submit (do it again)',
-        tid: 'example-data-tid-2',
-      },
-    },
-  },
-  three: {
-    fields: {
-      questionThree: {
-        component: (props, options) => {
-          return <TextInput {...props} />
-        },
-        validators: [(x) => (x === 'a' ? '' : 'Must be a')],
-        labelCopy: 'Type in an "a" and click Submit (last one I promise!)',
-        tid: 'example-data-tid-3',
-      },
-    },
-  },
-  four: {
-    fields: {
       questionFour: {
         component: (props, options) => {
           return (
@@ -511,6 +487,30 @@ const questionGroups = {
         labelCopy: ' ',
         tid: 'birthdate-prefilled-tid',
         validators: [validateExists],
+      },
+    },
+  },
+  three: {
+    fields: {
+      questionTwo: {
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+        labelCopy: 'Type in an "a" and click Submit (do it again)',
+        tid: 'example-data-tid-2',
+      },
+    },
+  },
+  four: {
+    fields: {
+      questionThree: {
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        validators: [(x) => (x === 'a' ? '' : 'Must be a')],
+        labelCopy: 'Type in an "a" and click Submit (last one I promise!)',
+        tid: 'example-data-tid-3',
       },
     },
   },
