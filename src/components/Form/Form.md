@@ -453,6 +453,7 @@ import {
   TitleLarge,
   TitleSmall,
   TextInput,
+  BirthdateInput,
   Spacer,
   Button,
   InfoMessage,
@@ -493,6 +494,23 @@ const questionGroups = {
         validators: [(x) => (x === 'a' ? '' : 'Must be a')],
         labelCopy: 'Type in an "a" and click Submit (last one I promise!)',
         tid: 'example-data-tid-3',
+      },
+    },
+  },
+  four: {
+    fields: {
+      questionFour: {
+        component: (props, options) => {
+          return (
+            <BirthdateInput
+              initialValue='08/19/2019'
+              {...props}
+            />
+          )
+        },
+        labelCopy: ' ',
+        tid: 'birthdate-prefilled-tid',
+        validators: [validateExists],
       },
     },
   },
