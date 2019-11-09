@@ -453,6 +453,7 @@ import {
   TitleLarge,
   TitleSmall,
   TextInput,
+  BirthdateInput,
   Spacer,
   Button,
   InfoMessage,
@@ -474,6 +475,23 @@ const questionGroups = {
   },
   two: {
     fields: {
+      questionFour: {
+        component: (props, options) => {
+          return (
+            <BirthdateInput
+              initialValue='08/19/2019'
+              {...props}
+            />
+          )
+        },
+        labelCopy: ' ',
+        tid: 'birthdate-prefilled-tid',
+        validators: [validateExists],
+      },
+    },
+  },
+  three: {
+    fields: {
       questionTwo: {
         component: (props, options) => {
           return <TextInput {...props} />
@@ -484,7 +502,7 @@ const questionGroups = {
       },
     },
   },
-  three: {
+  four: {
     fields: {
       questionThree: {
         component: (props, options) => {
