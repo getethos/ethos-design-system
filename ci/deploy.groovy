@@ -3,7 +3,9 @@ pipeline {
 
   stages {
     stage('Run the deploy script') {
-      sh script: 'bin/deploy.sh'
+      steps {
+        sh script: 'bin/deploy.sh'
+      }
     }
   }
 
