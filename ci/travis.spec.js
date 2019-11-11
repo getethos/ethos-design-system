@@ -25,7 +25,6 @@ describe('Travis CI', () => {
 
         const isMajorChange = prVersion.major !== baseVersion.major
         const isMinorChange = prVersion.minor !== baseVersion.minor
-        const isPatchChange = prVersion.patch !== baseVersion.patch
 
         if (isMajorChange) {
           expect(prVersion.major).toBeGreaterThan(baseVersion.major)
