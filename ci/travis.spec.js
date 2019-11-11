@@ -37,7 +37,7 @@ describe('Travis CI', () => {
           return
         }
 
-        // If your PR fails on this test, run `yarn prelease` in your branch.
+        // If your PR fails on this test, run `yarn release` in your branch.
         expect(prVersion.patch).toBeGreaterThan(baseVersion.patch)
       })
     })
