@@ -186,13 +186,14 @@ CloudinaryImage.PUBLIC_PROPS = {
   height: PropTypes.array,
   width: PropTypes.array,
   className: PropTypes.string,
-  alt: PropTypes.string.isRequired,
+  alt: PropTypes.string,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
+  alt: '',
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS
