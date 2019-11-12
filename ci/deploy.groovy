@@ -1,6 +1,6 @@
 pipeline {
   agent { node { label 'Node' } }
-  tools { nodejs "10.13.0" }
+  tools { nodejs "10.16.3" }
 
   stages {
     stage('Run the deploy script') {
@@ -11,10 +11,10 @@ pipeline {
     }
   }
 
-  // post {
-  //   always {
-  //     cleanWs()
-  //   }
-  // }
+  post {
+    always {
+      cleanWs()
+    }
+  }
 }
 

@@ -4,18 +4,14 @@ echo $BASH_SOURCE
 
 # Create absolute paths so this script can be run from _anywhere_
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-echo $SCRIPT_DIR
 REPO_DIR=$(dirname "$SCRIPT_DIR")
-echo $REPO_DIR
 
 # Start timing how long our deployment takes
 export DEPLOY_START=$(date +%s)
-echo $DEPLOY_START
 
 # Ensure dependencies are installed
 # Use `--production=false` to include `devDependencies`.
 cd $REPO_DIR
-pwd
 yarn install --check-files --production=false
 
 # Note: Fonts are not stored locally because EDS is a public repo and the
