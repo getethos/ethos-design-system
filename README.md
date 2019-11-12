@@ -78,9 +78,10 @@ Each PR that merges to `master` should update the `package.json` version one way
 - Prompt you for the new version number
 - Update `package.json` with the version number
 - Commit the change in a new commit
-- Add the version number to the commit as a tag
 
-You can then just `git push`. For more granular control:
+To create and push a git tag, run `git tag v1.2.3 && git push origin v1.2.3`. You can skip this if the release isn't specifically needed downstream yet.
+
+For more granular control:
 
 ```
 $ git tag v1.2.3 [-f]               # add a lightweight tag locally
