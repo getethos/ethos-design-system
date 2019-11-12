@@ -13,6 +13,7 @@ echo $DEPLOY_START
 # Ensure dependencies are installed
 # Use `--production=false` to include `devDependencies`.
 cd $REPO_DIR
+pwd
 yarn install --check-files --production=false
 
 # Note: Fonts are not stored locally because EDS is a public repo and the
