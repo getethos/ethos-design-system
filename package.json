@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "yarn compile-css",
-    "compile-css": "node-sass src/components/index.scss src/components/design-system.css && yarn format",
+    "compile-css": "yarn node-sass src/components/index.scss src/components/design-system.css && yarn format",
     "cy:open": "cypress open",
     "cy:run": "cypress run --browser chrome --config video=false",
     "develop": "chokidar src/**/*.scss -c 'yarn build' --initial",
