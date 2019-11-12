@@ -5,7 +5,8 @@ pipeline {
   stages {
     stage('Run the deploy script') {
       steps {
-        sh script: 'bin/deploy.sh'
+        sh 'printenv'
+        sh 'bin/deploy.sh'
       }
     }
   }
