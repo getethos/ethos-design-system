@@ -1,16 +1,7 @@
-/*
-@import "../Animation.scss";
-@import "../Colors.scss";
-@import "../Type/Type.scss";
-@import '../Spacer/Spacer.scss';
-*/
 @import '../Media/Media.scss';
 
 /* This is currently a one-off implementation for UniversalNavbar */
 @import './Button.small.shame.scss';
-
-/* @getethos/design-system/Button.scss
-   ========================================================================== */
 
 /* Defaults */
 
@@ -18,7 +9,6 @@
   --ButtonMediumStatefulMinWidth: 156px;
 }
 
-button,
 .Button {
   border: 1px solid transparent;
   font-family: var(--Theinhardt-font-stack);
@@ -77,6 +67,7 @@ button,
     padding-left: 48px;
   }
 }
+
 /* Styles */
 
 @mixin light-on-dark-font-smoothing {
