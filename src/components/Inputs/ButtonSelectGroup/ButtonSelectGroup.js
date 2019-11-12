@@ -150,7 +150,7 @@ export const ButtonSelectGroup = ({
 
 ButtonSelectGroup.propTypes = {
   formTouched: PropTypes.bool,
-  currentValue: PropTypes.string,
+  currentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   currentError: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   /** Set's the caption of the group's label */
