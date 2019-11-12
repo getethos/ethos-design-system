@@ -28,7 +28,7 @@ if [[ ! -f "bin/fonts.zip" ]]; then
   exit 1
 fi
 
-unzip bin/fonts.zip -C src/
+unzip -o bin/fonts.zip -d src/
 
 # Bundle
 yarn styleguide:build
