@@ -4,7 +4,9 @@ echo $BASH_SOURCE
 
 # Create absolute paths so this script can be run from _anywhere_
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+echo $SCRIPT_DIR
 REPO_DIR=$(dirname $SCRIPT_DIR)
+echo $REPO_DIR
 
 # Start timing how long our deployment takes
 export DEPLOY_START=$(date +%s)
