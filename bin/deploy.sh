@@ -28,7 +28,7 @@ if [[ ! -f "bin/fonts.zip" ]]; then
   exit 1
 fi
 
-# unzip -o bin/fonts.zip -d src/
+unzip -o bin/fonts.zip -d src/
 
 # Bundle
 yarn styleguide:build
@@ -41,6 +41,8 @@ fi
 # Sync to S3, delete files that exist in destination but not in source,
 # except for fonts.zip.
 aws s3 sync ./styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip"
+# Note: This check can cause the script to error when run by user without
+# aws delete permissions.
 if [[ $? -ne 0 ]]; then
   echo "Error: \`aws s3 sync\` exited with error code."
   echo "Cannot continue with deployment."
