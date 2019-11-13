@@ -23,19 +23,29 @@ yarn install --check-files --production=false
 # Download fonts from S3 bucket
 aws s3 cp s3://eds.ethoslabs.io/fonts.zip bin/fonts.zip
 if [[ ! -f "bin/fonts.zip" ]]; then
-  echo "Error: bin/fonts.zip does not exist."
+  echo "Error: \`bin/fonts.zip\` does not exist."
   echo "Cannot continue with deployment."
   exit 1
 fi
 
-# unzip -o bin/fonts.zip -d src/
+unzip -o bin/fonts.zip -d src/
 
 # Bundle
 yarn styleguide:build
+if [[ $? -ne 0 ]]; then
+  echo "Error: \`yarn styleguide:build\` exited with error code."
+  echo "Cannot continue with deployment."
+  exit 1
+fi
 
 # Sync to S3, delete files that exist in destination but not in source,
 # except for fonts.zip.
 aws s3 sync ./styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip"
+if [[ $? -ne 0 ]]; then
+  echo "Error: \`aws s3 sync\` exited with error code."
+  echo "Cannot continue with deployment."
+  exit 1
+fi
 
 # Cleanup
 rm bin/fonts.zip
