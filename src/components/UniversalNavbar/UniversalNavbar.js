@@ -28,7 +28,7 @@ NavLink.propTypes = {
 
 const LINKS = {
   // These are used e.g. in the logo and CTA button:
-  INDEX: { href: '/' },
+  INDEX: { href: '/index' },
   TERM: { href: '/term' },
 
   // These are used in the navigation links proper:
