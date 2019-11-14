@@ -39,7 +39,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           className="hideMobileMenu"
         >
           <NavLink
-            href="/index"
+            href="/"
           >
             <svg
               className="logo"
@@ -139,7 +139,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           </div>
         </div>
         <NavLink
-          href="/index"
+          href="/"
         >
           <FancyAnimatedLogo />
         </NavLink>
@@ -163,7 +163,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             className="flex itemsCenter"
           >
             <NavLink
-              href="/index"
+              href="/"
             >
               <svg
                 className="logo"
