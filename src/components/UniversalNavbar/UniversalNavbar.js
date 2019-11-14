@@ -67,7 +67,12 @@ class UniversalNavbar extends React.Component {
   }
 
   render() {
-    const { LinkComponent, hideMobileCta, hideDesktopCta } = this.props
+    const {
+      LinkComponent,
+      hideMobileCta,
+      hideDesktopCta,
+      logoHref,
+    } = this.props
 
     const getAnEstimate = (showWhenScrolled) => (
       <a
@@ -121,7 +126,7 @@ class UniversalNavbar extends React.Component {
                   showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
                 }
               >
-                <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
+                <NavLink href={logoHref} LinkComponent={LinkComponent}>
                   {LogoWhite({ className: styles.logo })}
                 </NavLink>
                 <Spacer.H56 />
@@ -159,10 +164,7 @@ class UniversalNavbar extends React.Component {
               <div className={styles.tabletAndUpContainer}>
                 {/* Desktop menu items to the left */}
                 <div className={`${styles.flex} ${styles.itemsCenter}`}>
-                  <NavLink
-                    href={LINKS.INDEX.href}
-                    LinkComponent={LinkComponent}
-                  >
+                  <NavLink href={logoHref} LinkComponent={LinkComponent}>
                     {LogoNotAnimated({ className: styles.logo })}
                   </NavLink>
                   {renderDesktopLink(LINKS.NAVLINKS[0])}
@@ -201,11 +203,14 @@ UniversalNavbar.propTypes = {
   trackCtaClick: PropTypes.func,
   /** agnotistic Reach and React Router Link */
   LinkComponent: PropTypes.object,
+  /** Href for the logo */
+  logoHref: PropTypes.string,
 }
 
 UniversalNavbar.defaultProps = {
   hideMobileCta: false,
   hideDesktopCta: false,
+  logoHref: LINKS.INDEX.href,
   trackCtaClick: () => {},
 }
 
