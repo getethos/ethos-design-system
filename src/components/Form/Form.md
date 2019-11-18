@@ -12,6 +12,96 @@ import {
   ZipInput,
   EmailInput,
 } from '../index'
+
+;<Form
+  config={{
+    formName: 'Styleguidist example form',
+    autocompleteOff: true,
+    formId: '1',
+    fields: {
+      shorterEvenNumTextInput: {
+        component: (props, options) => {
+          return <TextInput {...props} />
+        },
+        validators: [
+          validateExists,
+          validateMinMaxFactory.call(null, 3, 5),
+        ],
+        labelCopy:
+          "Value's length is between 3 and 5 characters (validation after first form blur)",
+      },
+    },
+    onSubmit: async (formData) => {
+      console.log("In submit handler ... must have clicked 'Next'")
+    },
+  }}
+>
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+
+    const closedGetFormIsValid = getFormIsValid
+    const previousClickHandler= (ev) => {
+      console.log("In previous handler -- call to closedGetFormIsValid() returns: ", closedGetFormIsValid())
+    }
+
+    return (
+      <div>
+        <TitleLarge.Serif.Book500>Example Form</TitleLarge.Serif.Book500>
+
+        <Spacer.H16 />
+
+        {!!getFormInteractedWith() && (
+          <>
+            <InfoMessage.Alert.Success>
+              {'Form interacted with.'}
+            </InfoMessage.Alert.Success>
+          </>
+        )}
+
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
+
+        {field('shorterEvenNumTextInput')}
+        <Spacer.H16 />
+
+        <Button.Medium.Black disabled={!getFormIsValid()} onClick={previousClickHandler} name="previous">
+          previous
+        </Button.Medium.Black>
+        
+        <Button.Medium.Black disabled={!getFormIsValid()} name="next" type="submit">
+          next
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
+</Form>
+```
+
+
+```jsx
+import validateExists from '../../validators/validateExists'
+import validateMinMaxFactory from '../../validators/validateMinMax'
+import EmailFormatValidator from '../../validators/EmailValidator'
+import {
+  TitleLarge,
+  TextInput,
+  Spacer,
+  Button,
+  InfoMessage,
+  RadioButtonGroup,
+  ZipInput,
+  EmailInput,
+} from '../index'
 let count = 0
 
 const READY_TODAY = `I'm ready today`

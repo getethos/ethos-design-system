@@ -113,7 +113,7 @@ export function Form({ children, config }) {
 
     try {
       // Pass the form's values to whatever config.onSubmit wants to do
-      await config.onSubmit(getFieldValues())
+      await config.onSubmit(getFieldValues(), ev)
     } catch (e) {
       setFormErrorMessage(e.toString())
     }
