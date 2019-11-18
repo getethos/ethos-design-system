@@ -41,12 +41,13 @@ import {
       field,
       getFormErrorMessage,
       getFormIsValid,
+      getFieldValues,
       getFormInteractedWith,
     } = api
 
-    const closedGetFormIsValid = getFormIsValid
+    const closedGetFieldValues = getFieldValues
     const previousClickHandler= (ev) => {
-      console.log("In previous handler -- call to closedGetFormIsValid() returns: ", closedGetFormIsValid())
+      console.log("In previous handler -- call to closedGetFieldValues() returns: ", closedGetFieldValues())
     }
 
     return (
