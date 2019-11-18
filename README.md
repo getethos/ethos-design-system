@@ -12,7 +12,7 @@ nvm install v10.16.3  # then do `nvm list` to ensure version is available
 nvm use               # use the version specified in `.nvmrc`, if installed
 ```
 
-2. Download `fonts.zip` (pinned to #dev-design-system) and unzip it.
+2. Download `fonts.zip` from [Google Drive](https://drive.google.com/drive/u/0/folders/1hvAAEUWEsz2Hq-Wmj09xOvCYeixkJ4_c) and unzip it.
 3. Copy the contents to `src/fonts`, e.g.:
 
 ```
@@ -65,7 +65,7 @@ _Our CI/CD is setup via Travis—you can find its configuration at `.travis.yml`
 
 To use a release downstream, update your app's `package.json` as follows:
 
-```
+```json
   "ethos-design-system": "github:getethos/ethos-design-system#v1.2.3",
 ```
 
