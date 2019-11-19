@@ -9,7 +9,8 @@ $line-height: 24;
       font-family: var(--Theinhardt-font-stack);
       line-height: $line-height / $font-size;
       overflow: visible;
-      padding: 17px var(--Space-16) 13px;
+      padding: 17px var(--Space-16) 12px;
+      margin-bottom: -2px;
     }
 
     .StyledReactSelect__value-container > div:last-child {
