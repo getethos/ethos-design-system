@@ -57,15 +57,10 @@ function versionAtRef(refName = BASE_BRANCH) {
   return JSON.parse(packageJson).version
 }
 
-// We compare the parts of version as strings so we can have parts like
-// '1.1.17-beta.1' in which case the patch and prerelease will get
-// combined to: "17-beta1" which can be compared to say "17-beta2" in
-// expect(prVersion.patch).toBeGreaterThan(baseVersion.patch)
-function versionNumbersAtRef() {
-  const [major, minor, patch, extra] = versionAtRef().split('.')
-  let combinedPatch = patch
-  if (patch && extra) {
-    combinedPatch = `${patch}${extra}`
-  }
-  return { major, minor, combinedPatch }
+function versionNumbersAtRef(refName = BASE_BRANCH) {
+  const [major, minor, patch] = versionAtRef(refName)
+    .split('.')
+    .map(Number)
+  return { major, minor, patch }
 }
+
