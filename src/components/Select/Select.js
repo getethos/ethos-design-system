@@ -6,7 +6,10 @@ import ReactSelectAsync from 'react-select/Async'
 import styles from './Select.module.scss'
 
 export const Select = ({ className, isAsync, ...rest }) => {
-  const props = { className: `${className} ${styles.root}`, ...rest }
+  const props = {
+    className: `${className ? className : ''} ${styles.root}`,
+    ...rest,
+  }
   if (isAsync) {
     return <ReactSelectAsync {...props} />
   }
@@ -25,5 +28,6 @@ Select.propTypes = {
 
 Select.defaultProps = {
   classNamePrefix: 'StyledReactSelect', // for styling
+  className: undefined,
   placeholder: 'Type to search',
 }
