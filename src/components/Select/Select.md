@@ -14,3 +14,33 @@ const options = [
   options={options}
 />
 ```
+
+```jsx
+import { COLORS } from '../Colors'
+const colourOptions = [{
+  value: 'brandforest',
+  label: 'Brand Forest',
+  color: COLORS.BRAND_FOREST,
+  isFixed: true
+}, {
+  value: 'salamander',
+  label: 'Brand Salamander (Disabled)',
+  color: COLORS.BRAND_SALAMANDER,
+  isDisabled: true
+}, {
+  value: 'grayprimary',
+  label: 'Gray Primary',
+  color: COLORS.GRAY_PRIMARY,
+}, {
+  value: 'graystrokedisabled',
+  label: 'Gray Stroke and Disabled',
+  color: COLORS.GRAY_STROKE_AND_DISABLED,
+}];
+
+<Select
+  defaultValue={[colourOptions[3]]}
+  isMulti
+  name="colors"
+  options={colourOptions}
+/>
+```

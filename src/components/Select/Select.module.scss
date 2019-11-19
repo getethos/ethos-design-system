@@ -11,6 +11,22 @@ $line-height: 24;
       overflow: visible;
       padding: 17px var(--Space-16) 12px;
       margin-bottom: -2px;
+      // Force to be consistent with TextInput
+      min-height: 56px;
+    }
+
+    .StyledReactSelect__multi-value {
+      margin: 0;
+      padding: 3px;
+      margin: 0;
+      padding: 3px;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-top: -6px;
+      margin-left: 6px;
+    }
+    .StyledReactSelect__multi-value:first-child {
+      margin-left: 0;
     }
 
     .StyledReactSelect__value-container > div:last-child {
