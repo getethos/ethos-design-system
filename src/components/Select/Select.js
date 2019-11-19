@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ReactSelect from 'react-select'
-import ReactSelectAsync from 'react-select/Async'
+import ReactSelectAsync from 'react-select/async'
 
 import styles from './Select.module.scss'
 
