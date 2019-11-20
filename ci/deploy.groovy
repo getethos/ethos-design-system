@@ -5,6 +5,7 @@ pipeline {
   stages {
     stage('Run the deploy script') {
       steps {
+        echo "payload: ${params.payload}"
         sh 'printenv'
         sh 'bin/deploy.sh'
       }
