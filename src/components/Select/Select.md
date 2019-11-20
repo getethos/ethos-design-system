@@ -1,3 +1,5 @@
+We leverage [React-Select]() for our single and multi selects. For example, you can add
+`menuIsOpen={true}` below as an attribute to `<Select>` and the menu will remain open.
 ```jsx
 const onSelected = selectedOption => {
   console.log('Option selected: ', selectedOption)

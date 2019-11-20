@@ -58,6 +58,16 @@ $line-height: 24;
   }
 
   :global {
+    .StyledReactSelect__option--is-focused,
+    .StyledReactSelect__option:hover {
+      background: var(--BrandMoss);
+    }
+
+    .StyledReactSelect__option--is-selected,
+    .StyledReactSelect__option--is-selected:hover {
+      background: var(--BrandForest);
+    }
+
     .StyledReactSelect__control {
       border-radius: 0;
       border-style: solid;
