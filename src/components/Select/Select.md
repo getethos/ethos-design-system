@@ -9,6 +9,10 @@ const options = [
   { value: 'sf', label: 'San Francisco' },
   { value: 'chicago', label: 'Chicago' },
   { value: 'phoenix', label: 'Phoenix' },
+  { value: 'la', label: 'Los Angeles' },
+  { value: 'seattle', label: 'Seattle' },
+  { value: 'Portland', label: 'Portland' },
+  { value: 'Miami', label: 'Miami' },
 ];
 <Select
   placeholder='Custom placeholder...'
@@ -37,6 +41,22 @@ const colourOptions = [{
   value: 'graystrokedisabled',
   label: 'Gray Stroke and Disabled',
   color: COLORS.GRAY_STROKE_AND_DISABLED,
+}, {
+  value: 'pink',
+  label: 'Pink',
+  color: 'pink'
+}, {
+  value: 'green',
+  label: 'Green',
+  color: 'green'
+}, {
+  value: 'red',
+  label: 'Red',
+  color: 'red'
+}, {
+  value: 'blue',
+  label: 'Blue',
+  color: 'blue',
 }];
 
 <Select

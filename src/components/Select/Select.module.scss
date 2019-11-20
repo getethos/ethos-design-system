@@ -1,16 +1,14 @@
-/* Same as Type.scss Body. Should we use a mixin? */
-$font-size: 19;
-$line-height: 24;
-
 .root {
+  --remove: #d6d6d6;
+  --remove-hover: #c6c6c6;
+
   :global {
     .StyledReactSelect__value-container {
-      font-size: $font-size * 1px;
       font-family: var(--Theinhardt-font-stack);
-      line-height: $line-height / $font-size;
+      font-size: calc(var(--base-font-size) * 1px);
+      line-height: calc(var(--base-line-height) / var(--base-font-size));
       overflow: visible;
-      padding: 17px var(--Space-16) 12px;
-      margin-bottom: -2px;
+      padding: var(--Space-8) var(--Space-16);
       /* Force to be consistent with TextInput */
       min-height: 56px;
     }
@@ -20,13 +18,10 @@ $line-height: 24;
       padding: 3px;
       margin: 0;
       padding: 3px;
-      margin-right: 0;
-      margin-bottom: 0;
-      margin-top: -6px;
-      margin-left: 6px;
-    }
-    .StyledReactSelect__multi-value:first-child {
       margin-left: 0;
+      margin-bottom: 0;
+      margin-top: 2px;
+      margin-right: 6px;
     }
 
     .StyledReactSelect__value-container > div:last-child {
@@ -41,23 +36,21 @@ $line-height: 24;
       margin-left: 0;
 
       input[style] {
-        font-size: $font-size * 1px;
-        line-height: $line-height / $font-size;
+        font-size: calc(var(--base-font-size) * 1px);
+        line-height: calc(var(--base-line-height) / var(--base-font-size));
         padding: 0;
         width: 4em !important; /* overrides lib inline style *sigh* */
       }
     }
 
     .StyledReactSelect__placeholder {
-      font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      font-size: calc(var(--base-font-size) * 1px);
+      line-height: calc(var(--base-line-height) / var(--base-font-size));
       margin: 0;
-      padding: 17px var(--Space-16) 13px;
-      padding-left: 0.1em; /* extra on top of value-container for the cursor */
+      // padding: 17px var(--Space-16) 13px;
+      // padding-left: 0.1em; /* extra on top of value-container for the cursor */
     }
-  }
 
-  :global {
     .StyledReactSelect__option--is-focused,
     .StyledReactSelect__option:hover {
       background: var(--BrandMoss);
@@ -86,6 +79,17 @@ $line-height: 24;
         &:hover {
           border-color: var(--GrayStrokeAndDisabled--translucent);
         }
+      }
+    }
+
+    .StyledReactSelect__multi-value__remove {
+      background-color: var(--remove);
+
+      &:hover {
+        background-color: var(--remove-hover);
+        cursor: pointer;
+        // overrides library's ugly red 'X'
+        color: inherit;
       }
     }
 
