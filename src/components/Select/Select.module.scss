@@ -47,8 +47,6 @@
       font-size: calc(var(--base-font-size) * 1px);
       line-height: calc(var(--base-line-height) / var(--base-font-size));
       margin: 0;
-      // padding: 17px var(--Space-16) 13px;
-      // padding-left: 0.1em; /* extra on top of value-container for the cursor */
     }
 
     .StyledReactSelect__option--is-focused,
@@ -88,7 +86,7 @@
       &:hover {
         background-color: var(--remove-hover);
         cursor: pointer;
-        // overrides library's ugly red 'X'
+        /* overrides library's ugly red 'X' */
         color: inherit;
       }
     }
