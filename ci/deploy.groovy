@@ -1,5 +1,4 @@
 // Test comment
-// Test comment
 pipeline {
   agent { node { label 'Node' } }
   tools { nodejs "10.16.3" }
