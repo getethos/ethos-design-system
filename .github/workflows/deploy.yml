@@ -1,0 +1,13 @@
+name: Build and Deploy
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      run: echo "PR closed"
