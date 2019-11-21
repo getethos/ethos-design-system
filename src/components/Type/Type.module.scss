@@ -107,10 +107,9 @@
 }
 
 .Body {
-  $font-size: 19;
-  $line-height: 24;
-  font-size: $font-size * 1px;
-  line-height: $line-height / $font-size;
+  --base-line-height: 24;
+  font-size: calc(var(--base-font-size) * 1px);
+  line-height: calc(var(--base-line-height) / var(--base-font-size));
 }
 
 h1,
