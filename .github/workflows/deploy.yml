@@ -10,4 +10,4 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      run: echo "PR closed"
+      - run: echo "PR closed"
