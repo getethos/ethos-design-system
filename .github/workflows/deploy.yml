@@ -3,8 +3,6 @@ name: Build and Deploy
 
 on:
   push:
-  pull_request:
-    types: [closed]
     # branches:
     #   - master
 
@@ -12,9 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - if: github.event_name == 'push'
-        run: echo "Pushed commit"
-      - if: github.event_name == 'pull_request' && github.event.pull_request.merged == false
-        run: echo "PR ${{ github.event.pull_request.number }} closed"
-      - if: github.event.pull_request.merged == true
-        run: echo "PR ${{ github.event.pull_request.number }} merged"
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.16.3'
+      - run: ./bin/deploy.sh
