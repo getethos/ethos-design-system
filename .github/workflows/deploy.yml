@@ -1,6 +1,7 @@
 name: Build and Deploy
 
 on:
+  push:
   pull_request:
     types: [closed]
     # branches:
@@ -10,4 +11,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "PR closed"
+      - if: github.event_name == "push"
+        run: echo "Pushed commit"
+      - if: github.event_name == "pull_request" && github.event.pull_request.merged == false
+        run: echo "PR ${{ github.event.pull_request.number }} closed"
+      - if: github.event.pull_request.merged == true
+        run: echo "PR ${{ github.event.pull_request.number }} merged"
