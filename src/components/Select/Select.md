@@ -64,5 +64,6 @@ const colourOptions = [{
   isMulti
   name="colors"
   options={colourOptions}
+  menuIsOpen={true}
 />
 ```
