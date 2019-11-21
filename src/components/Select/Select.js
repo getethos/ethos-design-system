@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+// See React-Select -- https://github.com/JedWatson/react-select for documentation
+// on usage, Async configuration, etc.
 import ReactSelect from 'react-select'
 import ReactSelectAsync from 'react-select/async'
 
