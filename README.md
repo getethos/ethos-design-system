@@ -89,3 +89,25 @@ $ git tag -d v1.2.3                 # delete tag v1.2.3 locally
 $ git push origin v1.2.3            # push tag v1.2.3
 $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
 ```
+
+## Design patterns
+
+#### JS concepts
+
+- The repo is set up to import individual components, which then in turn import their own scss modules. 
+- Preference for hooks and functional components over classes.
+- Preference for proptypes validation over typescript and .d.ts files. 
+- Please try to avoid using `<Media>` and `<Spacer>` components for now, they will be deprecated soon. For media queries, import `@include` rules from the media scss file as described below.
+
+#### CSS/SCSS concepts
+
+- CSS variables are the core of styling in the EDS. 
+  - All CSS variables are available on all pages in both monorepo and cms; they are the single source of truth for brand colors, breakpoints, and other commonly reused bits of css.
+- The EDS is (to an extent) designed as a set of immutable components in terms of interior JS logic as well as styling. New styling of existing components should be handled by PR's on the EDS, not by writing local overrides in files. Due to the generated hashed classnames from scss modules, it is almost impossible to sidestep styling rules of the EDS repo from monorepo or cms.
+- We encourage a limited subset of SCSS features for the EDS.
+  - The primary reason for using scss is for the [nesting syntax](https://sass-lang.com/guide#topic-3). 
+  - The secondary reason for using scss is to import @include statements from the media scss file for reusable media queries, like this:
+    - `@import '~ethos-design-system/src/components/Media/Media.scss';`
+    - `@include for-phone-and-tablet {`
+  - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations. 
+    - Example of complex math with calc and css variables: `calc(calc(var(--hundred) + var(--hundred)) * 1px)` (where --hundred is set to the number "100" (no px).
