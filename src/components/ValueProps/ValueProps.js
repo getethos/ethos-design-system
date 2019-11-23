@@ -1,10 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { TitleSmall, Body, CloudinaryImage } from '../index'
 
 import styles from './ValueProps.module.scss'
 
-export function ValueProps() {
+export function ValueProps({ sections }) {
   return (
     <div className={`${styles.container} ${styles.root}`}>
       {sections.map((section) => (
@@ -29,7 +30,7 @@ export function ValueProps() {
   )
 }
 
-const sections = [
+const defaultSections = [
   {
     iconUrl:
       'https://res.cloudinary.com/getethos/image/upload/v1566238234/02_Icons/icon_hourglass_xedxvp.svg',
@@ -54,5 +55,13 @@ const sections = [
     alt: 'Hear Shield Icon',
   },
 ]
+
+ValueProps.propTypes = {
+  sections: PropTypes.array,
+}
+
+ValueProps.defaultProps = {
+  sections: defaultSections,
+}
 
 export default ValueProps
