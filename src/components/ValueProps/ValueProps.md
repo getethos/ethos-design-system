@@ -5,7 +5,7 @@
 ```jsx
 
 
-const defaultSections = [
+const customSections = [
   {
     iconUrl: 'https://placeholder.pics/svg/56x56',
     header: 'Custom Header 1',
@@ -26,5 +26,5 @@ const defaultSections = [
   },
 ]
 
-;<ValueProps sections={defaultSections} />
+;<ValueProps sections={ customSections } />
 ```
