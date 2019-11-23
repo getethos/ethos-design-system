@@ -7,25 +7,25 @@ on:
 
 jobs:
   build:
-    # name: Build
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.16.3'
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: '10.16.3'
       - name: Install dependencies
         run: yarn install --production=false
       - name: Download fonts
         uses: actions/aws/cli@master
         with:
-          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/bin/fonts.zip --profile ci-user
+          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip --profile ci-user
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
       - name: Unzip fonts
-        run: unzip -o ${GITHUB_WORKSPACE}/bin/fonts.zip -d ${GITHUB_WORKSPACE}/src/
+        run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
       - name: Build styleguide
         run: yarn styleguide:build
       - name: Archive Build result
@@ -35,7 +35,7 @@ jobs:
           path: styleguide
 
   deploy:
-    # name: Deploy
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     steps:
