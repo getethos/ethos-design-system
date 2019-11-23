@@ -3,8 +3,6 @@
 ```
 
 ```jsx
-
-
 const customSections = [
   {
     iconUrl: 'https://placeholder.pics/svg/56x56',
