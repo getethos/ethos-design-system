@@ -47,7 +47,7 @@ jobs:
           name: styleguide
       - name: Sync to S3
         uses: actions/aws/cli@master
-        args: s3 sync ./styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
+        args: s3 sync ./styleguide s3://eds.ethoslabs.io/ --delete --exclude 'fonts.zip' --profile ci-user
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
