@@ -1,4 +1,4 @@
-name: Build and Deploy Styleguide
+name: Deploy Styleguide
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
         run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
       - name: Build styleguide
         run: yarn styleguide:build
-      - name: Archive Build result
+      - name: Archive build result
         uses: actions/upload-artifact@master
         with:
           name: styleguide
@@ -52,7 +52,7 @@ jobs:
       - name: Invalidate CloudFront cache
         uses: actions/aws/cli@master
         with:
-          args: aws cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
+          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
