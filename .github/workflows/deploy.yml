@@ -24,7 +24,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
       - name: Test echo config path
-        run: ${GITHUB_WORKSPACE}/.aws/config
+        run: echo ${GITHUB_WORKSPACE}/.aws/config
         env:
           AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
       - name: Build styleguide
