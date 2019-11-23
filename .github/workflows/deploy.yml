@@ -52,7 +52,7 @@ jobs:
       - name: Invalidate CloudFront cache
         uses: actions/aws/cli@master
         with:
-          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
+          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*" --profile ci-user
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
