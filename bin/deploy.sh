@@ -21,7 +21,7 @@ yarn install --check-files --production=false
 # profile via `aws configure`.
 
 # Download fonts from S3 bucket
-aws s3 cp s3://eds.ethoslabs.io/fonts.zip bin/fonts.zip
+aws s3 cp s3://eds.ethoslabs.io/fonts.zip bin/fonts.zip --profile ci-user
 if [[ ! -f "bin/fonts.zip" ]]; then
   echo "Error: \`bin/fonts.zip\` does not exist."
   echo "Cannot continue with deployment."
@@ -40,7 +40,7 @@ fi
 
 # Sync to S3, delete files that exist in destination but not in source,
 # except for fonts.zip.
-aws s3 sync ./styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip"
+aws s3 sync ./styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
 # Note: This check can cause the script to error when run by user without
 # aws delete permissions.
 if [[ $? -ne 0 ]]; then

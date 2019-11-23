@@ -18,4 +18,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: ./bin/deploy.sh
+          AWS_CONFIG_FILE: $GITHUB_WORKSPACE/.aws/config
+        run: |
+          echo $AWS_CONFIG_FILE
+          ./bin/deploy.sh # might be better to re-write ./bin/deploy.sh as a workflow
