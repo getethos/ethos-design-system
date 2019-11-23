@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy Styleguide
 
 on:
   push:
@@ -11,12 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '10.16.3'
       - name: Install dependencies
         run: yarn install --production=false
-      - name: Download fonts
+      - name: Download fonts from S3
         uses: actions/aws/cli@master
         with:
           args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip --profile ci-user
@@ -40,14 +37,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      # - uses: actions/setup-node@v1
-      #   with:
-      #     node-version: '10.16.3'
       - name: Download build files
         uses: actions/download-artifact@master
         with:
           name: styleguide
-      - name: Sync to S3
+      - name: Sync styleguide to S3
         uses: actions/aws/cli@master
         with:
           args: s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude fonts.zip --profile ci-user
