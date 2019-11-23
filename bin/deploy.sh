@@ -49,6 +49,9 @@ if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
+# Invalidate CloudFront cache
+aws cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
+
 # Cleanup
 rm bin/fonts.zip
 rm -rf styleguide/build/
