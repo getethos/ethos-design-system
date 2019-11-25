@@ -17,6 +17,10 @@ jobs:
         uses: actions/aws/cli@master
         with:
           args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
