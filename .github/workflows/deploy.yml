@@ -16,72 +16,73 @@ jobs:
       #   uses: actions/cache@v1
       #   with:
       #     path: node_modules
-      #     key: ${{ runner.OS }}-build-${{ hashFiles('**/yarn.lock') }}
-      - name: Install dependencies
-        # if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: yarn install --production=false
-      - name: Assume role
-        id: assume-role
-        uses: actions/aws/cli@master
-        with:
-          args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
+      #     key: build-styleguide-${{ hashFiles('**/yarn.lock') }} # Don't share with other workflows because we are using `--production=false`
+      # - name: Install dependencies
+      #   if: steps.cache-dependencies.outputs.cache-hit != 'true'
+      #   run: yarn install --production=false
+      # - name: Assume role
+      #   id: assume-role
+      #   uses: actions/aws/cli@master
+      #   with:
+      #     args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      #     AWS_DEFAULT_OUTPUT: text
       - name: List directory
-        run: ls -la
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Download fonts from S3
-        uses: actions/aws/cli@master
-        with:
-          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-      - name: Unzip fonts
-        run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
-      - name: Build styleguide
-        run: yarn styleguide:build
-      - name: Archive build result
-        uses: actions/upload-artifact@master
-        with:
-          name: styleguide
-          path: styleguide
+        run: ls -la $GITHUB_HOME
+      # - name: Dump runner context
+      #   env:
+      #     RUNNER_CONTEXT: ${{ toJson(runner) }}
+      #   run: echo "$RUNNER_CONTEXT"
+      # - name: Dump steps context
+      #   env:
+      #     STEPS_CONTEXT: ${{ toJson(steps) }}
+      #   run: echo "$STEPS_CONTEXT"
+      # - name: Download fonts from S3
+      #   uses: actions/aws/cli@master
+      #   with:
+      #     args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      # - name: Unzip fonts
+      #   run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
+      # - name: Build styleguide
+      #   run: yarn styleguide:build
+      # - name: Archive build result
+      #   uses: actions/upload-artifact@master
+      #   with:
+      #     name: styleguide
+      #     path: styleguide
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download build files
-        uses: actions/download-artifact@master
-        with:
-          name: styleguide
-      - name: Sync styleguide to S3
-        uses: actions/aws/cli@master
-        with:
-          args: s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
-          AWS_DEFAULT_REGION: us-east-1
-      - name: Invalidate CloudFront cache
-        uses: actions/aws/cli@master
-        with:
-          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
-          AWS_DEFAULT_REGION: us-east-1
+  # deploy:
+    # name: Deploy
+    # needs: build
+    # runs-on: ubuntu-latest
+    # steps:
+      # - uses: actions/checkout@v1
+      # - name: Download build files
+      #   uses: actions/download-artifact@master
+      #   with:
+      #     name: styleguide
+      # - name: Sync styleguide to S3
+      #   uses: actions/aws/cli@master
+      #   with:
+      #     args: s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip"
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
+      #     AWS_DEFAULT_REGION: us-east-1
+      # - name: Invalidate CloudFront cache
+      #   uses: actions/aws/cli@master
+      #   with:
+      #     args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
+      #     AWS_DEFAULT_REGION: us-east-1
