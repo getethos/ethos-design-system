@@ -13,6 +13,14 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install dependencies
         run: yarn install --production=false
+      - name: Assume role
+        uses: actions/aws/cli@master
+        with:
+          args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
       - name: Download fonts from S3
         uses: actions/aws/cli@master
         with:
@@ -20,7 +28,6 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
           AWS_DEFAULT_REGION: us-east-1
       - name: Unzip fonts
         run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
