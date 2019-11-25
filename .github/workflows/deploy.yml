@@ -32,18 +32,14 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
       - name: echo $HOME
         run: echo $HOME
-      - name: echo ${ HOME }
-        run: echo ${ HOME }
-      - name: echo ${{ HOME }}
-        run: echo ${{ HOME }}
       - name: List directory
-        run: ls -la "${HOME}"
-      - name: List directory
-        run: ls -la ${{ HOME }}
+        run: ls -la $HOME
+      - name: echo ${HOME}
+        run: echo ${HOME}
       - name: List directory
         run: ls -la ${HOME}
       - name: List directory
-        run: ls -la $HOME
+        run: ls -la "${HOME}"
       # - name: Dump runner context
       #   env:
       #     RUNNER_CONTEXT: ${{ toJson(runner) }}
