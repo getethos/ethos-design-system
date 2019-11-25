@@ -11,14 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      # - name: Cache dependencies
-      #   id: cache-dependencies
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: node_modules
-      #     key: build-styleguide-${{ hashFiles('**/yarn.lock') }} # Don't share with other workflows because we are using `--production=false`
+      - name: Cache dependencies
+        id: cache-dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          # Don't share with other workflows because we are using `--production=false`
+          key: dev-dependencies-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
-        # if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: yarn install --production=false
       - name: Assume role
         id: assume-role
@@ -29,9 +30,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
-          AWS_DEFAULT_OUTPUT: text
       - name: List directory
-        run: ls -la ${HOME}
+        run: ls -la "${HOME}"
       # - name: Dump runner context
       #   env:
       #     RUNNER_CONTEXT: ${{ toJson(runner) }}
