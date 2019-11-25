@@ -31,7 +31,11 @@ jobs:
       #     AWS_DEFAULT_REGION: us-east-1
       #     AWS_DEFAULT_OUTPUT: text
       - name: List directory
-        run: ls -la $GITHUB_HOME
+        run: ls -la ${GITHUB_HOME}
+      - name: Echo GITHUB_HOME
+        run: echo "${GITHUB_HOME}"
+      - name: Echo HOME
+        run: echo "${HOME}"
       # - name: Dump runner context
       #   env:
       #     RUNNER_CONTEXT: ${{ toJson(runner) }}
