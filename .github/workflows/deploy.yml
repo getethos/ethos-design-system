@@ -16,7 +16,7 @@ jobs:
       - name: Download fonts from S3
         uses: actions/aws/cli@master
         with:
-          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip --profile ci-user
+          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -45,7 +45,7 @@ jobs:
       - name: Sync styleguide to S3
         uses: actions/aws/cli@master
         with:
-          args: s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
+          args: s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -54,7 +54,7 @@ jobs:
       - name: Invalidate CloudFront cache
         uses: actions/aws/cli@master
         with:
-          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*" --profile ci-user
+          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
