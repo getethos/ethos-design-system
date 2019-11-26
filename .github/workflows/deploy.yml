@@ -21,29 +21,49 @@ jobs:
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: yarn install --production=false
-      - name: Assume role
-        id: assume-role
-        uses: actions/aws/cli@master
-        with:
-          args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
-      - name: ls home runner work
-        run: ls -la /home/runner/work/_temp/_github_home
-      - name: cat json
-        run: cat /home/runner/work/_temp/_github_home/actionsaws.json
-      # - name: Download fonts from S3
+      # The output for actions/aws/cli is broken atm, see
+      # https://github.com/actions/aws/pull/19#issuecomment-531472992
+      # This writes the output to /home/runner/work/_temp/_github_home/actionsaws.json
+      # and that isn't intended by the action.
+      # - name: Assume role
+      #   id: assume-role
       #   uses: actions/aws/cli@master
       #   with:
-      #     args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip
+      #     args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
       #   env:
       #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       #     AWS_DEFAULT_REGION: us-east-1
-      # - name: Unzip fonts
-      #   run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
+
+      # Another way to is to use .aws/config, but this is a public repo, and
+      # we don't want to expose our AWS account id which is in the role ARN.
+
+      # Another way to use role is via EC2 instance profile, but GitHub
+      # recommends against using self-hosted runners with public repos, see:
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories
+
+      # The hacky solution for now is to write an .aws/config:
+      - name: Write an .aws/config
+        run: |
+          mkdir -p ${GITHUB_WORKSPACE}.aws
+          cat > ${GITHUB_WORKSPACE}.aws/config <<EOF
+          [profile ci-user]
+          role_arn = ${{ AWS_CI_USER_ROLE_ARN }}
+          credential_source = Environment
+          region = us-east-1
+          EOF
+          cat .aws/config
+
+      - name: Download fonts from S3
+        uses: actions/aws/cli@master
+        with:
+          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-1
+      - name: Unzip fonts
+        run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
       # - name: Build styleguide
       #   run: yarn styleguide:build
       # - name: Archive build result
