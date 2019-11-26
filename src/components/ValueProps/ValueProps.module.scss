@@ -1,0 +1,75 @@
+@import '../Media/Media.scss';
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @include for-phone-only {
+    padding-left: var(--Space-24);
+    padding-right: var(--Space-24);
+    padding-top: var(--Space-48);
+    padding-bottom: var(--Space-48);
+  }
+  @include for-tablet-only {
+    padding: var(--Space-48);
+  }
+  @include for-laptop-only {
+    padding: var(--Space-64);
+  }
+  @include for-desktop-only {
+    padding: var(--Space-80);
+  }
+}
+
+.root {
+  display: flex;
+  @include for-phone-only {
+    flex-direction: column;
+  }
+
+  @include for-tablet-and-up {
+    justify-content: space-between;
+  }
+}
+
+.section {
+  @include for-phone-only {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: var(--Space-40);
+    }
+
+    img {
+      height: 24px;
+      width: 24px;
+      margin-right: var(--Space-24);
+    }
+  }
+  @include for-tablet-and-up {
+    max-width: 320px;
+    img {
+      height: 56px;
+      width: 56px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.text {
+  @include for-tablet-and-up {
+    margin-top: 12px;
+  }
+
+  div:first-child {
+    margin-bottom: var(--Space-8);
+  }
+
+  div:last-child {
+    color: var(--GraySecondary--opaque);
+  }
+}

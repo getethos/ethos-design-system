@@ -1,0 +1,112 @@
+.root {
+  --remove: #d6d6d6;
+  --remove-hover: #c6c6c6;
+
+  :global {
+    .StyledReactSelect__value-container {
+      font-family: var(--Theinhardt-font-stack);
+      font-size: calc(var(--base-font-size) * 1px);
+      line-height: calc(var(--base-line-height) / var(--base-font-size));
+      overflow: visible;
+      padding: var(--Space-8) var(--Space-16);
+      /* Force to be consistent with TextInput */
+      min-height: 56px;
+    }
+
+    .StyledReactSelect__multi-value {
+      margin: 0;
+      padding: 3px;
+      margin: 0;
+      padding: 3px;
+      margin-left: 0;
+      margin-bottom: 0;
+      margin-top: 2px;
+      margin-right: 6px;
+    }
+
+    .StyledReactSelect__value-container > div:last-child {
+      /* This is an anonymous wrapper around __input. */
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    .StyledReactSelect__input {
+      margin-left: 0;
+
+      input[style] {
+        font-size: calc(var(--base-font-size) * 1px);
+        line-height: calc(var(--base-line-height) / var(--base-font-size));
+        padding: 0;
+        width: 4em !important; /* overrides lib inline style *sigh* */
+      }
+    }
+
+    .StyledReactSelect__placeholder {
+      font-size: calc(var(--base-font-size) * 1px);
+      line-height: calc(var(--base-line-height) / var(--base-font-size));
+      margin: 0;
+    }
+
+    .StyledReactSelect__option--is-focused {
+      cursor: pointer;
+    }
+    .StyledReactSelect__option--is-focused,
+    .StyledReactSelect__option:hover {
+      background: var(--BrandMoss);
+    }
+
+    /* Do not hover highlight if disabled option */
+    .StyledReactSelect__option:hover.StyledReactSelect__option--is-disabled {
+      background: transparent;
+    }
+
+    .StyledReactSelect__option--is-selected,
+    .StyledReactSelect__option--is-selected:hover {
+      background: var(--BrandForest);
+    }
+
+    .StyledReactSelect__control {
+      border-radius: 0;
+      border-style: solid;
+      border-width: 1px;
+      box-shadow: none;
+      outline: 0;
+      transition: border-color 250ms ease;
+
+      &,
+      &:hover {
+        border-color: var(--GrayStrokeAndDisabled--translucent);
+      }
+
+      &--is-focused {
+        &,
+        &:hover {
+          border-color: var(--GrayStrokeAndDisabled--translucent);
+        }
+      }
+    }
+
+    .StyledReactSelect__multi-value__remove {
+      background-color: var(--remove);
+
+      &:hover {
+        background-color: var(--remove-hover);
+        cursor: pointer;
+        /* overrides library's ugly red 'X' */
+        color: inherit;
+      }
+    }
+
+    .StyledReactSelect__input {
+      input {
+        color: var(--GrayPrimary--opaque);
+      }
+    }
+
+    .StyledReactSelect__placeholder {
+      color: var(--GrayStrokeAndDisabled--opaque);
+    }
+  }
+}

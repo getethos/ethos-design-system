@@ -63,3 +63,4 @@ function versionNumbersAtRef(refName = BASE_BRANCH) {
     .map(Number)
   return { major, minor, patch }
 }
+
