@@ -30,30 +30,10 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
-      - name: Dump env context
-        env:
-          ENV_CONTEXT: ${{ toJson(env) }}
-        run: echo "$ENV_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: echo $HOME
-        run: echo $HOME
-      - name: List directory
-        run: ls -la $HOME
-      - name: echo ${HOME}
-        run: echo ${HOME}
-      - name: List directory
-        run: ls -la ${HOME}
-      - name: List directory
-        run: ls -la "${HOME}"
       - name: ls home runner work
         run: ls -la /home/runner/work/_temp/_github_home
+      - name: cat json
+        run: cat /home/runner/work/_temp/_github_home/actionsaws.json
       # - name: Download fonts from S3
       #   uses: actions/aws/cli@master
       #   with:
