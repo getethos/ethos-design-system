@@ -2,8 +2,8 @@ name: Deploy Styleguide
 
 on:
   push:
-    # branches:
-    #   - master
+    branches:
+      - master
 
 jobs:
   build:
@@ -21,6 +21,7 @@ jobs:
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: yarn install --production=false
+
       # The output for actions/aws/cli is broken atm, see
       # https://github.com/actions/aws/pull/19#issuecomment-531472992
       # This writes the output to /home/runner/work/_temp/_github_home/actionsaws.json
