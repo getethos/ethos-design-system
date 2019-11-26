@@ -62,6 +62,8 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
+          AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
+          AWS_PROFILE: ci-user
       - name: Unzip fonts
         run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
       # - name: Build styleguide
