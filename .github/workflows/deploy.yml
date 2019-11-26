@@ -45,14 +45,14 @@ jobs:
       # The hacky solution for now is to write an .aws/config:
       - name: Write an .aws/config
         run: |
-          mkdir -p ${GITHUB_WORKSPACE}.aws
-          cat > ${GITHUB_WORKSPACE}.aws/config <<EOF
+          mkdir -p ${GITHUB_WORKSPACE}/.aws
+          cat > ${GITHUB_WORKSPACE}/.aws/config <<EOF
           [profile ci-user]
           role_arn = ${{ secrets.AWS_CI_USER_ROLE_ARN }}
           credential_source = Environment
           region = us-east-1
           EOF
-          cat .aws/config
+          cat ${GITHUB_WORKSPACE}/.aws/config
 
       - name: Download fonts from S3
         uses: actions/aws/cli@master
