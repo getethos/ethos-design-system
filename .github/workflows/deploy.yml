@@ -48,7 +48,7 @@ jobs:
           mkdir -p ${GITHUB_WORKSPACE}.aws
           cat > ${GITHUB_WORKSPACE}.aws/config <<EOF
           [profile ci-user]
-          role_arn = ${{ AWS_CI_USER_ROLE_ARN }}
+          role_arn = ${{ secrets.AWS_CI_USER_ROLE_ARN }}
           credential_source = Environment
           region = us-east-1
           EOF
