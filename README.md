@@ -96,7 +96,7 @@ $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
 
 - The repo is set up to import individual components as necessary.
 - Preference for hooks and functional components over classes.
-- Please try to avoid using `<Media>` and `<Spacer>` components for now, they are deprecated soon. For media queries, import `@include` rules from the media scss file as described below.
+- Please try to avoid using `<Media>` and `<Spacer>` components for now, they are deprecated. For media queries, import `@include` rules from the media scss file as described below.
 
 #### CSS/SCSS concepts
 
@@ -107,6 +107,5 @@ $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
   - The primary reason for using scss is to import @include statements from the media scss file for reusable media queries, like this:
     - `@import '~ethos-design-system/src/components/Media/Media.scss';`
     - `@include for-phone-and-tablet {`
-  - Another accepted feature of scss is [nesting syntax](https://sass-lang.com/guide#topic-3). 
   - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations. 
 
