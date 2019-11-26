@@ -31,7 +31,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
       - name: Echo env
-        run: echo "${{ RUNNER_CONTEXT }}"
+        run: echo "${{ env }}"
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
