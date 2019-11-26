@@ -30,6 +30,16 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
+      - name: Echo env
+        run: echo "${{ RUNNER_CONTEXT }}"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
       - name: echo $HOME
         run: echo $HOME
       - name: List directory
@@ -40,14 +50,6 @@ jobs:
         run: ls -la ${HOME}
       - name: List directory
         run: ls -la "${HOME}"
-      # - name: Dump runner context
-      #   env:
-      #     RUNNER_CONTEXT: ${{ toJson(runner) }}
-      #   run: echo "$RUNNER_CONTEXT"
-      # - name: Dump steps context
-      #   env:
-      #     STEPS_CONTEXT: ${{ toJson(steps) }}
-      #   run: echo "$STEPS_CONTEXT"
       # - name: Download fonts from S3
       #   uses: actions/aws/cli@master
       #   with:
