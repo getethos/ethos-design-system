@@ -52,8 +52,8 @@ jobs:
         run: ls -la ${HOME}
       - name: List directory
         run: ls -la "${HOME}"
-      - name: ls home runner
-        run: ls /home/runner
+      - name: ls home runner work
+        run: ls -la /home/runner/work/_temp/_github_home
       # - name: Download fonts from S3
       #   uses: actions/aws/cli@master
       #   with:
