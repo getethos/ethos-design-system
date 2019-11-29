@@ -22,7 +22,7 @@ export {
 } from './BirthdateInput/BirthdateInput'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ButtonSelectGroup } from './ButtonSelectGroup/ButtonSelectGroup'
-export { NumberInput } from './Inputs/NumberInput/NumberInput'
+export { NumberInput } from './NumberInput/NumberInput'
 export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 
 export {
