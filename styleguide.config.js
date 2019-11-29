@@ -14,7 +14,7 @@ if (!isCi) {
 // We ignore warnings e.g. Button.js matches a pattern defined in "components"...
 // https://github.com/styleguidist/react-styleguidist/pull/588
 module.exports = {
-  title: 'Design System',
+  title: 'EDS',
   skipComponentsWithoutExample: true,
   exampleMode: 'expand',
   usageMode: 'expand',
@@ -32,6 +32,16 @@ module.exports = {
       name: 'Components',
       components: './src/components/**/*.js',
       sectionDepth: 2,
+    },
+    {
+      name: 'Xhr',
+      content: './src/xhr/content.md',
+      components: './src/xhr/components/**/*.js',
+    },
+    {
+      name: 'Nora',
+      content: './src/nora/content.md',
+      components: './src/nora/components/**/*.js',
     },
   ],
   serverPort: 9008,
