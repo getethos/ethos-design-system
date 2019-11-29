@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
 import { OptionButton } from './OptionButton'
-import { InputLabel } from '../InputLabel'
+import { InputLabel } from '../Inputs/InputLabel'
 
 import styles from './ButtonGroup.module.scss'
 

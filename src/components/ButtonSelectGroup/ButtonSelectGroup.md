@@ -28,7 +28,7 @@
 ### Using a `validator`
 
 ```jsx
-import validateExists from '../../../validators/validateExists'
+import validateExists from '../../validators/validateExists'
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 

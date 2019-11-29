@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
-import { Button } from '../../Button'
+import { Button } from '../Button'
 
 export const OPTION_BUTTON_STYLES = {
   DEFAULT: 'default',

@@ -197,7 +197,7 @@ import {
   InfoMessage,
   TextAreaInput,
 } from '../index'
-import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { ButtonSelectGroup } from '../ButtonSelectGroup/ButtonSelectGroup'
 import { BirthdateInput } from '../BirthdateInput/BirthdateInput'
 let count = 0
 
