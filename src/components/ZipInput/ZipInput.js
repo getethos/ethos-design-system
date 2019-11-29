@@ -5,7 +5,7 @@ import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
 import zipInputValidator from '../../validators/ZipInputValidator'
 import styles from '../TextInput/TextInput.module.scss'
-import errorStyles from '../Inputs/Errors.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 export const ZipInput = (props) => {
   const {

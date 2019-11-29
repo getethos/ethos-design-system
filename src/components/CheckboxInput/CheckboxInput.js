@@ -5,7 +5,7 @@ import { Body } from '../Type/Body.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
 import styles from './CheckboxInput.module.scss'
-import errorStyles from '../Inputs/Errors.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 const Facade = ({ classes }) => {
   return (

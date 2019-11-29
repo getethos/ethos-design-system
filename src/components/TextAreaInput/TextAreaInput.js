@@ -8,7 +8,7 @@ import useInvalid from '../../hooks/useInvalid.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
 import restrict from '../../helpers/restrict.js'
 import styles from './TextAreaInput.module.scss'
-import errorStyles from '../Inputs/Errors.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 /**
  * @param  {String}   props.name        Input name and htmlFor prop for label

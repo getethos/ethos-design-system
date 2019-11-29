@@ -8,7 +8,7 @@ import { InputLabel } from '../InputLabel'
 import cleanse from '../../helpers/cleanse.js'
 
 import styles from '../TextInput/TextInput.module.scss'
-import errorStyles from '../Inputs/Errors.module.scss'
+import errorStyles from '../Errors.module.scss'
 
 export const TextMaskedInput = (props) => {
   const {
