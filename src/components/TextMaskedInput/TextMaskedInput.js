@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import useInputValidation from '../../../hooks/useInputValidation.js'
-import restrict from '../../../helpers/restrict.js'
-import { InputLabel } from '../InputLabel'
-import cleanse from '../../../helpers/cleanse.js'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
+import useInputValidation from '../../hooks/useInputValidation.js'
+import restrict from '../../helpers/restrict.js'
+import { InputLabel } from '../Inputs/InputLabel'
+import cleanse from '../../helpers/cleanse.js'
 
-import styles from '../../TextInput/TextInput.module.scss'
-import errorStyles from '../Errors.module.scss'
+import styles from '../TextInput/TextInput.module.scss'
+import errorStyles from '../Inputs/Errors.module.scss'
 
 export const TextMaskedInput = (props) => {
   const {

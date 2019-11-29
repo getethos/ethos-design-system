@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { TextMaskedInput } from '../Inputs/TextMaskedInput'
+import { TextMaskedInput } from '../TextMaskedInput'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Inputs/Errors.module.scss'

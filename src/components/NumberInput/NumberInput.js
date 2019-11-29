@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 // https://github.com/text-mask/text-mask/tree/master/addons
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
-import { TextMaskedInput } from '../Inputs/TextMaskedInput'
+import { TextMaskedInput } from '../TextMaskedInput'
 
 export const integerMask = createNumberMask({
   allowDecimal: false,

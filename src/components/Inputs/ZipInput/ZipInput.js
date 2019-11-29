@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { TextMaskedInput } from '../TextMaskedInput'
+import { TextMaskedInput } from '../../TextMaskedInput'
 import useErrorMessage from '../../../hooks/useErrorMessage.js'
 import useInputValidation from '../../../hooks/useInputValidation.js'
 import zipInputValidator from '../../../validators/ZipInputValidator'
