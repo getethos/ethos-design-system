@@ -198,7 +198,7 @@ import {
   TextAreaInput,
 } from '../index'
 import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
-import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
+import { BirthdateInput } from '../BirthdateInput/BirthdateInput'
 let count = 0
 
 function validateIllegal(x) {

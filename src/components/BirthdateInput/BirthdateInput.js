@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { TextMaskedInput } from '../TextMaskedInput'
+import { TextMaskedInput } from '../Inputs/TextMaskedInput'
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
-import styles from '../TextInput/TextInput.module.scss'
-import errorStyles from '../Errors.module.scss'
-import dayjs from '../../../helpers/getDayjs.js'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import useInputValidation from '../../../hooks/useInputValidation.js'
-import * as Validators from '../../../validators/BirthdateInputValidator'
-import cleanse from '../../../helpers/cleanse.js'
+import styles from '../Inputs/TextInput/TextInput.module.scss'
+import errorStyles from '../Inputs/Errors.module.scss'
+import dayjs from '../../helpers/getDayjs.js'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
+import useInputValidation from '../../hooks/useInputValidation.js'
+import * as Validators from '../../validators/BirthdateInputValidator'
+import cleanse from '../../helpers/cleanse.js'
 
 const { DATE_FORMATS, dateMaskByFormat, dateStringMatchesFormat } = Validators
 

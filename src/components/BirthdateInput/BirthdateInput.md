@@ -6,8 +6,8 @@ Important to note that `getMinBirthdate` should take the argument of `maximumEli
 `getMaxBirthdate` takes the argument of `minimumEligibleAge`
 
 ```jsx
-import { validateMinMaxDateFactory } from '../../../validators/BirthdateInputValidator'
-import dayjs from '../../../helpers/getDayjs.js'
+import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
+import dayjs from '../../helpers/getDayjs.js'
 
 const minimumEligibleAge = 20
 const maximumEligibleAge = 65
@@ -60,8 +60,8 @@ already `touched`. This means you do not have to `blur` for field hint error
 messages to appear.
 
 ```jsx
-import { validateMinMaxDateFactory } from '../../../validators/BirthdateInputValidator'
-import dayjs from '../../../helpers/getDayjs.js'
+import { validateMinMaxDateFactory } from '../../validators/BirthdateInputValidator'
+import dayjs from '../../helpers/getDayjs.js'
 
 const minimumEligibleAge = 20
 const maximumEligibleAge = 65
@@ -113,7 +113,7 @@ const formChangeHandlerStub = () => {}
 BirthdateInput used as a single field form that's prefilled
 
 ```jsx
-import validateExists from '../../../validators/validateExists'
+import validateExists from '../../validators/validateExists'
 
 import {
   TitleLarge,
@@ -121,7 +121,7 @@ import {
   Spacer,
   Button,
   InfoMessage,
-} from '../../index'
+} from '../index'
 
 ;<Form
   config={{

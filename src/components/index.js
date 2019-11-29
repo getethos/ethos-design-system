@@ -19,7 +19,7 @@ export { Form } from './Form'
 export {
   BirthdateInput,
   BirthdateInputValidators,
-} from './Inputs/BirthdateInput/BirthdateInput'
+} from './BirthdateInput/BirthdateInput'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ButtonSelectGroup } from './Inputs/ButtonSelectGroup/ButtonSelectGroup'
 export { NumberInput } from './Inputs/NumberInput/NumberInput'
