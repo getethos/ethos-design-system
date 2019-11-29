@@ -6,7 +6,7 @@ import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 import { InputLabel } from '../InputLabel'
-import { Body } from '../Type/Body.js'
+import { Body } from '../Body.js'
 import { COLORS } from '../Colors.js'
 import styles from './RadioButtons.module.scss'
 

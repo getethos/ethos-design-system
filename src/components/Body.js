@@ -1,4 +1,4 @@
-import { Type, TypeFoundry } from './Type.js'
+import { Type, TypeFoundry } from './Type/Type.js'
 
 export const Body = {
   Regular400: TypeFoundry({

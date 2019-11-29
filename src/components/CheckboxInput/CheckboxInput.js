@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { COLORS } from '../Colors.js'
-import { Body } from '../Type/Body.js'
+import { Body } from '../Body.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
 import styles from './CheckboxInput.module.scss'

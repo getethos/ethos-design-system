@@ -17,7 +17,7 @@
 ```
 
 ```jsx
-import { COLORS } from '../Colors'
+import { COLORS } from './Colors'
 ;<>
   <Body.Regular400 color={COLORS.BRAND_FOREST}>
     Brand Forest color
