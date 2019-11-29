@@ -1,6 +1,6 @@
 describe('CheckboxInput', () => {
   beforeEach(() => {
-    cy.visit('/#/Components/CheckboxInput')
+    cy.visit('/#/Core/CheckboxInput')
   })
 
   //TODO -- I'd think following would work, but cypress didn't cooperate :(

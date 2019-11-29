@@ -13,7 +13,7 @@ function generateStats() {
 }
 
 function generateCssStats() {
-  const cssPath = path.join(__dirname, '../src/components/design-system.css')
+  const cssPath = path.join(__dirname, '../src/core/design-system.css')
   const css = fs.readFileSync(cssPath)
   const ast = csstree.parse(css)
 

@@ -1,6 +1,6 @@
 describe('FormPrefilled', () => {
   beforeEach(() => {
-    cy.visit('/#/Components/FormPrefilled')
+    cy.visit('/#/Core/FormPrefilled')
   })
 
   it('fully prefilled form should result in submit button enabled', () => {

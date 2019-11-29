@@ -5,7 +5,7 @@ module.exports = {
   // resolve: {
   //   modules: [path.resolve(__dirname, 'src'), 'node_modules']
   // },
-  entry: './src/components/index.js',
+  entry: './src/core/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'build'),

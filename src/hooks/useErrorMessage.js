@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { InfoMessage } from '../components/InfoMessage'
-import { Spacer } from '../components'
+import { InfoMessage } from '../core/InfoMessage'
+import { Spacer } from '../core'
 import { INIT_INVALID } from '../helpers/constants.js'
 
 const useErrorMessage = (validator) => {

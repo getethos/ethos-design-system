@@ -1,7 +1,7 @@
 Simply import the colors and utilize [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to set desired properties:
 
 ```css
-@import '@getethos/design-system/src/components/Colors.scss';
+@import '@getethos/design-system/src/core/Colors.scss';
 .BrandSand-Example {
   color: var(--BrandSand);
   background-color: var(--BrandSalamander);

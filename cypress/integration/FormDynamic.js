@@ -1,6 +1,6 @@
 describe('FormDynamic', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:9008/#/Components/FormDynamic')
+    cy.visit('http://localhost:9008/#/Core/FormDynamic')
   })
 
   describe('Dynamic fields example form', () => {
