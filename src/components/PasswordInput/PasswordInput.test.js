@@ -1,7 +1,7 @@
 import React from 'react'
 import { PasswordInput } from './PasswordInput'
 import renderer from 'react-test-renderer'
-import validatePassword from '../../../validators/validatePassword'
+import validatePassword from '../../validators/validatePassword'
 
 const formChangeHandlerStub = jest.fn()
 
