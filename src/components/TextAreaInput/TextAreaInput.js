@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { InputLabel } from '../InputLabel'
-import useRequired from '../../../hooks/useRequired.js'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import useInvalid from '../../../hooks/useInvalid.js'
-import useInputValidation from '../../../hooks/useInputValidation.js'
-import restrict from '../../../helpers/restrict.js'
+import { InputLabel } from '../Inputs/InputLabel'
+import useRequired from '../../hooks/useRequired.js'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
+import useInvalid from '../../hooks/useInvalid.js'
+import useInputValidation from '../../hooks/useInputValidation.js'
+import restrict from '../../helpers/restrict.js'
 import styles from './TextAreaInput.module.scss'
-import errorStyles from '../Errors.module.scss'
+import errorStyles from '../Inputs/Errors.module.scss'
 
 /**
  * @param  {String}   props.name        Input name and htmlFor prop for label

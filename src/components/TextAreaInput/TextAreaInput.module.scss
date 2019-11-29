@@ -1,0 +1,7 @@
+.TextAreaInput {
+  composes: TextInput from '../Inputs/TextInput/TextInput.module.scss';
+  resize: none;
+}
+.Resize {
+  resize: vertical;
+}
