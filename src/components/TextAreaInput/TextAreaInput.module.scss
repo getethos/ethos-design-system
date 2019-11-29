@@ -1,5 +1,5 @@
 .TextAreaInput {
-  composes: TextInput from '../Inputs/TextInput/TextInput.module.scss';
+  composes: TextInput from '../TextInput/TextInput.module.scss';
   resize: none;
 }
 .Resize {

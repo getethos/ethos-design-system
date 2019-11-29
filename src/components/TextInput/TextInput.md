@@ -1,6 +1,6 @@
 ```jsx
-import validateMinMaxFactory from '../../../validators/validateMinMax'
-import validateExists from '../../../validators/validateExists'
+import validateMinMaxFactory from '../../validators/validateMinMax'
+import validateExists from '../../validators/validateExists'
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 
@@ -24,8 +24,8 @@ already `touched`. This means you do not have to `blur` for field hint error
 messages to appear.
 
 ```jsx
-import validateMinMaxFactory from '../../../validators/validateMinMax'
-import validateExists from '../../../validators/validateExists'
+import validateMinMaxFactory from '../../validators/validateMinMax'
+import validateExists from '../../validators/validateExists'
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 

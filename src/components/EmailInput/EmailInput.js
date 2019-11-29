@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { TextInput } from '../Inputs/TextInput'
+import { TextInput } from '../TextInput'
 import EmailFormatValidator from '../../validators/EmailValidator'
 
 export const EmailInput = (props) => {
