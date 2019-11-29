@@ -13,7 +13,7 @@ export { TextAreaInput } from './TextAreaInput'
 export { EmailInput } from './EmailInput'
 export { TextMaskedInput } from './TextMaskedInput'
 export { InfoMessage } from './InfoMessage'
-export { ZipInput } from './Inputs/ZipInput'
+export { ZipInput } from './ZipInput'
 export { CheckboxInput } from './CheckboxInput'
 export { Form } from './Form'
 export {

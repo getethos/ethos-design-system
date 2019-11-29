@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { TextMaskedInput } from '../../TextMaskedInput'
-import useErrorMessage from '../../../hooks/useErrorMessage.js'
-import useInputValidation from '../../../hooks/useInputValidation.js'
-import zipInputValidator from '../../../validators/ZipInputValidator'
-import styles from '../../TextInput/TextInput.module.scss'
-import errorStyles from '../Errors.module.scss'
+import { TextMaskedInput } from '../TextMaskedInput'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
+import useInputValidation from '../../hooks/useInputValidation.js'
+import zipInputValidator from '../../validators/ZipInputValidator'
+import styles from '../TextInput/TextInput.module.scss'
+import errorStyles from '../Inputs/Errors.module.scss'
 
 export const ZipInput = (props) => {
   const {
