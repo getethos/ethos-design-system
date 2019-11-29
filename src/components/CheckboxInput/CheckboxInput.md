@@ -1,6 +1,6 @@
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
-import validateExists from '../../../validators/validateExists'
+import validateExists from '../../validators/validateExists'
 const formChangeHandlerStub = () => {}
 ;<CheckboxInput
   name="le-check-unchecked"
@@ -47,7 +47,7 @@ messages to appear. _Note, you can think of initialValue as "checked" if that
 helps—true results in a checked checkbox, false results in unchecked._
 
 ```jsx
-import validateExists from '../../../validators/validateExists'
+import validateExists from '../../validators/validateExists'
 const formChangeHandlerStub = () => {}
 
 ;<CheckboxInput

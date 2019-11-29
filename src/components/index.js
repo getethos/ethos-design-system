@@ -14,7 +14,7 @@ export { EmailInput } from './Inputs/EmailInput'
 export { TextMaskedInput } from './Inputs/TextMaskedInput'
 export { InfoMessage } from './InfoMessage'
 export { ZipInput } from './Inputs/ZipInput'
-export { CheckboxInput } from './Inputs/CheckboxInput'
+export { CheckboxInput } from './CheckboxInput'
 export { Form } from './Form'
 export {
   BirthdateInput,
