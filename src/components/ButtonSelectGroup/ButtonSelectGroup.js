@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import { OptionButton } from './OptionButton'
-import { InputLabel } from '../Inputs/InputLabel'
+import { InputLabel } from '../InputLabel'
 
 import styles from './ButtonGroup.module.scss'
 

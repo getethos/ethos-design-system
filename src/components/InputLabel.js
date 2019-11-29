@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Caption, COLORS, Spacer } from '../index'
+import { Caption, COLORS, Spacer } from './index'
 
 /* @getethos/design-system/InputLabel.js
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-import { InputLabel } from '../Inputs/InputLabel'
+import { InputLabel } from '../InputLabel'
 import useRequired from '../../hooks/useRequired.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInvalid from '../../hooks/useInvalid.js'

@@ -4,7 +4,7 @@ import MaskedInput from 'react-text-mask'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
 import restrict from '../../helpers/restrict.js'
-import { InputLabel } from '../Inputs/InputLabel'
+import { InputLabel } from '../InputLabel'
 import cleanse from '../../helpers/cleanse.js'
 
 import styles from '../TextInput/TextInput.module.scss'
