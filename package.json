@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "dayjs": "^1.8.16",
+    "js-cookie": "^2.2.1",
     "lazysizes": "^5.1.2",
     "react-select": "^3.0.8",
     "react-text-mask": "^5.4.3",
