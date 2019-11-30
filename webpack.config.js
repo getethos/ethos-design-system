@@ -26,10 +26,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      // {
+      //   test: /\.tsx?$/,
+      //   loader: 'ts-loader',
+      //   exclude: /node_modules/,
+      // },
       {
         test: /\.s?css$/,
         exclude: /node_modules/,

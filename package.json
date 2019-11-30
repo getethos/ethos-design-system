@@ -5,6 +5,9 @@
   "main": "./src/components/index.js",
   "license": "UNLICENSED",
   "scripts": {
+    "xhr:build": "pushd src/xhr && yarn generate:posts && yarn build && popd",
+    "xhr:api": "cd src/xhr && yarn api:posts",
+    "xhr": "yarn xhr:build && yarn xhr:api",
     "build": "yarn css:build && yarn css:format",
     "css:build": "node-sass src/components/index.scss src/components/design-system.css",
     "css:dev": "chokidar src/**/*.scss -c 'yarn build' --initial",
@@ -15,7 +18,6 @@
     "e2e:dev": "start-server-and-test styleguide http://localhost:9008 cy:open",
     "lint": "eslint src --max-warnings 0",
     "preversion": "yarn lint && yarn test && yarn build && yarn stats && git diff --exit-code",
-    "spotcheck": "yarn build && echo \"\n*****\n* View the spotcheck at http://localhost:8080/spotcheck.html\n*****\n\" && webpack-dev-server ",
     "stats": "node bin/generateStats.js --write",
     "styleguide": "yarn build && styleguidist server",
     "styleguide:build": "yarn build && styleguidist build",

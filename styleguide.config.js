@@ -1,4 +1,5 @@
 const path = require('path')
+const glob = require('glob')
 const isCi = process.env.NODE_ENV === 'ci'
 
 requirePaths = [
@@ -30,6 +31,7 @@ module.exports = {
     },
     {
       name: 'Components',
+      content: './src/components/content.md',
       components: './src/components/**/*.js',
       sectionDepth: 2,
     },
@@ -37,6 +39,7 @@ module.exports = {
       name: 'Xhr',
       content: './src/xhr/content.md',
       components: './src/xhr/components/**/*.js',
+      sectionDepth: 2,
     },
     {
       name: 'Nora',
