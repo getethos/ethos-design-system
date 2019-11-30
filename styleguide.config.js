@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const glob = require('glob')
 const isCi = process.env.NODE_ENV === 'ci'
 
@@ -21,6 +22,28 @@ module.exports = {
   usageMode: 'expand',
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.js$/, '.md')
+  },
+
+  // This callback allows us to display the source code of a file within markdown:
+  // ```js { "file": "../mySourceCode.js" }
+  // Reference:
+  // https://react-styleguidist.js.org/docs/cookbook.html#how-to-display-the-source-code-of-any-file
+  updateExample(props, exampleFilePath) {
+    const { settings, lang } = props
+    if (typeof settings.file === 'string') {
+      const filepath = path.resolve(
+        path.dirname(exampleFilePath), // just path -- removes the filename itself
+        settings.file
+      )
+      settings.static = true
+      delete settings.file
+      return {
+        content: fs.readFileSync(filepath, 'utf8'),
+        settings,
+        lang,
+      }
+    }
+    return props
   },
   pagePerSection: true,
   require: requirePaths,

@@ -1,4 +1,8 @@
 import React, { useState } from 'react'
+
+/**
+ * Import the Xhr factor, notification component, and xhr state custom hook
+ */
 import { xhrFactory } from '../lib/xhr'
 import { XhrComponent } from '../lib/XhrComponent'
 import { useXhrState } from '../lib/useXhrState'
@@ -15,42 +19,66 @@ import {
 
 import validateExists from '../../validators/validateExists.js'
 
-// NOTE: This ideally would be put in a more top-level place,
-// and of course controlled by a more up-to-date version of
-// createRoot.js (the version in our monorepo is correct)
+/**
+ * NOTE: This ideally would be put in a more top-level place,
+ * and of course controlled by a more up-to-date version of
+ * createRoot.js (the version in our monorepo is correct)
+ */
 const xhr = xhrFactory({ baseURL: 'http://localhost:9004' })
 
 const PostGetDeleteExample = () => {
   const [posts, setPosts] = useState()
+
+  /**
+   * Use the useXhrState hook to push Xhr status and check state
+   */
   const [
     getXhrState,
     handleXhrError,
     handleXhrSuccess,
     resetStatus,
   ] = useXhrState({})
-  console.log('after useXhrState...')
 
-  // ----------------- GET Posts -------------------- //
+  /**
+   * Use `xhr` to make any HTTP requests and handle success / error scenarios
+   */
   const doGet = async (e) => {
     if (e) e.preventDefault()
     try {
+      /**
+       * Clear state
+       */
       resetStatus()
+
+      /**
+       * Make the HTTP request using the convenient xhr API
+       */
       const { err, response } = await xhr({
         path: 'api/posts',
         method: xhr.GET,
       })
 
-      // The user always does their own error-handling, if one is present.
       if (err) throw err
 
-      const postsData = response.parsedBody
-      setPosts(postsData)
+      /**
+       * Once here we can assume the request was successful thus settings state, etc.
+       */
+      setPosts(response.parsedBody)
+
+      /**
+       * No need to present a user notification with handleXhrSuccess as this is just a GET
+       */
     } catch (e) {
+      /**
+       * We'd like to present an error notification upon error condition.
+       */
       handleXhrError(e)
     }
   }
 
-  // ----------------- DELETE a Post -------------------- //
+  /**
+   * Use `xhr` to make a DELETE request
+   */
   const doDelete = async (e) => {
     const postId = e.currentTarget.dataset.pid
     try {
@@ -60,19 +88,26 @@ const PostGetDeleteExample = () => {
         method: xhr.DELETE,
       })
 
-      // The user always does their own error-handling, if one is present.
       if (err) throw err
 
       // Refetch all posts so list user sees is up to date
       doGet()
 
+      /**
+       * We'd like to present a success notification upon success response from server.
+       */
       handleXhrSuccess(`Post with ID: ${postId} successfully deleted.`)
     } catch (e) {
+      /**
+       * We'd like to present an error notification upon error condition.
+       */
       handleXhrError(e)
     }
   }
 
-  // Create Post form configuration
+  /**
+   * The rest is mainly configuration setup for the Form Engine API
+   */
   const newPostFormConfig = {
     formName: 'Le Form',
     autocompleteOff: true,
@@ -109,22 +144,30 @@ const PostGetDeleteExample = () => {
         validators: [validateExists],
       },
     },
+    /**
+     * Here we use the Form Engine API's submit callback for the POST create.
+     */
     onSubmit: async (formData) => {
-      // ----------------- Create a Post -------------------- //
       try {
         resetStatus()
+        /**
+         * The API feels very similar to other http request. We only need to add
+         * the POST body to our xhr argument.
+         */
         const { err } = await xhr({
           path: 'api/posts',
           method: xhr.POST,
           body: JSON.stringify(formData),
         })
 
-        // The user always does their own error-handling, if one is present.
         if (err) throw err
 
         // Refetch all posts so list user sees is up to date
         doGet()
 
+        /**
+         * Same flow as before.
+         */
         handleXhrSuccess('Post created.')
       } catch (e) {
         handleXhrError(e)
