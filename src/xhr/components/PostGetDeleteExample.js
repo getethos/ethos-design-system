@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { xhrFactory } from '../lib/xhr'
-import XhrError from '../lib/XhrError'
 import { XhrComponent } from '../lib/XhrComponent'
 import { useXhrState } from '../lib/useXhrState'
 
@@ -56,7 +55,7 @@ const PostGetDeleteExample = () => {
     const postId = e.currentTarget.dataset.pid
     try {
       resetStatus()
-      const { err, response } = await xhr({
+      const { err } = await xhr({
         path: `api/posts/${postId}`,
         method: xhr.DELETE,
       })
@@ -80,7 +79,8 @@ const PostGetDeleteExample = () => {
     formId: '123',
     fields: {
       author: {
-        component: (props, options) => {
+        // eslint-disable-next-line react/display-name
+        component: (props) => {
           return <TextInput {...props} placeholder="Post author..." />
         },
         name: 'author',
@@ -89,7 +89,8 @@ const PostGetDeleteExample = () => {
         validators: [validateExists],
       },
       title: {
-        component: (props, options) => {
+        // eslint-disable-next-line react/display-name
+        component: (props) => {
           return <TextInput {...props} placeholder="Post title..." />
         },
         name: 'title',
@@ -98,7 +99,8 @@ const PostGetDeleteExample = () => {
         validators: [validateExists],
       },
       content: {
-        component: (props, options) => {
+        // eslint-disable-next-line react/display-name
+        component: (props) => {
           return <TextAreaInput resize={true} {...props} />
         },
         name: 'title',
@@ -111,7 +113,7 @@ const PostGetDeleteExample = () => {
       // ----------------- Create a Post -------------------- //
       try {
         resetStatus()
-        const { err, response } = await xhr({
+        const { err } = await xhr({
           path: 'api/posts',
           method: xhr.POST,
           body: JSON.stringify(formData),

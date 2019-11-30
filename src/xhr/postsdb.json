@@ -17,6 +17,12 @@
       "title": "Ernest",
       "author": "Emma Hyatt",
       "content": "sed facilis saepe"
+    },
+    {
+      "author": "Rob",
+      "title": "Test 1234",
+      "content": "This is a test post",
+      "id": 78339810
     }
   ]
 }
