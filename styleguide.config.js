@@ -59,15 +59,15 @@ module.exports = {
       sectionDepth: 2,
     },
     {
+      name: 'Nora',
+      content: './src/nora/content.md',
+      components: './src/nora/components/**/*.js',
+    },
+    {
       name: 'Xhr',
       content: './src/xhr/content.md',
       components: './src/xhr/components/**/*.js',
       sectionDepth: 2,
-    },
-    {
-      name: 'Nora',
-      content: './src/nora/content.md',
-      components: './src/nora/components/**/*.js',
     },
   ],
   serverPort: 9008,
