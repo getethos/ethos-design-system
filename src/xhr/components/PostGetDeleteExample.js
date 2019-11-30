@@ -15,6 +15,7 @@ import {
   TextAreaInput,
   TextInput,
   TitleLarge,
+  /* for consumers outside of EDS this will be ``} from 'ethos-design-system'`` */
 } from '../../components/index'
 
 import validateExists from '../../validators/validateExists.js'
@@ -175,9 +176,14 @@ const PostGetDeleteExample = () => {
     },
   }
 
+  /**
+   * The useXhrState custom hook exposes getXhrState to allow us to obtain current
+   * Xhr state and pass back to the xhr notification component.
+   */
   const xhrState = getXhrState()
   return (
     <>
+      {/* Present success or error notification to user */}
       <XhrComponent
         error={xhrState.error}
         successMessage={xhrState.successMessage}
