@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 module.exports = {
   // resolve: {
@@ -63,18 +64,46 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
-      {
-        test: /\.(woff|woff2|eot)$/,
+        test: /\.(woff|woff2|eot|png|jpe?g|gif)$/,
         use: {
           loader: 'url-loader',
         },
       },
+      {
+        test: /\.svg$/,
+        include: [/src\/svgs\//],
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { removeNonInheritableGroupAttrs: true },
+                { removeUselessStrokeAndFill: false },
+                { collapseGroups: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false },
+                {
+                  removeAttrs: {
+                    attrs: '(fill|stroke)',
+                    preserveCurrentColor: true,
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+      // Any non-sprited SVG images or similar use file-loader
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        use: ['file-loader'],
+      },
     ],
   },
+  plugins: [new SpriteLoaderPlugin()],
 }
