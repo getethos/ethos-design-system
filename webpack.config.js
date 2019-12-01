@@ -101,6 +101,7 @@ module.exports = {
       {
         test: /\.svg$/,
         exclude: /node_modules/,
+        include: [],
         use: ['file-loader'],
       },
     ],
