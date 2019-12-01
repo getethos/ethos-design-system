@@ -17,7 +17,7 @@ import {
  * and of course controlled by a more up-to-date version of
  * createRoot.js (the version in our monorepo is correct)
  */
-const xhr = xhrFactory({ baseURL: 'http://localhost:9004' })
+const xhr = xhrFactory({ baseURL: 'http://localhost:9004/api' })
 
 function ErrorsExample() {
   /**
@@ -47,7 +47,7 @@ function ErrorsExample() {
        * Make the HTTP request using the convenient xhr API
        */
       const { err } = await xhr({
-        path: `api/${errorCode}`,
+        path: `${errorCode}`,
         method: xhr.GET,
       })
       if (err) throw err
