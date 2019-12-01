@@ -13,7 +13,6 @@ yarn styleguide # in another tab to run EDS (as usual)
 
 If you'd like to build things within this directory:
 
-
 In `src/xhr/package.json` you'll find in `scripts`:
 
 - `yarn generate:posts` -- generates postsdb.json
