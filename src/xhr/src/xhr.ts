@@ -1,5 +1,4 @@
 import errorReporter from './errorReporter'
-import PathBuilder from './PathBuilder'
 import XhrError from './XhrError'
 import { configureRequestOptions, parseResponseBody } from './xhrHelpers'
 import XhrLog from './XhrLog'
@@ -104,14 +103,6 @@ function defineXhrProperties(xhrFunction) {
   defineHttpMethod(xhrFunction, 'DELETE')
   defineHttpMethod(xhrFunction, 'HEAD')
   defineHttpMethod(xhrFunction, 'OPTIONS')
-
-  Object.defineProperty(xhrFunction, 'pathBuilder', {
-    configurable: false,
-    enumerable: true,
-    get: function getNewPathBuilder() {
-      return new PathBuilder()
-    },
-  })
 
   return xhrFunction
 }

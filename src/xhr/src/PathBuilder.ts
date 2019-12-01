@@ -1,8 +1,18 @@
 import q from 'querystring'
 import { KeyValMap } from './helpers'
 
-export default class PathBuilder {
-  private pathSegments: Array<string | number>
+export interface IPathBuilder {
+  path(segment: string): this
+
+  query(obj: KeyValMap): this
+
+  id(id?: number): void
+
+  buildPath(): string
+}
+
+export default class PathBuilder implements IPathBuilder {
+  protected pathSegments: Array<string | number>
   private queryString: string
 
   constructor() {
@@ -20,67 +30,10 @@ export default class PathBuilder {
     return this
   }
 
-  public login() {
-    this.pathSegments.push('login')
-    return this
-  }
-
-  public logout() {
-    this.pathSegments.push('logout')
-    return this
-  }
-
   public id(id?: number) {
     if (id != null) {
       this.pathSegments.push(id)
     }
-  }
-
-  public admin() {
-    this.pathSegments.push('admin')
-    return this
-  }
-
-  public user(id?: number) {
-    this.pathSegments.push('user')
-    this.id(id)
-    return this
-  }
-
-  public group(id?: number) {
-    this.pathSegments.push('group')
-    this.id(id)
-    return this
-  }
-
-  public email(id?: number) {
-    this.pathSegments.push('email')
-    this.id(id)
-    return this
-  }
-
-  public identity(id?: number) {
-    this.pathSegments.push('identity')
-    this.id(id)
-    return this
-  }
-
-  public termPolicy(id?: number) {
-    this.pathSegments.push('term-policy')
-    this.id(id)
-    return this
-  }
-
-  public document(id?: number) {
-    this.pathSegments.push('document')
-    this.id(id)
-    return this
-  }
-
-  public policyLog(id?: number) {
-    this.pathSegments.push('policy-log')
-    this.id(id)
-    return this
   }
 
   public buildPath(): string {
@@ -89,6 +42,9 @@ export default class PathBuilder {
     if (this.queryString !== '') {
       url.push(this.queryString)
     }
+
+    // Reinit pathSegments so subsequent calls don't retain previous segments
+    this.pathSegments = []
 
     return url.join('?')
   }

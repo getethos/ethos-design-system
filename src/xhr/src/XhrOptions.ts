@@ -1,4 +1,4 @@
-import PathBuilder from './PathBuilder'
+import { IPathBuilder } from './PathBuilder'
 import { HttpMethodType, ResponseBodyType } from './XhrTypes'
 
 /**
@@ -19,7 +19,7 @@ import { HttpMethodType, ResponseBodyType } from './XhrTypes'
  */
 export default interface XhrOptions extends RequestInit {
   baseURL?: string
-  path: PathBuilder
+  path: IPathBuilder | string
   method: HttpMethodType
   responseType?: ResponseBodyType
 }

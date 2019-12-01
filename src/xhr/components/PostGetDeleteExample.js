@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { xhrFactory } from '../lib/xhr'
 import { XhrComponent } from '../lib/XhrComponent'
 import { useXhrState } from '../lib/useXhrState'
+import PathBuilderExample from '../lib/PathBuilderExample'
 
 import {
   Button,
@@ -20,12 +21,16 @@ import {
 
 import validateExists from '../../validators/validateExists.js'
 
+const pathBuilder = new PathBuilderExample()
+
 /**
  * NOTE: This ideally would be put in a more top-level place,
  * and of course controlled by a more up-to-date version of
  * createRoot.js (the version in our monorepo is correct)
  */
-const xhr = xhrFactory({ baseURL: 'http://localhost:9004' })
+const xhr = xhrFactory({
+  baseURL: 'http://localhost:9004/api',
+})
 
 const PostGetDeleteExample = () => {
   const [posts, setPosts] = useState()
@@ -52,10 +57,13 @@ const PostGetDeleteExample = () => {
       resetStatus()
 
       /**
-       * Make the HTTP request using the convenient xhr API
+       * Make the HTTP request using xhr API and the composable PathBuilder DSL
+       * @see `src/xhr/src/PathBuilderExample.ts`
        */
+      const path = pathBuilder.posts()
+
       const { err, response } = await xhr({
-        path: 'api/posts',
+        path,
         method: xhr.GET,
       })
 
@@ -82,10 +90,21 @@ const PostGetDeleteExample = () => {
    */
   const doDelete = async (e) => {
     const postId = e.currentTarget.dataset.pid
+
     try {
+      /**
+       * Clear state
+       */
       resetStatus()
+
+      /**
+       * Alternatively, consumers may call `buildPath()` and pass string to `xhr()`
+       * @see `src/xhr/src/PathBuilderExample.ts`
+       */
+      const pathAsString = pathBuilder.delete(postId).buildPath()
+      console.log('pathasstring:', pathAsString)
       const { err } = await xhr({
-        path: `api/posts/${postId}`,
+        path: pathAsString,
         method: xhr.DELETE,
       })
 
@@ -152,11 +171,17 @@ const PostGetDeleteExample = () => {
       try {
         resetStatus()
         /**
+         * Alternatively, a consumer may call `buildPath()` and pass string to `xhr()`
+         * @see `src/xhr/src/PathBuilderExample.ts`
+         */
+        const path = pathBuilder.posts()
+
+        /**
          * The API feels very similar to other http request. We only need to add
          * the POST body to our xhr argument.
          */
         const { err } = await xhr({
-          path: 'api/posts',
+          path,
           method: xhr.POST,
           body: JSON.stringify(formData),
         })
