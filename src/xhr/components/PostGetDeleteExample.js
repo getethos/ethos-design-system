@@ -102,7 +102,7 @@ const PostGetDeleteExample = () => {
        * @see `src/xhr/src/PathBuilderExample.ts`
        */
       const pathAsString = pathBuilder.delete(postId).buildPath()
-      console.log('pathasstring:', pathAsString)
+
       const { err } = await xhr({
         path: pathAsString,
         method: xhr.DELETE,

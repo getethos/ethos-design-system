@@ -10,4 +10,9 @@ export default class PathBuilderExample extends PathBuilder {
     this.id(id)
     return this
   }
+  public update(id) {
+    this.pathSegments.push('posts')
+    this.id(id)
+    return this
+  }
 }

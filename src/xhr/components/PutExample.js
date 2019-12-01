@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { xhrFactory } from '../lib/xhr'
 import { XhrComponent } from '../lib/XhrComponent'
 import { useXhrState } from '../lib/useXhrState'
+import PathBuilderExample from '../lib/PathBuilderExample'
 
 import {
   Button,
@@ -23,12 +24,14 @@ import validateExists from 'ethos-design-system/src/validators/validateExists'
 */
 import validateExists from '../../validators/validateExists'
 
+const pathBuilder = new PathBuilderExample()
+
 /**
  * NOTE: This ideally would be put in a more top-level place,
  * and of course controlled by a more up-to-date version of
  * createRoot.js (the version in our monorepo is correct)
  */
-const xhr = xhrFactory({ baseURL: 'http://localhost:9004' })
+const xhr = xhrFactory({ baseURL: 'http://localhost:9004/api' })
 
 function PutExample() {
   /**
@@ -46,9 +49,13 @@ function PutExample() {
   useEffect(() => {
     async function fireGet() {
       try {
+        /**
+         * Clear state
+         */
         resetStatus()
+
         const { err, response } = await xhr({
-          path: 'api/posts',
+          path: pathBuilder.posts(),
           method: xhr.GET,
         })
 
@@ -133,8 +140,13 @@ function PutExample() {
 
         try {
           resetStatus()
+          /**
+           * @see `src/xhr/src/PathBuilderExample.ts`
+           */
+          const path = pathBuilder.update(post.id)
+
           const { err } = await xhr({
-            path: `api/posts/${post.id}`,
+            path,
             method: xhr.PUT,
             body: JSON.stringify(data),
           })
