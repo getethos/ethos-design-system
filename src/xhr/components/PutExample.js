@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 /**
  * Import the Xhr factor, notification component, and xhr state custom hook
  */
@@ -75,7 +75,8 @@ function PutExample() {
       formId: '123',
       fields: {
         author: {
-          component: (props, options) => {
+          // eslint-disable-next-line react/display-name
+          component: (props) => {
             return (
               <TextInput
                 {...props}
@@ -90,7 +91,8 @@ function PutExample() {
           validators: [validateExists],
         },
         title: {
-          component: (props, options) => {
+          // eslint-disable-next-line react/display-name
+          component: (props) => {
             return (
               <TextInput
                 {...props}
@@ -105,7 +107,8 @@ function PutExample() {
           validators: [validateExists],
         },
         content: {
-          component: (props, options) => {
+          // eslint-disable-next-line react/display-name
+          component: (props) => {
             return (
               <TextAreaInput
                 initialValue={post.content}
@@ -130,7 +133,7 @@ function PutExample() {
 
         try {
           resetStatus()
-          const { err, response } = await xhr({
+          const { err } = await xhr({
             path: `api/posts/${post.id}`,
             method: xhr.PUT,
             body: JSON.stringify(data),
