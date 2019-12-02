@@ -1,1 +1,2 @@
 /src/libs
+**/*/node_modules
