@@ -80,8 +80,9 @@ module.exports = {
             loader: 'svgo-loader',
             options: {
               plugins: [
-                { removeTitle: true },
-                { removeNonInheritableGroupAttrs: true },
+                // When I remove this, it appears to default to true so <title> gets removed.
+                // Opting to explicitly ask for title to be left for the time being
+                { removeTitle: false },
                 { removeUselessStrokeAndFill: false },
                 { collapseGroups: true },
                 { convertColors: { shorthex: false } },
