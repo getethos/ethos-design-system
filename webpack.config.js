@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 
 module.exports = {
   // resolve: {
@@ -63,18 +64,48 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
-      {
-        test: /\.(woff|woff2|eot)$/,
+        test: /\.(woff|woff2|eot|png|jpe?g|gif)$/,
         use: {
           loader: 'url-loader',
         },
       },
+      {
+        test: /\.svg$/,
+        include: [/src\/svgs\//],
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                // When I remove this, it appears to default to true so <title> gets removed.
+                // Opting to explicitly ask for title to be left for the time being
+                { removeTitle: false },
+                { removeUselessStrokeAndFill: false },
+                { collapseGroups: true },
+                { convertColors: { shorthex: false } },
+                { convertPathData: false },
+                {
+                  removeAttrs: {
+                    attrs: '(fill|stroke)',
+                    preserveCurrentColor: true,
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+      // Any non-sprited SVG images or similar use file-loader
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        include: [],
+        use: ['file-loader'],
+      },
     ],
   },
+  plugins: [new SpriteLoaderPlugin()],
 }
