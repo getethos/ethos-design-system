@@ -2,6 +2,18 @@
 
 .twoColumnLayout {
   display: flex;
+  align-items: center;
+  position: relative;
+  &.dividerLine {
+    :after {
+      content: '';
+      border-left: 1px solid var(--GrayStrokeAndDisabled--opaque);
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+    }
+  }
 }
 
 .columnWrapper {
@@ -16,17 +28,17 @@
 
 /* Gutter on left and right side. */
 .columnMedium {
-  width: 100%;
-  margin-left: 80px;
-  margin-right: 80px;
+  width: calc(100% - 80px);
   max-width: 560px;
+  &.alignRight {
+    margin-left: 80px;
+  }
 }
 
 /* Left-aligned, gutter on left side and double width gutter on right side. 
 Usually used for text. */
 .columnSmall {
-  width: 100%;
-  margin-left: 80px;
+  width: calc(100% - 160px);
   margin-right: 80px;
   max-width: 480px;
 }

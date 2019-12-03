@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ColumnWrapper from './Columns/ColumnWrapper'
+import Column from './Columns/Columns'
+
 import styles from './Layout.module.scss'
 
 export function Layout({ children }) {
@@ -93,5 +96,7 @@ HorizontallyPaddedContainer.defaultProps = {
 
 Layout.Container = HorizontallyPaddedContainer // overloaded alias, deprecated
 Layout.HorizontallyPaddedContainer = HorizontallyPaddedContainer
+Layout.ColumnWrapper = ColumnWrapper
+Layout.Column = Column
 
 Layout.ScrollDetector = ScrollDetector
