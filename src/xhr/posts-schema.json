@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "posts": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "unique": true,
+            "minimum": 1
+          },
+          "title": {
+            "type": "string",
+            "faker": "name.firstName"
+          },
+          "author": {
+            "type": "string",
+            "faker": "name.findName"
+          },
+          "content": {
+            "type": "string",
+            "faker": "lorem.words"
+          }
+        },
+        "required": ["id", "title", "author", "content"]
+      }
+    }
+  }
+}
