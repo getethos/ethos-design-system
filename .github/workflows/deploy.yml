@@ -1,0 +1,113 @@
+name: Deploy Styleguide
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache dependencies
+        id: cache-dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          # Don't share with other workflows because we are using `--production=false`
+          key: dev-dependencies-${{ hashFiles('**/yarn.lock') }}
+      - name: Install dependencies
+        if: steps.cache-dependencies.outputs.cache-hit != 'true'
+        run: yarn install --production=false
+
+      # The output for actions/aws/cli is broken atm, see
+      # https://github.com/actions/aws/pull/19#issuecomment-531472992
+      # This writes the output to /home/runner/work/_temp/_github_home/actionsaws.json
+      # and that isn't intended by the action.
+      # - name: Assume role
+      #   id: assume-role
+      #   uses: actions/aws/cli@master
+      #   with:
+      #     args: sts assume-role --role-arn ${{ secrets.AWS_CI_USER_ROLE_ARN }} --role-session-name ci-deploy-styleguide
+      #   env:
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     AWS_DEFAULT_REGION: us-east-1
+
+      # Another way to is to use .aws/config, but this is a public repo, and
+      # we don't want to expose our AWS account id which is in the role ARN.
+
+      # Another way to use role is via EC2 instance profile, but GitHub
+      # recommends against using self-hosted runners with public repos, see:
+      # https://help.github.com/en/actions/automating-your-workflow-with-github-actions/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories
+
+      # The hacky solution for now is to write an .aws/config:
+      - name: Write .aws/config
+        run: |
+          mkdir -p ${GITHUB_WORKSPACE}/.aws
+          cat > ${GITHUB_WORKSPACE}/.aws/config <<EOF
+          [profile ci-user]
+          role_arn = ${{ secrets.AWS_CI_USER_ROLE_ARN }}
+          credential_source = Environment
+          region = us-east-1
+          EOF
+          cat ${GITHUB_WORKSPACE}/.aws/config
+
+      - name: Download fonts from S3
+        uses: actions/aws/cli@master
+        with:
+          args: s3 cp s3://eds.ethoslabs.io/fonts.zip ${GITHUB_WORKSPACE}/fonts.zip --profile ci-user
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
+      - name: Unzip fonts
+        run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
+      - name: Build styleguide
+        run: yarn styleguide:build
+      - name: Archive build result
+        uses: actions/upload-artifact@master
+        with:
+          name: styleguide
+          path: styleguide
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Download build files
+        uses: actions/download-artifact@master
+        with:
+          name: styleguide
+      - name: Write .aws/config
+        run: |
+          mkdir -p ${GITHUB_WORKSPACE}/.aws
+          cat > ${GITHUB_WORKSPACE}/.aws/config <<EOF
+          [profile ci-user]
+          role_arn = ${{ secrets.AWS_CI_USER_ROLE_ARN }}
+          credential_source = Environment
+          region = us-east-1
+          EOF
+          cat ${GITHUB_WORKSPACE}/.aws/config
+      - name: Sync styleguide to S3
+        uses: actions/aws/cli@master
+        with:
+          args: s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
+          AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
+      - name: Invalidate CloudFront cache
+        uses: actions/aws/cli@master
+        with:
+          args: cloudfront create-invalidation --distribution-id EFXVH59BN2ASQ --paths "/*" --profile ci-user
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
+          AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
