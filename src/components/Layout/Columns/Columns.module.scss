@@ -5,20 +5,28 @@
   align-items: center;
   position: relative;
   &.dividerLine {
-    :after {
-      content: '';
-      border-left: 1px solid var(--GrayStrokeAndDisabled--opaque);
-      height: 100%;
-      position: absolute;
-      left: 50%;
-      top: 0;
+    @include for-laptop-and-up {
+      &:after {
+        content: '';
+        border-left: 1px solid var(--GrayStrokeAndDisabled--opaque);
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        top: 0;
+      }
     }
+  }
+  @include for-phone-and-tablet {
+    flex-direction: column;
   }
 }
 
 .columnWrapper {
   width: 50%;
   flex-shrink: 0;
+  @include for-phone-and-tablet {
+    width: 100%;
+  }
 }
 
 /* Spans entire column width. */
@@ -26,19 +34,42 @@
   width: 100%;
 }
 
-/* Gutter on left and right side. */
+/* Gutter on left or right side. */
 .columnMedium {
-  width: calc(100% - 80px);
-  max-width: 560px;
-  &.alignRight {
-    margin-left: 80px;
+  @include for-desktop-only {
+    width: calc(100% - 80px);
+    max-width: 560px;
+    &.alignRight {
+      margin-left: 80px;
+    }
+  }
+  @include for-laptop-only {
+    width: calc(100% - 64px);
+    max-width: 560px;
+    &.alignRight {
+      margin-left: 64px;
+    }
+  }
+
+  @include for-phone-and-tablet {
+    width: 100%;
   }
 }
 
 /* Left-aligned, gutter on left side and double width gutter on right side. 
 Usually used for text. */
 .columnSmall {
-  width: calc(100% - 160px);
-  margin-right: 80px;
+  @include for-desktop-only {
+    width: calc(100% - 80px);
+    margin-right: 80px;
+  }
+  @include for-laptop-only {
+    width: calc(100% - 64px);
+    margin-right: 64px;
+  }
+
+  @include for-phone-and-tablet {
+    width: 100%;
+  }
   max-width: 480px;
 }
