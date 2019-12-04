@@ -38,7 +38,7 @@ Faq.propTypes = {
   questions: PropTypes.arrayOf(
     PropTypes.shape({
       summary: PropTypes.string,
-      content: PropTypes.oneOfType(PropTypes.object, PropTypes.string),
+      content: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     })
   ),
   open: PropTypes.bool,
