@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 // on usage, Async configuration, etc.
 import ReactSelect from 'react-select'
 import ReactSelectAsync from 'react-select/async'
+import ReactSelectAsyncCreatable from 'react-select/async-creatable'
+import ReactSelectCreatable from 'react-select/creatable'
 
 import styles from './Select.module.scss'
 
-export const Select = ({ className, title, isAsync, ...rest }) => {
+export const Select = ({ className, title, isAsync, isCreatable, ...rest }) => {
   const props = {
     className: `${className ? className : ''} ${styles.root}`,
     ...rest,
@@ -15,9 +17,23 @@ export const Select = ({ className, title, isAsync, ...rest }) => {
 
   const wrapperClass = title ? styles.wrapper : ''
 
+  const getTag = () => {
+    if (isAsync && isCreatable) {
+      return ReactSelectAsyncCreatable
+    } else if (isAsync) {
+      return ReactSelectAsync
+    } else if (isCreatable) {
+      return ReactSelectCreatable
+    } else {
+      return ReactSelect
+    }
+  }
+
+  const SelectTag = getTag()
+
   return (
     <div className={wrapperClass}>
-      {isAsync ? <ReactSelectAsync {...props} /> : <ReactSelect {...props} />}
+      <SelectTag {...props} />
       {title && <div className={styles.title}>{title}</div>}
     </div>
   )
@@ -32,6 +48,7 @@ Select.propTypes = {
   isAsync: PropTypes.bool,
   title: PropTypes.string,
   className: PropTypes.string,
+  isCreatable: PropTypes.bool,
 }
 
 Select.defaultProps = {
