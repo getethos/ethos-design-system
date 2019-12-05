@@ -18,7 +18,7 @@ export const Select = ({ className, title, isAsync, isCreatable, ...rest }) => {
   const wrapperClass = title ? styles.wrapper : ''
 
   const getTag = () => {
-    if (isAsync && isCreateable) {
+    if (isAsync && isCreatable) {
       return ReactSelectAsyncCreatable
     } else if (isAsync) {
       return ReactSelectAsync
@@ -48,6 +48,7 @@ Select.propTypes = {
   isAsync: PropTypes.bool,
   title: PropTypes.string,
   className: PropTypes.string,
+  isCreatable: PropTypes.bool,
 }
 
 Select.defaultProps = {
