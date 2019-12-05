@@ -9,7 +9,7 @@ export default {
     let name = 'XhrError'
     let message
     let response
-    let stack = []
+    let stack: '' | string[] | undefined = []
 
     if (errorOrResponse instanceof XhrError) {
       const error = errorOrResponse

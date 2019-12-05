@@ -9,6 +9,7 @@
     "node-sass": "latest"
   },
   "devDependencies": {
+    "@types/js-cookie": "^2.2.4",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.8.5",
     "faker": "^4.1.0",

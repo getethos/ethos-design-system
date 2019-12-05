@@ -41,7 +41,7 @@ export function useXhrState({
     setXhrState({
       status: 'success',
       error: undefined,
-      successMessage: undefined,
+      successMessage: successMessageArg,
     })
   }
 

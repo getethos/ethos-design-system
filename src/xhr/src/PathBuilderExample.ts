@@ -5,12 +5,12 @@ export default class PathBuilderExample extends PathBuilder {
     this.pathSegments.push('posts')
     return this
   }
-  public delete(id) {
+  public delete(id: number) {
     this.pathSegments.push('posts')
     this.id(id)
     return this
   }
-  public update(id) {
+  public update(id: number) {
     this.pathSegments.push('posts')
     this.id(id)
     return this

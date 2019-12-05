@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import XhrOptions from './XhrOptions'
+import XhrOptions, { HeadersWithProps } from './XhrOptions'
 import XhrResponse from './XhrResponse'
 import { ResponseBodyType } from './XhrTypes'
 
@@ -12,18 +12,20 @@ export const parseResponseBody = _parseResponseBody
  * that will be passed into the Request class constructor.
  */
 function _configureRequestOptions(xhrOptions: XhrOptions): XhrOptions {
-  let requestHeaders: HeadersInit = new Headers()
+  if (!xhrOptions.headers)
+    xhrOptions.headers = {
+      'X-XSRF-TOKEN': undefined,
+      'Content-Type': undefined,
+      'Content-Length': undefined,
+    } as HeadersWithProps
 
   // Default to using cookies
   xhrOptions.credentials = xhrOptions.credentials || 'include'
 
   // Include our anti-cross-site-request-forgery token
-  const xsrf =
-    xhrOptions.headers['X-XSRF-TOKEN'] != null
-      ? xhrOptions.headers['X-XSRF-TOKEN']
-      : Cookies.get('XSRF-TOKEN')
-
-  requestHeaders.set('X-XSRF-TOKEN', xsrf)
+  if (!xhrOptions.headers['X-XSRF-TOKEN']) {
+    xhrOptions.headers['X-XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN')
+  }
 
   // Ensure that the Content-Type and Content-Length
   // headers are set if we are sending POST/form data.
@@ -32,17 +34,16 @@ function _configureRequestOptions(xhrOptions: XhrOptions): XhrOptions {
       xhrOptions.body = JSON.stringify(xhrOptions.body)
     }
 
-    const contentType =
-      xhrOptions.headers['Content-Type'] != null
-        ? xhrOptions.headers['Content-Type']
-        : 'application/json'
-
-    requestHeaders.set('Content-Type', contentType)
-
-    const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body))
-    requestHeaders.set('Content-Length', contentLength.toString())
+    if (!xhrOptions.headers['Content-Type']) {
+      xhrOptions.headers['Content-Type'] = 'application/json'
+    }
+    // const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body))
+    // requestHeaders.set('Content-Length', contentLength.toString())
+    if (xhrOptions.headers['Content-Length'] == null) {
+      const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body))
+      xhrOptions.headers['Content-Length'] = contentLength
+    }
   }
-  xhrOptions.headers = requestHeaders
 
   return xhrOptions
 }
@@ -55,6 +56,7 @@ async function _parseResponseBody(
   rawResponse: Response,
   xhrOptions: XhrOptions
 ): Promise<XhrResponse> {
+  // Cast to XhrResponse since Response doesn't have .method property
   const response: XhrResponse = <XhrResponse>rawResponse.clone()
 
   response.method = xhrOptions.method

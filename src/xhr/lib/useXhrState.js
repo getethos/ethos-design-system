@@ -19,7 +19,7 @@ export function useXhrState({ status, error, successMessage, }) {
         setXhrState({
             status: 'error',
             error: xhrError,
-            successMessage: null,
+            successMessage: undefined,
         });
     };
     /**
@@ -29,7 +29,7 @@ export function useXhrState({ status, error, successMessage, }) {
     const handleXhrSuccess = (successMessageArg) => {
         setXhrState({
             status: 'success',
-            error: null,
+            error: undefined,
             successMessage: successMessageArg,
         });
     };
@@ -38,9 +38,9 @@ export function useXhrState({ status, error, successMessage, }) {
      */
     const resetStatus = () => {
         setXhrState({
-            status: null,
-            error: null,
-            successMessage: null,
+            status: undefined,
+            error: undefined,
+            successMessage: undefined,
         });
     };
     return [getXhrState, handleXhrError, handleXhrSuccess, resetStatus];

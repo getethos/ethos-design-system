@@ -19,12 +19,14 @@ export default class XhrLog {
             return response;
         const responseTime = this.calculateResponseTime(requestTimestamp);
         const logColor = response.ok ? 'color: #099' : 'color: #F00';
-        this.logger.groupCollapsed('↓' +
-            `%c ${response.method.toUpperCase()}` +
-            `%c ${response.url}` +
-            `%c ${response.status}` +
-            `%c ${response.statusText}` +
-            ` (${responseTime.number} ${responseTime.label})`, logColor, 'color: static', logColor, 'color: static');
+        if (response && responseTime && logColor) {
+            this.logger.groupCollapsed('↓' +
+                `%c ${response.method.toUpperCase()}` +
+                `%c ${response.url}` +
+                `%c ${response.status}` +
+                `%c ${response.statusText}` +
+                ` (${responseTime.number} ${responseTime.label})`, logColor, 'color: static', logColor, 'color: static');
+        }
         this.logger.info({ headers: response.headers, body: response.parsedBody });
         this.logger.groupEnd();
         return response;

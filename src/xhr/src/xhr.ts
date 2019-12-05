@@ -17,8 +17,8 @@ async function xhr(options: XhrOptions) {
 
   // TODO: Guard against not having enough parameters
 
-  let err
-  let response
+  let err: XhrError
+  let response: XhrResponse
   const xhrLog = new XhrLog()
 
   return new Promise((resolve) => {
@@ -28,7 +28,6 @@ async function xhr(options: XhrOptions) {
     const resolvedPath = typeof path === 'string' ? path : path.buildPath()
 
     // Create a new XhrRequest object that will be passed into browser fetch
-
     const request = new XhrRequest(`${baseURL}/${resolvedPath}`, xhrOptions)
 
     // Begin timing how long our request will take
@@ -77,7 +76,7 @@ xhr.factory = {}
  * allows certain things to be statically-obtained, like
  * the standard HTTP method names and our PathBuilder class.
  */
-function defineXhrProperties(xhrFunction) {
+function defineXhrProperties(xhrFunction: any) {
   /**
    * A factory function that allows the xhr
    * function to be pre-loaded with a given baseURL.
@@ -87,7 +86,7 @@ function defineXhrProperties(xhrFunction) {
     enumerable: true,
     writable: false,
     value: function xhrFactoryFunc({ baseURL }: { baseURL: string }) {
-      async function xhrWithBaseURL(options) {
+      async function xhrWithBaseURL(options: XhrOptions) {
         const createdXhr = xhrFunction({ baseURL, ...options })
         return defineXhrProperties(createdXhr)
       }
@@ -107,7 +106,7 @@ function defineXhrProperties(xhrFunction) {
   return xhrFunction
 }
 
-function defineHttpMethod(xhrFunction, method: HttpMethodType) {
+function defineHttpMethod(xhrFunction: any, method: HttpMethodType) {
   Object.defineProperty(xhrFunction, method, {
     configurable: false,
     enumerable: true,
@@ -117,5 +116,4 @@ function defineHttpMethod(xhrFunction, method: HttpMethodType) {
 }
 
 export default defineXhrProperties(xhr)
-
 export const xhrFactory = xhr.factory

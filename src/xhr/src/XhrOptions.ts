@@ -17,9 +17,19 @@ import { HttpMethodType, ResponseBodyType } from './XhrTypes'
  * @param {ResponseBodyType} responseBodyType
  *    The type of response body we expect to receive (and parse) from the XHR.
  */
+
+type HeadersPlus = {
+  'X-XSRF-TOKEN'?: string
+  'Content-Type'?: string
+  'Content-Length'?: number
+}
+
+export type HeadersWithProps = HeadersInit & HeadersPlus
+
 export default interface XhrOptions extends RequestInit {
   baseURL?: string
   path: IPathBuilder | string
   method: HttpMethodType
   responseType?: ResponseBodyType
+  headers?: HeadersWithProps
 }

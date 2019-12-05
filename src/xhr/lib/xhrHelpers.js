@@ -7,25 +7,29 @@ export const parseResponseBody = _parseResponseBody;
  * that will be passed into the Request class constructor.
  */
 function _configureRequestOptions(xhrOptions) {
-    // Ensure headers object is present
-    if (xhrOptions.headers == null)
-        xhrOptions.headers = {};
+    if (!xhrOptions.headers)
+        xhrOptions.headers = {
+            'X-XSRF-TOKEN': undefined,
+            'Content-Type': undefined,
+            'Content-Length': undefined,
+        };
     // Default to using cookies
     xhrOptions.credentials = xhrOptions.credentials || 'include';
     // Include our anti-cross-site-request-forgery token
-    if (xhrOptions.headers['X-XSRF-TOKEN'] == null) {
+    if (!xhrOptions.headers['X-XSRF-TOKEN']) {
         xhrOptions.headers['X-XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN');
     }
     // Ensure that the Content-Type and Content-Length
     // headers are set if we are sending POST/form data.
     if (['POST', 'PUT', 'PATCH'].includes(xhrOptions.method)) {
         if (typeof xhrOptions.body !== 'string') {
-            // TODO: Support other Content-Types (if we use them… XML?)
             xhrOptions.body = JSON.stringify(xhrOptions.body);
         }
-        if (xhrOptions.headers['Content-Type'] == null) {
+        if (!xhrOptions.headers['Content-Type']) {
             xhrOptions.headers['Content-Type'] = 'application/json';
         }
+        // const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body))
+        // requestHeaders.set('Content-Length', contentLength.toString())
         if (xhrOptions.headers['Content-Length'] == null) {
             const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body));
             xhrOptions.headers['Content-Length'] = contentLength;
@@ -38,6 +42,7 @@ function _configureRequestOptions(xhrOptions) {
  * parses the result depending on the responseType.
  */
 async function _parseResponseBody(rawResponse, xhrOptions) {
+    // Cast to XhrResponse since Response doesn't have .method property
     const response = rawResponse.clone();
     response.method = xhrOptions.method;
     // Default to assuming the response body of an XHR is JSON.
