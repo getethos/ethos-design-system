@@ -24,5 +24,5 @@ export default interface XhrResponse extends Response {
    * logger (XhrLog) can output the method as well.
    * @type {HttpMethodType}
    */
-  method?: HttpMethodType
+  method: HttpMethodType
 }

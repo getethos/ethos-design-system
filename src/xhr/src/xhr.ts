@@ -117,4 +117,5 @@ function defineHttpMethod(xhrFunction, method: HttpMethodType) {
 }
 
 export default defineXhrProperties(xhr)
+
 export const xhrFactory = xhr.factory

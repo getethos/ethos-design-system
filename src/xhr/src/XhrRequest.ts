@@ -23,8 +23,7 @@ if (typeof window === 'undefined') {
    * @see https://caniuse.com/#feat=mdn-api_request (no IE?)
    */
   xhrRequestClass = class XhrRequest extends Request {
-    // export default class XhrRequest extends IsomorphicRequest {
-    public timestamp: number
+    public timestamp!: number
 
     public setTimestamp() {
       this.timestamp = Date.now()

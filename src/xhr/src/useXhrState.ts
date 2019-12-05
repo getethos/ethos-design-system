@@ -23,12 +23,13 @@ export function useXhrState({
   /**
    * Handles any XHR errors thrown from our xhr/fetch chain.
    */
-  const handleXhrError = (e) => {
+  const handleXhrError = (e: any) => {
     const xhrError: XhrError = e
+
     setXhrState({
       status: 'error',
       error: xhrError,
-      successMessage: null,
+      successMessage: undefined,
     })
   }
 
@@ -39,8 +40,8 @@ export function useXhrState({
   const handleXhrSuccess = (successMessageArg: string) => {
     setXhrState({
       status: 'success',
-      error: null,
-      successMessage: successMessageArg,
+      error: undefined,
+      successMessage: undefined,
     })
   }
 
@@ -49,9 +50,9 @@ export function useXhrState({
    */
   const resetStatus = () => {
     setXhrState({
-      status: null,
-      error: null,
-      successMessage: null,
+      status: undefined,
+      error: undefined,
+      successMessage: undefined,
     })
   }
 

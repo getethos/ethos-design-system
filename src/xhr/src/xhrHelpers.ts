@@ -12,34 +12,37 @@ export const parseResponseBody = _parseResponseBody
  * that will be passed into the Request class constructor.
  */
 function _configureRequestOptions(xhrOptions: XhrOptions): XhrOptions {
-  // Ensure headers object is present
-  if (xhrOptions.headers == null) xhrOptions.headers = {}
+  let requestHeaders: HeadersInit = new Headers()
 
   // Default to using cookies
   xhrOptions.credentials = xhrOptions.credentials || 'include'
 
   // Include our anti-cross-site-request-forgery token
-  if (xhrOptions.headers['X-XSRF-TOKEN'] == null) {
-    xhrOptions.headers['X-XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN')
-  }
+  const xsrf =
+    xhrOptions.headers['X-XSRF-TOKEN'] != null
+      ? xhrOptions.headers['X-XSRF-TOKEN']
+      : Cookies.get('XSRF-TOKEN')
+
+  requestHeaders.set('X-XSRF-TOKEN', xsrf)
 
   // Ensure that the Content-Type and Content-Length
   // headers are set if we are sending POST/form data.
   if (['POST', 'PUT', 'PATCH'].includes(xhrOptions.method)) {
     if (typeof xhrOptions.body !== 'string') {
-      // TODO: Support other Content-Types (if we use them… XML?)
       xhrOptions.body = JSON.stringify(xhrOptions.body)
     }
 
-    if (xhrOptions.headers['Content-Type'] == null) {
-      xhrOptions.headers['Content-Type'] = 'application/json'
-    }
+    const contentType =
+      xhrOptions.headers['Content-Type'] != null
+        ? xhrOptions.headers['Content-Type']
+        : 'application/json'
 
-    if (xhrOptions.headers['Content-Length'] == null) {
-      const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body))
-      xhrOptions.headers['Content-Length'] = contentLength
-    }
+    requestHeaders.set('Content-Type', contentType)
+
+    const contentLength = Buffer.byteLength(JSON.stringify(xhrOptions.body))
+    requestHeaders.set('Content-Length', contentLength.toString())
   }
+  xhrOptions.headers = requestHeaders
 
   return xhrOptions
 }
@@ -52,7 +55,7 @@ async function _parseResponseBody(
   rawResponse: Response,
   xhrOptions: XhrOptions
 ): Promise<XhrResponse> {
-  const response: XhrResponse = rawResponse.clone()
+  const response: XhrResponse = <XhrResponse>rawResponse.clone()
 
   response.method = xhrOptions.method
 

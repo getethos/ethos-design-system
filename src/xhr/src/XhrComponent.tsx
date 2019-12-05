@@ -1,18 +1,19 @@
 import React from 'react'
+// @ts-ignore
 import { InfoMessage } from '../../components/index'
 import XhrError from './XhrError'
 import styles from './XhrComponent.module.css'
 
 interface XhrState {
-  error: XhrError
-  successMessage: string
+  error?: XhrError
+  successMessage?: string
   displayErrorDetails?: boolean
 }
 
 export function XhrComponent({
-  error = null,
-  successMessage = null,
-  displayErrorDetails = null,
+  error = undefined,
+  successMessage = undefined,
+  displayErrorDetails = undefined,
 }: XhrState) {
   /**
    * Print out error details if available.
@@ -39,7 +40,7 @@ export function XhrComponent({
     }
   }
 
-  if (error !== null) {
+  if (error != null) {
     return (
       <>
         <InfoMessage.Alert.Error>
