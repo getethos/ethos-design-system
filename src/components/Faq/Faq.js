@@ -42,6 +42,7 @@ Faq.propTypes = {
       content: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     })
   ),
+  /** Set to false for all questions to start collapsed. */
   open: PropTypes.bool,
 }
 
