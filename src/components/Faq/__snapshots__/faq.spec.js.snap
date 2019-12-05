@@ -70,15 +70,11 @@ exports[`Faq rendering component default questions 1`] = `
             className="carrot"
           >
             <svg
-              fill="none"
-              viewBox="0 0 19 18"
+              className="carrotSvg"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M0.999999 8.375L9.375 16.75L17.75 8.375"
-                stroke="black"
-                strokeOpacity="0.85"
-                strokeWidth="1.5"
+              <use
+                xlinkHref="#undefined"
               />
             </svg>
           </div>
@@ -117,15 +113,11 @@ exports[`Faq rendering component default questions 1`] = `
             className="carrot"
           >
             <svg
-              fill="none"
-              viewBox="0 0 19 18"
+              className="carrotSvg"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M0.999999 8.375L9.375 16.75L17.75 8.375"
-                stroke="black"
-                strokeOpacity="0.85"
-                strokeWidth="1.5"
+              <use
+                xlinkHref="#undefined"
               />
             </svg>
           </div>
@@ -157,15 +149,11 @@ exports[`Faq rendering component default questions 1`] = `
             className="carrot"
           >
             <svg
-              fill="none"
-              viewBox="0 0 19 18"
+              className="carrotSvg"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                d="M0.999999 8.375L9.375 16.75L17.75 8.375"
-                stroke="black"
-                strokeOpacity="0.85"
-                strokeWidth="1.5"
+              <use
+                xlinkHref="#undefined"
               />
             </svg>
           </div>
