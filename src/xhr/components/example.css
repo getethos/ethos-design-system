@@ -1,0 +1,86 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+}
+
+.layout {
+  width: 60%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 48px 0;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+}
+
+.post {
+  margin-bottom: 48px;
+}
+
+.post .title-wrap {
+  position: relative;
+}
+
+.post .title {
+  display: inline-block;
+}
+
+.post .btn-blank {
+  display: none;
+  color: #da7f1c;
+  font-size: 32px;
+  position: absolute;
+  right: 20px;
+  top: 0;
+}
+
+.post:hover .delete {
+  opacity: 0.6;
+  display: inline-block;
+}
+.post .delete:hover {
+  opacity: 1;
+}
+
+.btn-blank {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.btn-blank:hover {
+  cursor: pointer;
+}
+
+/* Silly Gatsby <Link /> ignores className :( */
+.layout > a {
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+.card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  padding: 32px;
+  margin-bottom: 48px;
+}
+
+.card-container ul {
+  margin-top: 32px;
+}

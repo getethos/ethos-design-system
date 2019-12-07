@@ -1,0 +1,25 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "curly": false,
+    "prettier": [true, ".prettierrc"],
+    "jsx-curly-spacing": true,
+    "jsx-no-multiline-js": false,
+    "jsx-self-close": true,
+    "jsx-space-before-trailing-slash": true,
+    "interface-name": false,
+    "no-relative-imports": false,
+    "no-submodule-imports": [true, "ethos-design-system"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "any",
+        "named-imports-order": "case-insensitive"
+      }
+    ]
+  },
+  "rulesDirectory": ["tslint-plugin-prettier"]
+}

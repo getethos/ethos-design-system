@@ -4,12 +4,6 @@ import { Spacer } from '../components'
 import { INIT_INVALID } from '../helpers/constants.js'
 
 const useErrorMessage = (validator) => {
-  // TODO: remove and require validator to be passed if useErrorMessage used
-  if (!validator) {
-    console.warn(
-      'useErrorMessage called without a validator—soon this will cause an error'
-    )
-  }
   const noopValidator = () => ''
   const resolvedValidator = validator ? validator : noopValidator
 

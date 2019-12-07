@@ -1,4 +1,6 @@
 const path = require('path')
+const fs = require('fs')
+const glob = require('glob')
 const isCi = process.env.NODE_ENV === 'ci'
 
 requirePaths = [
@@ -21,6 +23,28 @@ module.exports = {
   getExampleFilename(componentPath) {
     return componentPath.replace(/\.js$/, '.md')
   },
+
+  // This callback allows us to display the source code of a file within markdown:
+  // ```js { "file": "../mySourceCode.js" }
+  // Reference:
+  // https://react-styleguidist.js.org/docs/cookbook.html#how-to-display-the-source-code-of-any-file
+  updateExample(props, exampleFilePath) {
+    const { settings, lang } = props
+    if (typeof settings.file === 'string') {
+      const filepath = path.resolve(
+        path.dirname(exampleFilePath), // just path -- removes the filename itself
+        settings.file
+      )
+      settings.static = true
+      delete settings.file
+      return {
+        content: fs.readFileSync(filepath, 'utf8'),
+        settings,
+        lang,
+      }
+    }
+    return props
+  },
   pagePerSection: true,
   require: requirePaths,
   sections: [
@@ -30,18 +54,20 @@ module.exports = {
     },
     {
       name: 'Components',
+      content: './src/components/content.md',
       components: './src/components/**/*.js',
       sectionDepth: 2,
-    },
-    {
-      name: 'Xhr',
-      content: './src/xhr/content.md',
-      components: './src/xhr/components/**/*.js',
     },
     {
       name: 'Nora',
       content: './src/nora/content.md',
       components: './src/nora/components/**/*.js',
+    },
+    {
+      name: 'Xhr',
+      content: './src/xhr/content.md',
+      components: './src/xhr/components/**/*.js',
+      sectionDepth: 2,
     },
   ],
   serverPort: 9008,
