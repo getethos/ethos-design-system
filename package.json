@@ -76,7 +76,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-responsive": "^8.0.0",
-    "react-styleguidist": "^9.1.16",
+    "react-styleguidist": "^10.2.1",
     "react-test-renderer": "^16.9.0",
     "sass-loader": "^8.0.0",
     "start-server-and-test": "^1.10.5",
