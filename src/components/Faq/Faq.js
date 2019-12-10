@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { TitleLarge, TitleMedium, Body } from '../index'
 
-import symbol from '../../svgs/expand-details.svg'
 import styles from './Faq.module.scss'
 
 export const Faq = ({ questions, open }) => {
@@ -48,12 +47,13 @@ Faq.propTypes = {
 
 const Details = ({ children, summary, open }) => {
   const carrotSvg = (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox={symbol.viewBox}
-      className={styles.carrotSvg}
-    >
-      <use xlinkHref={`#${symbol.id}`} />
+    <svg viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M0.999999 8.375L9.375 16.75L17.75 8.375"
+        stroke="black"
+        strokeOpacity="0.85"
+        strokeWidth="1.5"
+      />
     </svg>
   )
 
