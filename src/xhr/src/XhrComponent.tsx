@@ -1,19 +1,14 @@
 import React from 'react'
 import { InfoMessage } from '../../components/index'
 import XhrError from './XhrError'
+import XhrState from './XhrState'
 import styles from './XhrComponent.module.css'
-
-interface XhrState {
-  error: XhrError
-  successMessage: string
-  displayErrorDetails?: boolean
-}
 
 export function XhrComponent({
   error = null,
   successMessage = null,
   displayErrorDetails = null,
-}: XhrState) {
+}: XhrState): React.ReactNode {
   /**
    * Print out error details if available.
    * User feedback is key!
