@@ -6,7 +6,7 @@ export function useXhrState({
   status,
   error,
   successMessage,
-}: XhrComponentState) {
+}: XhrComponentState): Array<(input: any) => void> {
   const [xhrState, setXhrState] = useState({
     status,
     error,
@@ -23,7 +23,7 @@ export function useXhrState({
   /**
    * Handles any XHR errors thrown from our xhr/fetch chain.
    */
-  const handleXhrError = (e) => {
+  const handleXhrError = (e): void => {
     const xhrError: XhrError = e
     setXhrState({
       status: 'error',
@@ -36,7 +36,7 @@ export function useXhrState({
    * Handles XHR success for generic success notifications
    * via InfoMessage.Alert.Success
    */
-  const handleXhrSuccess = (successMessageArg: string) => {
+  const handleXhrSuccess = (successMessageArg: string): void => {
     setXhrState({
       status: 'success',
       error: null,
@@ -47,7 +47,7 @@ export function useXhrState({
   /**
    * Clears any status messages or errors from previous XHRs.
    */
-  const resetStatus = () => {
+  const resetStatus = (): void => {
     setXhrState({
       status: null,
       error: null,
