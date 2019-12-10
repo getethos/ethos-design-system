@@ -70,5 +70,6 @@ module.exports = {
       sectionDepth: 2,
     },
   ],
+  assetsDir: ['src/assets'],
   serverPort: 9008,
 }
