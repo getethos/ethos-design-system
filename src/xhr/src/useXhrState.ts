@@ -6,7 +6,7 @@ export function useXhrState({
   status,
   error,
   successMessage,
-}: XhrComponentState) {
+}: XhrComponentState): array {
   const [xhrState, setXhrState] = useState({
     status,
     error,
