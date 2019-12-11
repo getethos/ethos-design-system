@@ -90,6 +90,15 @@ $ git push origin v1.2.3            # push tag v1.2.3
 $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
 ```
 
+_Please also read the next section on how tags are cached on the Jenkins server (TL;DR -- never force push over an existing tag)_
+
+### Tag Caching
+
+We have been using `yarn version` and git tags to cut [EDS releases](https://github.com/getethos/ethos-design-system/releases). The example above with the `#v1.2.3` is an example of a release that might have a corresponding tag and release. One thing we need to be careful about, is that
+the server where Jenkins lives will cache these and attempt to reuse them if it can find a corresponding release. Which leads to a nuanced rule we need to all heed:
+
+**Never force push a git tag to update an EDS version/release. Cut a new version instead.**
+
 ## Design patterns
 
 #### JS concepts
