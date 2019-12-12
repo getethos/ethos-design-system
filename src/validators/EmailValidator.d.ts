@@ -1,2 +1,2 @@
 import EmailFormatValidator from './EmailFormatValidator.js'
-export default EmailFormatValidator(email: string): string
+export function EmailFormatValidator(email: string): string
