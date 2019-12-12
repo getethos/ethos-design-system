@@ -1,14 +1,18 @@
 // export { Logo } from './Logo'
 import { Button } from './Button'
 
-interface IButton = {
-  Small: any,
-  Medium: any,
-  Unstyled: any,
-  WhiteCTA: any
+interface KeyValMap {
+  [key: string]: any
 }
 
-export function Button(props: any): IButton
+interface IButton = {
+  Small?: KeyValMap,
+  Medium?: KeyValMap,
+  Unstyled?: KeyValMap,
+  WhiteCTA?: KeyValMap
+}
+
+export function Button(props: IButton): any
 
 
 // export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
