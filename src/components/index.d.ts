@@ -1,6 +1,6 @@
 // export { Logo } from './Logo'
 import { Button } from './Button'
-export function Button(props: any): JSX.Element
+export function Button(props: any): any
 
 // export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
 // export { COLORS } from './Colors'
