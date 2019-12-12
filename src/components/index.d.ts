@@ -1,19 +1,29 @@
 // export { Logo } from './Logo'
 import { Button } from './Button'
 
-interface KeyValMap {
-  [key: string]: any
+// interface KeyValMap {
+//   [key: string]: any
+// }
+
+// interface IButton = {
+//   Small?: KeyValMap,
+//   Medium?: KeyValMap,
+//   Unstyled?: KeyValMap,
+//   WhiteCTA?: KeyValMap
+// }
+
+export const Button = {
+  Medium?: {
+    Black?: Function
+    BlackOutline: Function,
+  },
+  Small?: {
+    Black?: Function,
+    BlackOutline: Function,
+  },
+  Unstyled?: Function,
+  WhiteCTA?: Function
 }
-
-interface IButton = {
-  Small?: KeyValMap,
-  Medium?: KeyValMap,
-  Unstyled?: KeyValMap,
-  WhiteCTA?: KeyValMap
-}
-
-export function Button(props: IButton): any
-
 
 // export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
 // export { COLORS } from './Colors'
