@@ -42,7 +42,7 @@ export declare function Form({
   children: any
   config: any
 }): {
-  onSubmit: (ev: any) => Promise<void>
+  children: (formEngineApiMethods: any) => JSX.Element
 }
 export declare namespace Form {
   var propTypes: {
