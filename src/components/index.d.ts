@@ -34,7 +34,23 @@ export declare const Button: {
 // export { InfoMessage } from './InfoMessage'
 // export { ZipInput } from './ZipInput'
 // export { CheckboxInput } from './CheckboxInput'
-// export { Form } from './Form'
+
+export declare function Form({
+  children,
+  config,
+}: {
+  children: any
+  config: any
+}): {
+  onSubmit: (ev: any) => Promise<void>
+}
+export declare namespace Form {
+  var propTypes: {
+    children: any
+    config: any
+  }
+}
+
 // export {
 //   BirthdateInput,
 //   BirthdateInputValidators,
