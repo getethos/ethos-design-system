@@ -1,2 +1,4 @@
-import EmailFormatValidator from './EmailFormatValidator.js'
-export function EmailFormatValidator(email: string): string
+declare const EmailFormatValidator: (
+  email: any
+) => '' | 'Please enter a valid email.'
+export default EmailFormatValidator

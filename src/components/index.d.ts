@@ -1,28 +1,21 @@
 // export { Logo } from './Logo'
 import { Button } from './Button'
 
-// interface KeyValMap {
-//   [key: string]: any
-// }
-
-// interface IButton = {
-//   Small?: KeyValMap,
-//   Medium?: KeyValMap,
-//   Unstyled?: KeyValMap,
-//   WhiteCTA?: KeyValMap
-// }
-
-export const Button = {
-  Medium?: {
-    Black?: Function
-    BlackOutline: Function,
-  },
-  Small?: {
-    Black?: Function,
-    BlackOutline: Function,
-  },
-  Unstyled?: Function,
-  WhiteCTA?: Function
+export declare const Button: {
+  Medium: {
+    Black: (downstreamProps: any) => any
+    BlackOutline: (downstreamProps: any) => any
+    WhiteOutline: (downstreamProps: any) => any
+    Stateful: {
+      Default: (downstreamProps: any) => any
+      White: (downstreamProps: any) => any
+    }
+  }
+  Small: {
+    BlackOutline: (downstreamProps: any) => any
+  }
+  Unstyled: (downstreamProps: any) => any
+  WhiteCTA: (downstreamProps: any) => any
 }
 
 // export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
