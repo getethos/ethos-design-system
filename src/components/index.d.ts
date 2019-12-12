@@ -39,14 +39,14 @@ export declare function Form({
   children,
   config,
 }: {
-  children: (formEngineApiMethods: any) => React.ReactNode
+  children: (formEngineApiMethods: any) => ReactElement<any> | null
   config: any
 }): {
-  children: (formEngineApiMethods: any) => React.ReactNode
+  children: (formEngineApiMethods: any) => ReactElement<any> | null
 }
 export declare namespace Form {
   var propTypes: {
-    children: (formEngineApiMethods: any) => React.ReactNode
+    children: (formEngineApiMethods: any) => ReactElement<any> | null
     config: any
   }
 }
