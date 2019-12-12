@@ -1,6 +1,15 @@
 // export { Logo } from './Logo'
 import { Button } from './Button'
-export function Button(props: any): any
+
+interface IButton = {
+  Small: any,
+  Medium: any,
+  Unstyled: any,
+  WhiteCTA: any
+}
+
+export function Button(props: any): IButton
+
 
 // export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
 // export { COLORS } from './Colors'
