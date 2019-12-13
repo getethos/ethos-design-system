@@ -34,8 +34,54 @@ export declare const Button: {
   WhiteCTA: (downstreamProps: any) => any
 }
 
-// export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
-// export { COLORS } from './Colors'
+export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
+export declare const CloudinaryImage: {
+  ({
+    publicId,
+    className,
+    alt,
+    width,
+    height,
+    crop,
+    ...rest
+  }: {
+    [x: string]: any
+    publicId: any
+    className: any
+    alt: any
+    width: any
+    height: any
+    crop: any
+  }): JSX.Element
+  CROP_METHODS: {
+    FILL: string
+    FIT: string
+    CROP: string
+  }
+  PUBLIC_PROPS: {
+    height: any
+    width: any
+    className: any
+    alt: any
+    publicId: any
+    crop: any
+  }
+  defaultProps: {
+    crop: string
+    alt: string
+  }
+  propTypes: {
+    height: any
+    width: any
+    className: any
+    alt: any
+    publicId: any
+    crop: any
+  }
+}
+export declare const filePath: (publicId: any) => any
+
+export { COLORS } from './Colors'
 // export { Layout } from './Layout'
 // export { Media } from './Media'
 // export { Select } from './Select'
