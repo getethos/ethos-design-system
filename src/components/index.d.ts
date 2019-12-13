@@ -84,7 +84,36 @@ export declare const filePath: (publicId: any) => any
 export { COLORS } from './Colors'
 // export { Layout } from './Layout'
 // export { Media } from './Media'
-// export { Select } from './Select'
+
+export declare const Select: {
+  ({
+    className,
+    title,
+    isAsync,
+    isCreatable,
+    ...rest
+  }: {
+    [x: string]: any
+    className: any
+    title: any
+    isAsync: any
+    isCreatable: any
+  }): JSX.Element
+  propTypes: {
+    classNamePrefix: any
+    loadOptions: any
+    onChange: any
+    isAsync: any
+    title: any
+    className: any
+    isCreatable: any
+  }
+  defaultProps: {
+    classNamePrefix: string
+    className: any
+    placeholder: string
+  }
+}
 
 export declare const Spacer: {
   H80: (downstreamProps: any) => JSX.Element
@@ -111,9 +140,29 @@ export declare const Spacer: {
   W4: (downstreamProps: any) => JSX.Element
 }
 
-// export { ValueProps } from './ValueProps'
+export declare function ValueProps({ sections }: { sections: any }): JSX.Element
+export declare namespace ValueProps {
+  var propTypes: {
+    sections: any
+  }
+  var defaultProps: {
+    sections: (
+      | {
+          iconUrl: string
+          header: string
+          subHeader: string
+          alt: string
+        }
+      | {
+          iconUrl: string
+          header: string
+          subHeader: string
+          alt?: undefined
+        })[]
+  }
+}
+export default ValueProps
 
-/// <reference types="react" />
 export declare const focusHelper: {
   focus: (elementRef: any) => void
 }
@@ -421,11 +470,11 @@ export declare const OptionButton: {
 
 // export { NumberInput } from './NumberInput/NumberInput'
 
-export { Caption } from './Type/Caption.js'
-export { Footnote } from './Type/Footnote.js'
+export { Caption } from './Caption.js'
+export { Footnote } from './Footnote.js'
 export { Body } from './Body.js'
 export { Link } from './Link.js'
-export { TitleSmall } from './Types/TitleSmall.js'
+export { TitleSmall } from './Type/TitleSmall.js'
 export { TitleMedium } from './Type/TitleMedium.js'
 export { TitleLarge } from './Type/TitleLarge.js'
 export { TitleXLarge } from './Type/TitleXLarge.js'
