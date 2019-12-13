@@ -39,7 +39,32 @@ export declare const Button: {
 // export { Layout } from './Layout'
 // export { Media } from './Media'
 // export { Select } from './Select'
-// export { Spacer } from './Spacer'
+
+export declare const Spacer: {
+  H80: (downstreamProps: any) => JSX.Element
+  H72: (downstreamProps: any) => JSX.Element
+  H64: (downstreamProps: any) => JSX.Element
+  H56: (downstreamProps: any) => JSX.Element
+  H48: (downstreamProps: any) => JSX.Element
+  H40: (downstreamProps: any) => JSX.Element
+  H32: (downstreamProps: any) => JSX.Element
+  H24: (downstreamProps: any) => JSX.Element
+  H16: (downstreamProps: any) => JSX.Element
+  H8: (downstreamProps: any) => JSX.Element
+  H4: (downstreamProps: any) => JSX.Element
+  W80: (downstreamProps: any) => JSX.Element
+  W72: (downstreamProps: any) => JSX.Element
+  W64: (downstreamProps: any) => JSX.Element
+  W56: (downstreamProps: any) => JSX.Element
+  W48: (downstreamProps: any) => JSX.Element
+  W40: (downstreamProps: any) => JSX.Element
+  W32: (downstreamProps: any) => JSX.Element
+  W24: (downstreamProps: any) => JSX.Element
+  W16: (downstreamProps: any) => JSX.Element
+  W8: (downstreamProps: any) => JSX.Element
+  W4: (downstreamProps: any) => JSX.Element
+}
+
 // export { ValueProps } from './ValueProps'
 // export { RadioButtonGroup } from './RadioButtons'
 // export { TextInput } from './TextInput'
