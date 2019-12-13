@@ -13,8 +13,12 @@ export declare const dateStringMatchesFormat: (
   cleansedDateString: string,
   dateFormat: string
 ) => '' | 'Please enter a valid date.'
-export declare const getMaxDateValidator: (props: any) => (value: any) => any
-export declare const getMinDateValidator: (props: any) => (value: any) => any
+export declare const getMaxDateValidator: (
+  props: any
+) => (value: string | null | undefined) => string
+export declare const getMinDateValidator: (
+  props: any
+) => (value: string | null | undefined) => string
 export declare const validateMinMaxDateFactory: (
   props: any
 ) => (value: any) => any
