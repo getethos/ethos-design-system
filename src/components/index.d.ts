@@ -112,7 +112,77 @@ export declare const Spacer: {
 }
 
 // export { ValueProps } from './ValueProps'
-// export { RadioButtonGroup } from './RadioButtons'
+
+/// <reference types="react" />
+export declare const focusHelper: {
+  focus: (elementRef: any) => void
+}
+export declare function RadioButtonGroup({
+  options,
+  onChange,
+  formChangeHandler,
+  allCaps,
+  name,
+  initialValue,
+  currentValue,
+  currentError,
+  formTouched,
+  disabled,
+  validator,
+  required,
+  labelCopy,
+  ...rest
+}: {
+  [x: string]: any
+  options: any
+  onChange: any
+  formChangeHandler: any
+  allCaps?: boolean
+  name?: string
+  initialValue?: any
+  currentValue: any
+  currentError: any
+  formTouched: any
+  disabled: any
+  validator: any
+  required: any
+  labelCopy: any
+}): JSX.Element
+export declare namespace RadioButtonGroup {
+  var PUBLIC_PROPS: {
+    name: any
+    labelCopy: any
+    allCaps: any
+    options: any
+    initialValue: any
+    formTouched: any
+    currentValue: any
+    currentError: any
+    formChangeHandler: any
+    onChange: any
+    'data-tid': any
+    validator: any
+    disabled: any
+    required: any
+  }
+  var propTypes: {
+    name: any
+    labelCopy: any
+    allCaps: any
+    options: any
+    initialValue: any
+    formTouched: any
+    currentValue: any
+    currentError: any
+    formChangeHandler: any
+    onChange: any
+    'data-tid': any
+    validator: any
+    disabled: any
+    required: any
+  }
+}
+
 export declare const TextInput: (downstreamProps: any) => JSX.Element
 
 // export { PasswordInput } from './PasswordInput'
