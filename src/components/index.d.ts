@@ -153,7 +153,97 @@ export declare const BirthdateInput: (downstreamProps: any) => JSX.Element
 export declare const BirthdateInputValidators: typeof Validators
 
 // export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
-// export { ButtonSelectGroup } from './ButtonSelectGroup/ButtonSelectGroup'
+
+/**
+ * Component renders a group of button that behaves similarly to a radio group
+ *
+ * @public
+ *
+ * @param {object} props - Component Props
+ * @prop {string} props.name - Name of field. default value is a uuid
+ * @prop {string} props.labelCopy - Set's the caption of the group's label
+ * @prop {string} [props.initialValue] - Optionally sets a default value for the group. If set, the matching option will be set as `isSelected`
+ * @prop {string} [props.buttonStyle] - Optional value that sets the background color of all the buttons in the group (unselected state)
+ * @prop {function} [props.onSelect] - Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered`
+ * @prop {function} [props.formChangeHandler] - Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`.
+ *
+ * @example ```
+ * <ButtonSelectGroup
+ *  initialValue="excellent"
+ *  labelCopy="Health"
+ *  onSelect={({ value }) => console.log(value)}
+ * >
+ *   <ButtonSelectGroup.Option value="average">Average</ButtonSelectGroup.Option>
+ *   <ButtonSelectGroup.Option value="great">Greate</ButtonSelectGroup.Option>
+ * </ButtonSelectGroup>
+ * ```
+ *
+ * @return {JSX.Element}
+ */
+export declare const ButtonSelectGroup: {
+  ({
+    labelCopy,
+    children,
+    initialValue,
+    currentValue,
+    currentError,
+    formTouched,
+    onSelect,
+    column,
+    formChangeHandler,
+    name,
+    allCaps,
+    buttonStyle,
+    validator,
+    fullWidth,
+    ...rest
+  }: {
+    [x: string]: any
+    labelCopy: any
+    children: any
+    initialValue?: any
+    currentValue: any
+    currentError: any
+    formTouched: any
+    onSelect: any
+    column: any
+    formChangeHandler: any
+    name?: string
+    allCaps?: boolean
+    buttonStyle?: string
+    validator: any
+    fullWidth?: boolean
+  }): JSX.Element
+  propTypes: {
+    formTouched: any
+    currentValue: any
+    currentError: any
+    children: any
+    /** Set's the caption of the group's label */
+    labelCopy: any
+    /** Name of the field, provided a uuid if not supplied. */
+    name: any
+    /** When set to `true`, the group's label will be displayed uppercase */
+    allCaps: any
+    /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
+    initialValue: any
+    /** Optional value that sets the background color of all the buttons in the group (unselected state) */
+    buttonStyle: any
+    /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
+    formChangeHandler: any
+    /** Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`. */
+    onSelect: any
+    /** When set to `true`, the group will display as flex column */
+    column: any
+    /** Optional data-tid used as a unique id for targeting test selectors */
+    'data-tid': any
+    validator: any
+    /** Optional, makes the group width 100%. Defaults to true */
+    fullWidth: any
+  }
+  Option: any
+}
+
 // export { NumberInput } from './NumberInput/NumberInput'
 // export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 
