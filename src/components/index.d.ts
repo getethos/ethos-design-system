@@ -1,4 +1,20 @@
-// export { Logo } from './Logo'
+/// <reference types="react" />
+declare function LogoInline(props: any): JSX.Element
+declare namespace LogoInline {
+  var propTypes: {
+    style: any
+  }
+  var defaultProps: {
+    style: {
+      display: string
+      height: number
+    }
+  }
+}
+export declare const Logo: {
+  Inline: typeof LogoInline
+}
+
 import { Button } from './Button'
 
 export declare const Button: {
