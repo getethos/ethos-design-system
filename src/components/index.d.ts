@@ -611,6 +611,19 @@ export declare const NumberInput: {
   }
 }
 
+export declare const Faq: {
+  ({ questions, open }: { questions: any; open: any }): boolean
+  defaultProps: {
+    questions: any[]
+    open: boolean
+  }
+  propTypes: {
+    questions: any
+    /** Set to false for all questions to start collapsed. */
+    open: any
+  }
+}
+
 export { Caption } from './Caption.js'
 export { Footnote } from './Footnote.js'
 export { Body } from './Body.js'
