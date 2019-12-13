@@ -234,9 +234,29 @@ export declare namespace RadioButtonGroup {
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
 
-// export { PasswordInput } from './PasswordInput'
-// export { TextAreaInput } from './TextAreaInput'
-// export { EmailInput } from './EmailInput'
+export declare const PasswordInput: (props: any) => JSX.Element
+
+export declare const TextAreaInput: (downstreamProps: any) => JSX.Element
+
+export declare const EmailInput: {
+  (props: any): JSX.Element
+  propTypes: {
+    optional: any
+    'data-tid': any
+    placeholder: any
+    disabled: any
+    allCaps: any
+    name: any
+    labelCopy: any
+    validator: any
+    initialValue: any
+  }
+  defaultProps: {
+    labelCopy: string
+    placeholder: string
+  }
+}
+
 // export { TextMaskedInput } from './TextMaskedInput'
 
 export declare const InfoMessage: {
