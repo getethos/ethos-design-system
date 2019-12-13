@@ -35,18 +35,17 @@ export declare const Button: {
 // export { ZipInput } from './ZipInput'
 // export { CheckboxInput } from './CheckboxInput'
 
+/// <reference types="react" />
 export declare function Form({
   children,
   config,
 }: {
-  children?: any
+  children: any
   config: any
-}): {
-  children?: any
-}
+}): JSX.Element
 export declare namespace Form {
   var propTypes: {
-    children?: any
+    children: any
     config: any
   }
 }
