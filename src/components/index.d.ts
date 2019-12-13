@@ -131,7 +131,28 @@ export declare const InfoMessage: {
   }
 }
 
-// export { ZipInput } from './ZipInput'
+export declare const ZipInput: {
+  (props: any): JSX.Element
+  PUBLIC_PROPS: {
+    'data-tid': any
+    disabled: any
+    allCaps: any
+    name: any
+    labelCopy: any
+    validator: any
+    initialValue: any
+  }
+  propTypes: {
+    'data-tid': any
+    disabled: any
+    allCaps: any
+    name: any
+    labelCopy: any
+    validator: any
+    initialValue: any
+  }
+}
+
 // export { CheckboxInput } from './CheckboxInput'
 
 export declare function Form({
