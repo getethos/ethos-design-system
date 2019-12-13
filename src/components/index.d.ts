@@ -113,14 +113,12 @@ export declare const Spacer: {
 
 // export { ValueProps } from './ValueProps'
 // export { RadioButtonGroup } from './RadioButtons'
-// export { TextInput } from './TextInput'
 export declare const TextInput: (downstreamProps: any) => JSX.Element
 
 // export { PasswordInput } from './PasswordInput'
 // export { TextAreaInput } from './TextAreaInput'
 // export { EmailInput } from './EmailInput'
 // export { TextMaskedInput } from './TextMaskedInput'
-// export { InfoMessage } from './InfoMessage'
 
 export declare const InfoMessage: {
   Text: {
@@ -311,8 +309,47 @@ export declare const ButtonSelectGroup: {
   Option: any
 }
 
+export declare const OPTION_BUTTON_STYLES: {
+  DEFAULT: string
+  WHITE: string
+}
+/**
+ * Component renders an option button within a `<ButtonSelectGroup />`
+ *
+ * @private
+ *
+ * @param {object} props - Component Props
+ * @param {string} props.label - the option's label
+ * @param {boolean} props.isSelected - determines if the option is currently selected
+ * @param {function} [props.onClick] - The value of the option
+ *
+ * @return {JSX.Element}
+ */
+export declare const OptionButton: {
+  ({
+    children: label,
+    isSelected,
+    onClick,
+    buttonStyle,
+  }: {
+    children: any
+    isSelected: any
+    onClick: any
+    buttonStyle: any
+  }): JSX.Element
+  propTypes: {
+    children: any
+    buttonStyle: any
+    /** Set's the caption of the button's label */
+    label: any
+    /** When set to `true`, the button will display as `selected` */
+    isSelected: any
+    /** An optional onClick handler that fires **after** an option has been selected */
+    onClick: any
+  }
+}
+
 // export { NumberInput } from './NumberInput/NumberInput'
-// export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 
 export { Caption } from './Type/Caption.js'
 export { Footnote } from './Type/Footnote.js'
