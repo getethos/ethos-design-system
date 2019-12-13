@@ -51,7 +51,6 @@ export declare const Button: {
 // export { ZipInput } from './ZipInput'
 // export { CheckboxInput } from './CheckboxInput'
 
-/// <reference types="react" />
 export declare function Form({
   children,
   config,
@@ -66,10 +65,10 @@ export declare namespace Form {
   }
 }
 
-// export {
-//   BirthdateInput,
-//   BirthdateInputValidators,
-// } from './BirthdateInput/BirthdateInput'
+import * as Validators from '../validators/BirthdateInputValidator'
+export declare const BirthdateInput: (downstreamProps: any) => JSX.Element
+export declare const BirthdateInputValidators: typeof Validators
+
 // export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 // export { ButtonSelectGroup } from './ButtonSelectGroup/ButtonSelectGroup'
 // export { NumberInput } from './NumberInput/NumberInput'
