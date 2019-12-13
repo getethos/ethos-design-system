@@ -533,7 +533,30 @@ export declare const OptionButton: {
   }
 }
 
-// export { NumberInput } from './NumberInput/NumberInput'
+export declare const integerMask: any
+export declare const NumberInput: {
+  (props: any): JSX.Element
+  propTypes: {
+    'data-tid': any
+    disabled: any
+    allCaps: any
+    currentValue: any
+    currentError: any
+    placeholder: any
+    formChangeHandler: any
+    setFieldTouched: any
+    name: any
+    labelCopy: any
+    validator: any
+    initialValue: any
+    type: any
+    mask: any
+  }
+  defaultProps: {
+    type: string
+    mask: any
+  }
+}
 
 export { Caption } from './Caption.js'
 export { Footnote } from './Footnote.js'
