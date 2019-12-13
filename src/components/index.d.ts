@@ -1,4 +1,52 @@
 /// <reference types="react" />
+
+// TODO:
+// export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
+// export { Layout } from './Layout'
+// export { Media } from './Media'
+
+export declare const CheckboxInput: {
+  ({
+    formChangeHandler,
+    validator,
+    children,
+    disabled,
+    name,
+    initialValue,
+    currentValue,
+    currentError,
+    setFieldTouched,
+    formTouched,
+    ...rest
+  }: {
+    [x: string]: any
+    formChangeHandler: any
+    validator: any
+    children: any
+    disabled: any
+    name: any
+    initialValue: any
+    currentValue: any
+    currentError: any
+    setFieldTouched: any
+    formTouched: any
+  }): JSX.Element
+  propTypes: {
+    formTouched: any
+    name: any
+    'data-tid': any
+    initialValue: any
+    currentValue: any
+    setFieldTouched: any
+    currentError: any
+    children: any
+    disabled: any
+    allCaps: any
+    validator: any
+    formChangeHandler: any
+  }
+}
+
 declare function LogoInline(props: any): JSX.Element
 declare namespace LogoInline {
   var propTypes: {
@@ -82,8 +130,6 @@ export declare const CloudinaryImage: {
 export declare const filePath: (publicId: any) => any
 
 export { COLORS } from './Colors'
-// export { Layout } from './Layout'
-// export { Media } from './Media'
 
 export declare const Select: {
   ({
@@ -381,8 +427,6 @@ export declare const ZipInput: {
   }
 }
 
-// export { CheckboxInput } from './CheckboxInput'
-
 export declare function Form({
   children,
   config,
@@ -400,8 +444,6 @@ export declare namespace Form {
 import * as Validators from '../validators/BirthdateInputValidator'
 export declare const BirthdateInput: (downstreamProps: any) => JSX.Element
 export declare const BirthdateInputValidators: typeof Validators
-
-// export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 
 /**
  * Component renders a group of button that behaves similarly to a radio group
