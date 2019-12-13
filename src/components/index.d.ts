@@ -68,6 +68,8 @@ export declare const Spacer: {
 // export { ValueProps } from './ValueProps'
 // export { RadioButtonGroup } from './RadioButtons'
 // export { TextInput } from './TextInput'
+export declare const TextInput: (downstreamProps: any) => JSX.Element
+
 // export { PasswordInput } from './PasswordInput'
 // export { TextAreaInput } from './TextAreaInput'
 // export { EmailInput } from './EmailInput'
