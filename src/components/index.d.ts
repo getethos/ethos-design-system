@@ -1,8 +1,19 @@
 /// <reference types="react" />
 
-// TODO:
-// export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
-// export { Layout } from './Layout'
+import React from 'react'
+declare class UniversalNavbar extends React.Component {
+  private props
+  state: {
+    showMobileMenu: boolean
+  }
+  toggleHamburger: () => void
+  render(): JSX.Element
+}
+export { UniversalNavbar }
+
+export { Layout } from './Layout/index.js'
+
+// TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
 // export { Media } from './Media'
 
 export declare const CheckboxInput: {
