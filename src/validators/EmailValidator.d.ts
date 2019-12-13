@@ -1,4 +1,4 @@
 declare const EmailFormatValidator: (
-  email: any
+  email: string
 ) => '' | 'Please enter a valid email.'
 export default EmailFormatValidator

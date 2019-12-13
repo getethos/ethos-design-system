@@ -1,1 +1,1 @@
-export default function validatePassword(x: any): string
+export default function validatePassword(x: string): string
