@@ -157,14 +157,12 @@ export declare const BirthdateInputValidators: typeof Validators
 // export { NumberInput } from './NumberInput/NumberInput'
 // export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 
-// export {
-//   Body,
-//   Caption,
-//   Footnote,
-//   TitleSmall,
-//   TitleMedium,
-//   TitleLarge,
-//   TitleXLarge,
-//   TitleXXLarge,
-//   Link,
-// } from './Type'
+export { Caption } from './Type/Caption.js'
+export { Footnote } from './Type/Footnote.js'
+export { Body } from './Body.js'
+export { Link } from './Link.js'
+export { TitleSmall } from './Types/TitleSmall.js'
+export { TitleMedium } from './Type/TitleMedium.js'
+export { TitleLarge } from './Type/TitleLarge.js'
+export { TitleXLarge } from './Type/TitleXLarge.js'
+export { TitleXXLarge } from './Type/TitleXXLarge.js'
