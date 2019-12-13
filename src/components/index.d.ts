@@ -73,6 +73,62 @@ export declare const Spacer: {
 // export { EmailInput } from './EmailInput'
 // export { TextMaskedInput } from './TextMaskedInput'
 // export { InfoMessage } from './InfoMessage'
+
+export declare const InfoMessage: {
+  Text: {
+    Error: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+    Warning: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+    Info: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+    Success: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+  }
+  Alert: {
+    Error: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+    Warning: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+    Info: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+    Success: {
+      ({ children }: { children: any }): JSX.Element
+      propTypes: {
+        children: any
+      }
+    }
+  }
+}
+
 // export { ZipInput } from './ZipInput'
 // export { CheckboxInput } from './CheckboxInput'
 
