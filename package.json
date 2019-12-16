@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.39",
+  "version": "1.1.40",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
@@ -26,7 +26,8 @@
     "test:coverage": "jest --collectCoverageFrom '[\"src/components/**/*.js\", \"src/hooks/**/*.js\"]' --coverage && open ./coverage/lcov-report/index.html",
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot",
-    "test:scss": "./scss-test.sh"
+    "test:scss": "./scss-test.sh",
+    "test:types": "tsc --jsx react --noEmit -p ./src/components"
   },
   "jest": {
     "verbose": true,
@@ -51,6 +52,7 @@
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.9.16",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
@@ -82,6 +84,7 @@
     "sass-loader": "^8.0.0",
     "start-server-and-test": "^1.10.5",
     "style-loader": "^1.0.0",
+    "typescript": "^3.7.3",
     "url-loader": "^2.1.0",
     "webpack": "^4.41.2"
   },

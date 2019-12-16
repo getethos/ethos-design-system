@@ -2,7 +2,6 @@
 
 import React from 'react'
 declare class UniversalNavbar extends React.Component {
-  private props
   state: {
     showMobileMenu: boolean
   }
@@ -73,8 +72,6 @@ declare namespace LogoInline {
 export declare const Logo: {
   Inline: typeof LogoInline
 }
-
-import { Button } from './Button'
 
 export declare const Button: {
   Medium: {
@@ -608,6 +605,19 @@ export declare const NumberInput: {
   defaultProps: {
     type: string
     mask: any
+  }
+}
+
+export declare const Faq: {
+  ({ questions, open }: { questions: any; open: any }): JSX.Element
+  defaultProps: {
+    questions: any[]
+    open: boolean
+  }
+  propTypes: {
+    questions: any
+    /** Set to false for all questions to start collapsed. */
+    open: any
   }
 }
 
