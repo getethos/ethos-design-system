@@ -1,0 +1,56 @@
+/* All Row (header and below) */
+.row {
+  /**
+   * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
+   * allowing us to declaratively theme our grid!
+   */
+  /* TODO -- make this Ethos specific */
+  --default-grid-border-bottom: #e9ebed;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 0px;
+  flex-grow: 1;
+  align-items: center;
+  transition: background-color 0.1s ease-in-out;
+  border-bottom: 1px solid
+    var(--ariagrid-grid-border-bottom, --default-grid-border-bottom);
+  height: 40px;
+  min-height: 40px;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+/* Header */
+.row:first-child {
+  text-align: left;
+  /* TODO -- make this Ethos specific */
+  --default-header-border-bottom: #d8dcde;
+  --default-grid-header-font-color: #2f3941;
+
+  border-bottom: 1px solid
+    var(--ariagrid-header-border-bottom, --default-header-border-bottom);
+  height: 48px;
+  vertical-align: bottom;
+  font-weight: 600;
+  color: var(
+    --ariagrid-grid-header-font-color,
+    --default-grid-header-font-color
+  );
+}
+
+/* Rows below header */
+.row:not(:first-child):hover {
+  /* TODO -- make this Ethos specific */
+  --default-row-hover-background: #deebff;
+
+  background-color: var(
+    --ariagrid-row-hover-background,
+    --default-row-hover-background
+  );
+}
+
+.row:not(:first-child):hover > div:first-child {
+  /* TODO -- make this Ethos specific */
+  --default-row-hover-left-border: #1f73b7;
+  box-shadow: inset 3px 0 0 0
+    var(--ariagrid-row-hover-left-border, --default-row-hover-left-border);
+}

@@ -1,0 +1,17 @@
+.column {
+  display: flex;
+  transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
+  padding: 10px 12px;
+  box-sizing: border-box;
+}
+
+.column > a,
+.column > a:link,
+.column > a:visited,
+.column > a:focus,
+.column > a:hover,
+.column > a:active {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}

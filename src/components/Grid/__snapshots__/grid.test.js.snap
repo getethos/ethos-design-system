@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the default state 1`] = `
+<div
+  className="container"
+  onClick={[Function]}
+  onKeyDown={[Function]}
+  role="grid"
+  tabIndex={0}
+>
+  <div
+    active={false}
+    columnIndex={-1}
+  >
+    Foo
+  </div>
+  <div
+    active={false}
+    columnIndex={-1}
+  >
+    Bar
+  </div>
+  <div
+    active={false}
+    columnIndex={-1}
+  >
+    Baz
+  </div>
+</div>
+`;
