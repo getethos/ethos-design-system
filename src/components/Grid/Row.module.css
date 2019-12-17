@@ -21,16 +21,6 @@
   box-sizing: border-box;
 }
 
-.rowSmall {
-  height: var(--Space-32);
-  min-height: var(--Space-32);
-}
-
-.rowLarge {
-  height: var(--Space-64);
-  min-height: var(--Space-64);
-}
-
 /* Header */
 .row:first-child {
   text-align: left;
@@ -66,4 +56,16 @@
   --default-row-hover-left-border: #1f73b7;
   box-shadow: inset 3px 0 0 0
     var(--ariagrid-row-hover-left-border, --default-row-hover-left-border);
+}
+
+.rowSmall {
+  composes: row;
+  height: var(--Space-32);
+  min-height: var(--Space-32);
+}
+
+.rowLarge {
+  composes: row;
+  height: var(--Space-64);
+  min-height: var(--Space-64);
 }
