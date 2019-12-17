@@ -1,3 +1,3 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-export default PropTypes.object;
+export default PropTypes.object

@@ -4,7 +4,7 @@ import React, { useEffect } from 'react'
 import RefType from './ref.js'
 import styles from './Column.module.css'
 
-const Column = React.memo((props) => {
+export const Column = React.memo((props) => {
   const inlineStyles = {
     flexBasis: props.flexBasis ? props.flexBasis : '1',
   }
@@ -43,6 +43,7 @@ const Column = React.memo((props) => {
         className={props.className}
         style={inlineStyles}
         data-label={props.name}
+        // eslint-disable-next-line
         {...!props.sortable && { ref: props.columnRef }}
         role={props.header ? 'rowheader' : 'cell'}
         tabIndex={tabIndex}
@@ -59,9 +60,11 @@ Column.displayName = 'Column'
 Column.propTypes = {
   name: PropTypes.string.isRequired,
   active: PropTypes.bool,
+  sortable: PropTypes.bool,
   columnRef: RefType.isRequired,
   children: PropTypes.func.isRequired,
   className: PropTypes.string,
+  flexBasis: PropTypes.string,
   header: PropTypes.bool,
   interactive: PropTypes.bool,
 }
@@ -72,5 +75,3 @@ Column.defaultProps = {
   header: false,
   interactive: false,
 }
-
-export default Column

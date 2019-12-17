@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa'
 import styles from './useGridSorting.module.css'
 
-const useGridSorting = (rows, columns) => {
+export const useGridSorting = (rows, columns) => {
   const [currentSort, setCurrentSort] = useState({})
 
   const SortIcon = ({ columnKey }) => {
@@ -111,5 +111,3 @@ const useGridSorting = (rows, columns) => {
     getSortIcon,
   }
 }
-
-export default useGridSorting

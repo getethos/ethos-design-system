@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './Row.module.css'
 
-const Row = React.memo((props) => {
+export const Row = React.memo((props) => {
   return (
     <div className={props.className} role="row">
       {React.Children.map(props.children, (column, index) =>
@@ -27,5 +27,3 @@ Row.defaultProps = {
   columnIndex: -1,
   className: styles.row,
 }
-
-export default Row

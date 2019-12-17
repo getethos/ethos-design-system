@@ -20,10 +20,10 @@ Place focus anywhere just above the data grid and then tab. You've put focus on 
 import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'
 import { FaHamburger } from 'react-icons/fa'
-import Grid from './Grid.js'
-import Row from './Row.js'
-import Column from './Column.js'
-import useGridSorting from './useGridSorting.js'
+import { Grid } from './Grid.js'
+import { Row } from './Row.js'
+import { Column } from './Column.js'
+import { useGridSorting } from './useGridSorting.js'
 import styles from './grid-example.css'
 
 const columns = [

@@ -26,7 +26,7 @@ import PropTypes from 'prop-types'
 
 import RefType from './ref.js'
 
-const Position = (props) => {
+export const Position = (props) => {
   const initialState = {
     positionX: -1,
     positionY: -1,
@@ -132,5 +132,3 @@ Position.defaultProps = {
 }
 
 Position.displayName = 'Position'
-
-export default Position
