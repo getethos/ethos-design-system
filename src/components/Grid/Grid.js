@@ -6,7 +6,7 @@ import RefType from './ref'
 import styles from './Grid.module.css'
 
 export const Grid = (props) => {
-  const gridRefs = props.columnRefs.concat(props.rowRefs)
+  const gridRefs = [...props.columnRefs, ...props.rowRefs]
   return (
     <Position className={props.className} refs={gridRefs} role="grid">
       {(positionX, positionY) =>
