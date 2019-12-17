@@ -5,6 +5,8 @@ This `Grid` follows the [wai-aria-practices-1.1](https://www.w3.org/TR/wai-aria-
 - Simpler API
 - Boilerplate default styles
 - Sort by column
+- Uses `columnheader` for header cells which is more idiomatic then `rowheader` which is usually used on the first column of
+a row to act as a header for just that row
 - Responsive stacking at mobile and lower with column label on left and values on the right
 
 ### Aria Support in Screen Readers
