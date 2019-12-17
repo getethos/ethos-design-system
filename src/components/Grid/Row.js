@@ -3,7 +3,6 @@ import React from 'react'
 import styles from './Row.module.css'
 
 export const Row = React.memo((props) => {
-  console.log('PROPS: ', props)
   let css
   if (props.size !== Row.SIZES.DEFAULT) {
     css = styles[`row${props.size}`]
