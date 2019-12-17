@@ -1,7 +1,7 @@
 import React from 'react'
 import TestRenderer from 'react-test-renderer'
 
-import { Row } from './Row.js'
+import { Row } from './Row'
 
 function render(props) {
   return TestRenderer.create(

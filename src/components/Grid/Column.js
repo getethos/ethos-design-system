@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 
-import RefType from './ref.js'
+import RefType from './ref'
 import styles from './Column.module.css'
 
 export const Column = React.memo((props) => {

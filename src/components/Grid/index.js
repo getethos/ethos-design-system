@@ -1,4 +1,4 @@
-export { Grid } from './Grid.js'
-export { Row } from './Row.js'
-export { Column } from './Column.js'
-export { useGridSorting } from './useGridSorting.js'
+export { Grid } from './Grid'
+export { Row } from './Row'
+export { Column } from './Column'
+export { useGridSorting } from './useGridSorting'

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import React, { Children } from 'react'
 
-import { Position } from './Position.js'
-import RefType from './ref.js'
+import { Position } from './Position'
+import RefType from './ref'
 import styles from './Grid.module.css'
 
 export const Grid = (props) => {

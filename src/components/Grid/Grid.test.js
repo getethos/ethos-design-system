@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import { Grid } from './Grid.js'
+import { Grid } from './Grid'
 
 test('renders the default state', () => {
   const grid = renderer

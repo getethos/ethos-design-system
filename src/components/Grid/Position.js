@@ -24,7 +24,7 @@ SOFTWARE.
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import RefType from './ref.js'
+import RefType from './ref'
 
 export const Position = (props) => {
   const initialState = {
