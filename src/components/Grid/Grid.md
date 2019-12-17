@@ -24,7 +24,7 @@ import { Grid } from './Grid.js'
 import { Row } from './Row.js'
 import { Column } from './Column.js'
 import { useGridSorting } from './useGridSorting.js'
-import styles from './grid-example.css'
+import styles from './grid-example.module.css'
 
 const columns = [
   {
@@ -195,7 +195,7 @@ function GridExample() {
                     <div className={styles.iconContainer}>
                       {row[col.name]}{' '}
                       {col.name === 'Type' && row[col.name] === 'Food' && (
-                        <FaHamburger className={styles.iconRowBurger} />
+                        <FaHamburger className={styles.icon} />
                       )}
                     </div>
                   )}

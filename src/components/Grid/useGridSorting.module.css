@@ -3,8 +3,7 @@
  * conventions as Bootsprap: https://examples.bootstrap-table.com/
  */
 .icon {
-  align-self: center;
-  margin-left: 3px;
+  margin-left: var(--Space-4);
 }
 
 .iconDefault {

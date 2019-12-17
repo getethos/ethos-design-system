@@ -16,13 +16,7 @@
 }
 
 .icon {
-  align-self: center;
-  margin-left: 3px;
-}
-
-.iconRowBurger {
-  composes: icon;
-  align-self: center;
+  margin-left: var(--Space-8);
 }
 
 @media (max-width: 599px) {
@@ -47,7 +41,7 @@
     top: 12px;
     left: 6px;
     width: 45%;
-    padding-right: 10px;
+    padding-right: var(--Space-16);
     font-weight: 600;
     white-space: nowrap;
   }

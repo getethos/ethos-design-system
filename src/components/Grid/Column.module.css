@@ -1,7 +1,7 @@
 .column {
   display: flex;
   transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
-  padding: 10px 12px;
+  padding: var(--Space-8) 12px;
   box-sizing: border-box;
 }
 
