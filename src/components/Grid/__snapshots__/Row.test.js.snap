@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`className 1`] = `
+<div
+  className="fooby"
+  role="row"
+>
+  <div
+    active={false}
+  >
+    Foo
+  </div>
+  <div
+    active={false}
+  >
+    Bar
+  </div>
+  <div
+    active={false}
+  >
+    Baz
+  </div>
+</div>
+`;
+
+exports[`renders the default state 1`] = `
+<div
+  className="row"
+  role="row"
+>
+  <div
+    active={false}
+  >
+    Foo
+  </div>
+  <div
+    active={false}
+  >
+    Bar
+  </div>
+  <div
+    active={false}
+  >
+    Baz
+  </div>
+</div>
+`;
