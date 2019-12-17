@@ -1,7 +1,7 @@
 import React from 'react'
 import TestRenderer from 'react-test-renderer'
 
-import Column from './column.js'
+import Column from './Column.js'
 
 function render(props) {
   const columnRef = React.createRef()

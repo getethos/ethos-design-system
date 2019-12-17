@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Children } from 'react'
 
-import Position from './position.js'
+import Position from './Position.js'
 import RefType from './ref.js'
-import styles from './grid.module.css'
+import styles from './Grid.module.css'
 
 export default function Grid(props) {
   const gridRefs = props.columnRefs.concat(props.rowRefs)

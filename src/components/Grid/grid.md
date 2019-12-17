@@ -7,7 +7,7 @@ This `Grid` follows the [wai-aria-practices-1.1](https://www.w3.org/TR/wai-aria-
 - Sort by column
 - Responsive stacking at mobile and lower with column label on left and values on the right
 
-## Aria Support in Screen Readers
+### Aria Support in Screen Readers
 
 While support from screenreaders for aria roles is not yet perfect, it's on an [upward trend](https://www.powermapper.com/tests/screen-readers/aria/) so it would seem that having a data grid that complies is a worthwhile endeavor!
 
@@ -20,9 +20,9 @@ Place focus anywhere just above the data grid and then tab. You've put focus on 
 import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'
 import { FaHamburger } from 'react-icons/fa'
-import Grid from './grid.js'
-import Row from './row.js'
-import Column from './column.js'
+import Grid from './Grid.js'
+import Row from './Row.js'
+import Column from './Column.js'
 import useGridSorting from './useGridSorting.js'
 import styles from './grid-example.css'
 

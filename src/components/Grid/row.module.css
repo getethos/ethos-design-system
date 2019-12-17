@@ -4,6 +4,7 @@
    * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
    * allowing us to declaratively theme our grid!
    */
+
   /* TODO -- make this Ethos specific */
   --default-grid-border-bottom: #e9ebed;
   display: flex;
@@ -22,6 +23,7 @@
 /* Header */
 .row:first-child {
   text-align: left;
+
   /* TODO -- make this Ethos specific */
   --default-header-border-bottom: #d8dcde;
   --default-grid-header-font-color: #2f3941;

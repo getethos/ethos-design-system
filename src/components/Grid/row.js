@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './row.module.css'
+import styles from './Row.module.css'
 
 const Row = React.memo((props) => {
   return (

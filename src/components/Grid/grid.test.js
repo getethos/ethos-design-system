@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Grid from './grid.js'
-import Cell from './column.js'
-import Row from './row.js'
+import Grid from './Grid.js'
+import Cell from './Column.js'
+import Row from './Row.js'
 
 test('renders the default state', () => {
   const grid = renderer
