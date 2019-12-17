@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index exports,   if a EDS component was recently added or removed, fix index then update snapshots 1`] = `
+Array [
+  "optionbutton",
+  "formdynamic",
+  "formprefilled",
+  "images",
+  "inputlabel",
+  "radiobuttons",
+  "type",
+  "fancyanimatedlogo",
+  "transformingburgerbutton",
+  "ethos-logo-black",
+  "ethos-logo-white",
+  "fancy-e",
+  "fancy-h",
+  "fancy-o",
+  "fancy-s",
+  "fancy-t",
+]
+`;
