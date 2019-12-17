@@ -212,7 +212,8 @@ function GridExample() {
 <GridExample />
 ```
 
-You can pass `Small` or `Large` to the `Row` component to get a compressed or enlarged grid. Here's an example of using `Small`:
+You can pass `Small` or `Large` to the `Row` component to get a compressed or enlarged grid.
+Here's an example of using `Small` and `Large` on jut the row with _Guitar Lessons_:
 
 ```jsx
 import React, { useState } from 'react'
@@ -363,7 +364,7 @@ function GridSmall() {
           })}
         </Row>
         {sortedRows.map((row, y) => (
-          <Row size="Small" key={uuidv4()} columnRefs={rowsRefs[y]}>
+          <Row size={y === 3 ? "Large" : "Small"} key={uuidv4()} columnRefs={rowsRefs[y]}>
             {columns.map((col, x) => {
               if (col.interactive) {
                 return (
