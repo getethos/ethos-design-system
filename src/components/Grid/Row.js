@@ -6,13 +6,10 @@ export const Row = React.memo((props) => {
   console.log('PROPS: ', props)
   let css
   if (props.size !== Row.SIZES.DEFAULT) {
-    const key = `row${props.size}`
-    console.log('KEY: ', key)
-    css = styles[key]
+    css = styles[`row${props.size}`]
   } else {
     css = props.className
   }
-  console.log('CSS: ', css)
 
   return (
     <div className={css} role="row">
