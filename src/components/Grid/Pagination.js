@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import styles from './Pagination.module.css'
 
 const usePagination = ({
@@ -70,7 +71,6 @@ const usePagination = ({
 
   return {
     pagingState,
-    setPagingState,
     getPaginationNumbers,
     fetchPage: fetchPageDelegate,
   }
@@ -83,12 +83,7 @@ const Pagination = ({ fetchPageCallback, renderCallback }) => {
     )
   }
 
-  const {
-    fetchPage,
-    pagingState,
-    setPagingState,
-    getPaginationNumbers,
-  } = usePagination({
+  const { fetchPage, pagingState, getPaginationNumbers } = usePagination({
     fetchPage: fetchPageCallback,
   })
 
@@ -110,5 +105,11 @@ const Pagination = ({ fetchPageCallback, renderCallback }) => {
     </>
   )
 }
+
+Pagination.propTypes = {
+  fetchPageCallback: PropTypes.func.isRequired,
+  renderCallback: PropTypes.func.isRequired,
+}
+Pagination.displayName = 'Pagination'
 
 export default Pagination

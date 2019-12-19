@@ -62,8 +62,6 @@ function LeGrid({ rows, columns }) {
     updateRowsRefs(rowsCopy)
   }
 
-  console.log('before LeGrid return...rowsRefs: ', rowsRefs, ' columnRefs: ', columnRefs, ' columns: ', columns, ' rows: ', rows)
-
   useEffect(() => {
    if (rows.length) {
      updateRowsRefs(rows);
