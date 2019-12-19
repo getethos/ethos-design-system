@@ -1,5 +1,6 @@
 const index = require('../src/components/index')
 const findAllFilesInDirectories = require('./helpers/findAllFilesInDirectories')
+const path = require('path')
 
 function verifyExports(files = nonspecJsFiles()) {
   return files
@@ -18,11 +19,7 @@ function nonspecJsFiles() {
   })
 
   const componentsFromFiles = jsFiles.map((file) =>
-    file
-      .split('/')
-      .slice(-1)[0]
-      .split('.')[0]
-      .toLowerCase()
+    path.basename(file, '.js').toLowerCase()
   )
 
   const componentsFromIndexImport = Object.entries(index).map((component) =>
