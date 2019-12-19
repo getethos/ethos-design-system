@@ -34,7 +34,9 @@ export const useGridSorting = (rows, columns) => {
     return rowsCopy.map(() => columns.map(() => React.createRef()))
   }
 
-  const [rowsRefs, setRowsRefs] = useState(mapRowsRefs(rows))
+  const initialRowRefs = mapRowsRefs(rows)
+
+  const [rowsRefs, setRowsRefs] = useState(initialRowRefs || [])
 
   const updateRowsRefs = (sortedRowsCopy) => {
     setSortedRows(sortedRowsCopy)
