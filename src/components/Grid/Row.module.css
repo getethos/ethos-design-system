@@ -27,7 +27,7 @@
 
   /* TODO -- make this Ethos specific */
   --default-header-border-bottom: #d8dcde;
-  --default-grid-header-font-color: #2f3941;
+  --default-grid-header-font-color: var(--GraySecondary--opaque);
 
   border-bottom: 1px solid
     var(--ariagrid-header-border-bottom, --default-header-border-bottom);
@@ -42,20 +42,12 @@
 
 /* Rows below header */
 .row:not(:first-child):hover {
-  /* TODO -- make this Ethos specific */
-  --default-row-hover-background: #deebff;
+  --default-row-hover-background: var(--BrandDuckegg);
 
   background-color: var(
     --ariagrid-row-hover-background,
     --default-row-hover-background
   );
-}
-
-.row:not(:first-child):hover > div:first-child {
-  /* TODO -- make this Ethos specific */
-  --default-row-hover-left-border: #1f73b7;
-  box-shadow: inset 3px 0 0 0
-    var(--ariagrid-row-hover-left-border, --default-row-hover-left-border);
 }
 
 .rowSmall {
