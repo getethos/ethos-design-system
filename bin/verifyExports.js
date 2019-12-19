@@ -18,12 +18,10 @@ function nonspecJsFiles() {
     )
   })
 
-  const componentsFromFiles = jsFiles.map((file) =>
-    path.basename(file, '.js').toLowerCase()
-  )
+  const componentsFromFiles = jsFiles.map((file) => path.basename(file, '.js'))
 
-  const componentsFromIndexImport = Object.entries(index).map((component) =>
-    component[0].toLowerCase()
+  const componentsFromIndexImport = Object.entries(index).map(
+    (component) => component[0]
   )
 
   var uniques = componentsFromFiles.filter(
