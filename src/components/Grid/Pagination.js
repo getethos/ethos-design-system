@@ -55,6 +55,7 @@ const usePagination = ({
         return (
           <button
             key={number}
+            // eslint-disable-next-line
             {...isCurrentPage && { 'aria-current': 'page' }}
             className={klasses}
             onClick={() => fetchPageDelegate(number)}
