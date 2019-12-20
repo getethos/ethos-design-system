@@ -96,7 +96,10 @@ const Pagination = ({ fetchPageCallback, renderCallback }) => {
       {renderCallback(pagingState.data)}
       <nav aria-label="pagination" className={styles.pagination}>
         <button
-          className={styles.paginationButtons}
+          className={[
+            styles.paginationButtons,
+            styles.paginationButtonsLeft,
+          ].join(' ')}
           onClick={() => fetchPage(1)}
           aria-label="Goto Page 1"
         >
@@ -104,7 +107,10 @@ const Pagination = ({ fetchPageCallback, renderCallback }) => {
         </button>
         {getPaginationNumbers()}
         <button
-          className={styles.paginationButtons}
+          className={[
+            styles.paginationButtons,
+            styles.paginationButtonsRight,
+          ].join(' ')}
           onClick={() => fetchPage(pagingState.total_pages)}
           aria-label={`Goto Page ${pagingState.total_pages}`}
         >

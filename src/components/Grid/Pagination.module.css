@@ -22,6 +22,16 @@
   border: 1px solid var(--GrayStrokeAndDisabled--opaque);
 }
 
+.paginationButtonsLeft {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.paginationButtonRight {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius-radius: 3px;
+}
+
 .active {
   background-color: var(--NoraBlue);
   color: white;
