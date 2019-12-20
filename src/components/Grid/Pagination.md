@@ -52,7 +52,7 @@ function LeGrid({ rows, columns }) {
     const key = toSnakeCase(ev.currentTarget.text)
     let rowsCopy = sortedRows
     let sortFunction
-    // See if wee have a custom sort function. If `sortFunction` is
+    // See if we have a custom sort function. If `sortFunction` is
     // `undefined`, `compareBy` will fallback to its own default sort
     const idx = columns.findIndex((c) => c.name === key)
     if (columns[idx].sortFn) {
