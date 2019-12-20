@@ -3,10 +3,8 @@ import { createPortal } from 'react-dom'
 import PropTypes from 'prop-types'
 
 /**
- *
- * Automatically handles creating and tearing-down the root elements
- * so there is no need to ensure the parent target already
- * exists.
+ * Hooks handles the creation and tear down of the portal's root
+ * element.
  *
  * @private
  *
