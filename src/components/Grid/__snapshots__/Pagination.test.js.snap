@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`API default rendering 1`] = `
+<nav
+  aria-label="pagination"
+  className="pagination"
+>
+  <button
+    aria-label="Goto Page 1"
+    className="paginationButtons paginationButtonsLeft"
+    onClick={[Function]}
+  >
+    «
+  </button>
+  <button
+    aria-label="Goto Page null"
+    className="paginationButtons paginationButtonsRight"
+    onClick={[Function]}
+  >
+    »
+  </button>
+</nav>
+`;

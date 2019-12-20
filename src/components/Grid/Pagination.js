@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styles from './Pagination.module.css'
 
-const usePagination = ({
+export const usePagination = ({
   data = null,
   total = null,
   per_page = null,
@@ -37,13 +37,11 @@ const usePagination = ({
 
   const getPaginationNumbers = () => {
     const pageNumbers = []
+    const totalPages = pagingState.total_pages
     let paginationNumbers
-    if (pagingState.total !== null) {
-      for (
-        let i = 1;
-        i <= Math.ceil(pagingState.total / pagingState.per_page);
-        i++
-      ) {
+
+    if (pagingState.total && totalPages) {
+      for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(i)
       }
       paginationNumbers = pageNumbers.map((number) => {
