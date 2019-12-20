@@ -18,6 +18,11 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@ibm/plex@^4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@ibm/plex/-/plex-4.0.2.tgz#0d871cd264ace55dae6c9f5211391b28ae0c2f63"
+  integrity sha512-MCOHPVSyQwuacyjCmVUhKuV7wc21eSaj/RdMM7BIL6YHMwKv6y4I9AqOa7V0Vcuzuyaj0YL8KgXj25+hVUObMA==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"

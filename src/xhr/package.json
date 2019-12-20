@@ -5,6 +5,7 @@
   "author": "Ethos Technologies, Inc.",
   "license": "MIT",
   "dependencies": {
+    "@ibm/plex": "^4.0.2",
     "js-cookie": "latest",
     "node-sass": "latest"
   },

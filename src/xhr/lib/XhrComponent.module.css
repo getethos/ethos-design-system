@@ -1,7 +1,6 @@
 .pre {
   background: inherit;
-  font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono',
-    'Liberation Mono', Menlo, Courier, monospace;
+  font-family: var(--Monospace-font-stack);
   font-size: 13px;
   padding: var(--Space-24) 0 0;
 }
