@@ -47,18 +47,21 @@ const usePagination = ({
         pageNumbers.push(i)
       }
       paginationNumbers = pageNumbers.map((number) => {
-        const klasses =
-          pagingState.current_page === number
-            ? `${styles.paginationButtons} ${styles.active}`
-            : styles.paginationButtons
+        const isCurrentPage = pagingState.current_page === number
+        const klasses = isCurrentPage
+          ? `${styles.paginationButtons} ${styles.active}`
+          : styles.paginationButtons
+
         return (
-          <span
+          <button
             key={number}
+            {...isCurrentPage && { 'aria-current': 'page' }}
             className={klasses}
             onClick={() => fetchPageDelegate(number)}
+            aria-label={`Goto Page ${number}`}
           >
             {number}
-          </span>
+          </button>
         )
       })
     }
@@ -90,18 +93,23 @@ const Pagination = ({ fetchPageCallback, renderCallback }) => {
   return (
     <>
       {renderCallback(pagingState.data)}
-      <div className={styles.pagination}>
-        <span className={styles.paginationButtons} onClick={() => fetchPage(1)}>
+      <nav aria-label="pagination" className={styles.pagination}>
+        <button
+          className={styles.paginationButtons}
+          onClick={() => fetchPage(1)}
+          aria-label="Goto Page 1"
+        >
           &laquo;
-        </span>
+        </button>
         {getPaginationNumbers()}
-        <span
+        <button
           className={styles.paginationButtons}
           onClick={() => fetchPage(pagingState.total_pages)}
+          aria-label={`Goto Page ${pagingState.total_pages}`}
         >
           &raquo;
-        </span>
-      </div>
+        </button>
+      </nav>
     </>
   )
 }
