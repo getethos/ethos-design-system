@@ -82,11 +82,11 @@ describe('focus behavior', () => {
 })
 
 describe('header property', () => {
-  it('dictates rowheader role', () => {
+  it('dictates columnheader role', () => {
     const renderer = render({ header: true })
     const root = renderer.toJSON()
 
-    expect(root.props.role).toStrictEqual('rowheader')
+    expect(root.props.role).toStrictEqual('columnheader')
   })
 
   it('dictates column role', () => {

@@ -27,7 +27,7 @@ export const Column = React.memo((props) => {
         className={props.className}
         style={inlineStyles}
         data-label={props.name}
-        role={props.header ? 'rowheader' : 'cell'}
+        role={props.header ? 'columnheader' : 'cell'}
       >
         {props.children(props.active, props.columnRef)}
       </div>
@@ -45,7 +45,7 @@ export const Column = React.memo((props) => {
         data-label={props.name}
         // eslint-disable-next-line
         {...!props.sortable && { ref: props.columnRef }}
-        role={props.header ? 'rowheader' : 'cell'}
+        role={props.header ? 'columnheader' : 'cell'}
         tabIndex={tabIndex}
       >
         {props.children(props.active)}
