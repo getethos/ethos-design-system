@@ -29,10 +29,12 @@ describe('Pagination Component', () => {
     renderFn = null
   })
 
-  it('default rendering', () => {
-    tree = TestRenderer.create(
-      <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
-    )
+  it('default rendering', async () => {
+    await act(async () => {
+      tree = TestRenderer.create(
+        <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
+      )
+    })
     let snapShot = tree.toJSON()
     expect(renderFn).toHaveBeenCalled()
     expect(snapShot).toMatchSnapshot()
