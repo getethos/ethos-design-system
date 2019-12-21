@@ -1,5 +1,4 @@
-import React from 'react'
-import TestRenderer, { act } from 'react-test-renderer'
+import { act } from 'react-test-renderer'
 import usePagination from './usePagination.js'
 import testHook from '../../hooks/testHook.js'
 
@@ -12,7 +11,6 @@ const responseStub = {
 }
 
 describe('usePagination', () => {
-  let tree
   let fetchFn
 
   beforeEach(() => {
@@ -21,7 +19,6 @@ describe('usePagination', () => {
   })
 
   afterEach(() => {
-    tree = null
     fetchFn = null
   })
 

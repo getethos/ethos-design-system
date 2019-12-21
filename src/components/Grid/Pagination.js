@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import usePagination from './usePagination'
 import PropTypes from 'prop-types'
 import styles from './Pagination.module.css'
