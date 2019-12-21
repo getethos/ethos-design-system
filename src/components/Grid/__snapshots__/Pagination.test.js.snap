@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`API default rendering 1`] = `
+exports[`Pagination Component default rendering 1`] = `
 <nav
   aria-label="pagination"
   className="pagination"

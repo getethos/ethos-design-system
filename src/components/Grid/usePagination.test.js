@@ -1,0 +1,40 @@
+import React from 'react'
+import TestRenderer, { act } from 'react-test-renderer'
+import usePagination from './usePagination.js'
+import testHook from '../../hooks/testHook.js'
+
+const responseStub = {
+  page: 1,
+  per_page: 2,
+  total: 6,
+  total_pages: 3,
+  data: [{ id: 1 }, { id: 2 }],
+}
+
+describe('usePagination', () => {
+  let tree
+  let fetchFn
+
+  beforeEach(() => {
+    fetchFn = jest.fn()
+    fetchFn.mockReturnValue(responseStub)
+  })
+
+  afterEach(() => {
+    tree = null
+    fetchFn = null
+  })
+
+  it('defines methods', async () => {
+    await act(async () => {
+      testHook(() => {
+        const { fetchPage, pagingState, getPaginationNumbers } = usePagination({
+          fetchPage: fetchFn,
+        })
+        expect(fetchPage).toBeDefined()
+        expect(pagingState).toBeDefined()
+        expect(getPaginationNumbers).toBeDefined()
+      })
+    })
+  })
+})
