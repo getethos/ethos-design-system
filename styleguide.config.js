@@ -6,6 +6,7 @@ const isCi = process.env.NODE_ENV === 'ci'
 requirePaths = [
   path.join(__dirname, 'styleguide/content/content.scss'),
   path.join(__dirname, 'src/components/design-system.css'),
+  path.join(__dirname, 'setupCoreJsPollyfills.js'),
 ]
 if (!isCi) {
   requirePaths.push(path.join(__dirname, 'src/fonts/index.css'))
