@@ -6,9 +6,8 @@
   --ariagrid-grid-container-color: #272727;
   --ariagrid-grid-border-bottom: #f5f5f5;
   --ariagrid-header-border-bottom: #d8dcde;
-  --ariagrid-row-hover-background: #dbede5;
-  --ariagrid-grid-header-font-color: #272727;
-  --ariagrid-row-hover-left-border: #054742;
+  --ariagrid-row-hover-background: var(--BrandDuckegg);
+  --ariagrid-grid-header-font-color: var(--GraySecondary--opaque);
 }
 
 .iconContainer {
@@ -20,7 +19,7 @@
 }
 
 @media (max-width: 599px) {
-  div[role='rowheader'],
+  div[role='columnheader'],
   div[role='row'],
   div[role='cell'] {
     display: block;

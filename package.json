@@ -31,6 +31,9 @@
   },
   "jest": {
     "verbose": true,
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/"
     ],
