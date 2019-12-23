@@ -8,33 +8,35 @@ import PropTypes from 'prop-types'
  *
  * @private
  *
- * @param {String} id - The id of the target container
+ * @param {string} [id] - The optional id of the target container. If the `id` is not passed,
+ * the target container will be a div without an `id`
  *
  * @return {HTMLElement} - The DOM node to use as the Portal target
  */
 function usePortal(id) {
   const [isAttached, setIsAttached] = useState(false)
-  const el = useRef(
+  const elRef = useRef(
     document.getElementById(id) || document.createElement('div')
   )
 
   useEffect(() => {
-    setIsAttached(!!el.current.parentElement)
+    const el = elRef.current
+    setIsAttached(!!el.parentElement)
 
     if (!isAttached) {
-      el.current.id = id
-      document.body.appendChild(el.current)
+      el.id = id
+      document.body.appendChild(el)
       setIsAttached(true)
     }
 
     return () => {
       if (isAttached) {
-        el.current.parentElement.removeChild(el.current)
+        elRef.current.parentElement.removeChild(el)
       }
     }
-  }, [id, el, isAttached])
+  }, [id, elRef, isAttached])
 
-  return el.current
+  return elRef.current
 }
 
 /**
@@ -43,7 +45,9 @@ function usePortal(id) {
  * @public
  *
  * @param {object} props - the component's props
- * @param {string} props.id - the portal root element's id
+ * @param {string} [props.id] - The optional id of the target container. If the `id` is not passed,
+ * the target container will be a div without an `id`
+ *
  * @param {React.children} props.children - the children element
  *
  * @example ```
