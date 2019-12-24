@@ -2,7 +2,7 @@ import React from 'react'
 import TestRenderer, { act } from 'react-test-renderer'
 
 import Pagination from './Pagination'
-import styles from './Pagination.module.css'
+import styles from './Pagination.module.scss'
 
 const responseStub = {
   page: 1,

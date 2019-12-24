@@ -3,7 +3,7 @@ import React, { Children } from 'react'
 
 import { Position } from './Position'
 import RefType from './ref'
-import styles from './Grid.module.css'
+import styles from './Grid.module.scss'
 
 export const Grid = (props) => {
   const gridRefs = [...props.columnRefs, ...props.rowRefs]
