@@ -26,7 +26,7 @@ import { Grid } from './Grid.js'
 import { Row } from './Row.js'
 import { Column } from './Column.js'
 import { useGridSorting } from './useGridSorting.js'
-import styles from './grid-example.module.css'
+import styles from './grid-example.module.scss'
 
 const columns = [
   {
@@ -225,7 +225,7 @@ import { Grid } from './Grid'
 import { Row } from './Row'
 import { Column } from './Column'
 import { useGridSorting } from './useGridSorting'
-import styles from './grid-example.module.css'
+import styles from './grid-example.module.scss'
 
 const columns = [
   {

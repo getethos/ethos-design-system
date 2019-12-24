@@ -1,7 +1,7 @@
 import React from 'react'
 import usePagination from './usePagination'
 import PropTypes from 'prop-types'
-import styles from './Pagination.module.css'
+import styles from './Pagination.module.scss'
 
 const Pagination = ({ fetchPageCallback, renderCallback }) => {
   if (!fetchPageCallback || !renderCallback) {

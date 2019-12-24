@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 
 import RefType from './ref'
-import styles from './Column.module.css'
+import styles from './Column.module.scss'
 
 export const Column = React.memo((props) => {
   const inlineStyles = {
