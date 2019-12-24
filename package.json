@@ -46,6 +46,7 @@
     "dayjs": "^1.8.16",
     "js-cookie": "^2.2.1",
     "lazysizes": "^5.1.2",
+    "react-icons": "^3.8.0",
     "react-select": "^3.0.8",
     "react-text-mask": "^5.4.3",
     "text-mask-addons": "^3.8.0"
