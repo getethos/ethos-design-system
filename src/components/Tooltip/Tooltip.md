@@ -10,6 +10,30 @@ const Container = ({ children }) => {
         width: '100%',
       }}
     >
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        Top aligned with insufficient space and flip behavior ->
+        <span>
+          <Tooltip behavior={'flip'} placement={'top'} />
+        </span>
+      </div>
+      <div
+        style={{
+          height: '100px',
+          display: 'flex',
+          alignItems: 'flex-end',
+        }}
+      >
+        Top aligned with enough space ->
+        <span>
+          <Tooltip behavior={'flip'} placement={'top'} />
+        </span>
+      </div>
+      <br />
       Scroll Down!
       <div
         style={{
