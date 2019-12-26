@@ -1,0 +1,99 @@
+@import '../Media/Media.scss';
+
+.root {
+  position: relative;
+  margin-left: 8px;
+  width: max-content;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  opacity: 0;
+  animation: fadein 0.3s ease-in 0.5s forwards;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 12px;
+  text-align: center;
+  width: max-content;
+  max-width: 270px;
+  background-color: white;
+  font-size: 12px;
+  padding: 24px;
+  box-shadow: 0px 0px 12px 12px #f1f1f1f1;
+  color: black;
+  transition: 0.1s ease-in-out;
+}
+
+.arrow {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  &[data-placement*='bottom'] {
+    top: 0;
+    margin-top: -12px;
+    width: 36px;
+    height: 12px;
+    &::before {
+      border-width: 0 12px 12px 12px;
+      border-color: transparent transparent white transparent;
+    }
+  }
+  &[data-placement*='top'] {
+    bottom: 0;
+    margin-bottom: -12px;
+    width: 36px;
+    height: 12px;
+    &::before {
+      border-width: 12px 12px 0 12px;
+      border-color: white transparent transparent transparent;
+    }
+  }
+  &[data-placement*='right'] {
+    left: 0;
+    margin-left: -12px;
+    height: 24px;
+    width: 12px;
+    &::before {
+      border-width: 12px 12px 12px 0;
+      border-color: transparent white transparent transparent;
+    }
+  }
+  &[data-placement*='left'] {
+    right: 0;
+    margin-right: -12px;
+    height: 24px;
+    width: 12px;
+    &::before {
+      border-width: 12px 0 12px 12px;
+      border-color: transparent transparent transparent white;
+    }
+  }
+  &::before {
+    content: '';
+    margin: auto;
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+}
+
+// Keyeframes
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
