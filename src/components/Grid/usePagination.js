@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Pagination.module.scss'
 
-const usePagination = ({
+export const usePagination = ({
   data = null,
   total = null,
   per_page = null,
@@ -76,5 +76,3 @@ const usePagination = ({
     fetchPage: fetchPageDelegate,
   }
 }
-
-export default usePagination
