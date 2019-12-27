@@ -286,6 +286,50 @@ export declare namespace RadioButtonGroup {
   }
 }
 
+export declare const Grid: {
+  (props: any): JSX.Element
+  propTypes: {
+    children: any
+    className?: any
+    rowRefs: any
+    columnRefs: any
+  }
+  defaultProps: {
+    className: any
+  }
+  displayName: string
+}
+export declare const Column: any
+export declare const Row: any
+export declare const Pagination: {
+  ({
+    fetchPageCallback,
+    renderCallback,
+  }: {
+    fetchPageCallback: any
+    renderCallback: any
+  }): JSX.Element
+  propTypes: {
+    fetchPageCallback: any
+    renderCallback: any
+  }
+  displayName: string
+}
+export declare const useGridSorting: (
+  rows: any,
+  columns: any
+) => {
+  rowsRefs: any
+  columnRefs: any[]
+  sortedRows: any
+  compareBy: (
+    key: any,
+    sortMethod?: (a: any, b: any) => 1 | 0 | -1
+  ) => (a: any, b: any) => 1 | 0 | -1
+  updateRowsRefs: (sortedRowsCopy: any) => void
+  getSortIcon: (key: any) => JSX.Element
+}
+
 export declare const TextInput: (downstreamProps: any) => JSX.Element
 
 export declare const PasswordInput: (props: any) => JSX.Element
