@@ -1,9 +1,9 @@
 import React from 'react'
-import usePagination from './usePagination'
+import { usePagination } from './usePagination'
 import PropTypes from 'prop-types'
 import styles from './Pagination.module.scss'
 
-const Pagination = ({ fetchPageCallback, renderCallback }) => {
+export const Pagination = ({ fetchPageCallback, renderCallback }) => {
   if (!fetchPageCallback || !renderCallback) {
     throw Error(
       'Pagination requires a fetchPageCallback and renderCallback parameters'
@@ -49,5 +49,3 @@ Pagination.propTypes = {
   renderCallback: PropTypes.func.isRequired,
 }
 Pagination.displayName = 'Pagination'
-
-export default Pagination

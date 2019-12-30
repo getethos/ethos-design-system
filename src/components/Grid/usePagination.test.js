@@ -1,5 +1,5 @@
 import { act } from 'react-test-renderer'
-import usePagination from './usePagination.js'
+import { usePagination } from './usePagination.js'
 import testHook from '../../hooks/testHook.js'
 
 const responseStub = {
