@@ -26,9 +26,6 @@ const options = [
 ]
 const onSelected = (selectedOption: any) => {}
 
-// <Select onChange={onSelected} options={options} isAsync={true} />
-// <Select onChange={onSelected} options={options} isCreatable={true} />
-// <Select onChange={onSelected} options={options} />
 class SelectTest extends React.Component<any, any> {
   // Tests the various types of react selects based on booleans set
   render() {
@@ -40,6 +37,9 @@ class SelectTest extends React.Component<any, any> {
           isAsync={true}
           isCreatable={true}
         />
+        <Select onChange={onSelected} options={options} isAsync={true} />
+        <Select onChange={onSelected} options={options} isCreatable={true} />
+        <Select onChange={onSelected} options={options} />
       </>
     )
   }
