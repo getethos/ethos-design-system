@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { CheckboxInput } from './index'
 import { Faq } from './index'
+import { ButtonSelectGroup } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
@@ -19,6 +20,17 @@ const demoQuestions = [
 class FaqTest extends React.Component<any, any> {
   render() {
     return <Faq questions={demoQuestions} />
+  }
+}
+
+class ButtonSelectGroupTest extends React.Component<any, any> {
+  render() {
+    return (
+      <ButtonSelectGroup initialValue={false} column labelCopy="Yes no">
+        <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
+        <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
+      </ButtonSelectGroup>
+    )
   }
 }
 
