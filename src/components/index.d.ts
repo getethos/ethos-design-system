@@ -148,24 +148,24 @@ export declare const Select: {
     ...rest
   }: {
     [x: string]: any
-    className: any
-    title: any
-    isAsync: any
-    isCreatable: any
+    className?: string
+    title?: string
+    isAsync?: boolean
+    isCreatable?: boolean
   }): JSX.Element
   propTypes: {
-    classNamePrefix: any
-    loadOptions: any
-    onChange: any
-    isAsync: any
-    title: any
-    className: any
-    isCreatable: any
+    classNamePrefix?: string
+    loadOptions?: any
+    onChange?: any
+    isAsync?: boolean
+    title?: string
+    className?: string
+    isCreatable?: any
   }
   defaultProps: {
-    classNamePrefix: string
-    className: any
-    placeholder: string
+    classNamePrefix?: string
+    className?: string
+    placeholder?: string
   }
 }
 
