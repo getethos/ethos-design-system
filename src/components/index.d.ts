@@ -30,30 +30,31 @@ export declare const CheckboxInput: {
     ...rest
   }: {
     [x: string]: any
-    formChangeHandler: any
-    validator: any
+    formChangeHandler?: any
+    validator?: any
     children: any
-    disabled: any
-    name: any
-    initialValue: any
-    currentValue: any
-    currentError: any
-    setFieldTouched: any
-    formTouched: any
+    disabled?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: any
+    formTouched?: boolean
   }): JSX.Element
   propTypes: {
-    formTouched: any
-    name: any
-    'data-tid': any
-    initialValue: any
-    currentValue: any
-    setFieldTouched: any
-    currentError: any
+    formTouched?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: any
     children: any
-    disabled: any
-    allCaps: any
-    validator: any
-    formChangeHandler: any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: any
+    formChangeHandler?: any
   }
 }
 
