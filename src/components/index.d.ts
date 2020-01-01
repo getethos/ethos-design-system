@@ -612,19 +612,19 @@ export declare const OptionButton: {
     buttonStyle,
   }: {
     children: any
-    isSelected: any
-    onClick: any
-    buttonStyle: any
+    isSelected?: boolean
+    onClick?: any
+    buttonStyle?: string
   }): JSX.Element
   propTypes: {
     children: any
-    buttonStyle: any
+    buttonStyle?: string
     /** Set's the caption of the button's label */
-    label: any
+    label?: string
     /** When set to `true`, the button will display as `selected` */
-    isSelected: any
+    isSelected?: boolean
     /** An optional onClick handler that fires **after** an option has been selected */
-    onClick: any
+    onClick?: any
   }
 }
 
