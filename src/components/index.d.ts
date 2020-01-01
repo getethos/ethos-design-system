@@ -30,30 +30,31 @@ export declare const CheckboxInput: {
     ...rest
   }: {
     [x: string]: any
-    formChangeHandler: any
-    validator: any
+    formChangeHandler?: any
+    validator?: any
     children: any
-    disabled: any
-    name: any
-    initialValue: any
-    currentValue: any
-    currentError: any
-    setFieldTouched: any
-    formTouched: any
+    disabled?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: any
+    formTouched?: boolean
   }): JSX.Element
   propTypes: {
-    formTouched: any
-    name: any
-    'data-tid': any
-    initialValue: any
-    currentValue: any
-    setFieldTouched: any
-    currentError: any
+    formTouched?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: any
     children: any
-    disabled: any
-    allCaps: any
-    validator: any
-    formChangeHandler: any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: any
+    formChangeHandler?: any
   }
 }
 
@@ -542,47 +543,47 @@ export declare const ButtonSelectGroup: {
     ...rest
   }: {
     [x: string]: any
-    labelCopy: any
+    labelCopy: string
     children: any
-    initialValue?: any
-    currentValue: any
-    currentError: any
-    formTouched: any
-    onSelect: any
-    column: any
-    formChangeHandler: any
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    formTouched?: boolean
+    onSelect?: any
+    column?: boolean
+    formChangeHandler?: any
     name?: string
     allCaps?: boolean
     buttonStyle?: string
-    validator: any
+    validator?: any
     fullWidth?: boolean
   }): JSX.Element
   propTypes: {
-    formTouched: any
-    currentValue: any
-    currentError: any
+    formTouched?: boolean
+    currentValue?: string | boolean
+    currentError?: string
     children: any
     /** Set's the caption of the group's label */
-    labelCopy: any
+    labelCopy: string
     /** Name of the field, provided a uuid if not supplied. */
-    name: any
+    name?: string
     /** When set to `true`, the group's label will be displayed uppercase */
-    allCaps: any
+    allCaps?: boolean
     /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
-    initialValue: any
+    initialValue?: string | boolean
     /** Optional value that sets the background color of all the buttons in the group (unselected state) */
-    buttonStyle: any
+    buttonStyle?: string
     /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
-    formChangeHandler: any
+    formChangeHandler?: any
     /** Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`. */
-    onSelect: any
+    onSelect?: any
     /** When set to `true`, the group will display as flex column */
-    column: any
+    column?: boolean
     /** Optional data-tid used as a unique id for targeting test selectors */
-    'data-tid': any
-    validator: any
+    'data-tid'?: string
+    validator?: any
     /** Optional, makes the group width 100%. Defaults to true */
-    fullWidth: any
+    fullWidth?: boolean
   }
   Option: any
 }
