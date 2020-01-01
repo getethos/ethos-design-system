@@ -161,7 +161,7 @@ export declare const Select: {
     isAsync?: boolean
     title?: string
     className?: string
-    isCreatable?: any
+    isCreatable?: boolean
   }
   defaultProps: {
     classNamePrefix?: string
