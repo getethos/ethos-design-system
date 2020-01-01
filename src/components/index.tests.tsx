@@ -1,9 +1,12 @@
 import * as React from 'react'
+import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { Faq } from './index'
-import { ButtonSelectGroup } from './index'
+import { Select } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
+
+// -------------- Localized tests ----------------//
 
 const demoQuestions = [
   {
@@ -15,8 +18,6 @@ const demoQuestions = [
     content: 'dos',
   },
 ]
-
-// Localized test
 class FaqTest extends React.Component<any, any> {
   render() {
     return <Faq questions={demoQuestions} />
@@ -47,6 +48,31 @@ class CheckboxInputTest extends React.Component<any, any> {
             Agreement
           </a>
         </CheckboxInput>
+      </>
+    )
+  }
+}
+
+const options = [
+  { value: 'nyc', label: 'New York' },
+  { value: 'sf', label: 'San Francisco' },
+]
+const onSelected = (selectedOption: any) => {}
+
+class SelectTest extends React.Component<any, any> {
+  // Tests the various types of react selects based on booleans set
+  render() {
+    return (
+      <>
+        <Select
+          onChange={onSelected}
+          options={options}
+          isAsync={true}
+          isCreatable={true}
+        />
+        <Select onChange={onSelected} options={options} isAsync={true} />
+        <Select onChange={onSelected} options={options} isCreatable={true} />
+        <Select onChange={onSelected} options={options} />
       </>
     )
   }
