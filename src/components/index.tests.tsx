@@ -79,7 +79,7 @@ class SelectTest extends React.Component<any, any> {
   }
 }
 
-const READY_TODAY = `I'm ready today`
+const READY_TODAY = "I'm ready today"
 const NEXT_7_DAYS = 'In the next 7 days'
 const IntentOptions = [
   { value: READY_TODAY },
