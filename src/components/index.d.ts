@@ -30,8 +30,8 @@ export declare const CheckboxInput: {
     ...rest
   }: {
     [x: string]: any
-    formChangeHandler?: any
-    validator?: any
+    formChangeHandler?: (value: string, errorValue: string) => void
+    validator?: (value: string) => string
     children: any
     disabled?: boolean
     name: string
@@ -39,7 +39,7 @@ export declare const CheckboxInput: {
     initialValue?: string | boolean
     currentValue?: string | boolean
     currentError?: string
-    setFieldTouched?: any
+    setFieldTouched?: (touched: boolean) => void
     formTouched?: boolean
   }): JSX.Element
   propTypes: {
@@ -49,12 +49,12 @@ export declare const CheckboxInput: {
     initialValue?: string | boolean
     currentValue?: string | boolean
     currentError?: string
-    setFieldTouched?: any
+    setFieldTouched?: (touched: boolean) => void
     children: any
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
-    formChangeHandler?: any
+    validator?: (value: string) => string
+    formChangeHandler?: (value: string, errorValue: string) => void
   }
 }
 
@@ -254,14 +254,14 @@ export declare function RadioButtonGroup({
   [x: string]: any
   options: any
   onChange?: any
-  formChangeHandler?: any
+  formChangeHandler?: (value: string, errorValue: string) => void
   allCaps?: boolean
   name?: string
   initialValue?: string[] | boolean[]
   currentValue?: string
   currentError?: string
   formTouched?: boolean
-  validator?: any
+  validator?: (value: string) => string
   disabled?: boolean
   required?: boolean
   labelCopy: string
@@ -276,10 +276,10 @@ export declare namespace RadioButtonGroup {
     formTouched?: boolean
     currentValue?: string
     currentError?: string
-    formChangeHandler?: any
+    formChangeHandler?: (value: string, errorValue: string) => void
     onChange?: any
     'data-tid'?: string
-    validator?: any
+    validator?: (value: string) => string
     disabled?: boolean
     required?: boolean
   }
@@ -292,10 +292,10 @@ export declare namespace RadioButtonGroup {
     formTouched?: boolean
     currentValue?: string
     currentError?: string
-    formChangeHandler?: any
+    formChangeHandler?: (value: string, errorValue: string) => void
     onChange?: any
     'data-tid'?: string
-    validator?: any
+    validator?: (value: string) => string
     disabled?: boolean
     required?: boolean
   }
@@ -361,7 +361,7 @@ export declare const EmailInput: {
     allCaps?: boolean
     name: string
     labelCopy?: string
-    validator?: any
+    validator?: (value: string) => string
     initialValue?: string
   }
   defaultProps: {
@@ -373,7 +373,7 @@ export declare const EmailInput: {
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
-    mask: any
+    mask: (mask: (string | RegExp)[]) => any
     type: string
     'data-tid': string
     name: string
@@ -386,12 +386,12 @@ export declare const TextMaskedInput: {
     pipe?: any
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
+    validator?: (value: string) => string
     setTouched?: any
     getTouched?: boolean
   }
   propTypes: {
-    mask: any
+    mask: (mask: (string | RegExp)[]) => any
     type: string
     'data-tid': string
     name: string
@@ -404,7 +404,7 @@ export declare const TextMaskedInput: {
     pipe?: any
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
+    validator?: (value: string) => string
     setTouched?: any
     getTouched?: boolean
   }
@@ -480,7 +480,7 @@ export declare const ZipInput: {
     name: string
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
+    validator?: (value: string) => string
     initialValue?: string
   }
   propTypes: {
@@ -489,7 +489,7 @@ export declare const ZipInput: {
     name: string
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
+    validator?: (value: string) => string
     initialValue?: string
   }
 }
@@ -565,11 +565,11 @@ export declare const ButtonSelectGroup: {
     formTouched?: boolean
     onSelect?: any
     column?: boolean
-    formChangeHandler?: any
+    formChangeHandler?: (value: string, errorValue: string) => void
     name?: string
     allCaps?: boolean
     buttonStyle?: string
-    validator?: any
+    validator?: (value: string) => string
     fullWidth?: boolean
   }): JSX.Element
   propTypes: {
@@ -588,14 +588,14 @@ export declare const ButtonSelectGroup: {
     /** Optional value that sets the background color of all the buttons in the group (unselected state) */
     buttonStyle?: string
     /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
-    formChangeHandler?: any
+    formChangeHandler?: (value: string, errorValue: string) => void
     /** Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`. */
     onSelect?: any
     /** When set to `true`, the group will display as flex column */
     column?: boolean
     /** Optional data-tid used as a unique id for targeting test selectors */
     'data-tid'?: string
-    validator?: any
+    validator?: (value: string) => string
     /** Optional, makes the group width 100%. Defaults to true */
     fullWidth?: boolean
   }
@@ -646,24 +646,24 @@ export declare const integerMask: any
 export declare const NumberInput: {
   (props: any): JSX.Element
   propTypes: {
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    currentValue: any
-    currentError: any
-    placeholder: any
-    formChangeHandler: any
-    setFieldTouched: any
-    name: any
-    labelCopy: any
-    validator: any
-    initialValue: any
-    type: any
-    mask: any
+    'data-tid': string
+    name: string
+    labelCopy: string
+    disabled?: boolean
+    allCaps?: boolean
+    currentValue?: string
+    currentError?: string
+    placeholder?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    setFieldTouched?: (touched: boolean) => void
+    validator?: (value: string) => string
+    initialValue?: string
+    type?: string
+    mask?: (mask: (string | RegExp)[]) => any
   }
   defaultProps: {
     type: string
-    mask: any
+    mask: (mask: (string | RegExp)[]) => any
   }
 }
 
