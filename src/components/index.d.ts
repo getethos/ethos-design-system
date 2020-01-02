@@ -475,18 +475,18 @@ export declare const InfoMessage: {
 export declare const ZipInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
-    'data-tid': any
-    labelCopy: any
-    name: any
+    'data-tid': string
+    labelCopy: string
+    name: string
     disabled?: boolean
     allCaps?: boolean
     validator?: any
     initialValue?: string
   }
   propTypes: {
-    'data-tid': any
-    labelCopy: any
-    name: any
+    'data-tid': string
+    labelCopy: string
+    name: string
     disabled?: boolean
     allCaps?: boolean
     validator?: any
