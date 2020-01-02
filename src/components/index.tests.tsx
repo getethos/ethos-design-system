@@ -141,6 +141,8 @@ class RadioButtonGroupTest extends React.Component<any, any> {
   }
 }
 
+const strFn = (x: string) => ''
+const setTouchedFn = (wasTouched: boolean) => {}
 class TextMaskedInputTest extends React.Component<any, any> {
   render() {
     return (
@@ -150,6 +152,8 @@ class TextMaskedInputTest extends React.Component<any, any> {
         name="last4-ssn"
         labelCopy="Last 4 SSN Example"
         data-tid="last4-ssn-example"
+        validator={strFn}
+        setTouched={setTouchedFn}
       />
     )
   }

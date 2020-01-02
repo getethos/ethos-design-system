@@ -378,16 +378,17 @@ export declare const TextMaskedInput: {
     'data-tid': string
     name: string
     labelCopy: string
-    doValidation?: any
-    placeholder?: any
+    doValidation?: (str: string, touched: boolean) => void
+    placeholder?: string
     guide?: boolean
     initialValue?: string
     keepCharPositions?: boolean
-    pipe?: any
+    // See text-mask-addons/dist/createAutoCorrectedDatePipe
+    pipe?: (p: any) => any
     disabled?: boolean
     allCaps?: boolean
     validator?: (value: string) => string
-    setTouched?: any
+    setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
   }
   propTypes: {
@@ -396,16 +397,17 @@ export declare const TextMaskedInput: {
     'data-tid': string
     name: string
     labelCopy: string
-    doValidation?: any
-    placeholder?: any
+    doValidation?: (str: string, touched: boolean) => void
+    placeholder?: string
     guide?: boolean
     initialValue?: string
     keepCharPositions?: boolean
-    pipe?: any
+    // See text-mask-addons/dist/createAutoCorrectedDatePipe
+    pipe?: (p: any) => any
     disabled?: boolean
     allCaps?: boolean
     validator?: (value: string) => string
-    setTouched?: any
+    setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
   }
   defaultProps: {
