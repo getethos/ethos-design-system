@@ -373,39 +373,41 @@ export declare const EmailInput: {
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
-    mask: any
+    mask: (mask: (string | RegExp)[]) => any
     type: string
     'data-tid': string
     name: string
     labelCopy: string
-    doValidation?: any
-    placeholder?: any
+    doValidation?: (str: string, touched: boolean) => void
+    placeholder?: string
     guide?: boolean
     initialValue?: string
     keepCharPositions?: boolean
-    pipe?: any
+    // See text-mask-addons/dist/createAutoCorrectedDatePipe
+    pipe?: (p: any) => any
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
-    setTouched?: any
+    validator?: (value: string) => string
+    setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
   }
   propTypes: {
-    mask: any
+    mask: (mask: (string | RegExp)[]) => any
     type: string
     'data-tid': string
     name: string
     labelCopy: string
-    doValidation?: any
-    placeholder?: any
+    doValidation?: (str: string, touched: boolean) => void
+    placeholder?: string
     guide?: boolean
     initialValue?: string
     keepCharPositions?: boolean
-    pipe?: any
+    // See text-mask-addons/dist/createAutoCorrectedDatePipe
+    pipe?: (p: any) => any
     disabled?: boolean
     allCaps?: boolean
-    validator?: any
-    setTouched?: any
+    validator?: (value: string) => string
+    setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
   }
   defaultProps: {
