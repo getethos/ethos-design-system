@@ -5,6 +5,7 @@ import { EmailInput } from './index'
 import { Faq } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
+import { TextMaskedInput } from './index'
 import { ValueProps } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
@@ -114,6 +115,20 @@ class RadioButtonGroupTest extends React.Component<any, any> {
           value: t.value,
           label: t.value,
         }))}
+      />
+    )
+  }
+}
+
+class TextMaskedInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <TextMaskedInput
+        mask={[/\d/, /\d/, /\d/, /\d/]}
+        type="text"
+        name="last4-ssn"
+        labelCopy="Last 4 SSN Example"
+        data-tid="last4-ssn-example"
       />
     )
   }
