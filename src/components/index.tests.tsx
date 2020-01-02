@@ -7,6 +7,7 @@ import { RadioButtonGroup } from './index'
 import { Select } from './index'
 import { TextMaskedInput } from './index'
 import { ValueProps } from './index'
+import { ZipInput } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
@@ -151,5 +152,17 @@ class ValuePropsTest extends React.Component<any, any> {
   ]
   render() {
     return <ValueProps sections={this.valuePropsSections} />
+  }
+}
+
+class ZipInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <ZipInput
+        name="this-zip-input-example"
+        labelCopy="What is your zip code?"
+        data-tid="the-zip-input"
+      />
+    )
   }
 }

@@ -476,21 +476,21 @@ export declare const ZipInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
     'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
     labelCopy: any
-    validator: any
-    initialValue: any
+    name: any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: any
+    initialValue?: string
   }
   propTypes: {
     'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
     labelCopy: any
-    validator: any
-    initialValue: any
+    name: any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: any
+    initialValue?: string
   }
 }
 
