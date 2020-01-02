@@ -3,6 +3,7 @@ import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
+import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
 import { TextMaskedInput } from './index'
@@ -12,6 +13,35 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class ButtonSelectGroupTest extends React.Component<any, any> {
+  render() {
+    return (
+      <ButtonSelectGroup initialValue={false} column labelCopy="Yes no">
+        <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
+        <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
+      </ButtonSelectGroup>
+    )
+  }
+}
+
+class CheckboxInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <>
+        <CheckboxInput
+          name="name: string -- is required"
+          data-tid="data-tid: string -- is required"
+        >
+          I agree to the{' '}
+          <a href="/" target="_blank">
+            Agreement
+          </a>
+        </CheckboxInput>
+      </>
+    )
+  }
+}
 
 class EmailInputTest extends React.Component<any, any> {
   render() {
@@ -43,31 +73,21 @@ class FaqTest extends React.Component<any, any> {
   }
 }
 
-class ButtonSelectGroupTest extends React.Component<any, any> {
+class NumberInputTest extends React.Component<any, any> {
   render() {
     return (
-      <ButtonSelectGroup initialValue={false} column labelCopy="Yes no">
-        <ButtonSelectGroup.Option value={true}>True</ButtonSelectGroup.Option>
-        <ButtonSelectGroup.Option value={false}>False</ButtonSelectGroup.Option>
-      </ButtonSelectGroup>
-    )
-  }
-}
-
-class CheckboxInputTest extends React.Component<any, any> {
-  render() {
-    return (
-      <>
-        <CheckboxInput
-          name="name: string -- is required"
-          data-tid="data-tid: string -- is required"
-        >
-          I agree to the{' '}
-          <a href="/" target="_blank">
-            Agreement
-          </a>
-        </CheckboxInput>
-      </>
+      <NumberInput
+        data-tid="the-number-input"
+        labelCopy="Enter a number (must be even to validate)"
+        name="the-number-input-example"
+        allCaps={true}
+        validator={(n: number) => {
+          if (n > Number.MAX_SAFE_INTEGER) {
+            return 'Number too large'
+          }
+          return n % 2 === 0 ? '' : 'Must be an even number'
+        }}
+      />
     )
   }
 }
