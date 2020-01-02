@@ -4,6 +4,7 @@ import { CheckboxInput } from './index'
 import { Faq } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
+import { ValueProps } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
@@ -100,5 +101,25 @@ class RadioButtonGroupTest extends React.Component<any, any> {
         }))}
       />
     )
+  }
+}
+
+class ValuePropsTest extends React.Component<any, any> {
+  valuePropsSections = [
+    {
+      iconUrl: 'https://res.cloudinary.com/foo.svg',
+      header: 'Header',
+      subHeader: 'Sub-header',
+      alt: 'Le Icon',
+    },
+    {
+      iconUrl: 'https://res.cloudinary.com/bar.svg',
+      header: 'Header',
+      subHeader: 'Sub-header',
+      alt: undefined,
+    },
+  ]
+  render() {
+    return <ValueProps sections={this.valuePropsSections} />
   }
 }

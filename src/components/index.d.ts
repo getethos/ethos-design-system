@@ -195,10 +195,24 @@ export declare const Spacer: {
   W4: (downstreamProps: any) => JSX.Element
 }
 
-export declare function ValueProps({ sections }: { sections: any }): JSX.Element
+export declare function ValueProps({
+  sections,
+}: {
+  sections: ({
+    iconUrl: string
+    header: string
+    subHeader: string
+    alt?: string | undefined
+  })[]
+}): JSX.Element
 export declare namespace ValueProps {
   var propTypes: {
-    sections: any
+    sections: ({
+      iconUrl: string
+      header: string
+      subHeader: string
+      alt?: string | undefined
+    })[]
   }
   var defaultProps: {
     sections: (
