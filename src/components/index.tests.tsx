@@ -2,6 +2,7 @@ import * as React from 'react'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { Faq } from './index'
+import { RadioButtonGroup } from './index'
 import { Select } from './index'
 import { ValueProps } from './index'
 
@@ -75,6 +76,30 @@ class SelectTest extends React.Component<any, any> {
         <Select onChange={onSelected} options={options} isCreatable={true} />
         <Select onChange={onSelected} options={options} />
       </>
+    )
+  }
+}
+
+const READY_TODAY = "I'm ready today"
+const NEXT_7_DAYS = 'In the next 7 days'
+const IntentOptions = [
+  { value: READY_TODAY },
+  { value: NEXT_7_DAYS },
+  { value: 'In 1 to 2 months' },
+  { value: 'After 3 months' },
+]
+class RadioButtonGroupTest extends React.Component<any, any> {
+  render() {
+    return (
+      <RadioButtonGroup
+        name="intent-to-apply"
+        labelCopy="When would you like to apply?"
+        options={IntentOptions.map((t) => ({
+          name: t.value,
+          value: t.value,
+          label: t.value,
+        }))}
+      />
     )
   }
 }

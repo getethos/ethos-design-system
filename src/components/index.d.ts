@@ -253,51 +253,51 @@ export declare function RadioButtonGroup({
 }: {
   [x: string]: any
   options: any
-  onChange: any
-  formChangeHandler: any
+  onChange?: any
+  formChangeHandler?: any
   allCaps?: boolean
   name?: string
-  initialValue?: any
-  currentValue: any
-  currentError: any
-  formTouched: any
-  disabled: any
-  validator: any
-  required: any
-  labelCopy: any
+  initialValue?: string[] | boolean[]
+  currentValue?: string
+  currentError?: string
+  formTouched?: boolean
+  validator?: any
+  disabled?: boolean
+  required?: boolean
+  labelCopy: string
 }): JSX.Element
 export declare namespace RadioButtonGroup {
   var PUBLIC_PROPS: {
-    name: any
-    labelCopy: any
-    allCaps: any
+    name?: string
+    labelCopy: string
+    allCaps?: boolean
     options: any
-    initialValue: any
-    formTouched: any
-    currentValue: any
-    currentError: any
-    formChangeHandler: any
-    onChange: any
-    'data-tid': any
-    validator: any
-    disabled: any
-    required: any
+    initialValue?: string[] | boolean[]
+    formTouched?: boolean
+    currentValue?: string
+    currentError?: string
+    formChangeHandler?: any
+    onChange?: any
+    'data-tid'?: string
+    validator?: any
+    disabled?: boolean
+    required?: boolean
   }
   var propTypes: {
-    name: any
-    labelCopy: any
-    allCaps: any
+    name?: string
+    labelCopy: string
+    allCaps?: boolean
     options: any
-    initialValue: any
-    formTouched: any
-    currentValue: any
-    currentError: any
-    formChangeHandler: any
-    onChange: any
-    'data-tid': any
-    validator: any
-    disabled: any
-    required: any
+    initialValue?: string[] | boolean[]
+    formTouched?: boolean
+    currentValue?: string
+    currentError?: string
+    formChangeHandler?: any
+    onChange?: any
+    'data-tid'?: string
+    validator?: any
+    disabled?: boolean
+    required?: boolean
   }
 }
 
