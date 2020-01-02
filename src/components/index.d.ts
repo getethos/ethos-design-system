@@ -373,40 +373,40 @@ export declare const EmailInput: {
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
-    doValidation: any
-    placeholder: any
     mask: any
-    guide: any
-    initialValue: any
-    keepCharPositions: any
-    pipe: any
-    type: any
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    setTouched: any
-    getTouched: any
+    type: string
+    'data-tid': string
+    name: string
+    labelCopy: string
+    doValidation?: any
+    placeholder?: any
+    guide?: boolean
+    initialValue?: string
+    keepCharPositions?: boolean
+    pipe?: any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: any
+    setTouched?: any
+    getTouched?: boolean
   }
   propTypes: {
-    doValidation: any
-    placeholder: any
     mask: any
-    guide: any
-    initialValue: any
-    keepCharPositions: any
-    pipe: any
-    type: any
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    setTouched: any
-    getTouched: any
+    type: string
+    'data-tid': string
+    name: string
+    labelCopy: string
+    doValidation?: any
+    placeholder?: any
+    guide?: boolean
+    initialValue?: string
+    keepCharPositions?: boolean
+    pipe?: any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: any
+    setTouched?: any
+    getTouched?: boolean
   }
   defaultProps: {
     placeholder: string
