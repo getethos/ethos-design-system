@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
+import { EmailInput } from './index'
 import { Faq } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -9,6 +10,20 @@ import { ValueProps } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class EmailInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <EmailInput
+        name="the-email-input-example"
+        allCaps={true}
+        labelCopy="Your email"
+        data-tid="the-email-input"
+        placeholder="example@ethoslife.com"
+      />
+    )
+  }
+}
 
 const demoQuestions = [
   {

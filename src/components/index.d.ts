@@ -354,15 +354,15 @@ export declare const TextAreaInput: (downstreamProps: any) => JSX.Element
 export declare const EmailInput: {
   (props: any): JSX.Element
   propTypes: {
-    optional: any
-    'data-tid': any
-    placeholder: any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    initialValue: any
+    optional?: boolean
+    'data-tid': string
+    placeholder?: string
+    disabled?: boolean
+    allCaps?: boolean
+    name: string
+    labelCopy?: string
+    validator?: any
+    initialValue?: string
   }
   defaultProps: {
     labelCopy: string
