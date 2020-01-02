@@ -346,7 +346,7 @@ export declare const EmailInput: {
     disabled?: boolean
     allCaps?: boolean
     name: string
-    labelCopy: string
+    labelCopy?: string
     validator?: any
     initialValue?: string
   }
