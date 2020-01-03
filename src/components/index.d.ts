@@ -1,6 +1,6 @@
 /// <reference types="react" />
 
-import React from 'react'
+import React, { ReactNode } from 'react'
 declare class UniversalNavbar extends React.Component {
   state: {
     showMobileMenu: boolean
@@ -32,7 +32,7 @@ export declare const CheckboxInput: {
     [x: string]: any
     formChangeHandler?: (value: string, errorValue: string) => void
     validator?: (value: string) => string
-    children: any
+    children: React.ReactNode
     disabled?: boolean
     name: string
     'data-tid': string
@@ -50,7 +50,7 @@ export declare const CheckboxInput: {
     currentValue?: string | boolean
     currentError?: string
     setFieldTouched?: (touched: boolean) => void
-    children: any
+    children: React.ReactNode
     disabled?: boolean
     allCaps?: boolean
     validator?: (value: string) => string
@@ -74,14 +74,29 @@ export declare const Logo: {
   Inline: typeof LogoInline
 }
 
+interface downstreamProperties {
+  backArrowIcon?: boolean,
+  arrowIcon?: boolean,
+  type: string,
+  isSelected: boolean,
+  fullWidth: boolean,
+  disabled: boolean,
+  name: string,
+  onClick: any,
+  'data-tid': string,
+  children: string,
+  role: string,
+  ariaLabelId: string,
+}
+
 export declare const Button: {
   Medium: {
-    Black: (downstreamProps: any) => any
-    BlackOutline: (downstreamProps: any) => any
-    WhiteOutline: (downstreamProps: any) => any
+    Black: (downstreamProps: downstreamProperties) => any
+    BlackOutline: (downstreamProps: downstreamProperties) => any
+    WhiteOutline: (downstreamProps: downstreamProperties) => any
     Stateful: {
-      Default: (downstreamProps: any) => any
-      White: (downstreamProps: any) => any
+      Default: (downstreamProps: downstreamProperties) => any
+      White: (downstreamProps: downstreamProperties) => any
     }
   }
   Small: {
@@ -304,7 +319,7 @@ export declare namespace RadioButtonGroup {
 export declare const Grid: {
   (props: any): JSX.Element
   propTypes: {
-    children: any
+    children: React.ReactNode
     className?: any
     rowRefs: any
     columnRefs: any
@@ -422,53 +437,53 @@ export declare const TextMaskedInput: {
 export declare const InfoMessage: {
   Text: {
     Error: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
         children: any
       }
     }
     Warning: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Info: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Success: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
   }
   Alert: {
     Error: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Warning: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Info: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Success: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
   }
@@ -500,12 +515,12 @@ export declare function Form({
   children,
   config,
 }: {
-  children: any
+  children: React.ReactNode
   config: any
 }): JSX.Element
 export declare namespace Form {
   var propTypes: {
-    children: any
+    children: React.ReactNode
     config: any
   }
 }
@@ -560,7 +575,7 @@ export declare const ButtonSelectGroup: {
   }: {
     [x: string]: any
     labelCopy: string
-    children: any
+    children: React.ReactNode
     initialValue?: string | boolean
     currentValue?: string | boolean
     currentError?: string
@@ -578,7 +593,7 @@ export declare const ButtonSelectGroup: {
     formTouched?: boolean
     currentValue?: string | boolean
     currentError?: string
-    children: any
+    children: React.ReactNode
     /** Set's the caption of the group's label */
     labelCopy: string
     /** Name of the field, provided a uuid if not supplied. */
@@ -627,13 +642,13 @@ export declare const OptionButton: {
     onClick,
     buttonStyle,
   }: {
-    children: any
+    children: React.ReactNode
     isSelected?: boolean
     onClick?: any
     buttonStyle?: string
   }): JSX.Element
   propTypes: {
-    children: any
+    children: React.ReactNode
     buttonStyle?: string
     /** Set's the caption of the button's label */
     label?: string
