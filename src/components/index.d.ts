@@ -315,36 +315,50 @@ export declare namespace RadioButtonGroup {
     required?: boolean
   }
 }
-
 export declare const Grid: {
   (props: any): JSX.Element
   propTypes: {
     children: React.ReactNode
-    className?: any
+    className?: string
     rowRefs: any
     columnRefs: any
   }
   defaultProps: {
-    className: any
+    className: string
   }
   displayName: string
 }
-export declare const Column: any
-export declare const Row: any
 export declare const Pagination: {
   ({
     fetchPageCallback,
     renderCallback,
   }: {
-    fetchPageCallback: any
-    renderCallback: any
+    /**
+     * Ultimately, this returns the JSON.parse'd data
+     */
+    fetchPageCallback: (pageNumber: number | string) => any
+    /**
+     * Will usually return the JSX unless !rows.length in which case it'll be null
+     */
+    renderCallback: (rowsData: any) => JSX.Element | null 
   }): JSX.Element
   propTypes: {
-    fetchPageCallback: any
-    renderCallback: any
+    /**
+     * Ultimately, this returns the JSON.parse'd data
+     */
+    fetchPageCallback: (pageNumber: number | string) => any
+    /**
+     * Will usually return the JSX unless !rows.length in which case it'll be null
+     */
+    renderCallback: (rowsData: any) => JSX.Element | null 
   }
   displayName: string
 }
+
+// TODO -- figure out how to do better with Column and Row
+export declare const Column: any
+export declare const Row: any
+
 export declare const useGridSorting: (
   rows: any,
   columns: any
@@ -353,11 +367,11 @@ export declare const useGridSorting: (
   columnRefs: any[]
   sortedRows: any
   compareBy: (
-    key: any,
+    key: string | number,
     sortMethod?: (a: any, b: any) => 1 | 0 | -1
   ) => (a: any, b: any) => 1 | 0 | -1
   updateRowsRefs: (sortedRowsCopy: any) => void
-  getSortIcon: (key: any) => JSX.Element
+  getSortIcon: (key: string | number) => JSX.Element
 }
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
