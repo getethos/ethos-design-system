@@ -74,36 +74,36 @@ export declare const Logo: {
   Inline: typeof LogoInline
 }
 
-interface downstreamProperties {
+interface downstreamButtonProps {
   backArrowIcon?: boolean,
   arrowIcon?: boolean,
-  type: string,
-  isSelected: boolean,
-  fullWidth: boolean,
-  disabled: boolean,
-  name: string,
-  onClick: any,
-  'data-tid': string,
+  type?: string,
+  isSelected?: boolean,
+  fullWidth?: boolean,
+  disabled?: boolean,
+  name?: string,
+  onClick?: any,
+  'data-tid'?: string,
   children: string,
-  role: string,
-  ariaLabelId: string,
+  role?: string,
+  ariaLabelId?: string,
 }
 
 export declare const Button: {
   Medium: {
-    Black: (downstreamProps: downstreamProperties) => any
-    BlackOutline: (downstreamProps: downstreamProperties) => any
-    WhiteOutline: (downstreamProps: downstreamProperties) => any
+    Black: (downstreamProps: downstreamButtonProps) => any
+    BlackOutline: (downstreamProps: downstreamButtonProps) => any
+    WhiteOutline: (downstreamProps: downstreamButtonProps) => any
     Stateful: {
-      Default: (downstreamProps: downstreamProperties) => any
-      White: (downstreamProps: downstreamProperties) => any
+      Default: (downstreamProps: downstreamButtonProps) => any
+      White: (downstreamProps: downstreamButtonProps) => any
     }
   }
   Small: {
-    BlackOutline: (downstreamProps: any) => any
+    BlackOutline: (downstreamProps: downstreamButtonProps) => any
   }
-  Unstyled: (downstreamProps: any) => any
-  WhiteCTA: (downstreamProps: any) => any
+  Unstyled: (downstreamProps: downstreamButtonProps) => any
+  WhiteCTA: (downstreamProps: downstreamButtonProps) => any
 }
 
 export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
