@@ -10,6 +10,7 @@ import {
   InfoMessage,
   RadioButtonGroup,
   ZipInput,
+  Select,
   EmailInput,
 } from '../index'
 let count = 0
@@ -70,6 +71,15 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         validationSuccess: [analyticsCustomEvent],
         name: 'this-zip-input-example',
         labelCopy: 'What is your zip code?',
+      },
+      states: {
+        component: (props, options) => {
+          return <Select placeholder="State" options={options} {...props} />
+        },
+        name: 'states',
+        labelCopy: 'What state?',
+        options: [{ value: 'CA', label: 'CA' }],
+        validators: [validateExists],
       },
       email: {
         component: (props, options) => {
@@ -170,6 +180,10 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         <Spacer.H16 />
 
         {field('zipCode')}
+
+        <Spacer.H16 />
+
+        {field('states')}
 
         <Spacer.H16 />
 
