@@ -74,14 +74,29 @@ export declare const Logo: {
   Inline: typeof LogoInline
 }
 
+interface downstreamProperties {
+  backArrowIcon?: boolean,
+  arrowIcon?: boolean,
+  type: string,
+  isSelected: boolean,
+  fullWidth: boolean,
+  disabled: boolean,
+  name: string,
+  onClick: any,
+  'data-tid': string,
+  children: string,
+  role: string,
+  ariaLabelId: string,
+}
+
 export declare const Button: {
   Medium: {
-    Black: (downstreamProps: any) => any
-    BlackOutline: (downstreamProps: any) => any
-    WhiteOutline: (downstreamProps: any) => any
+    Black: (downstreamProps: downstreamProperties) => any
+    BlackOutline: (downstreamProps: downstreamProperties) => any
+    WhiteOutline: (downstreamProps: downstreamProperties) => any
     Stateful: {
-      Default: (downstreamProps: any) => any
-      White: (downstreamProps: any) => any
+      Default: (downstreamProps: downstreamProperties) => any
+      White: (downstreamProps: downstreamProperties) => any
     }
   }
   Small: {
