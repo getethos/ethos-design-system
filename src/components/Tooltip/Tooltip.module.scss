@@ -6,93 +6,156 @@
   width: max-content;
 }
 
+/* Tooltip */
+
 .icon {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-.container {
+.popperContainer {
   opacity: 0;
   animation: fadein 0.3s ease-in 0.5s forwards;
-}
 
-.box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 12px;
-  text-align: center;
-  width: max-content;
-  max-width: 270px;
-  background-color: white;
-  font-size: 12px;
-  padding: 24px;
-  box-shadow: 0px 0px 12px 12px #f1f1f1f1;
-  color: black;
-  transition: 0.1s ease-in-out;
-}
+  .contentBox {
+    @include for-phone-only {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+    text-align: center;
+    width: max-content;
+    max-width: 270px;
+    background-color: white;
+    font-size: 12px;
+    padding: 20px var(--Space-24) var(--Space-24) var(--Space-24);
+    box-shadow: 0px 0px 12px 5px #f1f1f1f1;
+    color: black;
+    transition: 0.1s ease-in-out;
 
-.arrow {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  &[data-placement*='bottom'] {
-    top: 0;
-    margin-top: -12px;
-    width: 36px;
-    height: 12px;
-    &::before {
-      border-width: 0 12px 12px 12px;
-      border-color: transparent transparent white transparent;
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
     }
   }
-  &[data-placement*='top'] {
-    bottom: 0;
-    margin-bottom: -12px;
-    width: 36px;
-    height: 12px;
-    &::before {
-      border-width: 12px 12px 0 12px;
-      border-color: white transparent transparent transparent;
-    }
-  }
-  &[data-placement*='right'] {
-    left: 0;
-    margin-left: -12px;
-    height: 24px;
+
+  .arrow {
+    position: absolute;
     width: 12px;
-    &::before {
-      border-width: 12px 12px 12px 0;
-      border-color: transparent white transparent transparent;
+    height: 12px;
+    &[data-placement*='bottom'] {
+      top: 0;
+      margin-top: -12px;
+      width: 36px;
+      height: 12px;
+      &::before {
+        border-width: 0 12px 12px 12px;
+        border-color: transparent transparent white transparent;
+      }
     }
-  }
-  &[data-placement*='left'] {
-    right: 0;
-    margin-right: -12px;
-    height: 24px;
-    width: 12px;
-    &::before {
-      border-width: 12px 0 12px 12px;
-      border-color: transparent transparent transparent white;
+    &[data-placement*='top'] {
+      bottom: 0;
+      margin-bottom: -12px;
+      width: 36px;
+      height: 12px;
+      &::before {
+        border-width: 12px 12px 0 12px;
+        border-color: white transparent transparent transparent;
+      }
     }
-  }
-  &::before {
-    content: '';
-    margin: auto;
-    display: block;
-    width: 0;
-    height: 0;
-    border-style: solid;
+    &[data-placement*='right'] {
+      left: 0;
+      margin-left: -12px;
+      height: var(--Space-24);
+      width: 12px;
+      &::before {
+        border-width: 12px 12px 12px 0;
+        border-color: transparent white transparent transparent;
+      }
+    }
+    &[data-placement*='left'] {
+      right: 0;
+      margin-right: -12px;
+      height: var(--Space-24);
+      width: 12px;
+      &::before {
+        border-width: 12px 0 12px 12px;
+        border-color: transparent transparent transparent white;
+      }
+    }
+    &::before {
+      content: '';
+      margin: auto;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
   }
 }
 
-/* Keyframes */
 @keyframes fadein {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+/* Mobile Modal */
+
+:root {
+  --reach-dialog: 1;
+}
+
+[data-reach-dialog-overlay],
+[data-reach-dialog-content] {
+  @include for-tablet-and-up {
+    display: none;
+  }
+}
+
+[data-reach-dialog-overlay] {
+  background: hsla(0, 0%, 0%, 0.33);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+}
+
+[data-reach-dialog-content] {
+  position: relative;
+  width: 100%;
+  background: white;
+  outline: none;
+  transition: transform 0.3s ease-out;
+}
+
+.mobileModal {
+  padding: var(--Space-64) var(--Space-24) var(--Space-80) var(--Space-24);
+
+  .closeButton {
+    background: transparent;
+    border: unset;
+    position: absolute;
+    top: 29px;
+    right: 29px;
+    cursor: pointer;
+  }
+
+  .label {
+    margin-bottom: var(--Space-24);
   }
 }
