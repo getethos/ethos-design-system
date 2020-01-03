@@ -340,7 +340,7 @@ export declare const Pagination: {
     /**
      * Will usually return the JSX unless !rows.length in which case it'll be null
      */
-    renderCallback: (rowsData: any) => JSX.Element | null 
+    renderCallback: (rowsData: any) => JSX.Element | null | void
   }): JSX.Element
   propTypes: {
     /**
@@ -350,7 +350,7 @@ export declare const Pagination: {
     /**
      * Will usually return the JSX unless !rows.length in which case it'll be null
      */
-    renderCallback: (rowsData: any) => JSX.Element | null 
+    renderCallback: (rowsData: any) => JSX.Element | null | void
   }
   displayName: string
 }
