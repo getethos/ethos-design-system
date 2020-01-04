@@ -336,7 +336,7 @@ export declare const Pagination: {
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
-    fetchPageCallback: (pageNumber: number | string) => any
+    fetchPageCallback: (pageNumber: number | string) => object
     /**
      * Will usually return the JSX unless !rows.length in which case it'll be null
      */
@@ -346,7 +346,7 @@ export declare const Pagination: {
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
-    fetchPageCallback: (pageNumber: number | string) => any
+    fetchPageCallback: (pageNumber: number | string) => object
     /**
      * Will usually return the JSX unless !rows.length in which case it'll be null
      */
