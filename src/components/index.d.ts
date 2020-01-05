@@ -292,7 +292,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: any
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
@@ -308,7 +308,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: any
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
