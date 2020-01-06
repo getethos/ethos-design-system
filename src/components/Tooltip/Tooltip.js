@@ -5,8 +5,11 @@ import { useTransition, animated } from 'react-spring'
 import { Manager, Reference, Popper } from 'react-popper'
 
 import { TitleLarge, Body, Footnote } from '../index'
+import { Media } from '../Media/Media'
 
 import styles from './Tooltip.module.scss'
+
+const BREAKPOINTS = Media.BREAKPOINTS
 
 const AnimatedModalOverlay = animated(DialogOverlay)
 const AnimatedModalContent = animated(DialogContent)
@@ -14,6 +17,10 @@ const AnimatedModalContent = animated(DialogContent)
 export const Tooltip = ({ label, placement, details, inline, children }) => {
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
+
+  const isMobile = window.matchMedia(
+    `(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px`
+  ).matches
 
   const animationConfig = {
     tension: 250,
@@ -64,9 +71,7 @@ export const Tooltip = ({ label, placement, details, inline, children }) => {
 
   const referenceProps = {
     onMouseOver: () => setTooltipVisibility(true),
-    onMouseOut: () => {
-      setTooltipVisibility(false), setModalVisibility(false)
-    },
+    onMouseOut: () => setTooltipVisibility(false),
     onClick: () => setModalVisibility(true),
   }
 
@@ -124,7 +129,8 @@ export const Tooltip = ({ label, placement, details, inline, children }) => {
 
   return (
     <>
-      {renderModal}
+      {isMobile && renderModal}
+
       {renderTooltip}
     </>
   )
