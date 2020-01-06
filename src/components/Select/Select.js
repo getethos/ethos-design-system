@@ -58,9 +58,7 @@ export const Select = ({
 
   const onBlur = () => {
     setTouched(true)
-    if (!!formChangeHandler) {
-      doValidation(getSelectedValue(), true)
-    }
+    doValidation(getSelectedValue(), true)
   }
 
   const wrapperClass = title ? styles.wrapper : ''
@@ -115,6 +113,7 @@ Select.propTypes = {
   name: PropTypes.string,
   validator: PropTypes.func,
   initialValue: PropTypes.object,
+  options: PropTypes.array,
 }
 
 Select.defaultProps = {
