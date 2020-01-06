@@ -107,6 +107,7 @@ Select.propTypes = {
   labelCopy: PropTypes.string,
   name: PropTypes.string,
   validator: PropTypes.func,
+  value: PropTypes.object,
 }
 
 Select.defaultProps = {
