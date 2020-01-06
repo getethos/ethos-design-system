@@ -28,8 +28,10 @@ export const Select = ({
   options,
   ...rest
 }) => {
+  const defaultValue = options.find((option) => option.value === initialValue)
   const resolvedValidator = validator ? validator : () => ''
-  const [selectedOption, updateSelectedOption] = useState(initialValue)
+
+  const [selectedOption, updateSelectedOption] = useState(defaultValue)
   const [touched, setTouched] = useState(initialValue ? true : false)
   const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
   const [doValidation] = useInputValidation({
@@ -67,7 +69,7 @@ export const Select = ({
     className: `${className ? className : ''} ${styles.root}`,
     onChange: onChangeHandler,
     onBlur,
-    value: selectedOption,
+    defaultValue,
     options,
     ...rest,
   }
@@ -112,7 +114,7 @@ Select.propTypes = {
   labelCopy: PropTypes.string,
   name: PropTypes.string,
   validator: PropTypes.func,
-  initialValue: PropTypes.object,
+  initialValue: PropTypes.string,
   options: PropTypes.array,
 }
 
