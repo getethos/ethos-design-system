@@ -30,7 +30,7 @@ export const Select = ({
 }) => {
   const resolvedValidator = validator ? validator : () => ''
   const [selectedOption, updateSelectedOption] = useState(initialValue)
-  const [touched, setTouched] = useState(false)
+  const [touched, setTouched] = useState(initialValue ? true : false)
   const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
   const [doValidation] = useInputValidation({
     validate,
@@ -42,7 +42,7 @@ export const Select = ({
     selectedOption ? selectedOption.value : undefined
 
   useEffect(() => {
-    if (!!formChangeHandler && touched) {
+    if (touched) {
       doValidation(getSelectedValue(), touched)
     }
   }, [selectedOption])
