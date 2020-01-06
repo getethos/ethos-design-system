@@ -74,36 +74,36 @@ export declare const Logo: {
   Inline: typeof LogoInline
 }
 
-interface downstreamProperties {
+interface downstreamButtonProps {
   backArrowIcon?: boolean,
   arrowIcon?: boolean,
-  type: string,
-  isSelected: boolean,
-  fullWidth: boolean,
-  disabled: boolean,
-  name: string,
-  onClick: any,
-  'data-tid': string,
+  type?: string,
+  isSelected?: boolean,
+  fullWidth?: boolean,
+  disabled?: boolean,
+  name?: string,
+  onClick?: any,
+  'data-tid'?: string,
   children: string,
-  role: string,
-  ariaLabelId: string,
+  role?: string,
+  ariaLabelId?: string,
 }
 
 export declare const Button: {
   Medium: {
-    Black: (downstreamProps: downstreamProperties) => any
-    BlackOutline: (downstreamProps: downstreamProperties) => any
-    WhiteOutline: (downstreamProps: downstreamProperties) => any
+    Black: (downstreamProps: downstreamButtonProps) => any
+    BlackOutline: (downstreamProps: downstreamButtonProps) => any
+    WhiteOutline: (downstreamProps: downstreamButtonProps) => any
     Stateful: {
-      Default: (downstreamProps: downstreamProperties) => any
-      White: (downstreamProps: downstreamProperties) => any
+      Default: (downstreamProps: downstreamButtonProps) => any
+      White: (downstreamProps: downstreamButtonProps) => any
     }
   }
   Small: {
-    BlackOutline: (downstreamProps: any) => any
+    BlackOutline: (downstreamProps: downstreamButtonProps) => any
   }
-  Unstyled: (downstreamProps: any) => any
-  WhiteCTA: (downstreamProps: any) => any
+  Unstyled: (downstreamProps: downstreamButtonProps) => any
+  WhiteCTA: (downstreamProps: downstreamButtonProps) => any
 }
 
 export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
@@ -292,7 +292,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: any
+    onChange?: ({ value: string, isAnswered: boolean })
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
@@ -308,7 +308,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: any
+    onChange?: ({ value: string, isAnswered: boolean })
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
@@ -336,21 +336,21 @@ export declare const Pagination: {
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
-    fetchPageCallback: (pageNumber: number | string) => any
+    fetchPageCallback: (pageNumber: number | string) => object
     /**
      * Will usually return the JSX unless !rows.length in which case it'll be null
      */
-    renderCallback: (rowsData: any) => JSX.Element | null 
+    renderCallback: (rowsData: any) => JSX.Element | null | void
   }): JSX.Element
   propTypes: {
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
-    fetchPageCallback: (pageNumber: number | string) => any
+    fetchPageCallback: (pageNumber: number | string) => object
     /**
      * Will usually return the JSX unless !rows.length in which case it'll be null
      */
-    renderCallback: (rowsData: any) => JSX.Element | null 
+    renderCallback: (rowsData: any) => JSX.Element | null | void
   }
   displayName: string
 }
