@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
-import { useTransition, useSpring, animated } from 'react-spring'
+import { useTransition, animated } from 'react-spring'
 import { Manager, Reference, Popper } from 'react-popper'
 
 import { TitleLarge, Body, Footnote } from '../index'
