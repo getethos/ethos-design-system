@@ -11,14 +11,12 @@ import React, { useRef, useState, useEffect } from 'react'
     <div
       style={{
         display: 'flex',
-        alignItems: 'center',
       }}
     >
-      Top aligned with insufficient space and flip behavior ->
-      <span>
-        <Tooltip label={'Flip'}>Hi!</Tooltip>
-      </span>
+      Top aligned with insufficient space <Tooltip label="Flip" details="Hi!" />
     </div>
+    Hey there this
+    <Tooltip inline label="Inline" details="Hi again" /> is an inline tooltip
     <div
       style={{
         height: '100px',
@@ -26,25 +24,16 @@ import React, { useRef, useState, useEffect } from 'react'
         alignItems: 'flex-end',
       }}
     >
-      Top aligned with enough space ->
-      <span>
-        <Tooltip label={'Top Aligned'}> Hi again!</Tooltip>
-      </span>
+      Enough space to display above tooltip{' '}
+      <Tooltip label="Label" details="I flip to show below when in at the limit of my container" />
     </div>
     <br />
     Scroll Down!
     <div
       style={{
-        height: '600px',
-        display: 'flex',
-        alignItems: 'center',
+        height: '150px',
       }}
-    >
-      Hover over this thing for more information ->
-      <span>
-        <Tooltip label={'Information'}> More Information!</Tooltip>
-      </span>
-    </div>
+    />
   </div>
 </>
 ```

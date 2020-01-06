@@ -2,12 +2,19 @@
 
 .root {
   position: relative;
-  margin-left: 8px;
-  width: max-content;
+
+  &.block {
+    margin-left: 5px;
+    display: block;
+  }
+
+  &.inline {
+    display: inline-block;
+    vertical-align: middle;
+  }
 }
 
 /* Tooltip */
-
 .icon {
   display: flex;
   align-items: center;
@@ -113,7 +120,6 @@
 }
 
 /* Mobile Modal */
-
 :root {
   --reach-dialog: 1;
 }

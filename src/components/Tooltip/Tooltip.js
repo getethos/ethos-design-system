@@ -1,51 +1,57 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
-import { useTransition, animated } from 'react-spring'
+import { useTransition, useSpring, animated } from 'react-spring'
 import { Manager, Reference, Popper } from 'react-popper'
 
 import { TitleLarge, Body, Footnote } from '../index'
 
 import styles from './Tooltip.module.scss'
 
-let AnimatedDialogOverlay = animated(DialogOverlay)
-let AnimatedDialogContent = animated(DialogContent)
+const AnimatedModalOverlay = animated(DialogOverlay)
+const AnimatedModalContent = animated(DialogContent)
 
-export const Tooltip = ({ label, placement, behavior, children }) => {
-  const [visibleFromHover, setVisibilityFromHover] = useState(false)
-  const [visibleFromClick, setVisibilityFromClick] = useState(false)
+export const Tooltip = ({ label, placement, details, inline, children }) => {
+  const [tooltipVisible, setTooltipVisibility] = useState(false)
+  const [modalVisible, setModalVisibility] = useState(false)
 
-  const transitions = useTransition(visibleFromClick, null, {
-    from: { opacity: 0, transform: 'translate3d(0px, -50px, 0px)' },
+  const animationConfig = {
+    tension: 250,
+    clamp: true,
+  }
+
+  const transitions = useTransition(modalVisible, null, {
+    config: animationConfig,
+    from: { opacity: 0, transform: 'translate3d(0px, -20px, 0px)' },
     enter: { opacity: 1, transform: 'translate3d(0px, 0px, 0px)' },
-    leave: { opacity: 0, transform: 'translate3d(0px, -50px, 0px)' },
+    leave: { opacity: 0, transform: 'translate3d(0px, -20px, 0px)' },
   })
 
-  const renderMobileModal = transitions.map(
+  const renderModal = transitions.map(
     ({ item, key, props }) =>
       item && (
-        <AnimatedDialogOverlay
+        <AnimatedModalOverlay
           key={key}
           style={{ opacity: props.opacity }}
-          onDismiss={() => setVisibilityFromClick(false)}
+          onDismiss={() => setModalVisibility(false)}
         >
-          <AnimatedDialogContent
+          <AnimatedModalContent
             className={styles.mobileModal}
             aria-label={`${label} Tooltip`}
             style={props}
           >
             <button
               className={styles.closeButton}
-              onClick={() => setVisibilityFromClick(false)}
+              onClick={() => setModalVisibility(false)}
             >
               {Tooltip.SVGS.closeButton}
             </button>
             <div className={styles.label}>
               <TitleLarge.Sans.Regular400>{label}</TitleLarge.Sans.Regular400>
             </div>
-            <Body.Regular400>{children}</Body.Regular400>
-          </AnimatedDialogContent>
-        </AnimatedDialogOverlay>
+            <Body.Regular400>{details}</Body.Regular400>
+          </AnimatedModalContent>
+        </AnimatedModalOverlay>
       )
   )
 
@@ -57,9 +63,11 @@ export const Tooltip = ({ label, placement, behavior, children }) => {
   }
 
   const referenceProps = {
-    onMouseOver: () => setVisibilityFromHover(true),
-    onMouseOut: () => setVisibilityFromHover(false),
-    onClick: () => setVisibilityFromClick(true),
+    onMouseOver: () => setTooltipVisibility(true),
+    onMouseOut: () => {
+      setTooltipVisibility(false), setModalVisibility(false)
+    },
+    onClick: () => setModalVisibility(true),
   }
 
   const popperProps = {
@@ -70,20 +78,26 @@ export const Tooltip = ({ label, placement, behavior, children }) => {
 
   const contentBoxClasses = [
     styles.contentBox,
-    visibleFromHover ? styles.visible : styles.hidden,
+    tooltipVisible ? styles.visible : styles.hidden,
   ]
 
+  const tooltipClasses = [styles.root, inline ? styles.inline : styles.block]
+
   const renderTooltip = (
-    <div className={styles.root}>
+    <div className={tooltipClasses.join(' ')}>
       <Manager>
         <Reference>
-          {({ ref }) => (
-            <div className={styles.icon} ref={ref} {...referenceProps}>
-              {visibleFromHover
-                ? Tooltip.SVGS.iconHover
-                : Tooltip.SVGS.iconStatic}
-            </div>
-          )}
+          {({ ref }) =>
+            children ? (
+              <div ref={ref} {...referenceProps}>
+                {children}
+              </div>
+            ) : (
+              <div className={styles.icon} ref={ref} {...referenceProps}>
+                {tooltipVisible ? Tooltip.SVGS.iconHover : Tooltip.SVGS.icon}
+              </div>
+            )
+          }
         </Reference>
         <div className={styles.popperContainer}>
           <Popper {...popperProps}>
@@ -93,7 +107,7 @@ export const Tooltip = ({ label, placement, behavior, children }) => {
                 ref={ref}
                 style={style}
               >
-                <Footnote.Regular400>{children}</Footnote.Regular400>
+                <Footnote.Regular400>{details}</Footnote.Regular400>
                 <div
                   ref={arrowProps.ref}
                   className={styles.arrow}
@@ -110,7 +124,7 @@ export const Tooltip = ({ label, placement, behavior, children }) => {
 
   return (
     <>
-      {renderMobileModal}
+      {renderModal}
       {renderTooltip}
     </>
   )
@@ -146,7 +160,7 @@ Tooltip.SVGS = {
       />
     </svg>
   ),
-  iconStatic: (
+  icon: (
     <svg
       width="16"
       height="16"
@@ -172,11 +186,13 @@ Tooltip.PLACEMENT_TYPES = {
 }
 Tooltip.defaultProps = {
   placement: Tooltip.PLACEMENT_TYPES.TOP,
+  inline: false,
 }
 
 Tooltip.propTypes = {
   placement: PropTypes.oneOf(Object.values(Tooltip.PLACEMENT_TYPES)),
   label: PropTypes.string.isRequired,
+  inline: PropTypes.bool,
 }
 
 export default Tooltip
