@@ -38,10 +38,12 @@ export const Select = ({
     formChangeHandler,
   })
 
+  const getSelectedValue = () =>
+    selectedOption ? selectedOption.value : undefined
+
   useEffect(() => {
-    const isSelectedValue = typeof selectedOption !== 'undefined'
-    if (!!formChangeHandler && isSelectedValue && touched) {
-      doValidation(selectedOption.value, touched)
+    if (!!formChangeHandler && touched) {
+      doValidation(getSelectedValue(), touched)
     }
   }, [selectedOption])
 
@@ -57,8 +59,7 @@ export const Select = ({
   const onBlur = () => {
     setTouched(true)
     if (!!formChangeHandler) {
-      const selectedValue = selectedOption ? selectedOption.value : undefined
-      doValidation(selectedValue, true)
+      doValidation(getSelectedValue(), true)
     }
   }
 
