@@ -23,6 +23,7 @@ export const Select = ({
   formTouched,
   labelCopy,
   name,
+  value,
   ...rest
 }) => {
   const onChangeHandler = (event) => {
@@ -35,7 +36,7 @@ export const Select = ({
 
   const resolvedValidator = validator ? validator : () => ''
   const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
-  const [selectedValue, updateSelectedValue] = useState(undefined)
+  const [selectedValue, updateSelectedValue] = useState(value)
 
   const validationSelect = () => {
     const errorMessage = validate(selectedValue)
@@ -62,6 +63,7 @@ export const Select = ({
     className: `${className ? className : ''} ${styles.root}`,
     onChange: onChangeHandler,
     onBlur,
+    value,
     ...rest,
   }
 
