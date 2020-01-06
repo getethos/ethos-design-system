@@ -16,7 +16,7 @@ import React, { useRef, useState, useEffect } from 'react'
       Top aligned with insufficient space <Tooltip label="Flip" details="Hi!" />
     </div>
     Hey there this
-    <Tooltip inline label="Inline" details="Hi again" /> is an inline tooltip
+    <Tooltip label="Inline" details="Hi again" inline /> is an inline tooltip
     <div
       style={{
         height: '100px',
@@ -25,7 +25,10 @@ import React, { useRef, useState, useEffect } from 'react'
       }}
     >
       Enough space to display above tooltip{' '}
-      <Tooltip label="Label" details="I flip to show below when in at the limit of my container" />
+      <Tooltip
+        label="Label"
+        details="I flip to show below when in at the limit of my container"
+      />
     </div>
     <br />
     Scroll Down!

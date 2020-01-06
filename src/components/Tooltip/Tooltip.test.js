@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tootip } from './Tooltip.js'
+import { Tooltip } from './Tooltip.js'
 import renderer from 'react-test-renderer'
 
 describe('Tooltip', () => {
@@ -11,7 +11,9 @@ describe('Tooltip', () => {
 
   describe('rendering component', () => {
     test('default', () => {
-      const tree = renderer.create(<Tooltip />).toJSON()
+      const tree = renderer
+        .create(<Tooltip label="Test" details="Test details" />)
+        .toJSON()
       expect(tree).toMatchSnapshot()
     })
   })

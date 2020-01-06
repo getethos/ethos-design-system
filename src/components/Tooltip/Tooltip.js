@@ -193,6 +193,7 @@ Tooltip.propTypes = {
   placement: PropTypes.oneOf(Object.values(Tooltip.PLACEMENT_TYPES)),
   label: PropTypes.string.isRequired,
   inline: PropTypes.bool,
+  details: PropTypes.string.isRequired,
 }
 
 export default Tooltip
