@@ -7,6 +7,7 @@ import ReactSelectAsync from 'react-select/async'
 import ReactSelectAsyncCreatable from 'react-select/async-creatable'
 import ReactSelectCreatable from 'react-select/creatable'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
+import useInputValidation from '../../hooks/useInputValidation.js'
 import { InputLabel } from '../InputLabel'
 
 import styles from './Select.module.scss'
@@ -23,37 +24,43 @@ export const Select = ({
   formTouched,
   labelCopy,
   name,
+  initialValue,
+  options,
   ...rest
 }) => {
+  const defaultValue = options.find((option) => option.value === initialValue)
+  const resolvedValidator = validator ? validator : () => ''
+
+  const [selectedOption, updateSelectedOption] = useState(defaultValue)
+  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
+  const [doValidation] = useInputValidation({
+    validate,
+    setError,
+    formChangeHandler,
+  })
+
+  const getSelectedValue = () =>
+    selectedOption ? selectedOption.value : undefined
+
+  useEffect(() => {
+    if (touched) {
+      doValidation(getSelectedValue(), touched)
+    }
+  }, [selectedOption])
+
   const onChangeHandler = (event) => {
-    updateSelectedValue(event.value)
+    updateSelectedOption(options.find((option) => option.value === event.value))
+    setTouched(true)
 
     if (onChange) {
       onChange(event)
     }
   }
 
-  const resolvedValidator = validator ? validator : () => ''
-  const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
-  const [selectedValue, updateSelectedValue] = useState(undefined)
-
-  const validationSelect = () => {
-    const errorMessage = validate(selectedValue)
-    setError(errorMessage)
-    if (formChangeHandler) {
-      formChangeHandler(selectedValue, errorMessage)
-    }
-  }
-
-  useEffect(() => {
-    const isSelectedValue = typeof selectedValue !== 'undefined'
-    if (isSelectedValue) {
-      validationSelect()
-    }
-  }, [selectedValue])
-
   const onBlur = () => {
-    validationSelect()
+    setTouched(true)
+    doValidation(getSelectedValue(), true)
   }
 
   const wrapperClass = title ? styles.wrapper : ''
@@ -62,6 +69,8 @@ export const Select = ({
     className: `${className ? className : ''} ${styles.root}`,
     onChange: onChangeHandler,
     onBlur,
+    defaultValue,
+    options,
     ...rest,
   }
 
@@ -105,6 +114,8 @@ Select.propTypes = {
   labelCopy: PropTypes.string,
   name: PropTypes.string,
   validator: PropTypes.func,
+  initialValue: PropTypes.string,
+  options: PropTypes.array,
 }
 
 Select.defaultProps = {
