@@ -1,6 +1,6 @@
 /// <reference types="react" />
 
-import React from 'react'
+import React, { ReactNode } from 'react'
 declare class UniversalNavbar extends React.Component {
   state: {
     showMobileMenu: boolean
@@ -30,30 +30,31 @@ export declare const CheckboxInput: {
     ...rest
   }: {
     [x: string]: any
-    formChangeHandler: any
-    validator: any
-    children: any
-    disabled: any
-    name: any
-    initialValue: any
-    currentValue: any
-    currentError: any
-    setFieldTouched: any
-    formTouched: any
+    formChangeHandler?: (value: string, errorValue: string) => void
+    validator?: (value: string) => string
+    children: React.ReactNode
+    disabled?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: (touched: boolean) => void
+    formTouched?: boolean
   }): JSX.Element
   propTypes: {
-    formTouched: any
-    name: any
-    'data-tid': any
-    initialValue: any
-    currentValue: any
-    setFieldTouched: any
-    currentError: any
-    children: any
-    disabled: any
-    allCaps: any
-    validator: any
-    formChangeHandler: any
+    formTouched?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: (touched: boolean) => void
+    children: React.ReactNode
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: (value: string) => string
+    formChangeHandler?: (value: string, errorValue: string) => void
   }
 }
 
@@ -73,21 +74,36 @@ export declare const Logo: {
   Inline: typeof LogoInline
 }
 
+interface downstreamButtonProps {
+  backArrowIcon?: boolean,
+  arrowIcon?: boolean,
+  type?: string,
+  isSelected?: boolean,
+  fullWidth?: boolean,
+  disabled?: boolean,
+  name?: string,
+  onClick?: any,
+  'data-tid'?: string,
+  children: string,
+  role?: string,
+  ariaLabelId?: string,
+}
+
 export declare const Button: {
   Medium: {
-    Black: (downstreamProps: any) => any
-    BlackOutline: (downstreamProps: any) => any
-    WhiteOutline: (downstreamProps: any) => any
+    Black: (downstreamProps: downstreamButtonProps) => any
+    BlackOutline: (downstreamProps: downstreamButtonProps) => any
+    WhiteOutline: (downstreamProps: downstreamButtonProps) => any
     Stateful: {
-      Default: (downstreamProps: any) => any
-      White: (downstreamProps: any) => any
+      Default: (downstreamProps: downstreamButtonProps) => any
+      White: (downstreamProps: downstreamButtonProps) => any
     }
   }
   Small: {
-    BlackOutline: (downstreamProps: any) => any
+    BlackOutline: (downstreamProps: downstreamButtonProps) => any
   }
-  Unstyled: (downstreamProps: any) => any
-  WhiteCTA: (downstreamProps: any) => any
+  Unstyled: (downstreamProps: downstreamButtonProps) => any
+  WhiteCTA: (downstreamProps: downstreamButtonProps) => any
 }
 
 export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
@@ -148,24 +164,24 @@ export declare const Select: {
     ...rest
   }: {
     [x: string]: any
-    className: any
-    title: any
-    isAsync: any
-    isCreatable: any
+    className?: string
+    title?: string
+    isAsync?: boolean
+    isCreatable?: boolean
   }): JSX.Element
   propTypes: {
-    classNamePrefix: any
-    loadOptions: any
-    onChange: any
-    isAsync: any
-    title: any
-    className: any
-    isCreatable: any
+    classNamePrefix?: string
+    loadOptions?: any
+    onChange?: any
+    isAsync?: boolean
+    title?: string
+    className?: string
+    isCreatable?: boolean
   }
   defaultProps: {
-    classNamePrefix: string
-    className: any
-    placeholder: string
+    classNamePrefix?: string
+    className?: string
+    placeholder?: string
   }
 }
 
@@ -194,10 +210,24 @@ export declare const Spacer: {
   W4: (downstreamProps: any) => JSX.Element
 }
 
-export declare function ValueProps({ sections }: { sections: any }): JSX.Element
+export declare function ValueProps({
+  sections,
+}: {
+  sections: ({
+    iconUrl: string
+    header: string
+    subHeader: string
+    alt?: string | undefined
+  })[]
+}): JSX.Element
 export declare namespace ValueProps {
   var propTypes: {
-    sections: any
+    sections: ({
+      iconUrl: string
+      header: string
+      subHeader: string
+      alt?: string | undefined
+    })[]
   }
   var defaultProps: {
     sections: (
@@ -238,52 +268,110 @@ export declare function RadioButtonGroup({
 }: {
   [x: string]: any
   options: any
-  onChange: any
-  formChangeHandler: any
+  onChange?: any
+  formChangeHandler?: (value: string, errorValue: string) => void
   allCaps?: boolean
   name?: string
-  initialValue?: any
-  currentValue: any
-  currentError: any
-  formTouched: any
-  disabled: any
-  validator: any
-  required: any
-  labelCopy: any
+  initialValue?: string[] | boolean[]
+  currentValue?: string
+  currentError?: string
+  formTouched?: boolean
+  validator?: (value: string) => string
+  disabled?: boolean
+  required?: boolean
+  labelCopy: string
 }): JSX.Element
 export declare namespace RadioButtonGroup {
   var PUBLIC_PROPS: {
-    name: any
-    labelCopy: any
-    allCaps: any
+    name?: string
+    labelCopy: string
+    allCaps?: boolean
     options: any
-    initialValue: any
-    formTouched: any
-    currentValue: any
-    currentError: any
-    formChangeHandler: any
-    onChange: any
-    'data-tid': any
-    validator: any
-    disabled: any
-    required: any
+    initialValue?: string[] | boolean[]
+    formTouched?: boolean
+    currentValue?: string
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    onChange?: ({ value: string, isAnswered: boolean })
+    'data-tid'?: string
+    validator?: (value: string) => string
+    disabled?: boolean
+    required?: boolean
   }
   var propTypes: {
-    name: any
-    labelCopy: any
-    allCaps: any
+    name?: string
+    labelCopy: string
+    allCaps?: boolean
     options: any
-    initialValue: any
-    formTouched: any
-    currentValue: any
-    currentError: any
-    formChangeHandler: any
-    onChange: any
-    'data-tid': any
-    validator: any
-    disabled: any
-    required: any
+    initialValue?: string[] | boolean[]
+    formTouched?: boolean
+    currentValue?: string
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    onChange?: ({ value: string, isAnswered: boolean })
+    'data-tid'?: string
+    validator?: (value: string) => string
+    disabled?: boolean
+    required?: boolean
   }
+}
+export declare const Grid: {
+  (props: any): JSX.Element
+  propTypes: {
+    children: React.ReactNode
+    className?: string
+    rowRefs: any
+    columnRefs: any
+  }
+  defaultProps: {
+    className: string
+  }
+  displayName: string
+}
+export declare const Pagination: {
+  ({
+    fetchPageCallback,
+    renderCallback,
+  }: {
+    /**
+     * Ultimately, this returns the JSON.parse'd data
+     */
+    fetchPageCallback: (pageNumber: number | string) => object
+    /**
+     * Will usually return the JSX unless !rows.length in which case it'll be null
+     */
+    renderCallback: (rowsData: any) => JSX.Element | null | void
+  }): JSX.Element
+  propTypes: {
+    /**
+     * Ultimately, this returns the JSON.parse'd data
+     */
+    fetchPageCallback: (pageNumber: number | string) => object
+    /**
+     * Will usually return the JSX unless !rows.length in which case it'll be null
+     */
+    renderCallback: (rowsData: any) => JSX.Element | null | void
+  }
+  displayName: string
+}
+
+// TODO -- figure out how to do better with Column and Row
+export declare const Column: any
+export declare const Row: any
+
+export declare const useGridSorting: (
+  rows: any,
+  columns: any
+) => {
+  rowsRefs: any
+  columnRefs: any[]
+  sortedRows: any
+  compareBy: (
+    key: string | number,
+    sortMethod?: (a: any, b: any) => 1 | 0 | -1
+  ) => (a: any, b: any) => 1 | 0 | -1
+  updateRowsRefs: (sortedRowsCopy: any) => void
+  getSortIcon: (key: string | number) => JSX.Element
 }
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
@@ -295,15 +383,15 @@ export declare const TextAreaInput: (downstreamProps: any) => JSX.Element
 export declare const EmailInput: {
   (props: any): JSX.Element
   propTypes: {
-    optional: any
-    'data-tid': any
-    placeholder: any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    initialValue: any
+    optional?: boolean
+    'data-tid': string
+    placeholder?: string
+    disabled?: boolean
+    allCaps?: boolean
+    name: string
+    labelCopy?: string
+    validator?: (value: string) => string
+    initialValue?: string
   }
   defaultProps: {
     labelCopy: string
@@ -314,40 +402,42 @@ export declare const EmailInput: {
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
-    doValidation: any
-    placeholder: any
-    mask: any
-    guide: any
-    initialValue: any
-    keepCharPositions: any
-    pipe: any
-    type: any
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    setTouched: any
-    getTouched: any
+    mask: (mask: (string | RegExp)[]) => any
+    type: string
+    'data-tid': string
+    name: string
+    labelCopy: string
+    doValidation?: (str: string, touched: boolean) => void
+    placeholder?: string
+    guide?: boolean
+    initialValue?: string
+    keepCharPositions?: boolean
+    // See text-mask-addons/dist/createAutoCorrectedDatePipe
+    pipe?: (p: any) => any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: (value: string) => string
+    setTouched?: (wasTouched: boolean) => void
+    getTouched?: boolean
   }
   propTypes: {
-    doValidation: any
-    placeholder: any
-    mask: any
-    guide: any
-    initialValue: any
-    keepCharPositions: any
-    pipe: any
-    type: any
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    setTouched: any
-    getTouched: any
+    mask: (mask: (string | RegExp)[]) => any
+    type: string
+    'data-tid': string
+    name: string
+    labelCopy: string
+    doValidation?: (str: string, touched: boolean) => void
+    placeholder?: string
+    guide?: boolean
+    initialValue?: string
+    keepCharPositions?: boolean
+    // See text-mask-addons/dist/createAutoCorrectedDatePipe
+    pipe?: (p: any) => any
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: (value: string) => string
+    setTouched?: (wasTouched: boolean) => void
+    getTouched?: boolean
   }
   defaultProps: {
     placeholder: string
@@ -361,53 +451,53 @@ export declare const TextMaskedInput: {
 export declare const InfoMessage: {
   Text: {
     Error: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
         children: any
       }
     }
     Warning: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Info: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Success: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
   }
   Alert: {
     Error: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Warning: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Info: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
     Success: {
-      ({ children }: { children: any }): JSX.Element
+      ({ children }: { children: React.ReactNode }): JSX.Element
       propTypes: {
-        children: any
+        children: React.ReactNode
       }
     }
   }
@@ -416,22 +506,22 @@ export declare const InfoMessage: {
 export declare const ZipInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    initialValue: any
+    'data-tid': string
+    labelCopy: string
+    name: string
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: (value: string) => string
+    initialValue?: string
   }
   propTypes: {
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    name: any
-    labelCopy: any
-    validator: any
-    initialValue: any
+    'data-tid': string
+    labelCopy: string
+    name: string
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: (value: string) => string
+    initialValue?: string
   }
 }
 
@@ -439,12 +529,12 @@ export declare function Form({
   children,
   config,
 }: {
-  children: any
+  children: React.ReactNode
   config: any
 }): JSX.Element
 export declare namespace Form {
   var propTypes: {
-    children: any
+    children: React.ReactNode
     config: any
   }
 }
@@ -498,47 +588,47 @@ export declare const ButtonSelectGroup: {
     ...rest
   }: {
     [x: string]: any
-    labelCopy: any
-    children: any
-    initialValue?: any
-    currentValue: any
-    currentError: any
-    formTouched: any
-    onSelect: any
-    column: any
-    formChangeHandler: any
+    labelCopy: string
+    children: React.ReactNode
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    formTouched?: boolean
+    onSelect?: any
+    column?: boolean
+    formChangeHandler?: (value: string, errorValue: string) => void
     name?: string
     allCaps?: boolean
     buttonStyle?: string
-    validator: any
+    validator?: (value: string) => string
     fullWidth?: boolean
   }): JSX.Element
   propTypes: {
-    formTouched: any
-    currentValue: any
-    currentError: any
-    children: any
+    formTouched?: boolean
+    currentValue?: string | boolean
+    currentError?: string
+    children: React.ReactNode
     /** Set's the caption of the group's label */
-    labelCopy: any
+    labelCopy: string
     /** Name of the field, provided a uuid if not supplied. */
-    name: any
+    name?: string
     /** When set to `true`, the group's label will be displayed uppercase */
-    allCaps: any
+    allCaps?: boolean
     /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
-    initialValue: any
+    initialValue?: string | boolean
     /** Optional value that sets the background color of all the buttons in the group (unselected state) */
-    buttonStyle: any
+    buttonStyle?: string
     /** Optional callback thats fires when an option is selected. returns an object containing the selected `value` and a boolean value `isAnswered` */
-    formChangeHandler: any
+    formChangeHandler?: (value: string, errorValue: string) => void
     /** Optional callback thats fires when an option is selected. Works similarly to onSelect, but used in `<Form>`. */
-    onSelect: any
+    onSelect?: any
     /** When set to `true`, the group will display as flex column */
-    column: any
+    column?: boolean
     /** Optional data-tid used as a unique id for targeting test selectors */
-    'data-tid': any
-    validator: any
+    'data-tid'?: string
+    validator?: (value: string) => string
     /** Optional, makes the group width 100%. Defaults to true */
-    fullWidth: any
+    fullWidth?: boolean
   }
   Option: any
 }
@@ -566,20 +656,20 @@ export declare const OptionButton: {
     onClick,
     buttonStyle,
   }: {
-    children: any
-    isSelected: any
-    onClick: any
-    buttonStyle: any
+    children: React.ReactNode
+    isSelected?: boolean
+    onClick?: any
+    buttonStyle?: string
   }): JSX.Element
   propTypes: {
-    children: any
-    buttonStyle: any
+    children: React.ReactNode
+    buttonStyle?: string
     /** Set's the caption of the button's label */
-    label: any
+    label?: string
     /** When set to `true`, the button will display as `selected` */
-    isSelected: any
+    isSelected?: boolean
     /** An optional onClick handler that fires **after** an option has been selected */
-    onClick: any
+    onClick?: any
   }
 }
 
@@ -587,24 +677,24 @@ export declare const integerMask: any
 export declare const NumberInput: {
   (props: any): JSX.Element
   propTypes: {
-    'data-tid': any
-    disabled: any
-    allCaps: any
-    currentValue: any
-    currentError: any
-    placeholder: any
-    formChangeHandler: any
-    setFieldTouched: any
-    name: any
-    labelCopy: any
-    validator: any
-    initialValue: any
-    type: any
-    mask: any
+    'data-tid': string
+    name: string
+    labelCopy: string
+    disabled?: boolean
+    allCaps?: boolean
+    currentValue?: string
+    currentError?: string
+    placeholder?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    setFieldTouched?: (touched: boolean) => void
+    validator?: (value: string) => string
+    initialValue?: string
+    type?: string
+    mask?: (mask: (string | RegExp)[]) => any
   }
   defaultProps: {
     type: string
-    mask: any
+    mask: (mask: (string | RegExp)[]) => any
   }
 }
 

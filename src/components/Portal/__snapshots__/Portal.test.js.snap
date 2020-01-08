@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Portal render's a portal 1`] = `
+<h1>
+  hello world
+</h1>
+`;

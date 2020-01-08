@@ -1,2 +1,4 @@
-import validateExists from './validateExists.js'
-export function validateExists(x: string): string
+declare const validateExists: (
+    x: string
+) => '' | 'Please provide a value'
+export default validateExists

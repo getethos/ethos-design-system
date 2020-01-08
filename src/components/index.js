@@ -10,7 +10,7 @@ export { COLORS } from './Colors'
 export { EmailInput } from './EmailInput'
 export { Faq } from './Faq'
 export { Form } from './Form'
-export { Grid, Row, Column, useGridSorting } from './Grid'
+export { Grid, Pagination, Row, Column, useGridSorting } from './Grid'
 export { InfoMessage } from './InfoMessage'
 export { Layout } from './Layout'
 export { Logo } from './Logo'
@@ -25,6 +25,7 @@ export { TextAreaInput } from './TextAreaInput'
 export { TextInput } from './TextInput'
 export { TextMaskedInput } from './TextMaskedInput'
 export { Tooltip } from './Tooltip/Tooltip'
+export { Portal } from './Portal'
 export {
   Body,
   Caption,

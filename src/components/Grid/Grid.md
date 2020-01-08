@@ -26,7 +26,7 @@ import { Grid } from './Grid.js'
 import { Row } from './Row.js'
 import { Column } from './Column.js'
 import { useGridSorting } from './useGridSorting.js'
-import styles from './grid-example.module.css'
+import styles from './grid-example.module.scss'
 
 const columns = [
   {
@@ -108,7 +108,7 @@ function GridExample() {
     const key = ev.currentTarget.text
     let rowsCopy = sortedRows
     let sortFunction
-    // See if wee have a custom sort function. If `sortFunction` is
+    // See if we have a custom sort function. If `sortFunction` is
     // `undefined`, `compareBy` will fallback to its own default sort
     const idx = columns.findIndex((c) => c.name === key)
     if (columns[idx].sortFn) {
@@ -225,7 +225,7 @@ import { Grid } from './Grid'
 import { Row } from './Row'
 import { Column } from './Column'
 import { useGridSorting } from './useGridSorting'
-import styles from './grid-example.module.css'
+import styles from './grid-example.module.scss'
 
 const columns = [
   {
@@ -307,7 +307,7 @@ function GridSmall() {
     const key = ev.currentTarget.text
     let rowsCopy = sortedRows
     let sortFunction
-    // See if wee have a custom sort function. If `sortFunction` is
+    // See if we have a custom sort function. If `sortFunction` is
     // `undefined`, `compareBy` will fallback to its own default sort
     const idx = columns.findIndex((c) => c.name === key)
     if (columns[idx].sortFn) {

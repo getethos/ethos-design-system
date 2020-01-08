@@ -3,7 +3,7 @@ import React, { Children } from 'react'
 
 import { Position } from './Position'
 import RefType from './ref'
-import styles from './Grid.module.css'
+import styles from './Grid.module.scss'
 
 export const Grid = (props) => {
   const gridRefs = [...props.columnRefs, ...props.rowRefs]
@@ -11,6 +11,12 @@ export const Grid = (props) => {
     <Position className={props.className} refs={gridRefs} role="grid">
       {(positionX, positionY) =>
         Children.map(props.children, (row, index) => {
+          // From https://bit.ly/2tq3FiS
+          // ...`props.children` isn't the actual children; It is the descriptor
+          // of the children. So you don't have actually anything to change; you
+          // can't change any props, or edit any functionality; you can only read
+          // from it. If you need to make any modifications you have to create new
+          // elements using React.CloneElement.
           return React.cloneElement(row, {
             active: index === positionY,
             columnIndex: positionX,
