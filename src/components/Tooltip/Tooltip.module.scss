@@ -1,8 +1,6 @@
 @import '../Media/Media.scss';
 
 .root {
-  position: relative;
-
   &.block {
     margin-left: 5px;
     display: block;
@@ -16,13 +14,14 @@
 
 /* Tooltip */
 .icon {
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
 .popperContainer {
-  opacity: 0;
   animation: fadein 0.3s ease-in 0.5s forwards;
 
   .contentBox {

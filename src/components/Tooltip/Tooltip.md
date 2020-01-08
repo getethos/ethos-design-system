@@ -10,17 +10,44 @@ import React, { useRef, useState, useEffect } from 'react'
   >
     <div
       style={{
+        height: '50px',
         display: 'flex',
+        alignItems: 'flex-end',
       }}
     >
       Top aligned with insufficient space <Tooltip label="Flip" details="Hi!" />
     </div>
-    Hey there this
-    <Tooltip label="Inline" details="Hi again" inline /> is an inline tooltip
     <br />
-    Long string with Tooltip at the end doesnt screw arrow up , how amazing isnt
-    it
-    <Tooltip label="Label" details="Not Broken" inline />
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'flex-end',
+      }}
+    >
+      Top aligned with insufficient space <Tooltip label="Flip" details="Hi!" />
+    </div>
+    <div>
+      Hey there this
+      <Tooltip label="Inline" details="Hi again" inline /> is an inline tooltip
+    </div>
+    <br />
+    <br />
+    <br />
+    This tooltip flips on the WINDOW and not the scrollable parent
+    <Tooltip
+      label="Label"
+      details="Not Broken"
+      boundariesElement={Tooltip.BOUNDARIES_ELEMENT.WINDOW}
+      inline
+    />
+    <br />
+    This tooltip flips on the VIEWPORT
+    <Tooltip
+      label="Label"
+      details="Not Broken"
+      boundariesElement={Tooltip.BOUNDARIES_ELEMENT.VIEWPORT}
+      inline
+    />
     <div
       style={{
         height: '100px',

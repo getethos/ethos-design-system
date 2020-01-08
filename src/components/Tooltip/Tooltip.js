@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 import { useTransition, animated } from 'react-spring'
 import { Manager, Reference, Popper } from 'react-popper'
+import debounce from 'lodash.debounce'
 
 import { TitleLarge, Body, Footnote } from '../index'
 import { Media } from '../Media/Media'
@@ -14,12 +15,25 @@ const BREAKPOINTS = Media.BREAKPOINTS
 const AnimatedModalOverlay = animated(DialogOverlay)
 const AnimatedModalContent = animated(DialogContent)
 
-export const Tooltip = ({ label, placement, details, inline, children }) => {
+export const Tooltip = ({
+  label,
+  placement,
+  details,
+  inline,
+  children,
+  boundariesElement,
+}) => {
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
+  const debouncedSetTooltipVisibility = debounce(
+    (visibility) => setTooltipVisibility(visibility),
+    300,
+    {
+      trailing: true,
+    }
+  )
 
   const isMobile = () => {
-    if (!window.matchMedia) return
     return window.matchMedia(`(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px`)
       .matches
   }
@@ -67,20 +81,23 @@ export const Tooltip = ({ label, placement, details, inline, children }) => {
   const modifiers = {
     preventOverflow: {
       enabled: true,
+      boundariesElement,
     },
-    flip: { enabled: true, boundariesElement: 'viewport', behavior: 'flip' },
+    flip: { enabled: true, behavior: 'flip' },
   }
 
   const referenceProps = {
-    onMouseOver: () => setTooltipVisibility(true),
-    onMouseOut: () => setTooltipVisibility(false),
-    onClick: () => setModalVisibility(true),
+    onMouseOver: () => debouncedSetTooltipVisibility(true),
+    onMouseOut: () => debouncedSetTooltipVisibility(false),
+    onClick: debounce(() => setModalVisibility(true), 100, { leading: true }),
   }
 
   const popperProps = {
     placement,
     outOfBoundaries: true,
     modifiers,
+    // eventsEnabled: true,
+    // positionFixed: true,
   }
 
   const contentBoxClasses = [
@@ -191,9 +208,17 @@ Tooltip.PLACEMENT_TYPES = {
   BOTTOM: 'bottom',
   AUTO: 'auto',
 }
+
+Tooltip.BOUNDARIES_ELEMENT = {
+  VIEWPORT: 'viewport',
+  SCROLL_PARENT: 'scrollParent',
+  WINDOW: 'window',
+}
+
 Tooltip.defaultProps = {
   placement: Tooltip.PLACEMENT_TYPES.TOP,
   inline: false,
+  boundariesElement: Tooltip.BOUNDARIES_ELEMENT.SCROLL_PARENT,
 }
 
 Tooltip.propTypes = {
@@ -201,6 +226,7 @@ Tooltip.propTypes = {
   label: PropTypes.string.isRequired,
   inline: PropTypes.bool,
   details: PropTypes.string.isRequired,
+  boundariesElement: PropTypes.oneOf(Object.values(Tooltip.BOUNDARIES_ELEMENT)),
 }
 
 export default Tooltip
