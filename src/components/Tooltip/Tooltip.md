@@ -17,6 +17,10 @@ import React, { useRef, useState, useEffect } from 'react'
     </div>
     Hey there this
     <Tooltip label="Inline" details="Hi again" inline /> is an inline tooltip
+    <br />
+    Long string with Tooltip at the end doesnt screw arrow up , how amazing isnt
+    it
+    <Tooltip label="Label" details="Not Broken" inline />
     <div
       style={{
         height: '100px',

@@ -24,6 +24,7 @@ export { Spacer } from './Spacer'
 export { TextAreaInput } from './TextAreaInput'
 export { TextInput } from './TextInput'
 export { TextMaskedInput } from './TextMaskedInput'
+export { Tooltip } from './Tooltip/Tooltip'
 export {
   Body,
   Caption,

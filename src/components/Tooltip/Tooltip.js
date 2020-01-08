@@ -18,9 +18,11 @@ export const Tooltip = ({ label, placement, details, inline, children }) => {
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
 
-  const isMobile = window.matchMedia(
-    `(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px`
-  ).matches
+  const isMobile = () => {
+    if (!window.matchMedia) return
+    return window.matchMedia(`(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px`)
+      .matches
+  }
 
   const animationConfig = {
     tension: 250,
@@ -129,8 +131,7 @@ export const Tooltip = ({ label, placement, details, inline, children }) => {
 
   return (
     <>
-      {isMobile && renderModal}
-
+      {isMobile() && renderModal}
       {renderTooltip}
     </>
   )
