@@ -1,25 +1,21 @@
-:root {
-  --Radius: 3px;
-}
-
 .Tag {
-  border-radius: var(--Radius);
+  border-radius: var(--Radius-3);
   align-items: center;
   padding: 5px;
   display: inline;
 }
 
 .Approved {
-  background-color: rgba(101, 217, 124, 0.17);
-  color: #2BD04B;
+  background-color: var(--GreenPrimary--translucent);
+  color: var(--GreenPrimary--opaque);
 }
 
 .Rejected {
-  background-color: rgba(230, 55, 84, 0.16);
-  color: #E63754;
+  background-color: var(--RedPrimary--translucent);
+  color: var(--RedPrimary--opaque);
 }
 
 .Default {
-  background-color: #EAEBEE;
-  color: #4F5972;
+  background-color: var(--GrayStrokeAndDisabled--translucent);
+  color: var(--GrayDarkHover--opaque);
 }
