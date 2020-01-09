@@ -1,8 +1,9 @@
 .Tag {
   border-radius: var(--Radius-3);
+  display: flex;
   align-items: center;
+  justify-content: center;
   padding: 5px;
-  display: inline;
 }
 
 .Approved {
