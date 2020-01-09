@@ -2,34 +2,30 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Tag.module.scss'
 
-const Tag = ({children, type}) => {
+const Tag = ({ children, type }) => {
   let colorClass
   console.log(type)
   switch (type) {
     case 'approved':
       colorClass = styles.Approved
-      break;
+      break
     case 'rejected':
       colorClass = styles.Rejected
-      break;
+      break
     default:
       colorClass = styles.Default
   }
   console.log(colorClass)
-  return (
-    <div className={[styles.Tag, colorClass].join(' ')}>
-      {children}
-    </div>
-  )
+  return <div className={[styles.Tag, colorClass].join(' ')}>{children}</div>
 }
 
 Tag.propTypes = {
   type: PropTypes.oneOf(['approved', 'rejected']),
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
 }
 
 Tag.defaultProps = {
-  type: undefined
+  type: undefined,
 }
 
 export default Tag
