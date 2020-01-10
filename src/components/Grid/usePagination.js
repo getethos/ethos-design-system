@@ -4,9 +4,6 @@ import styles from './Pagination.module.scss'
 export const usePagination = ({
   items = null,
   total = null,
-
-  // pageCount:
-
   itemCount = null,
   pageCount = null,
   page = 1,
