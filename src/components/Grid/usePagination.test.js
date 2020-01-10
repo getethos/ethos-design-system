@@ -7,7 +7,7 @@ const responseStub = {
   itemCount: 2,
   total: 6,
   pageCount: 3,
-  data: [{ id: 1 }, { id: 2 }],
+  items: [{ id: 1 }, { id: 2 }],
 }
 
 describe('usePagination', () => {
