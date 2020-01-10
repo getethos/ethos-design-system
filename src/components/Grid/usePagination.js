@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './Pagination.module.scss'
 
 export const usePagination = ({
-  data = null,
+  items = null,
   total = null,
 
   // pageCount:
@@ -18,7 +18,7 @@ export const usePagination = ({
   }
 
   const [pagingState, setPagingState] = useState({
-    data,
+    items,
     total,
     itemCount,
     pageCount,
@@ -29,7 +29,7 @@ export const usePagination = ({
   const fetchPageDelegate = async (pageNumber) => {
     const data = await fetchPage(pageNumber)
     setPagingState({
-      data: data.data,
+      items: data.items,
       total: data.total,
       itemCount: data.itemCount,
       page: data.page,

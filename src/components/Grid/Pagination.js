@@ -16,7 +16,7 @@ export const Pagination = ({ fetchPageCallback, renderCallback }) => {
 
   return (
     <>
-      {renderCallback(pagingState.data)}
+      {renderCallback(pagingState.items)}
       <nav aria-label="pagination" className={styles.pagination}>
         <button
           className={[
