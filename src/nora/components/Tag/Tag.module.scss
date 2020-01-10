@@ -2,22 +2,22 @@
 
 .Tag {
   border-radius: var(--Radius-3);
-  display: inline;
+  display: inline-block;
   align-items: center;
-  padding: 5px;
+  padding: var(--Space-4);
 }
 
 .Approved {
-  background-color: var(--GreenPrimary--translucent);
-  color: var(--GreenPrimary--opaque);
+  background-color: var(--NoraGreen--translucent);
+  color: var(--NoraGreen--opaque);
 }
 
 .Rejected {
-  background-color: var(--RedPrimary--translucent);
-  color: var(--RedPrimary--opaque);
+  background-color: var(--NoraRed--translucent);
+  color: var(--NoraRed--opaque);
 }
 
 .Default {
-  background-color: var(--GrayPrimary--translucent);
-  color: var(--GrayPrimary--opaque);
+  background-color: var(--NoraGray--translucent);
+  color: var(--NoraGray--opaque);
 }

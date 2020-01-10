@@ -4,7 +4,6 @@ import styles from './Tag.module.scss'
 
 const Tag = ({ children, type }) => {
   let colorClass
-  console.log(type)
   switch (type) {
     case 'approved':
       colorClass = styles.Approved
@@ -15,7 +14,7 @@ const Tag = ({ children, type }) => {
     default:
       colorClass = styles.Default
   }
-  console.log(colorClass)
+
   return <div className={[styles.Tag, colorClass].join(' ')}>{children}</div>
 }
 
