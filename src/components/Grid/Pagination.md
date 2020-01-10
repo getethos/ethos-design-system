@@ -1,7 +1,7 @@
 Used in tandem with the DataGrid component:
 
 ```jsx
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import uuidv4 from 'uuid/v4'
 import { FaHamburger } from 'react-icons/fa'
 import { Grid } from '../Grid/Grid.js'
@@ -36,7 +36,7 @@ const toSnakeCase = (str) => {
   return snakeCasedWords.join('_')
 }
 
-function LeGrid({ rows, columns }) {
+const LeGrid = ({ rows, columns }) => {
   const {
     rowsRefs,
     columnRefs,
@@ -159,8 +159,7 @@ function LeGrid({ rows, columns }) {
   )
 }
 
-function GridAndPagination() {
-
+const GridAndPagination = memo(() => {
   const columns = [
     {
       name: 'id',
@@ -221,7 +220,7 @@ function GridAndPagination() {
       <Pagination fetchPageCallback={fetchPage} renderCallback={renderCases} />
     </>
   )
-}
+})
 
-<GridAndPagination />
+;<GridAndPagination />
 ```
