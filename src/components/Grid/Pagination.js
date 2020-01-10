@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { usePagination } from './usePagination'
 import PropTypes from 'prop-types'
 import styles from './Pagination.module.scss'
 
-export const Pagination = ({ fetchPageCallback, renderCallback }) => {
+export const Pagination = memo(({ fetchPageCallback, renderCallback }) => {
   if (!fetchPageCallback || !renderCallback) {
     throw Error(
       'Pagination requires a fetchPageCallback and renderCallback parameters'
@@ -16,7 +16,7 @@ export const Pagination = ({ fetchPageCallback, renderCallback }) => {
 
   return (
     <>
-      {renderCallback(pagingState.data)}
+      {renderCallback(pagingState.items)}
       <nav aria-label="pagination" className={styles.pagination}>
         <button
           className={[
@@ -34,15 +34,15 @@ export const Pagination = ({ fetchPageCallback, renderCallback }) => {
             styles.paginationButtons,
             styles.paginationButtonsRight,
           ].join(' ')}
-          onClick={() => fetchPage(pagingState.total_pages)}
-          aria-label={`Goto Page ${pagingState.total_pages}`}
+          onClick={() => fetchPage(pagingState.pageCount)}
+          aria-label={`Goto Page ${pagingState.pageCount}`}
         >
           &raquo;
         </button>
       </nav>
     </>
   )
-}
+})
 
 Pagination.propTypes = {
   fetchPageCallback: PropTypes.func.isRequired,
