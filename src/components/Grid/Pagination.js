@@ -34,8 +34,8 @@ export const Pagination = ({ fetchPageCallback, renderCallback }) => {
             styles.paginationButtons,
             styles.paginationButtonsRight,
           ].join(' ')}
-          onClick={() => fetchPage(pagingState.total_pages)}
-          aria-label={`Goto Page ${pagingState.total_pages}`}
+          onClick={() => fetchPage(pagingState.pageCount)}
+          aria-label={`Goto Page ${pagingState.pageCount}`}
         >
           &raquo;
         </button>

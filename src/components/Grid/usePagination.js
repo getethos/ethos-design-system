@@ -4,9 +4,12 @@ import styles from './Pagination.module.scss'
 export const usePagination = ({
   data = null,
   total = null,
-  per_page = null,
-  total_pages = null,
-  current_page = 1,
+
+  // pageCount:
+
+  itemCount = null,
+  pageCount = null,
+  page = 1,
   fetchPage = null,
   startPageNumber = 1,
 }) => {
@@ -17,9 +20,9 @@ export const usePagination = ({
   const [pagingState, setPagingState] = useState({
     data,
     total,
-    per_page,
-    total_pages,
-    current_page,
+    itemCount,
+    pageCount,
+    page,
     fetchPage,
   })
 
@@ -28,15 +31,15 @@ export const usePagination = ({
     setPagingState({
       data: data.data,
       total: data.total,
-      per_page: data.per_page,
-      current_page: data.page,
-      total_pages: data.total_pages,
+      itemCount: data.itemCount,
+      page: data.page,
+      pageCount: data.pageCount,
     })
   }
 
   const getPaginationNumbers = () => {
     const pageNumbers = []
-    const totalPages = pagingState.total_pages
+    const totalPages = pagingState.pageCount
     let paginationNumbers
 
     if (pagingState.total && totalPages) {
@@ -44,7 +47,7 @@ export const usePagination = ({
         pageNumbers.push(i)
       }
       paginationNumbers = pageNumbers.map((number) => {
-        const isCurrentPage = pagingState.current_page === number
+        const isCurrentPage = pagingState.page === number
         const klasses = isCurrentPage
           ? `${styles.paginationButtons} ${styles.active}`
           : styles.paginationButtons

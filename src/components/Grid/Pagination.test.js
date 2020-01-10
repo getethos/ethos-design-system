@@ -6,9 +6,9 @@ import styles from './Pagination.module.scss'
 
 const responseStub = {
   page: 1,
-  per_page: 2,
+  itemCount: 2,
   total: 6,
-  total_pages: 3,
+  pageCount: 3,
   data: [{ id: 1 }, { id: 2 }],
 }
 
