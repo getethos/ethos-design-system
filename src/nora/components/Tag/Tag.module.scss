@@ -1,8 +1,9 @@
+@import '../Attributes.css';
+
 .Tag {
   border-radius: var(--Radius-3);
-  display: flex;
+  display: inline;
   align-items: center;
-  justify-content: center;
   padding: 5px;
 }
 
@@ -17,6 +18,6 @@
 }
 
 .Default {
-  background-color: var(--GrayStrokeAndDisabled--translucent);
-  color: var(--GrayDarkHover--opaque);
+  background-color: var(--GrayPrimary--translucent);
+  color: var(--GrayPrimary--opaque);
 }
