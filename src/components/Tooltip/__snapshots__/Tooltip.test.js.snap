@@ -28,7 +28,7 @@ exports[`Tooltip rendering component default 1`] = `
     className="popperContainer"
   >
     <div
-      className="contentBox hidden"
+      className="contentBox hidden noTransition"
       style={
         Object {
           "left": 0,
