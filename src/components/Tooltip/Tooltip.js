@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 import { useTransition, animated } from 'react-spring'
@@ -7,6 +7,7 @@ import debounce from 'lodash.debounce'
 
 import { TitleLarge, Body, Footnote } from '../index'
 import { Media } from '../Media/Media'
+import usePrevious from '../../hooks/usePrevious'
 
 import styles from './Tooltip.module.scss'
 
@@ -61,7 +62,7 @@ export const Tooltip = ({
         >
           <AnimatedModalContent
             className={styles.mobileModal}
-            aria-label={`${label} Tooltip`}
+            aria-label={`${label} Popup Modal`}
             style={props}
           >
             <button
@@ -90,21 +91,15 @@ export const Tooltip = ({
   const referenceProps = {
     onMouseOver: () => debouncedSetTooltipVisibility(true),
     onMouseOut: () => debouncedSetTooltipVisibility(false),
-    onClick: debounce(() => setModalVisibility(true), 100, { leading: true }),
+    onClick: () => setModalVisibility(true),
   }
 
   const popperProps = {
     placement,
     outOfBoundaries: true,
     modifiers,
-    // eventsEnabled: true,
-    // positionFixed: true,
+    eventsEnabled: true,
   }
-
-  const contentBoxClasses = [
-    styles.contentBox,
-    tooltipVisible ? styles.visible : styles.hidden,
-  ]
 
   const tooltipClasses = [styles.root, inline ? styles.inline : styles.block]
 
@@ -126,20 +121,13 @@ export const Tooltip = ({
         </Reference>
         <div className={styles.popperContainer}>
           <Popper {...popperProps}>
-            {({ ref, style, placement, arrowProps }) => (
-              <div
-                className={contentBoxClasses.join(' ')}
-                ref={ref}
-                style={style}
-              >
-                <Footnote.Regular400>{details}</Footnote.Regular400>
-                <div
-                  ref={arrowProps.ref}
-                  className={styles.arrow}
-                  style={arrowProps.style}
-                  data-placement={placement}
-                />
-              </div>
+            {({ ref, ...rest }) => (
+              <PopperContent
+                innerRef={ref}
+                visible={tooltipVisible}
+                details={details}
+                {...rest}
+              />
             )}
           </Popper>
         </div>
@@ -152,6 +140,70 @@ export const Tooltip = ({
       {isMobile() && renderModal}
       {renderTooltip}
     </>
+  )
+}
+
+const PopperContent = ({
+  innerRef,
+  visible,
+  style,
+  placement,
+  arrowProps,
+  scheduleUpdate,
+  details,
+}) => {
+  const [isPositioned, setIsPositioned] = useState(false)
+
+  const prevVisible = usePrevious(visible)
+  const prevPosition = usePrevious(style.transform)
+  const position = style.transform || ''
+
+  const debouncedScheduleUpdate = useRef(
+    debounce(
+      () => {
+        console.log('SDSDS')
+        scheduleUpdate()
+      },
+      1000,
+      { trailing: true }
+    )
+  ).current
+
+  useEffect(() => {
+    window.addEventListener('scroll', debouncedScheduleUpdate)
+    return () => {
+      window.removeEventListener('scroll', debouncedScheduleUpdate)
+    }
+  }, [position])
+
+  const contentBoxClasses = [
+    styles.contentBox,
+    visible && isPositioned ? styles.visible : styles.hidden,
+  ]
+
+  // On first reveal of tooltip, schedule an update so positioning
+  // is correct incase the DOM has shuffled since the page first loaded
+  if (prevVisible === false && visible === true && !isPositioned) {
+    setIsPositioned(true)
+    scheduleUpdate()
+    return
+  }
+
+  // Check Tooltip Positioning, remove transition if repositioning is necessary
+  if (prevPosition !== position) {
+    contentBoxClasses.push(styles.noTransition)
+  }
+
+  return (
+    <div className={contentBoxClasses.join(' ')} ref={innerRef} style={style}>
+      <Footnote.Regular400>{details}</Footnote.Regular400>
+      <div
+        ref={arrowProps.ref}
+        className={styles.arrow}
+        style={arrowProps.style}
+        data-placement={placement}
+      />
+    </div>
   )
 }
 
