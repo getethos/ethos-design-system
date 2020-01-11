@@ -24,7 +24,7 @@ import React, { useRef, useState, useEffect } from 'react'
         alignItems: 'flex-end',
       }}
     >
-      Top aligned with insufficient space <Tooltip label="Flip" details="Hi!" />
+      Top aligned with insufficient space <Tooltip label="Flip" details="Hi" />
     </div>
     <div>
       Hey there this
@@ -44,7 +44,7 @@ import React, { useRef, useState, useEffect } from 'react'
     This tooltip flips on the VIEWPORT
     <Tooltip
       label="Label"
-      details="Not Broken"
+      details="Id ullamco eiusmod mollit quis aliqua reprehenderit laboris adipisicing anim enim. Ullamco occaecat laborum proident sit consequat consectetur velit anim deserunt incididunt commodo. Nulla pariatur labore irure elit consequat pariatur consequat ipsum quis velit irure commodo. Ad dolore dolor sunt proident culpa. Est Lorem laborum dolore sint Lorem aliquip. Sit eu minim non Lorem dolore nostrud consequat sint qui. Commodo ullamco anim consequat velit velit elit et laborum laborum."
       boundariesElement={Tooltip.BOUNDARIES_ELEMENT.VIEWPORT}
       inline
     />
