@@ -14,16 +14,14 @@
 
 /* Tooltip */
 .icon {
-  width: 16px;
-  height: 16px;
+  width: var(--Space-16);
+  height: var(--Space-16);
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
 .popperContainer {
-  animation: fadein 0.3s ease-in 0.5s forwards;
-
   .contentBox {
     @include for-phone-only {
       display: none;
@@ -32,15 +30,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 12px;
+    margin: var(--UncommonSpace-12);
     text-align: center;
     width: max-content;
     max-width: 270px;
     background-color: white;
-    padding: 20px var(--Space-24) var(--Space-24) var(--Space-24);
-    box-shadow: 0px 0px 12px 5px #f1f1f1f1;
-    color: black;
-    transition: 0.1s ease-in-out;
+    padding: var(--Space-24);
+    box-shadow: var(--BoxShadow-Outer-light);
+    color: var(--GrayDarkHover--translucent);
+    transition: var(--transition-default);
+
+    &.noTransition {
+      transition: unset;
+    }
 
     &.visible {
       opacity: 1;
@@ -55,25 +57,27 @@
 
   .arrow {
     position: absolute;
-    width: 12px;
-    height: 12px;
+    width: var(--UncommonSpace-12);
+    height: var(--UncommonSpace-12);
     &[data-placement*='bottom'] {
       top: 0;
       margin-top: -12px;
-      width: 36px;
-      height: 12px;
+      width: var(--UncommonSpace-36);
+      height: var(--UncommonSpace-12);
       &::before {
-        border-width: 0 12px 12px 12px;
+        border-width: 0 var(--UncommonSpace-12) var(--UncommonSpace-12)
+          var(--UncommonSpace-12);
         border-color: transparent transparent white transparent;
       }
     }
     &[data-placement*='top'] {
       bottom: 0;
       margin-bottom: -12px;
-      width: 36px;
-      height: 12px;
+      width: var(--UncommonSpace-36);
+      height: var(--UncommonSpace-12);
       &::before {
-        border-width: 12px 12px 0 12px;
+        border-width: var(--UncommonSpace-12) var(--UncommonSpace-12) 0
+          var(--UncommonSpace-12);
         border-color: white transparent transparent transparent;
       }
     }
@@ -81,9 +85,10 @@
       left: 0;
       margin-left: -12px;
       height: var(--Space-24);
-      width: 12px;
+      width: var(--UncommonSpace-12);
       &::before {
-        border-width: 12px 12px 12px 0;
+        border-width: var(--UncommonSpace-12) var(--UncommonSpace-12)
+          var(--UncommonSpace-12) 0;
         border-color: transparent white transparent transparent;
       }
     }
@@ -91,9 +96,10 @@
       right: 0;
       margin-right: -12px;
       height: var(--Space-24);
-      width: 12px;
+      width: var(--UncommonSpace-12);
       &::before {
-        border-width: 12px 0 12px 12px;
+        border-width: var(--UncommonSpace-12) 0 var(--UncommonSpace-12)
+          var(--UncommonSpace-12);
         border-color: transparent transparent transparent white;
       }
     }
@@ -105,15 +111,6 @@
       height: 0;
       border-style: solid;
     }
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 
@@ -130,6 +127,7 @@
 }
 
 [data-reach-dialog-overlay] {
+  z-index: 50;
   background: hsla(0, 0%, 0%, 0.33);
   position: fixed;
   top: 0;
@@ -137,6 +135,7 @@
   bottom: 0;
   left: 0;
   overflow: auto;
+  overflow: hidden;
 }
 
 [data-reach-dialog-content] {
@@ -155,8 +154,8 @@
     background: transparent;
     border: unset;
     position: absolute;
-    top: 29px;
-    right: 29px;
+    top: var(--Space-24);
+    right: var(--Space-24);
     cursor: pointer;
   }
 
