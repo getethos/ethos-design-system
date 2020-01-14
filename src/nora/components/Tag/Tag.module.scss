@@ -1,0 +1,23 @@
+@import '../Attributes.css';
+
+.Tag {
+  border-radius: var(--Radius-3);
+  display: inline-block;
+  align-items: center;
+  padding: var(--Space-4);
+}
+
+.Approved {
+  background-color: var(--NoraGreen--translucent);
+  color: var(--NoraGreen--opaque);
+}
+
+.Rejected {
+  background-color: var(--NoraRed--translucent);
+  color: var(--NoraRed--opaque);
+}
+
+.Default {
+  background-color: var(--NoraGray--translucent);
+  color: var(--NoraGray--opaque);
+}

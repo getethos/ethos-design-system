@@ -1,3 +1,12 @@
 :root {
   --NoraBlue: #1a7ff6;
+
+  --NoraGreen--opaque: #2bd04b;
+  --NoraGreen--translucent: rgba(101, 217, 124, 0.17);
+
+  --NoraRed--opaque: #e63754;
+  --NoraRed--translucent: rgba(230, 55, 84, 0.16);
+
+  --NoraGray--opaque: #4f5972;
+  --NoraGray--translucent: #eaebee;
 }
