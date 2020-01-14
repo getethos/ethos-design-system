@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -42,32 +42,6 @@ jobs:
         run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
       - name: Build styleguide
         run: yarn styleguide:build
-      - name: Archive build result
-        uses: actions/upload-artifact@master
-        with:
-          name: styleguide
-          path: styleguide
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Download build files
-        uses: actions/download-artifact@master
-        with:
-          name: styleguide
-      - name: Write .aws/config
-        run: |
-          mkdir -p ${GITHUB_WORKSPACE}/.aws
-          cat > ${GITHUB_WORKSPACE}/.aws/config <<EOF
-          [profile ci-user]
-          role_arn = ${{ secrets.AWS_CI_USER_ROLE_ARN }}
-          credential_source = Environment
-          region = us-east-1
-          EOF
-          cat ${GITHUB_WORKSPACE}/.aws/config
       - name: Sync styleguide to S3
         run: aws s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
         env:
