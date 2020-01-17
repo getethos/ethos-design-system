@@ -6,8 +6,8 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    node: true,
   },
-
   // Inherit the configs of following plugins:
   extends: [
     // A few dozen recommended rules (see √s on https://eslint.org/docs/rules/).

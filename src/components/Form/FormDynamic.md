@@ -12,7 +12,7 @@ import {
   Button,
   InfoMessage,
 } from '../index'
-import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { ButtonSelectGroup } from '../ButtonSelectGroup/ButtonSelectGroup'
 let count = 0
 
 function validateIllegal(x) {
@@ -189,7 +189,7 @@ import {
   Button,
   InfoMessage,
 } from '../index'
-import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { ButtonSelectGroup } from '../ButtonSelectGroup/ButtonSelectGroup'
 ;<Form
   config={{
     formName: 'Hiding dynamic fields',
@@ -301,7 +301,7 @@ import {
   Button,
   InfoMessage,
 } from '../index'
-import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
+import { ButtonSelectGroup } from '../ButtonSelectGroup/ButtonSelectGroup'
 ;<Form
   config={{
     formName: 'Nested dynamic forms',

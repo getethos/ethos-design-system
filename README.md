@@ -89,3 +89,32 @@ $ git tag -d v1.2.3                 # delete tag v1.2.3 locally
 $ git push origin v1.2.3            # push tag v1.2.3
 $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
 ```
+
+_Please also read the next section on how tags are cached on the Jenkins server (TL;DR -- never force push over an existing tag)_
+
+### Tag Caching
+
+We have been using `yarn version` and git tags to cut [EDS releases](https://github.com/getethos/ethos-design-system/releases). The example above with the `#v1.2.3` is an example of a release that might have a corresponding tag and release. One thing we need to be careful about, is that
+the server where Jenkins lives will cache these and attempt to reuse them if it can find a corresponding release. Which leads to a nuanced rule we need to all heed:
+
+**Never force push a git tag to update an EDS version/release. Cut a new version instead.**
+
+## Design patterns
+
+#### JS concepts
+
+- The repo is set up to import individual components as necessary.
+- Preference for hooks and functional components over classes.
+- Please try to avoid using `<Media>` and `<Spacer>` components for now, they are deprecated. For media queries, import `@include` rules from the media scss file as described below.
+
+#### CSS/SCSS concepts
+
+- CSS variables are the core of styling in the EDS. 
+  - All CSS variables are available on all pages in both monorepo and cms; they are the single source of truth for brand colors, breakpoints, and other commonly reused bits of css.
+- The EDS is (to an extent) designed as a set of immutable components in terms of interior JS logic as well as styling. New styling of existing components should be handled by PR's on the EDS, not by writing local overrides in files. 
+- We encourage a limited subset of SCSS features for the EDS.
+  - The primary reason for using scss is to import @include statements from the media scss file for reusable media queries, like this:
+    - `@import '~ethos-design-system/src/components/Media/Media.scss';`
+    - `@include for-phone-and-tablet {`
+  - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations. 
+

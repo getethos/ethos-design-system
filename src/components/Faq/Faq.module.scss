@@ -1,0 +1,79 @@
+@import '../Media/Media.scss';
+
+.root {
+  display: flex;
+
+  details {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--Space-40);
+
+    .body {
+      color: var(--GraySecondary--opaque);
+    }
+  }
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--Space-8);
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      transition: 0.25s ease-in-out;
+      transform: rotate(0deg);
+    }
+  }
+  summary {
+    outline: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] {
+    svg {
+      transition: 0.25s ease-in-out;
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+.leftColumn {
+  width: 50%;
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  @include for-phone-only {
+    width: 100%;
+  }
+
+  @include for-tablet-and-up {
+    margin-top: 7px;
+  }
+}
+
+.phoneTitle {
+  @include for-phone-only {
+    visibility: visible;
+    margin-bottom: var(--Space-48);
+  }
+  @include for-tablet-and-up {
+    visibility: hidden;
+    height: 0px;
+  }
+}
+
+.carrot {
+  margin-left: var(--Space-24);
+}

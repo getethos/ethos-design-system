@@ -1,0 +1,20 @@
+.container {
+  /**
+   * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
+   * allowing us to declaratively theme our grid!
+   */
+
+  /* TODO -- make this Ethos specific */
+  --default-grid-container-color: #2f3941;
+
+  display: table;
+  border: none;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  line-height: 1.42857;
+  color: var(--ariagrid-grid-container-color, --default-grid-container-color);
+  font-size: var(--Space-16);
+  composes: Theinhardt from '../Type/Type.module.scss';
+}

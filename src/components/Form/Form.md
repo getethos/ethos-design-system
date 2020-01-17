@@ -10,6 +10,7 @@ import {
   InfoMessage,
   RadioButtonGroup,
   ZipInput,
+  Select,
   EmailInput,
 } from '../index'
 let count = 0
@@ -70,6 +71,15 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
         validationSuccess: [analyticsCustomEvent],
         name: 'this-zip-input-example',
         labelCopy: 'What is your zip code?',
+      },
+      states: {
+        component: (props, options) => {
+          return <Select placeholder="State" options={options} {...props} />
+        },
+        name: 'states',
+        labelCopy: 'What state?',
+        options: [{ value: 'CA', label: 'CA' }],
+        validators: [validateExists],
       },
       email: {
         component: (props, options) => {
@@ -173,6 +183,10 @@ const analyticsCustomEvent = (fieldName, fieldValue) => {
 
         <Spacer.H16 />
 
+        {field('states')}
+
+        <Spacer.H16 />
+
         <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
           Submit
         </Button.Medium.Black>
@@ -197,8 +211,8 @@ import {
   InfoMessage,
   TextAreaInput,
 } from '../index'
-import { ButtonSelectGroup } from '../Inputs/ButtonSelectGroup/ButtonSelectGroup'
-import { BirthdateInput } from '../Inputs/BirthdateInput/BirthdateInput'
+import { ButtonSelectGroup } from '../ButtonSelectGroup/ButtonSelectGroup'
+import { BirthdateInput } from '../BirthdateInput/BirthdateInput'
 let count = 0
 
 function validateIllegal(x) {

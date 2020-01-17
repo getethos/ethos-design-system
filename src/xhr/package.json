@@ -1,0 +1,45 @@
+{
+  "name": "Xhr",
+  "description": "Xhr API fetch and error handling",
+  "version": "0.1.1",
+  "author": "Ethos Technologies, Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "js-cookie": "latest",
+    "node-sass": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.8.5",
+    "faker": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rc23",
+    "json-server": "^0.15.1",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.5.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^4.0.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "api:help": "echo \"\\033[1;32m API started \\033[0m\"e.g. go to: http://localhost:9004/api/posts",
+    "api:posts": "yarn api:help && node server.js",
+    "copycss": "cp src/XhrComponent.module.css lib/",
+    "copydts": "find ./src -name \"*.d.ts\" -type f -exec cp {} ./lib \\;",
+    "build": "yarn run tsc --skipLibCheck && yarn copycss && yarn copydts",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "generate:users": "node users-schema-generate.js",
+    "generate:posts": "node posts-schema-generate.js",
+    "type-check": "tsc --noEmit",
+    "lint": "tslint --project ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}

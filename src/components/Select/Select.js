@@ -1,21 +1,92 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 // See React-Select -- https://github.com/JedWatson/react-select for documentation
 // on usage, Async configuration, etc.
 import ReactSelect from 'react-select'
 import ReactSelectAsync from 'react-select/async'
+import ReactSelectAsyncCreatable from 'react-select/async-creatable'
+import ReactSelectCreatable from 'react-select/creatable'
+import useErrorMessage from '../../hooks/useErrorMessage.js'
+import { InputLabel } from '../InputLabel'
 
 import styles from './Select.module.scss'
 
-export const Select = ({ className, isAsync, ...rest }) => {
+export const Select = ({
+  className,
+  title,
+  isAsync,
+  isCreatable,
+  validator,
+  onChange,
+  formChangeHandler,
+  currentError,
+  formTouched,
+  labelCopy,
+  name,
+  ...rest
+}) => {
+  const onChangeHandler = (event) => {
+    updateSelectedValue(event.value)
+
+    if (onChange) {
+      onChange(event)
+    }
+  }
+
+  const resolvedValidator = validator ? validator : () => ''
+  const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
+  const [selectedValue, updateSelectedValue] = useState(undefined)
+
+  const validationSelect = () => {
+    const errorMessage = validate(selectedValue)
+    setError(errorMessage)
+    if (formChangeHandler) {
+      formChangeHandler(selectedValue, errorMessage)
+    }
+  }
+
+  useEffect(() => {
+    const isSelectedValue = typeof selectedValue !== 'undefined'
+    if (isSelectedValue) {
+      validationSelect()
+    }
+  }, [selectedValue])
+
+  const onBlur = () => {
+    validationSelect()
+  }
+
+  const wrapperClass = title ? styles.wrapper : ''
+
   const props = {
     className: `${className ? className : ''} ${styles.root}`,
+    onChange: onChangeHandler,
+    onBlur,
     ...rest,
   }
-  if (isAsync) {
-    return <ReactSelectAsync {...props} />
+
+  const getTag = () => {
+    if (isAsync && isCreatable) {
+      return ReactSelectAsyncCreatable
+    } else if (isAsync) {
+      return ReactSelectAsync
+    } else if (isCreatable) {
+      return ReactSelectCreatable
+    } else {
+      return ReactSelect
+    }
   }
-  return <ReactSelect {...props} />
+
+  const SelectTag = getTag()
+
+  return (
+    <div className={wrapperClass}>
+      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
+      <SelectTag {...props} />
+      {title && <div className={styles.title}>{title}</div>}
+      {getError(currentError, formTouched)}
+    </div>
+  )
 }
 
 Select.propTypes = {
@@ -25,7 +96,15 @@ Select.propTypes = {
   loadOptions: PropTypes.func,
   onChange: PropTypes.func,
   isAsync: PropTypes.bool,
+  title: PropTypes.string,
   className: PropTypes.string,
+  isCreatable: PropTypes.bool,
+  formChangeHandler: PropTypes.func,
+  currentError: PropTypes.string,
+  formTouched: PropTypes.bool,
+  labelCopy: PropTypes.string,
+  name: PropTypes.string,
+  validator: PropTypes.func,
 }
 
 Select.defaultProps = {

@@ -1,0 +1,16 @@
+/**
+ * Sort icons UX (from default, up, to down) seem to follow the same
+ * conventions as Bootstrap: https:\/\/examples.bootstrap-table.com/
+ */
+.icon {
+  margin-left: var(--Space-4);
+}
+
+.iconDefault {
+  opacity: 0.5;
+}
+
+.iconUp,
+.iconDown {
+  opacity: 1;
+}

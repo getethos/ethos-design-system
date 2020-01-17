@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Faq rendering component default 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="leftColumn"
+  >
+    <div
+      className="TitleMedium Cambon Book500"
+    >
+      FAQs
+    </div>
+  </div>
+  <div
+    className="rightColumn"
+  >
+    <div
+      className="phoneTitle"
+    >
+      <div
+        className="TitleLarge Cambon Book500"
+      >
+        FAQs
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Faq rendering component default questions 1`] = `
+<div
+  className="root"
+>
+  <div
+    className="leftColumn"
+  >
+    <div
+      className="TitleMedium Cambon Book500"
+    >
+      FAQs
+    </div>
+  </div>
+  <div
+    className="rightColumn"
+  >
+    <div
+      className="phoneTitle"
+    >
+      <div
+        className="TitleLarge Cambon Book500"
+      >
+        FAQs
+      </div>
+    </div>
+    <details
+      open={true}
+    >
+      <summary>
+        <div
+          className="summary"
+        >
+          <div
+            className="Body Theinhardt Medium500"
+          >
+            First
+          </div>
+          <div
+            className="carrot"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 19 18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.999999 8.375L9.375 16.75L17.75 8.375"
+                stroke="black"
+                strokeOpacity="0.85"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </summary>
+      <div
+        className="body"
+      >
+        <div
+          className="Body Theinhardt Regular400"
+        >
+          <div>
+            <p>
+              Culpa occaecat nulla tempor in veniam exercitation qui in voluptate ullamco adipisicing fugiat. Cupidatat do officia est Lorem anim sunt enim aliqua deserunt ut aliqua excepteur. Et aliqua elit in dolor reprehenderit cillum ipsum irure aliquip duis labore ipsum.
+            </p>
+            <p>
+              Excepteur et laborum ea enim dolor sit Lorem et cupidatat veniam pariatur consequat. Occaecat amet aliqua sunt exercitation ut quis consectetur anim aliquip ex non laboris. Id proident labore et ex laborum.
+            </p>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details
+      open={false}
+    >
+      <summary>
+        <div
+          className="summary"
+        >
+          <div
+            className="Body Theinhardt Medium500"
+          >
+            Second
+          </div>
+          <div
+            className="carrot"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 19 18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.999999 8.375L9.375 16.75L17.75 8.375"
+                stroke="black"
+                strokeOpacity="0.85"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </summary>
+      <div
+        className="body"
+      >
+        <div
+          className="Body Theinhardt Regular400"
+        >
+          Qui ad sit sunt dolore reprehenderit irure ad. Elit ipsum elit minim labore cupidatat duis est ad incididunt ea. Ea ut aliqua et reprehenderit Lorem commodo reprehenderit et commodo voluptate do proident. Fugiat amet elit commodo ad officia est irure mollit elit. Ullamco voluptate in elit commodo nulla. Labore anim do laborum laborum aliquip est cillum qui magna enim. Et nisi non laborum magna ullamco deserunt est duis cillum consectetur.
+        </div>
+      </div>
+    </details>
+    <details
+      open={false}
+    >
+      <summary>
+        <div
+          className="summary"
+        >
+          <div
+            className="Body Theinhardt Medium500"
+          >
+            Third
+          </div>
+          <div
+            className="carrot"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 19 18"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.999999 8.375L9.375 16.75L17.75 8.375"
+                stroke="black"
+                strokeOpacity="0.85"
+                strokeWidth="1.5"
+              />
+            </svg>
+          </div>
+        </div>
+      </summary>
+      <div
+        className="body"
+      >
+        <div
+          className="Body Theinhardt Regular400"
+        >
+          Ea adipisicing excepteur nulla veniam mollit quis laborum anim quis et nisi officia. Ad eu pariatur duis duis dolore duis commodo non. Aute ipsum ex est cillum ut. Magna quis eu tempor do ullamco. Fugiat voluptate incididunt deserunt consectetur Lorem esse sit et cillum nisi.
+        </div>
+      </div>
+    </details>
+  </div>
+</div>
+`;

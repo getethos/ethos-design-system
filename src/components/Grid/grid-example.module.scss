@@ -1,0 +1,47 @@
+:root {
+  /**
+   * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
+   * allowing us to declaratively theme our grid!
+   */
+  --ariagrid-grid-container-color: #272727;
+  --ariagrid-grid-border-bottom: #f5f5f5;
+  --ariagrid-header-border-bottom: #d8dcde;
+  --ariagrid-row-hover-background: var(--BrandDuckegg);
+  --ariagrid-grid-header-font-color: var(--GraySecondary--opaque);
+}
+
+.iconContainer {
+  display: inline-flex;
+}
+
+.icon {
+  margin-left: var(--Space-8);
+}
+
+@media (max-width: 599px) {
+  div[role='columnheader'],
+  div[role='row'],
+  div[role='cell'] {
+    display: block;
+    height: inherit;
+  }
+  div[role='row']:first-child {
+    display: none;
+  }
+  div[role='cell'] {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+  /* Header column labels get pushed to left of columns */
+  div[role='cell']:before {
+    content: attr(data-label);
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 45%;
+    padding-right: var(--Space-16);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
