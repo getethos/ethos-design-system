@@ -23,17 +23,10 @@ const stubs = {
 }
 
 const toCaps = (str) => {
-  const capitalizedWords = str.split('_').map(word => {
+  const capitalizedWords = str.split(' ').map((word) => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`
   })
   return capitalizedWords.join(' ')
-}
-
-const toSnakeCase = (str) => {
-  const snakeCasedWords = str.split(' ').map(word => {
-    return word.toLowerCase()
-  })
-  return snakeCasedWords.join('_')
 }
 
 const LeGrid = ({ rows, columns }) => {
@@ -48,8 +41,7 @@ const LeGrid = ({ rows, columns }) => {
 
   const sortBy = (ev) => {
     ev.preventDefault()
-    // Put back to snake case e.g. 'Pantone Value' becomes 'pantone_value'
-    const key = toSnakeCase(ev.currentTarget.text)
+    const key = ev.currentTarget.dataset.key
     let rowsCopy = sortedRows
     let sortFunction
     // See if we have a custom sort function. If `sortFunction` is
@@ -63,10 +55,10 @@ const LeGrid = ({ rows, columns }) => {
   }
 
   useEffect(() => {
-   if (rows.length) {
-     updateRowsRefs(rows);
-   }
-  },[rows]);
+    if (rows.length) {
+      updateRowsRefs(rows)
+    }
+  }, [rows])
 
   return (
     <Grid rowRefs={rowsRefs} columnRefs={columnRefs}>
@@ -87,11 +79,12 @@ const LeGrid = ({ rows, columns }) => {
                   <a
                     href="./#"
                     onClick={sortBy}
+                    data-key={col.name}
                     tabIndex={active ? 0 : -1}
                     className={styles.iconContainer}
                     ref={columnRef}
                   >
-                    {toCaps(col.name)}
+                    {toCaps(col.labelCopy || col.name)}
                     {getSortIcon(col.name)}
                   </a>
                 )}
@@ -107,8 +100,11 @@ const LeGrid = ({ rows, columns }) => {
               header
             >
               {(active) => (
-                <span className={active ? 'active' : undefined}>
-                  {toCaps(col.name)}
+                <span
+                  data-key={col.name}
+                  className={active ? 'active' : undefined}
+                >
+                  {toCaps(col.labelCopy || col.name)}
                 </span>
               )}
             </Column>
@@ -167,18 +163,21 @@ const GridAndPagination = memo(() => {
     },
     {
       name: 'name',
+      labelCopy: 'color name',
       interactive: true,
       sortable: true /* will use default sort function */,
       flexBasis: '30%',
     },
     {
       name: 'color',
+      labelCopy: 'hex',
       interactive: true,
       sortable: true /* will use default sort function */,
       flexBasis: '30%',
     },
     {
       name: 'pantone_value',
+      labelCopy: 'pantone value',
       flexBasis: '15%',
     },
   ]
@@ -209,7 +208,7 @@ const GridAndPagination = memo(() => {
   }
   const renderGrid = () => {
     if (rows.length) {
-      return <LeGrid rows={rows} columns={columns} /> 
+      return <LeGrid rows={rows} columns={columns} />
     }
     return null
   }
