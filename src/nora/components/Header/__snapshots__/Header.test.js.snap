@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders defaults 1`] = `
+<header
+  className="Header"
+  name="nombre"
+>
+  <div
+    className="Title"
+  >
+    Le Title
+  </div>
+  <div
+    className="Profile"
+  >
+    Profile
+  </div>
+</header>
+`;
