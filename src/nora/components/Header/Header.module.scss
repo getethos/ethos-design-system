@@ -1,8 +1,30 @@
 @import '../Colors.css';
+@import '../../../components/Spacer/Spacer.scss';
 
 .Header {
   color: var(--NoraGrayHeader--opaque);
   font-weight: 400;
+  height: var(--Space-56);
+  width: 100vw;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-bottom: 1px solid var(--NoraGrayHeaderBar--opaque);
+  display: flex;
+  align-items: center;
+}
+
+.Title {
   font-size: 15px;
-  line-height: 1.33;
+  flex: 1;
+  margin-left: var(--Space-24);
+}
+
+.Profile {
+  display: flex;
+  justify-content: space-between;
+  margin-right: var(--Space-24);
 }

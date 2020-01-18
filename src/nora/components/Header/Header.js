@@ -2,8 +2,21 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import styles from './Header.module.scss'
 
-const Header = () => {
-  return <h1 className={styles.Header}>Nora</h1>
+const Title = ({ title }) => {
+  return <div className={styles.Title}>{title}</div>
+}
+
+const Profile = () => {
+  return <div className={styles.Profile}>Profile</div>
+}
+
+const Header = ({ title }) => {
+  return (
+    <header className={styles.Header}>
+      <Title title={title} />
+      <Profile />
+    </header>
+  )
 }
 
 Header.propTypes = {
