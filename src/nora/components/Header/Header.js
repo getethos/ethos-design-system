@@ -6,6 +6,14 @@ const Title = ({ title }) => {
   return <div className={styles.Title}>{title}</div>
 }
 
+Title.propTypes = {
+  title: PropTypes.string,
+}
+
+Title.defaultProps = {
+  title: undefined,
+}
+
 const Profile = () => {
   return <div className={styles.Profile}>Profile</div>
 }
