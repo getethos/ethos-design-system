@@ -18,9 +18,9 @@ const Profile = () => {
   return <div className={styles.Profile}>Profile</div>
 }
 
-const Header = ({ title }) => {
+const Header = ({ name, title }) => {
   return (
-    <header className={styles.Header}>
+    <header name={name} className={styles.Header}>
       <Title title={title} />
       <Profile />
     </header>
