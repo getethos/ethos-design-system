@@ -4,6 +4,8 @@
 #
 FROM node:10.16.3-alpine
 
+WORKDIR /usr/eds/src
+
 COPY ./package.json ./
 
 # The following assumes you've already pulled in the
