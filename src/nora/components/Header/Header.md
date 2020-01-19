@@ -1,10 +1,10 @@
-A very simple header with no left or right children:
+A very simple header with no children:
 
 ```jsx
 <Header name="nora-header-no-title" />
 ```
 
-Since we used fixed position, this will cover the title-less example above :)
+Since we used fixed position, this will cover the example from above.
 
 ```jsx
 const Profile = () => {
