@@ -58,6 +58,21 @@ export declare const Header: {
   }
 }
 
+interface TagProps {
+  type: string
+  children: React.ReactNode
+}
+export declare const Tag: {
+  ({ type, children }: TagProps): JSX.Element
+  propTypes: {
+    type: string
+    children: React.ReactNode
+  }
+  defaultProps: {
+    type: any
+  }
+}
+
 export declare const CheckboxInput: {
   ({
     formChangeHandler,

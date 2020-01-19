@@ -26,6 +26,12 @@ class Header extends React.Component<any, any> {
   }
 }
 
+class Tag extends React.Component<any, any> {
+  render() {
+    return <Tag type="approved">approved</Tag>
+  }
+}
+
 class ButtonSelectGroupTest extends React.Component<any, any> {
   render() {
     return (
