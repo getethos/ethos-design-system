@@ -11,6 +11,13 @@ const Left = ({ children }) => {
   return <div className={styles.Left}>{children}</div>
 }
 
+Left.propTypes = {
+  children: PropTypes.node,
+}
+Left.defaultProps = {
+  children: undefined,
+}
+
 /**
  * @private
  *
@@ -19,9 +26,21 @@ const Left = ({ children }) => {
 const Right = ({ children }) => {
   return <div className={styles.Right}>{children}</div>
 }
+Right.propTypes = {
+  children: PropTypes.node,
+}
+Right.defaultProps = {
+  children: undefined,
+}
 
 const Navbar = ({ children }) => {
   return <nav className={styles.Navbar}>{children}</nav>
+}
+Navbar.propTypes = {
+  children: PropTypes.node,
+}
+Navbar.defaultProps = {
+  children: undefined,
 }
 
 /**
