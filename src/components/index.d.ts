@@ -15,6 +15,49 @@ export { Layout } from './Layout/index.js'
 // TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
 // export { Media } from './Media'
 
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    name?: string
+  }
+}
+
+interface HeaderProps {
+  name: string
+  leftChildren: React.ReactNode
+  rightChildren: React.ReactNode
+}
+
+/**
+ * Base `Header` component that provides fixed positioning and renders
+ * left and right side children. For ease of extension, `Header` is
+ * intentionally much simpler then the UniversalNavbar component.
+ * @see See [UniversalNavbar](https://github.com/getethos/ethos-design-system/blob/master/src/components/UniversalNavbar/UniversalNavbar.js)
+ *
+ * @public
+ *
+ * @param {object} props - Component Props
+ * @prop {string} props.name - Unique name of header.
+ * @prop {React.ReactNode} props.leftChildren - children to be rendered on left side of header
+ * @prop {React.ReactNode} props.rightChildren - children to be rendered on right side of header
+ *
+ * @return {JSX.Element}
+ */
+export declare const Header: {
+  ({ name, leftChildren, rightChildren }: HeaderProps): JSX.Element
+  propTypes: {
+    /** a required unique name for the header */
+    name: string
+    /** Optional children to render on left side of header */
+    leftChildren: React.ReactNode
+    /** Optional children to render on right side of header */
+    rightChildren: React.ReactNode
+  }
+  defaultProps: {
+    leftChildren: any
+    rightChildren: any
+  }
+}
+
 export declare const CheckboxInput: {
   ({
     formChangeHandler,
@@ -75,18 +118,18 @@ export declare const Logo: {
 }
 
 interface downstreamButtonProps {
-  backArrowIcon?: boolean,
-  arrowIcon?: boolean,
-  type?: string,
-  isSelected?: boolean,
-  fullWidth?: boolean,
-  disabled?: boolean,
-  name?: string,
-  onClick?: any,
-  'data-tid'?: string,
-  children: string,
-  role?: string,
-  ariaLabelId?: string,
+  backArrowIcon?: boolean
+  arrowIcon?: boolean
+  type?: string
+  isSelected?: boolean
+  fullWidth?: boolean
+  disabled?: boolean
+  name?: string
+  onClick?: any
+  'data-tid'?: string
+  children: string
+  role?: string
+  ariaLabelId?: string
 }
 
 export declare const Button: {
@@ -245,7 +288,6 @@ export declare namespace ValueProps {
         })[]
   }
 }
-export default ValueProps
 
 export declare const focusHelper: {
   focus: (elementRef: any) => void
@@ -292,7 +334,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: ({ value: string, isAnswered: boolean })
+    onChange?: { value: string; isAnswered: boolean }
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
@@ -308,7 +350,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: ({ value: string, isAnswered: boolean })
+    onChange?: { value: string; isAnswered: boolean }
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean

@@ -14,6 +14,18 @@ import { ZipInput } from './index'
 
 // -------------- Localized tests ----------------//
 
+class Header extends React.Component<any, any> {
+  render() {
+    return (
+      <Header
+        name="le-header"
+        leftChildren="left child"
+        rightChildren="right child"
+      />
+    )
+  }
+}
+
 class ButtonSelectGroupTest extends React.Component<any, any> {
   render() {
     return (
