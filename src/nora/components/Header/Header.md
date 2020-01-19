@@ -1,4 +1,4 @@
-Note, that a a header with no title can be achieved with:
+A very simple header with no left or right children:
 
 ```jsx
 <Header name="nora-header-no-title" />
@@ -7,5 +7,8 @@ Note, that a a header with no title can be achieved with:
 Since we used fixed position, this will cover the title-less example above :)
 
 ```jsx
-<Header title="Nora" name="nora-header" />
+const Profile = () => {
+  return <span>Profile</span>
+}
+;<Header leftChildren="Nora" rightChildren={Profile()} name="nora-header" />
 ```

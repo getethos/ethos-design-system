@@ -5,28 +5,28 @@ import styles from './Header.module.scss'
 /**
  * @private
  *
- * @param {string} props.title - Title to display
+ * @param {JSX.Element} props.children - left children
  */
-const Title = ({ title }) => {
-  return <div className={styles.Title}>{title}</div>
-}
-
-Title.propTypes = {
-  title: PropTypes.string,
-}
-
-Title.defaultProps = {
-  title: undefined,
-}
-
-// TODO -- Profile should take a props.children argument instead of hard-coding
-const Profile = () => {
-  return <div className={styles.Profile}>Profile</div>
+const Left = ({ children }) => {
+  return <div className={styles.Left}>{children}</div>
 }
 
 /**
- * Base `Header` component that provides fixed positioning and a left-hand
- * `title` and a right-hand `profile`. For ease of extension, `Header` is
+ * @private
+ *
+ * @param {JSX.Element} props.children - left children
+ */
+const Right = ({ children }) => {
+  return <div className={styles.Right}>{children}</div>
+}
+
+const Navbar = ({ children }) => {
+  return <nav className={styles.Navbar}>{children}</nav>
+}
+
+/**
+ * Base `Header` component that provides fixed positioning and renders
+ * left and right side children. For ease of extension, `Header` is
  * intentionally much simpler then the UniversalNavbar component.
  * @see See [UniversalNavbar](https://github.com/getethos/ethos-design-system/blob/master/src/components/UniversalNavbar/UniversalNavbar.js)
  *
@@ -34,15 +34,18 @@ const Profile = () => {
  *
  * @param {object} props - Component Props
  * @prop {string} props.name - Unique name of header.
- * @prop {string} props.title - Title for the header. Shown on left.
+ * @prop {React.ReactNode} props.leftChildren - children to be rendered on left side of header
+ * @prop {React.ReactNode} props.rightChildren - children to be rendered on right side of header
  *
  * @return {JSX.Element}
  */
-const Header = ({ name, title }) => {
+const Header = ({ name, leftChildren, rightChildren }) => {
   return (
     <header name={name} className={styles.Header}>
-      <Title title={title} />
-      <Profile />
+      <Navbar>
+        <Left>{leftChildren}</Left>
+        <Right>{rightChildren}</Right>
+      </Navbar>
     </header>
   )
 }
@@ -50,12 +53,15 @@ const Header = ({ name, title }) => {
 Header.propTypes = {
   /** a required unique name for the header */
   name: PropTypes.string.isRequired,
-  /** an optional title for the header—shown on the left */
-  title: PropTypes.string,
+  /** Optional children to render on left side of header */
+  leftChildren: PropTypes.node,
+  /** Optional children to render on right side of header */
+  rightChildren: PropTypes.node,
 }
 
 Header.defaultProps = {
-  title: undefined,
+  leftChildren: undefined,
+  rightChildren: undefined,
 }
 
 export default Header

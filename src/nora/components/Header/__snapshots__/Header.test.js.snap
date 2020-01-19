@@ -5,15 +5,15 @@ exports[`Header renders defaults 1`] = `
   className="Header"
   name="nombre"
 >
-  <div
-    className="Title"
+  <nav
+    className="Navbar"
   >
-    Le Title
-  </div>
-  <div
-    className="Profile"
-  >
-    Profile
-  </div>
+    <div
+      className="Left"
+    />
+    <div
+      className="Right"
+    />
+  </nav>
 </header>
 `;

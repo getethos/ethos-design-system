@@ -5,7 +5,6 @@
   color: var(--NoraGrayHeader--opaque);
   font-weight: 400;
   height: var(--Space-56);
-  width: 100vw;
   background-color: white;
   position: fixed;
   top: 0;
@@ -17,13 +16,18 @@
   align-items: center;
 }
 
-.Title {
+.Navbar {
+  display: flex;
+  width: 100vw;
+}
+
+.Left {
   font-size: 15px;
   flex: 1;
   margin-left: var(--Space-24);
 }
 
-.Profile {
+.Right {
   display: flex;
   justify-content: space-between;
   margin-right: var(--Space-24);
