@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './Tag.module.scss'
 
-const Tag = ({ children, type }) => {
+export const Tag = ({ children, type }) => {
   let colorClass
   switch (type) {
     case 'approved':
@@ -26,5 +26,3 @@ Tag.propTypes = {
 Tag.defaultProps = {
   type: undefined,
 }
-
-export default Tag

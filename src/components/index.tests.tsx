@@ -14,24 +14,6 @@ import { ZipInput } from './index'
 
 // -------------- Localized tests ----------------//
 
-class Header extends React.Component<any, any> {
-  render() {
-    return (
-      <Header
-        name="le-header"
-        leftChildren="left child"
-        rightChildren="right child"
-      />
-    )
-  }
-}
-
-class Tag extends React.Component<any, any> {
-  render() {
-    return <Tag type="approved">approved</Tag>
-  }
-}
-
 class ButtonSelectGroupTest extends React.Component<any, any> {
   render() {
     return (
@@ -206,5 +188,27 @@ class ZipInputTest extends React.Component<any, any> {
         data-tid="the-zip-input"
       />
     )
+  }
+}
+
+///////////////////////////////
+// ---- NORA COMPONENTS ---- //
+///////////////////////////////
+
+class Header extends React.Component<any, any> {
+  render() {
+    return (
+      <Header
+        name="le-header"
+        leftChildren="left child"
+        rightChildren="right child"
+      />
+    )
+  }
+}
+
+class Tag extends React.Component<any, any> {
+  render() {
+    return <Tag type="approved">approved</Tag>
   }
 }

@@ -39,3 +39,9 @@ export {
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ValueProps } from './ValueProps'
 export { ZipInput } from './ZipInput'
+
+////////////////////////////
+// ---- NORA EXPORTS ---- //
+////////////////////////////
+export { Header } from '../nora/components'
+export { Tag } from '../nora/components'

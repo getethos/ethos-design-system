@@ -15,64 +15,6 @@ export { Layout } from './Layout/index.js'
 // TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
 // export { Media } from './Media'
 
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-    name?: string
-  }
-}
-
-interface HeaderProps {
-  name: string
-  leftChildren: React.ReactNode
-  rightChildren: React.ReactNode
-}
-
-/**
- * Base `Header` component that provides fixed positioning and renders
- * left and right side children. For ease of extension, `Header` is
- * intentionally much simpler then the UniversalNavbar component.
- * @see See [UniversalNavbar](https://github.com/getethos/ethos-design-system/blob/master/src/components/UniversalNavbar/UniversalNavbar.js)
- *
- * @public
- *
- * @param {object} props - Component Props
- * @prop {string} props.name - Unique name of header.
- * @prop {React.ReactNode} props.leftChildren - children to be rendered on left side of header
- * @prop {React.ReactNode} props.rightChildren - children to be rendered on right side of header
- *
- * @return {JSX.Element}
- */
-export declare const Header: {
-  ({ name, leftChildren, rightChildren }: HeaderProps): JSX.Element
-  propTypes: {
-    /** a required unique name for the header */
-    name: string
-    /** Optional children to render on left side of header */
-    leftChildren: React.ReactNode
-    /** Optional children to render on right side of header */
-    rightChildren: React.ReactNode
-  }
-  defaultProps: {
-    leftChildren: any
-    rightChildren: any
-  }
-}
-
-interface TagProps {
-  type: string
-  children: React.ReactNode
-}
-export declare const Tag: {
-  ({ type, children }: TagProps): JSX.Element
-  propTypes: {
-    type: string
-    children: React.ReactNode
-  }
-  defaultProps: {
-    type: any
-  }
-}
-
 export declare const CheckboxInput: {
   ({
     formChangeHandler,
@@ -777,3 +719,65 @@ export { TitleMedium } from './Type/TitleMedium.js'
 export { TitleLarge } from './Type/TitleLarge.js'
 export { TitleXLarge } from './Type/TitleXLarge.js'
 export { TitleXXLarge } from './Type/TitleXXLarge.js'
+
+////////////////////////////
+// ---- NORA EXPORTS ---- //
+////////////////////////////
+
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    name?: string
+  }
+}
+
+interface HeaderProps {
+  name: string
+  leftChildren: React.ReactNode
+  rightChildren: React.ReactNode
+}
+
+/**
+ * Base `Header` component that provides fixed positioning and renders
+ * left and right side children. For ease of extension, `Header` is
+ * intentionally much simpler then the UniversalNavbar component.
+ * @see See [UniversalNavbar](https://github.com/getethos/ethos-design-system/blob/master/src/components/UniversalNavbar/UniversalNavbar.js)
+ *
+ * @public
+ *
+ * @param {object} props - Component Props
+ * @prop {string} props.name - Unique name of header.
+ * @prop {React.ReactNode} props.leftChildren - children to be rendered on left side of header
+ * @prop {React.ReactNode} props.rightChildren - children to be rendered on right side of header
+ *
+ * @return {JSX.Element}
+ */
+export declare const Header: {
+  ({ name, leftChildren, rightChildren }: HeaderProps): JSX.Element
+  propTypes: {
+    /** a required unique name for the header */
+    name: string
+    /** Optional children to render on left side of header */
+    leftChildren: React.ReactNode
+    /** Optional children to render on right side of header */
+    rightChildren: React.ReactNode
+  }
+  defaultProps: {
+    leftChildren: any
+    rightChildren: any
+  }
+}
+
+interface TagProps {
+  type: string
+  children: React.ReactNode
+}
+export declare const Tag: {
+  ({ type, children }: TagProps): JSX.Element
+  propTypes: {
+    type: string
+    children: React.ReactNode
+  }
+  defaultProps: {
+    type: any
+  }
+}
