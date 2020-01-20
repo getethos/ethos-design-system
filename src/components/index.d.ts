@@ -327,34 +327,8 @@ export declare const Grid: {
   }
   displayName: string
 }
-export declare const Pagination: {
-  ({
-    fetchPageCallback,
-    renderCallback,
-  }: {
-    /**
-     * Ultimately, this returns the JSON.parse'd data
-     */
-    fetchPageCallback: (pageNumber: number | string) => object
-    /**
-     * Will usually return the JSX unless !rows.length in which case it'll be null
-     */
-    renderCallback: (rowsData: any) => JSX.Element | null | void
-  }): JSX.Element
-  propTypes: {
-    /**
-     * Ultimately, this returns the JSON.parse'd data
-     */
-    fetchPageCallback: (pageNumber: number | string) => object
-    /**
-     * Will usually return the JSX unless !rows.length in which case it'll be null
-     */
-    renderCallback: (rowsData: any) => JSX.Element | null | void
-  }
-  displayName: string
-}
 
-export declare const Pagination2: {
+export declare const Pagination: {
   ({
     currentPage,
     pageCount,
