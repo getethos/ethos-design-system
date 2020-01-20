@@ -13,16 +13,16 @@ exports[`Pagination Component default rendering 1`] = `
     «
   </button>
   <button
-    aria-current="page"
     aria-label="Goto Page 1"
-    className="paginationButtons active"
+    className="paginationButtons"
     onClick={[Function]}
   >
     1
   </button>
   <button
+    aria-current="page"
     aria-label="Goto Page 2"
-    className="paginationButtons"
+    className="paginationButtons active"
     onClick={[Function]}
   >
     2

@@ -6,7 +6,6 @@ import styles from './Pagination.module.scss'
 describe('Pagination Component', () => {
   let tree
   let fetchFn
-  let renderFn
 
   const responseStub = {
     page: 1,
@@ -18,31 +17,28 @@ describe('Pagination Component', () => {
 
   beforeEach(() => {
     fetchFn = jest.fn()
-    renderFn = jest.fn()
     fetchFn.mockReturnValue(responseStub)
   })
 
   afterEach(() => {
     tree = null
     fetchFn = null
-    renderFn = null
   })
 
   it('default rendering', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
+        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
       )
     })
     let snapShot = tree.toJSON()
-    expect(renderFn).toHaveBeenCalled()
     expect(snapShot).toMatchSnapshot()
   })
 
-  it('fetches', async () => {
+  it.only('fetches', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
+        <Pagination currentPage={1} pageCount={3} fetchPageCallback={fetchFn} />
       )
     })
     const root = tree.root
@@ -53,13 +49,12 @@ describe('Pagination Component', () => {
     })
 
     expect(fetchFn).toHaveBeenCalled()
-    expect(renderFn).toHaveBeenCalled()
   })
 
   it('has aria labels', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
+        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
       )
     })
     const root = tree.root
@@ -74,7 +69,7 @@ describe('Pagination Component', () => {
   it('active page reflect current page', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
+        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
       )
     })
     const root = tree.root
@@ -87,7 +82,6 @@ describe('Pagination Component', () => {
 describe('Hide Pagination', () => {
   let tree
   let fetchFn
-  let renderFn
   const singlePageResponseStub = {
     page: 1,
     itemCount: 2,
@@ -98,20 +92,18 @@ describe('Hide Pagination', () => {
 
   beforeEach(() => {
     fetchFn = jest.fn()
-    renderFn = jest.fn()
     fetchFn.mockReturnValue(singlePageResponseStub)
   })
 
   afterEach(() => {
     tree = null
     fetchFn = null
-    renderFn = null
   })
 
   it('hides the pagination if only a single page worth of items', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination fetchPageCallback={fetchFn} renderCallback={renderFn} />
+        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
       )
     })
     const root = tree.root
