@@ -354,6 +354,42 @@ export declare const Pagination: {
   displayName: string
 }
 
+export declare const Pagination2: {
+  ({
+    currentPage,
+    pageCount,
+    onClickCallback,
+  }: // fetchPageCallback,
+  // renderCallback,
+  {
+    currentPage: any
+    pageCount: any
+    onClickCallback: any
+    /**
+     * Ultimately, this returns the JSON.parse'd data
+     */
+    // fetchPageCallback: (pageNumber: number | string) => object
+    /**
+     * Will usually return the JSX unless !rows.length in which case it'll be null
+     */
+    // renderCallback: (rowsData: any) => JSX.Element | null | void
+  }): JSX.Element
+  propTypes: {
+    currentPage: any
+    pageCount: any
+    onClickCallback: any
+    /**
+     * Ultimately, this returns the JSON.parse'd data
+     */
+    // fetchPageCallback: (pageNumber: number | string) => object
+    /**
+     * Will usually return the JSX unless !rows.length in which case it'll be null
+     */
+    // renderCallback: (rowsData: any) => JSX.Element | null | void
+  }
+  displayName: string
+}
+
 // TODO -- figure out how to do better with Column and Row
 export declare const Column: any
 export declare const Row: any

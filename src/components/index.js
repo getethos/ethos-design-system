@@ -10,7 +10,14 @@ export { COLORS } from './Colors'
 export { EmailInput } from './EmailInput'
 export { Faq } from './Faq'
 export { Form } from './Form'
-export { Grid, Pagination, Row, Column, useGridSorting } from './Grid'
+export {
+  Grid,
+  Pagination,
+  Pagination2,
+  Row,
+  Column,
+  useGridSorting,
+} from './Grid'
 export { InfoMessage } from './InfoMessage'
 export { Layout } from './Layout'
 export { Logo } from './Logo'
