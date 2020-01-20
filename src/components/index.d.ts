@@ -358,34 +358,22 @@ export declare const Pagination2: {
   ({
     currentPage,
     pageCount,
-    onClickCallback,
-  }: // fetchPageCallback,
-  // renderCallback,
-  {
+    fetchPageCallback,
+  }: {
     currentPage: any
     pageCount: any
-    onClickCallback: any
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
-    // fetchPageCallback: (pageNumber: number | string) => object
-    /**
-     * Will usually return the JSX unless !rows.length in which case it'll be null
-     */
-    // renderCallback: (rowsData: any) => JSX.Element | null | void
+    fetchPageCallback: (pageNumber: number | string) => object
   }): JSX.Element
   propTypes: {
     currentPage: any
     pageCount: any
-    onClickCallback: any
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
-    // fetchPageCallback: (pageNumber: number | string) => object
-    /**
-     * Will usually return the JSX unless !rows.length in which case it'll be null
-     */
-    // renderCallback: (rowsData: any) => JSX.Element | null | void
+    fetchPageCallback: (pageNumber: number | string) => object
   }
   displayName: string
 }
