@@ -35,7 +35,7 @@ describe('Pagination Component', () => {
     expect(snapShot).toMatchSnapshot()
   })
 
-  it.only('fetches', async () => {
+  it('fetches', async () => {
     await act(async () => {
       tree = TestRenderer.create(
         <Pagination currentPage={1} pageCount={3} fetchPageCallback={fetchFn} />
@@ -44,6 +44,7 @@ describe('Pagination Component', () => {
     const root = tree.root
     const buttons = root.findAllByType('button')
     const [first] = buttons
+    expect(first.props.className).toContain(styles.active)
     await act(async () => {
       first.props.onClick()
     })
@@ -64,18 +65,6 @@ describe('Pagination Component', () => {
     expect(first.props['aria-label']).toEqual('Goto Page 1')
     const last = buttons[4]
     expect(last.props['aria-label']).toEqual('Goto Page 3')
-  })
-
-  it('active page reflect current page', async () => {
-    await act(async () => {
-      tree = TestRenderer.create(
-        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
-      )
-    })
-    const root = tree.root
-    const buttons = root.findAllByType('button')
-    const firstPageNumberButton = buttons[1]
-    expect(firstPageNumberButton.props.className).toContain(styles.active)
   })
 })
 
@@ -103,7 +92,7 @@ describe('Hide Pagination', () => {
   it('hides the pagination if only a single page worth of items', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
+        <Pagination currentPage={1} pageCount={1} fetchPageCallback={fetchFn} />
       )
     })
     const root = tree.root
