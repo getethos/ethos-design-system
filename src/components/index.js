@@ -43,5 +43,5 @@ export { ZipInput } from './ZipInput'
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
 ////////////////////////////
-export { Header } from '../nora/components'
-export { Tag } from '../nora/components'
+export { Header } from '../nora/components/index'
+export { Tag } from '../nora/components/index'
