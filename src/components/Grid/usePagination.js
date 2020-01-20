@@ -4,7 +4,7 @@ import styles from './Pagination.module.scss'
 /**
  * usePagination hook for getting paging number buttons
  *
- * @public (or @private?)
+ * @public
  *
  * @param {function} props - fetch page callback
  *

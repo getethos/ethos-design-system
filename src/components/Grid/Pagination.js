@@ -6,7 +6,7 @@ import { usePagination } from './usePagination'
 /**
  * Pagination component for use with the data grid
  *
- * @public (or @private?)
+ * @public
  *
  * @param {object} props - Component Props
  * @prop {number} [props.currentPage] - The current page
