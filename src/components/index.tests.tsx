@@ -190,3 +190,25 @@ class ZipInputTest extends React.Component<any, any> {
     )
   }
 }
+
+///////////////////////////////
+// ---- NORA COMPONENTS ---- //
+///////////////////////////////
+
+class Header extends React.Component<any, any> {
+  render() {
+    return (
+      <Header
+        name="le-header"
+        leftChildren="left child"
+        rightChildren="right child"
+      />
+    )
+  }
+}
+
+class Tag extends React.Component<any, any> {
+  render() {
+    return <Tag type="approved">approved</Tag>
+  }
+}

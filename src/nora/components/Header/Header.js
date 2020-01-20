@@ -58,7 +58,7 @@ Navbar.defaultProps = {
  *
  * @return {JSX.Element}
  */
-const Header = ({ name, leftChildren, rightChildren }) => {
+export const Header = ({ name, leftChildren, rightChildren }) => {
   return (
     <header name={name} className={styles.Header}>
       <Navbar>
@@ -82,5 +82,3 @@ Header.defaultProps = {
   leftChildren: undefined,
   rightChildren: undefined,
 }
-
-export default Header
