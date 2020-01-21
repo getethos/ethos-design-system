@@ -8,6 +8,14 @@ exports[`Tag cyan 1`] = `
 </div>
 `;
 
+exports[`Tag gray 1`] = `
+<div
+  className="Tag Default"
+>
+  gray
+</div>
+`;
+
 exports[`Tag green 1`] = `
 <div
   className="Tag Green"

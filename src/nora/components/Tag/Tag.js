@@ -17,6 +17,9 @@ export const Tag = ({ children, type }) => {
     case 'cyan':
       colorClass = styles.Cyan
       break
+    case 'gray':
+      colorClass = styles.Default
+      break
     default:
       colorClass = styles.Default
   }
@@ -25,7 +28,7 @@ export const Tag = ({ children, type }) => {
 }
 
 Tag.propTypes = {
-  type: PropTypes.oneOf(['red', 'orange', 'green', 'cyan']),
+  type: PropTypes.oneOf(['red', 'orange', 'green', 'cyan', 'gray']),
   children: PropTypes.string.isRequired,
 }
 

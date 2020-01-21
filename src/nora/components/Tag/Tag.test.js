@@ -27,4 +27,9 @@ describe('Tag', () => {
     const tree = renderer.create(<Tag type="cyan">cyan</Tag>).toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  it('gray', () => {
+    const tree = renderer.create(<Tag type="gray">gray</Tag>).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
