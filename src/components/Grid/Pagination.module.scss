@@ -1,0 +1,39 @@
+@import '../../nora/components/Colors.css';
+/* TODO -- these are currently come in via globals but we'll need
+   them here once we continue to strip 'em out of design-system.css
+@import "../Colors.scss";
+@import '../Spacer/Spacer.scss';
+*/
+
+.pagination {
+  font-size: 14px;
+  margin-top: var(--Space-24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationButtons {
+  cursor: pointer;
+  color: var(--GrayPrimary--opaque);
+  padding: var(--Space-8) var(--Space-16);
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid var(--GrayStrokeAndDisabled--opaque);
+}
+
+.paginationButtonsLeft {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.paginationButtonsRight {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius-radius: 3px;
+}
+
+.active {
+  background-color: var(--NoraBlue-400);
+  color: white;
+  border: 1px solid var(--NoraBlue-400);
+}

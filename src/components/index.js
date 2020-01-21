@@ -10,7 +10,7 @@ export { COLORS } from './Colors'
 export { EmailInput } from './EmailInput'
 export { Faq } from './Faq'
 export { Form } from './Form'
-export { Grid, Row, Column, useGridSorting } from './Grid'
+export { Grid, Pagination, Row, Column, useGridSorting } from './Grid'
 export { InfoMessage } from './InfoMessage'
 export { Layout } from './Layout'
 export { Logo } from './Logo'
@@ -40,3 +40,9 @@ export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { ValueProps } from './ValueProps'
 export { ZipInput } from './ZipInput'
 export { Modal } from './Modal'
+
+////////////////////////////
+// ---- NORA EXPORTS ---- //
+////////////////////////////
+export { Header } from '../nora/components/index'
+export { Tag } from '../nora/components/index'

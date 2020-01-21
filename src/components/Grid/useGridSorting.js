@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa'
-import styles from './useGridSorting.module.css'
+import styles from './useGridSorting.module.scss'
 
 export const useGridSorting = (rows, columns) => {
   const [currentSort, setCurrentSort] = useState({})
@@ -34,7 +34,9 @@ export const useGridSorting = (rows, columns) => {
     return rowsCopy.map(() => columns.map(() => React.createRef()))
   }
 
-  const [rowsRefs, setRowsRefs] = useState(mapRowsRefs(rows))
+  const initialRowRefs = mapRowsRefs(rows)
+
+  const [rowsRefs, setRowsRefs] = useState(initialRowRefs || [])
 
   const updateRowsRefs = (sortedRowsCopy) => {
     setSortedRows(sortedRowsCopy)

@@ -1,4 +1,5 @@
 ### Accessible React Grid
+
 This `Grid` follows the [wai-aria-practices-1.1](https://www.w3.org/TR/wai-aria-practices-1.1/#grid) specifications for data grids. It's influenced by [juanca's](https://github.com/juanca) original [react-aria-components](https://github.com/juanca/react-aria-components) data-grid component in the way the keyboard navigation and roles are assigned, but otherwise is a complete rewrite with the following added features:
 
 - The class-based lifecycle components were all converted to use functional hook-based components
@@ -6,7 +7,7 @@ This `Grid` follows the [wai-aria-practices-1.1](https://www.w3.org/TR/wai-aria-
 - Boilerplate default styles
 - Sort by column
 - Uses `columnheader` for header cells which is more idiomatic then `rowheader` which is usually used on the first column of
-a row to act as a header for just that row
+  a row to act as a header for just that row
 - Responsive stacking at mobile and lower with column label on left and values on the right
 
 ### Aria Support in Screen Readers
@@ -17,7 +18,6 @@ While support from screenreaders for aria roles is not yet perfect, it's on an [
 
 Place focus anywhere just above the data grid and then tab. You've put focus on the grid. Now, use your arrow keys to navigate within the grid. On a Mac, `fn-rightarrow` simulates a _Page Right_, `fn-downarrow` a _Page Down_ and so on.
 
-
 ```jsx
 import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'
@@ -26,21 +26,24 @@ import { Grid } from './Grid.js'
 import { Row } from './Row.js'
 import { Column } from './Column.js'
 import { useGridSorting } from './useGridSorting.js'
-import styles from './grid-example.module.css'
+import styles from './grid-example.module.scss'
 
 const columns = [
   {
     name: 'Description',
+    labelCopy: 'Task',
     interactive: true,
     sortable: true /* will use default sort function */,
     flexBasis: '40%',
   },
   {
     name: 'Type',
+    labelCopy: 'Type of Task',
     flexBasis: '30%',
   },
   {
     name: 'Date',
+    labelCopy: 'Task Date',
     flexBasis: '15%',
     sortable: true,
     // Custom sort function example
@@ -105,10 +108,10 @@ function GridExample() {
 
   const sortBy = (ev) => {
     ev.preventDefault()
-    const key = ev.currentTarget.text
+    const key = ev.currentTarget.dataset.key
     let rowsCopy = sortedRows
     let sortFunction
-    // See if wee have a custom sort function. If `sortFunction` is
+    // See if we have a custom sort function. If `sortFunction` is
     // `undefined`, `compareBy` will fallback to its own default sort
     const idx = columns.findIndex((c) => c.name === key)
     if (columns[idx].sortFn) {
@@ -140,9 +143,10 @@ function GridExample() {
                       onClick={sortBy}
                       tabIndex={active ? 0 : -1}
                       className={styles.iconContainer}
+                      data-key={col.name}
                       ref={columnRef}
                     >
-                      {col.name}
+                      {col.labelCopy || col.name}
                       {getSortIcon(col.name)}
                     </a>
                   )}
@@ -158,8 +162,11 @@ function GridExample() {
                 header
               >
                 {(active) => (
-                  <span className={active ? 'active' : undefined}>
-                    {col.name}
+                  <span
+                    data-key={col.name}
+                    className={active ? 'active' : undefined}
+                  >
+                    {col.labelCopy || col.name}
                   </span>
                 )}
               </Column>
@@ -211,7 +218,7 @@ function GridExample() {
   )
 }
 
-<GridExample />
+;<GridExample />
 ```
 
 You can pass `Small` or `Large` to the `Row` component to get a compressed or enlarged grid.
@@ -225,21 +232,24 @@ import { Grid } from './Grid'
 import { Row } from './Row'
 import { Column } from './Column'
 import { useGridSorting } from './useGridSorting'
-import styles from './grid-example.module.css'
+import styles from './grid-example.module.scss'
 
 const columns = [
   {
     name: 'Description',
+    labelCopy: 'Task Description',
     interactive: true,
     sortable: true /* will use default sort function */,
     flexBasis: '40%',
   },
   {
     name: 'Type',
+    labelCopy: 'Type of Task',
     flexBasis: '30%',
   },
   {
     name: 'Date',
+    labelCopy: 'Task Date',
     flexBasis: '15%',
     sortable: true,
     // Custom sort function example
@@ -254,11 +264,13 @@ const columns = [
   },
   {
     name: 'Cost',
+    labelCopy: 'Cost of Activity',
     flexBasis: '15%',
     interactive: true,
     sortable: true /* will use default sort function */,
   },
 ]
+
 const rows = [
   {
     Description: 'Learn Typescript',
@@ -304,10 +316,10 @@ function GridSmall() {
 
   const sortBy = (ev) => {
     ev.preventDefault()
-    const key = ev.currentTarget.text
+    const key = ev.currentTarget.dataset.key
     let rowsCopy = sortedRows
     let sortFunction
-    // See if wee have a custom sort function. If `sortFunction` is
+    // See if we have a custom sort function. If `sortFunction` is
     // `undefined`, `compareBy` will fallback to its own default sort
     const idx = columns.findIndex((c) => c.name === key)
     if (columns[idx].sortFn) {
@@ -339,9 +351,10 @@ function GridSmall() {
                       onClick={sortBy}
                       tabIndex={active ? 0 : -1}
                       className={styles.iconContainer}
+                      data-key={col.name}
                       ref={columnRef}
                     >
-                      {col.name}
+                      {col.labelCopy || col.name}
                       {getSortIcon(col.name)}
                     </a>
                   )}
@@ -357,8 +370,11 @@ function GridSmall() {
                 header
               >
                 {(active) => (
-                  <span className={active ? 'active' : undefined}>
-                    {col.name}
+                  <span
+                    data-key={col.name}
+                    className={active ? 'active' : undefined}
+                  >
+                    {col.labelCopy || col.name}
                   </span>
                 )}
               </Column>
@@ -366,7 +382,11 @@ function GridSmall() {
           })}
         </Row>
         {sortedRows.map((row, y) => (
-          <Row size={y === 3 ? "Large" : "Small"} key={uuidv4()} columnRefs={rowsRefs[y]}>
+          <Row
+            size={y === 3 ? 'Large' : 'Small'}
+            key={uuidv4()}
+            columnRefs={rowsRefs[y]}
+          >
             {columns.map((col, x) => {
               if (col.interactive) {
                 return (
@@ -410,6 +430,5 @@ function GridSmall() {
   )
 }
 
-<GridSmall />
-
+;<GridSmall />
 ```

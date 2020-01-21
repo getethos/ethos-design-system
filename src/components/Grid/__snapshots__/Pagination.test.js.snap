@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination Component default rendering 1`] = `
+<nav
+  aria-label="pagination"
+  className="pagination"
+>
+  <button
+    aria-label="Goto Page 1"
+    className="paginationButtons paginationButtonsLeft"
+    onClick={[Function]}
+  >
+    «
+  </button>
+  <button
+    aria-label="Goto Page 1"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    1
+  </button>
+  <button
+    aria-current="page"
+    aria-label="Goto Page 2"
+    className="paginationButtons active"
+    onClick={[Function]}
+  >
+    2
+  </button>
+  <button
+    aria-label="Goto Page 3"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    3
+  </button>
+  <button
+    aria-label="Goto Page 3"
+    className="paginationButtons paginationButtonsRight"
+    onClick={[Function]}
+  >
+    »
+  </button>
+</nav>
+`;
