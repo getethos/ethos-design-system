@@ -25,12 +25,10 @@ describe('usePagination', () => {
   it('defines methods', async () => {
     await act(async () => {
       testHook(() => {
-        const { fetchPage, pagingState, getPaginationNumbers } = usePagination({
-          fetchPage: fetchFn,
+        const { conditionallyRenderPagingButtons } = usePagination({
+          fetchPageCallback: fetchFn,
         })
-        expect(fetchPage).toBeDefined()
-        expect(pagingState).toBeDefined()
-        expect(getPaginationNumbers).toBeDefined()
+        expect(conditionallyRenderPagingButtons).toBeDefined()
       })
     })
   })
