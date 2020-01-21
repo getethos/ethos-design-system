@@ -2,7 +2,7 @@
 @import '../../../components/Spacer/Spacer.scss';
 
 .Header {
-  color: var(--NoraGrayHeader--opaque);
+  color: var(--NoraNeutral-400);
   font-weight: 400;
   height: var(--Space-56);
   background-color: white;
@@ -11,7 +11,7 @@
   left: 0;
   right: 0;
   z-index: 1;
-  border-bottom: 1px solid var(--NoraGrayHeaderBar--opaque);
+  border-bottom: 1px solid var(--NoraNeutral-200);
   display: flex;
   align-items: center;
 }
