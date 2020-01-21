@@ -3,7 +3,7 @@
 
   &Active {
     align-items: center;
-    background:  var(--GrayLightHover--translucent);
+    background: var(--GraySecondary--translucent);
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -12,7 +12,6 @@
     top: 0;
     width: 100vw;
   }
-
 }
 
 .ModalContent {
