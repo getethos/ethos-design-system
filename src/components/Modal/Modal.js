@@ -1,11 +1,12 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
 import styles from './Modal.module.scss'
-import uuidv4 from 'uuid/v4'
-import FocusTrap from 'focus-trap-react'
-import useOutsideClick from '../../hooks/useOutsideClick'
-import useSetFocus from '../../hooks/useSetFocus'
+import useOutsideClick from '../../hooks/a11y/useOutsideClick'
+import useBodyScrollLock from '../../hooks/a11y/useBodyScrollLock'
+import useTrapFocus from '../../hooks/a11y/useTrapFocus'
+import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
+
 /**
  * Component renders the internal content of a modal
  *
@@ -16,18 +17,27 @@ import useSetFocus from '../../hooks/useSetFocus'
  *
  * @return {JSX.Element}
  */
-const ModalContent = ({ children, toggle }) => {
+const ModalContent = ({
+  ariaDescribedBy,
+  ariaLabelledBy,
+  children,
+  toggle,
+  showModal,
+}) => {
   const modalRef = useRef(null)
-  const id = uuidv4()
 
+  // Hooks! All the thingggs!!!!!
   useOutsideClick(modalRef, () => toggle(false))
-  //useSetFocus(modalRef, true)
+  useTrapFocus(modalRef, showModal)
+  useBodyScrollLock(showModal)
+  useHideAriaSiblings(modalRef, showModal)
 
   return (
     <div
       role="dialog"
       aria-modal="true"
-      id={`modal-dialog-${id}`}
+      aria-describedby={ariaDescribedBy && ariaDescribedBy}
+      aria-labelledby={ariaLabelledBy && ariaLabelledBy}
       className={styles.ModalContent}
       ref={modalRef}
     >
@@ -37,26 +47,15 @@ const ModalContent = ({ children, toggle }) => {
 }
 
 ModalContent.propTypes = {
+  ariaDescribedBy: PropTypes.string,
+  ariaLabelledBy: PropTypes.string,
   children: PropTypes.node,
   toggle: PropTypes.func,
-}
-
-function useOverflowBody(setBodyOverflow) {
-  useEffect(() => {
-    const [body] = document.getElementsByTagName('body')
-
-    if (setBodyOverflow) {
-      body.setAttribute('style', 'overflow: hidden')
-    }
-
-    return () => {
-      body.setAttribute('style', '')
-    }
-  }, [setBodyOverflow])
+  showModal: PropTypes.bool,
 }
 
 /**
- * Component renders a modal and its wrapper
+ * Component renders a modal and it's wrapper
  *
  * @param {object} props - the components props
  * @param {React.ReactChildren} props.children - the component's children
@@ -65,11 +64,25 @@ function useOverflowBody(setBodyOverflow) {
  *
  * @return {JSX.Element}
  */
-export const Modal = ({ children, showModal, toggle }) => {
+export const Modal = ({
+  children,
+  toggle,
+  ariaLabelledBy,
+  ariaDescribedBy,
+  showModal = false,
+}) => {
   const classes = showModal ? styles.ModalWrapperActive : styles.ModalWrapper
 
-  useOverflowBody(showModal)
-
+  /**
+   * Handler will set the the modal toggle to `false` when the escape key is
+   * pressed
+   *
+   * @private
+   *
+   * @param {KeyboardEvent} e - the keyboard event
+   *
+   * @return {void}
+   */
   const handleKeyDown = (e) => {
     if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
       toggle(false)
@@ -77,30 +90,37 @@ export const Modal = ({ children, showModal, toggle }) => {
   }
 
   return (
-      <Portal id="modal-root">
-        showModal && (<FocusTrap
-          focusTrapOptions={{
-            clickOutsideDeactivates: true,
-          }}
-        >
-          <div
-            className={classes}
-            onKeyDown={handleKeyDown}
-            aria-hidden={!showModal}
+    <Portal id="modal-root">
+      <div
+        className={classes}
+        onKeyDown={handleKeyDown}
+        aria-hidden={!showModal}
+        data-testid="base-modal-container"
+      >
+        {showModal && (
+          <ModalContent
+            toggle={toggle}
+            ariaDescribedBy={ariaDescribedBy}
+            ariaLabelledBy={ariaLabelledBy}
+            showModal={showModal}
           >
-            <ModalContent toggle={toggle}>{children}</ModalContent>
-          </div>
-        </FocusTrap>)
-      </Portal>
+            {children}
+          </ModalContent>
+        )}
+      </div>
+    </Portal>
   )
 }
 
 Modal.propTypes = {
+  /** Id of an element that labels the modal */
+  ariaLabelledBy: PropTypes.string,
+  /** Id of an element that describes the modal */
+  ariaDescribedBy: PropTypes.string,
   /** The Modal's children */
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
   /** Boolean that sets the state of the modal */
   showModal: PropTypes.bool,
-  toggle: PropTypes.func,
+  /** handler that toggles the state of the modal */
+  toggle: PropTypes.func.isRequired,
 }
-
-Modal.Content = ModalContent
