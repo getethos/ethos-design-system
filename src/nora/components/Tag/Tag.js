@@ -5,11 +5,17 @@ import styles from './Tag.module.scss'
 export const Tag = ({ children, type }) => {
   let colorClass
   switch (type) {
-    case 'approved':
-      colorClass = styles.Approved
+    case 'red':
+      colorClass = styles.Red
       break
-    case 'rejected':
-      colorClass = styles.Rejected
+    case 'orange':
+      colorClass = styles.Orange
+      break
+    case 'green':
+      colorClass = styles.Green
+      break
+    case 'blue':
+      colorClass = styles.Blue
       break
     default:
       colorClass = styles.Default

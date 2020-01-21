@@ -7,17 +7,27 @@
   padding: var(--Space-4);
 }
 
-.Approved {
-  background-color: var(--NoraGreen--translucent);
-  color: var(--NoraGreen--opaque);
+.Red {
+  background-color: var(--NoraRed-100);
+  color: var(--NoraRed-400);
 }
 
-.Rejected {
-  background-color: var(--NoraRed--translucent);
-  color: var(--NoraRed--opaque);
+.Orange {
+  background-color: var(--NoraOrange-100);
+  color: var(--NoraOrange-400);
+}
+
+.Green {
+  background-color: var(--NoraGreen-100);
+  color: var(--NoraGreen-400);
+}
+
+.Cyan {
+  background-color: var(--NoraCyan-100);
+  color: var(--NoraCyan-400);
 }
 
 .Default {
-  background-color: var(--NoraGray--translucent);
-  color: var(--NoraGray--opaque);
+  background-color: var(--NoraSilver-100);
+  color: var(--NoraSilver-400);
 }
