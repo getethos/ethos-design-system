@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 
 /**
  * Hook handles a click outside the targeted component
@@ -17,7 +17,7 @@ function useOutsideClick(ref, handler) {
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside)
     document.addEventListener('touchstart', handleClickOutside)

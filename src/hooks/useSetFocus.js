@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 /**
  * Hook sets focus on the passed ref. Will pass focus to the previously focused
@@ -14,11 +14,11 @@ import { useState, useEffect } from 'react'
 function useSetFocus(ref, isFocusReady) {
   const [isFocused, setIsFocused] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const prevEl = document.activeElement
-    const el = ref.current
+
     if (isFocusReady) {
-      el.focus()
+      ref.current.focus()
       setIsFocused(true)
     }
 
