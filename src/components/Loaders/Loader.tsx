@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_progressbar_role
 
