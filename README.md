@@ -32,12 +32,6 @@ $ cp -a ~/Downloads/fonts/ ethos-design-system/src/fonts/
 yarn test
 ```
 
-Run an individual test:
-
-```
-yarn test -t "valid single keys do not throw"
-```
-
 Debug `console.log` and `debugger` statements in Chrome:
 
 ```
@@ -48,6 +42,32 @@ Then do following to setup debugging in Chrome:
 
 - Open Chrome and type following in the address bar: chrome://inspect
 - Click on "Open dedicated DevTools for Node"
+
+### Jest Tips
+
+These tips are from the [Jest CLI docs](https://jestjs.io/docs/en/22.x/cli#running-from-the-command-line)
+
+Run only tests related to changed files based on git:
+
+```shell
+yarn test -o
+```
+
+Find tests related to `fileA.js`:
+
+```shell
+jest --findRelatedTests path/to/fileA.js
+```
+
+Run an individual test:
+
+```
+yarn test -t "valid single keys do not throw"
+```
+
+### Update Snapshots
+
+`yarn test:update` (runs `jest --updateSnapshot`)
 
 ### Cypress E2E
 
@@ -109,12 +129,11 @@ the server where Jenkins lives will cache these and attempt to reuse them if it 
 
 #### CSS/SCSS concepts
 
-- CSS variables are the core of styling in the EDS. 
+- CSS variables are the core of styling in the EDS.
   - All CSS variables are available on all pages in both monorepo and cms; they are the single source of truth for brand colors, breakpoints, and other commonly reused bits of css.
-- The EDS is (to an extent) designed as a set of immutable components in terms of interior JS logic as well as styling. New styling of existing components should be handled by PR's on the EDS, not by writing local overrides in files. 
+- The EDS is (to an extent) designed as a set of immutable components in terms of interior JS logic as well as styling. New styling of existing components should be handled by PR's on the EDS, not by writing local overrides in files.
 - We encourage a limited subset of SCSS features for the EDS.
   - The primary reason for using scss is to import @include statements from the media scss file for reusable media queries, like this:
     - `@import '~ethos-design-system/src/components/Media/Media.scss';`
     - `@include for-phone-and-tablet {`
-  - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations. 
-
+  - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations.

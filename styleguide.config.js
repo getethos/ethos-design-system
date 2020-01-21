@@ -54,6 +54,19 @@ module.exports = {
       content: './styleguide/content/color/color.md',
     },
     {
+      name: 'Guidelines',
+      sections: [
+        {
+          name: 'Accessibility',
+          content: './src/guidelines/a11y.md',
+        },
+        {
+          name: 'Contribute',
+          content: './src/guidelines/contribute.md',
+        },
+      ],
+    },
+    {
       name: 'Components',
       content: './src/components/content.md',
       components: './src/components/**/*.js',
