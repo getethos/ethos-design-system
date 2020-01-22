@@ -40,9 +40,9 @@ export const Tooltip = ({
   }
 
   const renderModal = (
-    <>
+    <div>
       <Modal
-        isOpen={modalVisible}
+        isOpen={isMobile() ? modalVisible : false}
         onDismiss={setModalVisibility}
         ariaLabelledBy={HEADER_ID}
         ariaDescribedBy={DESC_ID}
@@ -62,7 +62,7 @@ export const Tooltip = ({
           </button>
         </div>
       </Modal>
-    </>
+    </div>
   )
 
   const modifiers = {
@@ -122,7 +122,7 @@ export const Tooltip = ({
 
   return (
     <>
-      {isMobile() && renderModal}
+      {renderModal}
       {renderTooltip}
     </>
   )
