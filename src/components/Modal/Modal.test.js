@@ -17,8 +17,8 @@ describe('Modal', () => {
   })
 
   it("Render's a modal", () => {
-    const showModal = true
-    const toggleMock = jest.fn()
+    const isOpen = true
+    const onDismissMock = jest.fn()
     window.scrollTo = jest.fn()
     const ariaDescribedBy = 'some-id'
     const ariaLabelledBy = 'some-other-id'
@@ -26,8 +26,8 @@ describe('Modal', () => {
     const props = {
       ariaDescribedBy,
       ariaLabelledBy,
-      showModal,
-      toggle: toggleMock,
+      isOpen,
+      onDismiss: onDismissMock,
     }
 
     const tree = render(
@@ -40,14 +40,14 @@ describe('Modal', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it("Fire's `toggle` when the `escape` key is pressed", () => {
-    const showModal = true
-    const toggleMock = jest.fn()
+  it("Fire's `onDismiss` when the `escape` key is pressed", () => {
+    const isOpen = true
+    const onDismissMock = jest.fn()
     window.scrollTo = jest.fn()
 
     const props = {
-      showModal,
-      toggle: toggleMock,
+      isOpen,
+      onDismiss: onDismissMock,
     }
 
     const { getByTestId } = render(
@@ -62,6 +62,6 @@ describe('Modal', () => {
       fireEvent.keyDown(modal, { key: 'Escape', keyCode: 27 })
     })
 
-    expect(toggleMock).toHaveBeenCalled()
+    expect(onDismissMock).toHaveBeenCalled()
   })
 })

@@ -20,8 +20,9 @@ function getRootParent(elem) {
 }
 
 /**
- * Hook set's all nodes directly below the body, that are not not the `refs` parent tree,
+ * Hook set's all nodes directly below the body, that are not the `refs` parent tree,
  * to aria-hidden
+ *
  * @param {React.MutableRefObject<HTMLElement | null>} ref - the component's ref
  * @param {boolean} isActive - if true, the element's siblings will be hidden
  *

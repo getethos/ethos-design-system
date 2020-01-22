@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 
+// Ref: https://github.com/angular-ui/bootstrap/blob/834975899b734369465c2737c4fc947a257c4b1c/src/modal/modal.js#L272
 const FOCUSABLE_ELEMENTS_STRING =
-  'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]'
+  'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], [contenteditable=true]'
 
 /**
  * Helper function returns a list of focusable children of the passed element

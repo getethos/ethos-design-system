@@ -12,7 +12,7 @@ import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
  *
  * @param {object} props - the component's props
  * @param {React.ReactChildren} props.children - the component's children
- * @param {(val: boolean) => any} props.toggle - callback function that toggles the
+ * @param {(val: boolean) => any} props.onDismiss - callback function that onDismisss the
  * show modal state
  *
  * @return {JSX.Element}
@@ -21,16 +21,16 @@ const ModalContent = ({
   ariaDescribedBy,
   ariaLabelledBy,
   children,
-  toggle,
-  showModal,
+  onDismiss,
+  isOpen,
 }) => {
   const modalRef = useRef(null)
 
   // Hooks! All the thingggs!!!!!
-  useOutsideClick(modalRef, () => toggle(false))
-  useTrapFocus(modalRef, showModal)
-  useBodyScrollLock(showModal)
-  useHideAriaSiblings(modalRef, showModal)
+  useOutsideClick(modalRef, () => onDismiss(false))
+  useTrapFocus(modalRef, isOpen)
+  useBodyScrollLock(isOpen)
+  useHideAriaSiblings(modalRef, isOpen)
 
   return (
     <div
@@ -50,8 +50,8 @@ ModalContent.propTypes = {
   ariaDescribedBy: PropTypes.string,
   ariaLabelledBy: PropTypes.string,
   children: PropTypes.node,
-  toggle: PropTypes.func,
-  showModal: PropTypes.bool,
+  onDismiss: PropTypes.func,
+  isOpen: PropTypes.bool,
 }
 
 /**
@@ -59,22 +59,22 @@ ModalContent.propTypes = {
  *
  * @param {object} props - the components props
  * @param {React.ReactChildren} props.children - the component's children
- * @param {boolean} props.showModal - flag sets the state of the modal
- * @param {(val: boolean) => void} props.toggle - handler that toggles the state of the modal
+ * @param {boolean} props.isOpen - flag sets the state of the modal
+ * @param {(val: boolean) => void} props.onDismiss - handler that onDismisss the state of the modal
  *
  * @return {JSX.Element}
  */
 export const Modal = ({
   children,
-  toggle,
+  onDismiss,
   ariaLabelledBy,
   ariaDescribedBy,
-  showModal = false,
+  isOpen = false,
 }) => {
-  const classes = showModal ? styles.ModalWrapperActive : styles.ModalWrapper
+  const classes = isOpen ? styles.ModalWrapperActive : styles.ModalWrapper
 
   /**
-   * Handler will set the the modal toggle to `false` when the escape key is
+   * Handler will set the the modal onDismiss to `false` when the escape key is
    * pressed
    *
    * @private
@@ -85,7 +85,7 @@ export const Modal = ({
    */
   const handleKeyDown = (e) => {
     if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
-      toggle(false)
+      onDismiss(false)
     }
   }
 
@@ -94,15 +94,15 @@ export const Modal = ({
       <div
         className={classes}
         onKeyDown={handleKeyDown}
-        aria-hidden={!showModal}
+        aria-hidden={!isOpen}
         data-testid="base-modal-container"
       >
-        {showModal && (
+        {isOpen && (
           <ModalContent
-            toggle={toggle}
+            onDismiss={onDismiss}
             ariaDescribedBy={ariaDescribedBy}
             ariaLabelledBy={ariaLabelledBy}
-            showModal={showModal}
+            isOpen={isOpen}
           >
             {children}
           </ModalContent>
@@ -120,7 +120,7 @@ Modal.propTypes = {
   /** The Modal's children */
   children: PropTypes.node.isRequired,
   /** Boolean that sets the state of the modal */
-  showModal: PropTypes.bool,
-  /** handler that toggles the state of the modal */
-  toggle: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool,
+  /** handler that onDismisss the state of the modal */
+  onDismiss: PropTypes.func.isRequired,
 }
