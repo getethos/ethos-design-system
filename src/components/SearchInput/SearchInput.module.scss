@@ -1,0 +1,26 @@
+.SearchIconContainer {
+  flex: 0 0 auto;
+  position: relative;
+
+  /* TextInput Overrides */
+  > input {
+    height: 40px;
+    border-radius: 3px;
+    padding-left: var(--Space-40);
+
+    /* TODO -- use base nora-font-size or something */
+    font-size: 15px;
+  }
+}
+
+.SearchIcon {
+  flex: 0 0 auto;
+  height: 14px;
+  width: 14px;
+  fill: var(--GraySecondary--translucent);
+  left: var(--Space-16);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
