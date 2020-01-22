@@ -12,6 +12,8 @@ import usePrevious from '../../hooks/usePrevious'
 import styles from './Tooltip.module.scss'
 
 const BREAKPOINTS = Media.BREAKPOINTS
+const HEADER_ID = 'mobile-modal-heading'
+const DESC_ID = 'mobile-modal-description'
 
 export const Tooltip = ({
   label,
@@ -39,12 +41,19 @@ export const Tooltip = ({
 
   const renderModal = (
     <>
-      <Modal isOpen={modalVisible} onDismiss={setModalVisibility}>
+      <Modal
+        isOpen={modalVisible}
+        onDismiss={setModalVisibility}
+        ariaLabelledBy={HEADER_ID}
+        ariaDescribedBy={DESC_ID}
+      >
         <div className={styles.mobileModal}>
           <div className={styles.label}>
-            <TitleLarge.Sans.Regular400>{label}</TitleLarge.Sans.Regular400>
+            <TitleLarge.Sans.Regular400 id={HEADER_ID}>
+              {label}
+            </TitleLarge.Sans.Regular400>
           </div>
-          <Body.Regular400>{details}</Body.Regular400>
+          <Body.Regular400 id={DESC_ID}>{details}</Body.Regular400>
           <button
             className={styles.closeButton}
             onClick={() => setModalVisibility(false)}
@@ -137,7 +146,6 @@ const PopperContent = ({
   const debouncedScheduleUpdate = useRef(
     debounce(
       () => {
-        console.log('SDSDS')
         scheduleUpdate()
       },
       1000,
@@ -251,10 +259,15 @@ Tooltip.defaultProps = {
 }
 
 Tooltip.propTypes = {
+  /** String indicating starting placement of Tooltip on hover, can be `'top'`, `'right'`, `'left'`,`'bottom'` or `'auto'` */
   placement: PropTypes.oneOf(Object.values(Tooltip.PLACEMENT_TYPES)),
+  /** Label used for Mobile modal Header */
   label: PropTypes.string.isRequired,
+  /** Boolean used to change Tooltip reference element to `display: inline-block;` */
   inline: PropTypes.bool,
+  /** Tooltip description */
   details: PropTypes.string.isRequired,
+  /** String that sets what Element the tooltip events should trigger against, can be `'viewport'`, `'scrollParent'` or`'window'`*/
   boundariesElement: PropTypes.oneOf(Object.values(Tooltip.BOUNDARIES_ELEMENT)),
 }
 
