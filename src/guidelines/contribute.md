@@ -8,6 +8,14 @@ Thank you for contributing to the EDS a.k.a. the Ethos Design System. Here you w
 
 Getting setup locally is described in [setup](https://github.com/getethos/ethos-design-system#setup) and [development](https://github.com/getethos/ethos-design-system#development)
 
+### Component documentation basics
+
+EDS leverages [react-styleguidist](TBD) which utilizes markdown to document React Components:
+
+> Styleguidist generates documentation for your components based on the comments in your source code, propTypes declarations, and Readme files.
+
+[Documenting components](https://react-styleguidist.js.org/docs/documenting.html) gives a very good overview of to document a component so that react-styleguidist can generate component docs for it. Please read that first.
+
 ## Developing locally while consuming from CMS, Monorepo, Nora, etc.
 
 A common use case is you're working in CMS, monorepo, Nora, etc., and you discover a bug or missing feature
