@@ -1,73 +1,72 @@
+## Examples
+
+### Basic Usage
+
+To use a placeholder in its most basic form and with all defaults: provide two properties to the component, `label` and `details`
+
 ```jsx
 import React, { useRef, useState, useEffect } from 'react'
+import styles from './TooltipExamples.module.scss'
 ;<>
-  <div
-    style={{
-      overflow: 'scroll',
-      height: '200px',
-      width: '100%',
-    }}
-  >
-    <div
-      style={{
-        height: '50px',
-        display: 'flex',
-        alignItems: 'flex-end',
-      }}
-    >
-      Top aligned with insufficient space <Tooltip label="Flip" details="Hi!" />
+  <div className={styles.basicExample}>
+    Basic Tootlip <Tooltip label="Flip" details="Hi!" />
+  </div>
+</>
+```
+
+### `placement`
+
+Customize the **Starting** position of a Tooltip
+
+```jsx
+import React, { useRef, useState, useEffect } from 'react'
+import styles from './TooltipExamples.module.scss'
+;<>
+  <div className={styles.centeredExample}>
+    <div className={styles.basicExample}>
+      Top <Tooltip label="Flip" details="Hi!" placement={'top'} />
+      Right <Tooltip label="Flip" details="Hi!" placement={'right'} />
+      Bottom <Tooltip label="Flip" details="Hi!" placement={'bottom'} />
+      Left <Tooltip label="Flip" details="Hi!" placement={'left'} />
     </div>
-    <br />
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'flex-end',
-      }}
-    >
-      Top aligned with insufficient space <Tooltip label="Flip" details="Hi" />
+  </div>
+</>
+```
+
+### `boundariesElement`
+
+This property will allow you to set what element the Tooltips event should activate on. Ex: Repositioning from scroll, flipping because of boundaries
+
+Setting the `boundariesElement` to `'scrollParent'` will make the tooltip flip against the first scrollable parent element. To always flip Tooltips against the outermost scroll use `viewport` or `window`.
+
+```jsx
+import React, { useRef, useState, useEffect } from 'react'
+import styles from './TooltipExamples.module.scss'
+;<>
+  <div className={styles.staticOuterDiv}>
+    <div className={styles.basicExample}>
+      My next scrollable element is the viewport{' '}
+      <Tooltip label="Flip" details="Hi!" />
     </div>
-    <div>
-      Hey there this
-      <Tooltip label="Inline" details="Hi again" inline /> is an inline tooltip
+    <div className={styles.overflowHidden}>
+      <div className={[styles.basicExample, styles.flipExample].join(' ')}>
+        My next scrollable element is a div with overflow hidden{' '}
+        <Tooltip label="Flip" details="Hi!" />
+      </div>
     </div>
-    <br />
-    <br />
-    <br />
-    This tooltip flips on the WINDOW and not the scrollable parent
-    <Tooltip
-      label="Label"
-      details="Not Broken"
-      boundariesElement={Tooltip.BOUNDARIES_ELEMENT.WINDOW}
-      inline
-    />
-    <br />
-    This tooltip flips on the VIEWPORT
-    <Tooltip
-      label="Label"
-      details="Id ullamco eiusmod mollit quis aliqua reprehenderit laboris adipisicing anim enim. Ullamco occaecat laborum proident sit consequat consectetur velit anim deserunt incididunt commodo. Nulla pariatur labore irure elit consequat pariatur consequat ipsum quis velit irure commodo. Ad dolore dolor sunt proident culpa. Est Lorem laborum dolore sint Lorem aliquip. Sit eu minim non Lorem dolore nostrud consequat sint qui. Commodo ullamco anim consequat velit velit elit et laborum laborum."
-      boundariesElement={Tooltip.BOUNDARIES_ELEMENT.VIEWPORT}
-      inline
-    />
-    <div
-      style={{
-        height: '100px',
-        display: 'flex',
-        alignItems: 'flex-end',
-      }}
-    >
-      Enough space to display above tooltip{' '}
-      <Tooltip
-        label="Label"
-        details="I flip to show below when in at the limit of my container"
-      />
-    </div>
-    <br />
-    Scroll Down!
-    <div
-      style={{
-        height: '150px',
-      }}
-    />
+  </div>
+</>
+```
+
+### `inline`
+
+```jsx
+import React, { useRef, useState, useEffect } from 'react'
+import styles from './TooltipExamples.module.scss'
+;<>
+  <div className={styles.basicExample}>
+    Hey there this <Tooltip label="Inline" details="Hi again" inline /> is an
+    inline tooltip
   </div>
 </>
 ```
