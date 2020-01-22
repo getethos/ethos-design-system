@@ -26,6 +26,35 @@ export const useGridSorting = (rows, columns) => {
     return <SortIcon columnKey={key} />
   }
 
+  const setSortState = (key) => {
+    let nextSort
+    let currSortCopy = currentSort
+
+    // Have we sorted by this key before? If so, follow next state rules.
+    if (currSortCopy[key]) {
+      if (currSortCopy[key].direction === 'down') {
+        nextSort = 'up'
+      } else if (currSortCopy[key].direction === 'up') {
+        nextSort = 'down'
+      }
+      currSortCopy[key].direction = nextSort
+    } else {
+      // First time sorting by this key, so we'll assume current direction is
+      // 'default', and update it to 'down'.
+      nextSort = 'down'
+      currSortCopy[key] = {
+        direction: nextSort,
+        key,
+      }
+    }
+
+    // When we sort by a certain column, we want the other columns to go back
+    // to being unsorted, so, we overwrite our state with only `currentSort[key]`
+    const newSortState = {}
+    newSortState[key] = { ...currSortCopy[key] }
+    setCurrentSort(newSortState)
+  }
+
   const [sortedRows, setSortedRows] = useState(rows)
 
   const columnRefs = [columns.map(() => React.createRef())]
@@ -67,32 +96,9 @@ export const useGridSorting = (rows, columns) => {
   }
 
   const compareBy = (key, sortMethod = defaultSortMethod) => {
-    let nextSort
-    let currSortCopy = currentSort
+    setSortState(key)
 
-    // Have we sorted by this key before? If so, follow next state rules.
-    if (currSortCopy[key]) {
-      if (currSortCopy[key].direction === 'down') {
-        nextSort = 'up'
-      } else if (currSortCopy[key].direction === 'up') {
-        nextSort = 'down'
-      }
-      currSortCopy[key].direction = nextSort
-    } else {
-      // First time sorting by this key, so we'll assume current direction is
-      // 'default', and update it to 'down'.
-      nextSort = 'down'
-      currSortCopy[key] = {
-        direction: nextSort,
-        key,
-      }
-    }
-
-    // When we sort by a certain column, we want the other columns to go back
-    // to being unsorted, so, we overwrite our state with only `currentSort[key]`
-    const newSortState = {}
-    newSortState[key] = { ...currSortCopy[key] }
-    setCurrentSort(newSortState)
+    const nextSort = currentSort[key].direction
 
     return function(a, b) {
       switch (nextSort) {
@@ -109,6 +115,7 @@ export const useGridSorting = (rows, columns) => {
     columnRefs,
     sortedRows,
     compareBy,
+    setSortState,
     updateRowsRefs,
     getSortIcon,
   }

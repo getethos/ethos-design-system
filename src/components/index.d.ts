@@ -364,11 +364,12 @@ export declare const useGridSorting: (
   columnRefs: any[]
   sortedRows: any
   compareBy: (
-    key: string | number,
+    key: any,
     sortMethod?: (a: any, b: any) => 1 | 0 | -1
   ) => (a: any, b: any) => 1 | 0 | -1
+  setSortState: (key: any) => void
   updateRowsRefs: (sortedRowsCopy: any) => void
-  getSortIcon: (key: string | number) => JSX.Element
+  getSortIcon: (key: any) => JSX.Element
 }
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
