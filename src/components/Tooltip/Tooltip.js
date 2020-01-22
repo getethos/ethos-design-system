@@ -128,69 +128,6 @@ export const Tooltip = ({
   )
 }
 
-const PopperContent = ({
-  innerRef,
-  visible,
-  style,
-  placement,
-  arrowProps,
-  scheduleUpdate,
-  details,
-}) => {
-  const [isPositioned, setIsPositioned] = useState(false)
-
-  const prevVisible = usePrevious(visible)
-  const prevPosition = usePrevious(style.transform)
-  const position = style.transform || ''
-
-  const debouncedScheduleUpdate = useRef(
-    debounce(
-      () => {
-        scheduleUpdate()
-      },
-      1000,
-      { trailing: true }
-    )
-  ).current
-
-  useEffect(() => {
-    window.addEventListener('scroll', debouncedScheduleUpdate)
-    return () => {
-      window.removeEventListener('scroll', debouncedScheduleUpdate)
-    }
-  }, [position])
-
-  const contentBoxClasses = [
-    styles.contentBox,
-    visible && isPositioned ? styles.visible : styles.hidden,
-  ]
-
-  // On first reveal of tooltip, schedule an update so positioning
-  // is correct incase the DOM has shuffled since the page first loaded
-  if (prevVisible === false && visible === true && !isPositioned) {
-    setIsPositioned(true)
-    scheduleUpdate()
-    return
-  }
-
-  // Check Tooltip Positioning, remove transition if repositioning is necessary
-  if (prevPosition !== position) {
-    contentBoxClasses.push(styles.noTransition)
-  }
-
-  return (
-    <div className={contentBoxClasses.join(' ')} ref={innerRef} style={style}>
-      <Footnote.Regular400>{details}</Footnote.Regular400>
-      <div
-        ref={arrowProps.ref}
-        className={styles.arrow}
-        style={arrowProps.style}
-        data-placement={placement}
-      />
-    </div>
-  )
-}
-
 Tooltip.SVGS = {
   closeButton: (
     <svg
@@ -269,6 +206,81 @@ Tooltip.propTypes = {
   details: PropTypes.string.isRequired,
   /** String that sets what Element the tooltip events should trigger against, can be `'viewport'`, `'scrollParent'` or`'window'`*/
   boundariesElement: PropTypes.oneOf(Object.values(Tooltip.BOUNDARIES_ELEMENT)),
+  /** The Modal's children */
+  children: PropTypes.node,
+}
+
+const PopperContent = ({
+  innerRef,
+  visible,
+  style,
+  placement,
+  arrowProps,
+  scheduleUpdate,
+  details,
+}) => {
+  const [isPositioned, setIsPositioned] = useState(false)
+
+  const prevVisible = usePrevious(visible)
+  const prevPosition = usePrevious(style.transform)
+  const position = style.transform || ''
+
+  const debouncedScheduleUpdate = useRef(
+    debounce(
+      () => {
+        scheduleUpdate()
+      },
+      1000,
+      { trailing: true }
+    )
+  ).current
+
+  useEffect(() => {
+    window.addEventListener('scroll', debouncedScheduleUpdate)
+    return () => {
+      window.removeEventListener('scroll', debouncedScheduleUpdate)
+    }
+  }, [position])
+
+  const contentBoxClasses = [
+    styles.contentBox,
+    visible && isPositioned ? styles.visible : styles.hidden,
+  ]
+
+  // On first reveal of tooltip, schedule an update so positioning
+  // is correct incase the DOM has shuffled since the page first loaded
+  if (prevVisible === false && visible === true && !isPositioned) {
+    setIsPositioned(true)
+    scheduleUpdate()
+    return
+  }
+
+  // Check Tooltip Positioning, remove transition if repositioning is necessary
+  if (prevPosition !== position) {
+    contentBoxClasses.push(styles.noTransition)
+  }
+
+  return (
+    <div className={contentBoxClasses.join(' ')} ref={innerRef} style={style}>
+      <Footnote.Regular400>{details}</Footnote.Regular400>
+      <div
+        ref={arrowProps.ref}
+        className={styles.arrow}
+        style={arrowProps.style}
+        data-placement={placement}
+      />
+    </div>
+  )
+}
+
+PopperContent.propTypes = {
+  innerRef: PropTypes.func,
+  visible: PropTypes.bool,
+  style: PropTypes.object,
+  placement: PropTypes.string,
+  arrowProps: PropTypes.object,
+  scheduleUpdate: PropTypes.func,
+  details: PropTypes.string,
 }
 
 export default Tooltip
