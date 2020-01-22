@@ -1,54 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tooltip rendering component default 1`] = `
-<div
-  className="root block"
->
-  <div
-    className="icon"
-    onClick={[Function]}
-    onMouseOut={[Function]}
-    onMouseOver={[Function]}
-  >
-    <svg
-      fill="none"
-      height="16"
-      viewBox="0 0 16 16"
-      width="16"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M8.00064 1.33203C4.32065 1.33203 1.33398 4.31869 1.33398 7.99868C1.33398 11.6787 4.32065 14.6653 8.00064 14.6653C11.6806 14.6653 14.6673 11.6787 14.6673 7.99868C14.6673 4.31869 11.6806 1.33203 8.00064 1.33203ZM8.66731 11.332H7.33398V7.33202H8.66731V11.332ZM8.66731 5.99869H7.33398V4.66536H8.66731V5.99869Z"
-        fill="black"
-        fillOpacity="0.2"
-      />
-    </svg>
-  </div>
-  <div
-    className="popperContainer"
-  >
-    <div
-      className="contentBox hidden noTransition"
-      style={
-        Object {
-          "left": 0,
-          "opacity": 0,
-          "pointerEvents": "none",
-          "position": "absolute",
-          "top": 0,
-        }
-      }
-    >
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div />
       <div
-        className="Footnote Theinhardt Regular400"
-      >
-        Test details
-      </div>
-      <div
-        className="arrow"
-        style={Object {}}
+        class="root block"
       />
     </div>
-  </div>
-</div>
+  </body>,
+  "container": <div>
+    <div />
+    <div
+      class="root block"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
