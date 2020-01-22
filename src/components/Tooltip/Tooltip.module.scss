@@ -1,0 +1,139 @@
+@import '../Media/Media.scss';
+
+.root {
+  &.block {
+    margin-left: 5px;
+    display: block;
+  }
+
+  &.inline {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+/* Tooltip */
+.icon {
+  width: var(--Space-16);
+  height: var(--Space-16);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.popperContainer {
+  .contentBox {
+    @include for-phone-only {
+      display: none;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: var(--Space-12);
+    text-align: left;
+    width: max-content;
+    max-width: 320px;
+    background-color: white;
+    padding: var(--Space-24);
+    box-shadow: var(--BoxShadow-Outer-light);
+    color: var(--GrayDarkHover--translucent);
+    transition: var(--transition-default);
+
+    &.noTransition {
+      transition: unset;
+    }
+
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .arrow {
+    position: absolute;
+    width: var(--Space-12);
+    height: var(--Space-12);
+    &[data-placement*='bottom'] {
+      top: 0;
+      margin-top: -12px;
+      width: 36px;
+      height: var(--Space-12);
+      &::before {
+        border-width: 0 var(--Space-12) var(--Space-12) var(--Space-12);
+        border-color: transparent transparent white transparent;
+      }
+    }
+    &[data-placement*='top'] {
+      bottom: 0;
+      margin-bottom: -12px;
+      width: 36px;
+      height: var(--Space-12);
+      &::before {
+        border-width: var(--Space-12) var(--Space-12) 0 var(--Space-12);
+        border-color: white transparent transparent transparent;
+      }
+    }
+    &[data-placement*='right'] {
+      left: 0;
+      margin-left: -12px;
+      height: var(--Space-24);
+      width: var(--Space-12);
+      &::before {
+        border-width: var(--Space-12) var(--Space-12) var(--Space-12) 0;
+        border-color: transparent white transparent transparent;
+      }
+    }
+    &[data-placement*='left'] {
+      right: 0;
+      margin-right: -12px;
+      height: var(--Space-24);
+      width: var(--Space-12);
+      &::before {
+        border-width: var(--Space-12) 0 var(--Space-12) var(--Space-12);
+        border-color: transparent transparent transparent white;
+      }
+    }
+    &::before {
+      content: '';
+      margin: auto;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+  }
+}
+
+/* Mobile Modal */
+
+.mobileModal {
+  width: calc(100vw - var(--Space-24));
+  padding: var(--Space-64) var(--Space-24) var(--Space-80) var(--Space-24);
+
+  background: white;
+  outline: none;
+
+  .closeButton {
+    width: var(--Space-14);
+    height: var(--Space-14);
+    top: var(--Space-24);
+    right: var(--Space-24);
+    padding: 0;
+
+    background: transparent;
+    border: unset;
+    position: absolute;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .label {
+    margin-bottom: var(--Space-24);
+  }
+}

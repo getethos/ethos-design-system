@@ -1,0 +1,26 @@
+@import '../Media/Media.scss';
+
+.basicExample {
+  display: flex;
+}
+
+.flipExample {
+  height: 600px;
+}
+
+.overflowHidden {
+  border: 1px solid red;
+  overflow: scroll;
+  height: 150px;
+}
+
+.staticOuterDiv {
+  height: 200px;
+}
+
+.centeredExample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
