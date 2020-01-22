@@ -367,6 +367,7 @@ export declare const useGridSorting: (
     key: string | number,
     sortMethod?: (a: any, b: any) => 1 | 0 | -1
   ) => (a: any, b: any) => 1 | 0 | -1
+  setSortState: (key: string | number) => void
   updateRowsRefs: (sortedRowsCopy: any) => void
   getSortIcon: (key: string | number) => JSX.Element
 }
