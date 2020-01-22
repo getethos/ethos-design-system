@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useRef, Fragment } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { DialogOverlay, DialogContent } from '@reach/dialog'
-import { useTransition, animated } from 'react-spring'
 import { Manager, Reference, Popper } from 'react-popper'
+
 import debounce from 'lodash.debounce'
 
 import { TitleLarge, Body, Footnote } from '../index'
 import { Media } from '../Media/Media'
+import { Modal } from '../Modal/Modal'
 import usePrevious from '../../hooks/usePrevious'
 
 import styles from './Tooltip.module.scss'
 
 const BREAKPOINTS = Media.BREAKPOINTS
-
-const AnimatedModalOverlay = animated(DialogOverlay)
-const AnimatedModalContent = animated(DialogContent)
 
 export const Tooltip = ({
   label,
@@ -40,44 +37,23 @@ export const Tooltip = ({
       .matches
   }
 
-  const animationConfig = {
-    tension: 250,
-    clamp: true,
-  }
-
-  const transitions = useTransition(modalVisible, null, {
-    config: animationConfig,
-    from: { opacity: 0, transform: 'translate3d(0px, -20px, 0px)' },
-    enter: { opacity: 1, transform: 'translate3d(0px, 0px, 0px)' },
-    leave: { opacity: 0, transform: 'translate3d(0px, -20px, 0px)' },
-  })
-
-  const renderModal = transitions.map(
-    ({ item, key, props }) =>
-      item && (
-        <AnimatedModalOverlay
-          key={key}
-          style={{ opacity: props.opacity }}
-          onDismiss={() => setModalVisibility(false)}
-        >
-          <AnimatedModalContent
-            className={styles.mobileModal}
-            aria-label={`${label} Popup Modal`}
-            style={props}
+  const renderModal = (
+    <>
+      <Modal isOpen={modalVisible} onDismiss={setModalVisibility}>
+        <div className={styles.mobileModal}>
+          <div className={styles.label}>
+            <TitleLarge.Sans.Regular400>{label}</TitleLarge.Sans.Regular400>
+          </div>
+          <Body.Regular400>{details}</Body.Regular400>
+          <button
+            className={styles.closeButton}
+            onClick={() => setModalVisibility(false)}
           >
-            <button
-              className={styles.closeButton}
-              onClick={() => setModalVisibility(false)}
-            >
-              {Tooltip.SVGS.closeButton}
-            </button>
-            <div className={styles.label}>
-              <TitleLarge.Sans.Regular400>{label}</TitleLarge.Sans.Regular400>
-            </div>
-            <Body.Regular400>{details}</Body.Regular400>
-          </AnimatedModalContent>
-        </AnimatedModalOverlay>
-      )
+            {Tooltip.SVGS.closeButton}
+          </button>
+        </div>
+      </Modal>
+    </>
   )
 
   const modifiers = {

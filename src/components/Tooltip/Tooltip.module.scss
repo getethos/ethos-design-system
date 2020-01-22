@@ -30,7 +30,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: var(--UncommonSpace-12);
+    margin: var(--Space-12);
     text-align: left;
     width: max-content;
     max-width: 320px;
@@ -57,16 +57,15 @@
 
   .arrow {
     position: absolute;
-    width: var(--UncommonSpace-12);
-    height: var(--UncommonSpace-12);
+    width: var(--Space-12);
+    height: var(--Space-12);
     &[data-placement*='bottom'] {
       top: 0;
       margin-top: -12px;
       width: var(--UncommonSpace-36);
-      height: var(--UncommonSpace-12);
+      height: var(--Space-12);
       &::before {
-        border-width: 0 var(--UncommonSpace-12) var(--UncommonSpace-12)
-          var(--UncommonSpace-12);
+        border-width: 0 var(--Space-12) var(--Space-12) var(--Space-12);
         border-color: transparent transparent white transparent;
       }
     }
@@ -74,10 +73,9 @@
       bottom: 0;
       margin-bottom: -12px;
       width: var(--UncommonSpace-36);
-      height: var(--UncommonSpace-12);
+      height: var(--Space-12);
       &::before {
-        border-width: var(--UncommonSpace-12) var(--UncommonSpace-12) 0
-          var(--UncommonSpace-12);
+        border-width: var(--Space-12) var(--Space-12) 0 var(--Space-12);
         border-color: white transparent transparent transparent;
       }
     }
@@ -85,10 +83,9 @@
       left: 0;
       margin-left: -12px;
       height: var(--Space-24);
-      width: var(--UncommonSpace-12);
+      width: var(--Space-12);
       &::before {
-        border-width: var(--UncommonSpace-12) var(--UncommonSpace-12)
-          var(--UncommonSpace-12) 0;
+        border-width: var(--Space-12) var(--Space-12) var(--Space-12) 0;
         border-color: transparent white transparent transparent;
       }
     }
@@ -96,10 +93,9 @@
       right: 0;
       margin-right: -12px;
       height: var(--Space-24);
-      width: var(--UncommonSpace-12);
+      width: var(--Space-12);
       &::before {
-        border-width: var(--UncommonSpace-12) 0 var(--UncommonSpace-12)
-          var(--UncommonSpace-12);
+        border-width: var(--Space-12) 0 var(--Space-12) var(--Space-12);
         border-color: transparent transparent transparent white;
       }
     }
@@ -115,48 +111,27 @@
 }
 
 /* Mobile Modal */
-:root {
-  --reach-dialog: 1;
-}
-
-[data-reach-dialog-overlay],
-[data-reach-dialog-content] {
-  @include for-tablet-and-up {
-    display: none;
-  }
-}
-
-[data-reach-dialog-overlay] {
-  z-index: 50;
-  background: hsla(0, 0%, 0%, 0.33);
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  overflow: hidden;
-}
-
-[data-reach-dialog-content] {
-  position: relative;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  width: 100%;
-  background: white;
-  outline: none;
-  transition: transform 0.3s ease-out;
-}
 
 .mobileModal {
   padding: var(--Space-64) var(--Space-24) var(--Space-80) var(--Space-24);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  width: calc(100vw - var(--Space-24));
+  // margin: 24px;
+  background: white;
+  outline: none;
+  transition: 0.3s ease-out;
 
   .closeButton {
+    width: var(--Space-14);
+    height: var(--Space-14);
+    padding: 0;
     background: transparent;
     border: unset;
     position: absolute;
     top: var(--Space-24);
     right: var(--Space-24);
     cursor: pointer;
+    outline: none;
   }
 
   .label {
