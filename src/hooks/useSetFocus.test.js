@@ -26,6 +26,5 @@ describe('useSetFocus', () => {
 
       expect(document.activeElement).toBe(document.body)
     })
-
   })
 })

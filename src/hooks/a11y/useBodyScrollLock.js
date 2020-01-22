@@ -22,6 +22,9 @@ function useBodyScrollLock(setBodyOverflow) {
     return () => {
       const scrollY = body.style.top
       body.setAttribute('style', '')
+
+      // Reset's the scroll position to the previous position when
+      // `position: fixed` and `top` is removed from the body
       window.scrollTo(0, parseInt(scrollY || '0') * -1)
     }
   }, [setBodyOverflow])

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useLayoutEffect } from 'react'
 
 // Ref: https://github.com/angular-ui/bootstrap/blob/834975899b734369465c2737c4fc947a257c4b1c/src/modal/modal.js#L272
 const FOCUSABLE_ELEMENTS_STRING =
@@ -29,6 +29,7 @@ function getFocusableElements(el) {
  */
 function useTrapFocus(ref, isActive) {
   const [focusedElemIdx, setFocusedElemIdx] = useState(0)
+  const [isUpdating, setIsUpdating] = useState(false)
 
   /**
    * Handler for tab/shift+tab key presses and increments or
@@ -54,28 +55,30 @@ function useTrapFocus(ref, isActive) {
           idx = focusedElemIdx < 1 ? lastIndex : focusedElemIdx - 1
         }
 
+        setIsUpdating(true)
         return setFocusedElemIdx(idx)
       }
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const prevFocusedEl = document.activeElement
     const elements = getFocusableElements(ref.current)
     const handler = handleTrapTab(elements.length - 1)
 
     // Setup the event listener
     if (isActive && elements.length > 0) {
-      ref.current.addEventListener('keydown', handler)
       elements[focusedElemIdx].focus()
+      document.body.addEventListener('keydown', handler)
+      setIsUpdating(false)
     }
 
     return () => {
       // Reset focus to the last item previous to the trap being activated
       prevFocusedEl.focus()
-      ref.current.removeEventListener('keydown', handler)
+      document.body.removeEventListener('keydown', handler)
     }
-  }, [focusedElemIdx, isActive])
+  }, [focusedElemIdx, isActive, isUpdating])
 }
 
 export default useTrapFocus

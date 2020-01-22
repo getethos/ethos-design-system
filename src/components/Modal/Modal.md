@@ -1,5 +1,5 @@
 ## Description
-The `<Modal />` component provides a container that renders content into an accessible modal outlet. By default, the container will render `children` centered in the screen with an overlay. Out of the box, the `<Modal />` will handle setting proper focus on tabable elements within the inner content, trapping focus within the `modal`,  and onDismiss the state of the modal through keyboard events.
+The `<Modal />` component provides a container that renders content into an accessible modal outlet (the `<Portal />` which the modal content renders to). By default, the container will render `children` centered in the screen with an overlay. Out of the box, the `<Modal />` will handle setting proper focus on tabable elements within the inner content, trapping focus within the `modal`,  and onDismiss the state of the modal through keyboard events.
 
 The container makes no assumptions about the inner content and can be styled to fit whatever implementation is needed.
 
@@ -13,6 +13,7 @@ Toggling the state of the modal is also handled by passing a callback through th
 
 ```jsx
   import React, { useState } from 'react'
+  import styles from './ModalExample.module.scss'
 
   function ModalExample() {
     const [isOpen, setIsOpen] = useState(false)
@@ -21,12 +22,12 @@ Toggling the state of the modal is also handled by passing a callback through th
       <>
         <button onClick={() => setIsOpen(true)}>Open Modal</button>
         <Modal isOpen={isOpen} onDismiss={setIsOpen}>
-          <div style={{ background: '#fff', padding: '16px 24px', width: '400px' }}>
+          <div className={styles.SmallModal}>
             <h1>You're a Wizard Harry!</h1>
             <p>
               Mobilicorpus lumos aparecium impedimenta nox serpensortia flagrate. Tarantallegra totalus levicorpus aparecium aresto immobilus. Inflamarae leviosa protego aresto imperio impedimenta unction locomotor alohomora locomotor. Me specialis impedimenta patronum wingardium mortis impedimenta evanesco immobilus finite.
             </p>
-            <button type="button" onClick={() => setIsOpen(false)}>Okay</button>
+            <button tabIndex="0" type="button" onClick={() => setIsOpen(false)}>Okay</button>
           </div>
         </Modal>
       </>
@@ -44,6 +45,7 @@ The example below also demonstrates how a takeover style modal could be rendered
 
 ```jsx
   import React, { useState } from 'react'
+  import styles from './ModalExample.module.scss'
 
   function ModalExample() {
     const [isOpen, setIsOpen] = useState(false)
@@ -55,7 +57,7 @@ The example below also demonstrates how a takeover style modal could be rendered
       <>
         <button onClick={() => setIsOpen(true)}>Open Modal</button>
         <Modal isOpen={isOpen} onDismiss={setIsOpen} ariaLabelledBy={HEADER_ID} ariaDescribedBy={DESC_ID}>
-          <div style={{ background: '#fff', padding: '16px 24px', overflow: 'scroll', width: '100vw', height: '100vh' }}>
+          <div className={styles.TakeoverModal}>
             <header>
               <h1 id={HEADER_ID}>You're a Wizard Harry!</h1>
             </header>

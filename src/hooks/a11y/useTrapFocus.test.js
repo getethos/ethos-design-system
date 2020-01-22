@@ -39,7 +39,7 @@ describe('useTrapFocusHook', () => {
       fireEvent.keyDown(elem, { key: 'Tab', keyCode: 9 })
     })
 
-    expect(document.activeElement).toBe(childTwo)
+    expect(document.activeElement).toStrictEqual(childTwo)
   })
 
   it('should set focus on the previous element when `shift+tab` is hit', () => {
@@ -57,7 +57,7 @@ describe('useTrapFocusHook', () => {
       fireEvent.keyDown(elem, { key: 'Tab', keyCode: 9 })
     })
 
-    expect(document.activeElement).toBe(childTwo)
+    expect(document.activeElement).toStrictEqual(childTwo)
 
     act(() => {
       fireEvent.keyDown(elem, { key: 'Tab', keyCode: 9, shiftKey: true })
@@ -81,7 +81,7 @@ describe('useTrapFocusHook', () => {
       fireEvent.keyDown(elem, { key: 'Tab', keyCode: 9, shiftKey: true })
     })
 
-    expect(document.activeElement).toBe(childTwo)
+    expect(document.activeElement).toStrictEqual(childTwo)
   })
 
   it('should set focus on the first tabbable item when `tab` is hit when the last tabbable item is initally focused', () => {
