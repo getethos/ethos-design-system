@@ -91,6 +91,7 @@ export const Modal = ({
 
   return (
     <Portal id="modal-root">
+      {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         className={classes}
         onKeyDown={handleKeyDown}
