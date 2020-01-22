@@ -1,14 +1,17 @@
 const path = require('path')
 const fs = require('fs')
+// eslint-disable-next-line no-unused-vars
 const glob = require('glob')
 const isCi = process.env.NODE_ENV === 'ci'
 
+// eslint-disable-next-line no-undef
 requirePaths = [
   path.join(__dirname, 'styleguide/content/content.scss'),
   path.join(__dirname, 'src/components/design-system.css'),
   path.join(__dirname, 'setupCoreJsPollyfills.js'),
 ]
 if (!isCi) {
+  // eslint-disable-next-line no-undef
   requirePaths.push(path.join(__dirname, 'src/fonts/index.css'))
 }
 
@@ -47,6 +50,7 @@ module.exports = {
     return props
   },
   pagePerSection: true,
+  // eslint-disable-next-line no-undef
   require: requirePaths,
   sections: [
     {
@@ -70,6 +74,18 @@ module.exports = {
       name: 'Components',
       content: './src/components/content.md',
       components: './src/components/**/*.js',
+      sectionDepth: 2,
+    },
+    {
+      name: 'Hooks',
+      content: './src/hooks/content.md',
+      components: './src/hooks/**/*.js',
+      sectionDepth: 2,
+    },
+    {
+      name: 'Validators',
+      content: './src/validators/content.md',
+      components: './src/validators/**/*.js',
       sectionDepth: 2,
     },
     {

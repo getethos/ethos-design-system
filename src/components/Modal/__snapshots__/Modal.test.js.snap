@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Render's a modal 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body
+    style="overflow: hidden; position: fixed; width: 100%; top: 0px;"
+  >
+    <div>
+      <div
+        aria-hidden="false"
+        class="ModalWrapperActive"
+        data-testid="base-modal-container"
+      >
+        <div
+          aria-describedby="some-id"
+          aria-labelledby="some-other-id"
+          aria-modal="true"
+          class="ModalContent"
+          role="dialog"
+        >
+          <h1
+            id="some-other-id"
+          >
+            Ima modal
+          </h1>
+          <p
+            id="some-id"
+          >
+            some more content
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      id="modal-root"
+    />
+  </body>,
+  "container": <div>
+    <div
+      aria-hidden="false"
+      class="ModalWrapperActive"
+      data-testid="base-modal-container"
+    >
+      <div
+        aria-describedby="some-id"
+        aria-labelledby="some-other-id"
+        aria-modal="true"
+        class="ModalContent"
+        role="dialog"
+      >
+        <h1
+          id="some-other-id"
+        >
+          Ima modal
+        </h1>
+        <p
+          id="some-id"
+        >
+          some more content
+        </p>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
