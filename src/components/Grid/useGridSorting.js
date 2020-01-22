@@ -2,15 +2,20 @@ import React, { useState } from 'react'
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa'
 import styles from './useGridSorting.module.scss'
 
+const DIR = {
+  UP: 'up',
+  DOWN: 'down',
+  DEFAULT: 'default',
+}
+
 export const useGridSorting = (rows, columns) => {
   const [currentSort, setCurrentSort] = useState({})
 
-  const SortIcon = ({ columnKey }) => {
+  const SortIcon = ({ direction }) => {
     let sortIcon
-    const key = columnKey
-    if (currentSort[key] && currentSort[key].direction === 'up') {
+    if (direction === DIR.UP) {
       sortIcon = <FaSortUp className={[styles.icon, styles.iconUp].join(' ')} />
-    } else if (currentSort[key] && currentSort[key].direction === 'down') {
+    } else if (direction === DIR.DOWN) {
       sortIcon = (
         <FaSortDown className={[styles.icon, styles.iconDown].join(' ')} />
       )
@@ -22,8 +27,46 @@ export const useGridSorting = (rows, columns) => {
     return sortIcon
   }
 
+  const getSortDirection = (key) => {
+    if (currentSort[key] && currentSort[key].direction === DIR.UP) {
+      return DIR.UP
+    } else if (currentSort[key] && currentSort[key].direction === DIR.DOWN) {
+      return DIR.DOWN
+    } else {
+      return DIR.DEFAULT
+    }
+  }
+
   const getSortIcon = (key) => {
-    return <SortIcon columnKey={key} />
+    const sortDirection = getSortDirection(key)
+    return <SortIcon direction={sortDirection} />
+  }
+
+  const setSortState = (key) => {
+    let nextSort
+    // Have we sorted by this key before? If so, follow next state rules.
+    if (currentSort[key]) {
+      if (currentSort[key].direction === DIR.DOWN) {
+        nextSort = DIR.UP
+      } else if (currentSort[key].direction === DIR.UP) {
+        nextSort = DIR.DOWN
+      }
+      currentSort[key].direction = nextSort
+    } else {
+      // First time sorting by this key, so we'll assume current direction is
+      // 'default', and update it to DIR.DOWN.
+      nextSort = DIR.DOWN
+      currentSort[key] = {
+        direction: nextSort,
+        key,
+      }
+    }
+
+    // When we sort by a certain column, we want the other columns to go back
+    // to being unsorted, so, we overwrite our state with only `currentSort[key]`
+    const newSortState = {}
+    newSortState[key] = { ...currentSort[key] }
+    setCurrentSort(newSortState)
   }
 
   const [sortedRows, setSortedRows] = useState(rows)
@@ -67,38 +110,15 @@ export const useGridSorting = (rows, columns) => {
   }
 
   const compareBy = (key, sortMethod = defaultSortMethod) => {
-    let nextSort
-    let currSortCopy = currentSort
+    setSortState(key)
 
-    // Have we sorted by this key before? If so, follow next state rules.
-    if (currSortCopy[key]) {
-      if (currSortCopy[key].direction === 'down') {
-        nextSort = 'up'
-      } else if (currSortCopy[key].direction === 'up') {
-        nextSort = 'down'
-      }
-      currSortCopy[key].direction = nextSort
-    } else {
-      // First time sorting by this key, so we'll assume current direction is
-      // 'default', and update it to 'down'.
-      nextSort = 'down'
-      currSortCopy[key] = {
-        direction: nextSort,
-        key,
-      }
-    }
-
-    // When we sort by a certain column, we want the other columns to go back
-    // to being unsorted, so, we overwrite our state with only `currentSort[key]`
-    const newSortState = {}
-    newSortState[key] = { ...currSortCopy[key] }
-    setCurrentSort(newSortState)
+    const nextSort = currentSort[key].direction
 
     return function(a, b) {
       switch (nextSort) {
-        case 'down':
+        case DIR.DOWN:
           return sortMethod(a[key], b[key])
-        case 'up':
+        case DIR.UP:
           return sortMethod(b[key], a[key])
       }
     }
@@ -109,7 +129,9 @@ export const useGridSorting = (rows, columns) => {
     columnRefs,
     sortedRows,
     compareBy,
+    setSortState,
     updateRowsRefs,
+    getSortDirection,
     getSortIcon,
   }
 }

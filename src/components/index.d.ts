@@ -75,18 +75,18 @@ export declare const Logo: {
 }
 
 interface downstreamButtonProps {
-  backArrowIcon?: boolean,
-  arrowIcon?: boolean,
-  type?: string,
-  isSelected?: boolean,
-  fullWidth?: boolean,
-  disabled?: boolean,
-  name?: string,
-  onClick?: any,
-  'data-tid'?: string,
-  children: string,
-  role?: string,
-  ariaLabelId?: string,
+  backArrowIcon?: boolean
+  arrowIcon?: boolean
+  type?: string
+  isSelected?: boolean
+  fullWidth?: boolean
+  disabled?: boolean
+  name?: string
+  onClick?: any
+  'data-tid'?: string
+  children: string
+  role?: string
+  ariaLabelId?: string
 }
 
 export declare const Button: {
@@ -245,7 +245,6 @@ export declare namespace ValueProps {
         })[]
   }
 }
-export default ValueProps
 
 export declare const focusHelper: {
   focus: (elementRef: any) => void
@@ -292,7 +291,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: ({ value: string, isAnswered: boolean })
+    onChange?: { value: string; isAnswered: boolean }
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
@@ -308,7 +307,7 @@ export declare namespace RadioButtonGroup {
     currentValue?: string
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    onChange?: ({ value: string, isAnswered: boolean })
+    onChange?: { value: string; isAnswered: boolean }
     'data-tid'?: string
     validator?: (value: string) => string
     disabled?: boolean
@@ -328,29 +327,27 @@ export declare const Grid: {
   }
   displayName: string
 }
+
 export declare const Pagination: {
   ({
+    currentPage,
+    pageCount,
     fetchPageCallback,
-    renderCallback,
   }: {
+    currentPage: any
+    pageCount: any
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
     fetchPageCallback: (pageNumber: number | string) => object
-    /**
-     * Will usually return the JSX unless !rows.length in which case it'll be null
-     */
-    renderCallback: (rowsData: any) => JSX.Element | null | void
   }): JSX.Element
   propTypes: {
+    currentPage: any
+    pageCount: any
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
     fetchPageCallback: (pageNumber: number | string) => object
-    /**
-     * Will usually return the JSX unless !rows.length in which case it'll be null
-     */
-    renderCallback: (rowsData: any) => JSX.Element | null | void
   }
   displayName: string
 }
@@ -370,6 +367,7 @@ export declare const useGridSorting: (
     key: string | number,
     sortMethod?: (a: any, b: any) => 1 | 0 | -1
   ) => (a: any, b: any) => 1 | 0 | -1
+  setSortState: (key: string | number) => void
   updateRowsRefs: (sortedRowsCopy: any) => void
   getSortIcon: (key: string | number) => JSX.Element
 }
@@ -720,3 +718,65 @@ export { TitleMedium } from './Type/TitleMedium.js'
 export { TitleLarge } from './Type/TitleLarge.js'
 export { TitleXLarge } from './Type/TitleXLarge.js'
 export { TitleXXLarge } from './Type/TitleXXLarge.js'
+
+////////////////////////////
+// ---- NORA EXPORTS ---- //
+////////////////////////////
+
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+    name?: string
+  }
+}
+
+interface HeaderProps {
+  name: string
+  leftChildren: React.ReactNode
+  rightChildren: React.ReactNode
+}
+
+/**
+ * Base `Header` component that provides fixed positioning and renders
+ * left and right side children. For ease of extension, `Header` is
+ * intentionally much simpler then the UniversalNavbar component.
+ * @see See [UniversalNavbar](https://github.com/getethos/ethos-design-system/blob/master/src/components/UniversalNavbar/UniversalNavbar.js)
+ *
+ * @public
+ *
+ * @param {object} props - Component Props
+ * @prop {string} props.name - Unique name of header.
+ * @prop {React.ReactNode} props.leftChildren - children to be rendered on left side of header
+ * @prop {React.ReactNode} props.rightChildren - children to be rendered on right side of header
+ *
+ * @return {JSX.Element}
+ */
+export declare const Header: {
+  ({ name, leftChildren, rightChildren }: HeaderProps): JSX.Element
+  propTypes: {
+    /** a required unique name for the header */
+    name: string
+    /** Optional children to render on left side of header */
+    leftChildren: React.ReactNode
+    /** Optional children to render on right side of header */
+    rightChildren: React.ReactNode
+  }
+  defaultProps: {
+    leftChildren: any
+    rightChildren: any
+  }
+}
+
+interface TagProps {
+  type: string
+  children: React.ReactNode
+}
+export declare const Tag: {
+  ({ type, children }: TagProps): JSX.Element
+  propTypes: {
+    type: string
+    children: React.ReactNode
+  }
+  defaultProps: {
+    type: any
+  }
+}

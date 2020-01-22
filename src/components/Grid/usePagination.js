@@ -1,50 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './Pagination.module.scss'
 
-export const usePagination = ({
-  data = null,
-  total = null,
-  per_page = null,
-  total_pages = null,
-  current_page = 1,
-  fetchPage = null,
-  startPageNumber = 1,
-}) => {
-  if (!fetchPage) {
-    throw Error('usePagination requires a fetchPage callback')
+/**
+ * usePagination hook for getting paging number buttons
+ *
+ * @public
+ *
+ * @param {function} props - fetch page callback
+ *
+ * @return {function} - conditionallyRenderPagingButtons for conditionally rendering paging buttons as needed
+ */
+export const usePagination = ({ fetchPageCallback = null }) => {
+  if (!fetchPageCallback) {
+    throw Error('usePagination requires fetchPageCallback')
   }
 
-  const [pagingState, setPagingState] = useState({
-    data,
-    total,
-    per_page,
-    total_pages,
-    current_page,
-    fetchPage,
-  })
-
-  const fetchPageDelegate = async (pageNumber) => {
-    const data = await fetchPage(pageNumber)
-    setPagingState({
-      data: data.data,
-      total: data.total,
-      per_page: data.per_page,
-      current_page: data.page,
-      total_pages: data.total_pages,
-    })
-  }
-
-  const getPaginationNumbers = () => {
+  /**
+   * @private
+   *
+   * @param {number} pageCount the number of pages
+   * @param {number}} currentPage the current page
+   *
+   * @returns JSX.Element
+   */
+  const getPaginationNumbers = (pageCount, currentPage) => {
     const pageNumbers = []
-    const totalPages = pagingState.total_pages
+    const totalPages = pageCount
     let paginationNumbers
 
-    if (pagingState.total && totalPages) {
+    if (totalPages) {
       for (let i = 1; i <= totalPages; i++) {
         pageNumbers.push(i)
       }
       paginationNumbers = pageNumbers.map((number) => {
-        const isCurrentPage = pagingState.current_page === number
+        const isCurrentPage = currentPage === number
         const klasses = isCurrentPage
           ? `${styles.paginationButtons} ${styles.active}`
           : styles.paginationButtons
@@ -53,9 +42,9 @@ export const usePagination = ({
           <button
             key={number}
             // eslint-disable-next-line
-            {...isCurrentPage && { 'aria-current': 'page' }}
+            {...(isCurrentPage && { 'aria-current': 'page' })}
             className={klasses}
-            onClick={() => fetchPageDelegate(number)}
+            onClick={() => fetchPageCallback(number)}
             aria-label={`Goto Page ${number}`}
           >
             {number}
@@ -66,13 +55,53 @@ export const usePagination = ({
     return paginationNumbers
   }
 
-  useEffect(() => {
-    fetchPageDelegate(startPageNumber)
-  }, [])
+  /**
+   * @public
+   *
+   * @param {number} pageCount the number of pages
+   * @param {number}} currentPage the current page
+   * @returns JSX.Element | null
+   */
+  const conditionallyRenderPagingButtons = (pageCount, currentPage) => {
+    const previousExists = currentPage > 1
+    const nextExists = currentPage < pageCount
+
+    if (pageCount > 1) {
+      return (
+        <nav aria-label="pagination" className={styles.pagination}>
+          {previousExists && (
+            <button
+              className={[
+                styles.paginationButtons,
+                styles.paginationButtonsLeft,
+              ].join(' ')}
+              onClick={() => fetchPageCallback(currentPage - 1)}
+              aria-label={`Goto Page ${currentPage - 1}`}
+            >
+              &laquo;
+            </button>
+          )}
+          {getPaginationNumbers(pageCount, currentPage)}
+          {nextExists && (
+            <button
+              className={[
+                styles.paginationButtons,
+                styles.paginationButtonsRight,
+              ].join(' ')}
+              onClick={() => fetchPageCallback(currentPage + 1)}
+              aria-label={`Goto Page ${currentPage + 1}`}
+            >
+              &raquo;
+            </button>
+          )}
+        </nav>
+      )
+    } else {
+      return null
+    }
+  }
 
   return {
-    pagingState,
-    getPaginationNumbers,
-    fetchPage: fetchPageDelegate,
+    conditionallyRenderPagingButtons,
   }
 }

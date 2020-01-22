@@ -1,0 +1,34 @@
+@import '../Attributes.css';
+
+.Tag {
+  border-radius: var(--Radius-3);
+  display: inline-block;
+  align-items: center;
+  padding: var(--Space-4);
+  font-weight: 500;
+}
+
+.Red {
+  background-color: var(--NoraRed-100);
+  color: var(--NoraRed-400);
+}
+
+.Orange {
+  background-color: var(--NoraOrange-100);
+  color: var(--NoraOrange-400);
+}
+
+.Green {
+  background-color: var(--NoraGreen-100);
+  color: var(--NoraGreen-400);
+}
+
+.Cyan {
+  background-color: var(--NoraCyan-100);
+  color: var(--NoraCyan-400);
+}
+
+.Default {
+  background-color: var(--NoraSilver-100);
+  color: var(--NoraSilver-400);
+}

@@ -1,7 +1,7 @@
 Used in tandem with the DataGrid component:
 
 ```jsx
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import uuidv4 from 'uuid/v4'
 import { FaHamburger } from 'react-icons/fa'
 import { Grid } from '../Grid/Grid.js'
@@ -10,33 +10,14 @@ import { Column } from '../Grid/Column.js'
 import { useGridSorting } from '../Grid/useGridSorting.js'
 import styles from '../Grid/grid-example.module.scss'
 
-const pageOne = `
-{"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"name":"cerulean","year":2000,"color":"#98B2D1","pantone_value":"15-4020"},{"id":2,"name":"fuchsia rose","year":2001,"color":"#C74375","pantone_value":"17-2031"},{"id":3,"name":"true red","year":2002,"color":"#BF1932","pantone_value":"19-1664"},{"id":4,"name":"aqua sky","year":2003,"color":"#7BC4C4","pantone_value":"14-4811"},{"id":5,"name":"tigerlily","year":2004,"color":"#E2583E","pantone_value":"17-1456"},{"id":6,"name":"blue turquoise","year":2005,"color":"#53B0AE","pantone_value":"15-5217"}]}
-`
-
-const pageTwo = `
-{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"name":"sand dollar","year":2006,"color":"#DECDBE","pantone_value":"13-1106"},{"id":8,"name":"chili pepper","year":2007,"color":"#9B1B30","pantone_value":"19-1557"},{"id":9,"name":"blue iris","year":2008,"color":"#5A5B9F","pantone_value":"18-3943"},{"id":10,"name":"mimosa","year":2009,"color":"#F0C05A","pantone_value":"14-0848"},{"id":11,"name":"turquoise","year":2010,"color":"#45B5AA","pantone_value":"15-5519"},{"id":12,"name":"honeysuckle","year":2011,"color":"#D94F70","pantone_value":"18-2120"}]}
-`
-const stubs = {
-  1: pageOne,
-  2: pageTwo,
-}
-
 const toCaps = (str) => {
-  const capitalizedWords = str.split('_').map(word => {
+  const capitalizedWords = str.split(' ').map((word) => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`
   })
   return capitalizedWords.join(' ')
 }
 
-const toSnakeCase = (str) => {
-  const snakeCasedWords = str.split(' ').map(word => {
-    return word.toLowerCase()
-  })
-  return snakeCasedWords.join('_')
-}
-
-function LeGrid({ rows, columns }) {
+const LeGrid = ({ rows, columns }) => {
   const {
     rowsRefs,
     columnRefs,
@@ -46,27 +27,22 @@ function LeGrid({ rows, columns }) {
     getSortIcon,
   } = useGridSorting(rows, columns)
 
-  const sortBy = (ev) => {
+  const fetchPageData = async (ev) => {
     ev.preventDefault()
-    // Put back to snake case e.g. 'Pantone Value' becomes 'pantone_value'
-    const key = toSnakeCase(ev.currentTarget.text)
-    let rowsCopy = sortedRows
-    let sortFunction
-    // See if we have a custom sort function. If `sortFunction` is
-    // `undefined`, `compareBy` will fallback to its own default sort
+    const key = ev.currentTarget.dataset.key || ''
     const idx = columns.findIndex((c) => c.name === key)
-    if (columns[idx].sortFn) {
-      sortFunction = columns[idx].sortFn
+    const fetchFunction = columns[idx].fetchFn
+    if (fetchFunction) {
+      const applications = await fetchFunction(1, columns[idx].name)
+      updateRowsRefs(applications.items)
     }
-    rowsCopy.sort(compareBy(key, sortFunction))
-    updateRowsRefs(rowsCopy)
   }
 
   useEffect(() => {
-   if (rows.length) {
-     updateRowsRefs(rows);
-   }
-  },[rows]);
+    if (rows.length) {
+      updateRowsRefs(rows)
+    }
+  }, [rows])
 
   return (
     <Grid rowRefs={rowsRefs} columnRefs={columnRefs}>
@@ -86,12 +62,13 @@ function LeGrid({ rows, columns }) {
                 {(active, columnRef) => (
                   <a
                     href="./#"
-                    onClick={sortBy}
+                    onClick={fetchPageData}
+                    data-key={col.name}
                     tabIndex={active ? 0 : -1}
                     className={styles.iconContainer}
                     ref={columnRef}
                   >
-                    {toCaps(col.name)}
+                    {toCaps(col.labelCopy || col.name)}
                     {getSortIcon(col.name)}
                   </a>
                 )}
@@ -107,8 +84,11 @@ function LeGrid({ rows, columns }) {
               header
             >
               {(active) => (
-                <span className={active ? 'active' : undefined}>
-                  {toCaps(col.name)}
+                <span
+                  data-key={col.name}
+                  className={active ? 'active' : undefined}
+                >
+                  {toCaps(col.labelCopy || col.name)}
                 </span>
               )}
             </Column>
@@ -159,8 +139,7 @@ function LeGrid({ rows, columns }) {
   )
 }
 
-function GridAndPagination() {
-
+const GridAndPagination = memo(() => {
   const columns = [
     {
       name: 'id',
@@ -168,25 +147,34 @@ function GridAndPagination() {
     },
     {
       name: 'name',
+      labelCopy: 'color name',
       interactive: true,
       sortable: true /* will use default sort function */,
       flexBasis: '30%',
     },
     {
       name: 'color',
+      labelCopy: 'hex',
       interactive: true,
       sortable: true /* will use default sort function */,
       flexBasis: '30%',
     },
     {
       name: 'pantone_value',
+      labelCopy: 'pantone value',
       flexBasis: '15%',
     },
   ]
-  const [rows, setRows] = useState([])
+
+  const [pagingState, setPagingState] = useState({
+    currentPage: 1,
+    pageCount: 0,
+    rows: [],
+  })
+
   const fetchPage = async (pageNumber) => {
-    /*
-    Example via a real API
+    // Unfortunately, there is no sort or order params offered by reqres
+    // https://github.com/benhowdle89/reqres/issues/32
     const response = await fetch(
       `https://reqres.in/api/cases?page=${pageNumber}`,
       {
@@ -197,80 +185,44 @@ function GridAndPagination() {
         },
       }
     )
+
     const data = await response.json()
-    */
-    return await JSON.parse(stubs[pageNumber])
+
+    // -------- reqres -------- //
+    // These transform reqres response to Nora's paginate api
+    const items = data.data
+    const pageCount = data.total_pages
+    // -------- ends: reqres -------- //
+
+    setPagingState({
+      currentPage: pageNumber,
+      pageCount: pageCount,
+      rows: items,
+    })
   }
 
-  const renderCases = (rows) => {
-    if (!rows || !rows.length) {
-      return
-    }
-    setRows(rows)
-  }
   const renderGrid = () => {
-    if (rows.length) {
-      return <LeGrid rows={rows} columns={columns} /> 
+    if (pagingState.rows.length) {
+      return <LeGrid rows={pagingState.rows} columns={columns} />
     }
     return null
   }
 
+  useEffect(() => {
+    fetchPage(1)
+  }, [])
+
   return (
     <>
       {renderGrid()}
-      <Pagination fetchPageCallback={fetchPage} renderCallback={renderCases} />
+      <Pagination
+        currentPage={pagingState.currentPage}
+        pageCount={pagingState.pageCount}
+        fetchPageCallback={fetchPage}
+      />
     </>
   )
-}
+})
 
-<GridAndPagination />
-```
-
-Simpler example of pagination without the DataGrid.
-
-_Note this example requires an internet connection and response from the reqres.in site_
-
-```jsx
-const fetchPage = async (pageNumber) => {
-  const response = await fetch(
-    `https://reqres.in/api/cases?page=${pageNumber}`,
-    {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-    }
-  )
-  return await response.json()
-}
-
-const renderCases = (data) => {
-  let cases
-  if (data) {
-    cases = data.map((c) => {
-      return (
-        <tr key={c.id}>
-          <td>{c.id}</td>
-          <td>{c.name}</td>
-          <td>{c.color}</td>
-        </tr>
-      )
-    })
-    return (
-      <table>
-        <thead>
-          <tr>
-            <th>S/N</th>
-            <th>Color</th>
-            <th>Hex Code</th>
-          </tr>
-        </thead>
-        <tbody>{cases}</tbody>
-      </table>
-    )
-  }
-}
-
-<Pagination fetchPageCallback={fetchPage} renderCallback={renderCases} />
+;<GridAndPagination />
 ```

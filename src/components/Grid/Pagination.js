@@ -1,51 +1,42 @@
-import React from 'react'
-import { usePagination } from './usePagination'
 import PropTypes from 'prop-types'
-import styles from './Pagination.module.scss'
+import { memo } from 'react'
 
-export const Pagination = ({ fetchPageCallback, renderCallback }) => {
-  if (!fetchPageCallback || !renderCallback) {
-    throw Error(
-      'Pagination requires a fetchPageCallback and renderCallback parameters'
-    )
+import { usePagination } from './usePagination'
+
+/**
+ * Pagination component for use with the data grid
+ *
+ * @public
+ *
+ * @param {object} props - Component Props
+ * @prop {number} [props.currentPage] - The current page
+ * @prop {number} [props.pageCount] - The total number of pages available for the collection of things
+ * @prop {function} [props.fetchPageCallback] - Callback thats fires when the next page should be fetched
+ *
+ * @return {JSX.Element}
+ */
+export const Pagination = memo(
+  ({ currentPage, pageCount, fetchPageCallback }) => {
+    if (
+      typeof currentPage !== 'number' ||
+      typeof pageCount !== 'number' ||
+      !fetchPageCallback
+    ) {
+      throw Error(
+        'Pagination requires currentPage, pageCount, and fetchPageCallback parameters'
+      )
+    }
+    const { conditionallyRenderPagingButtons } = usePagination({
+      fetchPageCallback,
+    })
+
+    return conditionallyRenderPagingButtons(pageCount, currentPage)
   }
-
-  const { fetchPage, pagingState, getPaginationNumbers } = usePagination({
-    fetchPage: fetchPageCallback,
-  })
-
-  return (
-    <>
-      {renderCallback(pagingState.data)}
-      <nav aria-label="pagination" className={styles.pagination}>
-        <button
-          className={[
-            styles.paginationButtons,
-            styles.paginationButtonsLeft,
-          ].join(' ')}
-          onClick={() => fetchPage(1)}
-          aria-label="Goto Page 1"
-        >
-          &laquo;
-        </button>
-        {getPaginationNumbers()}
-        <button
-          className={[
-            styles.paginationButtons,
-            styles.paginationButtonsRight,
-          ].join(' ')}
-          onClick={() => fetchPage(pagingState.total_pages)}
-          aria-label={`Goto Page ${pagingState.total_pages}`}
-        >
-          &raquo;
-        </button>
-      </nav>
-    </>
-  )
-}
+)
 
 Pagination.propTypes = {
   fetchPageCallback: PropTypes.func.isRequired,
-  renderCallback: PropTypes.func.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
 }
 Pagination.displayName = 'Pagination'

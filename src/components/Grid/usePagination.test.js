@@ -4,10 +4,10 @@ import testHook from '../../hooks/testHook.js'
 
 const responseStub = {
   page: 1,
-  per_page: 2,
+  itemCount: 2,
   total: 6,
-  total_pages: 3,
-  data: [{ id: 1 }, { id: 2 }],
+  pageCount: 3,
+  items: [{ id: 1 }, { id: 2 }],
 }
 
 describe('usePagination', () => {
@@ -25,12 +25,10 @@ describe('usePagination', () => {
   it('defines methods', async () => {
     await act(async () => {
       testHook(() => {
-        const { fetchPage, pagingState, getPaginationNumbers } = usePagination({
-          fetchPage: fetchFn,
+        const { conditionallyRenderPagingButtons } = usePagination({
+          fetchPageCallback: fetchFn,
         })
-        expect(fetchPage).toBeDefined()
-        expect(pagingState).toBeDefined()
-        expect(getPaginationNumbers).toBeDefined()
+        expect(conditionallyRenderPagingButtons).toBeDefined()
       })
     })
   })
