@@ -1,4 +1,3 @@
-import React from 'react'
 import { act } from 'react-test-renderer'
 import { useGridSorting } from './useGridSorting.js'
 import testHook from '../../hooks/testHook.js'
