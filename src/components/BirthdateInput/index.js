@@ -1,4 +1,4 @@
 export { BirthdateInput } from './BirthdateInput.js'
 export {
-  default as BirthdateInputValidator,
+  default as BirthdateInputValidator
 } from './BirthdateInputValidator.js'
