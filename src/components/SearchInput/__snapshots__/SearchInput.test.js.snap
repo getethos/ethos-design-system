@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchInput default rendering 1`] = `
+<div
+  className="SearchIconContainer"
+>
+  <input
+    className="TextInput"
+    data-tid="search-input-tid"
+    disabled={false}
+    name="search-input"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Search"
+    type="text"
+    value=""
+  />
+  <
+    className="SearchIcon"
+    icon={
+      Array [
+        "far",
+        "search",
+      ]
+    }
+  />
+</div>
+`;

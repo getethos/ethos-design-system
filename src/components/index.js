@@ -1,3 +1,6 @@
+// Sets up the fontawesome icons
+import './fa.js'
+
 export {
   BirthdateInput,
   BirthdateInputValidators,
