@@ -43,10 +43,10 @@ describe('Pagination Component', () => {
     })
     const root = tree.root
     const buttons = root.findAllByType('button')
-    const [first] = buttons
-    expect(first.props.className).toContain(styles.active)
+    const [, second] = buttons
+    expect(second.props.className).toContain(styles.active)
     await act(async () => {
-      first.props.onClick()
+      second.props.onClick()
     })
 
     expect(fetchFn).toHaveBeenCalled()
