@@ -2,8 +2,8 @@ Click one of the buttons below to trigger a GET request and receive a correspond
 response for said HTTP status code.
 
 ```jsx noeditor
-import './example.css';
-<ErrorsExample />
+import './example.css'
+;<ErrorsExample />
 ```
 
 This `ErrorsExample` component is just an example of using _Xhr_.

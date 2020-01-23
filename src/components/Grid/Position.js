@@ -42,8 +42,9 @@ export const Position = (props) => {
     let x
 
     const y = props.refs.findIndex((columnRefs) => {
-      x = columnRefs.findIndex((columnRef) =>
-        columnRef.current.contains(event.target)
+      x = columnRefs.findIndex(
+        (columnRef) =>
+          columnRef.current && columnRef.current.contains(event.target)
       )
       return x !== -1
     })
