@@ -7,7 +7,8 @@ exports[`Pagination Component default rendering 1`] = `
 >
   <button
     aria-label="Goto Page 1"
-    className="paginationButtons paginationButtonsLeft"
+    className="paginationButtons"
+    disabled={false}
     onClick={[Function]}
   >
     «
@@ -36,7 +37,8 @@ exports[`Pagination Component default rendering 1`] = `
   </button>
   <button
     aria-label="Goto Page 3"
-    className="paginationButtons paginationButtonsRight"
+    className="paginationButtons"
+    disabled={false}
     onClick={[Function]}
   >
     »
