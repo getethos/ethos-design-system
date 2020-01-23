@@ -155,6 +155,29 @@ export declare const filePath: (publicId: any) => any
 
 export { COLORS } from './Colors'
 
+export declare const SearchInput: {
+  ({
+    disabled,
+    name,
+    onEnter,
+    placeholder,
+    ...rest
+  }: {
+    [x: string]: any
+    disabled?: boolean
+    name: string
+    onEnter?: any
+    placeholder?: string
+  }): JSX.Element
+  propTypes: {
+    'data-tid': any
+    disabled?: boolean
+    name: string
+    onEnter?: any
+    placeholder?: string
+  }
+}
+
 export declare const Select: {
   ({
     className,
