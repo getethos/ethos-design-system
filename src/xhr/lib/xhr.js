@@ -19,8 +19,23 @@ async function xhr(options) {
         const resolvedPath = typeof path === 'string' ? path : path.buildPath();
         // Create a new XhrRequest object that will be passed into browser fetch
         const request = new XhrRequest(`${baseURL}/${resolvedPath}`, xhrOptions);
-        // Begin timing how long our request will take
-        request.setTimestamp();
+        /**
+         * Begin timing how long our request will take
+         *
+         * We try to extend window.Request with setTimestamp but it appears to
+         * be disallowed in Safari:
+         * TypeError - request.setTimestamp is not a function
+         *
+         * However, we appear to be able to arbitrarily set and get props in Safari:
+         *   window.Request.timestamp = 1234
+         *   window.Request.timestamp // outputs 1234
+         */
+        if (request.setTimestamp) {
+            request.setTimestamp();
+        }
+        else {
+            request.timestamp = Date.now();
+        }
         // Log request
         xhrLog.request(request);
         fetch(request)
