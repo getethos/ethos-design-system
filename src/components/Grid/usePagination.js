@@ -63,37 +63,29 @@ export const usePagination = ({ fetchPageCallback = null }) => {
    * @returns JSX.Element | null
    */
   const conditionallyRenderPagingButtons = (pageCount, currentPage) => {
-    const previousExists = currentPage > 1
-    const nextExists = currentPage < pageCount
+    const previousDisabled = currentPage === 1
+    const nextDisabled = currentPage === pageCount
 
     if (pageCount > 1) {
       return (
         <nav aria-label="pagination" className={styles.pagination}>
-          {previousExists && (
-            <button
-              className={[
-                styles.paginationButtons,
-                styles.paginationButtonsLeft,
-              ].join(' ')}
-              onClick={() => fetchPageCallback(currentPage - 1)}
-              aria-label={`Goto Page ${currentPage - 1}`}
-            >
-              &laquo;
-            </button>
-          )}
+          <button
+            className={styles.paginationButtons}
+            onClick={() => fetchPageCallback(currentPage - 1)}
+            aria-label={`Goto Page ${currentPage - 1}`}
+            disabled={previousDisabled}
+          >
+            &laquo;
+          </button>
           {getPaginationNumbers(pageCount, currentPage)}
-          {nextExists && (
-            <button
-              className={[
-                styles.paginationButtons,
-                styles.paginationButtonsRight,
-              ].join(' ')}
-              onClick={() => fetchPageCallback(currentPage + 1)}
-              aria-label={`Goto Page ${currentPage + 1}`}
-            >
-              &raquo;
-            </button>
-          )}
+          <button
+            className={styles.paginationButtons}
+            onClick={() => fetchPageCallback(currentPage + 1)}
+            aria-label={`Goto Page ${currentPage + 1}`}
+            disabled={nextDisabled}
+          >
+            &raquo;
+          </button>
         </nav>
       )
     } else {
