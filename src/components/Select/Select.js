@@ -54,6 +54,7 @@ Select.propTypes = {
   loadOptions: PropTypes.func,
   onChange: PropTypes.func,
   isAsync: PropTypes.bool,
+  isCompact: PropTypes.bool,
   title: PropTypes.string,
   className: PropTypes.string,
   isCreatable: PropTypes.bool,
