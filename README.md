@@ -137,3 +137,11 @@ the server where Jenkins lives will cache these and attempt to reuse them if it 
     - `@import '~ethos-design-system/src/components/Media/Media.scss';`
     - `@include for-phone-and-tablet {`
   - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations.
+
+## CI/CD
+
+We have a light-weight CI/CD process via Travis and deployment to eds.ethoslabs.io via GitHub actions. The important files to look at to understand these are:
+
+- [deploy script](https://github.com/getethos/ethos-design-system/blob/master/.github/workflows/deploy.yml)
+- [travis yaml](https://github.com/getethos/ethos-design-system/blob/master/.travis.yml)
+
