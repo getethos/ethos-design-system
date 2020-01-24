@@ -129,16 +129,25 @@
 
 .Compact {
   :global {
+    .StyledReactSelect__input,
+    .StyledReactSelect__control,
+    .StyledReactSelect__placeholder,
+    .StyledReactSelect__option,
+    .StyledReactSelect__value-container {
+      font-size: 15px;
+    }
+
     .StyledReactSelect__control {
       box-sizing: border-box;
       min-height: var(--Space-40);
       border-radius: 3px;
     }
     .StyledReactSelect__value-container {
+      font-size: 15px;
       /* Force to be consistent with TextInput */
-      min-height: var(--Space-40);
+      min-height: var(--Space-34);
       /* Since we've made it compact we need to re-center */
-      padding: 9px var(--Space-16) var(--Space-8) var(--Space-16);
+      padding: var(--Space-6) var(--Space-16) var(--Space-8) var(--Space-16);
     }
   }
 }
