@@ -18,6 +18,7 @@ jobs:
           path: node_modules
           # Don't share with other workflows because we are using `--production=false`
           key: dev-dependencies-${{ hashFiles('**/yarn.lock') }}
+      # We need to create a .npmrc with the fontawesome token
       - name: Setup fontawesome dependencies
         run: |
           cat > .npmrc <<EOF
