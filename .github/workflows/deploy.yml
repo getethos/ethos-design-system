@@ -10,12 +10,6 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Setup fontawesome dependencies
-          run: |
-            cat > .npmrc <<EOF
-            @fortawesome:registry=https://npm.fontawesome.com/
-            //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
-            EOF
       - uses: actions/checkout@v1
       - name: Cache dependencies
         id: cache-dependencies
@@ -24,6 +18,12 @@ jobs:
           path: node_modules
           # Don't share with other workflows because we are using `--production=false`
           key: dev-dependencies-${{ hashFiles('**/yarn.lock') }}
+      - name: Setup fontawesome dependencies
+          run: |
+            cat > .npmrc <<EOF
+            @fortawesome:registry=https://npm.fontawesome.com/
+            //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
+            EOF
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: yarn install --production=false
