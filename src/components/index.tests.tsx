@@ -6,6 +6,7 @@ import { Faq } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
+import { SearchInput } from './index'
 import { TextMaskedInput } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
@@ -88,6 +89,16 @@ class NumberInputTest extends React.Component<any, any> {
           return n % 2 === 0 ? '' : 'Must be an even number'
         }}
       />
+    )
+  }
+}
+
+class SearchInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <>
+        <SearchInput data-tid="search-input-tid" name="search-input" />
+      </>
     )
   }
 }
