@@ -18,6 +18,13 @@ jobs:
           path: node_modules
           # Don't share with other workflows because we are using `--production=false`
           key: dev-dependencies-${{ hashFiles('**/yarn.lock') }}
+      # We need to create a .npmrc with the fontawesome token
+      - name: Setup fontawesome dependencies
+        run: |
+          cat > .npmrc <<EOF
+          @fortawesome:registry=https://npm.fontawesome.com/
+          //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN_GITHUB }}
+          EOF
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: yarn install --production=false
@@ -56,4 +63,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
           AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
-          CLOUDFRONT_DISTRIBUTION_ID: EFXVH59BN2ASQ
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
