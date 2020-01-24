@@ -10,7 +10,7 @@
       overflow: visible;
       padding: var(--Space-8) var(--Space-16);
       /* Force to be consistent with TextInput */
-      min-height: 56px;
+      min-height: var(--Space-56);
     }
 
     .StyledReactSelect__multi-value {
@@ -19,7 +19,7 @@
       margin-left: 0;
       margin-bottom: 0;
       margin-top: 2px;
-      margin-right: 6px;
+      margin-right: var(--Space-6);
     }
 
     .StyledReactSelect__value-container > div:last-child {
@@ -123,6 +123,10 @@
   :global {
     .StyledReactSelect__value-container {
       top: 9px;
+    }
+
+    .StyledReactSelect-Compact .StyledReactSelect__value-container {
+      min-height: var(--Space-40);
     }
   }
 }
