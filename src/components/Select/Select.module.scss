@@ -129,6 +129,11 @@
 
 .Compact {
   :global {
+    .StyledReactSelect__control {
+      box-sizing: border-box;
+      min-height: var(--Space-40);
+      border-radius: 3px;
+    }
     .StyledReactSelect__value-container {
       /* Force to be consistent with TextInput */
       min-height: var(--Space-40);
