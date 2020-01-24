@@ -22,6 +22,30 @@ const options = [
 />
 ```
 
+Compact Select
+
+```jsx
+const onSelected = (selectedOption) => {
+  console.log('Option selected: ', selectedOption)
+}
+const options = [
+  { value: 'nyc', label: 'New York' },
+  { value: 'sf', label: 'San Francisco' },
+  { value: 'chicago', label: 'Chicago' },
+  { value: 'phoenix', label: 'Phoenix' },
+  { value: 'la', label: 'Los Angeles' },
+  { value: 'seattle', label: 'Seattle' },
+  { value: 'Portland', label: 'Portland' },
+  { value: 'Miami', label: 'Miami' },
+]
+;<Select
+  placeholder="Custom placeholder..."
+  isCompact={true}
+  onChange={onSelected}
+  options={options}
+/>
+```
+
 An optional title may be included on the input box
 
 ```jsx
