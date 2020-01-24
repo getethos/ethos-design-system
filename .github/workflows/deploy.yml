@@ -2,14 +2,20 @@ name: Deploy Styleguide
 
 on:
   push:
-    branches:
-      - master
+#    branches:
+#      - master
 
 jobs:
   build:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Setup fontawesome dependencies
+          run: |
+            cat > .npmrc <<EOF
+            @fortawesome:registry=https://npm.fontawesome.com/
+            //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
+            EOF
       - uses: actions/checkout@v1
       - name: Cache dependencies
         id: cache-dependencies
@@ -56,4 +62,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_ROLE_ARN: ${{ secrets.AWS_CI_USER_ROLE_ARN }}
           AWS_CONFIG_FILE: ${GITHUB_WORKSPACE}/.aws/config
-          CLOUDFRONT_DISTRIBUTION_ID: EFXVH59BN2ASQ
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
