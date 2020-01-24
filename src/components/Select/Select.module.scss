@@ -152,11 +152,15 @@
       /* Force to be consistent with TextInput */
       min-height: var(--Space-34);
       /* Since we've made it compact we need to re-center */
-      padding: var(--Space-8) var(--Space-8) var(--Space-8) var(--Space-16);
+      padding: var(--Space-6) var(--Space-8) var(--Space-6) var(--Space-16);
     }
 
     .StyledReactSelect__multi-value {
       padding: var(--Space-2) var(--Space-16);
+    }
+
+    .StyledReactSelect__multi-value__label {
+      padding: 5px 3px var(--Space-2) 3px;
     }
   }
 }
