@@ -23,7 +23,7 @@ jobs:
         run: |
           cat > .npmrc <<EOF
           @fortawesome:registry=https://npm.fontawesome.com/
-          //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN }}
+          //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN_GITHUB }}
           EOF
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
