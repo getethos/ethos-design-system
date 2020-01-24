@@ -208,6 +208,8 @@ export declare const Select: {
   }
 }
 
+export declare const SelectCompact: (props: any) => JSX.Element
+
 export declare const Spacer: {
   H80: (downstreamProps: any) => JSX.Element
   H72: (downstreamProps: any) => JSX.Element
