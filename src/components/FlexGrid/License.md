@@ -1,4 +1,3 @@
-
 MIT License
 
 Copyright <2018> <Roy Lee>
@@ -9,7 +8,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-___
+---
 
 Here's a link to the original author's GitHub for this software:
 
@@ -19,5 +18,4 @@ Note that we looked for a License file in the react-flexbox-grid GitHub repor, b
 but it was clearly listed as MIT in the README.md and package.json. Given that, I've added the MIT License above explicitly
 crediting the original author, Roy Lee.
 
-Ethos will extend, refactor, and use this software per the MIT License, and this will serve as keeping the copyright notice
-(even though they didn't have a license file).
+_Ethos will thus extend, refactor, and use this software per the MIT License, and this will file shall serve as keeping the copyright notice (since they didn't have a license file in their repository)._
