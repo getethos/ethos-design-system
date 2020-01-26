@@ -1,6 +1,7 @@
 /// <reference types="react" />
 
-import React, { ReactNode } from 'react'
+import React, { Component, HTMLAttributes, ReactNode } from 'react'
+
 declare class UniversalNavbar extends React.Component {
   state: {
     showMobileMenu: boolean
@@ -14,6 +15,54 @@ export { Layout } from './Layout/index.js'
 
 // TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
 // export { Media } from './Media'
+
+export declare namespace FlexGrid {
+  type ViewportSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  type ColumnSizeType = number | boolean
+
+  export interface GridProps extends HTMLAttributes<HTMLDivElement> {
+    readonly fluid?: boolean
+    readonly className?: string
+    readonly tagName?: string
+  }
+
+  export interface RowProps extends HTMLAttributes<HTMLDivElement> {
+    readonly reverse?: boolean
+    readonly start?: ViewportSizeType
+    readonly center?: ViewportSizeType
+    readonly end?: ViewportSizeType
+    readonly top?: ViewportSizeType
+    readonly middle?: ViewportSizeType
+    readonly bottom?: ViewportSizeType
+    readonly around?: ViewportSizeType
+    readonly between?: ViewportSizeType
+    readonly className?: string
+    readonly tagName?: string
+  }
+
+  export interface ColProps extends HTMLAttributes<HTMLDivElement> {
+    readonly xs?: ColumnSizeType
+    readonly sm?: ColumnSizeType
+    readonly md?: ColumnSizeType
+    readonly lg?: ColumnSizeType
+    readonly xl?: ColumnSizeType
+    readonly xsOffset?: number
+    readonly smOffset?: number
+    readonly mdOffset?: number
+    readonly lgOffset?: number
+    readonly xlOffset?: number
+    readonly first?: ViewportSizeType
+    readonly last?: ViewportSizeType
+    readonly className?: string
+    readonly tagName?: string
+  }
+
+  export class FlexGrid extends Component<GridProps, {}> {}
+
+  export class FlexRow extends Component<RowProps, {}> {}
+
+  export class FlexCol extends Component<ColProps, {}> {}
+}
 
 export declare const CheckboxInput: {
   ({
@@ -236,21 +285,21 @@ export declare const Spacer: {
 export declare function ValueProps({
   sections,
 }: {
-  sections: ({
+  sections: {
     iconUrl: string
     header: string
     subHeader: string
     alt?: string | undefined
-  })[]
+  }[]
 }): JSX.Element
 export declare namespace ValueProps {
   var propTypes: {
-    sections: ({
+    sections: {
       iconUrl: string
       header: string
       subHeader: string
       alt?: string | undefined
-    })[]
+    }[]
   }
   var defaultProps: {
     sections: (
@@ -265,7 +314,8 @@ export declare namespace ValueProps {
           header: string
           subHeader: string
           alt?: undefined
-        })[]
+        }
+    )[]
   }
 }
 
