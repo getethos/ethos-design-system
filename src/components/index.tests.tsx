@@ -3,6 +3,7 @@ import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
+import { FlexGrid, FlexCol, FlexRow } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -14,6 +15,20 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class FlexGridTest extends React.Component<any, any> {
+  render() {
+    return (
+      <FlexGrid>
+        <FlexRow>
+          <FlexCol xs={12} sm={4} lg={6}>
+            <p>Hi</p>
+          </FlexCol>
+        </FlexRow>
+      </FlexGrid>
+    )
+  }
+}
 
 class ButtonSelectGroupTest extends React.Component<any, any> {
   render() {
