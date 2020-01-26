@@ -14,7 +14,7 @@ Here's a link to the original author's GitHub for this software:
 
 https://github.com/roylee0704/react-flexbox-grid/blob/master/package.json#L88
 
-Note that we looked for a License file in the react-flexbox-grid GitHub repor, but there was none that we could find
+Note that we looked for a License file in the react-flexbox-grid GitHub repository, but there was none that we could find
 but it was clearly listed as MIT in the README.md and package.json. Given that, I've added the MIT License above explicitly
 crediting the original author, Roy Lee.
 
