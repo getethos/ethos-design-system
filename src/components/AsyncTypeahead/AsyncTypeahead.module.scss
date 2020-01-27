@@ -1,0 +1,34 @@
+.Container {
+  position: relative;
+}
+
+/**
+ * THIS SHOULD GO AWAY AND <SearchInput /> SHOULD BE SWAPPED IN!
+ */
+.Input {
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.Options {
+  background-color: var(--White);
+
+  /* TODO -- clean these next few up */
+  max-height: 200px;
+  min-width: 200px;
+
+  position: absolute;
+  overflow: auto;
+  border-radius: var(--Space-4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-top: -var(--Space-4);
+  z-index: 2;
+}
+
+.Option {
+  padding: var(--Space-10);
+  cursor: pointer;
+  &:hover {
+    background: var(--BrandMoss);
+  }
+}
