@@ -7,21 +7,30 @@ import textInputStyles from '../TextInput/TextInput.module.scss'
 export const SearchInput = ({
   disabled = false,
   name,
+  value,
   onEnter,
+  onBlur,
+  onFocus,
+  onChange,
   placeholder = 'Search',
   ...rest
 }) => {
-  const [value, setValue] = useState('')
+  const [lastValue, setLastValue] = useState('')
   const onKeyDown = (ev) => {
     if (['Enter'].includes(ev.key) || ev.keyCode === 27) {
       ev.preventDefault()
-      onEnter(value)
+      if (onEnter) {
+        onEnter(value || lastValue)
+      }
     }
   }
 
-  const onChange = (ev) => {
+  const handleOnChange = (ev) => {
     const val = ev.target.value
-    setValue(val)
+    setLastValue(val)
+    if (onChange) {
+      onChange(ev)
+    }
   }
 
   return (
@@ -29,10 +38,12 @@ export const SearchInput = ({
       <input
         type="text"
         disabled={disabled}
-        onChange={onChange}
+        onBlur={onBlur}
+        onChange={handleOnChange}
+        onFocus={onFocus}
         onKeyDown={onKeyDown}
         className={textInputStyles.TextInput}
-        value={value}
+        value={value || lastValue}
         data-tid={rest['data-tid']}
         placeholder={placeholder}
         name={name}
@@ -45,7 +56,11 @@ export const SearchInput = ({
 SearchInput.propTypes = {
   'data-tid': PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  value: PropTypes.string,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
   onEnter: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
 }
