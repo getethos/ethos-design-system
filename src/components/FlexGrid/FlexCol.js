@@ -7,23 +7,23 @@ import { ColumnSizeType, ViewportSizeType } from './types'
 const propTypes = {
   /** xs - number of units when viewport is "extra small" */
   xs: ColumnSizeType,
-  /** xs - number of units when viewport is "small" */
+  /** sm - number of units when viewport is "small" */
   sm: ColumnSizeType,
-  /** xs - number of units when viewport is "medium" */
+  /** md - number of units when viewport is "medium" */
   md: ColumnSizeType,
-  /** xs - number of units when viewport is "large" */
+  /** lg - number of units when viewport is "large" */
   lg: ColumnSizeType,
-  /** xs - number of units when viewport is "extra large" */
+  /** xl - number of units when viewport is "extra large" */
   xl: ColumnSizeType,
-  /** xs - number of units to offset when viewport is "extra small" */
+  /** xsOffset - number of units to offset when viewport is "extra small" */
   xsOffset: PropTypes.number,
-  /** xs - number of units to offset when viewport is "small" */
+  /** smOffset - number of units to offset when viewport is "small" */
   smOffset: PropTypes.number,
-  /** xs - number of units to offset when viewport is "medium" */
+  /** mdOffset - number of units to offset when viewport is "medium" */
   mdOffset: PropTypes.number,
-  /** xs - number of units to offset when viewport is "large" */
+  /** lgOffset - number of units to offset when viewport is "large" */
   lgOffset: PropTypes.number,
-  /** xs - number of units to offset when viewport is "extra large" */
+  /** xlOffset - number of units to offset when viewport is "extra large" */
   xlOffset: PropTypes.number,
   /** first - Forces a column to appear first */
   first: ViewportSizeType,
