@@ -33,7 +33,7 @@ const propTypes = {
   className: PropTypes.string,
   /** tagName - tag to use defaults to div */
   tagName: PropTypes.string,
-  /** tagName - react children */
+  /** children - react children */
   children: PropTypes.node,
 }
 
