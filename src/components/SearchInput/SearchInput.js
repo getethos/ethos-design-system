@@ -4,6 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './SearchInput.module.scss'
 import textInputStyles from '../TextInput/TextInput.module.scss'
 
+/**
+ * SearchInput is a primitive input with a search magnifying glass
+ * icon to the left. It's meant to be used as a simple primitive
+ * along with `AsyncTypeahead` (likely what you want to go look at)
+ *
+ * @public
+ *
+ * @param {object} props -
+ * @param {boolean} disabled - whether to disable or not
+ * @param {string} data-tid - required test id for the component
+ * @param {string} name - required name of component
+ * @param {string} value - value
+ * @param {function} onBlur - onBlur callback
+ * @param {function} onFocus - onFocus callback
+ * @param {function} onKeyDown - onKeyDown callback
+ * @param {function} onChange - onChange callback
+ * @param {string} placeholder - placeholder text
+ *
+ * @return {JSX.Element}
+ */
 export const SearchInput = ({
   disabled = false,
   name,

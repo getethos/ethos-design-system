@@ -6,6 +6,24 @@ import { useFetchEntities } from './useFetchEntities.js'
 import { codes } from '../../helpers/constants.js'
 import styles from './AsyncTypeahead.module.scss'
 
+/**
+ * AsyncTypeahead is a component that allows you to make asynchronous API
+ * fetches, and then use the results (entities) to show suggested results
+ * as dropdown options. It debounces the captured input via the
+ * `useFetchEntities` hook which takes in your dependency injected `fetchCallback`
+ * allowing you to fetch for any entity (be it Posts, Users, or whatever).
+ *
+ * @public
+ *
+ * @param {object} props -
+ * @param {React.Component} renderInput - The input component to use (likely `SearchInput`)
+ * @param {function} fetchCallback - required callback for fetching the entities
+ * @param {string} value - required value
+ * @param {number} minChars - minimum number of characters required to before we'll show the dropdown option results
+ * @param {string} placeholder - placeholder text
+ *
+ * @return {JSX.Element}
+ */
 export const AsyncTypeahead = ({
   renderInput,
   value,
@@ -54,22 +72,17 @@ export const AsyncTypeahead = ({
    */
   const scrollItemIntoView = (item) => {
     if (item.ref.current == null) {
-      console.log('NULL POINTER ----> item: ', item)
       return
     }
 
     item.ref.current.scrollIntoView({
       behavior: 'smooth',
-      // block: 'start',
       block: 'center',
-      // block: 'nearest',
-      // block: 'end',
     })
   }
 
   const handleInputChange = useCallback(
     (e) => {
-      console.log('AsyncTypeahead --> handleOnChange: ', e.target.value)
       setShow(e)
 
       const inputValue = e.target.value
@@ -163,7 +176,6 @@ export const AsyncTypeahead = ({
         </ul>
       )
     } else if (loading && showOptions) {
-      // still loading but enough characters
       return (
         <>
           <FontAwesomeIcon
