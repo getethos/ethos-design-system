@@ -8,25 +8,17 @@ export const SearchInput = ({
   disabled = false,
   name,
   value,
-  onEnter,
   onBlur,
   onFocus,
+  onKeyDown,
   onChange,
   placeholder = 'Search',
   ...rest
 }) => {
   const [lastValue, setLastValue] = useState('')
-  const onKeyDown = (ev) => {
-    if (['Enter'].includes(ev.key) || ev.keyCode === 27) {
-      ev.preventDefault()
-      if (onEnter) {
-        onEnter(value || lastValue)
-      }
-    }
-  }
-
   const handleOnChange = (ev) => {
     const val = ev.target.value
+    console.log('SearchInput --> handleOnChange: ', val)
     setLastValue(val)
     if (onChange) {
       onChange(ev)
@@ -59,8 +51,8 @@ SearchInput.propTypes = {
   value: PropTypes.string,
   disabled: PropTypes.bool,
   placeholder: PropTypes.string,
-  onEnter: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
+  onKeyDown: PropTypes.func,
 }

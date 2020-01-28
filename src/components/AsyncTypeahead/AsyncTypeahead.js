@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
+import uuidv4 from 'uuid/v4'
 import { useFetchEntities } from './useFetchEntities.js'
 import styles from './AsyncTypeahead.module.scss'
 
@@ -14,6 +15,8 @@ export const AsyncTypeahead = ({
 }) => {
   const [searchString, setSearchString] = useState('')
   const [showOptions, setShowOptions] = useState(false)
+  const [activeOption, setActiveOption] = useState(0)
+  const [selectedOption, setSelectedOption] = useState(-1)
   const { entities, loading } = useFetchEntities({
     searchString,
     fetchEntities: fetchCallback,
@@ -40,6 +43,7 @@ export const AsyncTypeahead = ({
 
   const handleInputChange = useCallback(
     (e) => {
+      console.log('AsyncTypeahead --> handleOnChange: ', e.target.value)
       setShow(e)
 
       const inputValue = e.target.value
@@ -52,25 +56,77 @@ export const AsyncTypeahead = ({
     [value.name]
   )
 
+  const handleOnKeydown = (ev) => {
+    const codes = {
+      RETURN: 13,
+      SPACE: 32,
+      PAGE_UP: 33,
+      PAGE_DOWN: 34,
+      UP: 38,
+      DOWN: 40,
+    }
+    switch (ev.keyCode) {
+      case codes.SPACE:
+      case codes.RETURN:
+        console.log('select activeOption as selectedValue not yet implemented')
+        // Call the consumer with the currently selected item so they can
+        // update their state accordingly, and dismiss the options
+        onChange(entities[activeOption])
+        setSelectedOption(activeOption)
+        setShowOptions(false)
+        break
+      case codes.UP:
+        console.log('Should navigate up...')
+        if (activeOption >= 0) {
+          setActiveOption(activeOption - 1)
+        }
+        break
+      case codes.DOWN:
+        console.log('Should navigate down...')
+        // if options closed and we're attempting to trigger opening w/down arrow
+        setShowOptions(true)
+        if (activeOption < entities.length - 1) {
+          setActiveOption(activeOption + 1)
+        }
+        break
+      case codes.PAGE_UP:
+      case codes.PAGE_DOWN:
+        console.log('PAGE UP/DOWN not yet implemented...')
+        break
+      default:
+        break
+    }
+  }
+
   const getOptions = () => {
     // If we're done loading and they've typed enough characters
-    if (!loading && showOptions) {
+    if (!loading && showOptions && entities) {
       return (
-        <div
+        <ul
           data-testid="typeahead-options-container"
           className={styles.Options}
         >
-          {entities &&
-            entities.map((item, id) => (
-              <div
-                className={styles.Option}
-                key={id}
-                onClick={() => onChange(item)}
+          {entities.map((item, i) => {
+            let className = styles.Option
+            if (i === activeOption) {
+              className = `${className} ${styles.ActiveOption}`
+            } else if (i === selectedOption) {
+              className = `${className} ${styles.SelectedOption}`
+            }
+            return (
+              <li
+                className={className}
+                key={uuidv4()}
+                onClick={() => {
+                  setSelectedOption(activeOption)
+                  onChange(item)
+                }}
               >
                 {item.name}
-              </div>
-            ))}
-        </div>
+              </li>
+            )
+          })}
+        </ul>
       )
     } else if (loading && showOptions) {
       // still loading but enough characters
@@ -80,12 +136,12 @@ export const AsyncTypeahead = ({
             className={styles.Spin}
             icon={['far', 'circle-notch']}
           />
-          <div
+          <ul
             data-testid="typeahead-no-options-container"
             className={styles.Options}
           >
-            <div className={styles.Option}>Loading...</div>
-          </div>
+            <li className={styles.Option}>Loading...</li>
+          </ul>
         </>
       )
     }
@@ -98,6 +154,7 @@ export const AsyncTypeahead = ({
         value: (value || {}).name || searchString,
         onChange: handleInputChange,
         onFocus: setShow,
+        onKeyDown: handleOnKeydown,
         onBlur: () => setTimeout(() => setShowOptions(false), 200),
         placeholder,
       })}

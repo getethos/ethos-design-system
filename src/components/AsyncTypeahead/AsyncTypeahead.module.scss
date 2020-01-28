@@ -33,6 +33,14 @@
   }
 }
 
+.ActiveOption {
+  background: var(--BrandMoss);
+}
+
+.SelectedOption {
+  background: var(--BrandForest);
+}
+
 .Spin {
   animation: spin 2s infinite linear;
   position: absolute;
