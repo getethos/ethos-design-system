@@ -17,6 +17,11 @@ export const AsyncTypeahead = ({
   const [showOptions, setShowOptions] = useState(false)
   const [activeOption, setActiveOption] = useState(0)
   const [selectedOption, setSelectedOption] = useState(-1)
+
+  /**
+   * Note that useFetchEntities fetches the entities, but,
+   * also attached refs to each entity for convenience
+   */
   const { entities, loading } = useFetchEntities({
     searchString,
     fetchEntities: fetchCallback,
@@ -39,6 +44,26 @@ export const AsyncTypeahead = ({
    */
   const termIsLessThenValue = (inputValue) => {
     return value && value.name && inputValue.length < value.name.length
+  }
+
+  /**
+   * TODO -- we need to refactor to take a key so instead of .name
+   * we use [keyFromConsumer] to access the meaningful value. This way,
+   * it can be .title, .id, .name, or whatever
+   */
+  const scrollItemIntoView = (item) => {
+    if (item.ref.current == null) {
+      console.log('NULL POINTER ----> item: ', item)
+      return
+    }
+
+    item.ref.current.scrollIntoView({
+      behavior: 'smooth',
+      // block: 'start',
+      block: 'center',
+      // block: 'nearest',
+      // block: 'end',
+    })
   }
 
   const handleInputChange = useCallback(
@@ -68,30 +93,39 @@ export const AsyncTypeahead = ({
     switch (ev.keyCode) {
       case codes.SPACE:
       case codes.RETURN:
-        console.log('select activeOption as selectedValue not yet implemented')
-        // Call the consumer with the currently selected item so they can
-        // update their state accordingly, and dismiss the options
-        onChange(entities[activeOption])
+        // Call the consumer with the currently selected item so they can update
+        // their state accordingly, and also dismiss the dropdown options
         setSelectedOption(activeOption)
         setShowOptions(false)
+        onChange(entities[activeOption])
+        scrollItemIntoView(entities[activeOption])
         break
       case codes.UP:
-        console.log('Should navigate up...')
-        if (activeOption >= 0) {
-          setActiveOption(activeOption - 1)
+        // New learning for me is that this is needed to prevent the cursor from
+        // going back to the beginning of the input string which is a standard
+        // feature within an html input
+        ev.preventDefault()
+        if (activeOption > 0) {
+          const previous = activeOption - 1
+          setActiveOption(previous)
+          scrollItemIntoView(entities[previous])
         }
         break
       case codes.DOWN:
-        console.log('Should navigate down...')
+        ev.preventDefault()
         // if options closed and we're attempting to trigger opening w/down arrow
         setShowOptions(true)
         if (activeOption < entities.length - 1) {
-          setActiveOption(activeOption + 1)
+          const next = activeOption + 1
+          setActiveOption(next)
+          scrollItemIntoView(entities[next])
         }
         break
       case codes.PAGE_UP:
       case codes.PAGE_DOWN:
-        console.log('PAGE UP/DOWN not yet implemented...')
+        console.log(
+          'PAGE UP/DOWN not yet implemented...probably setSelection could work. Not sure if worth it'
+        )
         break
       default:
         break
@@ -108,13 +142,19 @@ export const AsyncTypeahead = ({
         >
           {entities.map((item, i) => {
             let className = styles.Option
+
             if (i === activeOption) {
               className = `${className} ${styles.ActiveOption}`
-            } else if (i === selectedOption) {
+            }
+            // Note the if an item is both active (you've navigated to it)
+            // and also selected (it was the previous selection), we want
+            // both of those classes as that has it's own unique affordance.
+            // See the AsyncTypeahead.module.scss for the details :)
+            if (i === selectedOption) {
               className = `${className} ${styles.SelectedOption}`
             }
             return (
-              <li key={uuidv4()}>
+              <li key={uuidv4()} ref={item.ref}>
                 <button
                   className={className}
                   onClick={() => {
