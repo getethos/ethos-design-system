@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import { useFetchEntities } from './useFetchEntities.js'
 import styles from './AsyncTypeahead.module.scss'
@@ -74,12 +75,18 @@ export const AsyncTypeahead = ({
     } else if (loading && showOptions) {
       // still loading but enough characters
       return (
-        <div
-          data-testid="typeahead-no-options-container"
-          className={styles.Options}
-        >
-          <div className={styles.Option}>Loading...</div>
-        </div>
+        <>
+          <FontAwesomeIcon
+            className={styles.Spin}
+            icon={['far', 'circle-notch']}
+          />
+          <div
+            data-testid="typeahead-no-options-container"
+            className={styles.Options}
+          >
+            <div className={styles.Option}>Loading...</div>
+          </div>
+        </>
       )
     }
   }

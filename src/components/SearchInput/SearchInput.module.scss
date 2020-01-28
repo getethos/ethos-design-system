@@ -15,7 +15,7 @@
 
 .SearchIcon {
   flex: 0 0 auto;
-  height: 14px;
+  height: var(--Space-14);
   /* Looks like FA does the fill="currentColor" trick */
   /* so we use the font color (not fill) */
   color: var(--GraySecondary--translucent);
