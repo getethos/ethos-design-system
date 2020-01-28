@@ -28,6 +28,9 @@
 .Option {
   padding: var(--Space-10);
   cursor: pointer;
+  width: 100%;
+  border: none;
+
   &:hover {
     background: var(--BrandMoss);
   }

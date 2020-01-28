@@ -114,15 +114,16 @@ export const AsyncTypeahead = ({
               className = `${className} ${styles.SelectedOption}`
             }
             return (
-              <li
-                className={className}
-                key={uuidv4()}
-                onClick={() => {
-                  setSelectedOption(activeOption)
-                  onChange(item)
-                }}
-              >
-                {item.name}
+              <li key={uuidv4()}>
+                <button
+                  className={className}
+                  onClick={() => {
+                    setSelectedOption(activeOption)
+                    onChange(item)
+                  }}
+                >
+                  {item.name}
+                </button>
               </li>
             )
           })}
