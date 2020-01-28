@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { useFetchEntities } from './useFetchEntities.js'
+import { codes } from '../../helpers/constants.js'
 import styles from './AsyncTypeahead.module.scss'
 
 export const AsyncTypeahead = ({
@@ -82,14 +83,6 @@ export const AsyncTypeahead = ({
   )
 
   const handleOnKeydown = (ev) => {
-    const codes = {
-      RETURN: 13,
-      SPACE: 32,
-      PAGE_UP: 33,
-      PAGE_DOWN: 34,
-      UP: 38,
-      DOWN: 40,
-    }
     switch (ev.keyCode) {
       case codes.SPACE:
       case codes.RETURN:
