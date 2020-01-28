@@ -12,7 +12,7 @@
 
 .Options {
   background-color: var(--White);
-  max-height: calc(var(--Space-80) * 3); // 240px
+  max-height: calc(var(--Space-80) * 3); /* 240px */
   width: 100%;
   position: absolute;
   overflow: auto;
