@@ -194,7 +194,6 @@ export const AsyncTypeahead = ({
   return (
     <div className={styles.Container}>
       {renderInput({
-        className: styles.Input,
         value: (value || {})[dataKey] || searchString,
         onChange: handleInputChange,
         onFocus: setShow,

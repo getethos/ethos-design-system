@@ -2,14 +2,6 @@
   position: relative;
 }
 
-/**
- * THIS SHOULD GO AWAY AND <SearchInput /> SHOULD BE SWAPPED IN!
- */
-.Input {
-  padding: 10px 15px;
-  width: 100%;
-}
-
 .Options {
   background-color: var(--White);
   max-height: calc(var(--Space-80) * 3); /* 240px */
