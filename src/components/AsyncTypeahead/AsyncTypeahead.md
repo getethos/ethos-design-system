@@ -18,6 +18,8 @@ const handleOnChange = (value) => {
 ;<AsyncTypeahead
   renderInput={SearchInput}
   minChars={2}
+  // The restcountries.eu schema puts the dropdown options
+  // displayable field in `name` as in `item.name`
   dataKey="name"
   value={location}
   onChange={handleOnChange}

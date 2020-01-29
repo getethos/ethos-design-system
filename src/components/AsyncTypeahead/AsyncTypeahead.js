@@ -13,7 +13,8 @@ import styles from './AsyncTypeahead.module.scss'
  * `useFetchEntities` hook which takes in your dependency injected `fetchCallback`
  * allowing you to fetch for any arbitrary entity (be it Posts, Users, or whatever).
  * In order to be flexible in this way, it also takes in the `dataKey` to parse the
- * API data with e.g. if you have `data.items` you'd pass in `dataKey="items"`.
+ * API data with e.g. if you a list of items and .name has the token you wish
+ * to display in the dropdown results, you'd pass in `dataKey="name"`.
  *
  * @public
  *
