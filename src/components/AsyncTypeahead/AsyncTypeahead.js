@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
@@ -33,6 +33,10 @@ export const AsyncTypeahead = ({
   minChars = 1,
   placeholder = 'Search...',
 }) => {
+  // We keep a reference to the list of list items in the dropdown
+  // This turns out to work better than creating a new ref for each
+  // <li> and having to deal with them going null when React unmounts
+  const optionsRef = useRef([])
   const [searchString, setSearchString] = useState('')
   const [showOptions, setShowOptions] = useState(false)
   const [activeOption, setActiveOption] = useState(0)
@@ -66,15 +70,14 @@ export const AsyncTypeahead = ({
     return value && value[dataKey] && inputValue.length < value[dataKey].length
   }
 
-  const scrollItemIntoView = (item) => {
-    // required to make item.ref unmount safe
-    if (!item || !item.ref || !item.ref.current) {
-      return
+  const scrollItemIntoView = (entityIndex) => {
+    const element = optionsRef.current[entityIndex]
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      })
     }
-    item.ref.current.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    })
   }
 
   const handleInputChange = useCallback(
@@ -91,9 +94,6 @@ export const AsyncTypeahead = ({
   )
 
   const handleOnKeydown = (ev) => {
-    console.log('-------- handleOnKeydown ---------')
-    entities.forEach((e) => console.log('ref: ', e.ref))
-
     switch (ev.keyCode) {
       case codes.SPACE:
       case codes.RETURN:
@@ -102,7 +102,7 @@ export const AsyncTypeahead = ({
         setSelectedOption(activeOption)
         setShowOptions(false)
         onChange(entities[activeOption])
-        scrollItemIntoView(entities[activeOption])
+        scrollItemIntoView(activeOption)
         break
       case codes.UP:
         // New learning for me is that this is needed to prevent the cursor from
@@ -112,7 +112,7 @@ export const AsyncTypeahead = ({
         if (activeOption > 0) {
           const previous = activeOption - 1
           setActiveOption(previous)
-          scrollItemIntoView(entities[previous])
+          scrollItemIntoView(previous)
         }
         break
       case codes.DOWN:
@@ -124,19 +124,21 @@ export const AsyncTypeahead = ({
         if (activeOption < entities.length - 1) {
           const next = activeOption + 1
           setActiveOption(next)
-          scrollItemIntoView(entities[next])
+          scrollItemIntoView(next)
         }
-        break
-      case codes.PAGE_UP:
-      case codes.PAGE_DOWN:
-        console.log(
-          'PAGE UP/DOWN not yet implemented...probably setSelection could work. Not sure if worth it'
-        )
         break
       default:
         break
     }
   }
+
+  /**
+   * We don't want null values in the options ref array, so we use this
+   * effect to keep the array length in sync with the entities.length
+   */
+  useEffect(() => {
+    optionsRef.current = optionsRef.current.slice(0, entities.length)
+  }, [entities])
 
   const getOptions = () => {
     // If we're done loading and they've typed enough characters
@@ -160,7 +162,7 @@ export const AsyncTypeahead = ({
               className = `${className} ${styles.SelectedOption}`
             }
             return (
-              <li key={`${i}-${uuidv4()}`} ref={item.ref}>
+              <li key={uuidv4()} ref={(el) => (optionsRef.current[i] = el)}>
                 <button
                   className={className}
                   onClick={() => {

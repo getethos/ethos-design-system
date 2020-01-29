@@ -46,7 +46,7 @@ export const SearchInput = ({
   }
 
   return (
-    <div className={styles.SearchIconContainer}>
+    <div className={styles.SearchInputContainer}>
       <input
         type="text"
         disabled={disabled}

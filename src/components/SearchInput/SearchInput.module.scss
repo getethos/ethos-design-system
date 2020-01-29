@@ -1,6 +1,10 @@
-.SearchIconContainer {
+.SearchInputContainer {
   flex: 0 0 auto;
   position: relative;
+  // We need to ensure things like the async typeahead dropdown options
+  // have a lower z-index so we don't inadvertantly get the very first
+  // item hovered when it's half way tucked behind the input
+  z-index: 4;
 
   /* TextInput Overrides */
   > input {
