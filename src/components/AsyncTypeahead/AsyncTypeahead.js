@@ -1,10 +1,64 @@
-import React, { useState, useCallback, useEffect, useRef } from 'react'
+import React, {
+  forwardRef,
+  useState,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { useFetchEntities } from './useFetchEntities.js'
 import { codes } from '../../helpers/constants.js'
 import styles from './AsyncTypeahead.module.scss'
+
+const Item = forwardRef((props, forwardedRef) => {
+  const innerRef = useRef()
+  const {
+    currentActive,
+    itemIndex,
+    item,
+    dataKey,
+    selectedOption,
+    setSelectedOptionDelegate,
+    onChange,
+  } = props
+  useImperativeHandle(forwardedRef, () => ({
+    scrollIntoView: () => {
+      innerRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      })
+    },
+  }))
+
+  let className = styles.Option
+
+  if (itemIndex === currentActive) {
+    className = `${className} ${styles.ActiveOption}`
+  }
+  // Note the if an item is both active (you've navigated to it)
+  // and also selected (it was the previous selection), we want
+  // both of those classes as that has it's own unique affordance.
+  // See the AsyncTypeahead.module.scss for the details :)
+  if (itemIndex === selectedOption) {
+    className = `${className} ${styles.SelectedOption}`
+  }
+  return (
+    <li ref={innerRef}>
+      <button
+        className={className}
+        onClick={() => {
+          setSelectedOptionDelegate(itemIndex)
+          onChange(item)
+        }}
+      >
+        {item[dataKey]}
+      </button>
+    </li>
+  )
+})
 
 /**
  * AsyncTypeahead is a component that allows you to make asynchronous API
@@ -29,19 +83,12 @@ export const AsyncTypeahead = ({
   minChars = 1,
   placeholder = 'Search...',
 }) => {
-  // We keep a reference to the list of list items in the dropdown
-  // This turns out to work better than creating a new ref for each
-  // <li> and having to deal with them going null when React unmounts
-  const optionsRef = useRef([])
+  let optionsRefs = []
   const [searchString, setSearchString] = useState('')
   const [showOptions, setShowOptions] = useState(false)
   const [activeOption, setActiveOption] = useState(0)
   const [selectedOption, setSelectedOption] = useState(-1)
 
-  /**
-   * Note that useFetchEntities fetches the entities, but,
-   * also attached refs to each entity for convenience
-   */
   const { entities, loading } = useFetchEntities({
     searchString,
     fetchEntities: fetchCallback,
@@ -56,6 +103,11 @@ export const AsyncTypeahead = ({
     const inputValue = e.target.value
     setShowOptions(hasMinChars(inputValue))
   }
+  const setSelectedOptionDelegate = (index) => {
+    console.log('setSelectedOptionDelegate called with index: ', index)
+    setSelectedOption(index)
+    setActiveOption(index)
+  }
 
   /**
    * Determines if the user's input value is shorter then the
@@ -67,7 +119,12 @@ export const AsyncTypeahead = ({
   }
 
   const scrollItemIntoView = (entityIndex) => {
-    const element = optionsRef.current[entityIndex]
+    if (!optionsRefs || !optionsRefs[entityIndex]) {
+      console.warn('scrollItemIntoView -> optionsRefs is falsy :(')
+      console.log(optionsRefs)
+      return
+    }
+    const element = optionsRefs[entityIndex].current
     console.log('=========>> ELEMENT: ', element, 'index: ', entityIndex)
     if (element) {
       element.scrollIntoView({
@@ -98,9 +155,10 @@ export const AsyncTypeahead = ({
       case codes.RETURN:
         // Call the consumer with the currently selected item so they can update
         // their state accordingly, and also dismiss the dropdown options
-        setSelectedOption(activeOption)
+        setSelectedOptionDelegate(activeOption)
         setShowOptions(false)
         onChange(entities[activeOption])
+        // setActiveOption(activeOption)
         scrollItemIntoView(activeOption)
         break
       case codes.UP:
@@ -124,6 +182,10 @@ export const AsyncTypeahead = ({
           const next = activeOption + 1
           setActiveOption(next)
           scrollItemIntoView(next)
+        } else {
+          // On last item so circle back around to topmost item
+          setActiveOption(0)
+          scrollItemIntoView(0)
         }
         break
       default:
@@ -136,36 +198,10 @@ export const AsyncTypeahead = ({
    * effect to keep the array length in sync with the entities.length
    */
   useEffect(() => {
-    optionsRef.current = optionsRef.current.slice(0, entities.length)
+    optionsRefs = Array(entities.length)
+      .fill(0)
+      .map(() => React.createRef())
   }, [entities])
-
-  const renderOption = (item, i) => {
-    let className = styles.Option
-
-    if (i === activeOption) {
-      className = `${className} ${styles.ActiveOption}`
-    }
-    // Note the if an item is both active (you've navigated to it)
-    // and also selected (it was the previous selection), we want
-    // both of those classes as that has it's own unique affordance.
-    // See the AsyncTypeahead.module.scss for the details :)
-    if (i === selectedOption) {
-      className = `${className} ${styles.SelectedOption}`
-    }
-    return (
-      <li key={uuidv4()} ref={(el) => (optionsRef.current[i] = el)}>
-        <button
-          className={className}
-          onClick={() => {
-            setSelectedOption(activeOption)
-            onChange(item)
-          }}
-        >
-          {item[dataKey]}
-        </button>
-      </li>
-    )
-  }
 
   const getOptions = () => {
     // If we're done loading and they've typed enough characters
@@ -176,7 +212,20 @@ export const AsyncTypeahead = ({
           className={styles.Options}
         >
           {entities.map((item, i) => {
-            return renderOption(item, i)
+            optionsRefs[i] = React.createRef()
+            return (
+              <Item
+                selectedOption={selectedOption}
+                setSelectedOptionDelegate={setSelectedOptionDelegate}
+                onChange={onChange}
+                currentActive={activeOption}
+                item={item}
+                itemIndex={i}
+                dataKey={dataKey}
+                key={uuidv4()}
+                ref={optionsRefs[i]}
+              />
+            )
           })}
         </ul>
       )
