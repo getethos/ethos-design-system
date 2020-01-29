@@ -68,11 +68,14 @@ export const AsyncTypeahead = ({
 
   const scrollItemIntoView = (entityIndex) => {
     const element = optionsRef.current[entityIndex]
+    console.log('=========>> ELEMENT: ', element, 'index: ', entityIndex)
     if (element) {
       element.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
       })
+    } else {
+      console.warn('Element ref is null :(')
     }
   }
 
@@ -136,6 +139,34 @@ export const AsyncTypeahead = ({
     optionsRef.current = optionsRef.current.slice(0, entities.length)
   }, [entities])
 
+  const renderOption = (item, i) => {
+    let className = styles.Option
+
+    if (i === activeOption) {
+      className = `${className} ${styles.ActiveOption}`
+    }
+    // Note the if an item is both active (you've navigated to it)
+    // and also selected (it was the previous selection), we want
+    // both of those classes as that has it's own unique affordance.
+    // See the AsyncTypeahead.module.scss for the details :)
+    if (i === selectedOption) {
+      className = `${className} ${styles.SelectedOption}`
+    }
+    return (
+      <li key={uuidv4()} ref={(el) => (optionsRef.current[i] = el)}>
+        <button
+          className={className}
+          onClick={() => {
+            setSelectedOption(activeOption)
+            onChange(item)
+          }}
+        >
+          {item[dataKey]}
+        </button>
+      </li>
+    )
+  }
+
   const getOptions = () => {
     // If we're done loading and they've typed enough characters
     if (!loading && showOptions && entities) {
@@ -145,31 +176,7 @@ export const AsyncTypeahead = ({
           className={styles.Options}
         >
           {entities.map((item, i) => {
-            let className = styles.Option
-
-            if (i === activeOption) {
-              className = `${className} ${styles.ActiveOption}`
-            }
-            // Note the if an item is both active (you've navigated to it)
-            // and also selected (it was the previous selection), we want
-            // both of those classes as that has it's own unique affordance.
-            // See the AsyncTypeahead.module.scss for the details :)
-            if (i === selectedOption) {
-              className = `${className} ${styles.SelectedOption}`
-            }
-            return (
-              <li key={uuidv4()} ref={(el) => (optionsRef.current[i] = el)}>
-                <button
-                  className={className}
-                  onClick={() => {
-                    setSelectedOption(activeOption)
-                    onChange(item)
-                  }}
-                >
-                  {item[dataKey]}
-                </button>
-              </li>
-            )
+            return renderOption(item, i)
           })}
         </ul>
       )

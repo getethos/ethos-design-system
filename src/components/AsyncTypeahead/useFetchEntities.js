@@ -8,13 +8,6 @@ export const useFetchEntities = ({
   const [entities, setEntities] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const mapEntities = (entities) => {
-    return entities.map((item) => {
-      item.ref = createRef()
-      return item
-    }, {})
-  }
-
   useEffect(() => {
     setLoading(true)
     const debounced = setTimeout(async () => {
@@ -24,8 +17,7 @@ export const useFetchEntities = ({
           throw Error(response.statusText)
         }
         const json = await response.json()
-        const entitiesWithReferences = mapEntities(json)
-        setEntities(entitiesWithReferences)
+        setEntities(json)
         setLoading(false)
       } catch (e) {
         setEntities([
