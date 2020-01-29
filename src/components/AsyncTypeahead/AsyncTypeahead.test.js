@@ -24,6 +24,7 @@ describe('AsyncTypeahead', () => {
       <AsyncTypeahead
         renderInput={MySearch}
         minChars={2}
+        dataKey="name"
         value={valueStub}
         onChange={setOnChangeStub}
         placeholder="Typeahead..."
@@ -38,6 +39,7 @@ describe('AsyncTypeahead', () => {
       <AsyncTypeahead
         renderInput={MySearch}
         minChars={1}
+        dataKey="name"
         value={valueStub}
         onChange={setOnChangeStub}
         placeholder="typeahead"
@@ -62,6 +64,7 @@ describe('AsyncTypeahead', () => {
       <AsyncTypeahead
         renderInput={MySearch}
         minChars={1}
+        dataKey="name"
         value={valueStub}
         onChange={setOnChangeStub}
         placeholder="typeahead"
