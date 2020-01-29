@@ -22,6 +22,7 @@ export const SearchInput = ({
   value,
   onBlur,
   onFocus,
+  onClick,
   onKeyDown,
   onChange,
   placeholder = 'Search',
@@ -45,6 +46,7 @@ export const SearchInput = ({
         onBlur={onBlur}
         onChange={handleOnChange}
         onFocus={onFocus}
+        onClick={onClick}
         onKeyDown={onKeyDown}
         className={textInputStyles.TextInput}
         value={value || lastValue}
@@ -70,6 +72,8 @@ SearchInput.propTypes = {
   placeholder: PropTypes.string,
   /** `onFocus` - callback for focus events */
   onFocus: PropTypes.func,
+  /** `onClick` - callback for click events -- only meant for triggering dropdown to open*/
+  onClick: PropTypes.func,
   /** `onBlur` - callback for blur events */
   onBlur: PropTypes.func,
   /** `onChange` - callback for change events */

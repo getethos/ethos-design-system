@@ -119,21 +119,20 @@ export const AsyncTypeahead = ({
   }
 
   const scrollItemIntoView = (entityIndex) => {
-    if (!optionsRefs || !optionsRefs[entityIndex]) {
-      console.warn('scrollItemIntoView -> optionsRefs is falsy :(')
-      console.log(optionsRefs)
+    /**
+     * We have to account for if React unmounts our ref
+     */
+    if (
+      !optionsRefs ||
+      !optionsRefs[entityIndex || !optionsRefs[entityIndex]]
+    ) {
       return
     }
     const element = optionsRefs[entityIndex].current
-    console.log('=========>> ELEMENT: ', element, 'index: ', entityIndex)
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      })
-    } else {
-      console.warn('Element ref is null :(')
-    }
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    })
   }
 
   const handleInputChange = useCallback(
@@ -253,6 +252,7 @@ export const AsyncTypeahead = ({
         value: (value || {})[dataKey] || searchString,
         onChange: handleInputChange,
         onFocus: setShow,
+        onClick: setShow,
         onKeyDown: handleOnKeydown,
         onBlur: () => setTimeout(() => setShowOptions(false), 200),
         placeholder,
