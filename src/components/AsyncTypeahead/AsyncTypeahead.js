@@ -9,6 +9,7 @@ import React, {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
+import scrollToParentTop from '../../helpers/scrollToParentTop.js'
 import { useFetchEntities } from './useFetchEntities.js'
 import { codes } from '../../helpers/constants.js'
 import styles from './AsyncTypeahead.module.scss'
@@ -25,11 +26,8 @@ const Item = forwardRef((props, forwardedRef) => {
     onChange,
   } = props
   useImperativeHandle(forwardedRef, () => ({
-    scrollIntoView: () => {
-      innerRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      })
+    scrollToTop: () => {
+      scrollToParentTop(innerRef.current)
     },
   }))
 
@@ -59,6 +57,16 @@ const Item = forwardRef((props, forwardedRef) => {
     </li>
   )
 })
+Item.displayName = 'Item'
+Item.propTypes = {
+  currentActive: PropTypes.number,
+  itemIndex: PropTypes.number,
+  item: PropTypes.object,
+  dataKey: PropTypes.string,
+  selectedOption: PropTypes.number,
+  setSelectedOptionDelegate: PropTypes.func,
+  onChange: PropTypes.func,
+}
 
 /**
  * AsyncTypeahead is a component that allows you to make asynchronous API
@@ -129,10 +137,7 @@ export const AsyncTypeahead = ({
       return
     }
     const element = optionsRefs[entityIndex].current
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center',
-    })
+    element.scrollToTop()
   }
 
   const handleInputChange = useCallback(
@@ -157,13 +162,10 @@ export const AsyncTypeahead = ({
         setSelectedOptionDelegate(activeOption)
         setShowOptions(false)
         onChange(entities[activeOption])
-        // setActiveOption(activeOption)
         scrollItemIntoView(activeOption)
         break
       case codes.UP:
-        // New learning for me is that this is needed to prevent the cursor from
-        // going back to the beginning of the input string which is a standard
-        // feature within an html input
+        // Prevents input cursor from jumping
         ev.preventDefault()
         if (activeOption > 0) {
           const previous = activeOption - 1
@@ -172,6 +174,7 @@ export const AsyncTypeahead = ({
         }
         break
       case codes.DOWN:
+        // Prevents input cursor from jumping
         ev.preventDefault()
         // if options closed and we're attempting to trigger opening w/down arrow
         if (!showOptions) {
@@ -193,8 +196,8 @@ export const AsyncTypeahead = ({
   }
 
   /**
-   * We don't want null values in the options ref array, so we use this
-   * effect to keep the array length in sync with the entities.length
+   * Sets up an array of dropdown option refs. These are needed for
+   * keyboard navigation & scrolling items below container into view
    */
   useEffect(() => {
     optionsRefs = Array(entities.length)
