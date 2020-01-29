@@ -11,16 +11,11 @@ import styles from './AsyncTypeahead.module.scss'
  * fetches, and then use the results (entities) to show suggested results
  * as dropdown options. It debounces the captured input via the
  * `useFetchEntities` hook which takes in your dependency injected `fetchCallback`
- * allowing you to fetch for any entity (be it Posts, Users, or whatever).
+ * allowing you to fetch for any arbitrary entity (be it Posts, Users, or whatever).
+ * In order to be flexible in this way, it also takes in the `dataKey` to parse the
+ * API data with e.g. if you have `data.items` you'd pass in `dataKey="items"`.
  *
  * @public
- *
- * @param {object} props -
- * @param {React.Component} renderInput - The input component to use (likely `SearchInput`)
- * @param {function} fetchCallback - required callback for fetching the entities
- * @param {string} value - required value
- * @param {number} minChars - minimum number of characters required to before we'll show the dropdown option results
- * @param {string} placeholder - placeholder text
  *
  * @return {JSX.Element}
  */
@@ -211,12 +206,21 @@ export const AsyncTypeahead = ({
   )
 }
 
+/* @param {object} props -
+ */
 AsyncTypeahead.propTypes = {
+  /** `renderInput` - The input component to use (likely `SearchInput`) */
   renderInput: PropTypes.func.isRequired,
+  /** `fetchCallback` - required callback for fetching the entities */
   fetchCallback: PropTypes.func.isRequired,
+  /** `onChange` - required callback for change events */
   onChange: PropTypes.func.isRequired,
+  /** `dataKey` - key to indice the fetched data by */
   dataKey: PropTypes.string.isRequired,
+  /** `value` - required object representing your last state */
   value: PropTypes.object.isRequired,
+  /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
   minChars: PropTypes.number,
+  /** `placeholder` - placeholder text */
   placeholder: PropTypes.string,
 }

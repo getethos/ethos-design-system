@@ -9,6 +9,9 @@ import textInputStyles from '../TextInput/TextInput.module.scss'
  * icon to the left. It's meant to be used as a simple primitive
  * along with `AsyncTypeahead` (likely what you want to go look at)
  *
+ * See also:
+ * @see src/components/AsyncTypeahead/AsyncTypeahead.js
+ *
  * @public
  *
  * @param {object} props -
