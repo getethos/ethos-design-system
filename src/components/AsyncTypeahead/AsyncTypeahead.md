@@ -18,6 +18,7 @@ const handleOnChange = (value) => {
 ;<AsyncTypeahead
   renderInput={SearchInput}
   minChars={2}
+  dataKey="name"
   value={location}
   onChange={handleOnChange}
   placeholder="Find locations..."

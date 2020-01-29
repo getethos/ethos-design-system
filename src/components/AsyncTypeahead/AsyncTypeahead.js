@@ -27,6 +27,7 @@ import styles from './AsyncTypeahead.module.scss'
 export const AsyncTypeahead = ({
   renderInput,
   value,
+  dataKey,
   onChange,
   fetchCallback,
   minChars = 1,
@@ -62,19 +63,14 @@ export const AsyncTypeahead = ({
    * @param {string} inputValue - the current user's input value
    */
   const termIsLessThenValue = (inputValue) => {
-    return value && value.name && inputValue.length < value.name.length
+    return value && value[dataKey] && inputValue.length < value[dataKey].length
   }
 
-  /**
-   * TODO -- we need to refactor to take a key so instead of .name
-   * we use [keyFromConsumer] to access the meaningful value. This way,
-   * it can be .title, .id, .name, or whatever
-   */
   const scrollItemIntoView = (item) => {
-    if (item.ref.current == null) {
+    // required to make item.ref unmount safe
+    if (!item || !item.ref || !item.ref.current) {
       return
     }
-
     item.ref.current.scrollIntoView({
       behavior: 'smooth',
       block: 'center',
@@ -83,19 +79,21 @@ export const AsyncTypeahead = ({
 
   const handleInputChange = useCallback(
     (e) => {
-      setShow(e)
-
       const inputValue = e.target.value
+      setShowOptions(hasMinChars(inputValue))
       if (!termIsLessThenValue(inputValue)) {
         // For Clearing Selected Input. Resets back to current search term
         setSearchString(inputValue)
       }
       onChange({})
     },
-    [value.name]
+    [value[dataKey]]
   )
 
   const handleOnKeydown = (ev) => {
+    console.log('-------- handleOnKeydown ---------')
+    entities.forEach((e) => console.log('ref: ', e.ref))
+
     switch (ev.keyCode) {
       case codes.SPACE:
       case codes.RETURN:
@@ -120,7 +118,9 @@ export const AsyncTypeahead = ({
       case codes.DOWN:
         ev.preventDefault()
         // if options closed and we're attempting to trigger opening w/down arrow
-        setShowOptions(true)
+        if (!showOptions) {
+          setShowOptions(true)
+        }
         if (activeOption < entities.length - 1) {
           const next = activeOption + 1
           setActiveOption(next)
@@ -160,7 +160,7 @@ export const AsyncTypeahead = ({
               className = `${className} ${styles.SelectedOption}`
             }
             return (
-              <li key={uuidv4()} ref={item.ref}>
+              <li key={`${i}-${uuidv4()}`} ref={item.ref}>
                 <button
                   className={className}
                   onClick={() => {
@@ -168,7 +168,7 @@ export const AsyncTypeahead = ({
                     onChange(item)
                   }}
                 >
-                  {item.name}
+                  {item[dataKey]}
                 </button>
               </li>
             )
@@ -197,7 +197,7 @@ export const AsyncTypeahead = ({
     <div className={styles.Container}>
       {renderInput({
         className: styles.Input,
-        value: (value || {}).name || searchString,
+        value: (value || {})[dataKey] || searchString,
         onChange: handleInputChange,
         onFocus: setShow,
         onKeyDown: handleOnKeydown,
@@ -213,6 +213,7 @@ AsyncTypeahead.propTypes = {
   renderInput: PropTypes.func.isRequired,
   fetchCallback: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  dataKey: PropTypes.string.isRequired,
   value: PropTypes.object.isRequired,
   minChars: PropTypes.number,
   placeholder: PropTypes.string,

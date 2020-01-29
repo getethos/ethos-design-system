@@ -10,9 +10,6 @@ export const useFetchEntities = ({
 
   const mapEntities = (entities) => {
     return entities.map((item) => {
-      // TODO -- refactor this to something like item[props.keyName]
-      // const id = keyToId(item.name)
-      // acc[id] = React.createRef()
       item.ref = createRef()
       return item
     }, {})
