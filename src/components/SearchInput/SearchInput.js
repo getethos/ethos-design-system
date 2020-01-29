@@ -14,17 +14,6 @@ import textInputStyles from '../TextInput/TextInput.module.scss'
  *
  * @public
  *
- * @param {object} props -
- * @param {boolean} disabled - whether to disable or not
- * @param {string} data-tid - required test id for the component
- * @param {string} name - required name of component
- * @param {string} value - value
- * @param {function} onBlur - onBlur callback
- * @param {function} onFocus - onFocus callback
- * @param {function} onKeyDown - onKeyDown callback
- * @param {function} onChange - onChange callback
- * @param {string} placeholder - placeholder text
- *
  * @return {JSX.Element}
  */
 export const SearchInput = ({
@@ -69,13 +58,22 @@ export const SearchInput = ({
 }
 
 SearchInput.propTypes = {
+  /** Required data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string.isRequired,
+  /** Name of the field */
   name: PropTypes.string.isRequired,
+  /** `value` - value */
   value: PropTypes.string,
+  /** `disabled` - whether to disable the search input */
   disabled: PropTypes.bool,
+  /** `placeholder` - placeholder text */
   placeholder: PropTypes.string,
+  /** `onFocus` - callback for focus events */
   onFocus: PropTypes.func,
+  /** `onBlur` - callback for blur events */
   onBlur: PropTypes.func,
+  /** `onChange` - callback for change events */
   onChange: PropTypes.func,
+  /** `onKeyDown` - callback for keydown events */
   onKeyDown: PropTypes.func,
 }
