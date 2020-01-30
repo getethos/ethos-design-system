@@ -10,6 +10,7 @@ import { useState, useEffect, createRef } from 'react'
 export const useFetchEntities = ({
   searchString,
   fetchEntities,
+  entitiesKey,
   delay = 250,
 }) => {
   const [entities, setEntities] = useState([])
@@ -24,7 +25,12 @@ export const useFetchEntities = ({
           throw Error(response.statusText)
         }
         const json = await response.json()
-        setEntities(json)
+        /**
+         * If they haven't passed `entitiesKey`, we have to assume
+         * JSON is already structured with entities at the top level.
+         */
+        const resolvedEntities = entitiesKey ? json[entitiesKey] : json
+        setEntities(resolvedEntities)
         setLoading(false)
       } catch (e) {
         setEntities([

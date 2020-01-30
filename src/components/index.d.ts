@@ -35,6 +35,7 @@ export declare const AsyncTypeahead: {
     renderInput,
     lastSelectedValue,
     dataKey,
+    entitiesKey,
     onChange,
     fetchCallback,
     minChars,
@@ -43,6 +44,7 @@ export declare const AsyncTypeahead: {
     renderInput: any
     lastSelectedValue: object
     dataKey: string
+    entitiesKey: string
     fetchCallback: any
     onChange?: any
     minChars?: number
@@ -53,12 +55,14 @@ export declare const AsyncTypeahead: {
     renderInput: any
     /** `fetchCallback` - required callback for fetching the entities */
     fetchCallback: any
-    /** `onChange` - required callback for change events */
-    onChange?: any
-    /** `dataKey` - key to indice the fetched data by */
-    dataKey: string
     /** `lastSelectedValue` - required object representing your last state */
     lastSelectedValue: object
+    /** `onChange` - callback for change events */
+    onChange: any
+    /** `dataKey` - key to indice each item in the fetched data by key */
+    dataKey: string
+    /** `entitiesKey` - key to indice the fetched data entities by key. Although optional, note that if you don't pass this in, we will assume the JSON is structured with entities at the top level. */
+    entitiesKey?: string
     /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
     minChars?: number
     /** `placeholder` - placeholder text */

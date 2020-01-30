@@ -86,6 +86,7 @@ export const AsyncTypeahead = ({
   renderInput,
   lastSelectedValue,
   dataKey,
+  entitiesKey,
   onChange,
   fetchCallback,
   minChars = 1,
@@ -100,6 +101,7 @@ export const AsyncTypeahead = ({
   const { entities, loading } = useFetchEntities({
     searchString,
     fetchEntities: fetchCallback,
+    entitiesKey,
     delay: 300,
   })
 
@@ -296,12 +298,14 @@ AsyncTypeahead.propTypes = {
   renderInput: PropTypes.func.isRequired,
   /** `fetchCallback` - required callback for fetching the entities */
   fetchCallback: PropTypes.func.isRequired,
-  /** `onChange` - required callback for change events */
-  onChange: PropTypes.func.isRequired,
-  /** `dataKey` - key to indice the fetched data by */
-  dataKey: PropTypes.string.isRequired,
   /** `lastSelectedValue` - required object representing your last state */
   lastSelectedValue: PropTypes.object.isRequired,
+  /** `onChange` - required callback for change events */
+  onChange: PropTypes.func.isRequired,
+  /** `dataKey` - key to indice each item in the fetched data by key */
+  dataKey: PropTypes.string.isRequired,
+  /** `entitiesKey` - key to indice the fetched data entities by key. Although optional, note that if you don't pass this in, we will assume the JSON is structured with entities at the top level. */
+  entitiesKey: PropTypes.string,
   /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
   minChars: PropTypes.number,
   /** `placeholder` - placeholder text */

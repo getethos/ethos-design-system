@@ -29,6 +29,8 @@ const handleOnChange = (value) => {
   // The example restcountries.eu schema puts the dropdown option
   // displayable fields in a `name` property as in `item.name`
   // You'll need to map this key per your own JSON schema!
+  // If you're schema requires descending into something like:
+  // `data.items` you should additionally add `entitiesKey: "items"`.
   dataKey="name"
   lastSelectedValue={location}
   onChange={handleOnChange}
