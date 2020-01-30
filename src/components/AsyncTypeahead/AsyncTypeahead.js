@@ -103,32 +103,43 @@ export const AsyncTypeahead = ({
     delay: 300,
   })
 
+  /**
+   * Has user typed min chars to show dropdown options
+   */
   const hasMinChars = (inputValue) => {
     return inputValue.length >= minChars
   }
 
+  /**
+   * Sets state so that we'll show the dropdown options
+   */
   const setShow = (e) => {
     const inputValue = e.target.value
     setShowOptions(hasMinChars(inputValue))
   }
+
+  /**
+   * Sets the selected options and also active option
+   */
   const setSelectedOptionDelegate = (index) => {
-    console.log('setSelectedOptionDelegate called with index: ', index)
     setSelectedOption(index)
     setActiveOption(index)
   }
 
   /**
    * Determines if the user's input value is shorter then the
-   * currently selected value.
-   * @param {string} inputValue - the current user's input value
+   * currently selected value object.
    */
   const termIsLessThenValue = (inputValue) => {
     return value && value[dataKey] && inputValue.length < value[dataKey].length
   }
 
+  /**
+   * Used to scroll dropdown option in to view if it's hidden
+   */
   const scrollItemIntoView = (entityIndex) => {
     /**
-     * We have to account for if React unmounts our ref
+     * This is here to account for when React unmounts our ref
      */
     if (
       !optionsRefs ||
@@ -136,8 +147,9 @@ export const AsyncTypeahead = ({
     ) {
       return
     }
-    const element = optionsRefs[entityIndex].current
-    element.scrollToTop()
+    // Here we call the method defined in useImperativeHandle within Item
+    const itemEl = optionsRefs[entityIndex].current
+    itemEl.scrollToTop()
   }
 
   const handleInputChange = useCallback(
@@ -145,7 +157,7 @@ export const AsyncTypeahead = ({
       const inputValue = e.target.value
       setShowOptions(hasMinChars(inputValue))
       if (!termIsLessThenValue(inputValue)) {
-        // For Clearing Selected Input. Resets back to current search term
+        // For clearing selected input. Resets back to current search term
         setSearchString(inputValue)
       }
       onChange({})
@@ -153,6 +165,9 @@ export const AsyncTypeahead = ({
     [value[dataKey]]
   )
 
+  /**
+   * Handles keydown events so we can navigate via tabs and arrows
+   */
   const handleOnKeydown = (ev) => {
     switch (ev.keyCode) {
       case codes.SPACE:
@@ -197,7 +212,9 @@ export const AsyncTypeahead = ({
 
   /**
    * Sets up an array of dropdown option refs. These are needed for
-   * keyboard navigation & scrolling items below container into view
+   * keyboard navigation & scrolling items below container into view.
+   * We do it here because useEffect with dependency of `entities`
+   * will ensure our refs are consistent with those main entities.
    */
   useEffect(() => {
     optionsRefs = Array(entities.length)
@@ -205,8 +222,11 @@ export const AsyncTypeahead = ({
       .map(() => React.createRef())
   }, [entities])
 
+  /**
+   * Gets our dropdown options to be rendered.
+   */
   const getOptions = () => {
-    // If we're done loading and they've typed enough characters
+    // We're done loading, have our entities, and enough characters
     if (!loading && showOptions && entities) {
       return (
         <ul

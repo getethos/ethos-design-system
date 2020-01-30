@@ -1,5 +1,12 @@
 import { useState, useEffect, createRef } from 'react'
 
+/**
+ * This is a custom hook that hits API with search term
+ * and exposes `loading` (boolean indicating we're in the
+ * process of an http request), and also a list of `entities`
+ * once they've resolved (we use async/await). These
+ * entities are returned by the hook to the caller.
+ */
 export const useFetchEntities = ({
   searchString,
   fetchEntities,

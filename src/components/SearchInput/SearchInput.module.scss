@@ -22,7 +22,7 @@
   flex: 0 0 auto;
   height: var(--Space-14);
   /* Looks like FA does the fill="currentColor" trick */
-  /* so we use the font color (not fill) */
+  /* which means it will use the font color (not fill) */
   color: var(--GraySecondary--translucent);
   left: var(--Space-16);
   position: absolute;
