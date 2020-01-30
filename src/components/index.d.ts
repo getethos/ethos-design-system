@@ -15,6 +15,56 @@ export { Layout } from './Layout/index.js'
 // TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
 // export { Media } from './Media'
 
+/**
+ * AsyncTypeahead is a component that allows you to make asynchronous API
+ * fetches, and then use the results (entities) to show suggested results
+ * as dropdown options. It debounces the captured input via the
+ * `useFetchEntities` hook which takes in your dependency injected `fetchCallback`
+ * allowing you to fetch for any arbitrary entity (be it Posts, Users, or whatever).
+ * In order to be flexible in this way, it also takes in the `dataKey` to parse the
+ * API data with e.g. if you a list of items and .name has the token you wish
+ * to display in the dropdown results, you'd pass in `dataKey="name"`.
+ *
+ * @public
+ *
+ * @return {JSX.Element}
+ */
+export declare const AsyncTypeahead: {
+  ({
+    renderInput,
+    value,
+    dataKey,
+    onChange,
+    fetchCallback,
+    minChars,
+    placeholder,
+  }: {
+    renderInput: any
+    value: object
+    dataKey: string
+    fetchCallback: any
+    onChange?: any
+    minChars?: number
+    placeholder?: string
+  }): JSX.Element
+  propTypes: {
+    /** `renderInput` - The input component to use (likely `SearchInput`) */
+    renderInput: any
+    /** `fetchCallback` - required callback for fetching the entities */
+    fetchCallback: any
+    /** `onChange` - required callback for change events */
+    onChange?: any
+    /** `dataKey` - key to indice the fetched data by */
+    dataKey: string
+    /** `value` - required object representing your last state */
+    value: object
+    /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
+    minChars?: number
+    /** `placeholder` - placeholder text */
+    placeholder?: string
+  }
+}
+
 export declare const CheckboxInput: {
   ({
     formChangeHandler,
@@ -236,21 +286,21 @@ export declare const Spacer: {
 export declare function ValueProps({
   sections,
 }: {
-  sections: ({
+  sections: {
     iconUrl: string
     header: string
     subHeader: string
     alt?: string | undefined
-  })[]
+  }[]
 }): JSX.Element
 export declare namespace ValueProps {
   var propTypes: {
-    sections: ({
+    sections: {
       iconUrl: string
       header: string
       subHeader: string
       alt?: string | undefined
-    })[]
+    }[]
   }
   var defaultProps: {
     sections: (
@@ -265,7 +315,8 @@ export declare namespace ValueProps {
           header: string
           subHeader: string
           alt?: undefined
-        })[]
+        }
+    )[]
   }
 }
 
