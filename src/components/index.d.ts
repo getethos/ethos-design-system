@@ -33,7 +33,7 @@ export { Layout } from './Layout/index.js'
 export declare const AsyncTypeahead: {
   ({
     renderInput,
-    value,
+    lastSelectedValue,
     dataKey,
     onChange,
     fetchCallback,
@@ -41,7 +41,7 @@ export declare const AsyncTypeahead: {
     placeholder,
   }: {
     renderInput: any
-    value: object
+    lastSelectedValue: object
     dataKey: string
     fetchCallback: any
     onChange?: any
@@ -57,8 +57,8 @@ export declare const AsyncTypeahead: {
     onChange?: any
     /** `dataKey` - key to indice the fetched data by */
     dataKey: string
-    /** `value` - required object representing your last state */
-    value: object
+    /** `lastSelectedValue` - required object representing your last state */
+    lastSelectedValue: object
     /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
     minChars?: number
     /** `placeholder` - placeholder text */
@@ -362,8 +362,7 @@ export declare namespace ValueProps {
           header: string
           subHeader: string
           alt?: undefined
-        }
-    )[]
+        })[]
   }
 }
 

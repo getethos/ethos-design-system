@@ -27,7 +27,7 @@ class AsyncTypeaheadTest extends React.Component<any, any> {
         renderInput={SearchInput}
         minChars={2}
         dataKey="name"
-        value={{}}
+        lastSelectedValue={{}}
         placeholder="placeholder..."
         fetchCallback={this.getLocations}
       />
