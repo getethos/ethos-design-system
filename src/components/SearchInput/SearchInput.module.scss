@@ -1,6 +1,11 @@
-.SearchIconContainer {
+.SearchInputContainer {
   flex: 0 0 auto;
   position: relative;
+  /** We need to ensure things like the async typeahead dropdown options
+   * have a lower z-index so we don't inadvertantly get the very first
+   * item hovered when it's half way tucked behind the input
+   */
+  z-index: 4;
 
   /* TextInput Overrides */
   > input {
@@ -15,9 +20,9 @@
 
 .SearchIcon {
   flex: 0 0 auto;
-  height: 14px;
+  height: var(--Space-14);
   /* Looks like FA does the fill="currentColor" trick */
-  /* so we use the font color (not fill) */
+  /* which means it will use the font color (not fill) */
   color: var(--GraySecondary--translucent);
   left: var(--Space-16);
   position: absolute;

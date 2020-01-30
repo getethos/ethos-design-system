@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { EmailInput } from './index'
@@ -15,6 +16,25 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class AsyncTypeaheadTest extends React.Component<any, any> {
+  getLocations(name: string) {
+    return 'foo'
+  }
+  render() {
+    return (
+      <AsyncTypeahead
+        renderInput={SearchInput}
+        minChars={2}
+        dataKey="name"
+        entitiesKey="items"
+        lastSelectedValue={{}}
+        placeholder="placeholder..."
+        fetchCallback={this.getLocations}
+      />
+    )
+  }
+}
 
 class FlexGridTest extends React.Component<any, any> {
   render() {
