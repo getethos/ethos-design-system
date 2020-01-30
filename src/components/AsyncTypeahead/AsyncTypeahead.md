@@ -30,7 +30,7 @@ const handleOnChange = (value) => {
   // displayable fields in a `name` property as in `item.name`
   // You'll need to map this key per your own JSON schema!
   dataKey="name"
-  value={location}
+  lastSelectedValue={location}
   onChange={handleOnChange}
   placeholder="Find locations..."
   fetchCallback={getLocations}

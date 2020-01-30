@@ -84,7 +84,7 @@ Item.propTypes = {
  */
 export const AsyncTypeahead = ({
   renderInput,
-  value,
+  lastSelectedValue,
   dataKey,
   onChange,
   fetchCallback,
@@ -130,8 +130,12 @@ export const AsyncTypeahead = ({
    * Determines if the user's input value is shorter then the
    * currently selected value object.
    */
-  const termIsLessThenValue = (inputValue) => {
-    return value && value[dataKey] && inputValue.length < value[dataKey].length
+  const isSearchTermShorterThenSelectedValue = (inputValue) => {
+    return (
+      lastSelectedValue &&
+      lastSelectedValue[dataKey] &&
+      inputValue.length < lastSelectedValue[dataKey].length
+    )
   }
 
   /**
@@ -156,13 +160,13 @@ export const AsyncTypeahead = ({
     (e) => {
       const inputValue = e.target.value
       setShowOptions(hasMinChars(inputValue))
-      if (!termIsLessThenValue(inputValue)) {
+      if (!isSearchTermShorterThenSelectedValue(inputValue)) {
         // For clearing selected input. Resets back to current search term
         setSearchString(inputValue)
       }
       onChange({})
     },
-    [value[dataKey]]
+    [lastSelectedValue[dataKey]]
   )
 
   /**
@@ -272,7 +276,7 @@ export const AsyncTypeahead = ({
   return (
     <div className={styles.Container}>
       {renderInput({
-        value: (value || {})[dataKey] || searchString,
+        value: (lastSelectedValue || {})[dataKey] || searchString,
         onChange: handleInputChange,
         onFocus: setShow,
         onClick: setShow,
@@ -296,8 +300,8 @@ AsyncTypeahead.propTypes = {
   onChange: PropTypes.func.isRequired,
   /** `dataKey` - key to indice the fetched data by */
   dataKey: PropTypes.string.isRequired,
-  /** `value` - required object representing your last state */
-  value: PropTypes.object.isRequired,
+  /** `lastSelectedValue` - required object representing your last state */
+  lastSelectedValue: PropTypes.object.isRequired,
   /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
   minChars: PropTypes.number,
   /** `placeholder` - placeholder text */
