@@ -201,7 +201,11 @@ class UniversalNavbar extends React.Component {
                   showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
                 }
               >
-                <NavLink href={logoHref} LinkComponent={LinkComponent} className={styles.phoneLogo}>
+                <NavLink
+                  href={logoHref}
+                  LinkComponent={LinkComponent}
+                  className={styles.phoneLogo}
+                >
                   {LogoWhite({ className: styles.logo })}
                 </NavLink>
                 <Spacer.H56 />
@@ -230,7 +234,11 @@ class UniversalNavbar extends React.Component {
               </div>
 
               {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent} className={styles.phoneLogoFancy}>
+              <NavLink
+                href={LINKS.INDEX.href}
+                LinkComponent={LinkComponent}
+                className={styles.phoneLogoFancy}
+              >
                 <FancyAnimatedLogo />
               </NavLink>
               {!hideMobileCta && getAnEstimate(true)}
