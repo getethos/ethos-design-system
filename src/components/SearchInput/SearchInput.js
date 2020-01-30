@@ -31,7 +31,6 @@ export const SearchInput = ({
   const [lastValue, setLastValue] = useState('')
   const handleOnChange = (ev) => {
     const val = ev.target.value
-    console.log('SearchInput --> handleOnChange: ', val)
     setLastValue(val)
     if (onChange) {
       onChange(ev)
