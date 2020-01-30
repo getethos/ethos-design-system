@@ -1,5 +1,7 @@
 @import '../Media/Media.scss';
 
+$tablet-small-end: 670px;
+
 .flex {
   display: flex;
 }
@@ -29,7 +31,7 @@
   }
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .tabletAndUp {
@@ -71,10 +73,56 @@
 
 .logo {
   height: 16px;
+  padding-right: var(--Space-40);
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+    padding-right: var(--Space-24);
+  }
 }
 
-.paddingLeft {
-  padding-left: 24px;
+.phoneLogo {
+  margin-right: auto;
+}
+
+.phoneLogoFancy {
+  margin-right: auto;
+}
+
+.cta {
+  padding-left: 21px;
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+    padding-left: var(--Space-8);
+  }
+}
+
+.textLink {
+  padding-right: var(--Space-24);
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+    &:nth-child(2) {
+      padding-right: var(--Space-16);
+    }
+    &:nth-child(3) {
+      padding-right: 0;
+    }
+  }
+}
+
+.searchIcon {
+  @include for-phone-only {
+    padding-right: var(--Space-24);
+    svg {
+      width: var(--Space-24);
+      height: var(--Space-24);
+    }
+  }
+  @include for-tablet-and-up {
+    padding-right: var(--Space-8);
+  }
+}
+
+.accountIcon {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+    display: none;
+  }
 }
 
 /**

@@ -11,7 +11,10 @@ import TransformingBurgerButton from './TransformingBurgerButton/TransformingBur
 import styles from './UniversalNavbar.module.scss'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
-// TODO: Remove last usages of the Media helper (and prefer the Sass MQ mixins).
+
+// WIP - TODO: Confirm check my price vs get an estimate in figma
+// WIP - TODO: See if Design can provide spec using FontAwesome
+// WIP - TODO: Check search link text on expanded mobile nav (hamburger click)
 
 // UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
 const NavLink = ({ href, LinkComponent, ...props }) => {
@@ -45,8 +48,13 @@ const LINKS = {
     },
     {
       id: uuidv4(),
+      href: '/blog/',
+      title: 'Blog',
+    },
+    {
+      id: uuidv4(),
       href: '/faq/',
-      title: 'FAQ',
+      title: 'Search',
     },
     {
       id: uuidv4(),
@@ -88,8 +96,8 @@ class UniversalNavbar extends React.Component {
 
     const { showMobileMenu } = this.state
 
-    const renderDesktopLink = (link) => (
-      <div key={link.id} className={styles.paddingLeft}>
+    const renderTextLink = (link) => (
+      <div key={link.id} className={styles.textLink}>
         <NavLink
           href={link.href}
           LinkComponent={link.href !== '/login/' ? LinkComponent : null}
@@ -97,6 +105,73 @@ class UniversalNavbar extends React.Component {
           {link.title}
         </NavLink>
       </div>
+    )
+
+    const renderSearchIcon = (link) => (
+      <a
+        className={styles.searchIcon}
+        key={link.id}
+        // onClick={this.props.trackSearchClick}
+        href={link.href}
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="13.0739"
+            cy="13.0739"
+            r="7.0739"
+            stroke="#221F1F"
+            strokeWidth="2"
+          />
+          <path
+            d="M18.0997 18.1L25.0002 23.9909"
+            stroke="#221F1F"
+            strokeWidth="2"
+          />
+        </svg>
+      </a>
+    )
+
+    const renderAccountIcon = (link) => (
+      <a
+        className={styles.accountIcon}
+        key={link.id}
+        // onClick={this.props.trackAccountClick}
+        href={link.href}
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 30 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            cx="14.9261"
+            cy="10.9261"
+            r="4.9261"
+            stroke="#221F1F"
+            strokeWidth="2"
+          />
+          <circle
+            cx="14.9261"
+            cy="10.9261"
+            r="4.9261"
+            stroke="#221F1F"
+            strokeWidth="2"
+          />
+          <path
+            d="M24.8522 25.7781C24.8522 20.2961 20.4081 15.8521 14.9261 15.8521C9.44407 15.8521 5 20.2961 5 25.7781"
+            stroke="#221F1F"
+            strokeWidth="2"
+          />
+        </svg>
+      </a>
     )
 
     return (
@@ -126,7 +201,7 @@ class UniversalNavbar extends React.Component {
                   showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
                 }
               >
-                <NavLink href={logoHref} LinkComponent={LinkComponent}>
+                <NavLink href={logoHref} LinkComponent={LinkComponent} className={styles.phoneLogo}>
                   {LogoWhite({ className: styles.logo })}
                 </NavLink>
                 <Spacer.H56 />
@@ -147,6 +222,7 @@ class UniversalNavbar extends React.Component {
                 <div style={{ position: 'absolute', bottom: 40 }}>
                   <a href={LINKS.TERM.href}>
                     <Button.Medium.WhiteOutline>
+                      {/* TODO: Double check this copy */}
                       Check my price
                     </Button.Medium.WhiteOutline>
                   </a>
@@ -154,10 +230,11 @@ class UniversalNavbar extends React.Component {
               </div>
 
               {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
+              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent} className={styles.phoneLogoFancy}>
                 <FancyAnimatedLogo />
               </NavLink>
               {!hideMobileCta && getAnEstimate(true)}
+              {renderSearchIcon(LINKS.NAVLINKS[3])}
             </div>
 
             <div className={styles.tabletAndUp}>
@@ -167,21 +244,20 @@ class UniversalNavbar extends React.Component {
                   <NavLink href={logoHref} LinkComponent={LinkComponent}>
                     {LogoNotAnimated({ className: styles.logo })}
                   </NavLink>
-                  {renderDesktopLink(LINKS.NAVLINKS[0])}
-                  {renderDesktopLink(LINKS.NAVLINKS[1])}
+                  {renderTextLink(LINKS.NAVLINKS[0])}
+                  {renderTextLink(LINKS.NAVLINKS[1])}
 
                   <div className={styles.laptopAndUp}>
-                    {renderDesktopLink(LINKS.NAVLINKS[2])}
+                    {renderTextLink(LINKS.NAVLINKS[2])}
                   </div>
                 </div>
 
                 {/* Desktop menu items to the right */}
                 <div className={`${styles.flex} ${styles.itemsCenter}`}>
-                  <div className={styles.laptopAndUp}>
-                    {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
-                  </div>
+                  {renderSearchIcon(LINKS.NAVLINKS[3])}
+                  {renderAccountIcon(LINKS.NAVLINKS[4])}
 
-                  <div className={styles.paddingLeft}>
+                  <div className={styles.cta}>
                     {!hideDesktopCta && getAnEstimate(false)}
                   </div>
                 </div>

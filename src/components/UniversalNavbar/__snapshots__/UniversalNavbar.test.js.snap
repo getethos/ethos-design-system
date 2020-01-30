@@ -39,6 +39,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           className="hideMobileMenu"
         >
           <NavLink
+            className="phoneLogo"
             href="/"
           >
             <svg
@@ -99,9 +100,24 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <PublicTypeComponent>
               <NavLink
+                href="/blog/"
+              >
+                Blog
+              </NavLink>
+            </PublicTypeComponent>
+          </div>
+          <div
+            style={
+              Object {
+                "marginBottom": 24,
+              }
+            }
+          >
+            <PublicTypeComponent>
+              <NavLink
                 href="/faq/"
               >
-                FAQ
+                Search
               </NavLink>
             </PublicTypeComponent>
           </div>
@@ -139,6 +155,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           </div>
         </div>
         <NavLink
+          className="phoneLogoFancy"
           href="/"
         >
           <FancyAnimatedLogo />
@@ -151,6 +168,31 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           <PublicButtonComponent>
             Check my price
           </PublicButtonComponent>
+        </a>
+        <a
+          className="searchIcon"
+          href="/faq/"
+        >
+          <svg
+            fill="none"
+            height="30"
+            viewBox="0 0 30 30"
+            width="30"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="13.0739"
+              cy="13.0739"
+              r="7.0739"
+              stroke="#221F1F"
+              strokeWidth="2"
+            />
+            <path
+              d="M18.0997 18.1L25.0002 23.9909"
+              stroke="#221F1F"
+              strokeWidth="2"
+            />
+          </svg>
         </a>
       </div>
       <div
@@ -182,7 +224,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </svg>
             </NavLink>
             <div
-              className="paddingLeft"
+              className="textLink"
             >
               <NavLink
                 href="/how-it-works/"
@@ -191,7 +233,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </NavLink>
             </div>
             <div
-              className="paddingLeft"
+              className="textLink"
             >
               <NavLink
                 href="/why-ethos/"
@@ -203,12 +245,12 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               className="laptopAndUp"
             >
               <div
-                className="paddingLeft"
+                className="textLink"
               >
                 <NavLink
-                  href="/faq/"
+                  href="/blog/"
                 >
-                  FAQ
+                  Blog
                 </NavLink>
               </div>
             </div>
@@ -216,22 +258,65 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           <div
             className="flex itemsCenter"
           >
-            <div
-              className="laptopAndUp"
+            <a
+              className="searchIcon"
+              href="/faq/"
             >
-              <div
-                className="paddingLeft"
+              <svg
+                fill="none"
+                height="30"
+                viewBox="0 0 30 30"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <NavLink
-                  LinkComponent={null}
-                  href="/login/"
-                >
-                  Account
-                </NavLink>
-              </div>
-            </div>
+                <circle
+                  cx="13.0739"
+                  cy="13.0739"
+                  r="7.0739"
+                  stroke="#221F1F"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M18.0997 18.1L25.0002 23.9909"
+                  stroke="#221F1F"
+                  strokeWidth="2"
+                />
+              </svg>
+            </a>
+            <a
+              className="accountIcon"
+              href="/login/"
+            >
+              <svg
+                fill="none"
+                height="30"
+                viewBox="0 0 30 30"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="14.9261"
+                  cy="10.9261"
+                  r="4.9261"
+                  stroke="#221F1F"
+                  strokeWidth="2"
+                />
+                <circle
+                  cx="14.9261"
+                  cy="10.9261"
+                  r="4.9261"
+                  stroke="#221F1F"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M24.8522 25.7781C24.8522 20.2961 20.4081 15.8521 14.9261 15.8521C9.44407 15.8521 5 20.2961 5 25.7781"
+                  stroke="#221F1F"
+                  strokeWidth="2"
+                />
+              </svg>
+            </a>
             <div
-              className="paddingLeft"
+              className="cta"
             >
               <a
                 className="get-an-estimate "

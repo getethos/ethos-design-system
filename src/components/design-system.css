@@ -268,11 +268,12 @@ a:hover {
     transition: transform ease-in-out 0.7s, opacity ease-in-out 0.7s;
     opacity: 0;
     pointer-events: none;
+    min-width: 135px;
   }
   .isScrolled .get-an-estimate.show-when-scrolled {
     opacity: 1;
     pointer-events: all;
-    transform: translateX(-15%);
+    transform: translateX(-5%);
   }
   .letter {
     opacity: 1;
