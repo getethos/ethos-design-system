@@ -1,0 +1,73 @@
+@import '../Attributes.css';
+
+.Icon {
+  flex: 0 0 auto;
+  height: var(--Space-14);
+}
+
+.IconLinkContainer {
+  composes: SearchInputContainer from '../../../components/SearchInput/SearchInput.module.scss';
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 20px;
+  margin-bottom: var(--Space-12);
+  font-size: calc(var(--compact-font-size) * 1px);
+  color: var(--NoraNeutral-400);
+  height: 32px;
+  border-radius: var(--Radius-3);
+  padding-left: var(--Space-14);
+
+  &:hover {
+    background: var(--NoraNeutral-100);
+    cursor: pointer;
+  }
+}
+
+.Active {
+  color: var(--NoraNeutral-900);
+  font-weight: 500;
+}
+
+.Error {
+  color: var(--NoraRed-400);
+}
+
+.Waived {
+  color: var(--NoraOrange-400);
+}
+
+.Completed {
+  color: var(--NoraGreen-400);
+}
+
+.IconLinkContainerRight {
+  composes: IconLinkContainer;
+  justify-content: flex-end;
+}
+
+.LinkAdjusted {
+  /* Hack: Our current font is vertically aligned too far to the top of the line box */
+  margin-bottom: -2px;
+}
+
+.LinkLeft {
+  composes: LinkAdjusted;
+  margin-right: var(--Space-10);
+}
+
+.LinkRight {
+  composes: LinkAdjusted;
+  margin-left: var(--Space-10);
+}
+
+/**
+ * Note that we need to inherit our color from the container as we
+ * want to be able to hover the entire container and have both the icon
+ * and the anchor copy cooperate and inherit color set on parent.
+ */
+// .LinkRight,
+// .LinkLeft,
+.Icon {
+  color: inherit;
+}
