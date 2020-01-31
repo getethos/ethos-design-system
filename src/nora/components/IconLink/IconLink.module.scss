@@ -61,13 +61,6 @@
   margin-left: var(--Space-10);
 }
 
-/**
- * Note that we need to inherit our color from the container as we
- * want to be able to hover the entire container and have both the icon
- * and the anchor copy cooperate and inherit color set on parent.
- */
-// .LinkRight,
-// .LinkLeft,
 .Icon {
   color: inherit;
 }

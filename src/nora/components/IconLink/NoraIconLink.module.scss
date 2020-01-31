@@ -1,28 +1,3 @@
 .LeftNavIconLinkContainer {
-  min-width: 180px;
+  width: 180px;
 }
-.LabsIconColor {
-  color: var(--NoraOrange-400);
-  &:hover {
-    color: var(--NoraOrange-100);
-  }
-}
-
-/**
- * We can combine with base styles in IconList.module.scss to essentialy
- * override certain properties, and just interpolate or join the two in
- * `items`. See IconList.md for example of how this very thing is done.
- */
-.MVRIcon {
-  /* The alert icon used feel generally taller so we size it down here */
-  height: var(--Space-12);
-}
-
-/*
-.MVRIconColor {
-  color: var(--NoraRed-400);
-  &:hover {
-    color: var(--NoraRed-100);
-  }
-}
-*/
