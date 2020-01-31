@@ -214,6 +214,7 @@ textarea {
   --Cambon-font-stack: Cambon, var(--system-serif-font-stack);
   --base-font-size: 19;
   --base-line-height: 24;
+  --compact-font-size: 15;
 }
 
 body {

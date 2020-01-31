@@ -13,8 +13,7 @@
     border-radius: 3px;
     /* TODO -- this is overriding EDS TextInput's base padding */
     padding: 17px var(--Space-16) 15px var(--Space-40);
-    /* TODO -- use base nora-font-size or something */
-    font-size: 15px;
+    font-size: calc(var(--compact-font-size) * 1px);
   }
 }
 
