@@ -14,5 +14,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // Since we aren't yet achieving treeshaking, "deep imports" is the recommendation:
 // See https://fontawesome.com/how-to-use/with-the-api/other/tree-shaking
 import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
+
+// REMINDER! Each import must be a separate named import and use "deep import"
 import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch'
-library.add(faSearch, faCircleNotch)
+import { faExclamationTriangle } from '@fortawesome/pro-solid-svg-icons/faExclamationTriangle'
+import { faWindowClose } from '@fortawesome/pro-solid-svg-icons/faWindowClose'
+
+library.add(faSearch, faCircleNotch, faExclamationTriangle, faWindowClose)

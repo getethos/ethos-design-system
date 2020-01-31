@@ -1,0 +1,38 @@
+.Icon {
+  flex: 0 0 auto;
+  height: var(--Space-14);
+}
+
+.IconListContainer {
+  composes: SearchInputContainer from '../../../components/SearchInput/SearchInput.module.scss';
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 20px;
+  margin-bottom: var(--Space-12);
+  font-size: 15px;
+  color: var(--NoraNeutral-400);
+}
+
+.IconListContainer:hover {
+  color: var(--NoraNeutral-900);
+}
+
+.LinkLeft {
+  margin-right: var(--Space-10);
+}
+
+.LinkRight {
+  margin-left: var(--Space-10);
+}
+
+/**
+ * Note that we need to inherit our color from the container as we
+ * want to be able to hover the entire container and have both the icon
+ * and the anchor copy cooperate and inherit color set on parent.
+ */
+.LinkLeft,
+.LinkRight,
+.Icon {
+  color: inherit;
+}
