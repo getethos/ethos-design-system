@@ -108,7 +108,7 @@ $tablet-small-end: 670px;
     color: var(--GraySecondary--translucent);
     &:hover,
     &:active,
-    &.current-page {
+    &.currentPage {
       color: inherit;
     }
   }
