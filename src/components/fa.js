@@ -29,17 +29,27 @@ import { faUserCheck } from '@fortawesome/pro-light-svg-icons/faUserCheck'
 import { faCheckSquare } from '@fortawesome/pro-regular-svg-icons/faCheckSquare'
 import { faCheckSquare as faCheckSquareSolid } from '@fortawesome/pro-solid-svg-icons/faCheckSquare'
 import { faWindowClose } from '@fortawesome/pro-light-svg-icons/faWindowClose'
+import { faOctagon } from '@fortawesome/pro-light-svg-icons/faOctagon'
+import { faExternalLink } from '@fortawesome/pro-regular-svg-icons/faExternalLink'
+import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck'
+import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes'
+import { faLayerPlus } from '@fortawesome/pro-light-svg-icons/faLayerPlus'
 
 library.add(
   faAlignLeft,
   faAsterisk,
+  faCheck,
   faCheckSquare,
   faCheckSquareSolid,
   faCircleNotch,
   faClock,
   faExchange,
   faExclamationTriangle,
+  faExternalLink,
+  faLayerPlus,
+  faOctagon,
   faSearch,
+  faTimes,
   faUserCheck,
   faWindowClose
 )

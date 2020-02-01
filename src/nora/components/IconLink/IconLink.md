@@ -252,6 +252,113 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
+## Nora—Right Sidebar
+
+Order more evidences
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavIconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="layer-plus"
+  iconClassName={`${styles.Icon}`}
+  iconContainerClassName={iconContainerClasses}
+  linkClassName={styles.LinkRight}
+  linkPosition="right"
+  copy="Order more evidences"
+  onClick={(ev) => {
+    console.log('Order more evidences onclick called...')
+  }}
+/>
+```
+
+Open original PDFs
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavIconLinkContainer}`
+
+;<IconLink
+  iconPrefix="far"
+  iconName="external-link"
+  iconClassName={`${styles.Icon}`}
+  iconContainerClassName={iconContainerClasses}
+  linkClassName={styles.LinkRight}
+  linkPosition="right"
+  copy="Open original PDFs"
+  onClick={(ev) => {
+    console.log('Open original PDFs onclick called...')
+  }}
+/>
+```
+
+Approve application
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavIconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="check"
+  iconClassName={`${styles.Icon}`}
+  iconContainerClassName={iconContainerClasses}
+  linkClassName={styles.LinkRight}
+  linkPosition="right"
+  copy="Approve application"
+  onClick={(ev) => {
+    console.log('Approve application onclick called...')
+  }}
+/>
+```
+
+Decline application
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavIconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="times"
+  iconClassName={`${styles.Icon}`}
+  iconContainerClassName={iconContainerClasses}
+  linkClassName={styles.LinkRight}
+  linkPosition="right"
+  copy="Decline application"
+  onClick={(ev) => {
+    console.log('Decline application onclick called...')
+  }}
+/>
+```
+
+Withdraw
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavIconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="octagon"
+  iconClassName={`${styles.Icon}`}
+  iconContainerClassName={iconContainerClasses}
+  linkClassName={styles.LinkRight}
+  linkPosition="right"
+  copy="Withdraw"
+  onClick={(ev) => {
+    console.log('Withdraw onclick called...')
+  }}
+/>
+```
+
 ## Right Aligned
 
 Additionally, you can position the icon to the right and have the icon link
