@@ -96,9 +96,6 @@ class UniversalNavbar extends React.Component {
         <NavLink
           href={link.href}
           LinkComponent={link.href !== '/login/' ? LinkComponent : null}
-          className={
-            location.pathname === link.href ? styles.currentPage : null
-          }
         >
           {link.title}
         </NavLink>
