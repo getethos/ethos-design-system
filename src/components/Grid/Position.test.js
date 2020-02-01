@@ -25,6 +25,7 @@ import React from 'react'
 import { create, act } from 'react-test-renderer'
 
 import { Position } from './Position'
+import { codes } from '../../helpers/constants'
 
 function render(props) {
   const refs = [
@@ -80,7 +81,7 @@ describe('x-axis position', () => {
   it('increments', () => {
     const renderer = render()
     const keyEvent = {
-      key: 'ArrowRight',
+      keyCode: codes.RIGHT,
       preventDefault: jest.fn(),
     }
 
@@ -100,7 +101,7 @@ describe('x-axis position', () => {
       target: [1, 0],
     }
     const keyEvent = {
-      key: 'ArrowLeft',
+      keyCode: codes.LEFT,
       preventDefault: jest.fn(),
     }
 
@@ -122,7 +123,7 @@ describe('x-axis position', () => {
       target: [0, 0],
     }
     const keyEvent = {
-      key: 'ArrowLeft',
+      keyCode: codes.LEFT,
       preventDefault: jest.fn(),
     }
 
@@ -144,7 +145,7 @@ describe('x-axis position', () => {
       target: [1, 0],
     }
     const keyEvent = {
-      key: 'ArrowRight',
+      keyCode: codes.RIGHT,
       preventDefault: jest.fn(),
     }
 
@@ -165,7 +166,7 @@ describe('y-axis position', () => {
   it('increments its position on the y-axis', () => {
     const renderer = render()
     const keyEvent = {
-      key: 'ArrowDown',
+      keyCode: codes.DOWN,
       preventDefault: jest.fn(),
     }
 
@@ -184,7 +185,7 @@ describe('y-axis position', () => {
       target: [0, 1],
     }
     const keyEvent = {
-      key: 'ArrowUp',
+      keyCode: codes.UP,
       preventDefault: jest.fn(),
     }
 
@@ -206,7 +207,7 @@ describe('y-axis position', () => {
       target: [0, 0],
     }
     const keyEvent = {
-      key: 'ArrowUp',
+      keyCode: codes.UP,
       preventDefault: jest.fn(),
     }
 
@@ -229,6 +230,7 @@ describe('y-axis position', () => {
     }
     const keyEvent = {
       key: 'ArrowDown',
+      keyCode: codes.DOWN,
       preventDefault: jest.fn(),
     }
 
@@ -248,7 +250,7 @@ describe('y-axis position', () => {
 test('does not prevent default behavior on non-navigation keys', () => {
   const renderer = render()
   const event = {
-    key: 'Space',
+    keyCode: codes.SPACE,
     preventDefault: jest.fn(),
   }
 
@@ -279,7 +281,7 @@ test('shortcuts to the start of the row', () => {
     target: [1, 0],
   }
   const keyEvent = {
-    key: 'Home',
+    keyCode: codes.HOME,
     preventDefault: jest.fn(),
   }
 
@@ -301,7 +303,7 @@ test('shortcuts to the end of the row', () => {
     target: [0, 0],
   }
   const keyEvent = {
-    key: 'End',
+    keyCode: codes.END,
     preventDefault: jest.fn(),
   }
 
@@ -323,7 +325,7 @@ test('shortcuts to the first row', () => {
     target: [0, 1],
   }
   const keyEvent = {
-    key: 'PageUp',
+    keyCode: codes.PAGE_UP,
     preventDefault: jest.fn(),
   }
 
@@ -345,7 +347,7 @@ test('shortcuts to the last row', () => {
     target: [0, 0],
   }
   const keyEvent = {
-    key: 'PageDown',
+    keyCode: codes.PAGE_DOWN,
     preventDefault: jest.fn(),
   }
 

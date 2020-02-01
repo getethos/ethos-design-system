@@ -4,6 +4,7 @@ import { COLORS } from '../Colors.js'
 import { Body } from '../Body.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
+import { codes } from '../../helpers/constants.js'
 import styles from './CheckboxInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
@@ -74,7 +75,7 @@ export const CheckboxInput = ({
   }
 
   const onKeyPress = (ev) => {
-    if (ev.key === 'Space' || ev.keyCode === 32) {
+    if (ev.keyCode === codes.SPACE) {
       const val =
         ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
       doValidation(!val, touched)

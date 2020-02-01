@@ -23,7 +23,7 @@ SOFTWARE.
 */
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-
+import { codes } from '../../helpers/constants.js'
 import RefType from './ref'
 
 export const Position = (props) => {
@@ -58,43 +58,43 @@ export const Position = (props) => {
   }
 
   const onKeyDown = (event) => {
-    switch (event.key) {
-      case 'ArrowDown':
+    switch (event.keyCode) {
+      case codes.DOWN:
         return handleKey(event, (state) => ({
           positionX: state.positionX === -1 ? 0 : position.positionX,
           positionY: Math.min(state.positionY + 1, props.refs.length - 1),
         }))
-      case 'ArrowLeft':
+      case codes.LEFT:
         return handleKey(event, (state) => ({
           positionX: Math.max(state.positionX - 1, 0),
           positionY: state.positionY === -1 ? 0 : state.positionY,
         }))
-      case 'ArrowRight':
+      case codes.RIGHT:
         return handleKey(event, (state) => ({
           positionX: Math.min(state.positionX + 1, props.refs[0].length - 1),
           positionY: state.positionY === -1 ? 0 : state.positionY,
         }))
-      case 'ArrowUp':
+      case codes.UP:
         return handleKey(event, (state) => ({
           positionX: state.positionX === -1 ? 0 : state.positionX,
           positionY: Math.max(state.positionY - 1, 0),
         }))
-      case 'End':
+      case codes.END:
         return handleKey(event, (state) => ({
           positionX: props.refs[0].length - 1,
           positionY: state.positionY === -1 ? 0 : state.positionY,
         }))
-      case 'Home':
+      case codes.HOME:
         return handleKey(event, (state) => ({
           positionX: 0,
           positionY: state.positionY === -1 ? 0 : state.positionY,
         }))
-      case 'PageDown':
+      case codes.PAGE_DOWN:
         return handleKey(event, (state) => ({
           positionX: state.positionX === -1 ? 0 : state.positionX,
           positionY: props.refs.length - 1,
         }))
-      case 'PageUp':
+      case codes.PAGE_UP:
         return handleKey(event, (state) => ({
           positionX: state.positionX === -1 ? 0 : state.positionX,
           positionY: 0,

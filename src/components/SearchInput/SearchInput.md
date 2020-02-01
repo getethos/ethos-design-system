@@ -1,6 +1,8 @@
+Search Input is a simple primitive. Please also see `AsyncTypeahead`.
+
 ```
 const enterHandler = (value) => {
-  console.log('SearchInput consumer\'s enterHandler called with: ', value) 
+  console.log('SearchInput consumer\'s enterHandler called with: ', value)
 }
 <SearchInput
   onEnter={enterHandler}

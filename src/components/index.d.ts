@@ -16,6 +16,60 @@ export { Layout } from './Layout/index.js'
 // TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
 // export { Media } from './Media'
 
+/**
+ * AsyncTypeahead is a component that allows you to make asynchronous API
+ * fetches, and then use the results (entities) to show suggested results
+ * as dropdown options. It debounces the captured input via the
+ * `useFetchEntities` hook which takes in your dependency injected `fetchCallback`
+ * allowing you to fetch for any arbitrary entity (be it Posts, Users, or whatever).
+ * In order to be flexible in this way, it also takes in the `dataKey` to parse the
+ * API data with e.g. if you a list of items and .name has the token you wish
+ * to display in the dropdown results, you'd pass in `dataKey="name"`.
+ *
+ * @public
+ *
+ * @return {JSX.Element}
+ */
+export declare const AsyncTypeahead: {
+  ({
+    renderInput,
+    lastSelectedValue,
+    dataKey,
+    entitiesKey,
+    onChange,
+    fetchCallback,
+    minChars,
+    placeholder,
+  }: {
+    renderInput: any
+    lastSelectedValue: object
+    dataKey: string
+    entitiesKey: string
+    fetchCallback: any
+    onChange?: any
+    minChars?: number
+    placeholder?: string
+  }): JSX.Element
+  propTypes: {
+    /** `renderInput` - The input component to use (likely `SearchInput`) */
+    renderInput: any
+    /** `fetchCallback` - required callback for fetching the entities */
+    fetchCallback: any
+    /** `lastSelectedValue` - required object representing your last state */
+    lastSelectedValue: object
+    /** `onChange` - callback for change events */
+    onChange: any
+    /** `dataKey` - key to indice each item in the fetched data by key */
+    dataKey: string
+    /** `entitiesKey` - key to indice the fetched data entities by key. Although optional, note that if you don't pass this in, we will assume the JSON is structured with entities at the top level. */
+    entitiesKey?: string
+    /** `minChars` - minimum number of characters required to before we'll show the dropdown option results */
+    minChars?: number
+    /** `placeholder` - placeholder text */
+    placeholder?: string
+  }
+}
+
 type ViewportSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 type ColumnSizeType = number | boolean
 
@@ -312,8 +366,7 @@ export declare namespace ValueProps {
           header: string
           subHeader: string
           alt?: undefined
-        }
-    )[]
+        })[]
   }
 }
 
