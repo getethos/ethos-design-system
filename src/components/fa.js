@@ -27,12 +27,14 @@ import { faExchange } from '@fortawesome/pro-regular-svg-icons/faExchange'
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock'
 import { faUserCheck } from '@fortawesome/pro-light-svg-icons/faUserCheck'
 import { faCheckSquare } from '@fortawesome/pro-regular-svg-icons/faCheckSquare'
+import { faCheckSquare as faCheckSquareSolid } from '@fortawesome/pro-solid-svg-icons/faCheckSquare'
 import { faWindowClose } from '@fortawesome/pro-light-svg-icons/faWindowClose'
 
 library.add(
   faAlignLeft,
   faAsterisk,
   faCheckSquare,
+  faCheckSquareSolid,
   faCircleNotch,
   faClock,
   faExchange,

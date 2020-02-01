@@ -90,7 +90,7 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
-Review
+For Review
 
 ```jsx
 import styles from './IconLink.module.scss'
@@ -104,9 +104,9 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconContainerClassName={iconContainerClasses}
   linkClassName={styles.LinkRight}
   linkPosition="right"
-  copy="Review"
+  copy="For Review"
   onClick={(ev) => {
-    console.log('Review onclick called...')
+    console.log('For Review onclick called...')
   }}
 />
 ```
@@ -121,7 +121,7 @@ import noraStyles from './NoraIconLink.module.scss'
 const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer} ${styles.Completed}`
 
 ;<IconLink
-  iconPrefix="far"
+  iconPrefix="fas"
   iconName="check-square"
   // Completed
   iconClassName={`${styles.Icon} ${styles.Completed}`}
