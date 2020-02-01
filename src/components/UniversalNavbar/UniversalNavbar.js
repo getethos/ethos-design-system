@@ -12,10 +12,6 @@ import styles from './UniversalNavbar.module.scss'
 
 // TODO REDESIGN: Lots of sloppy inline styles here.
 
-// WIP - TODO: Confirm check my price vs get an estimate in figma
-// WIP - TODO: See if Design can provide spec using FontAwesome
-// WIP - TODO: Check search link text on expanded mobile nav (hamburger click)
-
 // UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
 const NavLink = ({ href, LinkComponent, ...props }) => {
   if (LinkComponent) {
@@ -95,24 +91,25 @@ class UniversalNavbar extends React.Component {
     )
 
     const { showMobileMenu } = this.state
-
     const renderTextLink = (link) => (
       <div key={link.id} className={styles.textLink}>
         <NavLink
           href={link.href}
           LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+          className={location.pathname === link.href ? styles.currentPage : null}
         >
           {link.title}
         </NavLink>
       </div>
     )
 
+    // These are bespoke icons but design may replace w/FA at a later date
     const renderSearchIcon = (link) => (
-      <a
+      <NavLink
         className={styles.searchIcon}
         key={link.id}
-        // onClick={this.props.trackSearchClick}
         href={link.href}
+        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
       >
         <svg
           width="30"
@@ -134,15 +131,15 @@ class UniversalNavbar extends React.Component {
             strokeWidth="2"
           />
         </svg>
-      </a>
+      </NavLink>
     )
 
     const renderAccountIcon = (link) => (
-      <a
+      <NavLink
         className={styles.accountIcon}
         key={link.id}
-        // onClick={this.props.trackAccountClick}
         href={link.href}
+        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
       >
         <svg
           width="30"
@@ -171,7 +168,7 @@ class UniversalNavbar extends React.Component {
             strokeWidth="2"
           />
         </svg>
-      </a>
+      </NavLink>
     )
 
     return (
@@ -182,7 +179,7 @@ class UniversalNavbar extends React.Component {
             top: 0,
             left: 0,
             width: '100%',
-            height: 100,
+            height: 64,
             zIndex: 1,
           }}
         >
@@ -226,7 +223,6 @@ class UniversalNavbar extends React.Component {
                 <div style={{ position: 'absolute', bottom: 40 }}>
                   <a href={LINKS.TERM.href}>
                     <Button.Medium.WhiteOutline>
-                      {/* TODO: Double check this copy */}
                       Check my price
                     </Button.Medium.WhiteOutline>
                   </a>
