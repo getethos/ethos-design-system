@@ -1,12 +1,9 @@
-@import '../Attributes.css';
-
 .Icon {
   flex: 0 0 auto;
   height: var(--Space-14);
 }
 
 .IconLinkContainer {
-  composes: SearchInputContainer from '../../../components/SearchInput/SearchInput.module.scss';
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -15,7 +12,7 @@
   font-size: calc(var(--compact-font-size) * 1px);
   color: var(--NoraNeutral-400);
   height: 32px;
-  border-radius: var(--Radius-3);
+  border-radius: 3px;
   padding-left: var(--Space-14);
 
   &:hover {
