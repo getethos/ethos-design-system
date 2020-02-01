@@ -15,6 +15,14 @@ const Link = ({ className, href, onClick, children, target = '_self' }) => {
   )
 }
 
+Link.propTypes = {
+  className: PropTypes.string,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node,
+  target: PropTypes.string,
+}
+
 export const IconLink = ({
   iconPrefix,
   iconName,
