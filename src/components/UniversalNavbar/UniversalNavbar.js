@@ -78,10 +78,10 @@ class UniversalNavbar extends React.Component {
       logoHref,
     } = this.props
 
-    const getAnEstimate = (showWhenScrolled) => (
+    const renderCtaButton = (showWhenScrolled) => (
       <a
         className={
-          'get-an-estimate ' + (showWhenScrolled ? 'show-when-scrolled' : '')
+          'cta-button ' + (showWhenScrolled ? 'show-when-scrolled' : '')
         }
         onClick={this.props.trackCtaClick}
         href={LINKS.TERM.href}
@@ -111,21 +111,21 @@ class UniversalNavbar extends React.Component {
         LinkComponent={link.href !== '/login/' ? LinkComponent : null}
       >
         <svg
-          width="30"
-          height="30"
-          viewBox="0 0 30 30"
+          width="21"
+          height="21"
+          viewBox="0 0 21 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <circle
-            cx="13.0739"
-            cy="13.0739"
+            cx="8.0739"
+            cy="8.0739"
             r="7.0739"
             stroke="#221F1F"
             strokeWidth="2"
           />
           <path
-            d="M18.0997 18.1L25.0002 23.9909"
+            d="M13.0997 13.1L20.0002 18.9909"
             stroke="#221F1F"
             strokeWidth="2"
           />
@@ -141,28 +141,28 @@ class UniversalNavbar extends React.Component {
         LinkComponent={link.href !== '/login/' ? LinkComponent : null}
       >
         <svg
-          width="30"
-          height="30"
-          viewBox="0 0 30 30"
+          width="22"
+          height="21"
+          viewBox="0 0 22 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <circle
-            cx="14.9261"
-            cy="10.9261"
+            cx="10.9261"
+            cy="5.9261"
             r="4.9261"
             stroke="#221F1F"
             strokeWidth="2"
           />
           <circle
-            cx="14.9261"
-            cy="10.9261"
+            cx="10.9261"
+            cy="5.9261"
             r="4.9261"
             stroke="#221F1F"
             strokeWidth="2"
           />
           <path
-            d="M24.8522 25.7781C24.8522 20.2961 20.4081 15.8521 14.9261 15.8521C9.44407 15.8521 5 20.2961 5 25.7781"
+            d="M20.8522 20.7781C20.8522 15.2961 16.4081 10.8521 10.9261 10.8521C5.44407 10.8521 1 15.2961 1 20.7781"
             stroke="#221F1F"
             strokeWidth="2"
           />
@@ -236,7 +236,7 @@ class UniversalNavbar extends React.Component {
               >
                 <FancyAnimatedLogo />
               </NavLink>
-              {!hideMobileCta && getAnEstimate(true)}
+              {!hideMobileCta && renderCtaButton(true)}
               {renderSearchIcon(LINKS.NAVLINKS[3])}
             </div>
 
@@ -261,7 +261,7 @@ class UniversalNavbar extends React.Component {
                   {renderAccountIcon(LINKS.NAVLINKS[4])}
 
                   <div className={styles.cta}>
-                    {!hideDesktopCta && getAnEstimate(false)}
+                    {!hideDesktopCta && renderCtaButton(false)}
                   </div>
                 </div>
               </div>

@@ -90,7 +90,7 @@ $tablet-small-end: 670px;
 .cta {
   padding-left: 21px;
   @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
-    padding-left: var(--Space-8);
+    padding-left: 0;
   }
 }
 
@@ -108,7 +108,7 @@ $tablet-small-end: 670px;
     color: var(--GraySecondary--translucent);
     &:hover,
     &:active,
-    &[aria-current="page"] {
+    &[aria-current='page'] {
       color: inherit;
     }
   }
@@ -116,14 +116,15 @@ $tablet-small-end: 670px;
 
 .searchIcon {
   @include for-phone-only {
-    padding-right: var(--Space-24);
+    margin-right: var(--Space-32);
+    padding-top: 3px;
     svg {
-      width: var(--Space-24);
-      height: var(--Space-24);
+      width: var(--Space-16);
+      height: var(--Space-16);
     }
   }
   @include for-tablet-and-up {
-    padding-right: var(--Space-8);
+    margin-right: 18px;
   }
 }
 
