@@ -5,6 +5,7 @@ import { CheckboxInput } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
+import { IconLink } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -16,6 +17,22 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class IconLinkTest extends React.Component<any, any> {
+  render() {
+    return (
+      <IconLink
+        iconPrefix="far"
+        iconName="exchange"
+        iconClassName="iconClassName"
+        iconContainerClassName="iconContainerClassName"
+        linkClassName="linkClassName"
+        linkPosition="right"
+        copy="Decision"
+      />
+    )
+  }
+}
 
 class AsyncTypeaheadTest extends React.Component<any, any> {
   getLocations(name: string) {

@@ -1,1 +1,1 @@
-export { IconLink } from './IconLink.js'
+export { IconLink } from './IconLink'
