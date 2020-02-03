@@ -378,7 +378,6 @@ import styles from './IconLink.module.scss'
 />
 ```
 
-
 ## Right Aligned
 
 Additionally, you can position the icon to the right and have the icon link
@@ -399,3 +398,5 @@ import styles from './IconLink.module.scss'
   }}
 />
 ```
+
+
