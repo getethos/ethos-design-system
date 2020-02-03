@@ -398,5 +398,3 @@ import styles from './IconLink.module.scss'
   }}
 />
 ```
-
-
