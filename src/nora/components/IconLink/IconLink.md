@@ -359,6 +359,26 @@ const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavI
 />
 ```
 
+Back Button Chevron
+
+```jsx
+import styles from './IconLink.module.scss'
+
+;<IconLink
+  iconPrefix="far"
+  iconName="chevron-left"
+  iconClassName={`${styles.Icon}`}
+  iconContainerClassName={styles.IconLinkContainer}
+  linkClassName={styles.LinkRight}
+  linkPosition="right"
+  copy="Back"
+  onClick={(ev) => {
+    console.log('Back button -- onclick called...')
+  }}
+/>
+```
+
+
 ## Right Aligned
 
 Additionally, you can position the icon to the right and have the icon link
