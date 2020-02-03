@@ -13,6 +13,33 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // hopefully help to keep the footprint small, and is the recommended approach.
 // Since we aren't yet achieving treeshaking, "deep imports" is the recommendation:
 // See https://fontawesome.com/how-to-use/with-the-api/other/tree-shaking
-import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
+
+//////////////////////////////////////////////////////////////////////
+// REMINDER! each import must be a separate "deep import" as below  //
+//////////////////////////////////////////////////////////////////////
+
+import { faAlignLeft } from '@fortawesome/pro-solid-svg-icons/faAlignLeft'
 import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch'
-library.add(faSearch, faCircleNotch)
+import { faExclamationTriangle } from '@fortawesome/pro-light-svg-icons/faExclamationTriangle'
+import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
+import { faAsterisk } from '@fortawesome/pro-light-svg-icons/faAsterisk'
+import { faExchange } from '@fortawesome/pro-regular-svg-icons/faExchange'
+import { faClock } from '@fortawesome/pro-light-svg-icons/faClock'
+import { faUserCheck } from '@fortawesome/pro-light-svg-icons/faUserCheck'
+import { faCheckSquare } from '@fortawesome/pro-regular-svg-icons/faCheckSquare'
+import { faCheckSquare as faCheckSquareSolid } from '@fortawesome/pro-solid-svg-icons/faCheckSquare'
+import { faWindowClose } from '@fortawesome/pro-light-svg-icons/faWindowClose'
+
+library.add(
+  faAlignLeft,
+  faAsterisk,
+  faCheckSquare,
+  faCheckSquareSolid,
+  faCircleNotch,
+  faClock,
+  faExchange,
+  faExclamationTriangle,
+  faSearch,
+  faUserCheck,
+  faWindowClose
+)

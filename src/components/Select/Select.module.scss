@@ -134,7 +134,7 @@
     .StyledReactSelect__placeholder,
     .StyledReactSelect__option,
     .StyledReactSelect__value-container {
-      font-size: 15px;
+      font-size: calc(var(--compact-font-size) * 1px);
     }
 
     .StyledReactSelect__control {
@@ -145,7 +145,7 @@
 
     .StyledReactSelect__single-value,
     .StyledReactSelect__value-container {
-      font-size: 15px;
+      font-size: calc(var(--compact-font-size) * 1px);
     }
 
     .StyledReactSelect__value-container {
