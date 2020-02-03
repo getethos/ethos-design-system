@@ -46,6 +46,7 @@
 .LinkAdjusted {
   /* Hack: Our current font is vertically aligned too far to the top of the line box */
   margin-bottom: -2px;
+  color: inherit;
 }
 
 .LinkLeft {

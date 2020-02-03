@@ -34,6 +34,7 @@ import { faExternalLink } from '@fortawesome/pro-regular-svg-icons/faExternalLin
 import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck'
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes'
 import { faLayerPlus } from '@fortawesome/pro-light-svg-icons/faLayerPlus'
+import { faChevronLeft } from '@fortawesome/pro-regular-svg-icons/faChevronLeft'
 
 library.add(
   faAlignLeft,
@@ -41,6 +42,7 @@ library.add(
   faCheck,
   faCheckSquare,
   faCheckSquareSolid,
+  faChevronLeft,
   faCircleNotch,
   faClock,
   faExchange,
