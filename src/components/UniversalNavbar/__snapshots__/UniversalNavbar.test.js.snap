@@ -175,22 +175,22 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
         >
           <svg
             fill="none"
-            height="21"
-            viewBox="0 0 21 21"
-            width="21"
+            height="22"
+            viewBox="0 0 23 22"
+            width="23"
             xmlns="http://www.w3.org/2000/svg"
           >
             <circle
-              cx="8.0739"
-              cy="8.0739"
-              r="7.0739"
-              stroke="#221F1F"
-              strokeWidth="2"
+              cx="8.94497"
+              cy="8.94399"
+              r="7.86196"
+              stroke="#272727"
+              strokeWidth="1.5"
             />
             <path
-              d="M13.0997 13.1L20.0002 18.9909"
-              stroke="#221F1F"
-              strokeWidth="2"
+              d="M14.3063 14.3041L21.6667 20.5876"
+              stroke="#272727"
+              strokeWidth="1.5"
             />
           </svg>
         </NavLink>
@@ -264,22 +264,22 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             >
               <svg
                 fill="none"
-                height="21"
-                viewBox="0 0 21 21"
-                width="21"
+                height="22"
+                viewBox="0 0 23 22"
+                width="23"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-                  cx="8.0739"
-                  cy="8.0739"
-                  r="7.0739"
-                  stroke="#221F1F"
-                  strokeWidth="2"
+                  cx="8.94497"
+                  cy="8.94399"
+                  r="7.86196"
+                  stroke="#272727"
+                  strokeWidth="1.5"
                 />
                 <path
-                  d="M13.0997 13.1L20.0002 18.9909"
-                  stroke="#221F1F"
-                  strokeWidth="2"
+                  d="M14.3063 14.3041L21.6667 20.5876"
+                  stroke="#272727"
+                  strokeWidth="1.5"
                 />
               </svg>
             </NavLink>
@@ -290,29 +290,22 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             >
               <svg
                 fill="none"
-                height="21"
-                viewBox="0 0 22 21"
-                width="22"
+                height="23"
+                viewBox="0 0 25 23"
+                width="25"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-                  cx="10.9261"
-                  cy="5.9261"
-                  r="4.9261"
-                  stroke="#221F1F"
-                  strokeWidth="2"
-                />
-                <circle
-                  cx="10.9261"
-                  cy="5.9261"
-                  r="4.9261"
-                  stroke="#221F1F"
-                  strokeWidth="2"
+                  cx="12.25"
+                  cy="5.25"
+                  r="4.5"
+                  stroke="#272727"
+                  strokeWidth="1.5"
                 />
                 <path
-                  d="M20.8522 20.7781C20.8522 15.2961 16.4081 10.8521 10.9261 10.8521C5.44407 10.8521 1 15.2961 1 20.7781"
-                  stroke="#221F1F"
-                  strokeWidth="2"
+                  d="M23.5639 22.25H0.751853C0.767099 19.9125 0.905198 17.7185 2.12836 16.0198C3.43803 14.201 6.17055 12.75 12.1579 12.75C18.1452 12.75 20.8778 14.201 22.1874 16.0198C23.4106 17.7185 23.5487 19.9125 23.5639 22.25Z"
+                  stroke="#272727"
+                  strokeWidth="1.5"
                 />
               </svg>
             </NavLink>

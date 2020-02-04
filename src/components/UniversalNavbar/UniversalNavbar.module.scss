@@ -125,12 +125,16 @@ $tablet-small-end: 670px;
   }
   @include for-tablet-and-up {
     margin-right: 18px;
+    padding-top: 3px;
   }
 }
 
 .accountIcon {
   @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
     display: none;
+  }
+  @include for-tablet-and-up {
+    padding-top: 3px;
   }
 }
 
