@@ -1,4 +1,5 @@
 @import '../Media/Media.scss';
+@import '../Variables.scss';
 
 .flex {
   display: flex;
@@ -104,4 +105,13 @@
   composes: mobileMenu;
   opacity: 0;
   pointer-events: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  z-index: $z-index-navbar;
 }

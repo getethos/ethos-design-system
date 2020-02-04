@@ -100,95 +100,84 @@ class UniversalNavbar extends React.Component {
     )
 
     return (
-      <div style={{ height: 64 }}>
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: 100,
-            zIndex: 1,
-          }}
-        >
-          <Layout.ScrollDetector>
-            <div className={styles.hamburger}>
-              <TransformingBurgerButton
-                showMobileMenu={showMobileMenu}
-                clickHandler={this.toggleHamburger}
-              />
-            </div>
+      <div className={styles.navbar}>
+        <Layout.ScrollDetector>
+          <div className={styles.hamburger}>
+            <TransformingBurgerButton
+              showMobileMenu={showMobileMenu}
+              clickHandler={this.toggleHamburger}
+            />
+          </div>
 
-            <div className={styles.phoneOnly}>
-              {/* Dark green mobile menu, shows up when hamburger is clicked */}
-              <div
-                className={
-                  showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
-                }
-              >
-                <NavLink href={logoHref} LinkComponent={LinkComponent}>
-                  {LogoWhite({ className: styles.logo })}
-                </NavLink>
-                <Spacer.H56 />
-                {LINKS.NAVLINKS.map((link) => (
-                  <div key={link.id} style={{ marginBottom: 24 }}>
-                    <TitleXLarge.Sans.Regular400>
-                      <NavLink
-                        href={link.href}
-                        LinkComponent={
-                          link.href !== '/login/' ? LinkComponent : null
-                        }
-                      >
-                        {link.title}
-                      </NavLink>
-                    </TitleXLarge.Sans.Regular400>
-                  </div>
-                ))}
-                <div style={{ position: 'absolute', bottom: 40 }}>
-                  <a href={LINKS.TERM.href}>
-                    <Button.Medium.WhiteOutline>
-                      Check my price
-                    </Button.Medium.WhiteOutline>
-                  </a>
-                </div>
-              </div>
-
-              {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
-                <FancyAnimatedLogo />
+          <div className={styles.phoneOnly}>
+            {/* Dark green mobile menu, shows up when hamburger is clicked */}
+            <div
+              className={
+                showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
+              }
+            >
+              <NavLink href={logoHref} LinkComponent={LinkComponent}>
+                {LogoWhite({ className: styles.logo })}
               </NavLink>
-              {!hideMobileCta && getAnEstimate(true)}
+              <Spacer.H56 />
+              {LINKS.NAVLINKS.map((link) => (
+                <div key={link.id} style={{ marginBottom: 24 }}>
+                  <TitleXLarge.Sans.Regular400>
+                    <NavLink
+                      href={link.href}
+                      LinkComponent={
+                        link.href !== '/login/' ? LinkComponent : null
+                      }
+                    >
+                      {link.title}
+                    </NavLink>
+                  </TitleXLarge.Sans.Regular400>
+                </div>
+              ))}
+              <div style={{ position: 'absolute', bottom: 40 }}>
+                <a href={LINKS.TERM.href}>
+                  <Button.Medium.WhiteOutline>
+                    Check my price
+                  </Button.Medium.WhiteOutline>
+                </a>
+              </div>
             </div>
 
-            <div className={styles.tabletAndUp}>
-              <div className={styles.tabletAndUpContainer}>
-                {/* Desktop menu items to the left */}
-                <div className={`${styles.flex} ${styles.itemsCenter}`}>
-                  <NavLink href={logoHref} LinkComponent={LinkComponent}>
-                    {LogoNotAnimated({ className: styles.logo })}
-                  </NavLink>
-                  {renderDesktopLink(LINKS.NAVLINKS[0])}
-                  {renderDesktopLink(LINKS.NAVLINKS[1])}
+            {/* Mobile menu items, getAnEstimate only shows when scrolled */}
+            <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
+              <FancyAnimatedLogo />
+            </NavLink>
+            {!hideMobileCta && getAnEstimate(true)}
+          </div>
 
-                  <div className={styles.laptopAndUp}>
-                    {renderDesktopLink(LINKS.NAVLINKS[2])}
-                  </div>
+          <div className={styles.tabletAndUp}>
+            <div className={styles.tabletAndUpContainer}>
+              {/* Desktop menu items to the left */}
+              <div className={`${styles.flex} ${styles.itemsCenter}`}>
+                <NavLink href={logoHref} LinkComponent={LinkComponent}>
+                  {LogoNotAnimated({ className: styles.logo })}
+                </NavLink>
+                {renderDesktopLink(LINKS.NAVLINKS[0])}
+                {renderDesktopLink(LINKS.NAVLINKS[1])}
+
+                <div className={styles.laptopAndUp}>
+                  {renderDesktopLink(LINKS.NAVLINKS[2])}
+                </div>
+              </div>
+
+              {/* Desktop menu items to the right */}
+              <div className={`${styles.flex} ${styles.itemsCenter}`}>
+                <div className={styles.laptopAndUp}>
+                  {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
                 </div>
 
-                {/* Desktop menu items to the right */}
-                <div className={`${styles.flex} ${styles.itemsCenter}`}>
-                  <div className={styles.laptopAndUp}>
-                    {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
-                  </div>
-
-                  <div className={styles.paddingLeft}>
-                    {!hideDesktopCta && getAnEstimate(false)}
-                  </div>
+                <div className={styles.paddingLeft}>
+                  {!hideDesktopCta && getAnEstimate(false)}
                 </div>
               </div>
             </div>
-          </Layout.ScrollDetector>
-        </div>
+          </div>
+        </Layout.ScrollDetector>
       </div>
     )
   }
