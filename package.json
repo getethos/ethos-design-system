@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.75",
+  "version": "1.1.76",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
@@ -45,7 +45,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.12.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/pro-light-svg-icons": "^5.12.0",
     "@fortawesome/pro-regular-svg-icons": "^5.12.0",
+    "@fortawesome/pro-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
     "dayjs": "^1.8.16",
     "flexboxgrid2": "^7.2.1",

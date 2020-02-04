@@ -904,3 +904,30 @@ export declare const Tag: {
     type: any
   }
 }
+
+type LinkPositionType = 'left' | 'right'
+
+export declare const IconLink: {
+  ({
+    iconPrefix,
+    iconName,
+    iconClassName,
+    iconContainerClassName,
+    linkClassName,
+    linkPosition,
+    copy,
+    onClick,
+  }: {
+    iconPrefix: string
+    iconName: string
+    iconClassName: string
+    iconContainerClassName: string
+    linkClassName: string
+    linkPosition: LinkPositionType
+    copy: string
+    onClick?: any
+  }): any
+  propTypes: {
+    props: any
+  }
+}
