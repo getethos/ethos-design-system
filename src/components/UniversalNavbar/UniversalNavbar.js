@@ -13,14 +13,27 @@ import styles from './UniversalNavbar.module.scss'
 // TODO REDESIGN: Lots of sloppy inline styles here.
 
 // UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
-const NavLink = ({ href, LinkComponent, ...props }) => {
+const NavLink = ({ href, children, LinkComponent, ...props }) => {
   if (LinkComponent) {
-    return <LinkComponent to={href} {...props} />
+    return (
+      <LinkComponent to={href} {...props}>
+        {children}
+      </LinkComponent>
+    )
   }
-  return <a href={href} {...props} />
+  return (
+    <a href={href} {...props}>
+      {children}
+    </a>
+  )
 }
 
 NavLink.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.string,
+    PropTypes.func,
+  ]),
   href: PropTypes.string.isRequired,
   LinkComponent: PropTypes.object,
 }
@@ -70,6 +83,12 @@ class UniversalNavbar extends React.Component {
     this.setState({ showMobileMenu: !this.state.showMobileMenu })
   }
 
+  handleHamburgerKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      this.toggleHamburger()
+    }
+  }
+
   render() {
     const {
       LinkComponent,
@@ -103,13 +122,8 @@ class UniversalNavbar extends React.Component {
     )
 
     // These are bespoke icons but design may replace w/FA at a later date
-    const renderSearchIcon = (link) => (
-      <NavLink
-        className={styles.searchIcon}
-        key={link.id}
-        href={link.href}
-        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
-      >
+    const renderSearchIcon = (link) => {
+      const searchIcon = (
         <svg
           width="23"
           height="22"
@@ -130,16 +144,22 @@ class UniversalNavbar extends React.Component {
             strokeWidth="1.5"
           />
         </svg>
-      </NavLink>
-    )
+      )
 
-    const renderAccountIcon = (link) => (
-      <NavLink
-        className={styles.accountIcon}
-        key={link.id}
-        href={link.href}
-        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
-      >
+      return (
+        <NavLink
+          className={styles.searchIcon}
+          key={link.id}
+          href={link.href}
+          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+        >
+          {searchIcon}
+        </NavLink>
+      )
+    }
+
+    const renderAccountIcon = (link) => {
+      const accountIcon = (
         <svg
           width="25"
           height="23"
@@ -160,8 +180,19 @@ class UniversalNavbar extends React.Component {
             strokeWidth="1.5"
           />
         </svg>
-      </NavLink>
-    )
+      )
+
+      return (
+        <NavLink
+          className={styles.accountIcon}
+          key={link.id}
+          href={link.href}
+          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+        >
+          {accountIcon}
+        </NavLink>
+      )
+    }
 
     return (
       <div style={{ height: 64 }}>
@@ -180,6 +211,7 @@ class UniversalNavbar extends React.Component {
               <TransformingBurgerButton
                 showMobileMenu={showMobileMenu}
                 clickHandler={this.toggleHamburger}
+                keyPressHandler={this.handleHamburgerKeyPress}
               />
             </div>
 
@@ -227,7 +259,7 @@ class UniversalNavbar extends React.Component {
                 LinkComponent={LinkComponent}
                 className={styles.phoneLogoFancy}
               >
-                <FancyAnimatedLogo />
+                {FancyAnimatedLogo()}
               </NavLink>
               {!hideMobileCta && renderCtaButton(true)}
               {renderSearchIcon(LINKS.NAVLINKS[3])}
@@ -242,7 +274,6 @@ class UniversalNavbar extends React.Component {
                   </NavLink>
                   {renderTextLink(LINKS.NAVLINKS[0])}
                   {renderTextLink(LINKS.NAVLINKS[1])}
-
                   <div className={styles.laptopAndUp}>
                     {renderTextLink(LINKS.NAVLINKS[2])}
                   </div>
@@ -252,7 +283,6 @@ class UniversalNavbar extends React.Component {
                 <div className={`${styles.flex} ${styles.itemsCenter}`}>
                   {renderSearchIcon(LINKS.NAVLINKS[3])}
                   {renderAccountIcon(LINKS.NAVLINKS[4])}
-
                   <div className={styles.cta}>
                     {!hideDesktopCta && renderCtaButton(false)}
                   </div>
