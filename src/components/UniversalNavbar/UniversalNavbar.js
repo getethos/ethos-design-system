@@ -100,84 +100,86 @@ class UniversalNavbar extends React.Component {
     )
 
     return (
-      <div className={styles.navbar}>
-        <Layout.ScrollDetector>
-          <div className={styles.hamburger}>
-            <TransformingBurgerButton
-              showMobileMenu={showMobileMenu}
-              clickHandler={this.toggleHamburger}
-            />
-          </div>
-
-          <div className={styles.phoneOnly}>
-            {/* Dark green mobile menu, shows up when hamburger is clicked */}
-            <div
-              className={
-                showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
-              }
-            >
-              <NavLink href={logoHref} LinkComponent={LinkComponent}>
-                {LogoWhite({ className: styles.logo })}
-              </NavLink>
-              <Spacer.H56 />
-              {LINKS.NAVLINKS.map((link) => (
-                <div key={link.id} style={{ marginBottom: 24 }}>
-                  <TitleXLarge.Sans.Regular400>
-                    <NavLink
-                      href={link.href}
-                      LinkComponent={
-                        link.href !== '/login/' ? LinkComponent : null
-                      }
-                    >
-                      {link.title}
-                    </NavLink>
-                  </TitleXLarge.Sans.Regular400>
-                </div>
-              ))}
-              <div style={{ position: 'absolute', bottom: 40 }}>
-                <a href={LINKS.TERM.href}>
-                  <Button.Medium.WhiteOutline>
-                    Check my price
-                  </Button.Medium.WhiteOutline>
-                </a>
-              </div>
+      <div className={styles.blockNavbar}>
+        <div className={styles.navbar}>
+          <Layout.ScrollDetector>
+            <div className={styles.hamburger}>
+              <TransformingBurgerButton
+                showMobileMenu={showMobileMenu}
+                clickHandler={this.toggleHamburger}
+              />
             </div>
 
-            {/* Mobile menu items, getAnEstimate only shows when scrolled */}
-            <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
-              <FancyAnimatedLogo />
-            </NavLink>
-            {!hideMobileCta && getAnEstimate(true)}
-          </div>
-
-          <div className={styles.tabletAndUp}>
-            <div className={styles.tabletAndUpContainer}>
-              {/* Desktop menu items to the left */}
-              <div className={`${styles.flex} ${styles.itemsCenter}`}>
+            <div className={styles.phoneOnly}>
+              {/* Dark green mobile menu, shows up when hamburger is clicked */}
+              <div
+                className={
+                  showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
+                }
+              >
                 <NavLink href={logoHref} LinkComponent={LinkComponent}>
-                  {LogoNotAnimated({ className: styles.logo })}
+                  {LogoWhite({ className: styles.logo })}
                 </NavLink>
-                {renderDesktopLink(LINKS.NAVLINKS[0])}
-                {renderDesktopLink(LINKS.NAVLINKS[1])}
-
-                <div className={styles.laptopAndUp}>
-                  {renderDesktopLink(LINKS.NAVLINKS[2])}
+                <Spacer.H56 />
+                {LINKS.NAVLINKS.map((link) => (
+                  <div key={link.id} style={{ marginBottom: 24 }}>
+                    <TitleXLarge.Sans.Regular400>
+                      <NavLink
+                        href={link.href}
+                        LinkComponent={
+                          link.href !== '/login/' ? LinkComponent : null
+                        }
+                      >
+                        {link.title}
+                      </NavLink>
+                    </TitleXLarge.Sans.Regular400>
+                  </div>
+                ))}
+                <div style={{ position: 'absolute', bottom: 40 }}>
+                  <a href={LINKS.TERM.href}>
+                    <Button.Medium.WhiteOutline>
+                      Check my price
+                    </Button.Medium.WhiteOutline>
+                  </a>
                 </div>
               </div>
 
-              {/* Desktop menu items to the right */}
-              <div className={`${styles.flex} ${styles.itemsCenter}`}>
-                <div className={styles.laptopAndUp}>
-                  {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
+              {/* Mobile menu items, getAnEstimate only shows when scrolled */}
+              <NavLink href={LINKS.INDEX.href} LinkComponent={LinkComponent}>
+                <FancyAnimatedLogo />
+              </NavLink>
+              {!hideMobileCta && getAnEstimate(true)}
+            </div>
+
+            <div className={styles.tabletAndUp}>
+              <div className={styles.tabletAndUpContainer}>
+                {/* Desktop menu items to the left */}
+                <div className={`${styles.flex} ${styles.itemsCenter}`}>
+                  <NavLink href={logoHref} LinkComponent={LinkComponent}>
+                    {LogoNotAnimated({ className: styles.logo })}
+                  </NavLink>
+                  {renderDesktopLink(LINKS.NAVLINKS[0])}
+                  {renderDesktopLink(LINKS.NAVLINKS[1])}
+
+                  <div className={styles.laptopAndUp}>
+                    {renderDesktopLink(LINKS.NAVLINKS[2])}
+                  </div>
                 </div>
 
-                <div className={styles.paddingLeft}>
-                  {!hideDesktopCta && getAnEstimate(false)}
+                {/* Desktop menu items to the right */}
+                <div className={`${styles.flex} ${styles.itemsCenter}`}>
+                  <div className={styles.laptopAndUp}>
+                    {LINKS.NAVLINKS.slice(-1).map(renderDesktopLink)}
+                  </div>
+
+                  <div className={styles.paddingLeft}>
+                    {!hideDesktopCta && getAnEstimate(false)}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </Layout.ScrollDetector>
+          </Layout.ScrollDetector>
+        </div>
       </div>
     )
   }
