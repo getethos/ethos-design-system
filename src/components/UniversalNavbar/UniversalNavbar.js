@@ -62,7 +62,7 @@ const LINKS = {
     },
     {
       id: uuidv4(),
-      href: '/faq/',
+      href: '/search/',
       title: 'Search',
     },
     {

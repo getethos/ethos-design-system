@@ -116,7 +116,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <PublicTypeComponent>
               <NavLink
-                href="/faq/"
+                href="/search/"
               >
                 Search
               </NavLink>
@@ -251,7 +251,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
         </a>
         <NavLink
           className="searchIcon"
-          href="/faq/"
+          href="/search/"
         >
           <svg
             fill="none"
@@ -340,7 +340,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <NavLink
               className="searchIcon"
-              href="/faq/"
+              href="/search/"
             >
               <svg
                 fill="none"
