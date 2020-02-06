@@ -51,7 +51,7 @@ const defaultSections = [
       'https://res.cloudinary.com/getethos/image/upload/v1566238234/02_Icons/icon_heart-shield_sh7goi.svg',
     header: 'Trusted Partners',
     subHeader:
-      'We partner with Legal & General America, RGAX, Assurity Life Insurance Company, and Munich Re to provide you affordable coverage.',
+      'We partner with Legal & General America, RGAX, and Munich Re to provide you affordable coverage.',
     alt: 'Hear Shield Icon',
   },
 ]
