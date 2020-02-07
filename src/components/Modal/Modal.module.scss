@@ -1,3 +1,5 @@
+@import '../Variables.scss';
+
 .ModalWrapper {
   display: none;
 
@@ -11,6 +13,7 @@
     position: fixed;
     top: 0;
     width: 100vw;
+    z-index: $z-index-modal;
   }
 }
 

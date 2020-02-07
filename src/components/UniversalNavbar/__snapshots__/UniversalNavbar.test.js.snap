@@ -2,23 +2,10 @@
 
 exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
 <div
-  style={
-    Object {
-      "height": 64,
-    }
-  }
+  className="blockNavbar"
 >
   <div
-    style={
-      Object {
-        "height": 64,
-        "left": 0,
-        "position": "fixed",
-        "top": 0,
-        "width": "100%",
-        "zIndex": 1,
-      }
-    }
+    className="navbar"
   >
     <ScrollDetector
       element="div"

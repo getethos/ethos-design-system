@@ -91,15 +91,18 @@ To use a release downstream, update your app's `package.json` as follows:
 
 ## Releases
 
-> TLDR: Run `yarn version` and `git push origin tagname` when your PR is ready.
+> TLDR: Run `yarn version` and `git push origin tagname` when you need to create a new release.
 
-Each PR that merges to `master` should update the `package.json` version one way or another, and ideally create a corresponding git tag. One way to do this is to run `yarn version` in your branch and push. This will:
+Each time you need to consume recent EDS changes elsewhere, you need to bump the version and create a new git release:
 
-- Prompt you for the new version number
-- Update `package.json` with the version number
-- Commit the change in a new commit
-
-To create and push a git tag, run `git tag v1.2.3 && git push origin v1.2.3`. You can skip this if the release isn't specifically needed downstream yet.
+1. To bump the package.json version, run `yarn version` in your branch, This will:
+  - Prompt you for the new version number
+  - Update `package.json` with the version number
+  - Commit the change in a new commit
+2. To create and push a git tag, do one of these:
+  - Run `git tag v1.2.3 && git push origin v1.2.3` on your branch.
+  - Create a release `v1.2.3` on GitHub, if it's already in trunk.
+3. Never force push a tag, to avoid confusing yarn or Jenkins later. Cut a new version instead.
 
 For more granular control:
 
@@ -109,15 +112,6 @@ $ git tag -d v1.2.3                 # delete tag v1.2.3 locally
 $ git push origin v1.2.3            # push tag v1.2.3
 $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
 ```
-
-_Please also read the next section on how tags are cached on the Jenkins server (TL;DR -- never force push over an existing tag)_
-
-### Tag Caching
-
-We have been using `yarn version` and git tags to cut [EDS releases](https://github.com/getethos/ethos-design-system/releases). The example above with the `#v1.2.3` is an example of a release that might have a corresponding tag and release. One thing we need to be careful about, is that
-the server where Jenkins lives will cache these and attempt to reuse them if it can find a corresponding release. Which leads to a nuanced rule we need to all heed:
-
-**Never force push a git tag to update an EDS version/release. Cut a new version instead.**
 
 ## Design patterns
 

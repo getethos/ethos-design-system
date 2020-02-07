@@ -1,4 +1,5 @@
 @import '../Media/Media.scss';
+@import '../Variables.scss';
 
 $tablet-small-end: 670px;
 
@@ -165,4 +166,17 @@ $tablet-small-end: 670px;
   composes: mobileMenu;
   opacity: 0;
   pointer-events: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--Space-64);
+  z-index: $z-index-navbar;
+}
+
+.blockNavbar {
+  height: var(--Space-64);
 }

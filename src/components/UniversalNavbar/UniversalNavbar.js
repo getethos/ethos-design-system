@@ -195,17 +195,8 @@ class UniversalNavbar extends React.Component {
     }
 
     return (
-      <div style={{ height: 64 }}>
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: 64,
-            zIndex: 1,
-          }}
-        >
+      <div className={styles.blockNavbar}>
+        <div className={styles.navbar}>
           <Layout.ScrollDetector>
             <div className={styles.hamburger}>
               <TransformingBurgerButton
