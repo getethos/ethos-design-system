@@ -1,5 +1,4 @@
 @import '../Media/Media.scss';
-
 /**
    * Region:
    * Fancy animated scroll behavior
@@ -30,17 +29,20 @@
     transition-delay: 0s;
   }
 
-  .get-an-estimate.show-when-scrolled {
+  .cta-button.show-when-scrolled {
     /* When not scrolled, is transparent and starts to the right */
-    transition: transform ease-in-out 0.7s, opacity ease-in-out 0.7s;
+    transition: transform ease-out 0.2s, opacity ease-out 0.2s;
     opacity: 0;
     pointer-events: none;
+    position: absolute;
+    right: var(--Space-72);
   }
   .isScrolled {
-    .get-an-estimate.show-when-scrolled {
+    .cta-button.show-when-scrolled {
       opacity: 1;
       pointer-events: all;
-      transform: translateX(-15%);
+      transform: translateX(var(--NegativeSpace-16));
+      transition: transform ease-in 0.3s 0.7s, opacity ease-in 0.3s 0.7s;
     }
   }
 
