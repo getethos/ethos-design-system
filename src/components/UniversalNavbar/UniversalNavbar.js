@@ -57,8 +57,8 @@ const LINKS = {
     },
     {
       id: uuidv4(),
-      href: '/blog/',
-      title: 'Blog',
+      href: '/faq/',
+      title: 'FAQ',
     },
     {
       id: uuidv4(),
