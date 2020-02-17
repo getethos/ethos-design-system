@@ -35,6 +35,7 @@
       "./setupCoreJsPollyfills.js"
     ],
     "testPathIgnorePatterns": [
+      "<rootDir>/src/components/index.test.tsx",
       "<rootDir>/node_modules/"
     ],
     "moduleNameMapper": {

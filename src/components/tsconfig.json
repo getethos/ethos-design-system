@@ -10,5 +10,5 @@
     "noEmit": true,
     "esModuleInterop": true
   },
-  "files": ["index.d.ts", "index.tests.tsx"]
+  "files": ["index.d.ts", "index.test.tsx"]
 }
