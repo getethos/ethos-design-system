@@ -1,11 +1,15 @@
 import * as React from 'react'
+import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
+import { FlexGrid, FlexCol, FlexRow } from './index'
+import { IconLink } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
+import { SearchInput } from './index'
 import { TextMaskedInput } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
@@ -13,6 +17,55 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class IconLinkTest extends React.Component<any, any> {
+  render() {
+    return (
+      <IconLink
+        iconPrefix="far"
+        iconName="exchange"
+        iconClassName="iconClassName"
+        iconContainerClassName="iconContainerClassName"
+        linkClassName="linkClassName"
+        linkPosition="right"
+        copy="Decision"
+      />
+    )
+  }
+}
+
+class AsyncTypeaheadTest extends React.Component<any, any> {
+  getLocations(name: string) {
+    return 'foo'
+  }
+  render() {
+    return (
+      <AsyncTypeahead
+        renderInput={SearchInput}
+        minChars={2}
+        dataKey="name"
+        entitiesKey="items"
+        lastSelectedValue={{}}
+        placeholder="placeholder..."
+        fetchCallback={this.getLocations}
+      />
+    )
+  }
+}
+
+class FlexGridTest extends React.Component<any, any> {
+  render() {
+    return (
+      <FlexGrid>
+        <FlexRow>
+          <FlexCol xs={12} sm={4} lg={6}>
+            <p>Hi</p>
+          </FlexCol>
+        </FlexRow>
+      </FlexGrid>
+    )
+  }
+}
 
 class ButtonSelectGroupTest extends React.Component<any, any> {
   render() {
@@ -88,6 +141,16 @@ class NumberInputTest extends React.Component<any, any> {
           return n % 2 === 0 ? '' : 'Must be an even number'
         }}
       />
+    )
+  }
+}
+
+class SearchInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <>
+        <SearchInput data-tid="search-input-tid" name="search-input" />
+      </>
     )
   }
 }
@@ -188,5 +251,27 @@ class ZipInputTest extends React.Component<any, any> {
         data-tid="the-zip-input"
       />
     )
+  }
+}
+
+///////////////////////////////
+// ---- NORA COMPONENTS ---- //
+///////////////////////////////
+
+class Header extends React.Component<any, any> {
+  render() {
+    return (
+      <Header
+        name="le-header"
+        leftChildren="left child"
+        rightChildren="right child"
+      />
+    )
+  }
+}
+
+class Tag extends React.Component<any, any> {
+  render() {
+    return <Tag type="approved">approved</Tag>
   }
 }

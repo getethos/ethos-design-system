@@ -1,0 +1,31 @@
+.SearchInputContainer {
+  flex: 0 0 auto;
+  position: relative;
+  /** We need to ensure things like the async typeahead dropdown options
+   * have a lower z-index so we don't inadvertantly get the very first
+   * item hovered when it's half way tucked behind the input
+   */
+  z-index: 4;
+
+  /* TextInput Overrides */
+  > input {
+    height: 40px;
+    border-radius: 3px;
+    /* TODO -- this is overriding EDS TextInput's base padding */
+    padding: 17px var(--Space-16) 15px var(--Space-40);
+    font-size: calc(var(--compact-font-size) * 1px);
+  }
+}
+
+.SearchIcon {
+  flex: 0 0 auto;
+  height: var(--Space-14);
+  /* Looks like FA does the fill="currentColor" trick */
+  /* which means it will use the font color (not fill) */
+  color: var(--GraySecondary--translucent);
+  left: var(--Space-16);
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}

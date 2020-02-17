@@ -30,7 +30,7 @@ function usePortal(id) {
     }
 
     return () => {
-      if (isAttached) {
+      if (elRef.current.parentElement && isAttached) {
         elRef.current.parentElement.removeChild(el)
       }
     }

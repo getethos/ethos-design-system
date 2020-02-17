@@ -3,10 +3,20 @@ import PropTypes from 'prop-types'
 import styles from './TransformingBurgerButton.module.scss'
 
 // onClick is an event handler, showMobileMenu is a boolean
-const TransformingBurgerButton = ({ clickHandler, showMobileMenu }) => {
+const TransformingBurgerButton = ({
+  clickHandler,
+  keyPressHandler,
+  showMobileMenu,
+}) => {
   return (
     <span className={showMobileMenu ? styles.showMobileMenu : ''}>
-      <div onClick={clickHandler} className={styles.iconWrapper}>
+      <div
+        onClick={clickHandler}
+        onKeyPress={keyPressHandler}
+        className={styles.iconWrapper}
+        role="button"
+        tabIndex="0"
+      >
         <div className={styles.icon}>
           <i />
         </div>
@@ -17,6 +27,7 @@ const TransformingBurgerButton = ({ clickHandler, showMobileMenu }) => {
 
 TransformingBurgerButton.propTypes = {
   clickHandler: PropTypes.func.isRequired,
+  keyPressHandler: PropTypes.func.isRequired,
   showMobileMenu: PropTypes.bool.isRequired,
 }
 

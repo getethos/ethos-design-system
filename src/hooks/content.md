@@ -1,0 +1,1 @@
+This section houses hooks used across all of Ethos applications.

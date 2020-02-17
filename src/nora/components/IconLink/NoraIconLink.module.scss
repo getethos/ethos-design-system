@@ -1,0 +1,11 @@
+.LeftNavIconLinkContainer,
+.RightNavIconLinkContainer {
+  width: 180px;
+}
+
+.RightNavIconLinkContainer {
+  color: var(--NoraBlue-400);
+  > a {
+    color: var(--NoraBlue-400);
+  }
+}

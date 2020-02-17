@@ -7,8 +7,7 @@
 
 // Mobile first so this starts as the smallest
 .Button.Small {
-  $font-size: 15;
-  font-size: $font-size * 1px;
+  font-size: calc(var(--compact-font-size) * 1px);
   line-height: 18px;
   padding: 9.5px var(--Space-16) 6.5px;
 }

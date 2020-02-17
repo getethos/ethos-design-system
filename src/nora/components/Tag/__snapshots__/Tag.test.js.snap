@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tag cyan 1`] = `
+<div
+  className="Tag Cyan"
+>
+  cyan
+</div>
+`;
+
+exports[`Tag gray 1`] = `
+<div
+  className="Tag Default"
+>
+  gray
+</div>
+`;
+
+exports[`Tag green 1`] = `
+<div
+  className="Tag Green"
+>
+  green
+</div>
+`;
+
+exports[`Tag orange 1`] = `
+<div
+  className="Tag Orange"
+>
+  orange
+</div>
+`;
+
+exports[`Tag red 1`] = `
+<div
+  className="Tag Red"
+>
+  red
+</div>
+`;
+
+exports[`Tag renders default tag 1`] = `
+<div
+  className="Tag Default"
+>
+  yo
+</div>
+`;

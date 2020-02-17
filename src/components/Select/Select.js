@@ -9,9 +9,17 @@ import ReactSelectCreatable from 'react-select/creatable'
 
 import styles from './Select.module.scss'
 
-export const Select = ({ className, title, isAsync, isCreatable, ...rest }) => {
+export const Select = ({
+  className,
+  title,
+  isAsync,
+  isCompact,
+  isCreatable,
+  ...rest
+}) => {
+  const compactClass = isCompact ? styles.Compact : ''
   const props = {
-    className: `${className ? className : ''} ${styles.root}`,
+    className: `${className ? className : ''} ${compactClass} ${styles.root}`,
     ...rest,
   }
 
@@ -46,6 +54,7 @@ Select.propTypes = {
   loadOptions: PropTypes.func,
   onChange: PropTypes.func,
   isAsync: PropTypes.bool,
+  isCompact: PropTypes.bool,
   title: PropTypes.string,
   className: PropTypes.string,
   isCreatable: PropTypes.bool,

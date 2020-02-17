@@ -8,18 +8,8 @@ import useInvalid from '../../hooks/useInvalid.js'
 import { InputLabel } from '../InputLabel'
 import { Body } from '../Body.js'
 import { COLORS } from '../Colors.js'
+import { codes } from '../../helpers/constants.js'
 import styles from './RadioButtons.module.scss'
-
-const codes = {
-  RETURN: 13,
-  SPACE: 32,
-  END: 35,
-  HOME: 36,
-  LEFT: 37,
-  UP: 38,
-  RIGHT: 39,
-  DOWN: 40,
-}
 
 // Wrapping this way facilitates spying with spyOn
 export const focusHelper = {

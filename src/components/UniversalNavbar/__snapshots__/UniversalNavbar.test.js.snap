@@ -2,23 +2,10 @@
 
 exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
 <div
-  style={
-    Object {
-      "height": 64,
-    }
-  }
+  className="blockNavbar"
 >
   <div
-    style={
-      Object {
-        "height": 100,
-        "left": 0,
-        "position": "fixed",
-        "top": 0,
-        "width": "100%",
-        "zIndex": 1,
-      }
-    }
+    className="navbar"
   >
     <ScrollDetector
       element="div"
@@ -29,6 +16,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
       >
         <TransformingBurgerButton
           clickHandler={[Function]}
+          keyPressHandler={[Function]}
           showMobileMenu={false}
         />
       </div>
@@ -39,6 +27,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           className="hideMobileMenu"
         >
           <NavLink
+            className="phoneLogo"
             href="/"
           >
             <svg
@@ -114,6 +103,21 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <PublicTypeComponent>
               <NavLink
+                href="/search/"
+              >
+                Search
+              </NavLink>
+            </PublicTypeComponent>
+          </div>
+          <div
+            style={
+              Object {
+                "marginBottom": 24,
+              }
+            }
+          >
+            <PublicTypeComponent>
+              <NavLink
                 LinkComponent={null}
                 href="/login/"
               >
@@ -139,12 +143,92 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           </div>
         </div>
         <NavLink
+          className="phoneLogoFancy"
           href="/"
         >
-          <FancyAnimatedLogo />
+          <div
+            aria-label="Ethos"
+            role="img"
+            style={
+              Object {
+                "height": 16,
+                "position": "relative",
+                "width": 86.6,
+              }
+            }
+          >
+            <svg
+              alt=""
+              className="letter fancyE"
+              viewBox="0 0 971.997 180.498"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                ethos-logo-E
+              </title>
+              <path
+                d="M0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0z"
+              />
+            </svg>
+            <svg
+              alt=""
+              className="letter fancyT"
+              viewBox="0 0 971.997 180.498"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                ethos-logo-T
+              </title>
+              <path
+                d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573z"
+              />
+            </svg>
+            <svg
+              alt=""
+              className="letter fancyH"
+              viewBox="0 0 971.997 180.498"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                ethos-logo-H
+              </title>
+              <path
+                d="M505.833 2.845v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202z"
+              />
+            </svg>
+            <svg
+              alt=""
+              className="letter fancyO"
+              viewBox="0 0 971.997 180.498"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                ethos-logo-O
+              </title>
+              <path
+                d="M758.521 19.368a63.8 63.8 0 0 0-90.227 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.227"
+              />
+              <path
+                d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 1 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126"
+              />
+            </svg>
+            <svg
+              alt=""
+              className="letter fancyS"
+              viewBox="0 0 971.997 180.498"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                ethos-logo-S
+              </title>
+              <path
+                d="M902.169 180.71c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+              />
+            </svg>
+          </div>
         </NavLink>
         <a
-          className="get-an-estimate show-when-scrolled"
+          className="cta-button show-when-scrolled"
           href="/term"
           onClick={[Function]}
         >
@@ -152,6 +236,31 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             Check my price
           </PublicButtonComponent>
         </a>
+        <NavLink
+          className="searchIcon"
+          href="/search/"
+        >
+          <svg
+            fill="none"
+            height="22"
+            viewBox="0 0 23 22"
+            width="23"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="8.94497"
+              cy="8.94399"
+              r="7.86196"
+              stroke="#272727"
+              strokeWidth="1.5"
+            />
+            <path
+              d="M14.3063 14.3041L21.6667 20.5876"
+              stroke="#272727"
+              strokeWidth="1.5"
+            />
+          </svg>
+        </NavLink>
       </div>
       <div
         className="tabletAndUp"
@@ -182,7 +291,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </svg>
             </NavLink>
             <div
-              className="paddingLeft"
+              className="textLink"
             >
               <NavLink
                 href="/how-it-works/"
@@ -191,7 +300,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               </NavLink>
             </div>
             <div
-              className="paddingLeft"
+              className="textLink"
             >
               <NavLink
                 href="/why-ethos/"
@@ -203,7 +312,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               className="laptopAndUp"
             >
               <div
-                className="paddingLeft"
+                className="textLink"
               >
                 <NavLink
                   href="/faq/"
@@ -216,25 +325,62 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           <div
             className="flex itemsCenter"
           >
-            <div
-              className="laptopAndUp"
+            <NavLink
+              className="searchIcon"
+              href="/search/"
             >
-              <div
-                className="paddingLeft"
+              <svg
+                fill="none"
+                height="22"
+                viewBox="0 0 23 22"
+                width="23"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <NavLink
-                  LinkComponent={null}
-                  href="/login/"
-                >
-                  Account
-                </NavLink>
-              </div>
-            </div>
+                <circle
+                  cx="8.94497"
+                  cy="8.94399"
+                  r="7.86196"
+                  stroke="#272727"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M14.3063 14.3041L21.6667 20.5876"
+                  stroke="#272727"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </NavLink>
+            <NavLink
+              LinkComponent={null}
+              className="accountIcon"
+              href="/login/"
+            >
+              <svg
+                fill="none"
+                height="23"
+                viewBox="0 0 25 23"
+                width="25"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  cx="12.25"
+                  cy="5.25"
+                  r="4.5"
+                  stroke="#272727"
+                  strokeWidth="1.5"
+                />
+                <path
+                  d="M23.5639 22.25H0.751853C0.767099 19.9125 0.905198 17.7185 2.12836 16.0198C3.43803 14.201 6.17055 12.75 12.1579 12.75C18.1452 12.75 20.8778 14.201 22.1874 16.0198C23.4106 17.7185 23.5487 19.9125 23.5639 22.25Z"
+                  stroke="#272727"
+                  strokeWidth="1.5"
+                />
+              </svg>
+            </NavLink>
             <div
-              className="paddingLeft"
+              className="cta"
             >
               <a
-                className="get-an-estimate "
+                className="cta-button "
                 href="/term"
                 onClick={[Function]}
               >

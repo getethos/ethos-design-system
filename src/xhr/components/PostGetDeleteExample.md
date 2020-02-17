@@ -3,8 +3,8 @@ click its 'X' to trigger a DELETE a particular item. You can also use the
 _Create a Post_ form at the bottom to trigger a POST and create a new item:
 
 ```jsx noeditor
-import './example.css';
-<PostGetDeleteExample />
+import './example.css'
+;<PostGetDeleteExample />
 ```
 
 This `PostGetDeleteExample` component is just an example of using _Xhr_.

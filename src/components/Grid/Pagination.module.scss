@@ -15,25 +15,18 @@
 
 .paginationButtons {
   cursor: pointer;
-  color: var(--GrayPrimary--opaque);
-  padding: var(--Space-8) var(--Space-16);
+  color: var(--NoraNeutral-400);
+  padding: var(--Space-8) var(--Space-14);
+  margin: 0px 2px;
   text-decoration: none;
-  transition: background-color 0.3s;
-  border: 1px solid var(--GrayStrokeAndDisabled--opaque);
-}
+  border-color: var(--Transparent--white);
 
-.paginationButtonsLeft {
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-}
-
-.paginationButtonsRight {
-  border-top-right-radius: 3px;
-  border-bottom-right-radius-radius: 3px;
+  &[disabled] {
+    color: var(--NoraNeutral-200);
+  }
 }
 
 .active {
-  background-color: var(--NoraBlue);
-  color: white;
-  border: 1px solid var(--NoraBlue);
+  color: var(--NoraNeutral-900);
+  border-color: var(--Transparent--white);
 }

@@ -7,6 +7,6 @@ Default tag
 
 Rejected tag
 ```jsx
-<Tag type='rejected'>Preview Text</Tag>
+<Tag type='green'>Preview Text</Tag>
 ```
 
