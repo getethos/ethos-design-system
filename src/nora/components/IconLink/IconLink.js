@@ -28,34 +28,30 @@ export const IconLink = ({
   iconName,
   iconClassName,
   iconContainerClassName,
-  linkClassName,
-  linkPosition,
+  textClassName,
+  textPosition,
   copy,
   onClick,
 }) => {
-  if (linkPosition === 'left') {
+  if (textPosition === 'left') {
     return (
-      <div className={iconContainerClassName}>
-        <Link href="#" className={linkClassName} onClick={onClick}>
-          {copy}
-        </Link>
+      <Link href="#" className={iconContainerClassName} onClick={onClick}>
+        <div className={textClassName}>{copy}</div>
         <FontAwesomeIcon
           className={iconClassName}
           icon={[iconPrefix, iconName]}
-        />{' '}
-      </div>
+        />
+      </Link>
     )
   } else {
     return (
-      <div className={iconContainerClassName}>
+      <Link href="#" className={iconContainerClassName} onClick={onClick}>
         <FontAwesomeIcon
           className={iconClassName}
           icon={[iconPrefix, iconName]}
-        />{' '}
-        <Link href="#" className={linkClassName} onClick={onClick}>
-          {copy}
-        </Link>
-      </div>
+        />
+        <div className={textClassName}>{copy}</div>
+      </Link>
     )
   }
 }
@@ -66,8 +62,8 @@ IconLink.propTypes = {
     iconName: PropTypes.string.isRequired,
     iconClassName: PropTypes.string.isRequired,
     iconContainerClassName: PropTypes.string.isRequired,
-    linkClassName: PropTypes.string.isRequired,
-    linkPosition: PropTypes.oneOf(['left', 'right']).isRequired,
+    textClassName: PropTypes.string.isRequired,
+    textPosition: PropTypes.oneOf(['left', 'right']).isRequired,
     copy: PropTypes.string.isRequired,
     onClick: PropTypes.func,
   }),

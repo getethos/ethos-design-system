@@ -34,8 +34,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="exchange"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Decision"
   onClick={(ev) => {
     console.log('Decision onclick called...')
@@ -60,8 +60,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="user-check"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Overview"
   onClick={(ev) => {
     console.log('Overview onclick called...')
@@ -81,8 +81,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="align-left"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Notes"
   onClick={(ev) => {
     console.log('Notes onclick called...')
@@ -102,8 +102,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="check-square"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="For Review"
   onClick={(ev) => {
     console.log('For Review onclick called...')
@@ -126,8 +126,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   // Completed
   iconClassName={`${styles.Icon} ${styles.Completed}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Completed"
   onClick={(ev) => {
     console.log('(Completed) onclick called...')
@@ -149,8 +149,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="asterisk"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Required"
   onClick={(ev) => {
     console.log('(Required) onclick called...')
@@ -174,8 +174,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   // Active
   iconClassName={`${styles.Icon} ${styles.Active}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="MVR"
   onClick={(ev) => {
     console.log('mvr (Active) onclick called...')
@@ -196,8 +196,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="clock"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="MVR"
   onClick={(ev) => {
     console.log('mvr (Ordered) onclick called...')
@@ -220,8 +220,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   // Error
   iconClassName={`${styles.Icon} ${styles.Error}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="MVR"
   onClick={(ev) => {
     console.log('mvr (Error) onclick called...')
@@ -243,8 +243,8 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconName="window-close"
   iconClassName={`${styles.Icon} ${styles.Waived}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="MVR"
   onClick={(ev) => {
     console.log('mvr (Waived) onclick called...')
@@ -266,8 +266,8 @@ const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavI
   iconName="layer-plus"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Order more evidences"
   onClick={(ev) => {
     console.log('Order more evidences onclick called...')
@@ -287,8 +287,8 @@ const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavI
   iconName="external-link"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Open original PDFs"
   onClick={(ev) => {
     console.log('Open original PDFs onclick called...')
@@ -308,8 +308,8 @@ const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavI
   iconName="check"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Approve application"
   onClick={(ev) => {
     console.log('Approve application onclick called...')
@@ -329,8 +329,8 @@ const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavI
   iconName="times"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Decline application"
   onClick={(ev) => {
     console.log('Decline application onclick called...')
@@ -350,8 +350,8 @@ const iconContainerClasses = `${styles.IconLinkContainer} ${noraStyles.RightNavI
   iconName="octagon"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={iconContainerClasses}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Withdraw"
   onClick={(ev) => {
     console.log('Withdraw onclick called...')
@@ -369,8 +369,8 @@ import styles from './IconLink.module.scss'
   iconName="chevron-left"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={styles.IconLinkContainer}
-  linkClassName={styles.LinkRight}
-  linkPosition="right"
+  textClassName={styles.LinkRight}
+  textPosition="right"
   copy="Back"
   onClick={(ev) => {
     console.log('Back button -- onclick called...')
@@ -390,8 +390,8 @@ import styles from './IconLink.module.scss'
   iconName="search"
   iconClassName={`${styles.Icon}`}
   iconContainerClassName={styles.IconLinkContainerRight}
-  linkClassName={styles.LinkLeft}
-  linkPosition="left"
+  textClassName={styles.LinkLeft}
+  textPosition="left"
   copy="Find it…"
   onClick={(ev) => {
     console.log('mvr (Waived) onclick called...')
