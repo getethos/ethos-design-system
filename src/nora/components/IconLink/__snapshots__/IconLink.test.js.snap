@@ -1,17 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`IconLink renders default IconLink 1`] = `
-<div
+<a
   className="iconContainerClasses"
+  href="#"
+  onClick={[Function]}
+  target="_self"
 >
-   
-  <a
+  <div
     className="linkClassName"
-    href="#"
-    onClick={[Function]}
-    target="_self"
   >
     Completed
-  </a>
-</div>
+  </div>
+</a>
 `;

@@ -11,8 +11,8 @@ describe('IconLink', () => {
           iconName="check-square"
           iconClassName="iconClassName"
           iconContainerClassName="iconContainerClasses"
-          linkClassName="linkClassName"
-          linkPosition="right"
+          textClassName="linkClassName"
+          textPosition="right"
           copy="Completed"
         />
       )
