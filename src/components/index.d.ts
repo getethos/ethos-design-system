@@ -913,8 +913,8 @@ export declare const IconLink: {
     iconName,
     iconClassName,
     iconContainerClassName,
-    linkClassName,
-    linkPosition,
+    textClassName,
+    textPosition,
     copy,
     onClick,
   }: {
@@ -922,8 +922,8 @@ export declare const IconLink: {
     iconName: string
     iconClassName: string
     iconContainerClassName: string
-    linkClassName: string
-    linkPosition: LinkPositionType
+    textClassName: string
+    textPosition: LinkPositionType
     copy: string
     onClick?: any
   }): any
