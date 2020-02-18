@@ -7,10 +7,10 @@ exports[`IconLink renders default IconLink 1`] = `
   onClick={[Function]}
   target="_self"
 >
-  <div
+  <span
     className="linkClassName"
   >
     Completed
-  </div>
+  </span>
 </a>
 `;

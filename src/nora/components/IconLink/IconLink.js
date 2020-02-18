@@ -36,7 +36,7 @@ export const IconLink = ({
   if (textPosition === 'left') {
     return (
       <Link href="#" className={iconContainerClassName} onClick={onClick}>
-        <div className={textClassName}>{copy}</div>
+        <span className={textClassName}>{copy}</span>
         <FontAwesomeIcon
           className={iconClassName}
           icon={[iconPrefix, iconName]}
@@ -50,7 +50,7 @@ export const IconLink = ({
           className={iconClassName}
           icon={[iconPrefix, iconName]}
         />
-        <div className={textClassName}>{copy}</div>
+        <span className={textClassName}>{copy}</span>
       </Link>
     )
   }
