@@ -12,7 +12,7 @@ import { useLayoutEffect, useState } from 'react'
  */
 function getRootParent(elem) {
   const parent = elem.parentElement
-  if (parent === document.body) {
+  if (!parent || parent === document.body) {
     return elem
   }
 
