@@ -12,7 +12,9 @@ import { useLayoutEffect, useState } from 'react'
  */
 function getRootParent(elem) {
   const parent = elem.parentElement
-  if (parent === document.body) {
+  // Why do we check if the parent exists? In the case where a modal is initially rendered, the dom with exist but not
+  // be inserted into the document yet. In this scenario the root element of the modal will not have a parent.
+  if (!parent || parent === document.body) {
     return elem
   }
 
