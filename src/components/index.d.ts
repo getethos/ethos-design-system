@@ -890,6 +890,18 @@ export declare const Header: {
   }
 }
 
+interface NoraButtonProps {
+  className: string
+  children: React.ReactNode
+}
+export declare const NoraButton: {
+  ({className, children}: NoraButtonProps): JSX.Element
+  propTypes: {
+    className: string
+    children: React.ReactNode
+  }
+}
+
 interface TagProps {
   type: string
   children: React.ReactNode
