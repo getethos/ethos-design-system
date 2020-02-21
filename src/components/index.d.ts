@@ -366,7 +366,8 @@ export declare namespace ValueProps {
           header: string
           subHeader: string
           alt?: undefined
-        })[]
+        }
+    )[]
   }
 }
 
@@ -890,15 +891,39 @@ export declare const Header: {
   }
 }
 
+type ButtonType = 'button' | 'submit'
+
 interface NoraButtonProps {
-  className: string
-  children: React.ReactNode
+  children?: string
+  'data-tid'?: string
+  disabled?: boolean
+  type?: ButtonType
+  name?: string
+  onClick?: any
+  role?: string
+  className?: string
 }
+
 export declare const NoraButton: {
-  ({className, children}: NoraButtonProps): JSX.Element
+  ({
+    children,
+    disabled,
+    type,
+    name,
+    onClick,
+    role,
+    className,
+    ...rest
+  }: NoraButtonProps): JSX.Element
   propTypes: {
-    className: string
     children: React.ReactNode
+    'data-tid': string
+    disabled: boolean
+    type: ButtonType
+    name: string
+    onClick: any
+    role: string
+    className: string
   }
 }
 
