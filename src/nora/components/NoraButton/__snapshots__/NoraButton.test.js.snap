@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoraButton allows className to be passed as a prop 1`] = `
+<button
+  className="Button DemoWidth"
+>
+  customized
+</button>
+`;
+
+exports[`NoraButton renders default NoraButton 1`] = `
+<button
+  className="Button "
+>
+  default
+</button>
+`;
