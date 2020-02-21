@@ -5,7 +5,7 @@ Default NoraButton
 
 NoraButton with custom stying passed in
 ```jsx
-import styles from './NoraButton.module.scss';
+import styles from './NoraButtonExample.module.scss';
 <NoraButton className={styles.DemoWidth}>Submit</NoraButton>
 ```
 

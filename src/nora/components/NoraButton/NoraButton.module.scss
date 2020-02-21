@@ -1,17 +1,13 @@
+@import '../Attributes.css';
+
 .Button {
   font-weight: 500;
   font-size: 13px;
   height: var(--Space-32);
   line-height: var(--Space-32);
-  letter-spacing: 0.015em;
-  color: white;
+  color: var(--White);
   background: var(--NoraBlue-400);
-  border-radius: 3px;
+  border-radius: var(--Radius-3);
   text-align: center;
   display: inline-block;
-}
-
-/* Used only for md example */
-.DemoWidth {
-  width: var(--Space-80);
 }
