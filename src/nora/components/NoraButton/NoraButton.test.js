@@ -10,7 +10,9 @@ describe('NoraButton', () => {
   })
 
   it('allows className to be passed as a prop', () => {
-    const tree = renderer.create(<NoraButton className={styles.DemoWidth}>customized</NoraButton>).toJSON()
+    const tree = renderer
+      .create(<NoraButton className={styles.DemoWidth}>customized</NoraButton>)
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
