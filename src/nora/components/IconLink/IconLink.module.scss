@@ -43,11 +43,6 @@
   margin-left: var(--Space-10);
 }
 
-.Active {
-  color: var(--NoraNeutral-900);
-  font-weight: 500;
-}
-
 .Error {
   color: var(--NoraRed-400);
 }
@@ -58,4 +53,9 @@
 
 .Completed {
   color: var(--NoraGreen-400);
+}
+
+.Active {
+  color: var(--NoraNeutral-900);
+  font-weight: 500;
 }

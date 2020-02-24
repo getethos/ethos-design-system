@@ -69,6 +69,32 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
+Overview/Active
+
+```jsx
+// These styles are fairly generic to the icon list
+import styles from './IconLink.module.scss'
+
+// These styles are specific to the Nora application
+// e.g. Labs icon is --NoraOrange-400
+import noraStyles from './NoraIconLink.module.scss'
+
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="user-check"
+  iconClassName={`${styles.Icon} ${styles.Active}`}
+  iconContainerClassName={iconContainerClasses}
+  textClassName={`${styles.LinkRight} ${styles.Active}`}
+  textPosition="right"
+  copy="Overview"
+  onClick={(ev) => {
+    console.log('Overview onclick called...')
+  }}
+/>
+```
+
 Notes
 
 ```jsx
@@ -173,7 +199,7 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconPrefix="fas"
   iconName="check-square"
   // Completed
-  iconClassName={`${styles.Icon} ${styles.Completed}`}
+  iconClassName={`${styles.Icon} ${styles.Completed} ${styles.Active}`}
   iconContainerClassName={iconContainerClasses}
   textClassName={`${styles.LinkRight} ${styles.Active}`}
   textPosition="right"
@@ -266,7 +292,7 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconPrefix="fal"
   iconName="exclamation-triangle"
   // Error
-  iconClassName={`${styles.Icon} ${styles.Error}`}
+  iconClassName={`${styles.Icon} ${styles.Error} ${styles.Active}`}
   iconContainerClassName={iconContainerClasses}
   textClassName={`${styles.LinkRight} ${styles.Active}`}
   textPosition="right"
@@ -312,7 +338,7 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 ;<IconLink
   iconPrefix="fal"
   iconName="window-close"
-  iconClassName={`${styles.Icon} ${styles.Waived}`}
+  iconClassName={`${styles.Icon} ${styles.Waived} ${styles.Active}`}
   iconContainerClassName={iconContainerClasses}
   textClassName={`${styles.LinkRight} ${styles.Active}`}
   textPosition="right"
