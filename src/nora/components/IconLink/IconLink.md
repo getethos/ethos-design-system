@@ -111,6 +111,31 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
+Active—The text is black and bolded, and the icon continues to represent whatever state we're in.
+_So, in the following example, the MVR section is active and it is currently in Required state._
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+
+// Active state
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer} ${styles.Active}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="asterisk"
+  // Active
+  iconClassName={`${styles.Icon} ${styles.Active}`}
+  iconContainerClassName={iconContainerClasses}
+  textClassName={styles.LinkRight}
+  textPosition="right"
+  copy="MVR"
+  onClick={(ev) => {
+    console.log('mvr (Active) onclick called...')
+  }}
+/>
+```
+
 Completed
 
 ```jsx
@@ -118,7 +143,7 @@ import styles from './IconLink.module.scss'
 import noraStyles from './NoraIconLink.module.scss'
 
 // Completed state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer} ${styles.Completed}`
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
 
 ;<IconLink
   iconPrefix="fas"
@@ -127,6 +152,30 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconClassName={`${styles.Icon} ${styles.Completed}`}
   iconContainerClassName={iconContainerClasses}
   textClassName={styles.LinkRight}
+  textPosition="right"
+  copy="Completed"
+  onClick={(ev) => {
+    console.log('(Completed) onclick called...')
+  }}
+/>
+```
+
+Completed/Active
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+
+// Completed state
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fas"
+  iconName="check-square"
+  // Completed
+  iconClassName={`${styles.Icon} ${styles.Completed}`}
+  iconContainerClassName={iconContainerClasses}
+  textClassName={`${styles.LinkRight} ${styles.Active}`}
   textPosition="right"
   copy="Completed"
   onClick={(ev) => {
@@ -154,31 +203,6 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   copy="Required"
   onClick={(ev) => {
     console.log('(Required) onclick called...')
-  }}
-/>
-```
-
-Active—The text is black and bolded, and the icon continues to represent whatever state we're in.
-_So, in the following example, the MVR section is active and it is currently in Required state._
-
-```jsx
-import styles from './IconLink.module.scss'
-import noraStyles from './NoraIconLink.module.scss'
-
-// Active state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer} ${styles.Active}`
-
-;<IconLink
-  iconPrefix="fal"
-  iconName="asterisk"
-  // Active
-  iconClassName={`${styles.Icon} ${styles.Active}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={styles.LinkRight}
-  textPosition="right"
-  copy="MVR"
-  onClick={(ev) => {
-    console.log('mvr (Active) onclick called...')
   }}
 />
 ```
@@ -212,7 +236,7 @@ import styles from './IconLink.module.scss'
 import noraStyles from './NoraIconLink.module.scss'
 
 // Error state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer} ${styles.Error}`
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
 
 ;<IconLink
   iconPrefix="fal"
@@ -229,6 +253,30 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
+Error/Active
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+
+// Error state
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="exclamation-triangle"
+  // Error
+  iconClassName={`${styles.Icon} ${styles.Error}`}
+  iconContainerClassName={iconContainerClasses}
+  textClassName={`${styles.LinkRight} ${styles.Active}`}
+  textPosition="right"
+  copy="MVR"
+  onClick={(ev) => {
+    console.log('mvr (Error) onclick called...')
+  }}
+/>
+```
+
 Waived
 
 ```jsx
@@ -236,7 +284,7 @@ import styles from './IconLink.module.scss'
 import noraStyles from './NoraIconLink.module.scss'
 
 // Waived state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer} ${styles.Waived}`
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
 
 ;<IconLink
   iconPrefix="fal"
@@ -244,6 +292,29 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
   iconClassName={`${styles.Icon} ${styles.Waived}`}
   iconContainerClassName={iconContainerClasses}
   textClassName={styles.LinkRight}
+  textPosition="right"
+  copy="MVR"
+  onClick={(ev) => {
+    console.log('mvr (Waived) onclick called...')
+  }}
+/>
+```
+
+Waived/Active
+
+```jsx
+import styles from './IconLink.module.scss'
+import noraStyles from './NoraIconLink.module.scss'
+
+// Waived state
+const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+
+;<IconLink
+  iconPrefix="fal"
+  iconName="window-close"
+  iconClassName={`${styles.Icon} ${styles.Waived}`}
+  iconContainerClassName={iconContainerClasses}
+  textClassName={`${styles.LinkRight} ${styles.Active}`}
   textPosition="right"
   copy="MVR"
   onClick={(ev) => {
@@ -363,7 +434,6 @@ Back Button Chevron
 
 ```jsx
 import styles from './IconLink.module.scss'
-
 ;<IconLink
   iconPrefix="far"
   iconName="chevron-left"

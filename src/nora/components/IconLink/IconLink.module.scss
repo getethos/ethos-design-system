@@ -1,6 +1,7 @@
 .Icon {
   flex: 0 0 auto;
   height: var(--Space-14);
+  color: inherit;
 }
 
 .IconLinkContainer {
@@ -19,23 +20,6 @@
     background: var(--NoraNeutral-100);
     cursor: pointer;
   }
-}
-
-.Active {
-  color: var(--NoraNeutral-900);
-  font-weight: 500;
-}
-
-.Error {
-  color: var(--NoraRed-400);
-}
-
-.Waived {
-  color: var(--NoraOrange-400);
-}
-
-.Completed {
-  color: var(--NoraGreen-400);
 }
 
 .IconLinkContainerRight {
@@ -59,6 +43,19 @@
   margin-left: var(--Space-10);
 }
 
-.Icon {
-  color: inherit;
+.Active {
+  color: var(--NoraNeutral-900);
+  font-weight: 500;
+}
+
+.Error {
+  color: var(--NoraRed-400);
+}
+
+.Waived {
+  color: var(--NoraOrange-400);
+}
+
+.Completed {
+  color: var(--NoraGreen-400);
 }
