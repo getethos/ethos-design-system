@@ -1,0 +1,17 @@
+@import '../Attributes.css';
+
+.Button {
+  font-weight: 500;
+  font-size: var(--Nora-Font-13);
+  height: var(--Space-32);
+  line-height: var(--Space-32);
+  color: var(--White);
+  background: var(--NoraBlue-400);
+  border-radius: var(--Radius-3);
+  text-align: center;
+  display: inline-block;
+
+  &[disabled] {
+    opacity: .65;
+  }
+}
