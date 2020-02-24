@@ -51,6 +51,7 @@ export { Modal } from './Modal'
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
 ////////////////////////////
-export { IconLink } from '../nora/components/index'
 export { Header } from '../nora/components/index'
+export { IconLink } from '../nora/components/index'
+export { NoraButton } from '../nora/components/index'
 export { Tag } from '../nora/components/index'

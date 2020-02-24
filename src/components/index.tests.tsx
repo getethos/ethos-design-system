@@ -6,6 +6,7 @@ import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { IconLink } from './index'
+import { NoraButton } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -18,6 +19,12 @@ import { ZipInput } from './index'
 
 // -------------- Localized tests ----------------//
 
+class NoraButtonTest extends React.Component<any, any> {
+  render() {
+    return <NoraButton>Submit</NoraButton>
+  }
+}
+
 class IconLinkTest extends React.Component<any, any> {
   render() {
     return (
@@ -26,8 +33,8 @@ class IconLinkTest extends React.Component<any, any> {
         iconName="exchange"
         iconClassName="iconClassName"
         iconContainerClassName="iconContainerClassName"
-        linkClassName="linkClassName"
-        linkPosition="right"
+        textClassName="linkClassName"
+        textPosition="right"
         copy="Decision"
       />
     )
