@@ -11,7 +11,11 @@
   text-align: center;
   display: inline-block;
 
+  &:hover,
   &[disabled] {
-    opacity: .65;
+    opacity: 0.65;
+  }
+  &:hover {
+    cursor: pointer;
   }
 }
