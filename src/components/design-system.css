@@ -161,6 +161,11 @@ textarea {
    ========================================================================== */
 :root {
   --transition-default: all 200ms cubic-bezier(0.21, 0.61, 0.35, 1);
+  --transition-duration-short: 200ms;
+  --transition-duration-medium: 500ms;
+  --transition-duration-long: 1s;
+  --transition-delay-short: 40ms;
+  --transition-delay-long: 80ms;
 }
 
 /* @getethos/design-system/Layout.scss
