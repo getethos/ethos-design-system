@@ -1,3 +1,5 @@
+@import '../../../components/Animation.scss';
+
 .Icon {
   flex: 0 0 auto;
   height: var(--Space-14);
@@ -15,9 +17,12 @@
   height: 32px;
   border-radius: 3px;
   padding-left: var(--Space-14);
-
+  transition-property: background-color;
+  transition-duration: var(--transition-duration-short);
+  transition-delay: var(--transition-delay-long);
   &:hover {
-    background: var(--NoraNeutral-100);
+    background-color: var(--NoraNeutral-100);
+    transition-delay: var(--transition-delay-short);
     cursor: pointer;
   }
 }

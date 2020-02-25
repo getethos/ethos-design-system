@@ -162,54 +162,6 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
-Completed
-
-```jsx
-import styles from './IconLink.module.scss'
-import noraStyles from './NoraIconLink.module.scss'
-
-// Completed state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
-
-;<IconLink
-  iconPrefix="fas"
-  iconName="check-square"
-  // Completed
-  iconClassName={`${styles.Icon} ${styles.Completed}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={styles.LinkRight}
-  textPosition="right"
-  copy="Completed"
-  onClick={(ev) => {
-    console.log('(Completed) onclick called...')
-  }}
-/>
-```
-
-Completed/Active
-
-```jsx
-import styles from './IconLink.module.scss'
-import noraStyles from './NoraIconLink.module.scss'
-
-// Completed state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
-
-;<IconLink
-  iconPrefix="fas"
-  iconName="check-square"
-  // Completed
-  iconClassName={`${styles.Icon} ${styles.Completed} ${styles.Active}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={`${styles.LinkRight} ${styles.Active}`}
-  textPosition="right"
-  copy="Completed"
-  onClick={(ev) => {
-    console.log('(Completed) onclick called...')
-  }}
-/>
-```
-
 Required
 
 ```jsx
@@ -255,98 +207,128 @@ const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.Ic
 />
 ```
 
-Error
+Completed—click to toggle between active and normal
 
 ```jsx
 import styles from './IconLink.module.scss'
+/**
+ * You can simulate this by importing these convenience sass classes
+ * and setting the `styles.Active`
+ * @import '~ethos-design-system/src/nora/components/IconLink/IconLink.module.scss';
+ * */
 import noraStyles from './NoraIconLink.module.scss'
 
-// Error state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+const YourComponent = () => {
+  const [isActive, setIsActive] = React.useState(false)
+  const sillyToggle = (ev) => {
+    setIsActive(!isActive)
+  }
 
-;<IconLink
-  iconPrefix="fal"
-  iconName="exclamation-triangle"
-  // Error
-  iconClassName={`${styles.Icon} ${styles.Error}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={styles.LinkRight}
-  textPosition="right"
-  copy="MVR"
-  onClick={(ev) => {
-    console.log('mvr (Error) onclick called...')
-  }}
-/>
+  const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+
+  const linkClass = `${styles.LinkRight} ${isActive ? styles.Active : ''}`
+
+  const completedIconClass = `${styles.Icon} ${styles.Completed} ${
+    isActive ? styles.Active : ''
+  }`
+
+  return (
+    <IconLink
+      iconPrefix="fas"
+      iconName="check-square"
+      iconClassName={completedIconClass}
+      iconContainerClassName={iconContainerClasses}
+      textClassName={linkClass}
+      textPosition="right"
+      copy="Completed"
+      onClick={sillyToggle}
+    />
+  )
+}
+;<YourComponent />
 ```
 
-Error/Active
+Error—click to toggle between active and normal
 
 ```jsx
 import styles from './IconLink.module.scss'
+/**
+ * You can simulate this by importing these convenience sass classes
+ * and setting the `styles.Active`
+ * @import '~ethos-design-system/src/nora/components/IconLink/IconLink.module.scss';
+ * */
 import noraStyles from './NoraIconLink.module.scss'
 
-// Error state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+const YourComponent = () => {
+  const [isActive, setIsActive] = React.useState(false)
+  const sillyToggle = (ev) => {
+    setIsActive(!isActive)
+  }
 
-;<IconLink
-  iconPrefix="fal"
-  iconName="exclamation-triangle"
-  // Error
-  iconClassName={`${styles.Icon} ${styles.Error} ${styles.Active}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={`${styles.LinkRight} ${styles.Active}`}
-  textPosition="right"
-  copy="MVR"
-  onClick={(ev) => {
-    console.log('mvr (Error) onclick called...')
-  }}
-/>
+  const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+
+  const linkClass = `${styles.LinkRight} ${isActive ? styles.Active : ''}`
+
+  const errorIconClass = `${styles.Icon} ${styles.Error} ${
+    isActive ? styles.Active : ''
+  }`
+
+  return (
+    <IconLink
+      iconPrefix="fal"
+      iconName="exclamation-triangle"
+      // Error
+      iconClassName={errorIconClass}
+      iconContainerClassName={iconContainerClasses}
+      textClassName={linkClass}
+      textPosition="right"
+      copy="MVR"
+      onClick={sillyToggle}
+    />
+  )
+}
+;<YourComponent />
 ```
 
-Waived
+Waived—click to toggle between active and normal
 
 ```jsx
 import styles from './IconLink.module.scss'
+/**
+ * You can simulate this by importing these convenience sass classes
+ * and setting the `styles.Active`
+ * @import '~ethos-design-system/src/nora/components/IconLink/IconLink.module.scss';
+ * */
 import noraStyles from './NoraIconLink.module.scss'
 
-// Waived state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
+const YourComponent = () => {
+  const [isActive, setIsActive] = React.useState(false)
+  const sillyToggle = (ev) => {
+    setIsActive(!isActive)
+  }
 
-;<IconLink
-  iconPrefix="fal"
-  iconName="window-close"
-  iconClassName={`${styles.Icon} ${styles.Waived}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={styles.LinkRight}
-  textPosition="right"
-  copy="MVR"
-  onClick={(ev) => {
-    console.log('mvr (Waived) onclick called...')
-  }}
-/>
-```
+  const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
 
-Waived/Active
+  const linkClass = `${styles.LinkRight} ${isActive ? styles.Active : ''}`
 
-```jsx
-import styles from './IconLink.module.scss'
-import noraStyles from './NoraIconLink.module.scss'
+  const waivedIconClass = `${styles.Icon} ${styles.Waived} ${
+    isActive ? styles.Active : ''
+  }`
 
-// Waived state
-const iconContainerClasses = `${noraStyles.LeftNavIconLinkContainer} ${styles.IconLinkContainer}`
-
-;<IconLink
-  iconPrefix="fal"
-  iconName="window-close"
-  iconClassName={`${styles.Icon} ${styles.Waived} ${styles.Active}`}
-  iconContainerClassName={iconContainerClasses}
-  textClassName={`${styles.LinkRight} ${styles.Active}`}
-  textPosition="right"
-  copy="MVR"
-  onClick={(ev) => {
-    console.log('mvr (Waived) onclick called...')
-  }}
-/>
+  return (
+    <IconLink
+      iconPrefix="fal"
+      iconName="window-close"
+      iconClassName={waivedIconClass}
+      iconContainerClassName={iconContainerClasses}
+      textClassName={linkClass}
+      textPosition="right"
+      copy="MVR"
+      onClick={sillyToggle}
+    />
+  )
+}
+;<YourComponent />
 ```
 
 ## Nora—Right Sidebar
