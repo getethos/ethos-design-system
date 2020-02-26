@@ -6,14 +6,30 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="Container Right"
-      />
+        class="Container Open Right"
+      >
+         
+        <p>
+          Test Message
+        </p>
+        <button>
+          A button
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="Container Right"
-    />
+      class="Container Open Right"
+    >
+       
+      <p>
+        Test Message
+      </p>
+      <button>
+        A button
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

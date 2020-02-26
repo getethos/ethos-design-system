@@ -6,29 +6,49 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="NoraDrawer Container Right"
+        class="NoraDrawer Container Open Right"
       >
         <header
           class="Header"
         >
           <button
             class="Close"
-          />
+          >
+            Cancel
+          </button>
+          Order Evidences
         </header>
+         
+        <p>
+          This is a test
+        </p>
+        <button>
+          A button
+        </button>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="NoraDrawer Container Right"
+      class="NoraDrawer Container Open Right"
     >
       <header
         class="Header"
       >
         <button
           class="Close"
-        />
+        >
+          Cancel
+        </button>
+        Order Evidences
       </header>
+       
+      <p>
+        This is a test
+      </p>
+      <button>
+        A button
+      </button>
     </div>
   </div>,
   "debug": [Function],
