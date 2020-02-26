@@ -10,7 +10,7 @@ const MyApp = () => {
     <>
       <NoraDrawer
         isOpen={open}
-        position="left"
+        position="right" // Try changing this to "left"
         labelCopy="Order Evidences"
         closeCopy="Cancel"
       >

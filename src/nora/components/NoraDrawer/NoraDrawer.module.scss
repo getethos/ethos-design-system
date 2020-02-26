@@ -12,6 +12,9 @@ div.NoraDrawer {
   justify-content: center;
   height: 110px;
   border-bottom: 1px solid var(--GrayStrokeAndDisabled--translucent);
+  color: var(--NoraNeutral-900);
+  font-size: calc(var(--compact-font-size) * 1px);
+  font-weight: 500;
 }
 
 .Close {
@@ -19,6 +22,7 @@ div.NoraDrawer {
   left: 0;
   background: none;
   border: none;
+  font-size: var(--Nora-Font-13);
   &:hover {
     cursor: pointer;
   }

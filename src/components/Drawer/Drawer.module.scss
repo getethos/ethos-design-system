@@ -6,7 +6,6 @@
   background-color: var(--White);
   padding: 0 var(--Space-24) var(--Space-32);
   transition: transform var(--transition-duration-short);
-  transform: translate(-375px);
   position: fixed;
   top: 0;
   z-index: 1;
@@ -15,10 +14,12 @@
 
 .Left {
   left: 0;
+  transform: translate(-375px);
 }
 
 .Right {
   right: 0;
+  transform: translate(375px);
 }
 
 .Open {
