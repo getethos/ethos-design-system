@@ -8,7 +8,7 @@ const MyApp = () => {
   }
   return (
     <>
-      <Drawer isOpen={open} position="left">
+      <Drawer onDismiss={setOpen} isOpen={open} position="left">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor
           urna sed quam rhoncus lobortis. In malesuada cursus lacus, quis dictum

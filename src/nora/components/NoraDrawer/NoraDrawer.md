@@ -1,11 +1,13 @@
 ```jsx
 import { Button } from '../../../components/index'
+import { codes } from '../../../helpers/constants.js'
 
 const MyApp = () => {
   const [open, setOpen] = React.useState(false)
   const toggleDrawer = () => {
     setOpen(!open)
   }
+
   return (
     <>
       <NoraDrawer
@@ -13,6 +15,7 @@ const MyApp = () => {
         position="right" // Try changing this to "left"
         labelCopy="Order Evidences"
         closeCopy="Cancel"
+        onDismiss={setOpen}
       >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor

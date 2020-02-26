@@ -17,12 +17,18 @@ import styles from './NoraDrawer.module.scss'
 export const NoraDrawer = ({
   children,
   isOpen,
+  onDismiss,
   position,
   labelCopy,
   closeCopy,
 }) => {
   return (
-    <Drawer className={styles.NoraDrawer} isOpen={isOpen} position={position}>
+    <Drawer
+      className={styles.NoraDrawer}
+      onDismiss={onDismiss}
+      isOpen={isOpen}
+      position={position}
+    >
       <header className={styles.Header}>
         <button className={styles.Close}>{closeCopy}</button>
         {labelCopy}
@@ -37,4 +43,5 @@ NoraDrawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   // TODO: top / bottom
   position: PropTypes.oneOf(['left', 'right']),
+  onDismiss: PropTypes.func.isRequired,
 }
