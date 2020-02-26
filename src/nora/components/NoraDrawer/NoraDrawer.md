@@ -1,5 +1,5 @@
 ```jsx
-import { Button } from '../index'
+import { Button } from '../../../components/index'
 
 const MyApp = () => {
   const [open, setOpen] = React.useState(false)
@@ -8,7 +8,12 @@ const MyApp = () => {
   }
   return (
     <>
-      <Drawer isOpen={open} position="left">
+      <NoraDrawer
+        isOpen={open}
+        position="left"
+        labelCopy="Order Evidences"
+        closeCopy="Cancel"
+      >
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor
           urna sed quam rhoncus lobortis. In malesuada cursus lacus, quis dictum
@@ -33,7 +38,7 @@ const MyApp = () => {
           felis. Sed sed dui ipsum. Ut mi sem, ultrices vel quam a, ultricies
           sodales purus. Vivamus rutrum laoreet lectus.
         </p>
-      </Drawer>
+      </NoraDrawer>
       <Button.Medium.Black onClick={toggleDrawer}>
         Toggle Drawer
       </Button.Medium.Black>

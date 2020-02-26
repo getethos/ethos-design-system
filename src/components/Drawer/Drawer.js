@@ -9,30 +9,17 @@ import styles from './Drawer.module.scss'
  *
  * @param {ReactNode} children - Children to render within the drawer
  * @param {boolean} isOpen - indicates if drawer is open or not
- * @param {string} labelCopy - Copy to display in the drawer's header
  *
  * @return {JsxElement}
  */
-export const Drawer = ({
-  children,
-  isOpen,
-  position,
-  labelCopy,
-  closeCopy,
-}) => {
+export const Drawer = ({ children, isOpen, position, className }) => {
   const positionClass = position == 'left' ? styles.Left : styles.Right
-  const classes = isOpen
+  let classes = isOpen
     ? `${styles.Container} ${styles.Open} ${positionClass}`
     : `${styles.Container} ${positionClass}`
-  return (
-    <div className={classes}>
-      <header className={styles.Header}>
-        <button className={styles.Close}>{closeCopy}</button>
-        {labelCopy}
-      </header>
-      {children}
-    </div>
-  )
+
+  classes = className ? `${className} ${classes}` : classes
+  return <div className={classes}>{children}</div>
 }
 
 Drawer.propTypes = {
@@ -40,4 +27,5 @@ Drawer.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   // TODO: top / bottom
   position: PropTypes.oneOf(['left', 'right']),
+  className: PropTypes.string,
 }

@@ -1,0 +1,40 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Drawer } from '../../../components/index'
+import styles from './NoraDrawer.module.scss'
+
+/**
+ * Drawer component used to progressively disclose information when toggled
+ *
+ * @public (or @private?)
+ *
+ * @param {ReactNode} children - Children to render within the drawer
+ * @param {boolean} isOpen - indicates if drawer is open or not
+ * @param {string} labelCopy - Copy to display in the drawer's header
+ *
+ * @return {JsxElement}
+ */
+export const NoraDrawer = ({
+  children,
+  isOpen,
+  position,
+  labelCopy,
+  closeCopy,
+}) => {
+  return (
+    <Drawer className={styles.NoraDrawer} isOpen={isOpen} position={position}>
+      <header className={styles.Header}>
+        <button className={styles.Close}>{closeCopy}</button>
+        {labelCopy}
+      </header>
+      {children}
+    </Drawer>
+  )
+}
+
+NoraDrawer.propTypes = {
+  children: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  // TODO: top / bottom
+  position: PropTypes.oneOf(['left', 'right']),
+}

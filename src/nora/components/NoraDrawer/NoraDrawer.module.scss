@@ -1,0 +1,25 @@
+/**
+ * We use the leading div. for specificity over the base Drawer component's css module
+ */
+div.NoraDrawer {
+  top: 56px;
+}
+
+.Header {
+  display: flex;
+  position: relative;
+  padding-top: var(--Space-64);
+  justify-content: center;
+  height: 110px;
+  border-bottom: 1px solid var(--GrayStrokeAndDisabled--translucent);
+}
+
+.Close {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
