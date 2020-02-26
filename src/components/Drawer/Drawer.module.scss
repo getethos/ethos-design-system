@@ -1,0 +1,46 @@
+@import '../Animation.scss';
+
+.Container {
+  height: 100vh;
+  width: 375px;
+  background-color: var(--White);
+  padding: var(--Space-32) var(--Space-24);
+  transition: transform var(--transition-duration-short);
+  transform: translate(-375px);
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  box-shadow: var(--Space-10) 0px var(--Space-10) rgba(0, 0, 0, 0);
+}
+
+.Left {
+  left: 0;
+}
+
+.Right {
+  right: 0;
+}
+
+.Open {
+  transform: translate(0);
+  box-shadow: unset;
+  box-shadow: var(--Space-10) 0px var(--Space-10) rgba(0, 0, 0, 0.2);
+}
+
+.Header {
+  display: flex;
+  position: relative;
+  padding-top: var(--Space-64);
+  justify-content: center;
+  height: 110px;
+  border-bottom: 1px solid var(--GrayStrokeAndDisabled--translucent);
+}
+.Close {
+  position: absolute;
+  left: 0;
+  background: none;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
