@@ -4,7 +4,9 @@ exports[`NoraDrawer default rendering 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div />
+    <div
+      aria-hidden="true"
+    />
     <div
       id="drawer-root"
     >
@@ -34,7 +36,9 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div />,
+  "container": <div
+    aria-hidden="true"
+  />,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
