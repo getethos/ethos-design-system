@@ -30,7 +30,9 @@ export const NoraDrawer = ({
       position={position}
     >
       <header className={styles.Header}>
-        <button className={styles.Close}>{closeCopy}</button>
+        <button onClick={() => onDismiss(false)} className={styles.Close}>
+          {closeCopy}
+        </button>
         {labelCopy}
       </header>
       {children}

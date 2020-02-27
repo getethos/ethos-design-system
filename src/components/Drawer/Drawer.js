@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
 import useOutsideClick from '../../hooks/a11y/useOutsideClick'
+import useTrapFocus from '../../hooks/a11y/useTrapFocus'
+import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import styles from './Drawer.module.scss'
 
 /**
@@ -23,8 +25,9 @@ export const Drawer = ({
   ...rest
 }) => {
   const drawerRef = useRef(null)
-
   useOutsideClick(drawerRef, () => onDismiss(false))
+  useTrapFocus(drawerRef, isOpen)
+  useHideAriaSiblings(drawerRef, isOpen)
 
   const positionClass = position == 'left' ? styles.Left : styles.Right
   let classes = isOpen
