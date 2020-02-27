@@ -989,3 +989,26 @@ export declare const Drawer: {
     props: any
   }
 }
+
+export declare const NoraDrawer: {
+  ({
+    children,
+    onDismiss,
+    isOpen,
+    position,
+    className,
+    labelCopy,
+    closeCopy,
+  }: {
+    children: React.ReactNode
+    onDismiss: any
+    isOpen: boolean
+    labelCopy: string
+    closeCopy: string
+    position?: string
+    className?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}

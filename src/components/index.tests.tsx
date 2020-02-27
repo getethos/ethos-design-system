@@ -34,7 +34,13 @@ class DrawerTest extends React.Component<any, any> {
 class NoraDrawerTest extends React.Component<any, any> {
   render() {
     return (
-      <NoraDrawer onDismiss={() => {}} isOpen={true} position="left">
+      <NoraDrawer
+        onDismiss={() => {}}
+        isOpen={true}
+        position="left"
+        labelCopy="label copy"
+        closeCopy="close copy"
+      >
         hey
       </NoraDrawer>
     )
