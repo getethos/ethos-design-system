@@ -968,3 +968,47 @@ export declare const IconLink: {
     props: any
   }
 }
+
+export declare const Drawer: {
+  ({
+    children,
+    onDismiss,
+    isOpen,
+    position,
+    className,
+    ...rest
+  }: {
+    children: React.ReactNode
+    onDismiss: any
+    isOpen: boolean
+    position?: string
+    className?: string
+    'data-tid'?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
+export declare const NoraDrawer: {
+  ({
+    children,
+    onDismiss,
+    isOpen,
+    position,
+    className,
+    labelCopy,
+    closeCopy,
+  }: {
+    children: React.ReactNode
+    onDismiss: any
+    isOpen: boolean
+    labelCopy: string
+    closeCopy: string
+    position?: string
+    className?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}

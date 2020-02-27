@@ -5,6 +5,7 @@ export const INIT_INVALID = 'INVALID'
 export const codes = {
   PAGE_UP: 33,
   PAGE_DOWN: 34,
+  ESCAPE: 27,
   RETURN: 13,
   SPACE: 32,
   END: 35,

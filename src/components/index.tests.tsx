@@ -2,11 +2,13 @@ import * as React from 'react'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
+import { Drawer } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { IconLink } from './index'
 import { NoraButton } from './index'
+import { NoraDrawer } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -19,6 +21,31 @@ import { ZipInput } from './index'
 
 // -------------- Localized tests ----------------//
 
+class DrawerTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Drawer onDismiss={() => {}} isOpen={true} position="left">
+        hey
+      </Drawer>
+    )
+  }
+}
+
+class NoraDrawerTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraDrawer
+        onDismiss={() => {}}
+        isOpen={true}
+        position="left"
+        labelCopy="label copy"
+        closeCopy="close copy"
+      >
+        hey
+      </NoraDrawer>
+    )
+  }
+}
 class NoraButtonTest extends React.Component<any, any> {
   render() {
     return <NoraButton>Submit</NoraButton>
