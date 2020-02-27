@@ -8,7 +8,7 @@ div.NoraDrawer {
 .Header {
   display: flex;
   position: relative;
-  padding-top: var(--Space-64);
+  padding-top: var(--Space-72);
   justify-content: center;
   height: 110px;
   border-bottom: 1px solid var(--GrayStrokeAndDisabled--translucent);
@@ -20,9 +20,12 @@ div.NoraDrawer {
 .Close {
   position: absolute;
   left: 0;
+  top: var(--Space-64);
   background: none;
   border: none;
   font-size: var(--Nora-Font-13);
+  height: var(--Space-32);
+  line-height: var(--Space-32);
   color: var(--NoraRed-400);
 
   &:hover {

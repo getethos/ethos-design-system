@@ -21,7 +21,7 @@ const MyApp = () => {
         closeCopy="Cancel"
         onDismiss={setIsOpen}
       >
-        <section className={styles.section}>
+        <section className={styles.Section}>
           <h1>Keyboard Navigation</h1>
           <span>
             Links may need <pre>tabindex="0"</pre> applied to gain focusability.
