@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
 import useOutsideClick from '../../hooks/a11y/useOutsideClick'
+import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import useTrapFocus from '../../hooks/a11y/useTrapFocus'
 import styles from './Drawer.module.scss'
@@ -24,6 +25,7 @@ const DrawerContent = ({
   classes = className ? `${className} ${classes}` : classes
 
   useOutsideClick(drawerRef, () => onDismiss(false))
+  useOutsideEscape(drawerRef, () => onDismiss(false))
   useTrapFocus(drawerRef, isOpen)
   useHideAriaSiblings(drawerRef, isOpen)
 
@@ -57,17 +59,10 @@ export const Drawer = ({
     ? styles.DrawerWrapperActive
     : styles.DrawerWrapper
 
-  const handleKeyDown = (e) => {
-    if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
-      onDismiss(false)
-    }
-  }
-
   return (
     <Portal id="drawer-root">
       <div
         className={overlayClasses}
-        onKeyDown={handleKeyDown}
         aria-hidden={!isOpen}
         data-testid="base-drawer-container"
       >

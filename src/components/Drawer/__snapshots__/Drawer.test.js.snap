@@ -12,17 +12,23 @@ Object {
     >
       <div
         aria-hidden="false"
-        aria-label="drawer"
-        class="Container Open Right"
-        role="dialog"
+        class="DrawerWrapperActive"
+        data-testid="base-drawer-container"
       >
-         
-        <p>
-          Test Message
-        </p>
-        <button>
-          A button
-        </button>
+        <div
+          aria-hidden="false"
+          aria-label="drawer"
+          class="Container Open Right"
+          role="dialog"
+        >
+           
+          <p>
+            Test Message
+          </p>
+          <button>
+            A button
+          </button>
+        </div>
       </div>
     </div>
   </body>,

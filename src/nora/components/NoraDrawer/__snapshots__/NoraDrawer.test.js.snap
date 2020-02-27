@@ -12,27 +12,33 @@ Object {
     >
       <div
         aria-hidden="false"
-        aria-label="drawer"
-        class="NoraDrawer Container Open Right"
-        role="dialog"
+        class="DrawerWrapperActive"
+        data-testid="base-drawer-container"
       >
-        <header
-          class="Header"
+        <div
+          aria-hidden="false"
+          aria-label="drawer"
+          class="NoraDrawer Container Open Right"
+          role="dialog"
         >
-          <button
-            class="Close"
+          <header
+            class="Header"
           >
-            Cancel
+            <button
+              class="Close"
+            >
+              Cancel
+            </button>
+            Order Evidences
+          </header>
+           
+          <p>
+            This is a test
+          </p>
+          <button>
+            A button
           </button>
-          Order Evidences
-        </header>
-         
-        <p>
-          This is a test
-        </p>
-        <button>
-          A button
-        </button>
+        </div>
       </div>
     </div>
   </body>,
