@@ -43,6 +43,15 @@ const DrawerContent = ({
   )
 }
 
+DrawerContent.propTypes = {
+  children: PropTypes.node.isRequired,
+  onDismiss: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  position: PropTypes.oneOf(['left', 'right']),
+  className: PropTypes.string,
+  'data-tid': PropTypes.string,
+}
+
 /**
  * Drawer component used to progressively disclose information when toggled
  */
