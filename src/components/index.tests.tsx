@@ -8,6 +8,7 @@ import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { IconLink } from './index'
 import { NoraButton } from './index'
+import { NoraDrawer } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -30,6 +31,15 @@ class DrawerTest extends React.Component<any, any> {
   }
 }
 
+class NoraDrawerTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraDrawer onDismiss={() => {}} isOpen={true} position="left">
+        hey
+      </NoraDrawer>
+    )
+  }
+}
 class NoraButtonTest extends React.Component<any, any> {
   render() {
     return <NoraButton>Submit</NoraButton>
