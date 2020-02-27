@@ -154,7 +154,7 @@ ButtonSelectGroup.propTypes = {
   currentError: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   /** Set's the caption of the group's label */
-  labelCopy: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string,
   /** Name of the field, provided a uuid if not supplied. */
   name: PropTypes.string,
   /** When set to `true`, the group's label will be displayed uppercase */
