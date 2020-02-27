@@ -44,4 +44,6 @@ NoraDrawer.propTypes = {
   // TODO: top / bottom
   position: PropTypes.oneOf(['left', 'right']),
   onDismiss: PropTypes.func.isRequired,
+  labelCopy: PropTypes.string.isRequired,
+  closeCopy: PropTypes.string.isRequired,
 }

@@ -2,11 +2,13 @@ import React from 'react'
 import { Drawer } from './index'
 import { render, screen } from '@testing-library/react'
 
+const onDismissFn = jest.fn()
+
 describe('Drawer', () => {
   it('default rendering', () => {
     const testMessage = 'Test Message'
     const tree = render(
-      <Drawer isOpen={true} position="right">
+      <Drawer onDismiss={onDismissFn} isOpen={true} position="right">
         {' '}
         <p>{testMessage}</p>
         <button>A button</button>
@@ -17,26 +19,36 @@ describe('Drawer', () => {
 
   it('isOpen falsy', () => {
     const testMessage = 'Test Message'
-    const { container } = render(
-      <Drawer isOpen={false} position="right">
+    const { queryByTestId } = render(
+      <Drawer
+        data-tid="le-drawer"
+        onDismiss={onDismissFn}
+        isOpen={false}
+        position="right"
+      >
         {' '}
         <p>{testMessage}</p>
         <button>A button</button>
       </Drawer>
     )
-    expect(container.firstChild.classList.contains('Open')).toBe(false)
+    expect(queryByTestId('le-drawer').classList.contains('Open')).toBe(false)
   })
 
   it('isOpen truthy', () => {
     const testMessage = 'Test Message'
-    const { container } = render(
-      <Drawer isOpen={true} position="right">
+    const { queryByTestId } = render(
+      <Drawer
+        data-tid="le-drawer"
+        onDismiss={onDismissFn}
+        isOpen={true}
+        position="right"
+      >
         {' '}
         <p>{testMessage}</p>
         <button>A button</button>
       </Drawer>
     )
     expect(screen.getByText(testMessage)).toBeDefined()
-    expect(container.firstChild.classList.contains('Open')).toBe(true)
+    expect(queryByTestId('le-drawer').classList.contains('Open')).toBe(true)
   })
 })

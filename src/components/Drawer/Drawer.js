@@ -20,6 +20,7 @@ export const Drawer = ({
   isOpen,
   position,
   className,
+  ...rest
 }) => {
   const drawerRef = useRef(null)
 
@@ -32,23 +33,6 @@ export const Drawer = ({
 
   classes = className ? `${className} ${classes}` : classes
 
-  /**
-   * Handler will set the the drawer's onDismiss to `false` when the escape
-   * key is pressed
-   *
-   * @private
-   *
-   * @param {KeyboardEvent} e - the keyboard event
-   *
-   * @return {void}
-   */
-  const handleKeyDown = (e) => {
-    console.log('yo yo yo')
-    if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
-      onDismiss(false)
-    }
-  }
-
   return (
     <Portal id="drawer-root">
       <div
@@ -57,6 +41,7 @@ export const Drawer = ({
         role="dialog"
         aria-hidden={!isOpen}
         ref={drawerRef}
+        data-testid={rest['data-tid']}
       >
         {children}
       </div>
@@ -76,4 +61,6 @@ Drawer.propTypes = {
   position: PropTypes.oneOf(['left', 'right']),
   /** additional css classes */
   className: PropTypes.string,
+  /** data attribute for testing */
+  'data-tid': PropTypes.string,
 }

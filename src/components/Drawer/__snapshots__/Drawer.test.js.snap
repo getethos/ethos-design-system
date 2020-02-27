@@ -4,9 +4,15 @@ exports[`Drawer default rendering 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
-    <div>
+    <div />
+    <div
+      id="drawer-root"
+    >
       <div
+        aria-hidden="false"
+        aria-label="drawer"
         class="Container Open Right"
+        role="dialog"
       >
          
         <p>
@@ -18,19 +24,7 @@ Object {
       </div>
     </div>
   </body>,
-  "container": <div>
-    <div
-      class="Container Open Right"
-    >
-       
-      <p>
-        Test Message
-      </p>
-      <button>
-        A button
-      </button>
-    </div>
-  </div>,
+  "container": <div />,
   "debug": [Function],
   "findAllByAltText": [Function],
   "findAllByDisplayValue": [Function],
