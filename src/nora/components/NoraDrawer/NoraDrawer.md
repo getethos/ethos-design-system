@@ -5,8 +5,11 @@ import styles from './NoraDrawerExample.module.scss'
 
 const MyApp = () => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const toggleDrawer = () => {
-    setIsOpen(!isOpen)
+  const openDrawer = () => {
+    // If we're open, the `useOutsideClick` hook listens for clicks outside of
+    // the drawer and handles closing it. So, we only want to use our Button to
+    // open drawer (not as a toggle). As such, we disable the button if isOpen
+    setIsOpen(true)
   }
 
   return (
@@ -25,14 +28,14 @@ const MyApp = () => {
           </span>
           <p>
             Tab around in here! Here's is a link to{' '}
-            <a tabindex="0" href="https://www.mozilla.org">
+            <a tabIndex="0" href="https://www.mozilla.org">
               Mozilla
             </a>
             .
           </p>
           <p>
             Here is another link, to the{' '}
-            <a tabindex="0" href="https://developer.mozilla.org">
+            <a tabIndex="0" href="https://developer.mozilla.org">
               Mozilla Developer Network
             </a>
             .
@@ -52,8 +55,8 @@ const MyApp = () => {
           </p>
         </section>
       </NoraDrawer>
-      <Button.Medium.Black onClick={toggleDrawer}>
-        Toggle Drawer
+      <Button.Medium.Black onClick={openDrawer} disabled={isOpen}>
+        Open Drawer
       </Button.Medium.Black>
     </>
   )
