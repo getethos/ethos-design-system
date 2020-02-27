@@ -46,3 +46,6 @@
   box-shadow: unset;
   box-shadow: var(--Space-10) 0px var(--Space-10) rgba(0, 0, 0, 0.2);
 }
+.Open.Right {
+  box-shadow: -10px 0px var(--Space-10) rgba(0, 0, 0, 0.2);
+}

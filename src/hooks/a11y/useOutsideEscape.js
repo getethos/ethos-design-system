@@ -1,4 +1,5 @@
 import { useLayoutEffect } from 'react'
+import { codes } from '../../helpers/constants.js'
 
 /**
  * Hook handles a escape key when using portals
@@ -13,7 +14,7 @@ import { useLayoutEffect } from 'react'
 function useOutsideEscape(ref, handler) {
   const handleEscapeOutside = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
-      if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
+      if (['Escape', 'esc'].includes(e.key) || e.keyCode === codes.ESCAPE) {
         handler.call(this, [e])
       }
     }
