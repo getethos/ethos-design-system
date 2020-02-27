@@ -135,12 +135,14 @@ export const ButtonSelectGroup = ({
         className="button-select-group"
         data-tid={rest['data-tid']}
       >
-        <InputLabel
-          element="span"
-          id={name}
-          labelCopy={labelCopy}
-          allCaps={allCaps}
-        />
+        {labelCopy && (
+          <InputLabel
+            element="span"
+            id={name}
+            labelCopy={labelCopy}
+            allCaps={allCaps}
+          />
+        )}
         <div className={optionsContainerClassNames.join(' ')}>{options}</div>
       </div>
       {getError(currentError, formTouched)}
