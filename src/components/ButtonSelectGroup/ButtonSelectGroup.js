@@ -135,12 +135,14 @@ export const ButtonSelectGroup = ({
         className="button-select-group"
         data-tid={rest['data-tid']}
       >
-        <InputLabel
-          element="span"
-          id={name}
-          labelCopy={labelCopy}
-          allCaps={allCaps}
-        />
+        {labelCopy && (
+          <InputLabel
+            element="span"
+            id={name}
+            labelCopy={labelCopy}
+            allCaps={allCaps}
+          />
+        )}
         <div className={optionsContainerClassNames.join(' ')}>{options}</div>
       </div>
       {getError(currentError, formTouched)}
@@ -154,7 +156,7 @@ ButtonSelectGroup.propTypes = {
   currentError: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   /** Set's the caption of the group's label */
-  labelCopy: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string,
   /** Name of the field, provided a uuid if not supplied. */
   name: PropTypes.string,
   /** When set to `true`, the group's label will be displayed uppercase */
