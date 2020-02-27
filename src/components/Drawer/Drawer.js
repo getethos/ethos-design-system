@@ -2,19 +2,47 @@ import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
 import useOutsideClick from '../../hooks/a11y/useOutsideClick'
-import useTrapFocus from '../../hooks/a11y/useTrapFocus'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
+import useTrapFocus from '../../hooks/a11y/useTrapFocus'
 import styles from './Drawer.module.scss'
+
+const DrawerContent = ({
+  children,
+  onDismiss,
+  isOpen,
+  position,
+  className,
+  ...rest
+}) => {
+  const drawerRef = useRef(null)
+
+  const positionClass = position == 'left' ? styles.Left : styles.Right
+  let classes = isOpen
+    ? `${styles.Container} ${styles.Open} ${positionClass}`
+    : `${styles.Container} ${positionClass}`
+
+  classes = className ? `${className} ${classes}` : classes
+
+  useOutsideClick(drawerRef, () => onDismiss(false))
+  useTrapFocus(drawerRef, isOpen)
+  useHideAriaSiblings(drawerRef, isOpen)
+
+  return (
+    <div
+      className={classes}
+      aria-label="drawer"
+      role="dialog"
+      aria-hidden={!isOpen}
+      ref={drawerRef}
+      data-testid={rest['data-tid']}
+    >
+      {children}
+    </div>
+  )
+}
 
 /**
  * Drawer component used to progressively disclose information when toggled
- *
- * @public (or @private?)
- *
- * @param {ReactNode} children - Children to render within the drawer
- * @param {boolean} isOpen - indicates if drawer is open or not
- *
- * @return {JsxElement}
  */
 export const Drawer = ({
   children,
@@ -24,29 +52,34 @@ export const Drawer = ({
   className,
   ...rest
 }) => {
-  const drawerRef = useRef(null)
-  useOutsideClick(drawerRef, () => onDismiss(false))
-  useTrapFocus(drawerRef, isOpen)
-  useHideAriaSiblings(drawerRef, isOpen)
+  // We need this so we can track key down events esp the ESC key
+  const overlayClasses = isOpen
+    ? styles.DrawerWrapperActive
+    : styles.DrawerWrapper
 
-  const positionClass = position == 'left' ? styles.Left : styles.Right
-  let classes = isOpen
-    ? `${styles.Container} ${styles.Open} ${positionClass}`
-    : `${styles.Container} ${positionClass}`
-
-  classes = className ? `${className} ${classes}` : classes
+  const handleKeyDown = (e) => {
+    if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
+      onDismiss(false)
+    }
+  }
 
   return (
     <Portal id="drawer-root">
       <div
-        className={classes}
-        aria-label="drawer"
-        role="dialog"
+        className={overlayClasses}
+        onKeyDown={handleKeyDown}
         aria-hidden={!isOpen}
-        ref={drawerRef}
-        data-testid={rest['data-tid']}
+        data-testid="base-drawer-container"
       >
-        {children}
+        <DrawerContent
+          onDismiss={onDismiss}
+          isOpen={isOpen}
+          position={position}
+          className={className}
+          {...rest}
+        >
+          {children}
+        </DrawerContent>
       </div>
     </Portal>
   )

@@ -4,6 +4,7 @@ import { Button } from '../index'
 const MyApp = () => {
   const [open, setOpen] = React.useState(false)
   const toggleDrawer = () => {
+    console.log('toggle drawer called...')
     setOpen(!open)
   }
   return (
