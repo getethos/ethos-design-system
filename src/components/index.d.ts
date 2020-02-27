@@ -968,3 +968,24 @@ export declare const IconLink: {
     props: any
   }
 }
+
+export declare const Drawer: {
+  ({
+    children,
+    onDismiss,
+    isOpen,
+    position,
+    className,
+    ...rest
+  }: {
+    children: React.ReactNode
+    onDismiss: any
+    isOpen: boolean
+    position?: string
+    className?: string
+    'data-tid'?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}

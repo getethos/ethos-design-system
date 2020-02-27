@@ -2,6 +2,7 @@ import * as React from 'react'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
+import { Drawer } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
@@ -18,6 +19,16 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class DrawerTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Drawer onDismiss={() => {}} isOpen={true} position="left">
+        hey
+      </Drawer>
+    )
+  }
+}
 
 class NoraButtonTest extends React.Component<any, any> {
   render() {
