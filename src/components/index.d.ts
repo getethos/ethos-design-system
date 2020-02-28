@@ -2,14 +2,20 @@
 
 import React, { Component, HTMLAttributes, ReactNode } from 'react'
 
-declare class UniversalNavbar extends React.Component {
-  state: {
-    showMobileMenu: boolean
-  }
-  toggleHamburger: () => void
-  render(): JSX.Element
+type UniversalNavbarProps = {
+  /** Hide cta on mobile viewport */
+  hideMobileCta?: boolean
+  /** Hide cta on desktop */
+  hideDesktopCta?: boolean
+  /** Run analytics function when CTA Button gets clicked */
+  trackCtaClick?: () => void
+  /** agnotistic Reach and React Router Link */
+  LinkComponent?: any
+  /** Href for the logo */
+  logoHref?: string
 }
-export { UniversalNavbar }
+
+export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
 
 export { Layout } from './Layout/index.js'
 
