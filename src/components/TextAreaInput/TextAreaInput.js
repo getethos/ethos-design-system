@@ -18,11 +18,16 @@ function PrivateTextAreaInput({
   allCaps,
   formChangeHandler,
   validator,
+  placeholder,
+  onBlur,
+  onFocus,
+  onChange,
   initialValue,
   currentValue,
   currentError,
   setFieldTouched,
   restrictIllegal,
+
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -52,7 +57,7 @@ function PrivateTextAreaInput({
     formChangeHandler,
   })
 
-  const onChange = (ev) => {
+  const onChangeHandler = (ev) => {
     const val = ev.target.value
     const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
@@ -80,7 +85,7 @@ function PrivateTextAreaInput({
     }
   }, [])
 
-  const onBlur = (ev) => {
+  const onBlurHandler = (ev) => {
     setAllTouched()
     doValidation(ev.target.value, true)
   }
@@ -106,10 +111,11 @@ function PrivateTextAreaInput({
         className={classes.join(' ')}
         disabled={disabled}
         name={name}
-        placeholder={rest.placeholder}
+        placeholder={placeholder}
         onPaste={onPaste}
-        onChange={onChange}
-        onBlur={onBlur}
+        onChange={onChangeHandler}
+        onBlur={onBlurHandler}
+        onFocus={onFocus}
         value={value}
         data-tid={rest['data-tid']}
       />
@@ -124,12 +130,17 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  formChangeHandler: PropTypes.func,
+  currentValue: PropTypes.string,
   initialValue: PropTypes.string,
   labelCopy: PropTypes.string,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
+  onChange: PropTypes.func,
+  currentError: PropTypes.string,
+  setFieldTouched: PropTypes.bool,
   restrictIllegal: PropTypes.bool,
 }
 
