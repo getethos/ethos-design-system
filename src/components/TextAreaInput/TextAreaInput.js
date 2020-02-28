@@ -10,14 +10,6 @@ import restrict from '../../helpers/restrict.js'
 import styles from './TextAreaInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
-/**
- * @param  {String}   props.name        Input name and htmlFor prop for label
- * @param  {String}   props.labelCopy   User-visible text of label for input
- * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
- * @param  {Function} props.validator   Function for validating input
- * @param  {Boolean}  props.disabled
- */
-
 function PrivateTextAreaInput({
   resize,
   disabled,
@@ -34,10 +26,9 @@ function PrivateTextAreaInput({
   ...rest
 }) {
   // Verify that all required props were supplied
-  const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
+  const [includesRequired] = useRequired(['data-tid', 'name'])
   let allRelevantProps = Object.assign({}, rest, {
     name: name,
-    labelCopy: labelCopy,
     allCaps: allCaps,
   })
   includesRequired(allRelevantProps)
@@ -110,7 +101,7 @@ function PrivateTextAreaInput({
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} />
+      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
       <textarea
         className={classes.join(' ')}
         disabled={disabled}
@@ -134,7 +125,7 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
   initialValue: PropTypes.string,
-  labelCopy: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
   onBlur: PropTypes.func,
