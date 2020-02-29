@@ -130,7 +130,6 @@ PrivateBirthdateInput.propTypes = {
 
 PrivateBirthdateInput.defaultProps = {
   dateFormat: 'mm/dd/yyyy',
-  labelCopy: 'Birthdate',
 }
 
 const BirthdateInputFactory = (privateProps) => {
