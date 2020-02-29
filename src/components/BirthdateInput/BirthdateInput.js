@@ -119,7 +119,7 @@ PrivateBirthdateInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  labelCopy: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   initialValue: PropTypes.string,
 }
