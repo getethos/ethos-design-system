@@ -18,19 +18,19 @@ export const NoraTextAreaInput = ({
 }) => {
   return (
     <>
-    <p className={labelClassName}>{labelCopy}</p>
-    <BaseTextAreaInput 
-      className={textClassName}
-      disabled={disabled}
-      name={name}
-      placeholder={placeholder}
-      onPaste={onPaste}
-      onChange={onChange}
-      onBlur={onBlur}
-      value={value}
-      data-tid={rest['data-tid']}
-    />
-  </>
+      {labelCopy && <p className={labelClassName}>{labelCopy}</p>}
+      <BaseTextAreaInput
+        className={textClassName}
+        disabled={disabled}
+        name={name}
+        placeholder={placeholder}
+        onPaste={onPaste}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
+        data-tid={rest['data-tid']}
+      />
+    </>
   )
 }
 
