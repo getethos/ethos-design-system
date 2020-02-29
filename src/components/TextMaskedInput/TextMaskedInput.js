@@ -135,7 +135,9 @@ export const TextMaskedInput = (props) => {
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
+      {labelCopy && (
+        <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
+      )}
       {getMaskedInputByType(mask)}
       {!doValidation && getError(currentError, whichTouched)}
     </>
