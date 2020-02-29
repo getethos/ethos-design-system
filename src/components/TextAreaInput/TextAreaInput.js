@@ -25,7 +25,6 @@ function PrivateTextAreaInput({
   currentError,
   setFieldTouched,
   restrictIllegal,
-
   ...rest
 }) {
   // Verify that all required props were supplied
