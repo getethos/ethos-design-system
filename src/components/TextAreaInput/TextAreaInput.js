@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { InputLabel } from '../InputLabel'
+import { BaseTextAreaInput } from './BaseTextAreaInput'
 import useRequired from '../../hooks/useRequired.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInvalid from '../../hooks/useInvalid.js'
@@ -19,9 +20,6 @@ function PrivateTextAreaInput({
   formChangeHandler,
   validator,
   placeholder,
-  onBlur,
-  onFocus,
-  onChange,
   initialValue,
   currentValue,
   currentError,
@@ -31,9 +29,10 @@ function PrivateTextAreaInput({
   ...rest
 }) {
   // Verify that all required props were supplied
-  const [includesRequired] = useRequired(['data-tid', 'name'])
+  const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
   let allRelevantProps = Object.assign({}, rest, {
     name: name,
+    labelCopy: labelCopy,
     allCaps: allCaps,
   })
   includesRequired(allRelevantProps)
@@ -57,7 +56,7 @@ function PrivateTextAreaInput({
     formChangeHandler,
   })
 
-  const onChangeHandler = (ev) => {
+  const onChange = (ev) => {
     const val = ev.target.value
     const restrictedVal = restrictIllegal ? restrict(val) : val
     setValue(restrictedVal)
@@ -85,7 +84,7 @@ function PrivateTextAreaInput({
     }
   }, [])
 
-  const onBlurHandler = (ev) => {
+  const onBlur = (ev) => {
     setAllTouched()
     doValidation(ev.target.value, true)
   }
@@ -106,16 +105,15 @@ function PrivateTextAreaInput({
 
   return (
     <>
-      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
-      <textarea
+      <InputLabel name={name} labelCopy={labelCopy} />
+      <BaseTextAreaInput 
         className={classes.join(' ')}
         disabled={disabled}
         name={name}
         placeholder={placeholder}
         onPaste={onPaste}
-        onChange={onChangeHandler}
-        onBlur={onBlurHandler}
-        onFocus={onFocus}
+        onChange={onChange}
+        onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
       />
@@ -133,12 +131,9 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   formChangeHandler: PropTypes.func,
   currentValue: PropTypes.string,
   initialValue: PropTypes.string,
-  labelCopy: PropTypes.string,
+  labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
-  onChange: PropTypes.func,
   currentError: PropTypes.string,
   setFieldTouched: PropTypes.bool,
   restrictIllegal: PropTypes.bool,
