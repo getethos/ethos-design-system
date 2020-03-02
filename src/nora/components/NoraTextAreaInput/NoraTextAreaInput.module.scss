@@ -1,4 +1,5 @@
 @import '../Attributes.css';
+@import '../../../components/Animation.scss';
 
 .NoraTextInput {
   width: 100%;
@@ -10,7 +11,7 @@
   border-radius: var(--Radius-3);
   padding: 9px var(--Space-16) 9px;
   color: var(--NoraNeutral-400);
-  transition: border-color 250ms ease;
+  transition: border-color var(--transition-duration-short) ease;
   outline: 0;
   margin: 0;
   resize: none;

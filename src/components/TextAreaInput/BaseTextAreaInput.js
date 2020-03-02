@@ -1,6 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * @private
+ * 
+ * Required props:
+ * @param {string} name
+ * @param {string} 'data-tid'
+ */
+
 export const BaseTextAreaInput = ({
   className,
   disabled,
