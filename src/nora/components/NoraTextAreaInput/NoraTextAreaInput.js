@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TextAreaInput } from '../../../components/index'
+
+import { BaseTextAreaInput } from '../../../components/TextAreaInput/BaseTextAreaInput'
 import styles from './NoraTextAreaInput.module.scss'
 
 export const NoraTextAreaInput = ({
@@ -16,15 +17,15 @@ export const NoraTextAreaInput = ({
   onChange,
   ...rest
 }) => {
+  const classes = [styles.NoraTextInput, textClassName].join(' ')
   return (
     <>
-      {labelCopy && <p className={labelClassName}>{labelCopy}</p>}
+      {labelCopy && <label className={labelClassName}>{labelCopy}</label>}
       <BaseTextAreaInput
-        className={textClassName}
+        className={classes}
         disabled={disabled}
         name={name}
         placeholder={placeholder}
-        onPaste={onPaste}
         onChange={onChange}
         onBlur={onBlur}
         value={value}

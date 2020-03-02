@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoraTextAreaInput default rendering 1`] = `
+<textarea
+  className="NoraTextInput "
+  data-tid="text-nora-textareainput"
+  name="nombre"
+  placeholder="enter text here"
+/>
+`;
