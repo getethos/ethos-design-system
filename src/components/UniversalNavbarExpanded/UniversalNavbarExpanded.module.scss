@@ -253,8 +253,9 @@ $tablet-small-end: 670px;
     }
     &:hover {
       > div:first-child {
-        // either this text shadow or we have to set fixed widths on each nav item
-        // in order to meet bolding spec without changing item width
+        /** either this text shadow or we have to set fixed widths on each nav item
+          * in order to meet bolding spec without changing item width
+        **/
         text-shadow: 0 0 0.25px #272727, 0 0 0.25px #272727;
       }
       .dropdownNavChildren {
