@@ -26,8 +26,9 @@ export const NoraTextAreaInput = ({
         disabled={disabled}
         name={name}
         placeholder={placeholder}
-        onChange={onChange}
         onBlur={onBlur}
+        onFocus={onFocus}
+        onChange={onChange}
         value={value}
         data-tid={rest['data-tid']}
       />

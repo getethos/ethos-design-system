@@ -105,7 +105,7 @@ function PrivateTextAreaInput({
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
-      <BaseTextAreaInput 
+      <BaseTextAreaInput
         className={classes.join(' ')}
         disabled={disabled}
         name={name}
