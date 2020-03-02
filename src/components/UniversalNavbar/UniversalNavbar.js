@@ -106,7 +106,7 @@ class UniversalNavbar extends React.Component {
           href={link.href}
           LinkComponent={link.href !== '/login/' ? LinkComponent : null}
         >
-          <SearchIcon/>
+          <SearchIcon />
         </NavLink>
       )
     }
@@ -119,7 +119,7 @@ class UniversalNavbar extends React.Component {
           href={link.href}
           LinkComponent={link.href !== '/login/' ? LinkComponent : null}
         >
-          <AccountIcon/>
+          <AccountIcon />
         </NavLink>
       )
     }

@@ -248,10 +248,11 @@ $tablet-small-end: 670px;
     height: 64px;
     display: flex;
     align-items: center;
-    > div:first-child {
-      transition: text-shadow 0.3s;
-    }
+    padding-top: 4px;
+    border-bottom: 4px solid transparent;
     &:hover {
+      border-bottom-color: var(--BrandForest);
+
       > div:first-child {
         /** either this text shadow or we have to set fixed widths on each nav item
           * in order to meet bolding spec without changing item width
@@ -263,7 +264,7 @@ $tablet-small-end: 670px;
       }
     }
     &:not(:last-child) {
-      padding-right: var(--Space-24);
+      margin-right: var(--Space-24);
     }
   }
 }
@@ -275,7 +276,39 @@ $tablet-small-end: 670px;
   left: 0;
   width: 100%;
   background: var(--White);
+  border-top: solid 1px var(--GrayStrokeAndDisabled--translucent);
 }
 
 .dropdownNavChild {
+  margin-bottom: 16px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.dropdownNavChildrenInner {
+  display: flex;
+  padding: var(--Space-40) 0 var(--Space-24);
+  .dropdownNavChildrenCta {
+    margin-right: 120px;
+    @include for-laptop-only {
+      max-width: 264px;
+    }
+    @include for-desktop-only {
+      max-width: 320px;
+    }
+  }
+  .dropdownNavChildrenItems {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 504px;
+    .dropdownNavChild {
+      flex-basis: calc(50%);
+      max-width: 216px;
+      &:nth-child(odd){
+        margin-right: 72px;
+      }
+    }
+  }
 }

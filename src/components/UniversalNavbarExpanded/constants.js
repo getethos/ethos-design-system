@@ -30,34 +30,35 @@ export const LINKS = {
         cta: {
           href: '/insurance/term-life-insurance/',
           title: 'Our plans',
-          subcopy: 'Learn more about term life insurance and the plans and options you have available.',
+          subcopy:
+            'Learn more about term life insurance and the plans and options you have available.',
           id: uuidv4(),
         },
         items: [
           {
             id: uuidv4(),
-            href: '/why-ethos/',
-            title: 'Why Ethos',
+            href: '/life/ethos-term-insurance/',
+            title: 'What is term life insurance and how much does it cost?',
           },
           {
             id: uuidv4(),
-            href: '/why-ethos/',
-            title: 'Why Ethos',
+            href: '/how-it-works/',
+            title: 'How our application process works',
           },
           {
             id: uuidv4(),
-            href: '/why-ethos/',
-            title: 'Why Ethos',
+            href: '/life/who-needs-life-insurance/',
+            title: 'Do I need life insurance?',
           },
           {
             id: uuidv4(),
-            href: '/why-ethos/',
-            title: 'Why Ethos',
+            href: '/life/how-choose-right-type-life-insurance/',
+            title: 'Choosing your coverage amount and term length',
           },
           {
             id: uuidv4(),
-            href: '/why-ethos/',
-            title: 'Why Ethos',
+            href: '/app/needs/',
+            title: 'Coverage calculator',
           },
         ],
       },

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import uuidv4 from 'uuid/v4'
+
 import FancyAnimatedLogo from '../UniversalNavbar/FancyAnimatedLogo'
 import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-black.js'
 import LogoWhite from '../UniversalNavbar/assets/ethos-logo-white.js'
@@ -76,19 +76,7 @@ class UniversalNavbarExpanded extends React.Component {
     )
 
     const { showMobileMenu, activeAccordionItem } = this.state
-    console.log(this.state)
-    const renderTextLink = (link) => (
-      <div key={link.id} className={styles.textLink}>
-        <NavLink
-          href={link.href}
-          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
-        >
-          {link.title}
-        </NavLink>
-      </div>
-    )
 
-    // These are bespoke icons but design may replace w/FA at a later date
     const renderSearchIcon = (link) => {
       return (
         <NavLink
@@ -176,7 +164,10 @@ class UniversalNavbarExpanded extends React.Component {
                         {link.subnav &&
                           link.subnav.items.length > 0 &&
                           link.subnav.items.map((link) => (
-                            <div className={styles.accordionChild}>
+                            <div
+                              key={link.id}
+                              className={styles.accordionChild}
+                            >
                               <TitleSmall.Sans.Light300>
                                 <NavLink
                                   href={link.href}
@@ -195,8 +186,8 @@ class UniversalNavbarExpanded extends React.Component {
                     </div>
                   ))}
                 </div>
-                <div class={styles.belowAccordion}>
-                  <div class={styles.belowAccordionItem}>
+                <div className={styles.belowAccordion}>
+                  <div className={styles.belowAccordionItem}>
                     <NavLink
                       href={LINKS.TERM.href}
                       LinkComponent={
@@ -208,7 +199,7 @@ class UniversalNavbarExpanded extends React.Component {
                       </TitleMedium.Sans.Regular400>
                     </NavLink>
                   </div>
-                  <div class={styles.belowAccordionItem}>
+                  <div className={styles.belowAccordionItem}>
                     <NavLink
                       href={LINKS.ACCOUNT.href}
                       LinkComponent={
@@ -220,7 +211,7 @@ class UniversalNavbarExpanded extends React.Component {
                       </TitleMedium.Sans.Regular400>
                     </NavLink>
                   </div>
-                  <div class={styles.belowAccordionItem}>
+                  <div className={styles.belowAccordionItem}>
                     <NavLink
                       href={LINKS.SEARCH.href}
                       LinkComponent={
@@ -255,53 +246,64 @@ class UniversalNavbarExpanded extends React.Component {
                     {LogoNotAnimated({ className: styles.logo })}
                   </NavLink>
                   <div className={styles.dropdownNav}>
-                    {LINKS.NAVLINKS.map((link, idx) => (
-                      <div className={styles.dropdownNavParent}>
+                    {LINKS.NAVLINKS.map((link) => (
+                      <div className={styles.dropdownNavParent} key={link.id}>
                         <Footnote.Regular400>{link.title}</Footnote.Regular400>
                         <div className={styles.dropdownNavChildren}>
                           <Layout.HorizontallyPaddedContainer>
-                            {link.subnav &&
-                              link.subnav.cta &&
-                              link.subnav.cta.href && (
-                                <NavLink
-                                  href={link.subnav.cta.href}
-                                  LinkComponent={
-                                    link.subnav.cta.href !== '/login/'
-                                      ? LinkComponent
-                                      : null
-                                  }
-                                >
-                                  {link.subnav.cta.title && (
-                                    <TitleSmall.Serif.Book500>
-                                      {link.subnav.cta.title}
-                                    </TitleSmall.Serif.Book500>
-                                  )}
-                                  <Spacer.H8 />
-                                  {link.subnav.cta.subcopy && (
-                                    <Body.Regular400 color={COLORS.GRAY_SECONDARY}>
-                                      {link.subnav.cta.subcopy}
-                                    </Body.Regular400>
-                                  )}
-                                </NavLink>
-                              )}
-                            {link.subnav &&
-                              link.subnav.items.length > 0 &&
-                              link.subnav.items.map((link) => (
-                                <div className={styles.dropdownNavChild}>
-                                  <TitleSmall.Sans.Light300>
+                            <div className={styles.dropdownNavChildrenInner}>
+                              <div className={styles.dropdownNavChildrenCta}>
+                                {link.subnav &&
+                                  link.subnav.cta &&
+                                  link.subnav.cta.href && (
                                     <NavLink
-                                      href={link.href}
+                                      href={link.subnav.cta.href}
                                       LinkComponent={
-                                        link.href !== '/login/'
+                                        link.subnav.cta.href !== '/login/'
                                           ? LinkComponent
                                           : null
                                       }
                                     >
-                                      {link.title}
+                                      {link.subnav.cta.title && (
+                                        <TitleSmall.Serif.Book500>
+                                          {link.subnav.cta.title}
+                                        </TitleSmall.Serif.Book500>
+                                      )}
+                                      <Spacer.H8 />
+                                      {link.subnav.cta.subcopy && (
+                                        <Body.Regular400
+                                          color={COLORS.GRAY_SECONDARY}
+                                        >
+                                          {link.subnav.cta.subcopy}
+                                        </Body.Regular400>
+                                      )}
                                     </NavLink>
-                                  </TitleSmall.Sans.Light300>
-                                </div>
-                              ))}
+                                  )}
+                              </div>
+                              <div className={styles.dropdownNavChildrenItems}>
+                                {link.subnav &&
+                                  link.subnav.items.length > 0 &&
+                                  link.subnav.items.map((link) => (
+                                    <div
+                                      className={styles.dropdownNavChild}
+                                      key={link.id}
+                                    >
+                                      <Footnote.Regular400>
+                                        <NavLink
+                                          href={link.href}
+                                          LinkComponent={
+                                            link.href !== '/login/'
+                                              ? LinkComponent
+                                              : null
+                                          }
+                                        >
+                                          {link.title}
+                                        </NavLink>
+                                      </Footnote.Regular400>
+                                    </div>
+                                  ))}
+                              </div>
+                            </div>
                           </Layout.HorizontallyPaddedContainer>
                         </div>
                       </div>

@@ -67,9 +67,9 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
-                      href="/why-ethos/"
+                      href="/life/ethos-term-insurance/"
                     >
-                      Why Ethos
+                      What is term life insurance and how much does it cost?
                     </NavLink>
                   </PublicTypeComponent>
                 </div>
@@ -78,9 +78,9 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
-                      href="/why-ethos/"
+                      href="/how-it-works/"
                     >
-                      Why Ethos
+                      How our application process works
                     </NavLink>
                   </PublicTypeComponent>
                 </div>
@@ -89,9 +89,9 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
-                      href="/why-ethos/"
+                      href="/life/who-needs-life-insurance/"
                     >
-                      Why Ethos
+                      Do I need life insurance?
                     </NavLink>
                   </PublicTypeComponent>
                 </div>
@@ -100,9 +100,9 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
-                      href="/why-ethos/"
+                      href="/life/how-choose-right-type-life-insurance/"
                     >
-                      Why Ethos
+                      Choosing your coverage amount and term length
                     </NavLink>
                   </PublicTypeComponent>
                 </div>
@@ -111,9 +111,9 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
-                      href="/why-ethos/"
+                      href="/app/needs/"
                     >
-                      Why Ethos
+                      Coverage calculator
                     </NavLink>
                   </PublicTypeComponent>
                 </div>
@@ -178,10 +178,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
             </div>
           </div>
           <div
-            class="belowAccordion"
+            className="belowAccordion"
           >
             <div
-              class="belowAccordionItem"
+              className="belowAccordionItem"
             >
               <NavLink
                 href="/term"
@@ -192,7 +192,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               </NavLink>
             </div>
             <div
-              class="belowAccordionItem"
+              className="belowAccordionItem"
             >
               <NavLink
                 LinkComponent={null}
@@ -204,7 +204,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               </NavLink>
             </div>
             <div
-              class="belowAccordionItem"
+              className="belowAccordionItem"
             >
               <NavLink
                 href="/search/"
@@ -360,73 +360,85 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                   <HorizontallyPaddedContainer
                     element="div"
                   >
-                    <NavLink
-                      href="/insurance/term-life-insurance/"
+                    <div
+                      className="dropdownNavChildrenInner"
                     >
-                      <PublicTypeComponent>
-                        Our plans
-                      </PublicTypeComponent>
-                      <PublicSpacerComponent />
-                      <PublicTypeComponent
-                        color="GraySecondary"
+                      <div
+                        className="dropdownNavChildrenCta"
                       >
-                        Learn more about term life insurance and the plans and options you have available.
-                      </PublicTypeComponent>
-                    </NavLink>
-                    <div
-                      className="dropdownNavChild"
-                    >
-                      <PublicTypeComponent>
                         <NavLink
-                          href="/why-ethos/"
+                          href="/insurance/term-life-insurance/"
                         >
-                          Why Ethos
+                          <PublicTypeComponent>
+                            Our plans
+                          </PublicTypeComponent>
+                          <PublicSpacerComponent />
+                          <PublicTypeComponent
+                            color="GraySecondary"
+                          >
+                            Learn more about term life insurance and the plans and options you have available.
+                          </PublicTypeComponent>
                         </NavLink>
-                      </PublicTypeComponent>
-                    </div>
-                    <div
-                      className="dropdownNavChild"
-                    >
-                      <PublicTypeComponent>
-                        <NavLink
-                          href="/why-ethos/"
+                      </div>
+                      <div
+                        className="dropdownNavChildrenItems"
+                      >
+                        <div
+                          className="dropdownNavChild"
                         >
-                          Why Ethos
-                        </NavLink>
-                      </PublicTypeComponent>
-                    </div>
-                    <div
-                      className="dropdownNavChild"
-                    >
-                      <PublicTypeComponent>
-                        <NavLink
-                          href="/why-ethos/"
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/ethos-term-insurance/"
+                            >
+                              What is term life insurance and how much does it cost?
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
                         >
-                          Why Ethos
-                        </NavLink>
-                      </PublicTypeComponent>
-                    </div>
-                    <div
-                      className="dropdownNavChild"
-                    >
-                      <PublicTypeComponent>
-                        <NavLink
-                          href="/why-ethos/"
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/how-it-works/"
+                            >
+                              How our application process works
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
                         >
-                          Why Ethos
-                        </NavLink>
-                      </PublicTypeComponent>
-                    </div>
-                    <div
-                      className="dropdownNavChild"
-                    >
-                      <PublicTypeComponent>
-                        <NavLink
-                          href="/why-ethos/"
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/who-needs-life-insurance/"
+                            >
+                              Do I need life insurance?
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
                         >
-                          Why Ethos
-                        </NavLink>
-                      </PublicTypeComponent>
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/how-choose-right-type-life-insurance/"
+                            >
+                              Choosing your coverage amount and term length
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/app/needs/"
+                            >
+                              Coverage calculator
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                      </div>
                     </div>
                   </HorizontallyPaddedContainer>
                 </div>
@@ -442,7 +454,18 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <HorizontallyPaddedContainer
                     element="div"
-                  />
+                  >
+                    <div
+                      className="dropdownNavChildrenInner"
+                    >
+                      <div
+                        className="dropdownNavChildrenCta"
+                      />
+                      <div
+                        className="dropdownNavChildrenItems"
+                      />
+                    </div>
+                  </HorizontallyPaddedContainer>
                 </div>
               </div>
               <div
@@ -456,7 +479,18 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <HorizontallyPaddedContainer
                     element="div"
-                  />
+                  >
+                    <div
+                      className="dropdownNavChildrenInner"
+                    >
+                      <div
+                        className="dropdownNavChildrenCta"
+                      />
+                      <div
+                        className="dropdownNavChildrenItems"
+                      />
+                    </div>
+                  </HorizontallyPaddedContainer>
                 </div>
               </div>
               <div
@@ -470,7 +504,18 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <HorizontallyPaddedContainer
                     element="div"
-                  />
+                  >
+                    <div
+                      className="dropdownNavChildrenInner"
+                    >
+                      <div
+                        className="dropdownNavChildrenCta"
+                      />
+                      <div
+                        className="dropdownNavChildrenItems"
+                      />
+                    </div>
+                  </HorizontallyPaddedContainer>
                 </div>
               </div>
             </div>
