@@ -55,3 +55,34 @@ export const AccordionToggleIcon = () => (
     />
   </svg>
 )
+
+export const DropdownParentIcon = () => (
+  <svg
+    width="8"
+    height="8"
+    viewBox="0 0 8 8"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0.999942 3.17157L3.82837 6L6.6568 3.17157"
+      stroke="#272727"
+      strokeWidth="2"
+    />
+  </svg>
+)
+
+export const DropdownLinkIcon = () => (
+  <svg
+    width="19"
+    height="12"
+    viewBox="0 0 19 12"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.704 0.576L15.888 5.688H0.864V6.888H15.864L10.704 12H12.504L18.192 6.288L12.504 0.576H10.704Z"
+      fill="#272727"
+    />
+  </svg>
+)

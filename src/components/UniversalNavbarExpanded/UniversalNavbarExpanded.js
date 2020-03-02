@@ -8,6 +8,8 @@ import {
   AccountIcon,
   SearchIcon,
   AccordionToggleIcon,
+  DropdownParentIcon,
+  DropdownLinkIcon,
 } from '../UniversalNavbar/assets/icons.js'
 import {
   Body,
@@ -23,6 +25,13 @@ import TransformingBurgerButton from '../UniversalNavbar/TransformingBurgerButto
 import { LINKS } from './constants.js'
 import NavLink from '../UniversalNavbar/NavLink'
 import styles from './UniversalNavbarExpanded.module.scss'
+
+// TODO: Dry up this prop usage for NavLink
+// LinkComponent={
+//   link.href !== '/login/'
+//     ? LinkComponent
+//     : null
+// }
 
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
@@ -248,7 +257,12 @@ class UniversalNavbarExpanded extends React.Component {
                   <div className={styles.dropdownNav}>
                     {LINKS.NAVLINKS.map((link) => (
                       <div className={styles.dropdownNavParent} key={link.id}>
-                        <Footnote.Regular400>{link.title}</Footnote.Regular400>
+                        <Footnote.Regular400>
+                          {link.title}
+                          <span className={styles.dropdownNavParentIcon}>
+                            <DropdownParentIcon />
+                          </span>
+                        </Footnote.Regular400>
                         <div className={styles.dropdownNavChildren}>
                           <Layout.HorizontallyPaddedContainer>
                             <div className={styles.dropdownNavChildrenInner}>
@@ -266,7 +280,8 @@ class UniversalNavbarExpanded extends React.Component {
                                     >
                                       {link.subnav.cta.title && (
                                         <TitleSmall.Serif.Book500>
-                                          {link.subnav.cta.title}
+                                          <span>{link.subnav.cta.title}</span>
+                                          <DropdownLinkIcon />
                                         </TitleSmall.Serif.Book500>
                                       )}
                                       <Spacer.H8 />
@@ -297,7 +312,8 @@ class UniversalNavbarExpanded extends React.Component {
                                               : null
                                           }
                                         >
-                                          {link.title}
+                                          <span>{link.title}</span>
+                                          <DropdownLinkIcon />
                                         </NavLink>
                                       </Footnote.Regular400>
                                     </div>

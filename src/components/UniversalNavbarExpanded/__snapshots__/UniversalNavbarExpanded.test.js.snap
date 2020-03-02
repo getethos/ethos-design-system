@@ -353,6 +353,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               >
                 <PublicTypeComponent>
                   What we offer
+                  <span
+                    className="dropdownNavParentIcon"
+                  >
+                    <DropdownParentIcon />
+                  </span>
                 </PublicTypeComponent>
                 <div
                   className="dropdownNavChildren"
@@ -370,7 +375,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                           href="/insurance/term-life-insurance/"
                         >
                           <PublicTypeComponent>
-                            Our plans
+                            <span>
+                              Our plans
+                            </span>
+                            <DropdownLinkIcon />
                           </PublicTypeComponent>
                           <PublicSpacerComponent />
                           <PublicTypeComponent
@@ -390,7 +398,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/ethos-term-insurance/"
                             >
-                              What is term life insurance and how much does it cost?
+                              <span>
+                                What is term life insurance and how much does it cost?
+                              </span>
+                              <DropdownLinkIcon />
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -401,7 +412,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/how-it-works/"
                             >
-                              How our application process works
+                              <span>
+                                How our application process works
+                              </span>
+                              <DropdownLinkIcon />
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -412,7 +426,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/who-needs-life-insurance/"
                             >
-                              Do I need life insurance?
+                              <span>
+                                Do I need life insurance?
+                              </span>
+                              <DropdownLinkIcon />
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -423,7 +440,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/how-choose-right-type-life-insurance/"
                             >
-                              Choosing your coverage amount and term length
+                              <span>
+                                Choosing your coverage amount and term length
+                              </span>
+                              <DropdownLinkIcon />
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -434,7 +454,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/app/needs/"
                             >
-                              Coverage calculator
+                              <span>
+                                Coverage calculator
+                              </span>
+                              <DropdownLinkIcon />
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -448,6 +471,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               >
                 <PublicTypeComponent>
                   Life insurance basics
+                  <span
+                    className="dropdownNavParentIcon"
+                  >
+                    <DropdownParentIcon />
+                  </span>
                 </PublicTypeComponent>
                 <div
                   className="dropdownNavChildren"
@@ -473,6 +501,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               >
                 <PublicTypeComponent>
                   Why Ethos
+                  <span
+                    className="dropdownNavParentIcon"
+                  >
+                    <DropdownParentIcon />
+                  </span>
                 </PublicTypeComponent>
                 <div
                   className="dropdownNavChildren"
@@ -498,6 +531,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               >
                 <PublicTypeComponent>
                   Help Center
+                  <span
+                    className="dropdownNavParentIcon"
+                  >
+                    <DropdownParentIcon />
+                  </span>
                 </PublicTypeComponent>
                 <div
                   className="dropdownNavChildren"

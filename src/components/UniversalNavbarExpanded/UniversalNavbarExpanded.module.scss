@@ -195,6 +195,9 @@ $tablet-small-end: 670px;
     .accordionChildren {
       display: block;
     }
+    .accordionParent svg {
+      transform: scale(1, -1);
+    }
   }
   .accordionParent > div:first-child,
   .accordionChild {
@@ -261,10 +264,14 @@ $tablet-small-end: 670px;
       }
       .dropdownNavChildren {
         display: block;
+        cursor: default;
       }
     }
     &:not(:last-child) {
       margin-right: var(--Space-24);
+    }
+    .dropdownNavParentIcon {
+      margin-left: 4px;
     }
   }
 }
@@ -290,12 +297,22 @@ $tablet-small-end: 670px;
   display: flex;
   padding: var(--Space-40) 0 var(--Space-24);
   .dropdownNavChildrenCta {
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
     margin-right: 120px;
     @include for-laptop-only {
       max-width: 264px;
     }
     @include for-desktop-only {
       max-width: 320px;
+    }
+    svg {
+      margin-left: 4px;
+      width: 19px;
+      height: 19px;
     }
   }
   .dropdownNavChildrenItems {
@@ -306,8 +323,13 @@ $tablet-small-end: 670px;
     .dropdownNavChild {
       flex-basis: calc(50%);
       max-width: 216px;
-      &:nth-child(odd){
+      &:nth-child(odd) {
         margin-right: 72px;
+      }
+      svg {
+        margin-left: 4px;
+        width: 15px;
+        height: 12px;
       }
     }
   }
