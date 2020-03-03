@@ -215,6 +215,10 @@ export const Button = {
       size: PrivateButton.SIZES.SMALL,
       style: PrivateButton.STYLES.BLACK_OUTLINE,
     }),
+    Black: ButtonFactory({
+      size: PrivateButton.SIZES.SMALL,
+      style: PrivateButton.STYLES.BLACK,
+    }),
   },
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,

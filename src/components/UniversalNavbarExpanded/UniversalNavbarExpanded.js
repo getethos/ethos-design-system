@@ -33,6 +33,9 @@ import styles from './UniversalNavbarExpanded.module.scss'
 //     : null
 // }
 
+// TODO: alternate caret weight for DropdownParentIcon pre:hover
+// TODO: 'talk to us' CTA integration once Kustomer is implemented
+
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
   state = {
@@ -80,7 +83,7 @@ class UniversalNavbarExpanded extends React.Component {
         onClick={this.props.trackCtaClick}
         href={LINKS.TERM.href}
       >
-        <Button.Small.BlackOutline>Check my price</Button.Small.BlackOutline>
+        <Button.Small.Black>Check my price</Button.Small.Black>
       </a>
     )
 

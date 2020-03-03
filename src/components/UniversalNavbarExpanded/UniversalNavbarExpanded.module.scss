@@ -118,6 +118,9 @@ $tablet-small-end: 670px;
   @include for-laptop-and-up {
     margin-right: 18px;
     padding-top: 3px;
+    &:hover {
+      opacity: 0.78;
+    }
   }
 }
 
@@ -127,6 +130,9 @@ $tablet-small-end: 670px;
   }
   @include for-laptop-and-up {
     padding-top: 3px;
+    &:hover {
+      opacity: 0.78;
+    }
   }
 }
 
@@ -290,6 +296,9 @@ $tablet-small-end: 670px;
   margin-bottom: 16px;
   a {
     text-decoration: none;
+    &:hover {
+      opacity: 0.78;
+    }
   }
 }
 
@@ -299,6 +308,7 @@ $tablet-small-end: 670px;
   .dropdownNavChildrenCta {
     &:hover {
       span {
+        opacity: 0.78;
         text-decoration: underline;
       }
     }
