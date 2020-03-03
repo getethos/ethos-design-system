@@ -136,7 +136,63 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               </div>
               <div
                 className="accordionChildren"
-              />
+              >
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/term-group-whole/"
+                    >
+                      What are the main types of life insurance and how do they work?
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/underwriting-explained/"
+                    >
+                      What is underwriting and how long does it take?
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/pick-beneficiary/"
+                    >
+                      Choosing your beneficiary
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/who-needs-sp/"
+                    >
+                      What if I don't work?
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/employer-sponsored-life-insurance/"
+                    >
+                      Is my life insurance through work enough?
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+              </div>
             </div>
             <div
               className="accordionItem"
@@ -155,7 +211,63 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               </div>
               <div
                 className="accordionChildren"
-              />
+              >
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/about/"
+                    >
+                      Our mission
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/reviews/"
+                    >
+                      Reviews
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/customer-stories/"
+                    >
+                      Customer stories
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/ethosforgood/"
+                    >
+                      Ethos for Good
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/friends/"
+                    >
+                      Refer a friend
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+              </div>
             </div>
             <div
               className="accordionItem"
@@ -174,7 +286,63 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               </div>
               <div
                 className="accordionChildren"
-              />
+              >
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/faq/life-insurance-basics/"
+                    >
+                      Questions about life insurance
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/faq/ethos/"
+                    >
+                      Questions about Ethos
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/faq/application/"
+                    >
+                      Questions about your application
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/faq/policy/"
+                    >
+                      Questions about your policy
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/contact-us/"
+                    >
+                      Contact us
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+              </div>
             </div>
           </div>
           <div
@@ -488,10 +656,98 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                     >
                       <div
                         className="dropdownNavChildrenCta"
-                      />
+                      >
+                        <NavLink
+                          href="/life/life-insurance-basics/"
+                        >
+                          <PublicTypeComponent>
+                            <span>
+                              Life insurance 101
+                            </span>
+                            <DropdownLinkIcon />
+                          </PublicTypeComponent>
+                          <PublicSpacerComponent />
+                          <PublicTypeComponent
+                            color="GraySecondary"
+                          >
+                            Wondering where to start? We’ve broken down the essentials for you.
+                          </PublicTypeComponent>
+                        </NavLink>
+                      </div>
                       <div
                         className="dropdownNavChildrenItems"
-                      />
+                      >
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/term-group-whole/"
+                            >
+                              <span>
+                                What are the main types of life insurance and how do they work?
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/underwriting-explained/"
+                            >
+                              <span>
+                                What is underwriting and how long does it take?
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/pick-beneficiary/"
+                            >
+                              <span>
+                                Choosing your beneficiary
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/who-needs-sp/"
+                            >
+                              <span>
+                                What if I don't work?
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/employer-sponsored-life-insurance/"
+                            >
+                              <span>
+                                Is my life insurance through work enough?
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                      </div>
                     </div>
                   </HorizontallyPaddedContainer>
                 </div>
@@ -518,10 +774,98 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                     >
                       <div
                         className="dropdownNavChildrenCta"
-                      />
+                      >
+                        <NavLink
+                          href="/why-ethos/"
+                        >
+                          <PublicTypeComponent>
+                            <span>
+                              The Ethos Difference
+                            </span>
+                            <DropdownLinkIcon />
+                          </PublicTypeComponent>
+                          <PublicSpacerComponent />
+                          <PublicTypeComponent
+                            color="GraySecondary"
+                          >
+                            We put people before profit. Find out how we bring our policyholders the best experience possible.
+                          </PublicTypeComponent>
+                        </NavLink>
+                      </div>
                       <div
                         className="dropdownNavChildrenItems"
-                      />
+                      >
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/about/"
+                            >
+                              <span>
+                                Our mission
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/reviews/"
+                            >
+                              <span>
+                                Reviews
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/customer-stories/"
+                            >
+                              <span>
+                                Customer stories
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/life/ethosforgood/"
+                            >
+                              <span>
+                                Ethos for Good
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/friends/"
+                            >
+                              <span>
+                                Refer a friend
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                      </div>
                     </div>
                   </HorizontallyPaddedContainer>
                 </div>
@@ -548,10 +892,98 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                     >
                       <div
                         className="dropdownNavChildrenCta"
-                      />
+                      >
+                        <NavLink
+                          href="/faq/"
+                        >
+                          <PublicTypeComponent>
+                            <span>
+                              FAQ
+                            </span>
+                            <DropdownLinkIcon />
+                          </PublicTypeComponent>
+                          <PublicSpacerComponent />
+                          <PublicTypeComponent
+                            color="GraySecondary"
+                          >
+                            Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.
+                          </PublicTypeComponent>
+                        </NavLink>
+                      </div>
                       <div
                         className="dropdownNavChildrenItems"
-                      />
+                      >
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/faq/life-insurance-basics/"
+                            >
+                              <span>
+                                Questions about life insurance
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/faq/ethos/"
+                            >
+                              <span>
+                                Questions about Ethos
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/faq/application/"
+                            >
+                              <span>
+                                Questions about your application
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/faq/policy/"
+                            >
+                              <span>
+                                Questions about your policy
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                        <div
+                          className="dropdownNavChild"
+                        >
+                          <PublicTypeComponent>
+                            <NavLink
+                              href="/contact-us/"
+                            >
+                              <span>
+                                Contact us
+                              </span>
+                              <DropdownLinkIcon />
+                            </NavLink>
+                          </PublicTypeComponent>
+                        </div>
+                      </div>
                     </div>
                   </HorizontallyPaddedContainer>
                 </div>
