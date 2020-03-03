@@ -32,32 +32,16 @@ const isEnterKeyPress = (event) => {
   }
 }
 
-// TODO: less nesting in scss
-
-// TODO: replace white with color var in scss
-
-// TODO: 504px that's an odd value
-
-// TODO: alternate caret weight for DropdownParentIcon pre:hover
-
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 
 // TODO: adjust width of bottom forest border on parent links
 
 // TODO: smallest laptop size, lower width between subitems w/shorter text
 
-// TODO: set subnav height to largest
-
-// TODO: arrow on same line as individual link
-
 // TODO: replace blue outline on focus with cleaner white underline
 
-// TODO: remove clickability of right side of accordion submenu
-// TODO:  z index variables
-
-// TODO: 3/2/20 QA: Add 1px stroke (#000000 20%) beneath default navbar and underneath dropdown when it's open (low priority)
 // TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority) right 44px override not working for scrolled CTA in navbar on mobile
-// TODO: 3/2/20 QA: Side arrow breaks to new line for one of the menu items on laptop size (low priority)
+
 
 // TODO:  Split main file into separate component files
 // TODO:  Update test descriptions / more tests
@@ -100,6 +84,22 @@ const UniversalNavbarExpanded = ({
     if (isEnterKeyPress(event)) {
       toggleAccordionItem(index)
     }
+  }
+
+  const textStart = (text) => {
+    const alteredText = text.trim().split(' ')
+    return `${alteredText.slice(0, alteredText.length - 1).join(' ')} `
+  }
+
+  const textEnd = (text) => {
+    return (
+      <span>
+        {text
+          .trim()
+          .split(' ')
+          .pop()}
+      </span>
+    )
   }
 
   const NavLinkReduced = ({ className, key, href, children }) => (
@@ -274,10 +274,13 @@ const UniversalNavbarExpanded = ({
               <div className={styles.dropdownNavChild} key={link.id}>
                 <Footnote.Regular400>
                   <NavLinkReduced href={link.href}>
-                    <>
-                      <span>{link.title}</span>
-                      <DropdownLinkIcon />
-                    </>
+                    <div className={styles.dropdownNavChildLink}>
+                      <span>{textStart(link.title)}</span>
+                      <div className={styles.dropdownNavChildTextIcon}>
+                        {textEnd(link.title)}
+                        <DropdownLinkIcon />
+                      </div>
+                    </div>
                   </NavLinkReduced>
                 </Footnote.Regular400>
               </div>
