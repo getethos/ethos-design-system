@@ -26,8 +26,6 @@ import NavLink from '../UniversalNavbar/NavLink'
 import Hamburger from './Hamburger'
 import styles from './UniversalNavbarExpanded.module.scss'
 
-
-
 // TODO: more spacing var usage in scss
 // TODO: less nesting in scss
 // TODO: replace white with color var in scss
@@ -57,7 +55,6 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO:  more code commenting in general
 // TODO:  PropTypes review
 // TODO:  LINKS constant passed in from CMS
-
 
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
@@ -97,7 +94,7 @@ class UniversalNavbarExpanded extends React.Component {
       logoHref,
     } = this.props
 
-    const renderCtaButton = (showWhenScrolled) => (
+    const CtaButton = (showWhenScrolled) => (
       <a
         className={
           'cta-button ' + (showWhenScrolled ? 'show-when-scrolled' : '')
@@ -111,31 +108,27 @@ class UniversalNavbarExpanded extends React.Component {
 
     const { showMobileMenu, activeAccordionItem } = this.state
 
-    const renderSearchIcon = (link) => {
-      return (
-        <NavLink
-          className={styles.searchIcon}
-          key={link.id}
-          href={link.href}
-          LinkComponent={LinkComponent}
-        >
-          <SearchIcon />
-        </NavLink>
-      )
-    }
+    const SearchIconLink = () => (
+      <NavLink
+        className={styles.searchIcon}
+        key={LINKS.SEARCH.id}
+        href={LINKS.SEARCH.href}
+        LinkComponent={LinkComponent}
+      >
+        <SearchIcon />
+      </NavLink>
+    )
 
-    const renderAccountIcon = (link) => {
-      return (
-        <NavLink
-          className={styles.accountIcon}
-          key={link.id}
-          href={link.href}
-          LinkComponent={LinkComponent}
-        >
-          <AccountIcon />
-        </NavLink>
-      )
-    }
+    const AccountIconLink = () => (
+      <NavLink
+        className={styles.accountIcon}
+        key={LINKS.ACCOUNT.id}
+        href={LINKS.ACCOUNT.href}
+        LinkComponent={LinkComponent}
+      >
+        <AccountIcon />
+      </NavLink>
+    )
 
     const DropDownCta = ({ title, subcopy }) => {
       return (
@@ -218,9 +211,7 @@ class UniversalNavbarExpanded extends React.Component {
                           <TitleSmall.Sans.Light300>
                             <NavLink
                               href={link.subnav.cta.href}
-                              LinkComponent={
-                                LinkComponent
-                              }
+                              LinkComponent={LinkComponent}
                             >
                               {link.subnav.cta.title}
                             </NavLink>
@@ -236,9 +227,7 @@ class UniversalNavbarExpanded extends React.Component {
                               <TitleSmall.Sans.Light300>
                                 <NavLink
                                   href={link.href}
-                                  LinkComponent={
-                                    LinkComponent
-                                  }
+                                  LinkComponent={LinkComponent}
                                 >
                                   {link.title}
                                 </NavLink>
@@ -253,9 +242,7 @@ class UniversalNavbarExpanded extends React.Component {
                   <div className={styles.belowAccordionItem}>
                     <NavLink
                       href={LINKS.TERM.href}
-                      LinkComponent={
-                        LinkComponent
-                      }
+                      LinkComponent={LinkComponent}
                     >
                       <TitleMedium.Sans.Regular400>
                         {LINKS.TERM.title}
@@ -265,9 +252,7 @@ class UniversalNavbarExpanded extends React.Component {
                   <div className={styles.belowAccordionItem}>
                     <NavLink
                       href={LINKS.ACCOUNT.href}
-                      LinkComponent={
-                        LinkComponent
-                      }
+                      LinkComponent={LinkComponent}
                     >
                       <TitleMedium.Sans.Regular400>
                         {LINKS.ACCOUNT.title}
@@ -277,9 +262,7 @@ class UniversalNavbarExpanded extends React.Component {
                   <div className={styles.belowAccordionItem}>
                     <NavLink
                       href={LINKS.SEARCH.href}
-                      LinkComponent={
-                        LinkComponent
-                      }
+                      LinkComponent={LinkComponent}
                     >
                       <TitleMedium.Sans.Regular400>
                         {LINKS.SEARCH.title}
@@ -297,8 +280,8 @@ class UniversalNavbarExpanded extends React.Component {
               >
                 {FancyAnimatedLogo()}
               </NavLink>
-              {!hideMobileCta && renderCtaButton(true)}
-              {renderSearchIcon(LINKS.SEARCH)}
+              {!hideMobileCta && CtaButton(true)}
+              <SearchIconLink />
             </div>
 
             <div className={styles.laptopAndUp}>
@@ -326,9 +309,7 @@ class UniversalNavbarExpanded extends React.Component {
                                   link.subnav.cta.href && (
                                     <NavLink
                                       href={link.subnav.cta.href}
-                                      LinkComponent={
-                                        LinkComponent
-                                      }
+                                      LinkComponent={LinkComponent}
                                     >
                                       <DropDownCta
                                         title={link.subnav.cta.title}
@@ -348,9 +329,7 @@ class UniversalNavbarExpanded extends React.Component {
                                       <Footnote.Regular400>
                                         <NavLink
                                           href={link.href}
-                                          LinkComponent={
-                                            LinkComponent
-                                          }
+                                          LinkComponent={LinkComponent}
                                         >
                                           <>
                                             <span>{link.title}</span>
@@ -371,10 +350,10 @@ class UniversalNavbarExpanded extends React.Component {
 
                 {/* Desktop menu items to the right */}
                 <div className={`${styles.flex} ${styles.itemsCenter}`}>
-                  {renderSearchIcon(LINKS.SEARCH)}
-                  {renderAccountIcon(LINKS.ACCOUNT)}
+                  <SearchIconLink />
+                  <AccountIconLink />
                   <div className={styles.cta}>
-                    {!hideDesktopCta && renderCtaButton(false)}
+                    {!hideDesktopCta && CtaButton(false)}
                   </div>
                 </div>
               </div>

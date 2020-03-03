@@ -5,6 +5,7 @@ export const LINKS = {
   TERM: {
     href: '/term',
     title: 'Check my price',
+    id: uuidv4(),
   },
   // TALK: {
   //     id: uuidv4(),
@@ -14,10 +15,12 @@ export const LINKS = {
   ACCOUNT: {
     href: '/login/',
     title: 'Account',
+    id: uuidv4(),
   },
   SEARCH: {
     href: '/search/',
     title: 'Search',
+    id: uuidv4(),
   },
 
   // These are the main top level link and their subnav items
