@@ -35,6 +35,15 @@ import styles from './UniversalNavbarExpanded.module.scss'
 
 // TODO: alternate caret weight for DropdownParentIcon pre:hover
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
+// TODO: adjust width of bottom forest border on parent links
+// TODO: smallest laptop size, lower width between subitems
+// TODO: set subnav height to largest
+// TODO: arrow on same line as individual link
+// TODO: replace blue outline on focus with cleaner white underline
+// TODO: add section CTA top of mobile menu
+// TODO: change to check my price for main CTA
+// TODO: remove clickability of right side of accordion submenu
+// TODO: move CTA on mobile further right, 20px from hamburger (on scroll)
 
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
