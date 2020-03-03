@@ -3,7 +3,9 @@
    * Region:
    * Fancy animated scroll behavior
    */
-@include for-phone-only {
+
+// -and-tablet required here for UniversalNavbarExpanded support
+@include for-phone-and-tablet {
   .letter:not(.fancyO) {
     transition-property: all;
     transition-timing-function: ease-in-out;
