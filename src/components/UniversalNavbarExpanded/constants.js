@@ -1,11 +1,12 @@
 import uuidv4 from 'uuid/v4'
-export const LINKS = {
+
+// for demonstration in styleguide only!
+export const CMS_LINKS = {
   // These are used e.g. in the logo, icons and bottom of mobile nav:
   INDEX: { href: '/' },
   TERM: {
     href: '/term',
     title: 'Check my price',
-    id: uuidv4(),
   },
   // TALK: {
   //     id: uuidv4(),
@@ -15,12 +16,10 @@ export const LINKS = {
   ACCOUNT: {
     href: '/login/',
     title: 'Account',
-    id: uuidv4(),
   },
   SEARCH: {
     href: '/search/',
     title: 'Search',
-    id: uuidv4(),
   },
 
   // These are the main top level link and their subnav items
