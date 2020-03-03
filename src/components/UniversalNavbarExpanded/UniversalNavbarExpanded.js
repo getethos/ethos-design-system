@@ -42,7 +42,6 @@ const isEnterKeyPress = (event) => {
 
 // TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority) right 44px override not working for scrolled CTA in navbar on mobile
 
-
 // TODO:  Split main file into separate component files
 // TODO:  Update test descriptions / more tests
 // TODO:  JS Docs

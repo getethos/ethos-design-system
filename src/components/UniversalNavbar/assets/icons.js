@@ -64,10 +64,7 @@ export const DropdownParentIcon = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M0.999942 3.17157L3.82837 6L6.6568 3.17157"
-      stroke="#272727"
-    />
+    <path d="M0.999942 3.17157L3.82837 6L6.6568 3.17157" stroke="#272727" />
   </svg>
 )
 
