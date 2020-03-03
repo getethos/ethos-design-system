@@ -1049,3 +1049,21 @@ export declare const NoraTextAreaInput: {
     props: any
   }
 }
+
+export declare const NoraCheckboxInput: {
+  ({
+    name,
+    initialValue,
+    children,
+    validator,
+    ...rest
+  }: {
+    name: string
+    initialValue?: string
+    children: React.ReactNode
+    validator?: (value: string) => string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}

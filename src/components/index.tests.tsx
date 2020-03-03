@@ -8,6 +8,7 @@ import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { IconLink } from './index'
 import { NoraButton } from './index'
+import { NoraCheckboxInput } from './index'
 import { NoraDrawer } from './index'
 import { NoraTextAreaInput } from './index'
 import { NumberInput } from './index'
@@ -22,6 +23,18 @@ import { ZipInput } from './index'
 
 // -------------- Localized tests ----------------//
 
+class NoraCheckboxInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraCheckboxInput name="name" data-tid="letid" validator={() => ''}>
+        I agree{' '}
+        <a href="/" target="_blank">
+          Agreement
+        </a>
+      </NoraCheckboxInput>
+    )
+  }
+}
 class DrawerTest extends React.Component<any, any> {
   render() {
     return (
