@@ -978,6 +978,21 @@ export declare const IconLink: {
   }
 }
 
+export declare const Icon: {
+  ({
+    iconPrefix,
+    iconName,
+    className,
+  }: {
+    iconPrefix: string
+    iconName: string
+    className?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
 export declare const Drawer: {
   ({
     children,

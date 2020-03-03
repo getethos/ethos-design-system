@@ -6,6 +6,7 @@ import { Drawer } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
+import { Icon } from './index'
 import { IconLink } from './index'
 import { NoraButton } from './index'
 import { NoraDrawer } from './index'
@@ -78,6 +79,14 @@ class IconLinkTest extends React.Component<any, any> {
         textPosition="right"
         copy="Decision"
       />
+    )
+  }
+}
+
+class IconTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Icon iconPrefix="fal" iconName="file-medical-alt" />
     )
   }
 }
