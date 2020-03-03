@@ -21,9 +21,9 @@ import {
   Footnote,
   COLORS,
 } from '../index'
-import TransformingBurgerButton from '../UniversalNavbar/TransformingBurgerButton/TransformingBurgerButton'
 import { LINKS } from './constants.js'
 import NavLink from '../UniversalNavbar/NavLink'
+import Hamburger from './Hamburger'
 import styles from './UniversalNavbarExpanded.module.scss'
 
 // TODO: Dry up this prop usage for NavLink
@@ -62,6 +62,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO:  more code commenting in general
 // TODO:  PropTypes review
 // TODO:  LINKS constant passed in from CMS
+// TODO:  Navlink children invalid prop
 
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
@@ -141,21 +142,31 @@ class UniversalNavbarExpanded extends React.Component {
       )
     }
 
-    const Hamburger = () => (
-      <div className={styles.hamburger}>
-        <TransformingBurgerButton
-          showMobileMenu={showMobileMenu}
-          clickHandler={this.toggleHamburger}
-          keyPressHandler={this.handleHamburgerKeyPress}
-        />
-      </div>
-    )
+    const DropDownCta = ({ title, subcopy }) => {
+      return (
+        <>
+          <TitleSmall.Serif.Book500>
+            <span>{title}</span>
+            <DropdownLinkIcon />
+          </TitleSmall.Serif.Book500>
+          <Spacer.H8 />
+          <Body.Regular400 color={COLORS.GRAY_SECONDARY}>
+            {subcopy}
+          </Body.Regular400>
+        </>
+      )
+    }
 
     return (
       <div className={styles.blockNavbar}>
         <div className={styles.navbar}>
           <Layout.ScrollDetector>
-            <Hamburger />
+            <Hamburger
+              className={styles.hamburger}
+              menuState={showMobileMenu}
+              clickHandler={this.toggleHamburger}
+              keyPressHandler={this.handleHamburgerKeyPress}
+            />
             <div
               className={
                 showMobileMenu
@@ -175,7 +186,13 @@ class UniversalNavbarExpanded extends React.Component {
                 >
                   {LogoWhite({ className: styles.logo })}
                 </NavLink>
-                <Hamburger />
+
+                <Hamburger
+                  className={styles.hamburger}
+                  menuState={showMobileMenu}
+                  clickHandler={this.toggleHamburger}
+                  keyPressHandler={this.handleHamburgerKeyPress}
+                />
                 <div className={styles.accordion}>
                   {LINKS.NAVLINKS.map((link, idx) => (
                     <div
@@ -324,20 +341,10 @@ class UniversalNavbarExpanded extends React.Component {
                                           : null
                                       }
                                     >
-                                      {link.subnav.cta.title && (
-                                        <TitleSmall.Serif.Book500>
-                                          <span>{link.subnav.cta.title}</span>
-                                          <DropdownLinkIcon />
-                                        </TitleSmall.Serif.Book500>
-                                      )}
-                                      <Spacer.H8 />
-                                      {link.subnav.cta.subcopy && (
-                                        <Body.Regular400
-                                          color={COLORS.GRAY_SECONDARY}
-                                        >
-                                          {link.subnav.cta.subcopy}
-                                        </Body.Regular400>
-                                      )}
+                                      <DropDownCta
+                                        title={link.subnav.cta.title}
+                                        subcopy={link.subnav.cta.subcopy}
+                                      />
                                     </NavLink>
                                   )}
                               </div>
@@ -358,8 +365,10 @@ class UniversalNavbarExpanded extends React.Component {
                                               : null
                                           }
                                         >
-                                          <span>{link.title}</span>
-                                          <DropdownLinkIcon />
+                                          <>
+                                            <span>{link.title}</span>
+                                            <DropdownLinkIcon />
+                                          </>
                                         </NavLink>
                                       </Footnote.Regular400>
                                     </div>
