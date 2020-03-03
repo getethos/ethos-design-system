@@ -3,9 +3,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const Icon = ({ iconPrefix, iconName, className }) => {
-  return (
-    <FontAwesomeIcon className={className} icon={[iconPrefix, iconName]} />
-  )
+  return <FontAwesomeIcon className={className} icon={[iconPrefix, iconName]} />
 }
 
 Icon.propTypes = {
