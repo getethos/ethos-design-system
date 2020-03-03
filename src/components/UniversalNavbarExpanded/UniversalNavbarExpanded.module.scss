@@ -61,10 +61,10 @@ $tablet-small-end: 670px;
   display: flex;
   justify-content: space-between;
   @include for-laptop-only {
-    padding: var(--Space-24) var(--ContainerPadding--Laptop);
+    padding: var(--Space-24);
   }
   @include for-desktop-only {
-    padding: var(--Space-24) var(--ContainerPadding--Desktop);
+    padding: var(--Space-24) var(--Space-48);
   }
 }
 
@@ -345,5 +345,24 @@ $tablet-small-end: 670px;
         height: 12px;
       }
     }
+  }
+}
+
+
+
+@media (min-width: 900px) and (max-width: 929px) {
+  .accountIcon,
+  .searchIcon {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1050px) {
+  .dropdownNav .dropdownNavChildren .dropdownNavChildrenCta {
+    margin-right: 48px;
+      max-width: 224px;
+  }
+  .dropdownNav .dropdownNavChildren .dropdownNavChild:nth-child(odd) {
+    margin-right: 24px;
   }
 }
