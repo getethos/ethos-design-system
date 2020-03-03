@@ -297,6 +297,8 @@ $laptop-range-medium-end: 1050px;
   width: 100%;
   background: var(--White);
   border-top: solid 1px var(--GrayStrokeAndDisabled--translucent);
+  border-bottom: solid 1px var(--GrayStrokeAndDisabled--translucent);
+  min-height: 240px;
 }
 
 .dropdownNavChild {
