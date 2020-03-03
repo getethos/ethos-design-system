@@ -35,6 +35,7 @@ import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck'
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes'
 import { faLayerPlus } from '@fortawesome/pro-light-svg-icons/faLayerPlus'
 import { faChevronLeft } from '@fortawesome/pro-regular-svg-icons/faChevronLeft'
+import { faFileMedicalAlt } from '@fortawesome/pro-light-svg-icons/faFileMedicalAlt'
 
 library.add(
   faAlignLeft,
@@ -48,6 +49,7 @@ library.add(
   faExchange,
   faExclamationTriangle,
   faExternalLink,
+  faFileMedicalAlt,
   faLayerPlus,
   faOctagon,
   faSearch,
