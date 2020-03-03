@@ -33,6 +33,10 @@ import styles from './UniversalNavbarExpanded.module.scss'
 //     : null
 // }
 
+// TODO: more spacing var usage in scss
+// TODO: less nesting in scss
+// TODO: replace white with color var in scss
+// TODO: 504px that's an odd value
 // TODO: alternate caret weight for DropdownParentIcon pre:hover
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 // TODO: adjust width of bottom forest border on parent links
