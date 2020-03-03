@@ -274,7 +274,10 @@ $tablet-small-end: 670px;
       }
     }
     &:not(:last-child) {
-      margin-right: var(--Space-24);
+      padding-right: var(--Space-12);
+    }
+    &:not(:first-child) {
+      padding-left: var(--Space-12);
     }
     .dropdownNavParentIcon {
       margin-left: 4px;
