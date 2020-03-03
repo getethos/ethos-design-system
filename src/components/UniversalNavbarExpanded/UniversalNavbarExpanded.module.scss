@@ -13,9 +13,9 @@ $tablet-small-end: 670px;
 
 .hamburger {
   position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 2;
+  top: var(--Space-24);
+  right: var(--Space-24);
+  z-index: $z-index-modal;
 
   @include for-laptop-and-up {
     display: none;
@@ -25,7 +25,7 @@ $tablet-small-end: 670px;
 .phoneAndTablet {
   position: relative;
   height: var(--Space-64);
-  background-color: white;
+  background-color: var(--White);
   padding: var(--Space-24) var(--ContainerPadding--Phone);
   display: none;
   align-items: center;
@@ -35,7 +35,7 @@ $tablet-small-end: 670px;
     display: none;
   }
   &.visible {
-    z-index: 3;
+    z-index: $z-index-mobile-nav;
   }
   .hamburger {
     position: absolute;
@@ -44,7 +44,7 @@ $tablet-small-end: 670px;
 
 .laptopAndUp {
   height: var(--Space-64);
-  background-color: white;
+  background-color: var(--White);
 
   display: none;
   @include for-laptop-and-up {
@@ -69,7 +69,7 @@ $tablet-small-end: 670px;
 }
 
 .logo {
-  height: 16px;
+  height: var(--Space-16);
   padding-right: var(--Space-40);
   @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
     padding-right: var(--Space-24);
@@ -141,21 +141,21 @@ $tablet-small-end: 670px;
  */
 .mobileMenu {
   position: fixed;
-  padding: 24px 24px 40px;
+  padding: var(--Space-24) var(--Space-24) 40px;
   height: 100vh;
   width: 100vw;
   top: 0;
   left: 0;
   background-color: var(--BrandForest);
-  color: white;
-  z-index: 1;
+  color: var(--White);
+  z-index: $z-index-navbar;
   overflow-y: scroll;
   & a,
   & a:visited,
   & a:hover {
     /* TODO REDESIGN: this should be a DS component */
     font-weight: 300;
-    color: white;
+    color: var(--White);
     text-decoration: unset !important;
   }
 }
@@ -221,8 +221,8 @@ $tablet-small-end: 670px;
   justify-content: space-between;
   align-items: center;
   > svg {
-    width: 12px;
-    height: 12px;
+    width: var(--Space-12);
+    height: var(--Space-12);
     margin-bottom: var(--Space-8);
   }
 }
@@ -254,11 +254,11 @@ $tablet-small-end: 670px;
   display: flex;
   .dropdownNavParent {
     cursor: pointer;
-    height: 64px;
+    height: var(--Space-64);
     display: flex;
     align-items: center;
-    padding-top: 4px;
-    border-bottom: 4px solid transparent;
+    padding-top: var(--Space-4);
+    border-bottom: var(--Space-4) solid transparent;
     &:hover {
       border-bottom-color: var(--BrandForest);
 
@@ -266,7 +266,7 @@ $tablet-small-end: 670px;
         /** either this text shadow or we have to set fixed widths on each nav item
           * in order to meet bolding spec without changing item width
         **/
-        text-shadow: 0 0 0.25px #272727, 0 0 0.25px #272727;
+        text-shadow: 0 0 0.25px var(--GrayPrimary--opaque), 0 0 0.25px var(--GrayPrimary--opaque);
       }
       .dropdownNavChildren {
         display: block;
@@ -280,7 +280,7 @@ $tablet-small-end: 670px;
       padding-left: var(--Space-12);
     }
     .dropdownNavParentIcon {
-      margin-left: 4px;
+      margin-left: var(--Space-4);
     }
   }
 }
@@ -288,7 +288,7 @@ $tablet-small-end: 670px;
 .dropdownNavChildren {
   display: none;
   position: absolute;
-  top: 64px;
+  top: var(--Space-64);
   left: 0;
   width: 100%;
   background: var(--White);
@@ -296,7 +296,7 @@ $tablet-small-end: 670px;
 }
 
 .dropdownNavChild {
-  margin-bottom: 16px;
+  margin-bottom: var(--Space-16);
   a {
     text-decoration: none;
     &:hover {
@@ -323,7 +323,7 @@ $tablet-small-end: 670px;
       max-width: 320px;
     }
     svg {
-      margin-left: 4px;
+      margin-left: var(--Space-4);
       width: 19px;
       height: 19px;
     }
@@ -337,12 +337,12 @@ $tablet-small-end: 670px;
       flex-basis: calc(50%);
       max-width: 216px;
       &:nth-child(odd) {
-        margin-right: 72px;
+        margin-right: var(--Space-72);
       }
       svg {
-        margin-left: 4px;
+        margin-left: var(--Space-4);
         width: 15px;
-        height: 12px;
+        height: var(--Space-12);
       }
     }
   }
@@ -365,11 +365,11 @@ $tablet-small-end: 670px;
 
 @media (min-width: 900px) and (max-width: 1050px) {
   .dropdownNav .dropdownNavChildren .dropdownNavChildrenCta {
-    margin-right: 48px;
+    margin-right: var(--Space-48);
     max-width: 232px;
   }
   .dropdownNav .dropdownNavChildren .dropdownNavChild:nth-child(odd) {
-    margin-right: 24px;
+    margin-right: var(--Space-24);
     max-width: 208px;
   }
 }
