@@ -261,12 +261,23 @@ $laptop-range-medium-end: 1050px;
   height: var(--Space-64);
   display: flex;
   align-items: center;
-  padding-top: var(--Space-4);
-  border-bottom: var(--Space-4) solid transparent;
+
+  > div:first-child {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: none;
+      position: absolute;
+      bottom: -22px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-bottom: var(--Space-4) solid var(--BrandForest);
+    }
+  }
 
   &:hover {
-    border-bottom-color: var(--BrandForest);
-
     > div:first-child {
       /** either this text shadow or we have to set fixed widths on each nav item
         * in order to meet bolding spec without changing item width, design is OK
@@ -274,6 +285,9 @@ $laptop-range-medium-end: 1050px;
       **/
       text-shadow: 0 0 0.25px var(--GrayPrimary--opaque),
         0 0 0.25px var(--GrayPrimary--opaque);
+      &:after {
+        display: block;
+      }
     }
 
     .dropdownNavChildren {

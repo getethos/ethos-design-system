@@ -34,8 +34,6 @@ const isEnterKeyPress = (event) => {
 
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 
-// TODO: adjust width of bottom forest border on parent links
-
 // TODO: smallest laptop size, lower width between subitems w/shorter text
 
 // TODO: replace blue outline on focus with cleaner white underline
