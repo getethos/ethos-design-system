@@ -46,6 +46,7 @@ export {
   Link,
 } from './Type'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
+export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 export { ValueProps } from './ValueProps'
 export { ZipInput } from './ZipInput'
 export { Modal } from './Modal'

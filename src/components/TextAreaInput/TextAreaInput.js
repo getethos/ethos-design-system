@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import { InputLabel } from '../InputLabel'
+import { BaseTextAreaInput } from './BaseTextAreaInput'
 import useRequired from '../../hooks/useRequired.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInvalid from '../../hooks/useInvalid.js'
@@ -9,14 +10,6 @@ import useInputValidation from '../../hooks/useInputValidation.js'
 import restrict from '../../helpers/restrict.js'
 import styles from './TextAreaInput.module.scss'
 import errorStyles from '../Errors.module.scss'
-
-/**
- * @param  {String}   props.name        Input name and htmlFor prop for label
- * @param  {String}   props.labelCopy   User-visible text of label for input
- * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
- * @param  {Function} props.validator   Function for validating input
- * @param  {Boolean}  props.disabled
- */
 
 function PrivateTextAreaInput({
   resize,
@@ -26,6 +19,7 @@ function PrivateTextAreaInput({
   allCaps,
   formChangeHandler,
   validator,
+  placeholder,
   initialValue,
   currentValue,
   currentError,
@@ -111,11 +105,11 @@ function PrivateTextAreaInput({
   return (
     <>
       <InputLabel name={name} labelCopy={labelCopy} />
-      <textarea
+      <BaseTextAreaInput
         className={classes.join(' ')}
         disabled={disabled}
         name={name}
-        placeholder={rest.placeholder}
+        placeholder={placeholder}
         onPaste={onPaste}
         onChange={onChange}
         onBlur={onBlur}
@@ -133,12 +127,14 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  formChangeHandler: PropTypes.func,
+  currentValue: PropTypes.string,
   initialValue: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
-  onBlur: PropTypes.func,
-  onFocus: PropTypes.func,
+  currentError: PropTypes.string,
+  setFieldTouched: PropTypes.bool,
   restrictIllegal: PropTypes.bool,
 }
 

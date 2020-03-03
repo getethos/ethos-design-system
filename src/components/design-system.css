@@ -246,7 +246,7 @@ a:hover {
    * Region:
    * Fancy animated scroll behavior
    */
-@media (max-width: 599px) {
+@media (max-width: 899px) {
   .letter:not(.fancyO) {
     transition-property: all;
     transition-timing-function: ease-in-out;
