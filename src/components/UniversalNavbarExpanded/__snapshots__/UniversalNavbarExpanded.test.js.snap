@@ -11,7 +11,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
       element="div"
       offsetHeight={0}
     >
-      <Hamburger />
+      <Hamburger
+        className="hamburger"
+        clickHandler={[Function]}
+        keyPressHandler={[Function]}
+        menuState={false}
+      />
       <div
         className="phoneAndTablet"
       >
@@ -40,7 +45,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               />
             </svg>
           </NavLink>
-          <Hamburger />
+          <Hamburger
+            className="hamburger"
+            clickHandler={[Function]}
+            keyPressHandler={[Function]}
+            menuState={false}
+          />
           <div
             className="accordion"
           >
@@ -407,7 +417,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               className="belowAccordionItem"
             >
               <NavLink
-                LinkComponent={null}
                 href="/login/"
               >
                 <PublicTypeComponent>
@@ -522,12 +531,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
             Check my price
           </PublicButtonComponent>
         </a>
-        <NavLink
-          className="searchIcon"
-          href="/search/"
-        >
-          <SearchIcon />
-        </NavLink>
+        <SearchIconLink />
       </div>
       <div
         className="laptopAndUp"
@@ -586,18 +590,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                         <NavLink
                           href="/insurance/term-life-insurance/"
                         >
-                          <PublicTypeComponent>
-                            <span>
-                              Our plans
-                            </span>
-                            <DropdownLinkIcon />
-                          </PublicTypeComponent>
-                          <PublicSpacerComponent />
-                          <PublicTypeComponent
-                            color="GraySecondary"
-                          >
-                            Learn more about term life insurance and the plans and options you have available.
-                          </PublicTypeComponent>
+                          <DropDownCta
+                            subcopy="Learn more about term life insurance and the plans and options you have available."
+                            title="Our plans"
+                          />
                         </NavLink>
                       </div>
                       <div
@@ -610,10 +606,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/ethos-term-insurance/"
                             >
-                              <span>
-                                What is term life insurance and how much does it cost?
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  What is term life insurance and how much does it cost?
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -624,10 +622,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/how-it-works/"
                             >
-                              <span>
-                                How our application process works
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  How our application process works
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -638,10 +638,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/who-needs-life-insurance/"
                             >
-                              <span>
-                                Do I need life insurance?
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Do I need life insurance?
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -652,10 +654,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/how-choose-right-type-life-insurance/"
                             >
-                              <span>
-                                Choosing your coverage amount and term length
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Choosing your coverage amount and term length
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -666,10 +670,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/app/needs/"
                             >
-                              <span>
-                                Coverage calculator
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Coverage calculator
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -704,18 +710,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                         <NavLink
                           href="/life/life-insurance-basics/"
                         >
-                          <PublicTypeComponent>
-                            <span>
-                              Life insurance 101
-                            </span>
-                            <DropdownLinkIcon />
-                          </PublicTypeComponent>
-                          <PublicSpacerComponent />
-                          <PublicTypeComponent
-                            color="GraySecondary"
-                          >
-                            Wondering where to start? We’ve broken down the essentials for you.
-                          </PublicTypeComponent>
+                          <DropDownCta
+                            subcopy="Wondering where to start? We’ve broken down the essentials for you."
+                            title="Life insurance 101"
+                          />
                         </NavLink>
                       </div>
                       <div
@@ -728,10 +726,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/term-group-whole/"
                             >
-                              <span>
-                                What are the main types of life insurance and how do they work?
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  What are the main types of life insurance and how do they work?
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -742,10 +742,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/underwriting-explained/"
                             >
-                              <span>
-                                What is underwriting and how long does it take?
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  What is underwriting and how long does it take?
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -756,10 +758,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/pick-beneficiary/"
                             >
-                              <span>
-                                Choosing your beneficiary
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Choosing your beneficiary
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -770,10 +774,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/who-needs-sp/"
                             >
-                              <span>
-                                What if I don't work?
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  What if I don't work?
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -784,10 +790,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/employer-sponsored-life-insurance/"
                             >
-                              <span>
-                                Is my life insurance through work enough?
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Is my life insurance through work enough?
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -822,18 +830,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                         <NavLink
                           href="/why-ethos/"
                         >
-                          <PublicTypeComponent>
-                            <span>
-                              The Ethos Difference
-                            </span>
-                            <DropdownLinkIcon />
-                          </PublicTypeComponent>
-                          <PublicSpacerComponent />
-                          <PublicTypeComponent
-                            color="GraySecondary"
-                          >
-                            We put people before profit. Find out how we bring our policyholders the best experience possible.
-                          </PublicTypeComponent>
+                          <DropDownCta
+                            subcopy="We put people before profit. Find out how we bring our policyholders the best experience possible."
+                            title="The Ethos Difference"
+                          />
                         </NavLink>
                       </div>
                       <div
@@ -846,10 +846,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/about/"
                             >
-                              <span>
-                                Our mission
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Our mission
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -860,10 +862,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/reviews/"
                             >
-                              <span>
-                                Reviews
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Reviews
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -874,10 +878,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/customer-stories/"
                             >
-                              <span>
-                                Customer stories
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Customer stories
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -888,10 +894,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/life/ethosforgood/"
                             >
-                              <span>
-                                Ethos for Good
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Ethos for Good
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -902,10 +910,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/friends/"
                             >
-                              <span>
-                                Refer a friend
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Refer a friend
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -940,18 +950,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                         <NavLink
                           href="/faq/"
                         >
-                          <PublicTypeComponent>
-                            <span>
-                              FAQ
-                            </span>
-                            <DropdownLinkIcon />
-                          </PublicTypeComponent>
-                          <PublicSpacerComponent />
-                          <PublicTypeComponent
-                            color="GraySecondary"
-                          >
-                            Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.
-                          </PublicTypeComponent>
+                          <DropDownCta
+                            subcopy="Life insurance can be complicated, but don’t worry. We’re here to help answer your questions."
+                            title="FAQ"
+                          />
                         </NavLink>
                       </div>
                       <div
@@ -964,10 +966,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/faq/life-insurance-basics/"
                             >
-                              <span>
-                                Questions about life insurance
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Questions about life insurance
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -978,10 +982,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/faq/ethos/"
                             >
-                              <span>
-                                Questions about Ethos
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Questions about Ethos
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -992,10 +998,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/faq/application/"
                             >
-                              <span>
-                                Questions about your application
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Questions about your application
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -1006,10 +1014,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/faq/policy/"
                             >
-                              <span>
-                                Questions about your policy
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Questions about your policy
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -1020,10 +1030,12 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                             <NavLink
                               href="/contact-us/"
                             >
-                              <span>
-                                Contact us
-                              </span>
-                              <DropdownLinkIcon />
+                              <React.Fragment>
+                                <span>
+                                  Contact us
+                                </span>
+                                <DropdownLinkIcon />
+                              </React.Fragment>
                             </NavLink>
                           </PublicTypeComponent>
                         </div>
@@ -1037,19 +1049,8 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
           <div
             className="flex itemsCenter"
           >
-            <NavLink
-              className="searchIcon"
-              href="/search/"
-            >
-              <SearchIcon />
-            </NavLink>
-            <NavLink
-              LinkComponent={null}
-              className="accountIcon"
-              href="/login/"
-            >
-              <AccountIcon />
-            </NavLink>
+            <SearchIconLink />
+            <AccountIconLink />
             <div
               className="cta"
             >
