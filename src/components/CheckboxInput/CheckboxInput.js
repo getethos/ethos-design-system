@@ -5,28 +5,9 @@ import { Body } from '../Body.js'
 import useErrorMessage from '../../hooks/useErrorMessage.js'
 import useInputValidation from '../../hooks/useInputValidation.js'
 import { codes } from '../../helpers/constants.js'
+import { Facade } from './Facade.js'
 import styles from './CheckboxInput.module.scss'
 import errorStyles from '../Errors.module.scss'
-
-const Facade = ({ classes }) => {
-  return (
-    <svg
-      className={classes}
-      width="18"
-      height="18"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M6.75 12.127L3.623 9l-1.065 1.057L6.75 14.25l9-9-1.057-1.058-7.943 7.935z"
-        fill="#fff"
-      />
-    </svg>
-  )
-}
-Facade.propTypes = {
-  classes: PropTypes.string.isRequired,
-}
 
 export const CheckboxInput = ({
   formChangeHandler,
@@ -86,6 +67,14 @@ export const CheckboxInput = ({
     }
   }
 
+  const getFacade = () => {
+    const klasses = getFacadeClasses()
+    if (rest.facadeRenderer) {
+      return rest.facadeRenderer(klasses)
+    } else {
+      return <Facade classes={klasses} />
+    }
+  }
   const getFacadeClasses = () => {
     return getError(currentError, touched)
       ? `${styles.Facade} FacadeError ${errorStyles.Error}`
@@ -113,7 +102,7 @@ export const CheckboxInput = ({
             id={name}
             name={name}
           />
-          <Facade classes={getFacadeClasses()} />
+          {getFacade()}
         </div>
         <Body.Regular400 color={COLORS.GRAY_PRIMARY}>
           {children}
@@ -137,4 +126,5 @@ CheckboxInput.propTypes = {
   allCaps: PropTypes.bool,
   validator: PropTypes.func,
   formChangeHandler: PropTypes.func,
+  facadeRenderer: PropTypes.func,
 }
