@@ -17,6 +17,15 @@ type UniversalNavbarProps = {
 
 export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
 
+declare class UniversalNavbarExpanded extends React.Component {
+  state: {
+    showMobileMenu: boolean
+  }
+  toggleHamburger: () => void
+  render(): JSX.Element
+}
+export { UniversalNavbarExpanded }
+
 export { Layout } from './Layout/index.js'
 
 // TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
@@ -1013,6 +1022,34 @@ export declare const NoraDrawer: {
     closeCopy: string
     position?: string
     className?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
+export declare const NoraTextAreaInput: {
+  ({
+    disabled,
+    name,
+    value,
+    labelCopy,
+    labelClassName,
+    placeholder,
+    onBlur,
+    onFocus,
+    onChange,
+    ...rest
+  }: {
+    disabled?: boolean
+    name: string
+    value?: string
+    labelCopy?: string
+    labelClassName?: string
+    placeholder?: string
+    onBlur?: () => void
+    onFocus?: () => void
+    onChange?: () => void
   }): JSX.Element
   propTypes: {
     props: any
