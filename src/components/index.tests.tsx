@@ -10,6 +10,7 @@ import { Icon } from './index'
 import { IconLink } from './index'
 import { NoraButton } from './index'
 import { NoraDrawer } from './index'
+import { NoraTextAreaInput } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
@@ -47,6 +48,19 @@ class NoraDrawerTest extends React.Component<any, any> {
     )
   }
 }
+
+class NoraTextAreaInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraTextAreaInput
+        data-tid="nora-textarea-input"
+        name="default-example"
+        placeholder="Enter text here"
+      />
+    )
+  }
+}
+
 class NoraButtonTest extends React.Component<any, any> {
   render() {
     return <NoraButton>Submit</NoraButton>

@@ -1,0 +1,15 @@
+@import '../Attributes.css';
+
+.LabelClassExample {
+  font-weight: 500;
+  font-size: var(--Nora-Font-11);
+  line-height: 16px;
+  color: var(--NoraNeutral-400);
+}
+
+.TextClassExample {
+  margin-top: var(--Space-12);
+  font-size: calc(var(--compact-font-size)* 1px);
+  line-height: 20px;
+  height: 100px;
+}
