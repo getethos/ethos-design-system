@@ -5,6 +5,7 @@ export {
   BirthdateInput,
   BirthdateInputValidators,
 } from './BirthdateInput/BirthdateInput'
+export { Accordion } from './Accordion'
 export { AsyncTypeahead } from './AsyncTypeahead'
 export { Button } from './Button'
 export { ButtonSelectGroup } from './ButtonSelectGroup/ButtonSelectGroup'
