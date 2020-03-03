@@ -73,11 +73,15 @@ export const Accordion = ({ children, expanded, onToggle, id, ...rest }) => {
 }
 
 Accordion.propTypes = {
+  /** Id */
+  id: PropTypes.string,
   /** `expanded` - object where each key is a section index and the values is a booleans
    * reflecting whether said section should be open or not */
   expanded: PropTypes.object.isRequired,
   /** `onToggle` - a callback when toggle buttons are clicked that updates the `expanded` state */
   onToggle: PropTypes.func.isRequired,
+  /** The Accordian's children. Likely AccordionSection's */
+  children: PropTypes.node.isRequired,
 }
 
 Accordion.defaultProps = {
