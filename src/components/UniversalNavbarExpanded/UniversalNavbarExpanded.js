@@ -26,12 +26,7 @@ import NavLink from '../UniversalNavbar/NavLink'
 import Hamburger from './Hamburger'
 import styles from './UniversalNavbarExpanded.module.scss'
 
-// TODO: Dry up this prop usage for NavLink
-// LinkComponent={
-//   link.href !== '/login/'
-//     ? LinkComponent
-//     : null
-// }
+
 
 // TODO: more spacing var usage in scss
 // TODO: less nesting in scss
@@ -51,7 +46,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO: right 44px override not working for scrolled CTA in navbar on mobile
 // TODO:  Create a constant for the 13 keycode
 // TODO:  Do an array and join(' ') like in the other components for classNames
-// TODO:  Make a helper function that checks for /login/
+
 // TODO:  Split main file into separate components
 // TODO:  Update test descriptions / more tests
 // TODO:  Implement lodash/get usage for nested props
@@ -62,7 +57,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO:  more code commenting in general
 // TODO:  PropTypes review
 // TODO:  LINKS constant passed in from CMS
-// TODO:  Navlink children invalid prop
+
 
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
@@ -224,9 +219,7 @@ class UniversalNavbarExpanded extends React.Component {
                             <NavLink
                               href={link.subnav.cta.href}
                               LinkComponent={
-                                link.subnav.cta.href !== '/login/'
-                                  ? LinkComponent
-                                  : null
+                                LinkComponent
                               }
                             >
                               {link.subnav.cta.title}
@@ -244,9 +237,7 @@ class UniversalNavbarExpanded extends React.Component {
                                 <NavLink
                                   href={link.href}
                                   LinkComponent={
-                                    link.href !== '/login/'
-                                      ? LinkComponent
-                                      : null
+                                    LinkComponent
                                   }
                                 >
                                   {link.title}
@@ -263,7 +254,7 @@ class UniversalNavbarExpanded extends React.Component {
                     <NavLink
                       href={LINKS.TERM.href}
                       LinkComponent={
-                        LINKS.TERM.href !== '/login/' ? LinkComponent : null
+                        LinkComponent
                       }
                     >
                       <TitleMedium.Sans.Regular400>
@@ -275,7 +266,7 @@ class UniversalNavbarExpanded extends React.Component {
                     <NavLink
                       href={LINKS.ACCOUNT.href}
                       LinkComponent={
-                        LINKS.ACCOUNT.href !== '/login/' ? LinkComponent : null
+                        LinkComponent
                       }
                     >
                       <TitleMedium.Sans.Regular400>
@@ -287,7 +278,7 @@ class UniversalNavbarExpanded extends React.Component {
                     <NavLink
                       href={LINKS.SEARCH.href}
                       LinkComponent={
-                        LINKS.SEARCH.href !== '/login/' ? LinkComponent : null
+                        LinkComponent
                       }
                     >
                       <TitleMedium.Sans.Regular400>
@@ -336,9 +327,7 @@ class UniversalNavbarExpanded extends React.Component {
                                     <NavLink
                                       href={link.subnav.cta.href}
                                       LinkComponent={
-                                        link.subnav.cta.href !== '/login/'
-                                          ? LinkComponent
-                                          : null
+                                        LinkComponent
                                       }
                                     >
                                       <DropDownCta
@@ -360,9 +349,7 @@ class UniversalNavbarExpanded extends React.Component {
                                         <NavLink
                                           href={link.href}
                                           LinkComponent={
-                                            link.href !== '/login/'
-                                              ? LinkComponent
-                                              : null
+                                            LinkComponent
                                           }
                                         >
                                           <>
