@@ -3,15 +3,14 @@ import TransformingBurgerButton from '../UniversalNavbar/TransformingBurgerButto
 import PropTypes from 'prop-types'
 
 const Hamburger = ({ className, menuState, clickHandler, keyPressHandler }) => (
-	<div className={className}>
-		<TransformingBurgerButton
-			showMobileMenu={menuState}
-			clickHandler={clickHandler}
-			keyPressHandler={keyPressHandler}
-		/>
-	</div>
+  <div className={className}>
+    <TransformingBurgerButton
+      showMobileMenu={menuState}
+      clickHandler={clickHandler}
+      keyPressHandler={keyPressHandler}
+    />
+  </div>
 )
-
 
 Hamburger.propTypes = {
   /** Hide cta on mobile viewport */
