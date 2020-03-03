@@ -10,6 +10,7 @@ export const AccordionSection = ({ children, title, renderToggle, index }) => {
     selected,
     expandedAll,
     onToggle,
+    toggleChildIsTarget,
     onNavigation,
     id,
   } = useAccordionContext()
@@ -63,24 +64,69 @@ export const AccordionSection = ({ children, title, renderToggle, index }) => {
     onToggle && onToggle(index)
   }
 
+  /**
+   * HeaderBar will place all the event handlers on the header itself,
+   * if `toggleChildIsTarget` is false. If `toggleChildIsTarget` is true,
+   * we put those handlers ont the <Toggler /> itself.
+   */
+  const HeaderBar = ({ children }) => {
+    if (!toggleChildIsTarget) {
+      return (
+        <div
+          role="button"
+          aria-expanded={expanded}
+          aria-controls={sectionId}
+          id={labelId}
+          tabIndex={0}
+          className={styles.Label}
+          onClick={onClick}
+          onKeyDown={onKeyDown}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          ref={labelRef}
+        >
+          {children}
+        </div>
+      )
+    } else {
+      return <div className={styles.Label}>{children}</div>
+    }
+  }
+
+  /**
+   * Toggler will place all the event handlers on itself if
+   * `toggleChildIsTarget` is true.
+   */
+  const Toggler = () => {
+    if (toggleChildIsTarget) {
+      return (
+        <span
+          role="button"
+          aria-expanded={expanded}
+          aria-controls={sectionId}
+          id={labelId}
+          tabIndex={0}
+          className={styles.Label}
+          onClick={onClick}
+          onKeyDown={onKeyDown}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          ref={labelRef}
+        >
+          {renderToggle(expanded)}
+        </span>
+      )
+    } else {
+      return <>{renderToggle(expanded)}</>
+    }
+  }
+
   return (
     <>
-      <div
-        role="button"
-        aria-expanded={expanded}
-        aria-controls={sectionId}
-        id={labelId}
-        tabIndex={0}
-        className={styles.Label}
-        onClick={onClick}
-        onKeyDown={onKeyDown}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        ref={labelRef}
-      >
+      <HeaderBar>
         {title}
-        {renderToggle(expanded)}
-      </div>
+        <Toggler />
+      </HeaderBar>
       <div
         role="region"
         aria-labelledby={labelId}

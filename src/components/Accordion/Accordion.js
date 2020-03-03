@@ -7,7 +7,14 @@ import { codes } from '../../helpers/constants.js'
  * Accessible accordian primitive informed by WAI Practices:
  * https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html
  */
-export const Accordion = ({ children, expanded, onToggle, id, ...rest }) => {
+export const Accordion = ({
+  children,
+  expanded,
+  onToggle,
+  id,
+  toggleChildIsTarget,
+  ...rest
+}) => {
   const focusRef = useRef(null)
   const [selected, setSelected] = useState([null])
 
@@ -17,6 +24,7 @@ export const Accordion = ({ children, expanded, onToggle, id, ...rest }) => {
       selected,
       expandedAll: expanded,
       onToggle,
+      toggleChildIsTarget,
       id: id,
 
       /**
@@ -50,7 +58,7 @@ export const Accordion = ({ children, expanded, onToggle, id, ...rest }) => {
         }
       },
     }),
-    [selected, setSelected, focusRef, children]
+    [selected, toggleChildIsTarget, setSelected, focusRef, children, id]
   )
 
   const renderSections = (sections) => {
@@ -82,6 +90,9 @@ Accordion.propTypes = {
   onToggle: PropTypes.func.isRequired,
   /** The Accordian's children. Likely AccordionSection's */
   children: PropTypes.node.isRequired,
+  /** Boolean prop that indicates that you'd like to use that as the toggle (not the entire
+   * `AccordionSection` header bar). Defaults to `false` */
+  toggleChildIsTarget: PropTypes.bool,
 }
 
 Accordion.defaultProps = {
