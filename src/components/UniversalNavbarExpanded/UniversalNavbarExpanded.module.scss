@@ -208,7 +208,7 @@ $tablet-small-end: 670px;
   .accordionParent > div:first-child,
   .accordionChild {
     max-width: calc(100% - 14px);
-    padding-right: var(--Space-80);
+    padding-right: var(--Space-64);
     @include for-tablet-only {
       padding-right: 120px;
     }
@@ -348,6 +348,14 @@ $tablet-small-end: 670px;
   }
 }
 
+@include for-phone-and-tablet {
+  :global {
+    .cta-button.show-when-scrolled {
+      right: 44px;
+    }
+  }
+}
+
 @media (min-width: 900px) and (max-width: 929px) {
   .accountIcon,
   .searchIcon {
@@ -358,10 +366,10 @@ $tablet-small-end: 670px;
 @media (min-width: 900px) and (max-width: 1050px) {
   .dropdownNav .dropdownNavChildren .dropdownNavChildrenCta {
     margin-right: 48px;
-      max-width: 232px;
+    max-width: 232px;
   }
   .dropdownNav .dropdownNavChildren .dropdownNavChild:nth-child(odd) {
     margin-right: 24px;
-      max-width: 208px;
+    max-width: 208px;
   }
 }

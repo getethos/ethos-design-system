@@ -36,14 +36,27 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO: alternate caret weight for DropdownParentIcon pre:hover
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 // TODO: adjust width of bottom forest border on parent links
-// TODO: smallest laptop size, lower width between subitems
+// TODO: smallest laptop size, lower width between subitems w/shorter text
 // TODO: set subnav height to largest
 // TODO: arrow on same line as individual link
 // TODO: replace blue outline on focus with cleaner white underline
-// TODO: add section CTA top of mobile menu
-// TODO: change to check my price for main CTA
 // TODO: remove clickability of right side of accordion submenu
-// TODO: move CTA on mobile further right, 20px from hamburger (on scroll)
+// TODO: 3/2/20 QA: Add 1px stroke (#000000 20%) beneath default navbar and underneath dropdown when it's open (low priority)
+// TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority)
+// TODO: 3/2/20 QA: Side arrow breaks to new line for one of the menu items on laptop size (low priority)
+// TODO:  Create a constant for the 13 keycode
+// TODO:  Do an array and join(' ') like in the other components for classNames
+// TODO:  Make a helper function that checks for /login/
+// TODO:  Split main file into separate components
+// TODO:  Update test descriptions / more tests
+// TODO:  Implement lodash/get usage for nested props
+// TODO:  FancyAnimatedLogo functional component
+// TODO:  use .map instead of checking for .length > 0 (2 places)
+// TODO:  z index variables
+// TODO:  JS Docs
+// TODO:  more code commenting in general
+// TODO:  PropTypes review
+// TODO:  LINKS constant passed in from CMS
 
 // TODO: convert from class to hook?
 class UniversalNavbarExpanded extends React.Component {
@@ -53,18 +66,17 @@ class UniversalNavbarExpanded extends React.Component {
   }
 
   toggleHamburger = () => {
-    this.setState({ ...this.state, showMobileMenu: !this.state.showMobileMenu })
+    this.setState({ showMobileMenu: !this.state.showMobileMenu })
   }
 
   handleHamburgerKeyPress = (event) => {
     if (event.key === 'Enter') {
-      this.toggleHamburger(true)
+      this.toggleHamburger()
     }
   }
 
   toggleAccordionItem = (toggledItem) => {
     this.setState({
-      ...this.state,
       activeAccordionItem:
         this.state.activeAccordionItem === toggledItem ? false : toggledItem,
     })
@@ -182,6 +194,23 @@ class UniversalNavbarExpanded extends React.Component {
                         <AccordionToggleIcon />
                       </div>
                       <div className={styles.accordionChildren}>
+                        <div
+                          key={link.subnav.cta.id}
+                          className={styles.accordionChild}
+                        >
+                          <TitleSmall.Sans.Light300>
+                            <NavLink
+                              href={link.subnav.cta.href}
+                              LinkComponent={
+                                link.subnav.cta.href !== '/login/'
+                                  ? LinkComponent
+                                  : null
+                              }
+                            >
+                              {link.subnav.cta.title}
+                            </NavLink>
+                          </TitleSmall.Sans.Light300>
+                        </div>
                         {link.subnav &&
                           link.subnav.items.length > 0 &&
                           link.subnav.items.map((link) => (

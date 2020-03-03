@@ -67,6 +67,17 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
+                      href="/insurance/term-life-insurance/"
+                    >
+                      Our plans
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
                       href="/life/ethos-term-insurance/"
                     >
                       What is term life insurance and how much does it cost?
@@ -137,6 +148,17 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               <div
                 className="accordionChildren"
               >
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
+                      href="/life/life-insurance-basics/"
+                    >
+                      Life insurance 101
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
                 <div
                   className="accordionChild"
                 >
@@ -217,6 +239,17 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
+                      href="/why-ethos/"
+                    >
+                      The Ethos Difference
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
                       href="/about/"
                     >
                       Our mission
@@ -292,6 +325,17 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 >
                   <PublicTypeComponent>
                     <NavLink
+                      href="/faq/"
+                    >
+                      FAQ
+                    </NavLink>
+                  </PublicTypeComponent>
+                </div>
+                <div
+                  className="accordionChild"
+                >
+                  <PublicTypeComponent>
+                    <NavLink
                       href="/faq/life-insurance-basics/"
                     >
                       Questions about life insurance
@@ -355,7 +399,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
                 href="/term"
               >
                 <PublicTypeComponent>
-                  Get covered
+                  Check my price
                 </PublicTypeComponent>
               </NavLink>
             </div>

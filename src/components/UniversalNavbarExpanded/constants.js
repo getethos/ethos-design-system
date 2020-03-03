@@ -4,7 +4,7 @@ export const LINKS = {
   INDEX: { href: '/' },
   TERM: {
     href: '/term',
-    title: 'Get covered',
+    title: 'Check my price',
   },
   // TALK: {
   //     id: uuidv4(),
