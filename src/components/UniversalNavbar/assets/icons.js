@@ -67,7 +67,6 @@ export const DropdownParentIcon = () => (
     <path
       d="M0.999942 3.17157L3.82837 6L6.6568 3.17157"
       stroke="#272727"
-      strokeWidth="2"
     />
   </svg>
 )
