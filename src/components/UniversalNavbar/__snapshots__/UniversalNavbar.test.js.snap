@@ -50,11 +50,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           </NavLink>
           <PublicSpacerComponent />
           <div
-            style={
-              Object {
-                "marginBottom": 24,
-              }
-            }
+            className="navLink"
           >
             <PublicTypeComponent>
               <NavLink
@@ -65,11 +61,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             </PublicTypeComponent>
           </div>
           <div
-            style={
-              Object {
-                "marginBottom": 24,
-              }
-            }
+            className="navLink"
           >
             <PublicTypeComponent>
               <NavLink
@@ -80,11 +72,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             </PublicTypeComponent>
           </div>
           <div
-            style={
-              Object {
-                "marginBottom": 24,
-              }
-            }
+            className="navLink"
           >
             <PublicTypeComponent>
               <NavLink
@@ -95,11 +83,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             </PublicTypeComponent>
           </div>
           <div
-            style={
-              Object {
-                "marginBottom": 24,
-              }
-            }
+            className="navLink"
           >
             <PublicTypeComponent>
               <NavLink
@@ -110,11 +94,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             </PublicTypeComponent>
           </div>
           <div
-            style={
-              Object {
-                "marginBottom": 24,
-              }
-            }
+            className="navLink"
           >
             <PublicTypeComponent>
               <NavLink
@@ -126,12 +106,7 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             </PublicTypeComponent>
           </div>
           <div
-            style={
-              Object {
-                "bottom": 40,
-                "position": "absolute",
-              }
-            }
+            className="ctaButton"
           >
             <a
               href="/term"
