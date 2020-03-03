@@ -98,7 +98,6 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           >
             <PublicTypeComponent>
               <NavLink
-                LinkComponent={null}
                 href="/login/"
               >
                 Account
@@ -288,7 +287,6 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
               <SearchIcon />
             </NavLink>
             <NavLink
-              LinkComponent={null}
               className="accountIcon"
               href="/login/"
             >
