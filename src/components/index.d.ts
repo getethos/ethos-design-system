@@ -1012,3 +1012,30 @@ export declare const NoraDrawer: {
     props: any
   }
 }
+
+export declare const Accordian: {
+  ({
+    id,
+    expanded,
+    onToggle,
+    children,
+  }: {
+    id?: string
+    expanded: object
+    onToggle: any
+    children: React.ReactNode
+  }): JSX.Element
+}
+export declare const AccordionSection: {
+  ({
+    index,
+    title,
+    renderToggle,
+    children,
+  }: {
+    index?: number
+    title: string
+    renderToggle?: any
+    children?: React.ReactNode
+  }): JSX.Element
+}

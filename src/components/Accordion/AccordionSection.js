@@ -98,5 +98,5 @@ AccordionSection.propTypes = {
   index: PropTypes.number,
   title: PropTypes.string.isRequired,
   renderToggle: PropTypes.func,
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
+  children: PropTypes.node.isRequired,
 }

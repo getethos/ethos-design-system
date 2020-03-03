@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Accordian } from './index'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
@@ -20,6 +21,16 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class AccordionTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Accordian expanded={{ 1: true }} onToggle={() => {}}>
+        hey
+      </Accordian>
+    )
+  }
+}
 
 class DrawerTest extends React.Component<any, any> {
   render() {
