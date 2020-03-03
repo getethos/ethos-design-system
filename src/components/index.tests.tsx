@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Accordian } from './index'
+import { AccordionSection } from './index'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
@@ -27,7 +28,12 @@ class AccordionTest extends React.Component<any, any> {
   render() {
     return (
       <Accordian expanded={{ 1: true }} onToggle={() => {}}>
-        hey
+        <AccordionSection index={1} title="yo" renderToggle={() => {}}>
+          yo
+        </AccordionSection>
+        <AccordionSection index={2} title="yo yo" renderToggle={() => {}}>
+          yo yo
+        </AccordionSection>
       </Accordian>
     )
   }
