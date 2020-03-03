@@ -31,7 +31,6 @@ const isEnterKeyPress = (event) => {
     return false
   }
 }
-// TODO: more spacing var usage in scss
 
 // TODO: less nesting in scss
 

@@ -1,7 +1,9 @@
 @import '../Media/Media.scss';
 @import '../Variables.scss';
 
-$tablet-small-end: 670px;
+$tablet-range-small-end: 670px;
+$laptop-range-small-end: 929px;
+$laptop-range-medium-end: 1050px;
 
 .flex {
   display: flex;
@@ -71,7 +73,7 @@ $tablet-small-end: 670px;
 .logo {
   height: var(--Space-16);
   padding-right: var(--Space-40);
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
     padding-right: var(--Space-24);
   }
 }
@@ -86,14 +88,14 @@ $tablet-small-end: 670px;
 
 .cta {
   padding-left: 21px;
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
     padding-left: 0;
   }
 }
 
 .textLink {
   padding-right: var(--Space-24);
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
     &:nth-child(2) {
       padding-right: var(--Space-16);
     }
@@ -252,36 +254,38 @@ $tablet-small-end: 670px;
 
 .dropdownNav {
   display: flex;
-  .dropdownNavParent {
-    cursor: pointer;
-    height: var(--Space-64);
-    display: flex;
-    align-items: center;
-    padding-top: var(--Space-4);
-    border-bottom: var(--Space-4) solid transparent;
-    &:hover {
-      border-bottom-color: var(--BrandForest);
+}
 
-      > div:first-child {
-        /** either this text shadow or we have to set fixed widths on each nav item
-          * in order to meet bolding spec without changing item width
-        **/
-        text-shadow: 0 0 0.25px var(--GrayPrimary--opaque), 0 0 0.25px var(--GrayPrimary--opaque);
-      }
-      .dropdownNavChildren {
-        display: block;
-        cursor: default;
-      }
+.dropdownNavParent {
+  cursor: pointer;
+  height: var(--Space-64);
+  display: flex;
+  align-items: center;
+  padding-top: var(--Space-4);
+  border-bottom: var(--Space-4) solid transparent;
+  &:hover {
+    border-bottom-color: var(--BrandForest);
+
+    > div:first-child {
+      /** either this text shadow or we have to set fixed widths on each nav item
+        * in order to meet bolding spec without changing item width
+      **/
+      text-shadow: 0 0 0.25px var(--GrayPrimary--opaque),
+        0 0 0.25px var(--GrayPrimary--opaque);
     }
-    &:not(:last-child) {
-      padding-right: var(--Space-12);
+    .dropdownNavChildren {
+      display: block;
+      cursor: default;
     }
-    &:not(:first-child) {
-      padding-left: var(--Space-12);
-    }
-    .dropdownNavParentIcon {
-      margin-left: var(--Space-4);
-    }
+  }
+  &:not(:last-child) {
+    padding-right: var(--Space-12);
+  }
+  &:not(:first-child) {
+    padding-left: var(--Space-12);
+  }
+  .dropdownNavParentIcon {
+    margin-left: var(--Space-4);
   }
 }
 
@@ -308,43 +312,44 @@ $tablet-small-end: 670px;
 .dropdownNavChildrenInner {
   display: flex;
   padding: var(--Space-40) 0 var(--Space-24);
-  .dropdownNavChildrenCta {
-    &:hover {
-      span {
-        opacity: 0.78;
-        text-decoration: underline;
-      }
-    }
-    margin-right: 120px;
-    @include for-laptop-only {
-      max-width: 264px;
-    }
-    @include for-desktop-only {
-      max-width: 320px;
-    }
-    svg {
-      margin-left: var(--Space-4);
-      width: 19px;
-      height: 19px;
+}
+
+.dropdownNavChildrenCta {
+  &:hover {
+    span {
+      opacity: 0.78;
+      text-decoration: underline;
     }
   }
-  .dropdownNavChildrenItems {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 504px;
-    .dropdownNavChild {
-      flex-basis: calc(50%);
-      max-width: 216px;
-      &:nth-child(odd) {
-        margin-right: var(--Space-72);
-      }
-      svg {
-        margin-left: var(--Space-4);
-        width: 15px;
-        height: var(--Space-12);
-      }
-    }
+  margin-right: 120px;
+  @include for-laptop-only {
+    max-width: 264px;
+  }
+  @include for-desktop-only {
+    max-width: 320px;
+  }
+  svg {
+    margin-left: var(--Space-4);
+    width: 19px;
+    height: 19px;
+  }
+}
+.dropdownNavChildrenItems {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 504px;
+}
+.dropdownNavChild {
+  flex-basis: calc(50%);
+  max-width: 216px;
+  &:nth-child(odd) {
+    margin-right: var(--Space-72);
+  }
+  svg {
+    margin-left: var(--Space-4);
+    width: 15px;
+    height: var(--Space-12);
   }
 }
 
@@ -356,14 +361,14 @@ $tablet-small-end: 670px;
   }
 }
 
-@media (min-width: 900px) and (max-width: 929px) {
+@media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
   .accountIcon,
   .searchIcon {
     display: none;
   }
 }
 
-@media (min-width: 900px) and (max-width: 1050px) {
+@media (min-width: $laptop-range-start) and (max-width: $laptop-range-medium-end) {
   .dropdownNav .dropdownNavChildren .dropdownNavChildrenCta {
     margin-right: var(--Space-48);
     max-width: 232px;
