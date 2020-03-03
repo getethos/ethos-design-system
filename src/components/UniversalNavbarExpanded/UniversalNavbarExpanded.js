@@ -44,6 +44,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO: 3/2/20 QA: Add 1px stroke (#000000 20%) beneath default navbar and underneath dropdown when it's open (low priority)
 // TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority)
 // TODO: 3/2/20 QA: Side arrow breaks to new line for one of the menu items on laptop size (low priority)
+// TODO: right 44px override not working for scrolled CTA in navbar on mobile
 // TODO:  Create a constant for the 13 keycode
 // TODO:  Do an array and join(' ') like in the other components for classNames
 // TODO:  Make a helper function that checks for /login/
