@@ -12,8 +12,6 @@ import NavLink from './NavLink'
 
 import styles from './UniversalNavbar.module.scss'
 
-// TODO REDESIGN: Lots of sloppy inline styles here.
-
 const LINKS = {
   // These are used e.g. in the logo and CTA button:
   INDEX: { href: '/' },
@@ -143,7 +141,7 @@ const UniversalNavbar = ({
               </NavLink>
               <Spacer.H56 />
               {LINKS.NAVLINKS.map((link) => (
-                <div key={link.id} style={{ marginBottom: 24 }}>
+                <div key={link.id} className={styles.navLink}>
                   <TitleXLarge.Sans.Regular400>
                     <NavLink
                       href={link.href}
@@ -156,7 +154,7 @@ const UniversalNavbar = ({
                   </TitleXLarge.Sans.Regular400>
                 </div>
               ))}
-              <div style={{ position: 'absolute', bottom: 40 }}>
+              <div className={styles.ctaButton}>
                 <a href={LINKS.TERM.href}>
                   <Button.Medium.WhiteOutline>
                     Check my price
