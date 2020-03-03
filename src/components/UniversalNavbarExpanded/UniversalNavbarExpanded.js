@@ -122,7 +122,7 @@ class UniversalNavbarExpanded extends React.Component {
           className={styles.searchIcon}
           key={link.id}
           href={link.href}
-          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+          LinkComponent={LinkComponent}
         >
           <SearchIcon />
         </NavLink>
@@ -135,7 +135,7 @@ class UniversalNavbarExpanded extends React.Component {
           className={styles.accountIcon}
           key={link.id}
           href={link.href}
-          LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+          LinkComponent={LinkComponent}
         >
           <AccountIcon />
         </NavLink>

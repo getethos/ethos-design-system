@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
+
 const NavLink = ({ href, children, LinkComponent, ...props }) => {
   if (LinkComponent) {
     return (
