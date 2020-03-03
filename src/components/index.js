@@ -54,9 +54,10 @@ export { Modal } from './Modal'
 // ---- NORA EXPORTS ---- //
 ////////////////////////////
 export { Header } from '../nora/components/index'
-export { IconLink } from '../nora/components/index'
 export { Icon } from '../nora/components/index'
-export { NoraDrawer } from '../nora/components/index'
+export { IconLink } from '../nora/components/index'
 export { NoraButton } from '../nora/components/index'
+export { NoraCheckboxInput } from '../nora/components/index'
+export { NoraDrawer } from '../nora/components/index'
 export { NoraTextAreaInput } from '../nora/components/index'
 export { Tag } from '../nora/components/index'
