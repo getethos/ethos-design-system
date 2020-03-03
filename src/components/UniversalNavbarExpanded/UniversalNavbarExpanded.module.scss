@@ -263,29 +263,44 @@ $laptop-range-medium-end: 1050px;
   align-items: center;
   padding-top: var(--Space-4);
   border-bottom: var(--Space-4) solid transparent;
+
   &:hover {
     border-bottom-color: var(--BrandForest);
 
     > div:first-child {
       /** either this text shadow or we have to set fixed widths on each nav item
-        * in order to meet bolding spec without changing item width
+        * in order to meet bolding spec without changing item width, design is OK
+        * with this current implementation as of 03.03.2020
       **/
       text-shadow: 0 0 0.25px var(--GrayPrimary--opaque),
         0 0 0.25px var(--GrayPrimary--opaque);
     }
+
     .dropdownNavChildren {
       display: block;
       cursor: default;
     }
+
+    .dropdownNavParentIcon {
+      svg {
+        stroke-width: 2;
+      }
+    }
   }
+
   &:not(:last-child) {
     padding-right: var(--Space-12);
   }
+
   &:not(:first-child) {
     padding-left: var(--Space-12);
   }
-  .dropdownNavParentIcon {
-    margin-left: var(--Space-4);
+}
+
+.dropdownNavParentIcon {
+  margin-left: var(--Space-4);
+  svg {
+    stroke-width: 1;
   }
 }
 
@@ -306,9 +321,17 @@ $laptop-range-medium-end: 1050px;
   a {
     text-decoration: none;
     &:hover {
+      text-decoration: none;
       opacity: 0.78;
+      span {
+        text-decoration: underline;
+      }
     }
   }
+}
+
+.dropdownNavChildTextIcon {
+  display: inline-block;
 }
 
 .dropdownNavChildrenInner {
@@ -317,37 +340,46 @@ $laptop-range-medium-end: 1050px;
 }
 
 .dropdownNavChildrenCta {
+  margin-right: 120px;
+
   &:hover {
     span {
       opacity: 0.78;
       text-decoration: underline;
     }
   }
-  margin-right: 120px;
+
   @include for-laptop-only {
     max-width: 264px;
   }
+
   @include for-desktop-only {
     max-width: 320px;
   }
+
   svg {
     margin-left: var(--Space-4);
     width: 19px;
     height: 19px;
   }
 }
+
 .dropdownNavChildrenItems {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 504px;
+  // 504 = (216 x 2) + 72 | see .dropdownNavChild below
 }
+
 .dropdownNavChild {
   flex-basis: calc(50%);
   max-width: 216px;
+
   &:nth-child(odd) {
     margin-right: var(--Space-72);
   }
+
   svg {
     margin-left: var(--Space-4);
     width: 15px;
