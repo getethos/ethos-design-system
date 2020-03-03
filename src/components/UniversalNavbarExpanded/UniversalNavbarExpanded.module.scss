@@ -403,7 +403,7 @@ $laptop-range-medium-end: 1050px;
 
 @include for-phone-and-tablet {
   :global {
-    .cta-button.show-when-scrolled {
+    .cta-button.show-when-scrolled.navbar-expanded {
       right: 44px;
     }
   }

@@ -33,11 +33,10 @@ const isEnterKeyPress = (event) => {
 }
 
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
-
 // TODO: smallest laptop size, lower width between subitems w/shorter text
-
 // TODO: replace blue outline on focus with cleaner white underline
 
+// ====: I think this one is fixed but have to test on CMS.
 // TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority) right 44px override not working for scrolled CTA in navbar on mobile
 
 // TODO:  Split main file into separate component files
@@ -118,7 +117,7 @@ const UniversalNavbarExpanded = ({
   }
 
   const CtaButton = (showWhenScrolled) => {
-    const CtaButtonClasses = ['cta-button']
+    const CtaButtonClasses = ['cta-button', 'navbar-expanded']
     if (showWhenScrolled) {
       CtaButtonClasses.push('show-when-scrolled')
     }
