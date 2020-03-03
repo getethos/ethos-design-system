@@ -1044,6 +1044,7 @@ export declare const NoraTextAreaInput: {
     value,
     labelCopy,
     labelClassName,
+    textClassName,
     placeholder,
     onBlur,
     onFocus,
@@ -1055,6 +1056,7 @@ export declare const NoraTextAreaInput: {
     value?: string
     labelCopy?: string
     labelClassName?: string
+    textClassName?: string
     placeholder?: string
     onBlur?: () => void
     onFocus?: () => void
