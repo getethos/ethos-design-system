@@ -1,8 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// UPDATE anchor tags to NavLink when /term and /login is an internal link in CMS
+import { termHref, accountHref } from './constants'
+
+/**
+ * Checks if provided internal LinkComponent can be used with href
+ * Specifc Link component's should not be using /term or /login
+ * @param {string} href
+ * @return {boolean}
+ */
+const validHRef = (href) => {
+  return ![termHref, accountHref].includes(href)
+}
+
 const NavLink = ({ href, children, LinkComponent, ...props }) => {
-  if (LinkComponent) {
+  if (LinkComponent && validHRef(href)) {
     return (
       <LinkComponent to={href} {...props}>
         {children}

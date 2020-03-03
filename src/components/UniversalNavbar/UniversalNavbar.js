@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import uuidv4 from 'uuid/v4'
 
 import FancyAnimatedLogo from './FancyAnimatedLogo'
 import LogoNotAnimated from './assets/ethos-logo-black.js'
@@ -10,42 +9,8 @@ import { Button, Layout, Spacer, TitleXLarge } from '../index'
 import TransformingBurgerButton from './TransformingBurgerButton/TransformingBurgerButton'
 import NavLink from './NavLink'
 
+import { LINKS } from './constants'
 import styles from './UniversalNavbar.module.scss'
-
-const LINKS = {
-  // These are used e.g. in the logo and CTA button:
-  INDEX: { href: '/' },
-  TERM: { href: '/term' },
-
-  // These are used in the navigation links proper:
-  NAVLINKS: [
-    {
-      id: uuidv4(),
-      href: '/how-it-works/',
-      title: 'How it works',
-    },
-    {
-      id: uuidv4(),
-      href: '/why-ethos/',
-      title: 'Why Ethos',
-    },
-    {
-      id: uuidv4(),
-      href: '/faq/',
-      title: 'FAQ',
-    },
-    {
-      id: uuidv4(),
-      href: '/search/',
-      title: 'Search',
-    },
-    {
-      id: uuidv4(),
-      href: '/login/',
-      title: 'Account',
-    },
-  ],
-}
 
 const UniversalNavbar = ({
   LinkComponent,
@@ -77,10 +42,7 @@ const UniversalNavbar = ({
   )
   const renderTextLink = (link) => (
     <div key={link.id} className={styles.textLink}>
-      <NavLink
-        href={link.href}
-        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
-      >
+      <NavLink href={link.href} LinkComponent={LinkComponent}>
         {link.title}
       </NavLink>
     </div>
@@ -93,7 +55,7 @@ const UniversalNavbar = ({
         className={styles.searchIcon}
         key={link.id}
         href={link.href}
-        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+        LinkComponent={LinkComponent}
       >
         <SearchIcon />
       </NavLink>
@@ -106,7 +68,7 @@ const UniversalNavbar = ({
         className={styles.accountIcon}
         key={link.id}
         href={link.href}
-        LinkComponent={link.href !== '/login/' ? LinkComponent : null}
+        LinkComponent={LinkComponent}
       >
         <AccountIcon />
       </NavLink>
@@ -143,12 +105,7 @@ const UniversalNavbar = ({
               {LINKS.NAVLINKS.map((link) => (
                 <div key={link.id} className={styles.navLink}>
                   <TitleXLarge.Sans.Regular400>
-                    <NavLink
-                      href={link.href}
-                      LinkComponent={
-                        link.href !== '/login/' ? LinkComponent : null
-                      }
-                    >
+                    <NavLink href={link.href} LinkComponent={LinkComponent}>
                       {link.title}
                     </NavLink>
                   </TitleXLarge.Sans.Regular400>
