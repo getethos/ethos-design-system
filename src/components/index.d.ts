@@ -1043,11 +1043,13 @@ export declare const Accordion: {
     expanded,
     onToggle,
     children,
+    toggleChildIsTarget,
   }: {
     id?: string
     expanded: object
     onToggle: any
     children: React.ReactNode
+    toggleChildIsTarget: boolean
   }): JSX.Element
   propTypes: {
     props: any

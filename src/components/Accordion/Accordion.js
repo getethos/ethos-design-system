@@ -97,4 +97,5 @@ Accordion.propTypes = {
 
 Accordion.defaultProps = {
   expanded: null,
+  toggleChildIsTarget: false,
 }
