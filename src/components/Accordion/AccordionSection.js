@@ -113,6 +113,20 @@ const HeaderBar = ({
   )
 }
 
+HeaderBar.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  renderToggle: PropTypes.func,
+  focusRef: PropTypes.object,
+  onToggle: PropTypes.func,
+  toggleChildIsTarget: PropTypes.bool,
+  onNavigation: PropTypes.func,
+  expanded: PropTypes.bool,
+  sectionId: PropTypes.string,
+  labelId: PropTypes.string,
+  labelRef: PropTypes.object,
+}
+
 export const AccordionSection = ({ children, title, renderToggle, index }) => {
   const {
     focusRef,
