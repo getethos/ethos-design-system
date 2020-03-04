@@ -63,7 +63,7 @@ import { useAccordionState } from './useAccordionState'
 const { expanded, onToggle } = useAccordionState({ 1: true })
 // The idea is you can use whatever you want for this. Just base your
 // two jsx elements on `expanded` callback boolean. Put differently,
-// Ethos doesn't use '▲' : '▼' so these are only for example's sake!
+// Ethos doesn't use 'X' : '+' so these are only for example's sake!
 const toggleChild = (expanded) => {
   return <span aria-hidden={true}>{expanded ? 'X' : '+'}</span>
 }
