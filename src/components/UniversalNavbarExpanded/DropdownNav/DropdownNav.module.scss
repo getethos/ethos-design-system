@@ -41,7 +41,7 @@
       cursor: default;
     }
 
-    .dropdownNavParentIcon {
+    .parentIcon {
       svg {
         stroke-width: 2;
       }
@@ -57,7 +57,8 @@
   }
 }
 
-.dropdownNavParentIcon {
+.parentIcon {
+  stroke: var(--GrayPrimary--opaque);
   margin-left: var(--Space-4);
   svg {
     stroke-width: 1;

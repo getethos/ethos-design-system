@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Reused assets from UniversalNavbar
-import { DropdownParentIcon } from '../../UniversalNavbar/assets/icons.js'
+import { ParentIcon } from '../../UniversalNavbar/assets/icons.js'
 
 // EDS core components
 import { Footnote } from '../../index'
@@ -29,8 +29,8 @@ const DropdownNav = ({ links, LinkComponent }) => {
         <div className={styles.dropdownNavParent} key={link.id}>
           <Footnote.Regular400>
             {link.title}
-            <span className={styles.dropdownNavParentIcon}>
-              <DropdownParentIcon />
+            <span className={styles.parentIcon}>
+              <ParentIcon />
             </span>
           </Footnote.Regular400>
           <DropdownChildren
@@ -45,6 +45,7 @@ const DropdownNav = ({ links, LinkComponent }) => {
 }
 
 DropdownNav.propTypes = {
+  /** URLs and text */
   links: PropTypes.object.isRequired,
   LinkComponent: PropTypes.object,
 }
