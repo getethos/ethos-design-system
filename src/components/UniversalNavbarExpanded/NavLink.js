@@ -66,7 +66,7 @@ const NavLink = ({
   if (samePageAwareness) {
     return (
       <BaseNavLink
-        className={className ? className : null}
+        className={className || null}
         key={key ? key : null}
         href={href}
         LinkComponent={LinkComponent}
