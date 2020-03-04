@@ -32,6 +32,8 @@ const isEnterKeyPress = (event) => {
   }
 }
 
+// apply arrow/last word wrapping to CTA in dropdown
+
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 // TODO: smallest laptop size, lower width between subitems w/shorter text
 // TODO: replace blue outline on focus with cleaner white underline

@@ -38,7 +38,7 @@ $laptop-range-medium-end: 1050px;
     display: none;
   }
   &.visible {
-    z-index: $z-index-mobile-nav;
+    z-index: $z-index-navbar-outer;
   }
   .hamburger {
     position: absolute;
@@ -180,6 +180,8 @@ $laptop-range-medium-end: 1050px;
 
 .blockNavbar {
   height: var(--Space-64);
+  position: relative;
+  z-index: $z-index-navbar-outer;
 }
 
 .accordion {
