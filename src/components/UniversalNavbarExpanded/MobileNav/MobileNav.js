@@ -81,11 +81,7 @@ const MobileNav = ({
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
-    if (!showMobileMenu) {
-      setShowMobileMenu(true)
-    } else {
-      setShowMobileMenu(false)
-    }
+    setShowMobileMenu(!showMobileMenu)
   }
 
   const handleHamburgerKeyPress = (event) => {
