@@ -23,13 +23,13 @@ import styles from './DropdownChildren.module.scss'
 /**
  * Content (links) displayed in the dropdown menu after hovering the parent element
  *
- * @param {string} extraClass - Extra top level class
+ * @param {string} containerClasses - Extra top level class
  * @param {object} child - CTA copy, url and link items with titles/urls
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  *
  * @return {JSX.Element}
  */
-const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
+const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
   // ------------------------------------------------
   // Split the links for the subnav into two columns.
   // Related to the way design wanted spacing to work.
@@ -46,8 +46,8 @@ const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
   // ------------------------------------------------
 
   const classes = [styles.dropdownNavChildren]
-  if (extraClass) {
-    classes.push(extraClass)
+  if (containerClasses) {
+    classes.push(containerClasses)
   }
 
   return (
@@ -100,7 +100,7 @@ const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
 }
 
 DropdownChildren.propTypes = {
-  extraClass: PropTypes.string,
+  containerClasses: PropTypes.string,
   child: PropTypes.object,
   LinkComponent: PropTypes.object,
 }

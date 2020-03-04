@@ -36,7 +36,7 @@ const DropdownNav = ({ links, LinkComponent }) => {
           <DropdownChildren
             child={link}
             LinkComponent={LinkComponent}
-            extraClass={styles.dropdownNavChildren}
+            containerClasses={styles.dropdownNavChildren}
           />
         </div>
       ))}
