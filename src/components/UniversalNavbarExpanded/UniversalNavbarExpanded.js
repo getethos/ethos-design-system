@@ -252,7 +252,7 @@ const UniversalNavbarExpanded = ({
                           <div className={styles.dropdownNavChildLink}>
                             <span>{removeLastWord(link.title)}</span>
                             <div className={styles.dropdownNavChildTextIcon}>
-                              {getLastWord(link.title)}
+                              <span>{getLastWord(link.title)}</span>
                               <DropdownLinkIcon />
                             </div>
                           </div>
