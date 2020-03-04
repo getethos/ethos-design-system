@@ -381,20 +381,18 @@ $laptop-range-medium-end: 1050px;
 
 .dropdownNavChildrenItems {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   max-width: 504px;
-  /* 504 = (216 x 2) + 72 | see .dropdownNavChild below */
+  /* 504 = (216 x 2) + 72 | see .dropdownNavChildrenColumn below */
+  /* 216 is the original max width of the columns, with 72 px space between */
+}
+
+.dropdownNavChildrenColumn {
+  &:first-child {
+    margin-right: var(--Space-72);
+  }
 }
 
 .dropdownNavChild {
-  flex-basis: calc(50%);
-  max-width: 216px;
-
-  &:nth-child(odd) {
-    margin-right: var(--Space-72);
-  }
-
   svg {
     margin-left: var(--Space-4);
     width: 15px;
@@ -430,8 +428,7 @@ $laptop-range-medium-end: 1050px;
     margin-right: var(--Space-48);
     max-width: 232px;
   }
-  .dropdownNav .dropdownNavChildren .dropdownNavChild:nth-child(odd) {
+  .dropdownNav .dropdownNavChildren .dropdownNavChildrenColumn:first-child {
     margin-right: var(--Space-24);
-    max-width: 208px;
   }
 }

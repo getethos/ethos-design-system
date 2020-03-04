@@ -41,9 +41,6 @@ const isEnterKeyPress = (event) => {
 // TODO:  more code commenting in general
 // TODO:  PropTypes review
 
-// ====: I think this one is fixed but have to test on CMS.
-// TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority) right 44px override not working for scrolled CTA in navbar on mobile
-
 const UniversalNavbarExpanded = ({
   LinkComponent,
   hideMobileCta,
@@ -245,43 +242,62 @@ const UniversalNavbarExpanded = ({
     </div>
   )
 
-  const DropDownChildren = ({ child }) => (
-    <div className={styles.dropdownNavChildren}>
-      <Layout.HorizontallyPaddedContainer>
-        <div className={styles.dropdownNavChildrenInner}>
-          <div className={styles.dropdownNavChildrenCta}>
-            {child.subnav &&
-              get(child, 'subnav.cta') &&
-              get(child, 'subnav.cta.href') && (
-                <NavLinkReduced href={get(child, 'subnav.cta.href')}>
-                  <DropDownCta
-                    title={get(child, 'subnav.cta.title')}
-                    subcopy={get(child, 'subnav.cta.subcopy')}
-                  />
-                </NavLinkReduced>
-              )}
-          </div>
-          <div className={styles.dropdownNavChildrenItems}>
-            {child.subnav.items.map((link) => (
-              <div className={styles.dropdownNavChild} key={link.id}>
-                <Footnote.Regular400>
-                  <NavLinkReduced href={link.href}>
-                    <div className={styles.dropdownNavChildLink}>
-                      <span>{textStart(link.title)}</span>
-                      <div className={styles.dropdownNavChildTextIcon}>
-                        {textEnd(link.title)}
-                        <DropdownLinkIcon />
-                      </div>
-                    </div>
+  const DropDownChildren = ({ child }) => {
+    const columns = [[], []]
+    const childItems = get(child, 'subnav.items')
+    for (var i = 0; i < childItems.length; i++) {
+      if (i % 2 === 0) {
+        columns[0].push(childItems[i])
+      } else {
+        columns[1].push(childItems[i])
+      }
+    }
+
+    return (
+      <div className={styles.dropdownNavChildren}>
+        <Layout.HorizontallyPaddedContainer>
+          <div className={styles.dropdownNavChildrenInner}>
+            <div className={styles.dropdownNavChildrenCta}>
+              {child.subnav &&
+                get(child, 'subnav.cta') &&
+                get(child, 'subnav.cta.href') && (
+                  <NavLinkReduced href={get(child, 'subnav.cta.href')}>
+                    <DropDownCta
+                      title={get(child, 'subnav.cta.title')}
+                      subcopy={get(child, 'subnav.cta.subcopy')}
+                    />
                   </NavLinkReduced>
-                </Footnote.Regular400>
-              </div>
-            ))}
+                )}
+            </div>
+            <div className={styles.dropdownNavChildrenItems}>
+              {columns.map((column, idx) => (
+                <div
+                  className={styles.dropdownNavChildrenColumn}
+                  key={`navChildColumn${idx}`}
+                >
+                  {column.map((link) => (
+                    <div className={styles.dropdownNavChild} key={link.id}>
+                      <Footnote.Regular400>
+                        <NavLinkReduced href={link.href}>
+                          <div className={styles.dropdownNavChildLink}>
+                            <span>{textStart(link.title)}</span>
+                            <div className={styles.dropdownNavChildTextIcon}>
+                              {textEnd(link.title)}
+                              <DropdownLinkIcon />
+                            </div>
+                          </div>
+                        </NavLinkReduced>
+                      </Footnote.Regular400>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </Layout.HorizontallyPaddedContainer>
-    </div>
-  )
+        </Layout.HorizontallyPaddedContainer>
+      </div>
+    )
+  }
 
   DropDownChildren.propTypes = {
     child: PropTypes.object,
