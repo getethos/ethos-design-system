@@ -15,7 +15,7 @@ import NavLink from '../NavLink'
 import DropdownCta from './DropdownCta'
 
 // Helpers
-import { IconIntegratedTitle } from '../../../helpers/words'
+import IconIntegratedTitle from './IconIntegratedTitle'
 
 // Styles
 import styles from './DropdownChildren.module.scss'

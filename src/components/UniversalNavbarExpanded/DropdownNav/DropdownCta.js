@@ -8,7 +8,7 @@ import { DropdownLinkIcon } from '../../UniversalNavbar/assets/icons.js'
 import { Spacer, Body, COLORS, TitleSmall } from '../../index'
 
 // Helpers
-import { IconIntegratedTitle } from '../../../helpers/words'
+import IconIntegratedTitle from './IconIntegratedTitle'
 
 /**
  * CTA copy for use in DropdownNav
