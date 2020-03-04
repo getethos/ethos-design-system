@@ -136,20 +136,20 @@ UniversalNavbarExpanded.propTypes = {
     NAVLINKS: PropTypes.arrayOf(
       PropTypes.shape({
         href: PropTypes.string,
-        id: PropTypes.string,
         title: PropTypes.string,
+        id: PropTypes.string,
         subnav: PropTypes.shape({
           cta: PropTypes.shape({
             href: PropTypes.string,
+            title: PropTypes.string,
             id: PropTypes.string,
             subcopy: PropTypes.string,
-            title: PropTypes.string,
           }),
           items: PropTypes.arrayOf(
             PropTypes.shape({
               href: PropTypes.string,
-              id: PropTypes.string,
               title: PropTypes.string,
+              id: PropTypes.string,
             })
           ),
         }),
