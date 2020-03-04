@@ -4,27 +4,24 @@ import styles from './AccordionSection.module.css'
 import { useAccordionContext } from './useAccordionContext.js'
 import { codes } from '../../helpers/constants.js'
 
-export const AccordionSection = ({ children, title, renderToggle, index }) => {
-  const {
-    focusRef,
-    selected,
-    expandedAll,
-    onToggle,
-    toggleChildIsTarget,
-    onNavigation,
-    id,
-  } = useAccordionContext()
-  const sectionId = `${id}-${index}-section`
-  const labelId = `${id}-${index}-label`
-  const expanded = expandedAll[index]
-  const labelRef = useRef()
-
-  useEffect(() => {
-    if (index === selected[0] && labelRef.current) {
-      labelRef.current.focus()
-    }
-  }, [index, selected])
-
+/**
+ * HeaderBar will place all the event handlers on the header itself,
+ * if `toggleChildIsTarget` is false. If `toggleChildIsTarget` is true,
+ * we put those handlers ont the <Toggler /> itself.
+ */
+const HeaderBar = ({
+  renderToggle,
+  focusRef,
+  onToggle,
+  toggleChildIsTarget,
+  onNavigation,
+  expanded,
+  sectionId,
+  labelId,
+  labelRef,
+  index,
+  title,
+}) => {
   const onKeyDown = (e) => {
     switch (e.keyCode) {
       case codes.SPACE:
@@ -65,13 +62,36 @@ export const AccordionSection = ({ children, title, renderToggle, index }) => {
   }
 
   /**
-   * HeaderBar will place all the event handlers on the header itself,
-   * if `toggleChildIsTarget` is false. If `toggleChildIsTarget` is true,
-   * we put those handlers ont the <Toggler /> itself.
+   * It's important here that we've done the following:
+   * 1. Have HeaderBar outside of AccordionSection
+   * 2. Not have multiple return statements which trigger rerenders
+   * https://medium.com/@cowi4030/optimizing-conditional-rendering-in-react-3fee6b197a20
+   * All of these allow focus to be preserved as we toggle the AccordianSection
+   * since we aren't triggering needless rerenders.
    */
-  const HeaderBar = ({ children }) => {
-    if (!toggleChildIsTarget) {
-      return (
+  return (
+    <>
+      {toggleChildIsTarget && (
+        <div className={styles.Label}>
+          {title}
+          <span
+            role="button"
+            aria-expanded={expanded}
+            aria-controls={sectionId}
+            id={labelId}
+            tabIndex={0}
+            className={styles.Label}
+            onClick={onClick}
+            onKeyDown={onKeyDown}
+            onFocus={onFocus}
+            onBlur={onBlur}
+            ref={labelRef}
+          >
+            {renderToggle(expanded)}
+          </span>
+        </div>
+      )}
+      {!toggleChildIsTarget && (
         <div
           role="button"
           aria-expanded={expanded}
@@ -85,48 +105,50 @@ export const AccordionSection = ({ children, title, renderToggle, index }) => {
           onBlur={onBlur}
           ref={labelRef}
         >
-          {children}
-        </div>
-      )
-    } else {
-      return <div className={styles.Label}>{children}</div>
-    }
-  }
-
-  /**
-   * Toggler will place all the event handlers on itself if
-   * `toggleChildIsTarget` is true.
-   */
-  const Toggler = () => {
-    if (toggleChildIsTarget) {
-      return (
-        <span
-          role="button"
-          aria-expanded={expanded}
-          aria-controls={sectionId}
-          id={labelId}
-          tabIndex={0}
-          className={styles.Label}
-          onClick={onClick}
-          onKeyDown={onKeyDown}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          ref={labelRef}
-        >
+          {title}
           {renderToggle(expanded)}
-        </span>
-      )
-    } else {
-      return <>{renderToggle(expanded)}</>
+        </div>
+      )}
+    </>
+  )
+}
+
+export const AccordionSection = ({ children, title, renderToggle, index }) => {
+  const {
+    focusRef,
+    selected,
+    expandedAll,
+    onToggle,
+    toggleChildIsTarget,
+    onNavigation,
+    id,
+  } = useAccordionContext()
+  const sectionId = `${id}-${index}-section`
+  const labelId = `${id}-${index}-label`
+  const expanded = expandedAll[index]
+  const labelRef = useRef()
+
+  useEffect(() => {
+    if (index === selected[0] && labelRef.current) {
+      labelRef.current.focus()
     }
-  }
+  }, [index, selected])
 
   return (
     <>
-      <HeaderBar>
-        {title}
-        <Toggler />
-      </HeaderBar>
+      <HeaderBar
+        renderToggle={renderToggle}
+        focusRef={focusRef}
+        onToggle={onToggle}
+        toggleChildIsTarget={toggleChildIsTarget}
+        onNavigation={onNavigation}
+        expanded={expanded}
+        sectionId={sectionId}
+        labelId={labelId}
+        labelRef={labelRef}
+        index={index}
+        title={title}
+      />
       <div
         role="region"
         aria-labelledby={labelId}
