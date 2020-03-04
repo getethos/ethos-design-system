@@ -3,26 +3,23 @@ import PropTypes from 'prop-types'
 
 import { TitleMedium } from '../../index'
 import NavLink from '../NavLink'
-import styles from './BelowAccordion.module.scss'
+import styles from './LinkList.module.scss'
 
-const BelowAccordion = ({
+const LinkList = ({
   links,
   className,
   samePageCondition,
   samePageFunction,
   LinkComponent,
 }) => {
-  const classes = [styles.belowAccordion]
+  const classes = [styles.linkList]
   if (className) {
     classes.push(className)
   }
   return (
     <div className={classes.join(' ')}>
       {links.map((link, index) => (
-        <div
-          className={styles.belowAccordionItem}
-          key={`belowAccordion${index}`}
-        >
+        <div className={styles.linkListItem} key={`linkList${index}`}>
           <NavLink
             href={link.href}
             samePageFunction={(e) => samePageFunction(e)}
@@ -40,7 +37,7 @@ const BelowAccordion = ({
   )
 }
 
-BelowAccordion.propTypes = {
+LinkList.propTypes = {
   links: PropTypes.array.isRequired,
   className: PropTypes.string,
   samePageCondition: PropTypes.bool,
@@ -48,4 +45,4 @@ BelowAccordion.propTypes = {
   LinkComponent: PropTypes.object,
 }
 
-export default BelowAccordion
+export default LinkList

@@ -1,11 +1,11 @@
 @import '../../Media/Media.scss';
 
-.belowAccordion {
+.linkList {
   display: flex;
   flex-direction: column;
 }
 
-.belowAccordionItem {
+.linkListItem {
   display: inline-block;
   &:not(:last-child) {
     margin-bottom: var(--Space-24);

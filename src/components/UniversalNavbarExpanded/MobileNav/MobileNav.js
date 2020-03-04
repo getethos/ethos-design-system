@@ -5,11 +5,11 @@ import FancyAnimatedLogo from '../../UniversalNavbar/FancyAnimatedLogo'
 import LogoWhite from '../../UniversalNavbar/assets/ethos-logo-white.js'
 import TransformingBurgerButton from '../../UniversalNavbar/TransformingBurgerButton/TransformingBurgerButton'
 import AccordionNav from './AccordionNav'
-import BelowAccordion from './BelowAccordion'
+import LinkList from './LinkList'
 import CtaButton from '../CtaButton'
 import NavLink from '../NavLink'
 import { isEnterKeyPress } from '../../../helpers/isEnterKeyPress'
-import styles from './MobileNavbar.module.scss'
+import styles from './MobileNav.module.scss'
 
 const BaseHamburger = ({
   className,
@@ -35,11 +35,11 @@ BaseHamburger.propTypes = {
   keyPressHandler: PropTypes.func,
 }
 
-const MobileNavbar = ({
+const MobileNav = ({
   extraClass,
   logoHref,
   links,
-  belowAccordionLinks,
+  linkListLinks,
   hideMobileCta,
   ctaButtonTrackingFunction,
   LinkComponent,
@@ -58,9 +58,9 @@ const MobileNavbar = ({
       toggleHamburger()
     }
   }
-  const MobileNavbarClasses = [extraClass, styles.mobileNavbar]
+  const MobileNavClasses = [extraClass, styles.mobileNavbar]
   if (showMobileMenu) {
-    MobileNavbarClasses.push(styles.visible)
+    MobileNavClasses.push(styles.visible)
   }
 
   const Hamburger = () => (
@@ -75,7 +75,7 @@ const MobileNavbar = ({
   return (
     <>
       <Hamburger />
-      <div className={MobileNavbarClasses.join(' ')}>
+      <div className={MobileNavClasses.join(' ')}>
         <div
           className={showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu}
         >
@@ -97,9 +97,9 @@ const MobileNavbar = ({
             samePageCondition={showMobileMenu}
             LinkComponent={LinkComponent}
           />
-          <BelowAccordion
-            links={belowAccordionLinks}
-            className={styles.belowAccordion}
+          <LinkList
+            links={linkListLinks}
+            className={styles.linkList}
             samePageFunction={(e) => toggleHamburger(e)}
             samePageCondition={showMobileMenu}
             LinkComponent={LinkComponent}
@@ -124,14 +124,14 @@ const MobileNavbar = ({
   )
 }
 
-MobileNavbar.propTypes = {
+MobileNav.propTypes = {
   links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,
   ctaButtonTrackingFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
   logoHref: PropTypes.string,
-  belowAccordionLinks: PropTypes.array.isRequired,
+  linkListLinks: PropTypes.array.isRequired,
   hideMobileCta: PropTypes.bool,
 }
 
-export default MobileNavbar
+export default MobileNav

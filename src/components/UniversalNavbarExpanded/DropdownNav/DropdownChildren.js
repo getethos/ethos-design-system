@@ -4,12 +4,12 @@ import get from 'lodash/get'
 
 import { DropdownLinkIcon } from '../../UniversalNavbar/assets/icons.js'
 import { Layout, Footnote } from '../../index'
-import DropDownCta from './DropDownCta'
+import DropdownCta from './DropdownCta'
 import NavLink from '../NavLink'
 import { removeLastWord, getLastWord } from '../../../helpers/splitLastWord'
-import styles from './DropDownChildren.module.scss'
+import styles from './DropdownChildren.module.scss'
 
-const DropDownChildren = ({ extraClass, child, LinkComponent }) => {
+const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
   const columns = [[], []]
   const childItems = get(child, 'subnav.items')
 
@@ -38,7 +38,7 @@ const DropDownChildren = ({ extraClass, child, LinkComponent }) => {
                   href={get(child, 'subnav.cta.href')}
                   LinkComponent={LinkComponent}
                 >
-                  <DropDownCta
+                  <DropdownCta
                     title={get(child, 'subnav.cta.title')}
                     subcopy={get(child, 'subnav.cta.subcopy')}
                   />
@@ -75,10 +75,10 @@ const DropDownChildren = ({ extraClass, child, LinkComponent }) => {
   )
 }
 
-DropDownChildren.propTypes = {
+DropdownChildren.propTypes = {
   child: PropTypes.object,
   extraClass: PropTypes.string,
   LinkComponent: PropTypes.object,
 }
 
-export default DropDownChildren
+export default DropdownChildren

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Spacer, Body, COLORS, TitleSmall } from '../../index'
 import { DropdownLinkIcon } from '../../UniversalNavbar/assets/icons.js'
 import { removeLastWord, getLastWord } from '../../../helpers/splitLastWord'
-import styles from './DropDownCta.module.scss'
+import styles from './DropdownCta.module.scss'
 
-const DropDownCta = ({ title, subcopy }) => (
+const DropdownCta = ({ title, subcopy }) => (
   <>
     <TitleSmall.Serif.Book500>
       <span>{removeLastWord(title)}</span>
@@ -19,9 +19,9 @@ const DropDownCta = ({ title, subcopy }) => (
   </>
 )
 
-DropDownCta.propTypes = {
+DropdownCta.propTypes = {
   title: PropTypes.string.isRequired,
   subcopy: PropTypes.string.isRequired,
 }
 
-export default DropDownCta
+export default DropdownCta

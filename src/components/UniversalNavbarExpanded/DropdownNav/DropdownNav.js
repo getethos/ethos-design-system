@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { DropdownParentIcon } from '../../UniversalNavbar/assets/icons.js'
 import { Footnote } from '../../index'
-import DropDownChildren from './DropDownChildren'
-import styles from './DropDownNav.module.scss'
+import DropdownChildren from './DropdownChildren'
+import styles from './DropdownNav.module.scss'
 
-const DropDownNav = ({ links, LinkComponent }) => {
+const DropdownNav = ({ links, LinkComponent }) => {
   return (
     <div className={styles.dropdownNav}>
       {links.NAVLINKS.map((link) => (
@@ -17,7 +17,7 @@ const DropDownNav = ({ links, LinkComponent }) => {
               <DropdownParentIcon />
             </span>
           </Footnote.Regular400>
-          <DropDownChildren
+          <DropdownChildren
             child={link}
             LinkComponent={LinkComponent}
             extraClass={styles.dropdownNavChildren}
@@ -28,9 +28,9 @@ const DropDownNav = ({ links, LinkComponent }) => {
   )
 }
 
-DropDownNav.propTypes = {
+DropdownNav.propTypes = {
   links: PropTypes.object.isRequired,
   LinkComponent: PropTypes.object,
 }
 
-export default DropDownNav
+export default DropdownNav

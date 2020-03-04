@@ -11,8 +11,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
       element="div"
       offsetHeight={0}
     >
-      <MobileNavbar
-        belowAccordionLinks={
+      <MobileNav
+        ctaButtonTrackingFunction={[Function]}
+        extraClass="isFixedCta"
+        hideMobileCta={false}
+        linkListLinks={
           Array [
             Object {
               "href": "/term",
@@ -28,9 +31,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             },
           ]
         }
-        ctaButtonTrackingFunction={[Function]}
-        extraClass="isFixedCta"
-        hideMobileCta={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -242,7 +242,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 />
               </svg>
             </NavLink>
-            <DropDownNav
+            <DropdownNav
               links={
                 Object {
                   "ACCOUNT": Object {

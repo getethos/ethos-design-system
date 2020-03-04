@@ -2,7 +2,7 @@ import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow'
 
 import { UniversalNavbarExpanded } from './UniversalNavbarExpanded'
-import { CMS_LINKS } from './constants.js'
+import { CMS_LINKS } from './SampleContent'
 
 describe('<UniversalNavbarExpanded>', () => {
   describe('matches snapshot', () => {

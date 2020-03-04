@@ -5,8 +5,8 @@ import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-black.js'
 import { AccountIcon, SearchIcon } from '../UniversalNavbar/assets/icons.js'
 import { Layout } from '../index'
 import NavLink from './NavLink'
-import DropDownNav from './Desktop/DropDownNav'
-import MobileNavbar from './Mobile/MobileNavbar'
+import DropdownNav from './DropdownNav/DropdownNav'
+import MobileNav from './MobileNav/MobileNav'
 import CtaButton from './CtaButton'
 import styles from './UniversalNavbarExpanded.module.scss'
 
@@ -43,11 +43,11 @@ const UniversalNavbarExpanded = ({
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
-          <MobileNavbar
+          <MobileNav
             extraClass={'isFixedCta'}
             logoHref={logoHref}
             links={links}
-            belowAccordionLinks={BELOW_ACCORDION_LINKS}
+            linkListLinks={BELOW_ACCORDION_LINKS}
             hideMobileCta={hideMobileCta}
             ctaButtonTrackingFunction={trackCtaClick}
             LinkComponent={LinkComponent}
@@ -58,7 +58,7 @@ const UniversalNavbarExpanded = ({
                 <NavLink href={logoHref} LinkComponent={LinkComponent}>
                   {LogoNotAnimated({ className: styles.logo })}
                 </NavLink>
-                <DropDownNav links={links} LinkComponent={LinkComponent} />
+                <DropdownNav links={links} LinkComponent={LinkComponent} />
               </div>
               <div className={layoutClasses.join(' ')}>
                 <SearchIconLink />
