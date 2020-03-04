@@ -20,7 +20,6 @@ import styles from './AccordionNav.module.scss'
 /**
  * Interactive accordion menu, displays at top of Mobile Nav.
  *
- * TODO should the accordion collapse an open section when the parent modal is dismissed?
  * TODO replace with fresh EDS Accordion component if compatible
  *
  * @param {string} extraClass - Extra top level class
