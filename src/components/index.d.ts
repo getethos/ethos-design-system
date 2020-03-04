@@ -1037,7 +1037,7 @@ export declare const NoraDrawer: {
   }
 }
 
-export declare const Accordian: {
+export declare const Accordion: {
   ({
     id,
     expanded,
