@@ -10,7 +10,7 @@ const toggleChild = (expanded) => {
   return <span aria-hidden={true}>{expanded ? '▲' : '▼'}</span>
 }
 
-describe('Accordian', () => {
+describe('Accordion', () => {
   it('default rendering', async () => {
     await act(async () => {
       testHook(() => {

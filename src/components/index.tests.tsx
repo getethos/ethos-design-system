@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Accordian } from './index'
+import { Accordion } from './index'
 import { AccordionSection } from './index'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
@@ -29,14 +29,14 @@ import { ZipInput } from './index'
 class AccordionTest extends React.Component<any, any> {
   render() {
     return (
-      <Accordian expanded={{ 1: true }} onToggle={() => {}}>
+      <Accordion expanded={{ 1: true }} onToggle={() => {}}>
         <AccordionSection index={1} title="yo" renderToggle={() => {}}>
           yo
         </AccordionSection>
         <AccordionSection index={2} title="yo yo" renderToggle={() => {}}>
           yo yo
         </AccordionSection>
-      </Accordian>
+      </Accordion>
     )
   }
 }
@@ -115,9 +115,7 @@ class IconLinkTest extends React.Component<any, any> {
 
 class IconTest extends React.Component<any, any> {
   render() {
-    return (
-      <Icon iconPrefix="fal" iconName="file-medical-alt" />
-    )
+    return <Icon iconPrefix="fal" iconName="file-medical-alt" />
   }
 }
 

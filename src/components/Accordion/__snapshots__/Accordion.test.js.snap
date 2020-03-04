@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Accordian default rendering 1`] = `
+exports[`Accordion default rendering 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>

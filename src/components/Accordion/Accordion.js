@@ -4,7 +4,7 @@ import { AccordionContext } from './useAccordionContext'
 import { codes } from '../../helpers/constants.js'
 
 /**
- * Accessible accordian primitive informed by WAI Practices:
+ * Accessible accordion primitive informed by WAI Practices:
  * https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html
  */
 export const Accordion = ({
@@ -88,7 +88,7 @@ Accordion.propTypes = {
   expanded: PropTypes.object.isRequired,
   /** `onToggle` - a callback when toggle buttons are clicked that updates the `expanded` state */
   onToggle: PropTypes.func.isRequired,
-  /** The Accordian's children. Likely AccordionSection's */
+  /** The Accordion's children. Likely AccordionSection's */
   children: PropTypes.node.isRequired,
   /** Boolean prop that indicates that you'd like to use that as the toggle (not the entire
    * `AccordionSection` header bar). Defaults to `false` */

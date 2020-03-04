@@ -53,7 +53,7 @@ const toggleChild = (expanded) => {
 </Accordion>
 ```
 
-Accordian component also allows you to pass in a boolean, `toggleChildIsTarget`
+Accordion component also allows you to pass in a boolean, `toggleChildIsTarget`
 that indicates that you'd like to use that as the toggle (not the entire
 `AccordionSection` header bar).
 

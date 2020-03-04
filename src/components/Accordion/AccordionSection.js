@@ -66,7 +66,7 @@ const HeaderBar = ({
    * 1. Have HeaderBar outside of AccordionSection
    * 2. Not have multiple return statements which trigger rerenders
    * https://medium.com/@cowi4030/optimizing-conditional-rendering-in-react-3fee6b197a20
-   * All of these allow focus to be preserved as we toggle the AccordianSection
+   * All of these allow focus to be preserved as we toggle the AccordionSection
    * since we aren't triggering needless rerenders.
    */
   return (
