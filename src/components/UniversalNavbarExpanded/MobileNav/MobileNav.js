@@ -132,7 +132,7 @@ const MobileNav = ({
             extraClass={styles.accordion}
             links={links}
             samePageFunction={(e) => toggleHamburger(e)}
-            samePageCondition={showMobileMenu}
+            navVisible={showMobileMenu}
             LinkComponent={LinkComponent}
           />
           <LinkList

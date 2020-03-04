@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 
@@ -25,7 +25,7 @@ import styles from './AccordionNav.module.scss'
  *
  * @param {string} extraClass - Extra top level class
  * @param {object} links - URLs and text
- * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
+ * @param {boolean} navVisible - Condition to check before executing samePageFunction
  * @param {function} samePageFunction - Function to execute when navigating to link of present page
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  *
@@ -34,11 +34,17 @@ import styles from './AccordionNav.module.scss'
 const AccordionNav = ({
   extraClass,
   links,
-  samePageCondition,
+  navVisible,
   samePageFunction,
   LinkComponent,
 }) => {
   const [activeAccordionItem, setActiveAccordionItem] = useState(false)
+
+  useEffect(() => {
+    if (!navVisible) {
+      setActiveAccordionItem(false)
+    }
+  })
 
   const toggleAccordionItem = (toggledItem) => {
     setActiveAccordionItem(
@@ -90,7 +96,7 @@ const AccordionNav = ({
                   href={get(link, 'subnav.cta.href')}
                   samePageAwareness={true}
                   samePageFunction={(e) => samePageFunction(e)}
-                  samePageCondition={samePageCondition}
+                  navVisible={navVisible}
                   LinkComponent={LinkComponent}
                 >
                   {get(link, 'subnav.cta.title')}
@@ -104,7 +110,7 @@ const AccordionNav = ({
                     href={link.href}
                     samePageAwareness={true}
                     samePageFunction={(e) => samePageFunction(e)}
-                    samePageCondition={samePageCondition}
+                    navVisible={navVisible}
                     LinkComponent={LinkComponent}
                   >
                     {link.title}
@@ -122,7 +128,7 @@ const AccordionNav = ({
 AccordionNav.propTypes = {
   extraClass: PropTypes.string,
   links: PropTypes.object.isRequired,
-  samePageCondition: PropTypes.bool,
+  navVisible: PropTypes.bool,
   samePageFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
 }
