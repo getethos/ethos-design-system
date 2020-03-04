@@ -20,7 +20,6 @@ import styles from './UniversalNavbarExpanded.module.scss'
 import { removeLastWord, getLastWord } from '../../helpers/splitLastWord'
 import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
 
-// TODO:  clicking on active page should collapse mobile menu
 // TODO:  Split main file into separate component files
 // TODO:  Update test descriptions / more tests
 // TODO:  JS Docs
