@@ -143,7 +143,6 @@ const MobileNav = ({
             LinkComponent={LinkComponent}
           />
         </div>
-        {/* Mobile menu items, getAnEstimate only shows when scrolled */}
         <NavLink
           className={styles.phoneLogoFancy}
           href={logoHref}

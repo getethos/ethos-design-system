@@ -19,11 +19,6 @@ import MobileNav from './MobileNav/MobileNav'
 // Styles
 import styles from './UniversalNavbarExpanded.module.scss'
 
-// TODO:  Update test descriptions / more tests
-// TODO:  JS Docs
-// TODO:  more code commenting in general
-// TODO:  PropTypes review
-
 /**
  * Fork of UniversalNavbar for testing on CMS, likely to be consolidated
  * into one component before deploy to Mono.
