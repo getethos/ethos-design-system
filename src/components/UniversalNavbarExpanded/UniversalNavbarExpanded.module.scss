@@ -162,7 +162,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
     /* TODO REDESIGN: this should be a DS component */
     font-weight: 300;
     color: var(--White);
-    text-decoration: unset !important;
+    text-decoration: unset;
   }
 }
 
@@ -190,33 +190,49 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 .accordion {
   padding: var(--Space-40) 0;
   margin-bottom: var(--Space-40);
+  border-bottom: solid 1px var(--White);
+
   @include for-tablet-only {
     padding-bottom: var(--Space-56);
     margin-bottom: var(--Space-56);
   }
-  border-bottom: solid 1px var(--White);
 }
 
 .accordionItem {
   cursor: pointer;
+
   &:not(:last-child) {
     margin-bottom: var(--Space-24);
+
     @include for-tablet-only {
       margin-bottom: var(--Space-32);
     }
   }
+
+  &:focus {
+    outline: none;
+
+    .accordionParent {
+      text-decoration: underline;
+      outline: none;
+    }
+  }
+
   &.active {
     .accordionChildren {
       display: block;
     }
+
     .accordionParent svg {
       transform: scale(1, -1);
     }
   }
+
   .accordionParent > div:first-child,
   .accordionChild {
     max-width: calc(100% - 14px);
     padding-right: var(--Space-64);
+
     @include for-tablet-only {
       padding-right: 120px;
     }
@@ -242,6 +258,11 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 
 .accordionChild {
   padding-top: var(--Space-24);
+
+  a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
 }
 
 .belowAccordion {

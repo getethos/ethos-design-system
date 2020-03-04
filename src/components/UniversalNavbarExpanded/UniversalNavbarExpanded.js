@@ -21,7 +21,6 @@ import { removeLastWord, getLastWord } from '../../helpers/splitLastWord'
 import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
 
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
-// TODO: smallest laptop size, lower width between subitems w/shorter text
 // TODO: replace blue outline on focus with cleaner white underline
 // TODO:  Split main file into separate component files
 // TODO:  Update test descriptions / more tests
