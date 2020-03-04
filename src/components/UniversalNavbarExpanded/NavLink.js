@@ -30,7 +30,10 @@ function handleSamePage(
 ) {
   const notEnterKey = keyPress && !isEnterKeyPress(event)
   if (typeof window === 'undefined' || !samePageCondition || notEnterKey) return
-  const pathOnly = window.location.href.replace(window.location.origin, '')
+  let pathOnly = window.location.href.replace(window.location.origin, '')
+  if (window.location.search) {
+    pathOnly = pathOnly.replace(window.location.search, '')
+  }
   if (pathOnly === href) {
     event.preventDefault()
     samePageFunction()
