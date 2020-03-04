@@ -1,10 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Reused assets from UniversalNavbar
 import { DropdownParentIcon } from '../../UniversalNavbar/assets/icons.js'
+
+// EDS core components
 import { Footnote } from '../../index'
+
+// Sibling components
 import DropdownChildren from './DropdownChildren'
+
+// Styles
 import styles from './DropdownNav.module.scss'
+
+/**
+ * Dropdown (on hover) navigation menu for desktop/laptop viewports
+ *
+ * @param {object} links - URLs and text
+ * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ *
+ * @return {JSX.Element}
+ */
 
 const DropdownNav = ({ links, LinkComponent }) => {
   return (

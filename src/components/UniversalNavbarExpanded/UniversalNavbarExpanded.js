@@ -1,13 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Reused assets from UniversalNavbar
 import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-black.js'
 import { AccountIcon, SearchIcon } from '../UniversalNavbar/assets/icons.js'
+
+// EDS core components
 import { Layout } from '../index'
+
+// UniversalNavbarExpanded simple siblings
+import CtaButton from './CtaButton'
 import NavLink from './NavLink'
+
+// UniversalNavbarExpanded complex siblings
 import DropdownNav from './DropdownNav/DropdownNav'
 import MobileNav from './MobileNav/MobileNav'
-import CtaButton from './CtaButton'
+
+// Styles
 import styles from './UniversalNavbarExpanded.module.scss'
 
 // TODO:  Update test descriptions / more tests
@@ -15,6 +24,24 @@ import styles from './UniversalNavbarExpanded.module.scss'
 // TODO:  more code commenting in general
 // TODO:  PropTypes review
 
+/**
+ * Fork of UniversalNavbar for testing on CMS, likely to be consolidated
+ * into one component before deploy to Mono.
+ *
+ * Top level website navigation, fixed to the top of the viewport while scrolling.
+ * Consumers can provide a custom link and content structure.
+ *
+ * TODO for more reusability, make the Account/Search links agnostic and optional
+ *
+ * @param {boolean} hideMobileCta - Hide cta on mobile
+ * @param {boolean} hideDesktopCta - Hide cta on desktop
+ * @param {function} trackCtaClick - Analytics function run when CTA Button is clicked
+ * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ * @param {string} logoHref - Href for the logo
+ * @param {object} links - URLs and text
+ *
+ * @return {JSX.Element}
+ */
 const UniversalNavbarExpanded = ({
   LinkComponent,
   hideMobileCta,
@@ -85,15 +112,55 @@ UniversalNavbarExpanded.propTypes = {
   hideMobileCta: PropTypes.bool,
   /** Hide cta on desktop */
   hideDesktopCta: PropTypes.bool,
-  /** Run analytics function when CTA Button gets clicked */
+  /** Analytics function run when CTA Button is clicked */
   trackCtaClick: PropTypes.func,
   /** agnotistic Reach and React Router Link */
   LinkComponent: PropTypes.object,
   /** Href for the logo */
   logoHref: PropTypes.string.isRequired,
-  /** Object of URLs and text */
-  // TODO add shape
-  links: PropTypes.object.isRequired,
+  /** URLs, text and unique IDs for links/titles/subcopy/keys
+   *  Shaping at the highest level to ensure child components
+   *  retain required properties as the links object is inherited
+   */
+  links: PropTypes.shape({
+    INDEX: PropTypes.shape({
+      href: PropTypes.string,
+    }),
+    CTA: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    }),
+    ACCOUNT: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    }),
+    SEARCH: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    }),
+    NAVLINKS: PropTypes.arrayOf(
+      PropTypes.shape({
+        href: PropTypes.string,
+        id: PropTypes.string,
+        title: PropTypes.string,
+        subnav: PropTypes.shape({
+          cta: PropTypes.shape({
+            href: PropTypes.string,
+            id: PropTypes.string,
+            subcopy: PropTypes.string,
+            title: PropTypes.string,
+          }),
+          items: PropTypes.arrayOf(
+            PropTypes.shape({
+              href: PropTypes.string,
+              id: PropTypes.string,
+              title: PropTypes.string,
+            })
+          ),
+        }),
+      })
+    ),
+  }).isRequired,
 }
 
 UniversalNavbarExpanded.defaultProps = {

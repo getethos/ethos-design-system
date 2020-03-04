@@ -2,12 +2,35 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 
-import { TitleMedium, TitleSmall } from '../../index'
+// Reused assets from UniversalNavbar
 import { AccordionToggleIcon } from '../../UniversalNavbar/assets/icons.js'
-import { isEnterKeyPress } from '../../../helpers/isEnterKeyPress'
+
+// EDS core components
+import { TitleMedium, TitleSmall } from '../../index'
+
+// Parent component (UniversalNavbar) siblings
 import NavLink from '../NavLink'
+
+//Helpers
+import { isEnterKeyPress } from '../../../helpers/isEnterKeyPress'
+
+// Styles
 import styles from './AccordionNav.module.scss'
 
+/**
+ * Interactive accordion menu, displays at top of Mobile Nav.
+ *
+ * TODO should the accordion collapse an open section when the parent modal is dismissed?
+ * TODO replace with fresh EDS Accordion component if compatible
+ *
+ * @param {string} extraClass - Extra top level class
+ * @param {array} links - URLs and text
+ * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
+ * @param {function} samePageFunction - Function to execute when navigating to link of present page
+ * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ *
+ * @return {JSX.Element}
+ */
 const AccordionNav = ({
   extraClass,
   links,

@@ -1,5 +1,8 @@
-// for demonstration in styleguide & test files (.md/.test.js files) only!
-// real implementation of this structure should use uuid() for id values
+/**
+ * Sample of UniversalNavbarExpanded links.
+ * For demonstration in styleguide & test files (.md/.test.js files) only!
+ * Real implementation of this structure should use uuid() for id values!
+ */
 export const CMS_LINKS = {
   // These are used e.g. in the logo, icons and bottom of mobile nav:
   INDEX: { href: '/' },

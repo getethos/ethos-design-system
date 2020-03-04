@@ -1,16 +1,33 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// Reused assets from UniversalNavbar
 import { default as BaseNavLink } from '../UniversalNavbar/NavLink'
+
+// Helpers
 import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
 
-const handleSamePage = (
+/**
+ * Helper function to provide event handling for a user attempting to navigate
+ * to the same page that they're already on.
+ *
+ * TODO test with query string parameters
+ *
+ * @param {object} event - Event triggered by user interaction
+ * @param {string} href - URL for the link being clicked to cross check with window.location
+ * @param {boolean} keyPress - Enable an onClick & onKeyPress listener
+ * @param {function} samePageFunction - Function to execute when navigating to link of present page
+ * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
+ *
+ * @return {void}
+ */
+function handleSamePage(
   event,
   href,
   keyPress,
   samePageFunction,
   samePageCondition
-) => {
+) {
   if (typeof window === 'undefined' || !samePageCondition) return
   if (keyPress) {
     if (!isEnterKeyPress(event)) return
@@ -22,6 +39,22 @@ const handleSamePage = (
   }
 }
 
+/**
+ * Reusable navigation link, forked from UniversalNavbar NavLink.
+ *
+ * Provides the capability to trigger a function when user is attempting to navigate
+ * to the same page that they're already on.
+ *
+ * @param {string|object} className - Optional className
+ * @param {string} key - Unique differentiator for multiple instances of component (hint: uuid)
+ * @param {string} href - URL for the link
+ * @param {boolean} samePageAwareness - Enable an onClick & onKeyPress listener
+ * @param {function} samePageFunction - Use with samePageAwareness to handle onClick & onKeyPress
+ * @param {object} component - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ * @param {ReactNode} children - Children to render within the link
+ *
+ * @return {JSX.Element}
+ */
 const NavLink = ({
   className,
   key,
@@ -35,7 +68,7 @@ const NavLink = ({
   if (samePageAwareness) {
     return (
       <BaseNavLink
-        className={className}
+        className={className ? className : null}
         key={key ? key : null}
         href={href}
         LinkComponent={LinkComponent}
@@ -72,5 +105,5 @@ NavLink.propTypes = {
   samePageAwareness: PropTypes.bool,
   samePageFunction: PropTypes.func,
   component: PropTypes.object,
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 }

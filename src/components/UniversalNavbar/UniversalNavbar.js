@@ -222,7 +222,7 @@ UniversalNavbar.propTypes = {
   hideMobileCta: PropTypes.bool,
   /** Hide cta on desktop */
   hideDesktopCta: PropTypes.bool,
-  /** Run analytics function when CTA Button gets clicked */
+  /** Analytics function run when CTA Button is clicked */
   trackCtaClick: PropTypes.func,
   /** agnotistic Reach and React Router Link */
   LinkComponent: PropTypes.object,

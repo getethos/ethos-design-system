@@ -2,14 +2,35 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import get from 'lodash/get'
 
+// Reused assets from UniversalNavbar
 import { DropdownLinkIcon } from '../../UniversalNavbar/assets/icons.js'
+
+// EDS core components
 import { Layout, Footnote } from '../../index'
-import DropdownCta from './DropdownCta'
+
+// Parent component (UniversalNavbar) siblings
 import NavLink from '../NavLink'
+
+// DropdownChildren sibling components
+import DropdownCta from './DropdownCta'
+
+// Helpers
 import { removeLastWord, getLastWord } from '../../../helpers/splitLastWord'
+
+// Styles
 import styles from './DropdownChildren.module.scss'
 
+/**
+ * Content (links) displayed in the dropdown menu after hovering the parent element
+ *
+ * @param {string} extraClass - Extra top level class
+ * @param {object} child - CTA copy, url and link items with titles/urls
+ * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ *
+ * @return {JSX.Element}
+ */
 const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
+  // Split the links for the subnav into two columns
   const columns = [[], []]
   const childItems = get(child, 'subnav.items')
 
@@ -76,8 +97,8 @@ const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
 }
 
 DropdownChildren.propTypes = {
-  child: PropTypes.object,
   extraClass: PropTypes.string,
+  child: PropTypes.object,
   LinkComponent: PropTypes.object,
 }
 
