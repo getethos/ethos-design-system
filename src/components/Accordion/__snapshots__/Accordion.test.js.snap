@@ -8,7 +8,7 @@ Object {
       <div>
         <div
           aria-controls="undefined-0-section"
-          class="Label"
+          class=""
           id="undefined-0-label"
           role="button"
           tabindex="0"
@@ -22,7 +22,7 @@ Object {
         </div>
         <div
           aria-labelledby="undefined-0-label"
-          class="Panel"
+          class=""
           hidden=""
           id="undefined-0-section"
           role="region"
@@ -37,7 +37,7 @@ Object {
         <div
           aria-controls="undefined-1-section"
           aria-expanded="true"
-          class="Label"
+          class=""
           id="undefined-1-label"
           role="button"
           tabindex="0"
@@ -51,7 +51,7 @@ Object {
         </div>
         <div
           aria-labelledby="undefined-1-label"
-          class="Panel"
+          class=""
           id="undefined-1-section"
           role="region"
         >
@@ -69,7 +69,7 @@ Object {
     <div>
       <div
         aria-controls="undefined-0-section"
-        class="Label"
+        class=""
         id="undefined-0-label"
         role="button"
         tabindex="0"
@@ -83,7 +83,7 @@ Object {
       </div>
       <div
         aria-labelledby="undefined-0-label"
-        class="Panel"
+        class=""
         hidden=""
         id="undefined-0-section"
         role="region"
@@ -98,7 +98,7 @@ Object {
       <div
         aria-controls="undefined-1-section"
         aria-expanded="true"
-        class="Label"
+        class=""
         id="undefined-1-label"
         role="button"
         tabindex="0"
@@ -112,7 +112,7 @@ Object {
       </div>
       <div
         aria-labelledby="undefined-1-label"
-        class="Panel"
+        class=""
         id="undefined-1-section"
         role="region"
       >
