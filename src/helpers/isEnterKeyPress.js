@@ -1,10 +1,10 @@
-const ENTER_KEY_CODE = 13
+import {codes} from './constants.js'
 
 export const isEnterKeyPress = (event) => {
   if (
     event.key === 'Enter' ||
-    event.which === ENTER_KEY_CODE ||
-    event.keyCode === ENTER_KEY_CODE
+    event.which === codes.RETURN ||
+    event.keyCode === codes.RETURN
   ) {
     return true
   } else {
