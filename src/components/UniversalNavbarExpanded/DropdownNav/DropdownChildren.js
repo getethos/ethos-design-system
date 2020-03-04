@@ -15,7 +15,7 @@ import NavLink from '../NavLink'
 import DropdownCta from './DropdownCta'
 
 // Helpers
-import { removeLastWord, getLastWord } from '../../../helpers/words'
+import { IconIntegratedTitle } from '../../../helpers/words'
 
 // Styles
 import styles from './DropdownChildren.module.scss'
@@ -80,11 +80,9 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
                     <Footnote.Regular400>
                       <NavLink href={link.href} LinkComponent={LinkComponent}>
                         <div className={styles.dropdownNavChildLink}>
-                          <span>{removeLastWord(link.title)}</span>
-                          <div className={styles.dropdownNavChildTextIcon}>
-                            <span>{getLastWord(link.title)}</span>
+                          <IconIntegratedTitle title={link.title}>
                             <DropdownLinkIcon />
-                          </div>
+                          </IconIntegratedTitle>
                         </div>
                       </NavLink>
                     </Footnote.Regular400>

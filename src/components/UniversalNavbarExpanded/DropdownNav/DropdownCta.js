@@ -8,10 +8,7 @@ import { DropdownLinkIcon } from '../../UniversalNavbar/assets/icons.js'
 import { Spacer, Body, COLORS, TitleSmall } from '../../index'
 
 // Helpers
-import { removeLastWord, getLastWord } from '../../../helpers/words'
-
-// Styles
-import styles from './DropdownCta.module.scss'
+import { IconIntegratedTitle } from '../../../helpers/words'
 
 /**
  * CTA copy for use in DropdownNav
@@ -25,11 +22,9 @@ import styles from './DropdownCta.module.scss'
 const DropdownCta = ({ title, subcopy }) => (
   <>
     <TitleSmall.Serif.Book500>
-      <span>{removeLastWord(title)}</span>
-      <div className={styles.inlineBlock}>
-        <span>{getLastWord(title)}</span>
+      <IconIntegratedTitle title={title}>
         <DropdownLinkIcon />
-      </div>
+      </IconIntegratedTitle>
     </TitleSmall.Serif.Book500>
     <Spacer.H8 />
     <Body.Regular400 color={COLORS.GRAY_SECONDARY}>{subcopy}</Body.Regular400>
