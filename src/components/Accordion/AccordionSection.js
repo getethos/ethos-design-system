@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import styles from './AccordionSection.module.css'
 import { useAccordionContext } from './useAccordionContext.js'
 import { codes } from '../../helpers/constants.js'
 
@@ -21,6 +20,8 @@ const HeaderBar = ({
   labelRef,
   index,
   title,
+  labelClassName,
+  toggleClassName,
 }) => {
   const onKeyDown = (e) => {
     switch (e.keyCode) {
@@ -72,7 +73,7 @@ const HeaderBar = ({
   return (
     <>
       {toggleChildIsTarget && (
-        <div className={styles.Label}>
+        <div className={labelClassName}>
           {title}
           <span
             role="button"
@@ -80,7 +81,7 @@ const HeaderBar = ({
             aria-controls={sectionId}
             id={labelId}
             tabIndex={0}
-            className={styles.Label}
+            className={toggleClassName}
             onClick={onClick}
             onKeyDown={onKeyDown}
             onFocus={onFocus}
@@ -98,7 +99,7 @@ const HeaderBar = ({
           aria-controls={sectionId}
           id={labelId}
           tabIndex={0}
-          className={styles.Label}
+          className={labelClassName}
           onClick={onClick}
           onKeyDown={onKeyDown}
           onFocus={onFocus}
@@ -125,9 +126,19 @@ HeaderBar.propTypes = {
   sectionId: PropTypes.string,
   labelId: PropTypes.string,
   labelRef: PropTypes.object,
+  labelClassName: PropTypes.string,
+  toggleClassName: PropTypes.string,
 }
 
-export const AccordionSection = ({ children, title, renderToggle, index }) => {
+export const AccordionSection = ({
+  children,
+  title,
+  renderToggle,
+  index,
+  labelClassName,
+  panelClassName,
+  toggleClassName,
+}) => {
   const {
     focusRef,
     selected,
@@ -162,13 +173,15 @@ export const AccordionSection = ({ children, title, renderToggle, index }) => {
         labelRef={labelRef}
         index={index}
         title={title}
+        labelClassName={labelClassName}
+        toggleClassName={toggleClassName}
       />
       <div
         role="region"
         aria-labelledby={labelId}
         id={sectionId}
         hidden={!expanded}
-        className={styles.Panel}
+        className={panelClassName}
       >
         {children}
       </div>
@@ -181,4 +194,13 @@ AccordionSection.propTypes = {
   title: PropTypes.string.isRequired,
   renderToggle: PropTypes.func,
   children: PropTypes.node.isRequired,
+  labelClassName: PropTypes.string,
+  panelClassName: PropTypes.string,
+  toggleClassName: PropTypes.string,
+}
+
+AccordionSection.defaultProps = {
+  labelClassName: '',
+  panelClassName: '',
+  toggleClassName: '',
 }

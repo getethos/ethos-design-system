@@ -8,3 +8,7 @@
 .Panel {
   padding: var(--Space-32);
 }
+
+.Toggle {
+  padding: var(--Space-8);
+}

@@ -1061,11 +1061,17 @@ export declare const AccordionSection: {
     title,
     renderToggle,
     children,
+    labelClassName,
+    panelClassName,
+    toggleClassName,
   }: {
     index?: number
     title: string
     renderToggle?: any
     children: React.ReactNode
+    labelClassName?: string
+    panelClassName?: string
+    toggleClassName?: string
   }): JSX.Element
   propTypes: {
     props: any

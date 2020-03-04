@@ -9,6 +9,7 @@ Keyboard navigation:
 
 ```jsx
 import { AccordionSection } from './AccordionSection.js'
+import styles from './AccordionSectionExample.module.css'
 import { useAccordionState } from './useAccordionState'
 const { expanded, onToggle } = useAccordionState({ 1: true })
 // The idea is you can use whatever you want for this. Just base your
@@ -17,11 +18,26 @@ const { expanded, onToggle } = useAccordionState({ 1: true })
 const toggleChild = (expanded) => {
   return <span aria-hidden={true}>{expanded ? '▲' : '▼'}</span>
 }
+
 ;<Accordion expanded={expanded} onToggle={onToggle}>
-  <AccordionSection title="Section 1" id="id1" renderToggle={toggleChild}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 1"
+    id="id1"
+    renderToggle={toggleChild}
+  >
     Lorem ipsum dolor sit amet
   </AccordionSection>
-  <AccordionSection title="Section 2" id="id2" renderToggle={toggleChild}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 2"
+    id="id2"
+    renderToggle={toggleChild}
+  >
     <p>
       Suspendisse lobortis diam quis magna faucibus Lorem ipsum dolor sit amet,
       cum ei veniam volutpat, vim ne vide aliquid ocurreret, id eam agam
@@ -38,7 +54,14 @@ const toggleChild = (expanded) => {
       Latine aliquando ut per, vel at tritani scaevola.
     </p>
   </AccordionSection>
-  <AccordionSection title="Section 3" id="id3" renderToggle={toggleChild}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 3"
+    id="id3"
+    renderToggle={toggleChild}
+  >
     <p>
       Mazim maiorum scripserit cu eum, id has veri mentitum deseruisse, mea ei
       malis laoreet necessitatibus. No errem scaevola mel, ne doctus suscipit
@@ -60,6 +83,7 @@ that indicates that you'd like to use that as the toggle (not the entire
 ```jsx
 import { AccordionSection } from './AccordionSection.js'
 import { useAccordionState } from './useAccordionState'
+import styles from './AccordionSectionExample.module.css'
 const { expanded, onToggle } = useAccordionState({ 1: true })
 // The idea is you can use whatever you want for this. Just base your
 // two jsx elements on `expanded` callback boolean. Put differently,
@@ -68,10 +92,24 @@ const toggleChild = (expanded) => {
   return <span aria-hidden={true}>{expanded ? 'X' : '+'}</span>
 }
 ;<Accordion toggleChildIsTarget={true} expanded={expanded} onToggle={onToggle}>
-  <AccordionSection title="Section 1" id="id1" renderToggle={toggleChild}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 1"
+    id="id1"
+    renderToggle={toggleChild}
+  >
     Lorem ipsum dolor sit amet
   </AccordionSection>
-  <AccordionSection title="Section 2" id="id2" renderToggle={toggleChild}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 2"
+    id="id2"
+    renderToggle={toggleChild}
+  >
     <p>
       Suspendisse lobortis diam quis magna faucibus Lorem ipsum dolor sit amet,
       cum ei veniam volutpat, vim ne vide aliquid ocurreret, id eam agam
@@ -88,7 +126,14 @@ const toggleChild = (expanded) => {
       Latine aliquando ut per, vel at tritani scaevola.
     </p>
   </AccordionSection>
-  <AccordionSection title="Section 3" id="id3" renderToggle={toggleChild}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 3"
+    id="id3"
+    renderToggle={toggleChild}
+  >
     <p>
       Mazim maiorum scripserit cu eum, id has veri mentitum deseruisse, mea ei
       malis laoreet necessitatibus. No errem scaevola mel, ne doctus suscipit
