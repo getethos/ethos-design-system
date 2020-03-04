@@ -30,17 +30,20 @@ import styles from './DropdownChildren.module.scss'
  * @return {JSX.Element}
  */
 const DropdownChildren = ({ extraClass, child, LinkComponent }) => {
-  // Split the links for the subnav into two columns
+  // ------------------------------------------------
+  // Split the links for the subnav into two columns.
+  // Related to the way design wanted spacing to work.
+  // Helps account for items of variable text length.
+  // The order of the links should be:
+  // 1 || 2
+  // 3 || 4
+  // 5 || 6
   const columns = [[], []]
   const childItems = get(child, 'subnav.items')
-
-  for (var i = 0; i < childItems.length; i++) {
-    if (i % 2 === 0) {
-      columns[0].push(childItems[i])
-    } else {
-      columns[1].push(childItems[i])
-    }
-  }
+  childItems.map((childItem, i) => {
+    columns[i % 2 === 0 ? 0 : 1].push(childItems[i])
+  })
+  // ------------------------------------------------
 
   const classes = [styles.dropdownNavChildren]
   if (extraClass) {
