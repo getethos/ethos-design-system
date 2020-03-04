@@ -330,7 +330,7 @@ $laptop-range-medium-end: 1050px;
   background: var(--White);
   border-top: solid 1px var(--GrayStrokeAndDisabled--translucent);
   border-bottom: solid 1px var(--GrayStrokeAndDisabled--translucent);
-  min-height: 240px;
+  min-height: 220px;
 }
 
 .dropdownNavChild {
@@ -353,7 +353,7 @@ $laptop-range-medium-end: 1050px;
 
 .dropdownNavChildrenInner {
   display: flex;
-  padding: var(--Space-40) 0 var(--Space-24);
+  padding: var(--Space-32) 0 var(--Space-24);
 }
 
 .dropdownNavChildrenCta {

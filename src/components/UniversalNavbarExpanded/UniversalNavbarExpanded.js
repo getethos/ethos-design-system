@@ -17,22 +17,8 @@ import NavLink from '../UniversalNavbar/NavLink'
 import TransformingBurgerButton from '../UniversalNavbar/TransformingBurgerButton/TransformingBurgerButton'
 import DropDownCta from './DropDownCta'
 import styles from './UniversalNavbarExpanded.module.scss'
-
-// TODO move this to helpers?
-const ENTER_KEY_CODE = 13
-const isEnterKeyPress = (event) => {
-  if (
-    event.key === 'Enter' ||
-    event.which === ENTER_KEY_CODE ||
-    event.keyCode === ENTER_KEY_CODE
-  ) {
-    return true
-  } else {
-    return false
-  }
-}
-
-// apply arrow/last word wrapping to CTA in dropdown
+import { removeLastWord, getLastWord } from '../../helpers/splitLastWord'
+import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
 
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 // TODO: smallest laptop size, lower width between subitems w/shorter text
@@ -78,22 +64,6 @@ const UniversalNavbarExpanded = ({
     if (isEnterKeyPress(event)) {
       toggleAccordionItem(index)
     }
-  }
-
-  const textStart = (text) => {
-    const alteredText = text.trim().split(' ')
-    return `${alteredText.slice(0, alteredText.length - 1).join(' ')} `
-  }
-
-  const textEnd = (text) => {
-    return (
-      <span>
-        {text
-          .trim()
-          .split(' ')
-          .pop()}
-      </span>
-    )
   }
 
   const NavLinkReduced = ({ className, key, href, children }) => (
@@ -282,9 +252,9 @@ const UniversalNavbarExpanded = ({
                       <Footnote.Regular400>
                         <NavLinkReduced href={link.href}>
                           <div className={styles.dropdownNavChildLink}>
-                            <span>{textStart(link.title)}</span>
+                            <span>{removeLastWord(link.title)}</span>
                             <div className={styles.dropdownNavChildTextIcon}>
-                              {textEnd(link.title)}
+                              {getLastWord(link.title)}
                               <DropdownLinkIcon />
                             </div>
                           </div>
