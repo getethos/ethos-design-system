@@ -35,15 +35,14 @@ const isEnterKeyPress = (event) => {
 // TODO: 'talk to us' CTA integration once Kustomer is implemented
 // TODO: smallest laptop size, lower width between subitems w/shorter text
 // TODO: replace blue outline on focus with cleaner white underline
-
-// ====: I think this one is fixed but have to test on CMS.
-// TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority) right 44px override not working for scrolled CTA in navbar on mobile
-
 // TODO:  Split main file into separate component files
 // TODO:  Update test descriptions / more tests
 // TODO:  JS Docs
 // TODO:  more code commenting in general
 // TODO:  PropTypes review
+
+// ====: I think this one is fixed but have to test on CMS.
+// TODO: 3/2/20 QA: Reduce padding between "check my price" CTA and hamburger icon on scrolled mobile nav (low priority) right 44px override not working for scrolled CTA in navbar on mobile
 
 const UniversalNavbarExpanded = ({
   LinkComponent,
@@ -116,21 +115,20 @@ const UniversalNavbarExpanded = ({
     children: PropTypes.node,
   }
 
-  const CtaButton = (showWhenScrolled) => {
-    const CtaButtonClasses = ['cta-button', 'navbar-expanded']
-    if (showWhenScrolled) {
-      CtaButtonClasses.push('show-when-scrolled')
-    }
-    return (
-      <a
-        className={CtaButtonClasses.join(' ')}
-        onClick={trackCtaClick}
-        href={links.TERM.href}
-      >
-        <Button.Small.Black>Check my price</Button.Small.Black>
-      </a>
-    )
-  }
+  const CtaButtonClasses = [
+    'cta-button',
+    'navbar-expanded',
+    'show-when-scrolled',
+  ]
+  const CtaButton = () => (
+    <a
+      className={CtaButtonClasses.join(' ')}
+      onClick={trackCtaClick}
+      href={links.TERM.href}
+    >
+      <Button.Small.Black>Check my price</Button.Small.Black>
+    </a>
+  )
 
   const SearchIconLink = () => (
     <NavLinkReduced className={styles.searchIcon} href={links.SEARCH.href}>
@@ -215,14 +213,12 @@ const UniversalNavbarExpanded = ({
     </div>
   )
 
+  const MobileMenuClasses = ['isFixedCta', styles.phoneAndTablet]
+  if (showMobileMenu) {
+    MobileMenuClasses.push(styles.visible)
+  }
   const MobileMenu = () => (
-    <div
-      className={
-        showMobileMenu
-          ? [styles.phoneAndTablet, styles.visible].join(' ')
-          : styles.phoneAndTablet
-      }
-    >
+    <div className={MobileMenuClasses.join(' ')}>
       <div
         className={showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu}
       >
@@ -244,7 +240,7 @@ const UniversalNavbarExpanded = ({
       <NavLinkReduced href={logoHref} className={styles.phoneLogoFancy}>
         <FancyAnimatedLogo />
       </NavLinkReduced>
-      {!hideMobileCta && CtaButton(true)}
+      {!hideMobileCta && <CtaButton />}
       <SearchIconLink />
     </div>
   )
@@ -318,9 +314,7 @@ const UniversalNavbarExpanded = ({
         <div className={`${styles.flex} ${styles.itemsCenter}`}>
           <SearchIconLink />
           <AccountIconLink />
-          <div className={styles.cta}>
-            {!hideDesktopCta && CtaButton(false)}
-          </div>
+          <div className={styles.cta}>{!hideDesktopCta && <CtaButton />}</div>
         </div>
       </div>
     </div>

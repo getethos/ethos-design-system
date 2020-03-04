@@ -1,6 +1,7 @@
 @import '../Media/Media.scss';
 @import '../Variables.scss';
 
+$phone-range-small-end: 340px;
 $tablet-range-small-end: 670px;
 $laptop-range-small-end: 929px;
 $laptop-range-medium-end: 1050px;
@@ -405,6 +406,14 @@ $laptop-range-medium-end: 1050px;
   :global {
     .cta-button.show-when-scrolled.navbar-expanded {
       right: 44px;
+    }
+  }
+}
+
+@media (max-width: $phone-range-small-end) {
+  :global {
+    .cta-button.show-when-scrolled.navbar-expanded {
+      right: 34px;
     }
   }
 }
