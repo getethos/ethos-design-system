@@ -1,5 +1,6 @@
 @import '../../Media/Media.scss';
 @import '../../Variables.scss';
+@import '../Attributes.css';
 
 $laptop-range-medium-end: 1050px;
 
@@ -18,9 +19,10 @@ $laptop-range-medium-end: 1050px;
   margin-bottom: var(--Space-16);
   a {
     text-decoration: none;
+    display: inline-block;
     &:hover {
       text-decoration: none;
-      opacity: 0.78;
+      opacity: var(--HoverOpacity);
       span {
         text-decoration: underline;
       }
@@ -38,7 +40,7 @@ $laptop-range-medium-end: 1050px;
 
   &:hover {
     span {
-      opacity: 0.78;
+      opacity: var(--HoverOpacity);
       text-decoration: underline;
     }
   }

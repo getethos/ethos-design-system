@@ -1,5 +1,6 @@
 @import '../Media/Media.scss';
 @import '../Variables.scss';
+@import './Attributes.css';
 
 $tablet-range-small-end: 670px;
 $laptop-range-small-end: 929px;
@@ -59,7 +60,7 @@ $laptop-range-small-end: 929px;
     margin-right: 18px;
     padding-top: 3px;
     &:hover {
-      opacity: 0.78;
+      opacity: var(--HoverOpacity);
     }
   }
 }
@@ -68,7 +69,7 @@ $laptop-range-small-end: 929px;
   @include for-laptop-and-up {
     padding-top: 3px;
     &:hover {
-      opacity: 0.78;
+      opacity: var(--HoverOpacity);
     }
   }
 }
