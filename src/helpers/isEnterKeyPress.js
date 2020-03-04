@@ -1,4 +1,4 @@
-import {codes} from './constants.js'
+import { codes } from './constants.js'
 
 export const isEnterKeyPress = (event) => {
   if (

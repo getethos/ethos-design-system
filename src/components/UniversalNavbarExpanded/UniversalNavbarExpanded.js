@@ -64,21 +64,57 @@ const UniversalNavbarExpanded = ({
     }
   }
 
-  const NavLinkReduced = ({ className, key, href, children }) => (
-    <NavLink
-      className={className}
-      key={key ? key : null}
-      href={href}
-      LinkComponent={LinkComponent}
-    >
-      {children}
-    </NavLink>
-  )
+  const handleSamePage = (event, href, keyPress) => {
+    if (typeof window === 'undefined' || !showMobileMenu) return
+    if (keyPress) {
+      if (!isEnterKeyPress(event)) return
+    }
+    const pathOnly = window.location.href.replace(window.location.origin, '')
+    if (pathOnly === href) {
+      event.preventDefault()
+      toggleHamburger()
+    }
+  }
+
+  const NavLinkReduced = ({
+    className,
+    key,
+    href,
+    samePageAwareness,
+    children,
+  }) => {
+    if (samePageAwareness) {
+      return (
+        <NavLink
+          className={className}
+          key={key ? key : null}
+          href={href}
+          LinkComponent={LinkComponent}
+          onClick={(e) => handleSamePage(e, href)}
+          onKeyPress={(e) => handleSamePage(e, href, true)}
+        >
+          {children}
+        </NavLink>
+      )
+    } else {
+      return (
+        <NavLink
+          className={className}
+          key={key ? key : null}
+          href={href}
+          LinkComponent={LinkComponent}
+        >
+          {children}
+        </NavLink>
+      )
+    }
+  }
 
   NavLinkReduced.propTypes = {
     className: PropTypes.string,
     key: PropTypes.string,
-    href: PropTypes.string,
+    href: PropTypes.string.isRequired,
+    samePageAwareness: PropTypes.bool,
     children: PropTypes.node,
   }
 
@@ -119,12 +155,14 @@ const UniversalNavbarExpanded = ({
               ? [styles.accordionItem, styles.active].join(' ')
               : styles.accordionItem
           }
-          onClick={() => toggleAccordionItem(idx)}
-          onKeyPress={(e) => handleAccordionItemKeyPress(e, idx)}
-          tabIndex={0}
-          role="button"
         >
-          <div className={styles.accordionParent}>
+          <div
+            className={styles.accordionParent}
+            onClick={() => toggleAccordionItem(idx)}
+            onKeyPress={(e) => handleAccordionItemKeyPress(e, idx)}
+            tabIndex={0}
+            role="button"
+          >
             <TitleMedium.Sans.Regular400>
               {link.title}
             </TitleMedium.Sans.Regular400>
@@ -136,7 +174,10 @@ const UniversalNavbarExpanded = ({
               className={styles.accordionChild}
             >
               <TitleSmall.Sans.Light300>
-                <NavLinkReduced href={get(link, 'subnav.cta.href')}>
+                <NavLinkReduced
+                  href={get(link, 'subnav.cta.href')}
+                  samePageAwareness={true}
+                >
                   {get(link, 'subnav.cta.title')}
                 </NavLinkReduced>
               </TitleSmall.Sans.Light300>
@@ -144,7 +185,9 @@ const UniversalNavbarExpanded = ({
             {get(link, 'subnav.items').map((link) => (
               <div key={link.id} className={styles.accordionChild}>
                 <TitleSmall.Sans.Light300>
-                  <NavLinkReduced href={link.href}>{link.title}</NavLinkReduced>
+                  <NavLinkReduced href={link.href} samePageAwareness={true}>
+                    {link.title}
+                  </NavLinkReduced>
                 </TitleSmall.Sans.Light300>
               </div>
             ))}
@@ -154,29 +197,21 @@ const UniversalNavbarExpanded = ({
     </div>
   )
 
+  const BELOW_ACCORDION_LINKS = [links.TERM, links.ACCOUNT, links.SEARCH]
   const BelowAccordion = () => (
     <div className={styles.belowAccordion}>
-      <div className={styles.belowAccordionItem}>
-        <NavLinkReduced href={links.TERM.href}>
-          <TitleMedium.Sans.Regular400>
-            {links.TERM.title}
-          </TitleMedium.Sans.Regular400>
-        </NavLinkReduced>
-      </div>
-      <div className={styles.belowAccordionItem}>
-        <NavLinkReduced href={links.ACCOUNT.href}>
-          <TitleMedium.Sans.Regular400>
-            {links.ACCOUNT.title}
-          </TitleMedium.Sans.Regular400>
-        </NavLinkReduced>
-      </div>
-      <div className={styles.belowAccordionItem}>
-        <NavLinkReduced href={links.SEARCH.href}>
-          <TitleMedium.Sans.Regular400>
-            {links.SEARCH.title}
-          </TitleMedium.Sans.Regular400>
-        </NavLinkReduced>
-      </div>
+      {BELOW_ACCORDION_LINKS.map((link, index) => (
+        <div
+          className={styles.belowAccordionItem}
+          key={`belowAccordion${index}`}
+        >
+          <NavLinkReduced href={link.href} samePageAwareness={true}>
+            <TitleMedium.Sans.Regular400>
+              {link.title}
+            </TitleMedium.Sans.Regular400>
+          </NavLinkReduced>
+        </div>
+      ))}
     </div>
   )
 
@@ -189,7 +224,11 @@ const UniversalNavbarExpanded = ({
       <div
         className={showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu}
       >
-        <NavLinkReduced href={logoHref} className={styles.phoneLogo}>
+        <NavLinkReduced
+          href={logoHref}
+          className={styles.phoneLogo}
+          samePageAwareness={true}
+        >
           {LogoWhite({ className: styles.logo })}
         </NavLinkReduced>
 

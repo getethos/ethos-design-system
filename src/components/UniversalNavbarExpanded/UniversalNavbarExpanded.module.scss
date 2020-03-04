@@ -209,15 +209,6 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
     }
   }
 
-  &:focus {
-    outline: none;
-
-    .accordionParent {
-      text-decoration: underline;
-      outline: none;
-    }
-  }
-
   &.active {
     .accordionChildren {
       display: block;
@@ -244,10 +235,16 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   > svg {
     width: var(--Space-12);
     height: var(--Space-12);
     margin-bottom: var(--Space-8);
+  }
+
+  &:focus {
+    text-decoration: underline;
+    outline: none;
   }
 }
 
