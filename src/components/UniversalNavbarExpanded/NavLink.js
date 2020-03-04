@@ -28,10 +28,8 @@ function handleSamePage(
   samePageFunction,
   samePageCondition
 ) {
-  if (typeof window === 'undefined' || !samePageCondition) return
-  if (keyPress) {
-    if (!isEnterKeyPress(event)) return
-  }
+  const notEnterKey = keyPress && !isEnterKeyPress(event)
+  if (typeof window === 'undefined' || !samePageCondition || notEnterKey) return
   const pathOnly = window.location.href.replace(window.location.origin, '')
   if (pathOnly === href) {
     event.preventDefault()
@@ -82,18 +80,17 @@ const NavLink = ({
         {children}
       </BaseNavLink>
     )
-  } else {
-    return (
-      <BaseNavLink
-        className={className}
-        key={key ? key : null}
-        href={href}
-        LinkComponent={LinkComponent}
-      >
-        {children}
-      </BaseNavLink>
-    )
   }
+  return (
+    <BaseNavLink
+      className={className}
+      key={key ? key : null}
+      href={href}
+      LinkComponent={LinkComponent}
+    >
+      {children}
+    </BaseNavLink>
+  )
 }
 
 export default NavLink
