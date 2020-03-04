@@ -12,7 +12,7 @@ import NavLink from '../NavLink'
 
 // MobileNav siblings
 import AccordionNav from './AccordionNav'
-import LinkList from './LinkList'
+import SecondaryLinks from './SecondaryLinks'
 
 // Helpers
 import { isEnterKeyPress } from '../../../helpers/isEnterKeyPress'
@@ -65,7 +65,7 @@ BaseHamburger.propTypes = {
  * @param {function} ctaButtonTrackingFunction - Analytics function run when CTA Button is clicked
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {string} logoHref - Href for the logo
- * @param {array} linkListLinks - List of links for static display below accordion
+ * @param {array} secondaryLinksLinks - List of links for static display below accordion
  * @param {boolean} hideMobileCta - Hide the cta
  *
  * @return {JSX.Element}
@@ -74,7 +74,7 @@ const MobileNav = ({
   extraClass,
   logoHref,
   links,
-  linkListLinks,
+  secondaryLinksLinks,
   hideMobileCta,
   ctaButtonTrackingFunction,
   LinkComponent,
@@ -135,9 +135,9 @@ const MobileNav = ({
             navVisible={showMobileMenu}
             LinkComponent={LinkComponent}
           />
-          <LinkList
-            links={linkListLinks}
-            className={styles.linkList}
+          <SecondaryLinks
+            links={secondaryLinksLinks}
+            className={styles.secondaryLinks}
             samePageFunction={(e) => toggleHamburger(e)}
             samePageCondition={showMobileMenu}
             LinkComponent={LinkComponent}
@@ -167,7 +167,7 @@ MobileNav.propTypes = {
   ctaButtonTrackingFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
   logoHref: PropTypes.string.isRequired,
-  linkListLinks: PropTypes.array.isRequired,
+  secondaryLinksLinks: PropTypes.array.isRequired,
   hideMobileCta: PropTypes.bool,
 }
 

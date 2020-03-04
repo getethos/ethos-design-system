@@ -15,22 +15,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        linkListLinks={
-          Array [
-            Object {
-              "href": "/term",
-              "title": "Check my price",
-            },
-            Object {
-              "href": "/login/",
-              "title": "Account",
-            },
-            Object {
-              "href": "/search/",
-              "title": "Search",
-            },
-          ]
-        }
         links={
           Object {
             "ACCOUNT": Object {
@@ -213,6 +197,22 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
+        secondaryLinksLinks={
+          Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+          ]
+        }
       />
       <div
         className="laptopAndUp"

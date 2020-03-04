@@ -1,11 +1,11 @@
 @import '../../Media/Media.scss';
 
-.linkList {
+.secondaryLinks {
   display: flex;
   flex-direction: column;
 }
 
-.linkListItem {
+.secondaryLinksItem {
   display: inline-block;
   &:not(:last-child) {
     margin-bottom: var(--Space-24);

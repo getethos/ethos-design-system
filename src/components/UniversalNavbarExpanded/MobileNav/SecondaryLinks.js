@@ -8,7 +8,7 @@ import { TitleMedium } from '../../index'
 import NavLink from '../NavLink'
 
 // Styles
-import styles from './LinkList.module.scss'
+import styles from './SecondaryLinks.module.scss'
 
 /**
  * Static link list displayed below the accordion in MobileNav
@@ -21,21 +21,24 @@ import styles from './LinkList.module.scss'
  *
  * @return {JSX.Element}
  */
-const LinkList = ({
+const SecondaryLinks = ({
   links,
   className,
   samePageCondition,
   samePageFunction,
   LinkComponent,
 }) => {
-  const classes = [styles.linkList]
+  const classes = [styles.secondaryLinks]
   if (className) {
     classes.push(className)
   }
   return (
     <div className={classes.join(' ')}>
       {links.map((link, index) => (
-        <div className={styles.linkListItem} key={`linkList${index}`}>
+        <div
+          className={styles.secondaryLinksItem}
+          key={`secondaryLinks${index}`}
+        >
           <NavLink
             href={link.href}
             samePageFunction={(e) => samePageFunction(e)}
@@ -53,7 +56,7 @@ const LinkList = ({
   )
 }
 
-LinkList.propTypes = {
+SecondaryLinks.propTypes = {
   links: PropTypes.array.isRequired,
   className: PropTypes.string,
   samePageCondition: PropTypes.bool,
@@ -61,4 +64,4 @@ LinkList.propTypes = {
   LinkComponent: PropTypes.object,
 }
 
-export default LinkList
+export default SecondaryLinks
