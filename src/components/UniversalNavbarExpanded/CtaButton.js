@@ -15,4 +15,9 @@ const CtaButton = ({ href, trackingFunction }) => {
   )
 }
 
+CtaButton.propTypes = {
+  href: PropTypes.string.isRequired,
+  trackingFunction: PropTypes.func.isRequired,
+}
+
 export default CtaButton

@@ -28,6 +28,13 @@ const BaseHamburger = ({
   )
 }
 
+BaseHamburger.propTypes = {
+  className: PropTypes.string.isRequired,
+  visibleState: PropTypes.bool,
+  clickHandler: PropTypes.func,
+  keyPressHandler: PropTypes.func,
+}
+
 const MobileNavbar = ({
   extraClass,
   logoHref,
@@ -115,6 +122,16 @@ const MobileNavbar = ({
       </div>
     </>
   )
+}
+
+MobileNavbar.propTypes = {
+  links: PropTypes.object.isRequired,
+  extraClass: PropTypes.string,
+  ctaButtonTrackingFunction: PropTypes.func,
+  LinkComponent: PropTypes.object,
+  logoHref: PropTypes.string,
+  belowAccordionLinks: PropTypes.array.isRequired,
+  hideMobileCta: PropTypes.bool,
 }
 
 export default MobileNavbar

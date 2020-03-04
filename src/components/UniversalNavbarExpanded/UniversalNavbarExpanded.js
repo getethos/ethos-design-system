@@ -64,7 +64,12 @@ const UniversalNavbarExpanded = ({
                 <SearchIconLink />
                 <AccountIconLink />
                 <div className={styles.cta}>
-                  {!hideDesktopCta && <CtaButton />}
+                  {!hideDesktopCta && (
+                    <CtaButton
+                      href={links.CTA.href}
+                      trackingFunction={trackCtaClick}
+                    />
+                  )}
                 </div>
               </div>
             </div>

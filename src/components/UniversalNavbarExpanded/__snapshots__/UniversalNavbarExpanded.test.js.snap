@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
+exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links provided 1`] = `
 <div
   className="navbarWrapper"
 >
@@ -14,15 +14,204 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
       <MobileNavbar
         belowAccordionLinks={
           Array [
-            undefined,
-            undefined,
-            undefined,
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            Object {
+              "href": "/search/",
+              "title": "Search",
+            },
           ]
         }
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        links={Object {}}
+        links={
+          Object {
+            "ACCOUNT": Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            "CTA": Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            "INDEX": Object {
+              "href": "/",
+            },
+            "NAVLINKS": Array [
+              Object {
+                "href": null,
+                "id": "db822eaa-d897-4334-9cf3-242e43b8ac3e",
+                "subnav": Object {
+                  "cta": Object {
+                    "href": "/insurance/term-life-insurance/",
+                    "id": "366f277c-e2e4-4868-8a8d-9d8a0cf7a242",
+                    "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                    "title": "Our plans",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/life/ethos-term-insurance/",
+                      "id": "a34b98ad-4d65-4780-bca4-13b3d559016a",
+                      "title": "What is term life insurance and how much does it cost?",
+                    },
+                    Object {
+                      "href": "/how-it-works/",
+                      "id": "d35873e5-e2b5-4551-8281-74141bcf2829",
+                      "title": "How our application process works",
+                    },
+                    Object {
+                      "href": "/life/who-needs-life-insurance/",
+                      "id": "79b82bfa-1a89-49cc-8869-fd1cfdbc8f90",
+                      "title": "Do I need life insurance?",
+                    },
+                    Object {
+                      "href": "/life/how-choose-right-type-life-insurance/",
+                      "id": "cc077267-d19f-4a80-9e98-928a58978bf8",
+                      "title": "Choosing your coverage amount and term length",
+                    },
+                    Object {
+                      "href": "/app/needs/",
+                      "id": "07b1ab7b-70fa-4d28-8bbf-33aa47b764d0",
+                      "title": "Coverage calculator",
+                    },
+                  ],
+                },
+                "title": "What we offer",
+              },
+              Object {
+                "href": null,
+                "id": "ecc83be5-d3ca-43c0-8b43-9b05b30155ea",
+                "subnav": Object {
+                  "cta": Object {
+                    "href": "/life/life-insurance-basics/",
+                    "id": "ad7fa609-f1ce-4d87-b0e0-d02df0515b00",
+                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "title": "Life insurance 101",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/life/term-group-whole/",
+                      "id": "1609c1c7-9534-45dd-8445-f7f9f31d8335",
+                      "title": "What are the main types of life insurance and how do they work?",
+                    },
+                    Object {
+                      "href": "/life/underwriting-explained/",
+                      "id": "399df1fc-68b1-413d-8b2a-65956154faf1",
+                      "title": "What is underwriting and how long does it take?",
+                    },
+                    Object {
+                      "href": "/life/pick-beneficiary/",
+                      "id": "5658f890-8a0f-4a2a-80f8-0d4d69648efe",
+                      "title": "Choosing your beneficiary",
+                    },
+                    Object {
+                      "href": "/life/who-needs-sp/",
+                      "id": "8140ff65-1dc4-4cc3-9794-78a47ba51064",
+                      "title": "What if I don't work?",
+                    },
+                    Object {
+                      "href": "/life/employer-sponsored-life-insurance/",
+                      "id": "b9560967-f235-4d54-a806-350024043579",
+                      "title": "Is my life insurance through work enough?",
+                    },
+                  ],
+                },
+                "title": "Life insurance basics",
+              },
+              Object {
+                "href": null,
+                "id": "e2d0c409-b28c-4c8d-a234-b422bb3a329f",
+                "subnav": Object {
+                  "cta": Object {
+                    "href": "/why-ethos/",
+                    "id": "830d191a-4fc0-4d97-a7e3-67cf61659e74",
+                    "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                    "title": "The Ethos Difference",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/about/",
+                      "id": "350be426-0e4b-4259-b7e9-929093307c25",
+                      "title": "Our mission",
+                    },
+                    Object {
+                      "href": "/reviews/",
+                      "id": "abd06748-77b2-4700-a9c8-2d8d079591af",
+                      "title": "Reviews",
+                    },
+                    Object {
+                      "href": "/life/customer-stories/",
+                      "id": "662d0f9f-6a5f-48ed-b60c-a485078ad721",
+                      "title": "Customer stories",
+                    },
+                    Object {
+                      "href": "/life/ethosforgood/",
+                      "id": "3371d001-d240-4419-aabb-f09b33d5e3e3",
+                      "title": "Ethos for Good",
+                    },
+                    Object {
+                      "href": "/friends/",
+                      "id": "40ece2bf-8540-456a-9f4a-2f35b2d648b0",
+                      "title": "Refer a friend",
+                    },
+                  ],
+                },
+                "title": "Why Ethos",
+              },
+              Object {
+                "href": null,
+                "id": "f37f33cf-2167-40b3-a00b-359eae5c2d86",
+                "subnav": Object {
+                  "cta": Object {
+                    "href": "/faq/",
+                    "id": "1da7ef63-7fba-442e-bf40-0331caf3f4ed",
+                    "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                    "title": "FAQ",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/faq/life-insurance-basics/",
+                      "id": "6406613b-9606-4b79-be7e-96b51e9ad6d0",
+                      "title": "Questions about life insurance",
+                    },
+                    Object {
+                      "href": "/faq/ethos/",
+                      "id": "0d7c78ab-9f96-439e-a3aa-a5ea014947d5",
+                      "title": "Questions about Ethos",
+                    },
+                    Object {
+                      "href": "/faq/application/",
+                      "id": "57763ba4-ebbd-45be-a340-90360c81d8dd",
+                      "title": "Questions about your application",
+                    },
+                    Object {
+                      "href": "/faq/policy/",
+                      "id": "f718a640-0fa2-48b4-8c86-c1ef93ca6d5c",
+                      "title": "Questions about your policy",
+                    },
+                    Object {
+                      "href": "/contact-us/",
+                      "id": "130fa313-2818-466c-9e13-5c7832a2eb07",
+                      "title": "Contact us",
+                    },
+                  ],
+                },
+                "title": "Help Center",
+              },
+            ],
+            "SEARCH": Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+          }
+        }
         logoHref="/"
       />
       <div
@@ -54,7 +243,187 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
               </svg>
             </NavLink>
             <DropDownNav
-              links={Object {}}
+              links={
+                Object {
+                  "ACCOUNT": Object {
+                    "href": "/login/",
+                    "title": "Account",
+                  },
+                  "CTA": Object {
+                    "href": "/term",
+                    "title": "Check my price",
+                  },
+                  "INDEX": Object {
+                    "href": "/",
+                  },
+                  "NAVLINKS": Array [
+                    Object {
+                      "href": null,
+                      "id": "db822eaa-d897-4334-9cf3-242e43b8ac3e",
+                      "subnav": Object {
+                        "cta": Object {
+                          "href": "/insurance/term-life-insurance/",
+                          "id": "366f277c-e2e4-4868-8a8d-9d8a0cf7a242",
+                          "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                          "title": "Our plans",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/life/ethos-term-insurance/",
+                            "id": "a34b98ad-4d65-4780-bca4-13b3d559016a",
+                            "title": "What is term life insurance and how much does it cost?",
+                          },
+                          Object {
+                            "href": "/how-it-works/",
+                            "id": "d35873e5-e2b5-4551-8281-74141bcf2829",
+                            "title": "How our application process works",
+                          },
+                          Object {
+                            "href": "/life/who-needs-life-insurance/",
+                            "id": "79b82bfa-1a89-49cc-8869-fd1cfdbc8f90",
+                            "title": "Do I need life insurance?",
+                          },
+                          Object {
+                            "href": "/life/how-choose-right-type-life-insurance/",
+                            "id": "cc077267-d19f-4a80-9e98-928a58978bf8",
+                            "title": "Choosing your coverage amount and term length",
+                          },
+                          Object {
+                            "href": "/app/needs/",
+                            "id": "07b1ab7b-70fa-4d28-8bbf-33aa47b764d0",
+                            "title": "Coverage calculator",
+                          },
+                        ],
+                      },
+                      "title": "What we offer",
+                    },
+                    Object {
+                      "href": null,
+                      "id": "ecc83be5-d3ca-43c0-8b43-9b05b30155ea",
+                      "subnav": Object {
+                        "cta": Object {
+                          "href": "/life/life-insurance-basics/",
+                          "id": "ad7fa609-f1ce-4d87-b0e0-d02df0515b00",
+                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "title": "Life insurance 101",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/life/term-group-whole/",
+                            "id": "1609c1c7-9534-45dd-8445-f7f9f31d8335",
+                            "title": "What are the main types of life insurance and how do they work?",
+                          },
+                          Object {
+                            "href": "/life/underwriting-explained/",
+                            "id": "399df1fc-68b1-413d-8b2a-65956154faf1",
+                            "title": "What is underwriting and how long does it take?",
+                          },
+                          Object {
+                            "href": "/life/pick-beneficiary/",
+                            "id": "5658f890-8a0f-4a2a-80f8-0d4d69648efe",
+                            "title": "Choosing your beneficiary",
+                          },
+                          Object {
+                            "href": "/life/who-needs-sp/",
+                            "id": "8140ff65-1dc4-4cc3-9794-78a47ba51064",
+                            "title": "What if I don't work?",
+                          },
+                          Object {
+                            "href": "/life/employer-sponsored-life-insurance/",
+                            "id": "b9560967-f235-4d54-a806-350024043579",
+                            "title": "Is my life insurance through work enough?",
+                          },
+                        ],
+                      },
+                      "title": "Life insurance basics",
+                    },
+                    Object {
+                      "href": null,
+                      "id": "e2d0c409-b28c-4c8d-a234-b422bb3a329f",
+                      "subnav": Object {
+                        "cta": Object {
+                          "href": "/why-ethos/",
+                          "id": "830d191a-4fc0-4d97-a7e3-67cf61659e74",
+                          "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                          "title": "The Ethos Difference",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/about/",
+                            "id": "350be426-0e4b-4259-b7e9-929093307c25",
+                            "title": "Our mission",
+                          },
+                          Object {
+                            "href": "/reviews/",
+                            "id": "abd06748-77b2-4700-a9c8-2d8d079591af",
+                            "title": "Reviews",
+                          },
+                          Object {
+                            "href": "/life/customer-stories/",
+                            "id": "662d0f9f-6a5f-48ed-b60c-a485078ad721",
+                            "title": "Customer stories",
+                          },
+                          Object {
+                            "href": "/life/ethosforgood/",
+                            "id": "3371d001-d240-4419-aabb-f09b33d5e3e3",
+                            "title": "Ethos for Good",
+                          },
+                          Object {
+                            "href": "/friends/",
+                            "id": "40ece2bf-8540-456a-9f4a-2f35b2d648b0",
+                            "title": "Refer a friend",
+                          },
+                        ],
+                      },
+                      "title": "Why Ethos",
+                    },
+                    Object {
+                      "href": null,
+                      "id": "f37f33cf-2167-40b3-a00b-359eae5c2d86",
+                      "subnav": Object {
+                        "cta": Object {
+                          "href": "/faq/",
+                          "id": "1da7ef63-7fba-442e-bf40-0331caf3f4ed",
+                          "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                          "title": "FAQ",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/faq/life-insurance-basics/",
+                            "id": "6406613b-9606-4b79-be7e-96b51e9ad6d0",
+                            "title": "Questions about life insurance",
+                          },
+                          Object {
+                            "href": "/faq/ethos/",
+                            "id": "0d7c78ab-9f96-439e-a3aa-a5ea014947d5",
+                            "title": "Questions about Ethos",
+                          },
+                          Object {
+                            "href": "/faq/application/",
+                            "id": "57763ba4-ebbd-45be-a340-90360c81d8dd",
+                            "title": "Questions about your application",
+                          },
+                          Object {
+                            "href": "/faq/policy/",
+                            "id": "f718a640-0fa2-48b4-8c86-c1ef93ca6d5c",
+                            "title": "Questions about your policy",
+                          },
+                          Object {
+                            "href": "/contact-us/",
+                            "id": "130fa313-2818-466c-9e13-5c7832a2eb07",
+                            "title": "Contact us",
+                          },
+                        ],
+                      },
+                      "title": "Help Center",
+                    },
+                  ],
+                  "SEARCH": Object {
+                    "href": "/search/",
+                    "title": "Search",
+                  },
+                }
+              }
             />
           </div>
           <div
@@ -65,7 +434,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot with no arguments 1`] = `
             <div
               className="cta"
             >
-              <CtaButton />
+              <CtaButton
+                href="/term"
+                trackingFunction={[Function]}
+              />
             </div>
           </div>
         </div>

@@ -2,11 +2,14 @@ import React from 'react'
 import ShallowRenderer from 'react-test-renderer/shallow'
 
 import { UniversalNavbarExpanded } from './UniversalNavbarExpanded'
+import { CMS_LINKS } from './constants.js'
 
 describe('<UniversalNavbarExpanded>', () => {
   describe('matches snapshot', () => {
-    it('with no arguments', () => {
-      expect(shallowSnapshot(<UniversalNavbarExpanded />)).toMatchSnapshot()
+    it('builds with sample links provided', () => {
+      expect(
+        shallowSnapshot(<UniversalNavbarExpanded links={CMS_LINKS} />)
+      ).toMatchSnapshot()
     })
   })
 })

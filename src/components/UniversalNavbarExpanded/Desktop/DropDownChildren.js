@@ -77,6 +77,8 @@ const DropDownChildren = ({ extraClass, child, LinkComponent }) => {
 
 DropDownChildren.propTypes = {
   child: PropTypes.object,
+  extraClass: PropTypes.string,
+  LinkComponent: PropTypes.object,
 }
 
 export default DropDownChildren

@@ -96,4 +96,12 @@ const AccordionNav = ({
   )
 }
 
+AccordionNav.propTypes = {
+  links: PropTypes.object.isRequired,
+  extraClass: PropTypes.string,
+  samePageCondition: PropTypes.bool,
+  samePageFunction: PropTypes.func,
+  LinkComponent: PropTypes.object,
+}
+
 export default AccordionNav

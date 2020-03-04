@@ -29,7 +29,8 @@ const DropDownNav = ({ links, LinkComponent }) => {
 }
 
 DropDownNav.propTypes = {
-  // child: PropTypes.object,
+  links: PropTypes.object.isRequired,
+  LinkComponent: PropTypes.object,
 }
 
 export default DropDownNav
