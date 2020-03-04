@@ -74,9 +74,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-/**
- * Big green mobile hamburger menu
- */
+// The expanded mobile menu
 .mobileMenu {
   position: fixed;
   padding: var(--Space-24) var(--Space-24) 40px;
@@ -91,7 +89,6 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   & a,
   & a:visited,
   & a:hover {
-    /* TODO REDESIGN: this should be a DS component */
     font-weight: 300;
     color: var(--White);
     text-decoration: unset;
