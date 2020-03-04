@@ -15,7 +15,7 @@ import NavLink from '../NavLink'
 import DropdownCta from './DropdownCta'
 
 // Helpers
-import { removeLastWord, getLastWord } from '../../../helpers/splitLastWord'
+import { removeLastWord, getLastWord } from '../../../helpers/words'
 
 // Styles
 import styles from './DropdownChildren.module.scss'

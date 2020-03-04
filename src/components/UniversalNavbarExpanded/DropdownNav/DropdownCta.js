@@ -8,7 +8,7 @@ import { DropdownLinkIcon } from '../../UniversalNavbar/assets/icons.js'
 import { Spacer, Body, COLORS, TitleSmall } from '../../index'
 
 // Helpers
-import { removeLastWord, getLastWord } from '../../../helpers/splitLastWord'
+import { removeLastWord, getLastWord } from '../../../helpers/words'
 
 // Styles
 import styles from './DropdownCta.module.scss'
