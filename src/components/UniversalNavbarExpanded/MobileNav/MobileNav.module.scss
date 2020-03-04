@@ -74,7 +74,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-// The expanded mobile menu
+/** The expanded (toggled visible) mobile menu */
 .mobileMenu {
   position: fixed;
   padding: var(--Space-24) var(--Space-24) 40px;
