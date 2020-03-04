@@ -2,6 +2,9 @@
  * Sample of UniversalNavbarExpanded links.
  * For demonstration in styleguide & test files (.md/.test.js files) only!
  * Real implementation of this structure should use uuid() for id values!
+ *
+ * TODO when Kustomer implementation is ready and we want to include a talk button
+ *      add TALK to the object with href & title
  */
 export const CMS_LINKS = {
   // These are used e.g. in the logo, icons and bottom of mobile nav:
@@ -10,11 +13,6 @@ export const CMS_LINKS = {
     href: '/term',
     title: 'Check my price',
   },
-  // TALK: {
-  //     id: 'NAVLINKS_MOCK_ID_',
-  //     href: '/',
-  //     title: 'Talk to us',
-  //   },
   ACCOUNT: {
     href: '/login/',
     title: 'Account',
@@ -23,7 +21,6 @@ export const CMS_LINKS = {
     href: '/search/',
     title: 'Search',
   },
-
   // These are the main top level link and their subnav items
   NAVLINKS: [
     {
