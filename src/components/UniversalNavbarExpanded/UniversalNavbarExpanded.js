@@ -20,8 +20,6 @@ import styles from './UniversalNavbarExpanded.module.scss'
 import { removeLastWord, getLastWord } from '../../helpers/splitLastWord'
 import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
 
-// TODO: 'talk to us' CTA integration once Kustomer is implemented
-// TODO: replace blue outline on focus with cleaner white underline
 // TODO:  Split main file into separate component files
 // TODO:  Update test descriptions / more tests
 // TODO:  JS Docs
