@@ -4,7 +4,7 @@
 
 $laptop-range-medium-end: 1050px;
 
-.dropdownNavChildren {
+.children {
   display: none;
   position: absolute;
   top: var(--Space-64);
@@ -15,7 +15,7 @@ $laptop-range-medium-end: 1050px;
   min-height: 220px;
 }
 
-.dropdownNavChild {
+.child {
   margin-bottom: var(--Space-16);
   a {
     text-decoration: none;
@@ -30,12 +30,12 @@ $laptop-range-medium-end: 1050px;
   }
 }
 
-.dropdownNavChildrenInner {
+.childrenInner {
   display: flex;
   padding: var(--Space-32) 0 var(--Space-24);
 }
 
-.dropdownNavChildrenCta {
+.childrenCta {
   margin-right: 120px;
 
   &:hover {
@@ -60,20 +60,20 @@ $laptop-range-medium-end: 1050px;
   }
 }
 
-.dropdownNavChildrenItems {
+.childrenItems {
   display: flex;
   max-width: 504px;
-  /* 504 = (216 x 2) + 72 | see .dropdownNavChildrenColumn below */
+  /* 504 = (216 x 2) + 72 | see .childrenColumn below */
   /* 216 is the original max width of the columns, with 72 px space between */
 }
 
-.dropdownNavChildrenColumn {
+.childrenColumn {
   &:first-child {
     margin-right: var(--Space-72);
   }
 }
 
-.dropdownNavChild {
+.child {
   svg {
     margin-left: var(--Space-4);
     width: 15px;
@@ -82,11 +82,11 @@ $laptop-range-medium-end: 1050px;
 }
 
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-medium-end) {
-  .dropdownNavChildren .dropdownNavChildrenCta {
+  .children .childrenCta {
     margin-right: var(--Space-48);
     max-width: 232px;
   }
-  .dropdownNavChildren .dropdownNavChildrenColumn:first-child {
+  .children .childrenColumn:first-child {
     margin-right: var(--Space-24);
   }
 }

@@ -45,7 +45,7 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
   })
   // ------------------------------------------------
 
-  const classes = [styles.dropdownNavChildren]
+  const classes = [styles.children]
   if (containerClasses) {
     classes.push(containerClasses)
   }
@@ -53,8 +53,8 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
   return (
     <div className={classes.join(' ')}>
       <Layout.HorizontallyPaddedContainer>
-        <div className={styles.dropdownNavChildrenInner}>
-          <div className={styles.dropdownNavChildrenCta}>
+        <div className={styles.childrenInner}>
+          <div className={styles.childrenCta}>
             {child.subnav &&
               get(child, 'subnav.cta') &&
               get(child, 'subnav.cta.href') && (
@@ -69,17 +69,17 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
                 </NavLink>
               )}
           </div>
-          <div className={styles.dropdownNavChildrenItems}>
+          <div className={styles.childrenItems}>
             {columns.map((column, idx) => (
               <div
-                className={styles.dropdownNavChildrenColumn}
+                className={styles.childrenColumn}
                 key={`navChildColumn${idx}`}
               >
                 {column.map((link) => (
-                  <div className={styles.dropdownNavChild} key={link.id}>
+                  <div className={styles.child} key={link.id}>
                     <Footnote.Regular400>
                       <NavLink href={link.href} LinkComponent={LinkComponent}>
-                        <div className={styles.dropdownNavChildLink}>
+                        <div className={styles.childLink}>
                           <IconIntegratedTitle title={link.title}>
                             <DropdownLinkIcon />
                           </IconIntegratedTitle>
