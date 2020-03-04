@@ -1,12 +1,8 @@
 @import '../Media/Media.scss';
 @import '../Variables.scss';
 
-$phone-range-small-end: 340px;
 $tablet-range-small-end: 670px;
 $laptop-range-small-end: 929px;
-$laptop-range-medium-end: 1050px;
-
-$navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 
 .flex {
   display: flex;
@@ -14,37 +10,6 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 
 .itemsCenter {
   align-items: center;
-}
-
-.hamburger {
-  position: fixed;
-  top: var(--Space-24);
-  right: var(--Space-24);
-  z-index: $z-index-modal;
-
-  @include for-laptop-and-up {
-    display: none;
-  }
-}
-
-.phoneAndTablet {
-  position: relative;
-  height: var(--Space-64);
-  background-color: var(--White);
-  padding: var(--Space-24) var(--ContainerPadding--Phone);
-  display: none;
-  align-items: center;
-  justify-content: flex-end;
-  display: flex;
-  @include for-laptop-and-up {
-    display: none;
-  }
-  &.visible {
-    z-index: $z-index-navbar-outer;
-  }
-  .hamburger {
-    position: absolute;
-  }
 }
 
 .laptopAndUp {
@@ -82,14 +47,6 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-.phoneLogo {
-  margin-right: auto;
-}
-
-.phoneLogoFancy {
-  margin-right: auto;
-}
-
 .cta {
   padding-left: 21px;
   @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
@@ -97,30 +54,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-.textLink {
-  padding-right: var(--Space-24);
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
-    &:nth-child(2) {
-      padding-right: var(--Space-16);
-    }
-    &:nth-child(3) {
-      padding-right: 0;
-    }
-  }
-  a {
-    color: var(--GraySecondary--translucent);
-    &:hover,
-    &:active,
-    &[aria-current='page'] {
-      color: inherit;
-    }
-  }
-}
-
 .searchIcon {
-  @include for-phone-and-tablet {
-    display: none;
-  }
   @include for-laptop-and-up {
     margin-right: 18px;
     padding-top: 3px;
@@ -131,9 +65,6 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 }
 
 .accountIcon {
-  @include for-phone-and-tablet {
-    display: none;
-  }
   @include for-laptop-and-up {
     padding-top: 3px;
     &:hover {
@@ -142,34 +73,10 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-/**
- * Big green mobile hamburger menu
- */
-.mobileMenu {
-  position: fixed;
-  padding: var(--Space-24) var(--Space-24) 40px;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  background-color: var(--BrandForest);
-  color: var(--White);
-  z-index: $z-index-navbar;
-  overflow-y: scroll;
-  & a,
-  & a:visited,
-  & a:hover {
-    /* TODO REDESIGN: this should be a DS component */
-    font-weight: 300;
-    color: var(--White);
-    text-decoration: unset;
-  }
-}
-
-.hideMobileMenu {
-  composes: mobileMenu;
-  opacity: 0;
-  pointer-events: none;
+.navbarWrapper {
+  height: var(--Space-64);
+  position: relative;
+  z-index: $z-index-navbar-outer;
 }
 
 .navbar {
@@ -181,276 +88,9 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   z-index: $z-index-navbar;
 }
 
-.blockNavbar {
-  height: var(--Space-64);
-  position: relative;
-  z-index: $z-index-navbar-outer;
-}
-
-.accordion {
-  padding: var(--Space-40) 0;
-  margin-bottom: var(--Space-40);
-  border-bottom: solid 1px var(--White);
-
-  @include for-tablet-only {
-    padding-bottom: var(--Space-56);
-    margin-bottom: var(--Space-56);
-  }
-}
-
-.accordionItem {
-  cursor: pointer;
-
-  &:not(:last-child) {
-    margin-bottom: var(--Space-24);
-
-    @include for-tablet-only {
-      margin-bottom: var(--Space-32);
-    }
-  }
-
-  &.active {
-    .accordionChildren {
-      display: block;
-    }
-
-    .accordionParent svg {
-      transform: scale(1, -1);
-    }
-  }
-
-  .accordionParent > div:first-child,
-  .accordionChild {
-    max-width: calc(100% - 14px);
-    padding-right: var(--Space-64);
-
-    @include for-tablet-only {
-      padding-right: 120px;
-    }
-  }
-}
-
-.accordionParent {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  > svg {
-    width: var(--Space-12);
-    height: var(--Space-12);
-    margin-bottom: var(--Space-8);
-  }
-
-  &:focus {
-    text-decoration: underline;
-    outline: none;
-  }
-}
-
-.accordionChildren {
-  display: none;
-  padding-bottom: var(--Space-8);
-}
-
-.accordionChild {
-  padding-top: var(--Space-24);
-
-  a:focus {
-    text-decoration: underline;
-    outline: none;
-  }
-}
-
-.belowAccordion {
-  display: flex;
-  flex-direction: column;
-  .belowAccordionItem {
-    display: inline-block;
-    &:not(:last-child) {
-      margin-bottom: var(--Space-24);
-      @include for-tablet-only {
-        margin-bottom: var(--Space-32);
-      }
-    }
-  }
-}
-
-.dropdownNav {
-  display: flex;
-}
-
-.dropdownNavParent {
-  cursor: pointer;
-  height: var(--Space-64);
-  display: flex;
-  align-items: center;
-
-  > div:first-child {
-    position: relative;
-
-    &:after {
-      content: '';
-      display: none;
-      position: absolute;
-      bottom: -22px;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      border-bottom: var(--Space-4) solid var(--BrandForest);
-    }
-  }
-
-  &:hover {
-    > div:first-child {
-      /** either this text shadow or we have to set fixed widths on each nav item
-        * in order to meet bolding spec without changing item width, design is OK
-        * with this current implementation as of 03.03.2020
-      **/
-      text-shadow: 0 0 0.25px var(--GrayPrimary--opaque),
-        0 0 0.25px var(--GrayPrimary--opaque);
-      &:after {
-        display: block;
-      }
-    }
-
-    .dropdownNavChildren {
-      display: block;
-      cursor: default;
-    }
-
-    .dropdownNavParentIcon {
-      svg {
-        stroke-width: 2;
-      }
-    }
-  }
-
-  &:not(:last-child) {
-    padding-right: var(--Space-12);
-  }
-
-  &:not(:first-child) {
-    padding-left: var(--Space-12);
-  }
-}
-
-.dropdownNavParentIcon {
-  margin-left: var(--Space-4);
-  svg {
-    stroke-width: 1;
-  }
-}
-
-.dropdownNavChildren {
-  display: none;
-  position: absolute;
-  top: var(--Space-64);
-  left: 0;
-  width: 100%;
-  background: var(--White);
-  border-bottom: $navbar-border;
-  min-height: 220px;
-}
-
-.dropdownNavChild {
-  margin-bottom: var(--Space-16);
-  a {
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-      opacity: 0.78;
-      span {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
-.dropdownNavChildTextIcon {
-  display: inline-block;
-}
-
-.dropdownNavChildrenInner {
-  display: flex;
-  padding: var(--Space-32) 0 var(--Space-24);
-}
-
-.dropdownNavChildrenCta {
-  margin-right: 120px;
-
-  &:hover {
-    span {
-      opacity: 0.78;
-      text-decoration: underline;
-    }
-  }
-
-  @include for-laptop-only {
-    max-width: 264px;
-  }
-
-  @include for-desktop-only {
-    max-width: 320px;
-  }
-
-  svg {
-    margin-left: var(--Space-4);
-    width: 19px;
-    height: 19px;
-  }
-}
-
-.dropdownNavChildrenItems {
-  display: flex;
-  max-width: 504px;
-  /* 504 = (216 x 2) + 72 | see .dropdownNavChildrenColumn below */
-  /* 216 is the original max width of the columns, with 72 px space between */
-}
-
-.dropdownNavChildrenColumn {
-  &:first-child {
-    margin-right: var(--Space-72);
-  }
-}
-
-.dropdownNavChild {
-  svg {
-    margin-left: var(--Space-4);
-    width: 15px;
-    height: var(--Space-12);
-  }
-}
-
-@include for-phone-and-tablet {
-  :global {
-    .cta-button.show-when-scrolled.navbar-expanded {
-      right: 44px;
-    }
-  }
-}
-
-@media (max-width: $phone-range-small-end) {
-  :global {
-    .cta-button.show-when-scrolled.navbar-expanded {
-      right: 34px;
-    }
-  }
-}
-
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
   .accountIcon,
   .searchIcon {
     display: none;
-  }
-}
-
-@media (min-width: $laptop-range-start) and (max-width: $laptop-range-medium-end) {
-  .dropdownNav .dropdownNavChildren .dropdownNavChildrenCta {
-    margin-right: var(--Space-48);
-    max-width: 232px;
-  }
-  .dropdownNav .dropdownNavChildren .dropdownNavChildrenColumn:first-child {
-    margin-right: var(--Space-24);
   }
 }

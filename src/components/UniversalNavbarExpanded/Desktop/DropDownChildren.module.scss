@@ -1,0 +1,94 @@
+@import '../../Media/Media.scss';
+@import '../../Variables.scss';
+
+$laptop-range-medium-end: 1050px;
+
+.dropdownNavChildren {
+  display: none;
+  position: absolute;
+  top: var(--Space-64);
+  left: 0;
+  width: 100%;
+  background: var(--White);
+  border-bottom: $navbar-border;
+  min-height: 220px;
+}
+
+.dropdownNavChild {
+  margin-bottom: var(--Space-16);
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.78;
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.dropdownNavChildTextIcon {
+  display: inline-block;
+}
+
+.dropdownNavChildrenInner {
+  display: flex;
+  padding: var(--Space-32) 0 var(--Space-24);
+}
+
+.dropdownNavChildrenCta {
+  margin-right: 120px;
+
+  &:hover {
+    span {
+      opacity: 0.78;
+      text-decoration: underline;
+    }
+  }
+
+  @include for-laptop-only {
+    max-width: 264px;
+  }
+
+  @include for-desktop-only {
+    max-width: 320px;
+  }
+
+  svg {
+    margin-left: var(--Space-4);
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.dropdownNavChildrenItems {
+  display: flex;
+  max-width: 504px;
+  /* 504 = (216 x 2) + 72 | see .dropdownNavChildrenColumn below */
+  /* 216 is the original max width of the columns, with 72 px space between */
+}
+
+.dropdownNavChildrenColumn {
+  &:first-child {
+    margin-right: var(--Space-72);
+  }
+}
+
+.dropdownNavChild {
+  svg {
+    margin-left: var(--Space-4);
+    width: 15px;
+    height: var(--Space-12);
+  }
+}
+
+@media (min-width: $laptop-range-start) and (max-width: $laptop-range-medium-end) {
+  .dropdownNavChildren .dropdownNavChildrenCta {
+    margin-right: var(--Space-48);
+    max-width: 232px;
+  }
+  .dropdownNavChildren .dropdownNavChildrenColumn:first-child {
+    margin-right: var(--Space-24);
+  }
+}

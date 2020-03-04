@@ -4,7 +4,7 @@ import uuidv4 from 'uuid/v4'
 export const CMS_LINKS = {
   // These are used e.g. in the logo, icons and bottom of mobile nav:
   INDEX: { href: '/' },
-  TERM: {
+  CTA: {
     href: '/term',
     title: 'Check my price',
   },

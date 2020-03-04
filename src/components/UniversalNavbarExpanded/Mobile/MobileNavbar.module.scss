@@ -1,0 +1,113 @@
+@import '../../Media/Media.scss';
+@import '../../Variables.scss';
+
+$phone-range-small-end: 340px;
+$tablet-range-small-end: 670px;
+
+$navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
+
+.hamburger {
+  position: fixed;
+  top: var(--Space-24);
+  right: var(--Space-24);
+  z-index: $z-index-modal;
+
+  @include for-laptop-and-up {
+    display: none;
+  }
+}
+
+.mobileNavbar {
+  position: relative;
+  height: var(--Space-64);
+  background-color: var(--White);
+  padding: var(--Space-24) var(--ContainerPadding--Phone);
+  display: none;
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
+  @include for-laptop-and-up {
+    display: none;
+  }
+  &.visible {
+    z-index: $z-index-navbar-outer;
+  }
+  .hamburger {
+    position: absolute;
+  }
+
+  :global {
+    @include for-phone-and-tablet {
+      .cta-button.show-when-scrolled.navbar-expanded {
+        right: 44px;
+      }
+    }
+    @media (max-width: $phone-range-small-end) {
+      .cta-button.show-when-scrolled.navbar-expanded {
+        right: 34px;
+      }
+    }
+  }
+}
+
+.logo {
+  height: var(--Space-16);
+  padding-right: var(--Space-40);
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
+    padding-right: var(--Space-24);
+  }
+}
+
+.phoneLogo {
+  margin-right: auto;
+}
+
+.phoneLogoFancy {
+  margin-right: auto;
+}
+
+.accordion,
+.belowAccordion {
+  a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
+}
+
+/**
+ * Big green mobile hamburger menu
+ */
+.mobileMenu {
+  position: fixed;
+  padding: var(--Space-24) var(--Space-24) 40px;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: var(--BrandForest);
+  color: var(--White);
+  z-index: $z-index-navbar;
+  overflow-y: scroll;
+  & a,
+  & a:visited,
+  & a:hover {
+    /* TODO REDESIGN: this should be a DS component */
+    font-weight: 300;
+    color: var(--White);
+    text-decoration: unset;
+  }
+}
+
+.hideMobileMenu {
+  composes: mobileMenu;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.accordion,
+.belowAccordion {
+  a:focus {
+    text-decoration: underline;
+    outline: none;
+  }
+}

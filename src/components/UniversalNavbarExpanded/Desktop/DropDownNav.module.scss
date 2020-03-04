@@ -1,0 +1,66 @@
+
+.dropdownNav {
+  display: flex;
+}
+
+.dropdownNavParent {
+  cursor: pointer;
+  height: var(--Space-64);
+  display: flex;
+  align-items: center;
+
+  > div:first-child {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: none;
+      position: absolute;
+      bottom: -22px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-bottom: var(--Space-4) solid var(--BrandForest);
+    }
+  }
+
+  &:hover {
+    > div:first-child {
+      /** either this text shadow or we have to set fixed widths on each nav item
+        * in order to meet bolding spec without changing item width, design is OK
+        * with this current implementation as of 03.03.2020
+      **/
+      text-shadow: 0 0 0.25px var(--GrayPrimary--opaque),
+        0 0 0.25px var(--GrayPrimary--opaque);
+      &:after {
+        display: block;
+      }
+    }
+
+    .dropdownNavChildren {
+      display: block;
+      cursor: default;
+    }
+
+    .dropdownNavParentIcon {
+      svg {
+        stroke-width: 2;
+      }
+    }
+  }
+
+  &:not(:last-child) {
+    padding-right: var(--Space-12);
+  }
+
+  &:not(:first-child) {
+    padding-left: var(--Space-12);
+  }
+}
+
+.dropdownNavParentIcon {
+  margin-left: var(--Space-4);
+  svg {
+    stroke-width: 1;
+  }
+}

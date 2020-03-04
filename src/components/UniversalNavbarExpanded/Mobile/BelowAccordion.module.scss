@@ -1,0 +1,16 @@
+@import '../../Media/Media.scss';
+
+.belowAccordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.belowAccordionItem {
+  display: inline-block;
+  &:not(:last-child) {
+    margin-bottom: var(--Space-24);
+    @include for-tablet-only {
+      margin-bottom: var(--Space-32);
+    }
+  }
+}
