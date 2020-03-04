@@ -101,6 +101,7 @@ NavLink.propTypes = {
   href: PropTypes.string.isRequired,
   samePageAwareness: PropTypes.bool,
   samePageFunction: PropTypes.func,
-  component: PropTypes.object,
+  samePageCondition: PropTypes.bool,
+  LinkComponent: PropTypes.object,
   children: PropTypes.node.isRequired,
 }
