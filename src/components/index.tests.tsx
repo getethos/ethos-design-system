@@ -8,8 +8,10 @@ import { Drawer } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
+import { Icon } from './index'
 import { IconLink } from './index'
 import { NoraButton } from './index'
+import { NoraCheckboxInput } from './index'
 import { NoraDrawer } from './index'
 import { NoraTextAreaInput } from './index'
 import { NumberInput } from './index'
@@ -39,6 +41,18 @@ class AccordionTest extends React.Component<any, any> {
   }
 }
 
+class NoraCheckboxInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraCheckboxInput name="name" data-tid="letid" validator={() => ''}>
+        I agree{' '}
+        <a href="/" target="_blank">
+          Agreement
+        </a>
+      </NoraCheckboxInput>
+    )
+  }
+}
 class DrawerTest extends React.Component<any, any> {
   render() {
     return (
@@ -95,6 +109,14 @@ class IconLinkTest extends React.Component<any, any> {
         textPosition="right"
         copy="Decision"
       />
+    )
+  }
+}
+
+class IconTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Icon iconPrefix="fal" iconName="file-medical-alt" />
     )
   }
 }
@@ -318,10 +340,6 @@ class ZipInputTest extends React.Component<any, any> {
     )
   }
 }
-
-///////////////////////////////
-// ---- NORA COMPONENTS ---- //
-///////////////////////////////
 
 class Header extends React.Component<any, any> {
   render() {

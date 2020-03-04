@@ -978,6 +978,21 @@ export declare const IconLink: {
   }
 }
 
+export declare const Icon: {
+  ({
+    iconPrefix,
+    iconName,
+    className,
+  }: {
+    iconPrefix: string
+    iconName: string
+    className?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
 export declare const Drawer: {
   ({
     children,
@@ -1062,6 +1077,7 @@ export declare const NoraTextAreaInput: {
     value,
     labelCopy,
     labelClassName,
+    textClassName,
     placeholder,
     onBlur,
     onFocus,
@@ -1073,10 +1089,29 @@ export declare const NoraTextAreaInput: {
     value?: string
     labelCopy?: string
     labelClassName?: string
+    textClassName?: string
     placeholder?: string
     onBlur?: () => void
     onFocus?: () => void
     onChange?: () => void
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
+export declare const NoraCheckboxInput: {
+  ({
+    name,
+    initialValue,
+    children,
+    validator,
+    ...rest
+  }: {
+    name: string
+    initialValue?: string
+    children: React.ReactNode
+    validator?: (value: string) => string
   }): JSX.Element
   propTypes: {
     props: any
