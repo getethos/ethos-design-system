@@ -6,6 +6,8 @@ $tablet-range-small-end: 670px;
 $laptop-range-small-end: 929px;
 $laptop-range-medium-end: 1050px;
 
+$navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
+
 .flex {
   display: flex;
 }
@@ -48,8 +50,9 @@ $laptop-range-medium-end: 1050px;
 .laptopAndUp {
   height: var(--Space-64);
   background-color: var(--White);
-
   display: none;
+  border-bottom: $navbar-border;
+
   @include for-laptop-and-up {
     display: block;
   }
@@ -328,8 +331,7 @@ $laptop-range-medium-end: 1050px;
   left: 0;
   width: 100%;
   background: var(--White);
-  border-top: solid 1px var(--GrayStrokeAndDisabled--translucent);
-  border-bottom: solid 1px var(--GrayStrokeAndDisabled--translucent);
+  border-bottom: $navbar-border;
   min-height: 220px;
 }
 
