@@ -24,7 +24,7 @@ import styles from './AccordionNav.module.scss'
  * TODO replace with fresh EDS Accordion component if compatible
  *
  * @param {string} extraClass - Extra top level class
- * @param {array} links - URLs and text
+ * @param {object} links - URLs and text
  * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
  * @param {function} samePageFunction - Function to execute when navigating to link of present page
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
@@ -120,8 +120,8 @@ const AccordionNav = ({
 }
 
 AccordionNav.propTypes = {
-  links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,
+  links: PropTypes.object.isRequired,
   samePageCondition: PropTypes.bool,
   samePageFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
