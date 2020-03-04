@@ -1063,7 +1063,7 @@ export declare const AccordionSection: {
     index?: number
     title: string
     renderToggle?: any
-    children?: React.ReactNode
+    children: React.ReactNode
   }): JSX.Element
   propTypes: {
     props: any
