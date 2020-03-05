@@ -13,7 +13,8 @@ import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
  *
  * In the code below we strip forward slashes from the path and href that we're comparing.
  * This is done to account for query parameters being appended without a trailing slash.
- * For example /search?query=term vs /search/?query=term where the href is always /search/
+ * For example /search?query=term vs /search/?query=term where the href is always /search/.
+ * It will also account for the rare case we have an href missing it's trailing slash.
  *
  * @param {object} event - Event triggered by user interaction
  * @param {string} href - URL for the link being clicked to cross check with window.location
