@@ -95,7 +95,7 @@ const AccordionNav = ({
                   href={get(link, 'subnav.cta.href')}
                   samePageAwareness={true}
                   samePageFunction={(e) => samePageFunction(e)}
-                  navVisible={navVisible}
+                  samePageCondition={navVisible}
                   LinkComponent={LinkComponent}
                 >
                   {get(link, 'subnav.cta.title')}
@@ -109,7 +109,7 @@ const AccordionNav = ({
                     href={link.href}
                     samePageAwareness={true}
                     samePageFunction={(e) => samePageFunction(e)}
-                    navVisible={navVisible}
+                    samePageCondition={navVisible}
                     LinkComponent={LinkComponent}
                   >
                     {link.title}

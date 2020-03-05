@@ -29,7 +29,7 @@ export const CMS_LINKS = {
       title: 'What we offer',
       subnav: {
         cta: {
-          href: '/insurance/term-life-insurance/',
+          href: '/#/Components/UniversalNavbarExpanded',
           title: 'Our plans',
           subcopy:
             'Learn more about term life insurance and the plans and options you have available.',
@@ -38,7 +38,7 @@ export const CMS_LINKS = {
         items: [
           {
             id: 'NAVLINKS_MOCK_ID_3',
-            href: '/life/ethos-term-insurance/',
+            href: '/#/Components/UniversalNavbarExpanded',
             title: 'What is term life insurance and how much does it cost?',
           },
           {
