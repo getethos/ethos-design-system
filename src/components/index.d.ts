@@ -1013,7 +1013,6 @@ export declare const NoraDrawer: {
     onDismiss,
     isOpen,
     position,
-    className,
     labelCopy,
     closeCopy,
   }: {
@@ -1023,7 +1022,6 @@ export declare const NoraDrawer: {
     labelCopy: string
     closeCopy: string
     position?: string
-    className?: string
   }): JSX.Element
   propTypes: {
     props: any
