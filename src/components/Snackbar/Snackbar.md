@@ -1,9 +1,12 @@
+**NOTE: using a button is not advised and just being used here for demo purposes—the reason is, useOutsideClick hook is intended to close the snackbar if you click on ANYTHING outside of the snackbar!**
+
 Snackbar a11y / UX—some things to try:
 
 - Press `<Tab>` key and note it puts focus on the close button within the Snackbar
 - Press `<Enter>` or `<Space>` key and note it closes the Snackbar
 - Use the "Open Programmatically" button
 - Press `<Escape>` key and note it closes the Snackbar
+- Also note, `useOutsideClick` closes the Snackbar if you click anywhere outside of the snackbar itself
 
 ```jsx
 import React, { useState } from 'react'
@@ -20,6 +23,7 @@ const SNACKBAR_LBL_ID = 'a11y-snackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-described-by'
 
 const SnackbarExample = () => {
+  // Try switching styles.Left with styles.Right
   const klasses = `${styles.SnackbarContainer} ${styles.SnackbarSkin} ${
     styles.Bottom
   } ${styles.Left} ${isOpen ? styles.Open : ''}`
