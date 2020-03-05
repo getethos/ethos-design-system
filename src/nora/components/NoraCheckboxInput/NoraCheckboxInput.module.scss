@@ -1,0 +1,15 @@
+@import '../Attributes.css';
+
+.NoraCheckboxInput [type='checkbox'] ~ svg {
+  border-radius: var(--Radius-3);
+  width: 14px;
+  height: 14px;
+}
+
+.NoraCheckboxInput > label > div {
+  top: 3px;
+}
+
+.NoraCheckboxInput [type='checkbox']:checked ~ svg {
+  background-color: var(--NoraGreen-400);
+}

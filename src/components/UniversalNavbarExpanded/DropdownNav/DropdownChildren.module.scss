@@ -1,0 +1,92 @@
+@import '../../Media/Media.scss';
+@import '../../Variables.scss';
+@import '../Attributes.css';
+
+$laptop-range-medium-end: 1050px;
+
+.children {
+  display: none;
+  position: absolute;
+  top: var(--Space-64);
+  left: 0;
+  width: 100%;
+  background: var(--White);
+  border-bottom: $navbar-border;
+  min-height: 220px;
+}
+
+.child {
+  margin-bottom: var(--Space-16);
+  a {
+    text-decoration: none;
+    display: inline-block;
+    &:hover {
+      text-decoration: none;
+      opacity: var(--HoverOpacity);
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.childrenInner {
+  display: flex;
+  padding: var(--Space-32) 0 var(--Space-24);
+}
+
+.childrenCta {
+  margin-right: 120px;
+
+  &:hover {
+    span {
+      opacity: var(--HoverOpacity);
+      text-decoration: underline;
+    }
+  }
+
+  @include for-laptop-only {
+    max-width: 264px;
+  }
+
+  @include for-desktop-only {
+    max-width: 320px;
+  }
+
+  svg {
+    margin-left: var(--Space-4);
+    width: 19px;
+    height: 19px;
+  }
+}
+
+.childrenItems {
+  display: flex;
+  max-width: 504px;
+  /* 504 = (216 x 2) + 72 | see .childrenColumn below */
+  /* 216 is the original max width of the columns, with 72 px space between */
+}
+
+.childrenColumn {
+  &:first-child {
+    margin-right: var(--Space-72);
+  }
+}
+
+.child {
+  svg {
+    margin-left: var(--Space-4);
+    width: 15px;
+    height: var(--Space-12);
+  }
+}
+
+@media (min-width: $laptop-range-start) and (max-width: $laptop-range-medium-end) {
+  .children .childrenCta {
+    margin-right: var(--Space-48);
+    max-width: 232px;
+  }
+  .children .childrenColumn:first-child {
+    margin-right: var(--Space-24);
+  }
+}

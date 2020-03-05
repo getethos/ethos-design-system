@@ -1,7 +1,9 @@
 @import '../Media/Media.scss';
 @import '../Variables.scss';
+@import './Attributes.css';
 
-$tablet-small-end: 670px;
+$tablet-range-small-end: 670px;
+$laptop-range-small-end: 929px;
 
 .flex {
   display: flex;
@@ -11,42 +13,12 @@ $tablet-small-end: 670px;
   align-items: center;
 }
 
-.hamburger {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  z-index: 2;
-
-  @include for-laptop-and-up {
-    display: none;
-  }
-}
-
-.phoneAndTablet {
-  position: relative;
-  height: var(--Space-64);
-  background-color: white;
-  padding: var(--Space-24) var(--ContainerPadding--Phone);
-  display: none;
-  align-items: center;
-  justify-content: flex-end;
-  display: flex;
-  @include for-laptop-and-up {
-    display: none;
-  }
-  &.visible {
-    z-index: 3;
-  }
-  .hamburger {
-    position: absolute;
-  }
-}
-
 .laptopAndUp {
   height: var(--Space-64);
-  background-color: white;
-
+  background-color: var(--White);
   display: none;
+  border-bottom: $navbar-border;
+
   @include for-laptop-and-up {
     display: block;
   }
@@ -69,101 +41,43 @@ $tablet-small-end: 670px;
 }
 
 .logo {
-  height: 16px;
+  height: var(--Space-16);
   padding-right: var(--Space-40);
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
     padding-right: var(--Space-24);
   }
 }
 
-.phoneLogo {
-  margin-right: auto;
-}
-
-.phoneLogoFancy {
-  margin-right: auto;
-}
-
 .cta {
   padding-left: 21px;
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
+  @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
     padding-left: 0;
   }
 }
 
-.textLink {
-  padding-right: var(--Space-24);
-  @media (min-width: $tablet-range-start) and (max-width: $tablet-small-end) {
-    &:nth-child(2) {
-      padding-right: var(--Space-16);
-    }
-    &:nth-child(3) {
-      padding-right: 0;
-    }
-  }
-  a {
-    color: var(--GraySecondary--translucent);
-    &:hover,
-    &:active,
-    &[aria-current='page'] {
-      color: inherit;
-    }
-  }
-}
-
 .searchIcon {
-  @include for-phone-and-tablet {
-    display: none;
-  }
   @include for-laptop-and-up {
     margin-right: 18px;
     padding-top: 3px;
     &:hover {
-      opacity: 0.78;
+      opacity: var(--HoverOpacity);
     }
   }
 }
 
 .accountIcon {
-  @include for-phone-and-tablet {
-    display: none;
-  }
   @include for-laptop-and-up {
     padding-top: 3px;
     &:hover {
-      opacity: 0.78;
+      opacity: var(--HoverOpacity);
     }
   }
 }
 
-/**
- * Big green mobile hamburger menu
- */
-.mobileMenu {
-  position: fixed;
-  padding: 24px 24px 40px;
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  background-color: var(--BrandForest);
-  color: white;
-  z-index: 1;
-  overflow-y: scroll;
-  & a,
-  & a:visited,
-  & a:hover {
-    /* TODO REDESIGN: this should be a DS component */
-    font-weight: 300;
-    color: white;
-    text-decoration: unset !important;
-  }
-}
-
-.hideMobileMenu {
-  composes: mobileMenu;
-  opacity: 0;
-  pointer-events: none;
+.navbarWrapper {
+  height: var(--Space-64);
+  position: relative;
+  z-index: $z-index-navbar-outer;
 }
 
 .navbar {
@@ -175,201 +89,9 @@ $tablet-small-end: 670px;
   z-index: $z-index-navbar;
 }
 
-.blockNavbar {
-  height: var(--Space-64);
-}
-
-.accordion {
-  padding: var(--Space-40) 0;
-  margin-bottom: var(--Space-40);
-  @include for-tablet-only {
-    padding-bottom: var(--Space-56);
-    margin-bottom: var(--Space-56);
-  }
-  border-bottom: solid 1px var(--White);
-}
-
-.accordionItem {
-  cursor: pointer;
-  &:not(:last-child) {
-    margin-bottom: var(--Space-24);
-    @include for-tablet-only {
-      margin-bottom: var(--Space-32);
-    }
-  }
-  &.active {
-    .accordionChildren {
-      display: block;
-    }
-    .accordionParent svg {
-      transform: scale(1, -1);
-    }
-  }
-  .accordionParent > div:first-child,
-  .accordionChild {
-    max-width: calc(100% - 14px);
-    padding-right: var(--Space-64);
-    @include for-tablet-only {
-      padding-right: 120px;
-    }
-  }
-}
-
-.accordionParent {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  > svg {
-    width: 12px;
-    height: 12px;
-    margin-bottom: var(--Space-8);
-  }
-}
-
-.accordionChildren {
-  display: none;
-  padding-bottom: var(--Space-8);
-}
-
-.accordionChild {
-  padding-top: var(--Space-24);
-}
-
-.belowAccordion {
-  display: flex;
-  flex-direction: column;
-  .belowAccordionItem {
-    display: inline-block;
-    &:not(:last-child) {
-      margin-bottom: var(--Space-24);
-      @include for-tablet-only {
-        margin-bottom: var(--Space-32);
-      }
-    }
-  }
-}
-
-.dropdownNav {
-  display: flex;
-  .dropdownNavParent {
-    cursor: pointer;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    padding-top: 4px;
-    border-bottom: 4px solid transparent;
-    &:hover {
-      border-bottom-color: var(--BrandForest);
-
-      > div:first-child {
-        /** either this text shadow or we have to set fixed widths on each nav item
-          * in order to meet bolding spec without changing item width
-        **/
-        text-shadow: 0 0 0.25px #272727, 0 0 0.25px #272727;
-      }
-      .dropdownNavChildren {
-        display: block;
-        cursor: default;
-      }
-    }
-    &:not(:last-child) {
-      padding-right: var(--Space-12);
-    }
-    &:not(:first-child) {
-      padding-left: var(--Space-12);
-    }
-    .dropdownNavParentIcon {
-      margin-left: 4px;
-    }
-  }
-}
-
-.dropdownNavChildren {
-  display: none;
-  position: absolute;
-  top: 64px;
-  left: 0;
-  width: 100%;
-  background: var(--White);
-  border-top: solid 1px var(--GrayStrokeAndDisabled--translucent);
-}
-
-.dropdownNavChild {
-  margin-bottom: 16px;
-  a {
-    text-decoration: none;
-    &:hover {
-      opacity: 0.78;
-    }
-  }
-}
-
-.dropdownNavChildrenInner {
-  display: flex;
-  padding: var(--Space-40) 0 var(--Space-24);
-  .dropdownNavChildrenCta {
-    &:hover {
-      span {
-        opacity: 0.78;
-        text-decoration: underline;
-      }
-    }
-    margin-right: 120px;
-    @include for-laptop-only {
-      max-width: 264px;
-    }
-    @include for-desktop-only {
-      max-width: 320px;
-    }
-    svg {
-      margin-left: 4px;
-      width: 19px;
-      height: 19px;
-    }
-  }
-  .dropdownNavChildrenItems {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 504px;
-    .dropdownNavChild {
-      flex-basis: calc(50%);
-      max-width: 216px;
-      &:nth-child(odd) {
-        margin-right: 72px;
-      }
-      svg {
-        margin-left: 4px;
-        width: 15px;
-        height: 12px;
-      }
-    }
-  }
-}
-
-@include for-phone-and-tablet {
-  :global {
-    .cta-button.show-when-scrolled {
-      right: 44px;
-    }
-  }
-}
-
-@media (min-width: 900px) and (max-width: 929px) {
+@media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
   .accountIcon,
   .searchIcon {
     display: none;
-  }
-}
-
-@media (min-width: 900px) and (max-width: 1050px) {
-  .dropdownNav .dropdownNavChildren .dropdownNavChildrenCta {
-    margin-right: 48px;
-    max-width: 232px;
-  }
-  .dropdownNav .dropdownNavChildren .dropdownNavChild:nth-child(odd) {
-    margin-right: 24px;
-    max-width: 208px;
   }
 }

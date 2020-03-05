@@ -1,5 +1,8 @@
 export { Header } from './Header'
+export { Icon } from './Icon'
 export { IconLink } from './IconLink'
 export { NoraButton } from './NoraButton'
+export { NoraCheckboxInput } from './NoraCheckboxInput'
 export { NoraDrawer } from './NoraDrawer'
+export { NoraTextAreaInput } from './NoraTextAreaInput'
 export { Tag } from './Tag'

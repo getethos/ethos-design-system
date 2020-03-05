@@ -17,14 +17,7 @@ type UniversalNavbarProps = {
 
 export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
 
-declare class UniversalNavbarExpanded extends React.Component {
-  state: {
-    showMobileMenu: boolean
-  }
-  toggleHamburger: () => void
-  render(): JSX.Element
-}
-export { UniversalNavbarExpanded }
+// TODO UniversalNavbarExpanded definition
 
 export { Layout } from './Layout/index.js'
 
@@ -984,6 +977,21 @@ export declare const IconLink: {
   }
 }
 
+export declare const Icon: {
+  ({
+    iconPrefix,
+    iconName,
+    className,
+  }: {
+    iconPrefix: string
+    iconName: string
+    className?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
 export declare const Drawer: {
   ({
     children,
@@ -1028,6 +1036,47 @@ export declare const NoraDrawer: {
   }
 }
 
+export declare const Accordion: {
+  ({
+    id,
+    expanded,
+    onToggle,
+    children,
+    toggleChildIsTarget,
+  }: {
+    id?: string
+    expanded: object
+    onToggle: any
+    children: React.ReactNode
+    toggleChildIsTarget?: boolean
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+export declare const AccordionSection: {
+  ({
+    index,
+    title,
+    renderToggle,
+    children,
+    labelClassName,
+    panelClassName,
+    toggleClassName,
+  }: {
+    index?: number
+    title: string
+    renderToggle?: any
+    children: React.ReactNode
+    labelClassName?: string
+    panelClassName?: string
+    toggleClassName?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
 export declare const NoraTextAreaInput: {
   ({
     disabled,
@@ -1035,6 +1084,7 @@ export declare const NoraTextAreaInput: {
     value,
     labelCopy,
     labelClassName,
+    textClassName,
     placeholder,
     onBlur,
     onFocus,
@@ -1046,10 +1096,29 @@ export declare const NoraTextAreaInput: {
     value?: string
     labelCopy?: string
     labelClassName?: string
+    textClassName?: string
     placeholder?: string
     onBlur?: () => void
     onFocus?: () => void
     onChange?: () => void
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
+export declare const NoraCheckboxInput: {
+  ({
+    name,
+    initialValue,
+    children,
+    validator,
+    ...rest
+  }: {
+    name: string
+    initialValue?: string
+    children: React.ReactNode
+    validator?: (value: string) => string
   }): JSX.Element
   propTypes: {
     props: any
