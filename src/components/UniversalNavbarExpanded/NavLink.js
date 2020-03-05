@@ -39,10 +39,7 @@ const handleSamePage = ({
     return
   }
   const slashGlobalRegExp = /\//g
-  const strippedPath = window.location.pathname.replace(
-    slashGlobalRegExp,
-    ''
-  )
+  const strippedPath = window.location.pathname.replace(slashGlobalRegExp, '')
   const strippedHref = href.replace(slashGlobalRegExp, '')
   if (strippedPath === strippedHref) {
     event.preventDefault()
