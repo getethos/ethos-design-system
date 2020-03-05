@@ -36,6 +36,9 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
     position: absolute;
   }
 
+  /** We still rely on some legacy UniversalNavbar styles from FancyAnimatedLogo.scss
+   *  thus :global needs to be used until UniversalNavbar is deprecated.
+   */
   :global {
     @include for-phone-and-tablet {
       .cta-button.show-when-scrolled.navbar-expanded {
