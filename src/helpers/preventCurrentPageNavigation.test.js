@@ -1,6 +1,6 @@
-import { currentPageNavigation } from './currentPageNavigation'
+import { preventCurrentPageNavigation } from './preventCurrentPageNavigation'
 
-describe('currentPageNavigation helper', () => {
+describe('preventCurrentPageNavigation helper', () => {
   let href = '/'
 
   const clickEvent = {
@@ -37,7 +37,7 @@ describe('currentPageNavigation helper', () => {
 
   it('should handle an index page click on current page link', () => {
     const testFunc = jest.fn()
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -51,7 +51,7 @@ describe('currentPageNavigation helper', () => {
     const testFunc = jest.fn()
     href = '/sample/'
     global.window.location.pathname = '/sample/'
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -65,7 +65,7 @@ describe('currentPageNavigation helper', () => {
     const testFunc = jest.fn()
     href = '/sample'
     global.window.location.pathname = '/sample/'
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -79,7 +79,7 @@ describe('currentPageNavigation helper', () => {
     const testFunc = jest.fn()
     href = '/sample/'
     global.window.location.pathname = '/sample'
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -93,7 +93,7 @@ describe('currentPageNavigation helper', () => {
     const testFunc = jest.fn()
     href = '/sample/pathname/long/'
     global.window.location.pathname = '/sample/pathname/long/'
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -108,7 +108,7 @@ describe('currentPageNavigation helper', () => {
     href = '/sample/'
     global.window.location.pathname = '/sample/#test'
     global.window.location.hash = '#test'
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -120,7 +120,7 @@ describe('currentPageNavigation helper', () => {
 
   it('should handle a keyPress on current page link', () => {
     const testFunc = jest.fn()
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: keyPressEvent,
       href: href,
       keyPress: true,
@@ -133,7 +133,7 @@ describe('currentPageNavigation helper', () => {
   it('should not fire for a different page link being clicked', () => {
     const testFunc = jest.fn()
     global.window.location.pathname = '/not-index/'
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -145,7 +145,7 @@ describe('currentPageNavigation helper', () => {
 
   it('should not fire for false samePageCondition', () => {
     const testFunc = jest.fn()
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
@@ -157,7 +157,7 @@ describe('currentPageNavigation helper', () => {
 
   it('should not fire for a non enter key press', () => {
     const testFunc = jest.fn()
-    currentPageNavigation({
+    preventCurrentPageNavigation({
       event: wrongKeyPressEvent,
       href: href,
       keyPress: true,

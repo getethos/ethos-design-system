@@ -19,7 +19,7 @@ import { isEnterKeyPress } from './isEnterKeyPress'
  *
  * @return {void}
  */
-export const currentPageNavigation = ({
+export const preventCurrentPageNavigation = ({
   event,
   href,
   keyPress,

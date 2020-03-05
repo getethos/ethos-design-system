@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { default as BaseNavLink } from '../UniversalNavbar/NavLink'
 
 // Helpers
-import { currentPageNavigation } from '../../helpers/currentPageNavigation'
+import { preventCurrentPageNavigation } from '../../helpers/preventCurrentPageNavigation'
 
 /**
  * Reusable navigation link, forked from UniversalNavbar NavLink.
@@ -41,7 +41,7 @@ const NavLink = ({
         href={href}
         LinkComponent={LinkComponent}
         onClick={(e) => {
-          currentPageNavigation({
+          preventCurrentPageNavigation({
             event: e,
             href: href,
             keyPress: false,
@@ -50,7 +50,7 @@ const NavLink = ({
           })
         }}
         onKeyPress={(e) =>
-          currentPageNavigation({
+          preventCurrentPageNavigation({
             event: e,
             href: href,
             keyPress: true,
