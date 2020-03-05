@@ -46,7 +46,31 @@ const DropdownNav = ({ links, LinkComponent }) => {
 
 DropdownNav.propTypes = {
   /** URLs and text */
-  links: PropTypes.object.isRequired,
+  links: PropTypes.shape({
+    NAVLINKS: PropTypes.arrayOf(
+      PropTypes.shape({
+        href: PropTypes.string,
+        title: PropTypes.string,
+        id: PropTypes.string,
+        subnav: PropTypes.shape({
+          cta: PropTypes.shape({
+            href: PropTypes.string,
+            title: PropTypes.string,
+            id: PropTypes.string,
+            subcopy: PropTypes.string,
+          }),
+          items: PropTypes.arrayOf(
+            PropTypes.shape({
+              href: PropTypes.string,
+              title: PropTypes.string,
+              id: PropTypes.string,
+            })
+          ),
+        }),
+      })
+    ),
+  }).isRequired,
+  /** Agnotistic Reach and React Router Link (ex. Gatsby's <Link>) */
   LinkComponent: PropTypes.object,
 }
 
