@@ -1,0 +1,7 @@
+@import '../Media/Media.scss';
+
+@include for-phone-only {
+  .hidden {
+    display: none;
+  }
+}
