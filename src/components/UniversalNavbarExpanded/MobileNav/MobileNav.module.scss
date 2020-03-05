@@ -10,7 +10,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   position: fixed;
   top: var(--Space-24);
   right: var(--Space-24);
-  z-index: $z-index-modal;
+  z-index: $z-index-middle;
 
   @include for-laptop-and-up {
     display: none;
@@ -30,7 +30,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
     display: none;
   }
   &.visible {
-    z-index: $z-index-navbar-outer;
+    z-index: $z-index-modal;
   }
   .hamburger {
     position: absolute;
