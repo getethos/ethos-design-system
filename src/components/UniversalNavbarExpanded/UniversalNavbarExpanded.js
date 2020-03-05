@@ -103,21 +103,19 @@ const UniversalNavbarExpanded = ({
 }
 
 UniversalNavbarExpanded.propTypes = {
-  /** Hide cta on mobile viewport */
+  /** Hide cta on mobile */
   hideMobileCta: PropTypes.bool,
   /** Hide cta on desktop */
   hideDesktopCta: PropTypes.bool,
   /** Analytics function run when CTA Button is clicked */
   trackCtaClick: PropTypes.func,
-  /** agnotistic Reach and React Router Link */
+  /** Agnotistic Reach and React Router Link (ex. Gatsby's <Link>) */
   LinkComponent: PropTypes.object,
   /** Href for the logo */
   logoHref: PropTypes.string.isRequired,
-  /** URLs, text and unique IDs for links/titles/subcopy/keys
-   *  Shaping at the highest level to ensure child components
-   *  retain required properties as the links object is inherited
-   */
+  /** URLs and text */
   links: PropTypes.shape({
+    /** Root application link { href: string } */
     INDEX: PropTypes.shape({
       href: PropTypes.string,
     }),
