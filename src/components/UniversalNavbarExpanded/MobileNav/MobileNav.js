@@ -142,6 +142,9 @@ const MobileNav = ({
         <NavLink
           className={styles.phoneLogoFancy}
           href={logoHref}
+          samePageAwareness={true}
+          samePageFunction={(e) => toggleHamburger(e)}
+          samePageCondition={showMobileMenu}
           LinkComponent={LinkComponent}
         >
           <FancyAnimatedLogo />

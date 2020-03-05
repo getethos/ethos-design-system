@@ -21,15 +21,15 @@ import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
  *
  * @return {void}
  */
-function handleSamePage(
+const handleSamePage = ({
   event,
   href,
   keyPress,
   samePageFunction,
-  samePageCondition
-) {
-  const notEnterKey = keyPress && !isEnterKeyPress(event)
-  if (typeof window === 'undefined' || !samePageCondition || notEnterKey) return
+  samePageCondition,
+}) => {
+  if (typeof window === 'undefined' || !samePageCondition) return
+  if (keyPress && !isEnterKeyPress(event)) return
   let pathOnly = window.location.href.replace(window.location.origin, '')
   if (window.location.search) {
     pathOnly = pathOnly.replace(window.location.search, '')
@@ -74,10 +74,22 @@ const NavLink = ({
         href={href}
         LinkComponent={LinkComponent}
         onClick={(e) => {
-          handleSamePage(e, href, false, samePageFunction, samePageCondition)
+          handleSamePage({
+            event: e,
+            href: href,
+            keyPress: false,
+            samePageFunction: samePageFunction,
+            samePageCondition: samePageCondition,
+          })
         }}
         onKeyPress={(e) =>
-          handleSamePage(e, href, true, samePageFunction, samePageCondition)
+          handleSamePage({
+            event: e,
+            href: href,
+            keyPress: true,
+            samePageFunction: samePageFunction,
+            samePageCondition: samePageCondition,
+          })
         }
       >
         {children}
