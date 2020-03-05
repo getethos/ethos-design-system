@@ -11,7 +11,9 @@ import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
  * Helper function to provide event handling for a user attempting to navigate
  * to the same page that they're already on.
  *
- * TODO test with query string parameters
+ * In the code below we strip forward slashes from the path and href that we're comparing.
+ * This is done to account for query parameters being appended without a trailing slash.
+ * For example /search?query=term vs /search/?query=term where the href is always /search/
  *
  * @param {object} event - Event triggered by user interaction
  * @param {string} href - URL for the link being clicked to cross check with window.location
@@ -35,19 +37,13 @@ const handleSamePage = ({
   ) {
     return
   }
-  console.log(window.location)
-  let pathOnly = window.location.href.replace(window.location.origin, '')
-  console.log(pathOnly)
-  if (window.location.search) {
-    pathOnly = pathOnly.replace(window.location.search, '')
-  }
-  console.log(pathOnly)
-  pathOnly = pathOnly.replace(/\//g,'')
-  let strippedHref = href.replace(/\//g, '')
-  console.log(pathOnly)
-  console.log(strippedHref)
-  console.log(href)
-  if (pathOnly === strippedHref) {
+  const slashGlobalRegExp = /\//g
+  const strippedPath = window.location.pathname.replace(
+    slashGlobalRegExp,
+    ''
+  )
+  const strippedHref = href.replace(slashGlobalRegExp, '')
+  if (strippedPath === strippedHref) {
     event.preventDefault()
     samePageFunction()
   }
