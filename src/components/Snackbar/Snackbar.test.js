@@ -24,6 +24,7 @@ describe('Snackbar', () => {
     const ariaLabelledBy = 'some-other-id'
 
     const props = {
+      id: 'leSnAcK',
       ariaDescribedBy,
       ariaLabelledBy,
       isOpen,
@@ -32,7 +33,7 @@ describe('Snackbar', () => {
 
     const tree = render(
       <Snackbar {...props}>
-        <h1 id={ariaLabelledBy}>Ima modal</h1>
+        <h1 id={ariaLabelledBy}>snackdaddy</h1>
         <p id={ariaDescribedBy}>some more content</p>
       </Snackbar>
     )
@@ -44,22 +45,27 @@ describe('Snackbar', () => {
     const isOpen = true
     const onDismissMock = jest.fn()
     window.scrollTo = jest.fn()
+    const ariaDescribedBy = 'some-id'
+    const ariaLabelledBy = 'some-other-id'
 
     const props = {
+      id: 'leSnAcK',
+      ariaDescribedBy,
+      ariaLabelledBy,
       isOpen,
       onDismiss: onDismissMock,
     }
 
     const { getByTestId } = render(
       <Snackbar {...props}>
-        <h1>Ima modal</h1>
+        <h1>snackbar</h1>
       </Snackbar>
     )
 
-    const modal = getByTestId('snackbar-container')
+    const snack = getByTestId('snackbar-container')
 
     act(() => {
-      fireEvent.keyDown(modal, { key: 'Escape', keyCode: 27 })
+      fireEvent.keyDown(snack, { key: 'Escape', keyCode: 27 })
     })
 
     expect(onDismissMock).toHaveBeenCalled()
