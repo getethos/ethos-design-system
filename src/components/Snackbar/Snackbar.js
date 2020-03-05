@@ -19,7 +19,6 @@ export const Snackbar = ({
   ariaLabelledBy,
   ariaDescribedBy,
   children,
-  ...rest
 }) => {
   const snackbarRef = useRef(null)
   useOutsideClick(snackbarRef, () => onDismiss(false))
@@ -27,7 +26,6 @@ export const Snackbar = ({
   useTrapFocus(snackbarRef, isOpen)
   useHideAriaSiblings(snackbarRef, isOpen)
 
-  const testId = rest['data-testid']
   const handleKeyDown = (e) => {
     if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
       onDismiss(false)
@@ -44,7 +42,7 @@ export const Snackbar = ({
         aria-describedby={ariaDescribedBy && ariaDescribedBy}
         aria-labelledby={ariaLabelledBy && ariaLabelledBy}
         aria-hidden={!isOpen}
-        data-testid={testId}
+        data-testid="snackbar-container"
         ref={snackbarRef}
       >
         {isOpen && children}
