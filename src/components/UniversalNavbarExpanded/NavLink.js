@@ -28,8 +28,13 @@ const handleSamePage = ({
   samePageFunction,
   samePageCondition,
 }) => {
-  if (typeof window === 'undefined' || !samePageCondition) return
-  if (keyPress && !isEnterKeyPress(event)) return
+  if (
+    typeof window === 'undefined' ||
+    !samePageCondition ||
+    (keyPress && !isEnterKeyPress(event))
+  ) {
+    return
+  }
   let pathOnly = window.location.href.replace(window.location.origin, '')
   if (window.location.search) {
     pathOnly = pathOnly.replace(window.location.search, '')
