@@ -1,0 +1,135 @@
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+import get from 'lodash/get'
+
+// Reused assets from UniversalNavbar
+import { AccordionToggleIcon } from '../../UniversalNavbar/assets/icons.js'
+
+// EDS core components
+import { TitleMedium, TitleSmall } from '../../index'
+
+// Parent component (UniversalNavbar) siblings
+import NavLink from '../NavLink'
+
+//Helpers
+import { isEnterKeyPress } from '../../../helpers/isEnterKeyPress'
+
+// Styles
+import styles from './AccordionNav.module.scss'
+
+/**
+ * Interactive accordion menu, displays at top of Mobile Nav.
+ *
+ * TODO replace with fresh EDS Accordion component if compatible
+ *
+ * @param {string} extraClass - Extra top level class
+ * @param {object} links - URLs and text
+ * @param {boolean} navVisible - Condition to check before executing samePageFunction
+ * @param {function} samePageFunction - Function to execute when navigating to link of present page
+ * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ *
+ * @return {JSX.Element}
+ */
+const AccordionNav = ({
+  extraClass,
+  links,
+  navVisible,
+  samePageFunction,
+  LinkComponent,
+}) => {
+  const [activeAccordionItem, setActiveAccordionItem] = useState(false)
+
+  useEffect(() => {
+    if (!navVisible) {
+      setActiveAccordionItem(false)
+    }
+  })
+
+  const toggleAccordionItem = (toggledItem) => {
+    setActiveAccordionItem(
+      activeAccordionItem === toggledItem ? false : toggledItem
+    )
+  }
+
+  const handleAccordionItemKeyPress = (event, index) => {
+    if (isEnterKeyPress(event)) {
+      toggleAccordionItem(index)
+    }
+  }
+
+  const classes = [styles.accordion]
+  if (extraClass) {
+    classes.push(extraClass)
+  }
+
+  return (
+    <div className={classes.join(' ')}>
+      {links.NAVLINKS.map((link, idx) => (
+        <div
+          key={link.id}
+          className={
+            idx === activeAccordionItem
+              ? [styles.accordionItem, styles.active].join(' ')
+              : styles.accordionItem
+          }
+        >
+          <div
+            className={styles.accordionParent}
+            onClick={() => toggleAccordionItem(idx)}
+            onKeyPress={(e) => handleAccordionItemKeyPress(e, idx)}
+            tabIndex={0}
+            role="button"
+          >
+            <TitleMedium.Sans.Regular400>
+              {link.title}
+            </TitleMedium.Sans.Regular400>
+            <AccordionToggleIcon />
+          </div>
+          <div className={styles.accordionChildren}>
+            <div
+              key={get(link, 'subnav.cta.id')}
+              className={styles.accordionChild}
+            >
+              <TitleSmall.Sans.Light300>
+                <NavLink
+                  href={get(link, 'subnav.cta.href')}
+                  samePageAwareness={true}
+                  samePageFunction={(e) => samePageFunction(e)}
+                  samePageCondition={navVisible}
+                  LinkComponent={LinkComponent}
+                >
+                  {get(link, 'subnav.cta.title')}
+                </NavLink>
+              </TitleSmall.Sans.Light300>
+            </div>
+            {get(link, 'subnav.items').map((link) => (
+              <div key={link.id} className={styles.accordionChild}>
+                <TitleSmall.Sans.Light300>
+                  <NavLink
+                    href={link.href}
+                    samePageAwareness={true}
+                    samePageFunction={(e) => samePageFunction(e)}
+                    samePageCondition={navVisible}
+                    LinkComponent={LinkComponent}
+                  >
+                    {link.title}
+                  </NavLink>
+                </TitleSmall.Sans.Light300>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+AccordionNav.propTypes = {
+  extraClass: PropTypes.string,
+  links: PropTypes.object.isRequired,
+  navVisible: PropTypes.bool,
+  samePageFunction: PropTypes.func,
+  LinkComponent: PropTypes.object,
+}
+
+export default AccordionNav

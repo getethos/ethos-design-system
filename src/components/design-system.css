@@ -277,7 +277,8 @@ a:hover {
     position: absolute;
     right: var(--Space-72);
   }
-  .isScrolled .cta-button.show-when-scrolled {
+  .isScrolled .cta-button.show-when-scrolled,
+  .isFixedCta .cta-button.show-when-scrolled {
     opacity: 1;
     pointer-events: all;
     transform: translateX(var(--NegativeSpace-16));

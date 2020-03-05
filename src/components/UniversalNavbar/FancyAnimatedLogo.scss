@@ -39,7 +39,8 @@
     position: absolute;
     right: var(--Space-72);
   }
-  .isScrolled {
+  .isScrolled,
+  .isFixedCta {
     .cta-button.show-when-scrolled {
       opacity: 1;
       pointer-events: all;
