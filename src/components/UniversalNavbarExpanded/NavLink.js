@@ -35,10 +35,14 @@ const handleSamePage = ({
   ) {
     return
   }
+  console.log(window.location)
   let pathOnly = window.location.href.replace(window.location.origin, '')
+  console.log(pathOnly)
   if (window.location.search) {
     pathOnly = pathOnly.replace(window.location.search, '')
   }
+  console.log(pathOnly)
+  console.log(href)
   if (pathOnly === href) {
     event.preventDefault()
     samePageFunction()
