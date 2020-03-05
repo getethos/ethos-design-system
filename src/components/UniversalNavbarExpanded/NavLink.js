@@ -42,8 +42,8 @@ const handleSamePage = ({
     pathOnly = pathOnly.replace(window.location.search, '')
   }
   console.log(pathOnly)
-  pathOnly = pathOnly.replace('/','')
-  let strippedHref = href.replace('/', '')
+  pathOnly = pathOnly.replace(/\//g,'')
+  let strippedHref = href.replace(/\//g, '')
   console.log(pathOnly)
   console.log(strippedHref)
   console.log(href)
