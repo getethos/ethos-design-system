@@ -5,47 +5,7 @@ import PropTypes from 'prop-types'
 import { default as BaseNavLink } from '../UniversalNavbar/NavLink'
 
 // Helpers
-import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
-
-/**
- * Helper function to provide event handling for a user attempting to navigate
- * to the same page that they're already on.
- *
- * In the code below we strip forward slashes from the path and href that we're comparing.
- * This is done to account for query parameters being appended without a trailing slash.
- * For example /search?query=term vs /search/?query=term where the href is always /search/.
- * It will also account for the rare case we have an href missing it's trailing slash.
- *
- * @param {object} event - Event triggered by user interaction
- * @param {string} href - URL for the link being clicked to cross check with window.location
- * @param {boolean} keyPress - Enable an onClick & onKeyPress listener
- * @param {function} samePageFunction - Function to execute when navigating to link of present page
- * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
- *
- * @return {void}
- */
-const handleSamePage = ({
-  event,
-  href,
-  keyPress,
-  samePageFunction,
-  samePageCondition,
-}) => {
-  if (
-    typeof window === 'undefined' ||
-    !samePageCondition ||
-    (keyPress && !isEnterKeyPress(event))
-  ) {
-    return
-  }
-  const slashGlobalRegExp = /\//g
-  const strippedPath = window.location.pathname.replace(slashGlobalRegExp, '')
-  const strippedHref = href.replace(slashGlobalRegExp, '')
-  if (strippedPath === strippedHref) {
-    event.preventDefault()
-    samePageFunction()
-  }
-}
+import { currentPageNavigation } from '../../helpers/currentPageNavigation'
 
 /**
  * Reusable navigation link, forked from UniversalNavbar NavLink.
@@ -81,7 +41,7 @@ const NavLink = ({
         href={href}
         LinkComponent={LinkComponent}
         onClick={(e) => {
-          handleSamePage({
+          currentPageNavigation({
             event: e,
             href: href,
             keyPress: false,
@@ -90,7 +50,7 @@ const NavLink = ({
           })
         }}
         onKeyPress={(e) =>
-          handleSamePage({
+          currentPageNavigation({
             event: e,
             href: href,
             keyPress: true,
