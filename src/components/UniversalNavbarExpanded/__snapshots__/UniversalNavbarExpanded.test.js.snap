@@ -34,14 +34,14 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_1",
                 "subnav": Object {
                   "cta": Object {
-                    "href": "/insurance/term-life-insurance/",
+                    "href": "/#/Components/UniversalNavbarExpanded",
                     "id": "NAVLINKS_MOCK_ID_2",
                     "subcopy": "Learn more about term life insurance and the plans and options you have available.",
                     "title": "Our plans",
                   },
                   "items": Array [
                     Object {
-                      "href": "/life/ethos-term-insurance/",
+                      "href": "/#/Components/UniversalNavbarExpanded",
                       "id": "NAVLINKS_MOCK_ID_3",
                       "title": "What is term life insurance and how much does it cost?",
                     },
@@ -262,14 +262,14 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_1",
                       "subnav": Object {
                         "cta": Object {
-                          "href": "/insurance/term-life-insurance/",
+                          "href": "/#/Components/UniversalNavbarExpanded",
                           "id": "NAVLINKS_MOCK_ID_2",
                           "subcopy": "Learn more about term life insurance and the plans and options you have available.",
                           "title": "Our plans",
                         },
                         "items": Array [
                           Object {
-                            "href": "/life/ethos-term-insurance/",
+                            "href": "/#/Components/UniversalNavbarExpanded",
                             "id": "NAVLINKS_MOCK_ID_3",
                             "title": "What is term life insurance and how much does it cost?",
                           },
