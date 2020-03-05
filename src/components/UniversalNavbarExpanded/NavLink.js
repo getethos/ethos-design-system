@@ -5,45 +5,7 @@ import PropTypes from 'prop-types'
 import { default as BaseNavLink } from '../UniversalNavbar/NavLink'
 
 // Helpers
-import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
-
-/**
- * Helper function to provide event handling for a user attempting to navigate
- * to the same page that they're already on.
- *
- * TODO test with query string parameters
- *
- * @param {object} event - Event triggered by user interaction
- * @param {string} href - URL for the link being clicked to cross check with window.location
- * @param {boolean} keyPress - Enable an onClick & onKeyPress listener
- * @param {function} samePageFunction - Function to execute when navigating to link of present page
- * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
- *
- * @return {void}
- */
-const handleSamePage = ({
-  event,
-  href,
-  keyPress,
-  samePageFunction,
-  samePageCondition,
-}) => {
-  if (
-    typeof window === 'undefined' ||
-    !samePageCondition ||
-    (keyPress && !isEnterKeyPress(event))
-  ) {
-    return
-  }
-  let pathOnly = window.location.href.replace(window.location.origin, '')
-  if (window.location.search) {
-    pathOnly = pathOnly.replace(window.location.search, '')
-  }
-  if (pathOnly === href) {
-    event.preventDefault()
-    samePageFunction()
-  }
-}
+import { preventCurrentPageNavigation } from '../../helpers/preventCurrentPageNavigation'
 
 /**
  * Reusable navigation link, forked from UniversalNavbar NavLink.
@@ -79,7 +41,7 @@ const NavLink = ({
         href={href}
         LinkComponent={LinkComponent}
         onClick={(e) => {
-          handleSamePage({
+          preventCurrentPageNavigation({
             event: e,
             href: href,
             keyPress: false,
@@ -88,7 +50,7 @@ const NavLink = ({
           })
         }}
         onKeyPress={(e) =>
-          handleSamePage({
+          preventCurrentPageNavigation({
             event: e,
             href: href,
             keyPress: true,
