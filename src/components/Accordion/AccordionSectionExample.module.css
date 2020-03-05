@@ -1,0 +1,14 @@
+.Label {
+  cursor: pointer;
+  padding: var(--Space-16) var(--Space-32);
+  display: flex;
+  justify-content: space-between;
+}
+
+.Panel {
+  padding: var(--Space-32);
+}
+
+.Toggle {
+  padding: var(--Space-8);
+}

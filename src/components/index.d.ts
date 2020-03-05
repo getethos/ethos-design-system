@@ -1030,6 +1030,47 @@ export declare const NoraDrawer: {
   }
 }
 
+export declare const Accordion: {
+  ({
+    id,
+    expanded,
+    onToggle,
+    children,
+    toggleChildIsTarget,
+  }: {
+    id?: string
+    expanded: object
+    onToggle: any
+    children: React.ReactNode
+    toggleChildIsTarget?: boolean
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+export declare const AccordionSection: {
+  ({
+    index,
+    title,
+    renderToggle,
+    children,
+    labelClassName,
+    panelClassName,
+    toggleClassName,
+  }: {
+    index?: number
+    title: string
+    renderToggle?: any
+    children: React.ReactNode
+    labelClassName?: string
+    panelClassName?: string
+    toggleClassName?: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
 export declare const NoraTextAreaInput: {
   ({
     disabled,

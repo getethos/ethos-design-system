@@ -1,4 +1,6 @@
 import * as React from 'react'
+import { Accordion } from './index'
+import { AccordionSection } from './index'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
@@ -23,6 +25,21 @@ import { ZipInput } from './index'
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
 // -------------- Localized tests ----------------//
+
+class AccordionTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Accordion expanded={{ 1: true }} onToggle={() => {}}>
+        <AccordionSection index={1} title="yo" renderToggle={() => {}}>
+          yo
+        </AccordionSection>
+        <AccordionSection index={2} title="yo yo" renderToggle={() => {}}>
+          yo yo
+        </AccordionSection>
+      </Accordion>
+    )
+  }
+}
 
 class NoraCheckboxInputTest extends React.Component<any, any> {
   render() {
@@ -98,9 +115,7 @@ class IconLinkTest extends React.Component<any, any> {
 
 class IconTest extends React.Component<any, any> {
   render() {
-    return (
-      <Icon iconPrefix="fal" iconName="file-medical-alt" />
-    )
+    return <Icon iconPrefix="fal" iconName="file-medical-alt" />
   }
 }
 
@@ -323,10 +338,6 @@ class ZipInputTest extends React.Component<any, any> {
     )
   }
 }
-
-///////////////////////////////
-// ---- NORA COMPONENTS ---- //
-///////////////////////////////
 
 class Header extends React.Component<any, any> {
   render() {
