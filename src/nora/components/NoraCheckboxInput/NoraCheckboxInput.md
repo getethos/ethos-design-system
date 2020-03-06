@@ -34,17 +34,18 @@ function NoraCheckboxExample() {
   const [labSelected, setLabSelected] = useState(true);
   const [ceaSelected, setCeaSelected] = useState(false);
 
+  // Instead of a validator setting the state of the labs, we can also consider disabling the checkbox if one of the children are selected
   return (
     <>
       <NoraCheckboxInput
         name="labs"
         data-tid="labs-checkbox"
         initialValue={labSelected}
-        // can also be accomplished by disabling the checkbox whenever a child is selected
         validator={(val) => {
           if (val === false && ceaSelected === true) {
             setLabSelected(true);
           }
+          return ''
         }}
       >
         Labs
