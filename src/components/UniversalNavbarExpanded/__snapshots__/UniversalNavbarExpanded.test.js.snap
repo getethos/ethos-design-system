@@ -30,7 +30,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             },
             "NAVLINKS": Array [
               Object {
-                "href": null,
                 "id": "NAVLINKS_MOCK_ID_1",
                 "subnav": Object {
                   "cta": Object {
@@ -70,7 +69,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "title": "What we offer",
               },
               Object {
-                "href": null,
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
@@ -110,7 +108,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "title": "Life insurance basics",
               },
               Object {
-                "href": null,
                 "id": "NAVLINKS_MOCK_ID_15",
                 "subnav": Object {
                   "cta": Object {
@@ -150,7 +147,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "title": "Why Ethos",
               },
               Object {
-                "href": null,
                 "id": "NAVLINKS_MOCK_ID_22",
                 "subnav": Object {
                   "cta": Object {
@@ -258,7 +254,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                   },
                   "NAVLINKS": Array [
                     Object {
-                      "href": null,
                       "id": "NAVLINKS_MOCK_ID_1",
                       "subnav": Object {
                         "cta": Object {
@@ -298,7 +293,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "title": "What we offer",
                     },
                     Object {
-                      "href": null,
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
@@ -338,7 +332,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "title": "Life insurance basics",
                     },
                     Object {
-                      "href": null,
                       "id": "NAVLINKS_MOCK_ID_15",
                       "subnav": Object {
                         "cta": Object {
@@ -378,7 +371,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "title": "Why Ethos",
                     },
                     Object {
-                      "href": null,
                       "id": "NAVLINKS_MOCK_ID_22",
                       "subnav": Object {
                         "cta": Object {
