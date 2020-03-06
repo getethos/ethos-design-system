@@ -141,7 +141,7 @@ UniversalNavbarExpanded.propTypes = {
      *   id: string,
      *   subnav: {
      *     cta: { href: string, title: string, id: string, subcopy: string },
-     *     items: array[{ href: string, title: string, id: string }],
+     *     items: array[{ href: string, title: string, id: string }]
      *   }
      * }
      */
