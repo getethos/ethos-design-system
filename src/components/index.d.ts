@@ -2,63 +2,8 @@
 
 import React, { Component, HTMLAttributes, ReactNode } from 'react'
 
-type UniversalNavbarProps = {
-  /** Hide cta on mobile viewport */
-  hideMobileCta?: boolean
-  /** Hide cta on desktop */
-  hideDesktopCta?: boolean
-  /** Run analytics function when CTA Button gets clicked */
-  trackCtaClick?: () => void
-  /** agnotistic Reach and React Router Link */
-  LinkComponent?: any
-  /** Href for the logo */
-  logoHref?: string
-}
-
-type SubNavItem = {
-  href: string
-  title: string
-  id: string
-}
-
-type NavLink = {
-  title: string
-  id: string
-  subnav: {
-    cta: {
-      href: string
-      title: string
-      id: string
-      subcopy: string
-    }
-    items: SubNavItem[]
-  }
-}
-
-interface UniversalNavbarExpandedProps extends UniversalNavbarProps {
-  logoHref: string
-  links: {
-    INDEX: {
-      href: string
-    }
-    CTA: {
-      href: string
-      title: string
-    }
-    ACCOUNT: {
-      href: string
-      title: string
-    }
-    SEARCH: {
-      href: string
-      title: string
-    }
-    NAVLINKS: NavLink[]
-  }
-}
-
-export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
-export declare const UniversalNavbarExpanded: React.FC<UniversalNavbarExpandedProps>
+export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
+export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 
 export { Layout } from './Layout/index.js'
 
