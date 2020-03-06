@@ -119,18 +119,31 @@ UniversalNavbarExpanded.propTypes = {
     INDEX: PropTypes.shape({
       href: PropTypes.string,
     }),
+    /** CTA button link & text { href: string, title: string } */
     CTA: PropTypes.shape({
       href: PropTypes.string,
       title: PropTypes.string,
     }),
+    /** Account link & text { href: string, title: string } */
     ACCOUNT: PropTypes.shape({
       href: PropTypes.string,
       title: PropTypes.string,
     }),
+    /** Search link & text { href: string, title: string } */
     SEARCH: PropTypes.shape({
       href: PropTypes.string,
       title: PropTypes.string,
     }),
+    /** Navigation URLs, ids & copy. Use the following shape for each array element:
+     * {
+     *   title: string,
+     *   id: string,
+     *   subnav: {
+     *     cta: { href: string, title: string, id: string, subcopy: string },
+     *     items: array[{ href: string, title: string, id: string }]
+     *   }
+     * }
+     */
     NAVLINKS: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,

@@ -1,8 +1,7 @@
 import { isEnterKeyPress } from './isEnterKeyPress'
 
 /**
- * Helper function to provide event handling for a user attempting to navigate
- * to the same page that they're already on.
+ * Helper function to provide event handling for a user attempting to navigate to the current page.
  *
  * In the code below we strip forward slashes from the path and href that we're comparing.
  * This is done to account for query parameters being appended without a trailing slash.
@@ -14,8 +13,8 @@ import { isEnterKeyPress } from './isEnterKeyPress'
  * @param {object} event - Event triggered by user interaction
  * @param {string} href - Relative URL for the link being clicked to cross check with window.location
  * @param {boolean} keyPress - Enable an onClick & onKeyPress listener
- * @param {function} samePageFunction - Function to execute when navigating to link of present page
- * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
+ * @param {function} currentPageFunction - Function to execute when navigating to link of present page
+ * @param {boolean} currentPageCondition - Condition to check before executing currentPageFunction
  *
  * @return {void}
  */
@@ -23,12 +22,12 @@ export const preventCurrentPageNavigation = ({
   event,
   href,
   keyPress,
-  samePageFunction,
-  samePageCondition,
+  currentPageFunction,
+  currentPageCondition,
 }) => {
   if (
     typeof window === 'undefined' ||
-    !samePageCondition ||
+    !currentPageCondition ||
     (keyPress && !isEnterKeyPress(event))
   ) {
     return
@@ -48,6 +47,6 @@ export const preventCurrentPageNavigation = ({
   }
   if (path === strippedHref) {
     event.preventDefault()
-    samePageFunction()
+    currentPageFunction()
   }
 }

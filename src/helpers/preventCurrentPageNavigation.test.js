@@ -41,8 +41,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -55,8 +55,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -69,8 +69,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -83,8 +83,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -97,8 +97,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -112,8 +112,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -124,8 +124,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: keyPressEvent,
       href: href,
       keyPress: true,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).toHaveBeenCalled()
   })
@@ -137,20 +137,20 @@ describe('preventCurrentPageNavigation helper', () => {
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: true,
+      currentPageFunction: testFunc,
+      currentPageCondition: true,
     })
     expect(testFunc).not.toHaveBeenCalled()
   })
 
-  it('should not fire for false samePageCondition', () => {
+  it('should not fire for false currentPageCondition', () => {
     const testFunc = jest.fn()
     preventCurrentPageNavigation({
       event: clickEvent,
       href: href,
       keyPress: false,
-      samePageFunction: testFunc,
-      samePageCondition: false,
+      currentPageFunction: testFunc,
+      currentPageCondition: false,
     })
     expect(testFunc).not.toHaveBeenCalled()
   })
@@ -161,8 +161,8 @@ describe('preventCurrentPageNavigation helper', () => {
       event: wrongKeyPressEvent,
       href: href,
       keyPress: true,
-      samePageFunction: testFunc,
-      samePageCondition: false,
+      currentPageFunction: testFunc,
+      currentPageCondition: false,
     })
     expect(testFunc).not.toHaveBeenCalled()
   })
