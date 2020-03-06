@@ -2,16 +2,8 @@
 
 import React, { Component, HTMLAttributes, ReactNode } from 'react'
 
-declare class UniversalNavbar extends React.Component {
-  state: {
-    showMobileMenu: boolean
-  }
-  toggleHamburger: () => void
-  render(): JSX.Element
-}
-export { UniversalNavbar }
-
-// TODO UniversalNavbarExpanded definition
+export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
+export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 
 export { Layout } from './Layout/index.js'
 

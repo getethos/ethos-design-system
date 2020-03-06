@@ -133,7 +133,6 @@ UniversalNavbarExpanded.propTypes = {
     }),
     NAVLINKS: PropTypes.arrayOf(
       PropTypes.shape({
-        href: PropTypes.string,
         title: PropTypes.string,
         id: PropTypes.string,
         subnav: PropTypes.shape({

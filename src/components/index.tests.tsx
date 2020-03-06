@@ -21,8 +21,13 @@ import { SearchInput } from './index'
 import { TextMaskedInput } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
+import { UniversalNavbar } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
+
+const UniversalNavbarTest: React.FC = () => (
+  <UniversalNavbar hideMobileCta hideDesktopCta logoHref="/href" />
+)
 
 // -------------- Localized tests ----------------//
 
