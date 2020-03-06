@@ -25,7 +25,6 @@ export const CMS_LINKS = {
   NAVLINKS: [
     {
       id: 'NAVLINKS_MOCK_ID_1',
-      href: null,
       title: 'What we offer',
       subnav: {
         cta: {
@@ -66,7 +65,6 @@ export const CMS_LINKS = {
     },
     {
       id: 'NAVLINKS_MOCK_ID_8',
-      href: null,
       title: 'Life insurance basics',
       subnav: {
         cta: {
@@ -108,7 +106,6 @@ export const CMS_LINKS = {
     },
     {
       id: 'NAVLINKS_MOCK_ID_15',
-      href: null,
       title: 'Why Ethos',
       subnav: {
         cta: {
@@ -149,7 +146,6 @@ export const CMS_LINKS = {
     },
     {
       id: 'NAVLINKS_MOCK_ID_22',
-      href: null,
       title: 'Help Center',
       subnav: {
         cta: {

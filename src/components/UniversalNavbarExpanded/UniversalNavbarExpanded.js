@@ -134,9 +134,8 @@ UniversalNavbarExpanded.propTypes = {
       href: PropTypes.string,
       title: PropTypes.string,
     }),
-    /** Navigation URLs, ids & copy. Use the following shape:
+    /** Navigation URLs, ids & copy. Use the following shape for each array element:
      * {
-     *   href: string,
      *   title: string,
      *   id: string,
      *   subnav: {
@@ -147,7 +146,6 @@ UniversalNavbarExpanded.propTypes = {
      */
     NAVLINKS: PropTypes.arrayOf(
       PropTypes.shape({
-        href: PropTypes.string,
         title: PropTypes.string,
         id: PropTypes.string,
         subnav: PropTypes.shape({
