@@ -15,9 +15,50 @@ type UniversalNavbarProps = {
   logoHref?: string
 }
 
-export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
+type SubNavItem = {
+  href: string
+  title: string
+  id: string
+}
 
-// TODO UniversalNavbarExpanded definition
+type NavLink = {
+  title: string
+  id: string
+  subnav: {
+    cta: {
+      href: string
+      title: string
+      id: string
+      subcopy: string
+      items: SubNavItem[]
+    }
+  }
+}
+
+interface UniversalNavbarExpandedProps extends UniversalNavbarProps {
+  logoHref: string
+  links: {
+    INDEX: {
+      href: string
+    }
+    CTA: {
+      href: string
+      title: string
+    }
+    ACCOUNT: {
+      href: string
+      title: string
+    }
+    SEARCH: {
+      href: string
+      title: string
+    }
+    NAVLINKS: NavLink[]
+  }
+}
+
+export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
+export declare const UniversalNavbarExpanded: React.FC<UniversalNavbarExpandedProps>
 
 export { Layout } from './Layout/index.js'
 
