@@ -24,8 +24,8 @@ import styles from './AccordionNav.module.scss'
  *
  * @param {string} extraClass - Extra top level class
  * @param {object} links - URLs and text
- * @param {boolean} navVisible - Condition to check before executing samePageFunction
- * @param {function} samePageFunction - Function to execute when navigating to link of present page
+ * @param {boolean} navVisible - Condition to check before executing currentPageFunction
+ * @param {function} currentPageFunction - Function to execute when navigating to link of present page
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  *
  * @return {JSX.Element}
@@ -34,7 +34,7 @@ const AccordionNav = ({
   extraClass,
   links,
   navVisible,
-  samePageFunction,
+  currentPageFunction,
   LinkComponent,
 }) => {
   const [activeAccordionItem, setActiveAccordionItem] = useState(false)
@@ -93,9 +93,9 @@ const AccordionNav = ({
               <TitleSmall.Sans.Light300>
                 <NavLink
                   href={get(link, 'subnav.cta.href')}
-                  samePageAwareness={true}
-                  samePageFunction={(e) => samePageFunction(e)}
-                  samePageCondition={navVisible}
+                  currentPageAwareness={true}
+                  currentPageFunction={(e) => currentPageFunction(e)}
+                  currentPageCondition={navVisible}
                   LinkComponent={LinkComponent}
                 >
                   {get(link, 'subnav.cta.title')}
@@ -107,9 +107,9 @@ const AccordionNav = ({
                 <TitleSmall.Sans.Light300>
                   <NavLink
                     href={link.href}
-                    samePageAwareness={true}
-                    samePageFunction={(e) => samePageFunction(e)}
-                    samePageCondition={navVisible}
+                    currentPageAwareness={true}
+                    currentPageFunction={(e) => currentPageFunction(e)}
+                    currentPageCondition={navVisible}
                     LinkComponent={LinkComponent}
                   >
                     {link.title}
@@ -128,7 +128,7 @@ AccordionNav.propTypes = {
   extraClass: PropTypes.string,
   links: PropTypes.object.isRequired,
   navVisible: PropTypes.bool,
-  samePageFunction: PropTypes.func,
+  currentPageFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
 }
 
