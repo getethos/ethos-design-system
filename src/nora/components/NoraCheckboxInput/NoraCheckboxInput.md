@@ -2,11 +2,9 @@
 that accounts for the generally smaller font sizes we use in Nora.
 
 ```jsx
-const formChangeHandlerStub = () => {}
-;<NoraCheckboxInput
+<NoraCheckboxInput
   name="le-check-unchecked"
   data-tid="le-tid-unchecked"
-  formChangeHandler={formChangeHandlerStub}
   validator={(n) => {
     console.log('yo yo')
     if (n === true) {
