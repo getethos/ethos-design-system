@@ -8,8 +8,8 @@ export const NoraCheckboxInput = ({
   validator,
   children,
   name,
-  currentValue,
   initialValue,
+  disabled,
   ...rest
 }) => {
   const renderFacade = (klasses) => <Facade classes={klasses} />
@@ -21,6 +21,7 @@ export const NoraCheckboxInput = ({
         data-tid={rest['data-tid']}
         validator={validator}
         facadeRenderer={renderFacade}
+        disabled={disabled}
         {...rest}
       >
         {children}
@@ -34,5 +35,6 @@ NoraCheckboxInput.propTypes = {
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   'data-tid': PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
+  disabled: PropTypes.boolean,
   validator: PropTypes.func,
 }

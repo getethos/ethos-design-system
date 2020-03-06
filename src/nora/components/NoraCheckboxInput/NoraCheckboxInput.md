@@ -23,3 +23,49 @@ that accounts for the generally smaller font sizes we use in Nora.
   </a>
 </NoraCheckboxInput>
 ```
+
+Example with one checkbox setting the value of another
+
+```jsx
+import React, { useState } from 'react'
+
+function NoraCheckboxExample() {
+
+  const [labSelected, setLabSelected] = useState(true);
+  const [ceaSelected, setCeaSelected] = useState(false);
+
+  return (
+    <>
+      <NoraCheckboxInput
+        name="labs"
+        data-tid="labs-checkbox"
+        initialValue={labSelected}
+        // can also be accomplished by disabling the checkbox whenever a child is selected
+        validator={(val) => {
+          if (val === false && ceaSelected === true) {
+            setLabSelected(true);
+          }
+        }}
+      >
+        Labs
+        <NoraCheckboxInput
+          name="cea"
+          data-tid="cea-checkbox"
+          initialValue={ceaSelected}
+          validator={(val) => {
+            setCeaSelected(val);
+            if (val === true) {
+              setLabSelected(true)
+            }
+            return ''
+          }}
+        >
+          CEA
+        </NoraCheckboxInput>
+      </NoraCheckboxInput>
+    </>
+  )
+}
+
+<NoraCheckboxExample />
+```
