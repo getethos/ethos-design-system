@@ -20,7 +20,7 @@ type NavLink = {
   }
 }
 
-type UniversalNavbarExpandedProps {
+type UniversalNavbarExpandedProps = {
   /** Hide cta on mobile viewport */
   hideMobileCta?: boolean
   /** Hide cta on desktop */
