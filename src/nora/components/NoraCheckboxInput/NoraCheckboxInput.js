@@ -16,7 +16,6 @@ export const NoraCheckboxInput = ({
   return (
     <div className={styles.NoraCheckboxInput}>
       <CheckboxInput
-        currentValue={currentValue}
         initialValue={initialValue}
         name={name}
         data-tid={rest['data-tid']}
@@ -33,7 +32,6 @@ export const NoraCheckboxInput = ({
 NoraCheckboxInput.propTypes = {
   name: PropTypes.string.isRequired,
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  currentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   'data-tid': PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   validator: PropTypes.func,
