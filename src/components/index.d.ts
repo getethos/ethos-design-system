@@ -30,8 +30,8 @@ type NavLink = {
       title: string
       id: string
       subcopy: string
-      items: SubNavItem[]
     }
+    items: SubNavItem[]
   }
 }
 
