@@ -1108,7 +1108,8 @@ export declare const NoraCheckboxInput: {
     ...rest
   }: {
     name: string
-    initialValue?: string
+    initialValue?: string | boolean
+    'data-tid': string
     children: React.ReactNode
     validator?: (value: string) => string
   }): JSX.Element
