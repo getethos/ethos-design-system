@@ -1,0 +1,76 @@
+@import '../../../components/Animation.scss';
+@import '../../../components/Variables.scss';
+
+.SnackbarContainer {
+  position: fixed;
+  display: none;
+  transition: transform var(--transition-duration-medium);
+}
+
+.SnackbarSkin {
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  z-index: $z-index-navbar;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: var(--NoraNeutral-900);
+  // padding: var(--Space-16) var(--Space-24);
+  width: 320px;
+  min-height: var(--Space-64);
+  font-size: var(--Nora-Font-15);
+  color: var(--White);
+  box-shadow: 0px 0px var(--Space-4) rgba(0, 0, 0, 0.1),
+    0px var(--Space-4) var(--Space-10) rgba(0, 0, 0, 0.1);
+}
+
+.CenteredGrow {
+  /* within our top level flex container allows us to "grow" */
+  flex-grow: 1;
+  /* helps with centering alignment between text and icon */
+  line-height: 1;
+  /* a child flex context to allow us to align left vertically centered */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: var(--Space-8);
+  margin-right: var(--Space-8);
+}
+
+.IconContainer {
+  margin-left: var(--Space-24);
+}
+.CustomButton {
+  margin-right: var(--Space-24);
+}
+
+.IconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.CustomButton {
+  background: none;
+  border: none;
+  padding: 5px 5px 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Bottom {
+  bottom: 20px;
+  transform: translateY(300px);
+}
+
+.Open {
+  transform: translateY(0);
+}
+
+.Right {
+  right: 20px;
+}
+
+.Left {
+  left: 20px;
+}
