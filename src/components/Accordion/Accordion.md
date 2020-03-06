@@ -25,7 +25,6 @@ const toggleChild = (expanded) => {
     panelClassName={styles.Panel}
     toggleClassName={styles.Toggle}
     title="Section 1"
-    id="id1"
     renderToggle={toggleChild}
   >
     Lorem ipsum dolor sit amet
@@ -35,7 +34,6 @@ const toggleChild = (expanded) => {
     panelClassName={styles.Panel}
     toggleClassName={styles.Toggle}
     title="Section 2"
-    id="id2"
     renderToggle={toggleChild}
   >
     <p>
@@ -59,7 +57,6 @@ const toggleChild = (expanded) => {
     panelClassName={styles.Panel}
     toggleClassName={styles.Toggle}
     title="Section 3"
-    id="id3"
     renderToggle={toggleChild}
   >
     <p>
@@ -97,7 +94,6 @@ const toggleChild = (expanded) => {
     panelClassName={styles.Panel}
     toggleClassName={styles.Toggle}
     title="Section 1"
-    id="id1"
     renderToggle={toggleChild}
   >
     Lorem ipsum dolor sit amet
@@ -107,7 +103,6 @@ const toggleChild = (expanded) => {
     panelClassName={styles.Panel}
     toggleClassName={styles.Toggle}
     title="Section 2"
-    id="id2"
     renderToggle={toggleChild}
   >
     <p>
@@ -131,7 +126,6 @@ const toggleChild = (expanded) => {
     panelClassName={styles.Panel}
     toggleClassName={styles.Toggle}
     title="Section 3"
-    id="id3"
     renderToggle={toggleChild}
   >
     <p>
