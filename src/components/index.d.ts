@@ -1111,7 +1111,7 @@ export declare const NoraCheckboxInput: {
     initialValue?: string | boolean
     'data-tid': string
     children: React.ReactNode
-    validator?: (value: string) => string
+    validator?: (value: string | boolean) => string
   }): JSX.Element
   propTypes: {
     props: any
