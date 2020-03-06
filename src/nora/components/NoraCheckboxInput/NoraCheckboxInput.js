@@ -31,6 +31,7 @@ export const NoraCheckboxInput = ({
 NoraCheckboxInput.propTypes = {
   name: PropTypes.string.isRequired,
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  'data-tid': PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   validator: PropTypes.func,
 }

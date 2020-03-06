@@ -1005,7 +1005,6 @@ export declare const NoraDrawer: {
     onDismiss,
     isOpen,
     position,
-    className,
     labelCopy,
     closeCopy,
   }: {
@@ -1015,7 +1014,6 @@ export declare const NoraDrawer: {
     labelCopy: string
     closeCopy: string
     position?: string
-    className?: string
   }): JSX.Element
   propTypes: {
     props: any
@@ -1102,7 +1100,8 @@ export declare const NoraCheckboxInput: {
     ...rest
   }: {
     name: string
-    initialValue?: string
+    initialValue?: string | boolean
+    'data-tid': string
     children: React.ReactNode
     validator?: (value: string) => string
   }): JSX.Element

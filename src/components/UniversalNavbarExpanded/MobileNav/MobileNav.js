@@ -149,12 +149,11 @@ const MobileNav = ({
         >
           <FancyAnimatedLogo />
         </NavLink>
-        {!hideMobileCta && (
-          <CtaButton
-            href={links.CTA.href}
-            trackingFunction={ctaButtonTrackingFunction}
-          />
-        )}
+        <CtaButton
+          href={links.CTA.href}
+          trackingFunction={ctaButtonTrackingFunction}
+          hideOnMobile={hideMobileCta}
+        />
       </div>
     </>
   )

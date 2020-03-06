@@ -77,7 +77,7 @@ $laptop-range-small-end: 929px;
 .navbarWrapper {
   height: var(--Space-64);
   position: relative;
-  z-index: $z-index-navbar-outer;
+  z-index: $z-index-middle;
 }
 
 .navbar {
