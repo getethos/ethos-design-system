@@ -27,7 +27,7 @@ that accounts for the generally smaller font sizes we use in Nora.
 Example with one checkbox setting the value of another
 
 ```jsx
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 function NoraCheckboxExample() {
   const [labSelected, setLabSelected] = useState(true)
