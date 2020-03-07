@@ -2,14 +2,14 @@
 @import '../Variables.scss';
 
 .Container {
-  height: 100%;
   width: 375px;
   background-color: var(--White);
   padding: 0 var(--Space-24) var(--Space-32);
   transition: transform var(--transition-duration-short);
   position: fixed;
   overflow: auto;
-  top: 0;
+  $top: 0;
+  height: calc(100vh - $top);
   z-index: 1;
   box-shadow: var(--Space-10) 0px var(--Space-10) rgba(0, 0, 0, 0);
 }
