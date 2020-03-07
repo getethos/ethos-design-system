@@ -49,20 +49,20 @@ function NoraCheckboxExample() {
         }}
       >
         Labs
-      </NoraCheckboxInput>
-      <NoraCheckboxInput
-        name="cea"
-        data-tid="cea-checkbox"
-        checked={ceaSelected}
-        validator={(val) => {
-          setCeaSelected(val)
-          if (val) {
-            setLabSelected(true)
-          }
-          return ''
-        }}
-      >
-        CEA
+        <NoraCheckboxInput
+          name="cea"
+          data-tid="cea-checkbox"
+          checked={ceaSelected}
+          validator={(val) => {
+            setCeaSelected(val)
+            if (val) {
+              setLabSelected(true)
+            }
+            return ''
+          }}
+        >
+          CEA
+        </NoraCheckboxInput>
       </NoraCheckboxInput>
     </>
   )
