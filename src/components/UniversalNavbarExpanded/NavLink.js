@@ -16,8 +16,8 @@ import { preventCurrentPageNavigation } from '../../helpers/preventCurrentPageNa
  * @param {string|object} className - Optional className
  * @param {string} key - Unique differentiator for multiple instances of component (hint: uuid)
  * @param {string} href - URL for the link
- * @param {boolean} samePageAwareness - Enable an onClick & onKeyPress listener
- * @param {function} samePageFunction - Use with samePageAwareness to handle onClick & onKeyPress
+ * @param {boolean} currentPageAwareness - Enable an onClick & onKeyPress listener
+ * @param {function} currentPageFunction - Use with currentPageAwareness to handle onClick & onKeyPress
  * @param {object} component - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {ReactNode} children - Children to render within the link
  *
@@ -27,13 +27,13 @@ const NavLink = ({
   className,
   key,
   href,
-  samePageAwareness,
-  samePageFunction,
-  samePageCondition,
+  currentPageAwareness,
+  currentPageFunction,
+  currentPageCondition,
   LinkComponent,
   children,
 }) => {
-  if (samePageAwareness) {
+  if (currentPageAwareness) {
     return (
       <BaseNavLink
         className={className || null}
@@ -45,8 +45,8 @@ const NavLink = ({
             event: e,
             href: href,
             keyPress: false,
-            samePageFunction: samePageFunction,
-            samePageCondition: samePageCondition,
+            currentPageFunction: currentPageFunction,
+            currentPageCondition: currentPageCondition,
           })
         }}
         onKeyPress={(e) =>
@@ -54,8 +54,8 @@ const NavLink = ({
             event: e,
             href: href,
             keyPress: true,
-            samePageFunction: samePageFunction,
-            samePageCondition: samePageCondition,
+            currentPageFunction: currentPageFunction,
+            currentPageCondition: currentPageCondition,
           })
         }
       >
@@ -81,9 +81,9 @@ NavLink.propTypes = {
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   key: PropTypes.string,
   href: PropTypes.string.isRequired,
-  samePageAwareness: PropTypes.bool,
-  samePageFunction: PropTypes.func,
-  samePageCondition: PropTypes.bool,
+  currentPageAwareness: PropTypes.bool,
+  currentPageFunction: PropTypes.func,
+  currentPageCondition: PropTypes.bool,
   LinkComponent: PropTypes.object,
   children: PropTypes.node.isRequired,
 }

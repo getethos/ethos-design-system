@@ -8,7 +8,9 @@ describe('<UniversalNavbarExpanded>', () => {
   describe('matches snapshot', () => {
     it('builds with sample links provided', () => {
       expect(
-        shallowSnapshot(<UniversalNavbarExpanded links={CMS_LINKS} />)
+        shallowSnapshot(
+          <UniversalNavbarExpanded logoHref="/" links={CMS_LINKS} />
+        )
       ).toMatchSnapshot()
     })
   })

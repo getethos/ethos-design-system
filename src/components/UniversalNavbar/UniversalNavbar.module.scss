@@ -160,6 +160,15 @@ $tablet-small-end: 670px;
     color: white;
     text-decoration: unset !important;
   }
+
+  .navLink {
+    margin-bottom: var(--Space-24);
+  }
+
+  .ctaButton {
+    position: absolute;
+    bottom: var(--Space-40);
+  }
 }
 
 .hideMobileMenu {
