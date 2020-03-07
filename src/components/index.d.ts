@@ -118,6 +118,7 @@ export declare const CheckboxInput: {
     disabled,
     name,
     initialValue,
+    checked,
     currentValue,
     currentError,
     setFieldTouched,
@@ -132,6 +133,7 @@ export declare const CheckboxInput: {
     name: string
     'data-tid': string
     initialValue?: string | boolean
+    checked?: boolean
     currentValue?: string | boolean
     currentError?: string
     setFieldTouched?: (touched: boolean) => void
@@ -1095,15 +1097,19 @@ export declare const NoraCheckboxInput: {
   ({
     name,
     initialValue,
+    checked,
     children,
     validator,
+    disabled,
     ...rest
   }: {
     name: string
     initialValue?: string | boolean
+    checked?: boolean
     'data-tid': string
     children: React.ReactNode
-    validator?: (value: string) => string
+    disabled?: boolean
+    validator?: (value: string | boolean) => string
   }): JSX.Element
   propTypes: {
     props: any
