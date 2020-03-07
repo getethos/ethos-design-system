@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CheckboxInput checked takes precedence over initial and current values 1`] = `
+Array [
+  <label
+    className="root"
+    htmlFor="le-check"
+  >
+    <div
+      className="checkboxWrapper"
+    >
+      <input
+        checked={true}
+        className="CheckboxInput"
+        data-tid="le-tid"
+        id="le-check"
+        name="le-check"
+        onChange={[Function]}
+        onKeyPress={[Function]}
+        type="checkbox"
+      />
+      <svg
+        className="Facade FacadeBorder"
+        fill="none"
+        height="18"
+        width="18"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.75 12.127L3.623 9l-1.065 1.057L6.75 14.25l9-9-1.057-1.058-7.943 7.935z"
+          fill="#fff"
+        />
+      </svg>
+    </div>
+    <div
+      className="Body Theinhardt Regular400 GrayPrimary"
+    >
+      le children
+    </div>
+  </label>,
+  "",
+]
+`;
+
 exports[`CheckboxInput default rendering 1`] = `
 Array [
   <label
