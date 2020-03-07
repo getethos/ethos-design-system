@@ -27,12 +27,11 @@ that accounts for the generally smaller font sizes we use in Nora.
 Example with one checkbox setting the value of another
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function NoraCheckboxExample() {
-
-  const [labSelected, setLabSelected] = useState(true);
-  const [ceaSelected, setCeaSelected] = useState(false);
+  const [labSelected, setLabSelected] = useState(true)
+  const [ceaSelected, setCeaSelected] = useState(false)
 
   // Instead of a validator setting the state of the labs, we can also consider disabling the checkbox if one of the children are selected
   return (
@@ -40,33 +39,34 @@ function NoraCheckboxExample() {
       <NoraCheckboxInput
         name="labs"
         data-tid="labs-checkbox"
-        initialValue={labSelected}
+        checked={labSelected}
         validator={(val) => {
-          if (val === false && ceaSelected === true) {
-            setLabSelected(true);
+          setLabSelected(val)
+          if (!val) {
+            setCeaSelected(false)
           }
           return ''
         }}
       >
         Labs
-        <NoraCheckboxInput
-          name="cea"
-          data-tid="cea-checkbox"
-          initialValue={ceaSelected}
-          validator={(val) => {
-            setCeaSelected(val);
-            if (val === true) {
-              setLabSelected(true)
-            }
-            return ''
-          }}
-        >
-          CEA
-        </NoraCheckboxInput>
+      </NoraCheckboxInput>
+      <NoraCheckboxInput
+        name="cea"
+        data-tid="cea-checkbox"
+        checked={ceaSelected}
+        validator={(val) => {
+          setCeaSelected(val)
+          if (val) {
+            setLabSelected(true)
+          }
+          return ''
+        }}
+      >
+        CEA
       </NoraCheckboxInput>
     </>
   )
 }
 
-<NoraCheckboxExample />
+;<NoraCheckboxExample />
 ```

@@ -168,6 +168,7 @@ export function Form({ children, config }) {
     let currentFieldValue = values && values[fieldName] ? values[fieldName] : ''
     currentFieldValue =
       currentFieldValue !== INIT_INVALID ? currentFieldValue : ''
+    console.log('name: ', fieldName, ' current value: ', currentFieldValue)
 
     const errors = getFieldErrors()
     const currentFieldError =
