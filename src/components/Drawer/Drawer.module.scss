@@ -8,8 +8,8 @@
   transition: transform var(--transition-duration-short);
   position: fixed;
   overflow: auto;
-  $top: 0;
-  height: calc(100vh - $top);
+  $top: 0px;
+  height: calc(100% - #{$top});
   z-index: 1;
   box-shadow: var(--Space-10) 0px var(--Space-10) rgba(0, 0, 0, 0);
 }
