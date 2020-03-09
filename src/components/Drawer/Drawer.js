@@ -103,6 +103,7 @@ Drawer.propTypes = {
   position: PropTypes.oneOf(['left', 'right']),
   /** additional css classes */
   className: PropTypes.string,
+  /** optional renderer for rendering floating items e.g. a floating action button */
   floatingDrawerContentRenderer: PropTypes.func,
   /** data attribute for testing */
   'data-tid': PropTypes.string,
