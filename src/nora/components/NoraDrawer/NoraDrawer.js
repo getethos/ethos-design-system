@@ -19,10 +19,8 @@ export const NoraDrawer = ({
   isOpen,
   onDismiss,
   position,
-  centerCopy,
-  leftCopy,
-  leftClassName,
-  leftOnClick
+  labelCopy,
+  closeCopy,
 }) => {
   return (
     <Drawer
@@ -32,10 +30,10 @@ export const NoraDrawer = ({
       position={position}
     >
       <header className={styles.Header}>
-        <button onClick={() => onDismiss(false)} className={leftClassName}>
-          {leftCopy}
+        <button onClick={() => onDismiss(false)} className={styles.Close}>
+          {closeCopy}
         </button>
-        {centerCopy}
+        {labelCopy}
       </header>
       {children}
     </Drawer>
@@ -48,8 +46,6 @@ NoraDrawer.propTypes = {
   // TODO: top / bottom
   position: PropTypes.oneOf(['left', 'right']),
   onDismiss: PropTypes.func.isRequired,
-  centerCopy: PropTypes.string.isRequired,
-  leftCopy: PropTypes.string.isRequired,
-  leftClassName: PropTypes.string,
-  leftOnClick: PropTypes.func,
+  labelCopy: PropTypes.string.isRequired,
+  closeCopy: PropTypes.string.isRequired,
 }
