@@ -24,7 +24,12 @@ Object {
           <header
             class="Header"
           >
-            <button />
+            <button
+              class="Close"
+            >
+              Cancel
+            </button>
+            Order Evidences
           </header>
            
           <p>
