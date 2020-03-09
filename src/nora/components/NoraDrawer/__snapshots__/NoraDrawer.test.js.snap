@@ -18,7 +18,7 @@ Object {
         <div
           aria-hidden="false"
           aria-label="drawer"
-          class="NoraDrawer Container Open Right"
+          class=" Drawer Container Open Right"
           role="dialog"
         >
           <header

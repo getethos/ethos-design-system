@@ -987,6 +987,7 @@ export declare const Drawer: {
     isOpen,
     position,
     className,
+    floatingDrawerContentRenderer,
     ...rest
   }: {
     children: React.ReactNode
@@ -994,6 +995,7 @@ export declare const Drawer: {
     isOpen: boolean
     position?: string
     className?: string
+    floatingDrawerContentRenderer?: any
     'data-tid'?: string
   }): JSX.Element
   propTypes: {
@@ -1009,6 +1011,8 @@ export declare const NoraDrawer: {
     position,
     labelCopy,
     closeCopy,
+    floatingDrawerContentRenderer,
+    drawerClasses,
   }: {
     children: React.ReactNode
     onDismiss: any
@@ -1016,6 +1020,8 @@ export declare const NoraDrawer: {
     labelCopy: string
     closeCopy: string
     position?: string
+    drawerClasses?: string
+    floatingDrawerContentRenderer?: any
   }): JSX.Element
   propTypes: {
     props: any
