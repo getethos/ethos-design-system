@@ -25,23 +25,21 @@ export const NoraDrawer = ({
   drawerClasses,
 }) => {
   return (
-    <>
-      <Drawer
-        className={[drawerClasses, styles.Drawer].join(' ')}
-        onDismiss={onDismiss}
-        isOpen={isOpen}
-        position={position}
-        floatingDrawerContentRenderer={floatingDrawerContentRenderer}
-      >
-        <header className={styles.Header}>
-          <button onClick={() => onDismiss(false)} className={styles.Close}>
-            {closeCopy}
-          </button>
-          {labelCopy}
-        </header>
-        {children}
-      </Drawer>
-    </>
+    <Drawer
+      className={[drawerClasses, styles.Drawer].join(' ')}
+      onDismiss={onDismiss}
+      isOpen={isOpen}
+      position={position}
+      floatingDrawerContentRenderer={floatingDrawerContentRenderer}
+    >
+      <header className={styles.Header}>
+        <button onClick={() => onDismiss(false)} className={styles.Close}>
+          {closeCopy}
+        </button>
+        {labelCopy}
+      </header>
+      {children}
+    </Drawer>
   )
 }
 
