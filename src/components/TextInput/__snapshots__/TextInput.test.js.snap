@@ -23,7 +23,6 @@ Array [
     name="nombre"
     onBlur={[Function]}
     onChange={[Function]}
-    onPaste={[Function]}
     placeholder=""
     type="text"
     value=""
