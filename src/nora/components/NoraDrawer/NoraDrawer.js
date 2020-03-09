@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Drawer } from '../../../components/index'
-import { NoraButton } from '../NoraButton/index'
 import styles from './NoraDrawer.module.scss'
 
 /**
