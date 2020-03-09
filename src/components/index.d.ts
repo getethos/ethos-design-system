@@ -1084,9 +1084,9 @@ export declare const NoraTextAreaInput: {
     labelClassName?: string
     textClassName?: string
     placeholder?: string
-    onBlur?: () => void
-    onFocus?: () => void
-    onChange?: () => void
+    onBlur?: any
+    onFocus?: any
+    onChange?: any
   }): JSX.Element
   propTypes: {
     props: any
