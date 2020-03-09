@@ -77,6 +77,7 @@ class NoraDrawerTest extends React.Component<any, any> {
         position="left"
         labelCopy="label copy"
         closeCopy="close copy"
+        drawerClasses="foo bar"
       >
         hey
       </NoraDrawer>

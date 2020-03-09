@@ -1009,6 +1009,7 @@ export declare const NoraDrawer: {
     position,
     labelCopy,
     closeCopy,
+    drawerClasses,
   }: {
     children: React.ReactNode
     onDismiss: any
@@ -1016,6 +1017,7 @@ export declare const NoraDrawer: {
     labelCopy: string
     closeCopy: string
     position?: string
+    drawerClasses?: string
   }): JSX.Element
   propTypes: {
     props: any
