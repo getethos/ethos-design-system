@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Drawer } from '../../../components/index'
+import { NoraButton } from '../NoraButton/index'
 import styles from './NoraDrawer.module.scss'
 
 /**
@@ -21,23 +22,27 @@ export const NoraDrawer = ({
   position,
   labelCopy,
   closeCopy,
+  floatingDrawerContentRenderer,
   drawerClasses,
 }) => {
   return (
-    <Drawer
-      className={[drawerClasses, styles.Drawer].join(' ')}
-      onDismiss={onDismiss}
-      isOpen={isOpen}
-      position={position}
-    >
-      <header className={styles.Header}>
-        <button onClick={() => onDismiss(false)} className={styles.Close}>
-          {closeCopy}
-        </button>
-        {labelCopy}
-      </header>
-      {children}
-    </Drawer>
+    <>
+      <Drawer
+        className={[drawerClasses, styles.Drawer].join(' ')}
+        onDismiss={onDismiss}
+        isOpen={isOpen}
+        position={position}
+        floatingDrawerContentRenderer={floatingDrawerContentRenderer}
+      >
+        <header className={styles.Header}>
+          <button onClick={() => onDismiss(false)} className={styles.Close}>
+            {closeCopy}
+          </button>
+          {labelCopy}
+        </header>
+        {children}
+      </Drawer>
+    </>
   )
 }
 
@@ -50,6 +55,7 @@ NoraDrawer.propTypes = {
   labelCopy: PropTypes.string.isRequired,
   closeCopy: PropTypes.string.isRequired,
   drawerClasses: PropTypes.string,
+  floatingDrawerContentRenderer: PropTypes.func,
 }
 
 NoraDrawer.defaultProps = {
