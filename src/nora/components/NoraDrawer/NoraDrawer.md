@@ -13,7 +13,19 @@ const MyApp = () => {
   }
 
   const renderFloatingDrawer = () => {
-    return <h1>Floating Drawer Test</h1>
+    return (
+      <h1
+        style={{
+          right: '0',
+          bottom: '0',
+          position: 'absolute',
+          width: '333px',
+          zIndex: '2',
+        }}
+      >
+        Floating Drawer Test
+      </h1>
+    )
   }
   return (
     <>
