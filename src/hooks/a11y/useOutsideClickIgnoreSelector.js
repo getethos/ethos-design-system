@@ -1,11 +1,12 @@
 import { useLayoutEffect } from 'react'
 
 /**
- * Hook handles a click outside the targeted component
+ * Hook handles a click outside the targeted component or ignored selector
  *
  * @public
  *
  * @param {React.MutableRefObject<HTMLElement | null>} ref - the component's ref
+ * @param {String} ignoreSelector - the selector to ignore when we consider outside clicks
  * @param {() => void} handler - a callback that fires when an outside click is detected
  *
  * @return {void}
