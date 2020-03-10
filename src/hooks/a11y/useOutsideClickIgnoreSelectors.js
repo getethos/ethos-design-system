@@ -1,5 +1,4 @@
 import { useLayoutEffect } from 'react'
-import matches from '../../helpers/matches.js'
 
 /**
  * Hook handles a click outside the targeted component or ignored selector
