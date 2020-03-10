@@ -23,6 +23,7 @@ import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch'
 import { faExclamationTriangle } from '@fortawesome/pro-light-svg-icons/faExclamationTriangle'
 import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
 import { faAsterisk } from '@fortawesome/pro-light-svg-icons/faAsterisk'
+import { faInfoCircle } from '@fortawesome/pro-light-svg-icons'
 import { faExchange } from '@fortawesome/pro-regular-svg-icons/faExchange'
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock'
 import { faUserCheck } from '@fortawesome/pro-light-svg-icons/faUserCheck'
@@ -51,6 +52,7 @@ library.add(
   faExclamationTriangle,
   faExternalLink,
   faFileMedicalAlt,
+  faInfoCircle,
   faLayerPlus,
   faOctagon,
   faSearch,
