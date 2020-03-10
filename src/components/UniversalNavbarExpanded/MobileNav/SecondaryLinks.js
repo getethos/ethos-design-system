@@ -15,8 +15,8 @@ import styles from './SecondaryLinks.module.scss'
  *
  * @param {array} links - URLs and text
  * @param {string} className - Extra top level class
- * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
- * @param {function} samePageFunction - Function to execute when navigating to link of present page
+ * @param {boolean} currentPageCondition - Condition to check before executing currentPageFunction
+ * @param {function} currentPageFunction - Function to execute when navigating to link of present page
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  *
  * @return {JSX.Element}
@@ -24,8 +24,8 @@ import styles from './SecondaryLinks.module.scss'
 const SecondaryLinks = ({
   links,
   className,
-  samePageCondition,
-  samePageFunction,
+  currentPageCondition,
+  currentPageFunction,
   LinkComponent,
 }) => {
   const classes = [styles.secondaryLinks]
@@ -41,9 +41,9 @@ const SecondaryLinks = ({
         >
           <NavLink
             href={link.href}
-            samePageFunction={(e) => samePageFunction(e)}
-            samePageCondition={samePageCondition}
-            samePageAwareness={true}
+            currentPageFunction={(e) => currentPageFunction(e)}
+            currentPageCondition={currentPageCondition}
+            currentPageAwareness={true}
             LinkComponent={LinkComponent}
           >
             <TitleMedium.Sans.Regular400>
@@ -59,8 +59,8 @@ const SecondaryLinks = ({
 SecondaryLinks.propTypes = {
   links: PropTypes.array.isRequired,
   className: PropTypes.string,
-  samePageCondition: PropTypes.bool,
-  samePageFunction: PropTypes.func,
+  currentPageCondition: PropTypes.bool,
+  currentPageFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
 }
 

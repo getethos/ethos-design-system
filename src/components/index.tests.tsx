@@ -21,8 +21,13 @@ import { SearchInput } from './index'
 import { TextMaskedInput } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
+import { UniversalNavbar } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
+
+const UniversalNavbarTest: React.FC = () => (
+  <UniversalNavbar hideMobileCta hideDesktopCta logoHref="/href" />
+)
 
 // -------------- Localized tests ----------------//
 
@@ -72,6 +77,7 @@ class NoraDrawerTest extends React.Component<any, any> {
         position="left"
         labelCopy="label copy"
         closeCopy="close copy"
+        drawerClasses="foo bar"
       >
         hey
       </NoraDrawer>

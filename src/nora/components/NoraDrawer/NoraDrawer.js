@@ -21,13 +21,18 @@ export const NoraDrawer = ({
   position,
   labelCopy,
   closeCopy,
+  floatingDrawerContentRenderer,
+  ignoredSelectors,
+  drawerClasses,
 }) => {
   return (
     <Drawer
-      className={styles.NoraDrawer}
+      className={[drawerClasses, styles.Drawer].join(' ')}
       onDismiss={onDismiss}
       isOpen={isOpen}
       position={position}
+      ignoredSelectors={ignoredSelectors}
+      floatingDrawerContentRenderer={floatingDrawerContentRenderer}
     >
       <header className={styles.Header}>
         <button onClick={() => onDismiss(false)} className={styles.Close}>
@@ -48,4 +53,11 @@ NoraDrawer.propTypes = {
   onDismiss: PropTypes.func.isRequired,
   labelCopy: PropTypes.string.isRequired,
   closeCopy: PropTypes.string.isRequired,
+  drawerClasses: PropTypes.string,
+  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
+  floatingDrawerContentRenderer: PropTypes.func,
+}
+
+NoraDrawer.defaultProps = {
+  drawerClasses: '',
 }

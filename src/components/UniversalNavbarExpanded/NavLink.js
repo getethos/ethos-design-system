@@ -5,45 +5,7 @@ import PropTypes from 'prop-types'
 import { default as BaseNavLink } from '../UniversalNavbar/NavLink'
 
 // Helpers
-import { isEnterKeyPress } from '../../helpers/isEnterKeyPress'
-
-/**
- * Helper function to provide event handling for a user attempting to navigate
- * to the same page that they're already on.
- *
- * TODO test with query string parameters
- *
- * @param {object} event - Event triggered by user interaction
- * @param {string} href - URL for the link being clicked to cross check with window.location
- * @param {boolean} keyPress - Enable an onClick & onKeyPress listener
- * @param {function} samePageFunction - Function to execute when navigating to link of present page
- * @param {boolean} samePageCondition - Condition to check before executing samePageFunction
- *
- * @return {void}
- */
-const handleSamePage = ({
-  event,
-  href,
-  keyPress,
-  samePageFunction,
-  samePageCondition,
-}) => {
-  if (
-    typeof window === 'undefined' ||
-    !samePageCondition ||
-    (keyPress && !isEnterKeyPress(event))
-  ) {
-    return
-  }
-  let pathOnly = window.location.href.replace(window.location.origin, '')
-  if (window.location.search) {
-    pathOnly = pathOnly.replace(window.location.search, '')
-  }
-  if (pathOnly === href) {
-    event.preventDefault()
-    samePageFunction()
-  }
-}
+import { preventCurrentPageNavigation } from '../../helpers/preventCurrentPageNavigation'
 
 /**
  * Reusable navigation link, forked from UniversalNavbar NavLink.
@@ -54,8 +16,8 @@ const handleSamePage = ({
  * @param {string|object} className - Optional className
  * @param {string} key - Unique differentiator for multiple instances of component (hint: uuid)
  * @param {string} href - URL for the link
- * @param {boolean} samePageAwareness - Enable an onClick & onKeyPress listener
- * @param {function} samePageFunction - Use with samePageAwareness to handle onClick & onKeyPress
+ * @param {boolean} currentPageAwareness - Enable an onClick & onKeyPress listener
+ * @param {function} currentPageFunction - Use with currentPageAwareness to handle onClick & onKeyPress
  * @param {object} component - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {ReactNode} children - Children to render within the link
  *
@@ -65,13 +27,13 @@ const NavLink = ({
   className,
   key,
   href,
-  samePageAwareness,
-  samePageFunction,
-  samePageCondition,
+  currentPageAwareness,
+  currentPageFunction,
+  currentPageCondition,
   LinkComponent,
   children,
 }) => {
-  if (samePageAwareness) {
+  if (currentPageAwareness) {
     return (
       <BaseNavLink
         className={className || null}
@@ -79,21 +41,21 @@ const NavLink = ({
         href={href}
         LinkComponent={LinkComponent}
         onClick={(e) => {
-          handleSamePage({
+          preventCurrentPageNavigation({
             event: e,
             href: href,
             keyPress: false,
-            samePageFunction: samePageFunction,
-            samePageCondition: samePageCondition,
+            currentPageFunction: currentPageFunction,
+            currentPageCondition: currentPageCondition,
           })
         }}
         onKeyPress={(e) =>
-          handleSamePage({
+          preventCurrentPageNavigation({
             event: e,
             href: href,
             keyPress: true,
-            samePageFunction: samePageFunction,
-            samePageCondition: samePageCondition,
+            currentPageFunction: currentPageFunction,
+            currentPageCondition: currentPageCondition,
           })
         }
       >
@@ -119,9 +81,9 @@ NavLink.propTypes = {
   className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   key: PropTypes.string,
   href: PropTypes.string.isRequired,
-  samePageAwareness: PropTypes.bool,
-  samePageFunction: PropTypes.func,
-  samePageCondition: PropTypes.bool,
+  currentPageAwareness: PropTypes.bool,
+  currentPageFunction: PropTypes.func,
+  currentPageCondition: PropTypes.bool,
   LinkComponent: PropTypes.object,
   children: PropTypes.node.isRequired,
 }

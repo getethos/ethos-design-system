@@ -116,9 +116,9 @@ const MobileNav = ({
           <NavLink
             className={styles.phoneLogo}
             href={logoHref}
-            samePageAwareness={true}
-            samePageFunction={(e) => toggleHamburger(e)}
-            samePageCondition={showMobileMenu}
+            currentPageAwareness={true}
+            currentPageFunction={(e) => toggleHamburger(e)}
+            currentPageCondition={showMobileMenu}
             LinkComponent={LinkComponent}
           >
             {LogoWhite({ className: styles.logo })}
@@ -127,34 +127,33 @@ const MobileNav = ({
           <AccordionNav
             extraClass={styles.accordion}
             links={links}
-            samePageFunction={(e) => toggleHamburger(e)}
+            currentPageFunction={(e) => toggleHamburger(e)}
             navVisible={showMobileMenu}
             LinkComponent={LinkComponent}
           />
           <SecondaryLinks
             links={secondaryLinksLinks}
             className={styles.secondaryLinks}
-            samePageFunction={(e) => toggleHamburger(e)}
-            samePageCondition={showMobileMenu}
+            currentPageFunction={(e) => toggleHamburger(e)}
+            currentPageCondition={showMobileMenu}
             LinkComponent={LinkComponent}
           />
         </div>
         <NavLink
           className={styles.phoneLogoFancy}
           href={logoHref}
-          samePageAwareness={true}
-          samePageFunction={(e) => toggleHamburger(e)}
-          samePageCondition={showMobileMenu}
+          currentPageAwareness={true}
+          currentPageFunction={(e) => toggleHamburger(e)}
+          currentPageCondition={showMobileMenu}
           LinkComponent={LinkComponent}
         >
           <FancyAnimatedLogo />
         </NavLink>
-        {!hideMobileCta && (
-          <CtaButton
-            href={links.CTA.href}
-            trackingFunction={ctaButtonTrackingFunction}
-          />
-        )}
+        <CtaButton
+          href={links.CTA.href}
+          trackingFunction={ctaButtonTrackingFunction}
+          hideOnMobile={hideMobileCta}
+        />
       </div>
     </>
   )

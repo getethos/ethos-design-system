@@ -12,6 +12,22 @@ const MyApp = () => {
     setIsOpen(true)
   }
 
+  const renderFloatingDrawer = () => {
+    return (
+      <h1
+        id="ignored-selectors-example"
+        style={{
+          right: '0',
+          bottom: '0',
+          position: 'absolute',
+          width: '333px',
+          zIndex: '2',
+        }}
+      >
+        Floating Drawer Test
+      </h1>
+    )
+  }
   return (
     <>
       <NoraDrawer
@@ -20,6 +36,8 @@ const MyApp = () => {
         labelCopy="Order Evidences"
         closeCopy="Cancel"
         onDismiss={setIsOpen}
+        ignoredSelectors={['#ignored-selectors-example']}
+        floatingDrawerContentRenderer={renderFloatingDrawer}
       >
         <section className={styles.Section}>
           <h1>Keyboard Navigation</h1>

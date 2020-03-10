@@ -36,6 +36,7 @@ import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes'
 import { faLayerPlus } from '@fortawesome/pro-light-svg-icons/faLayerPlus'
 import { faChevronLeft } from '@fortawesome/pro-regular-svg-icons/faChevronLeft'
 import { faFileMedicalAlt } from '@fortawesome/pro-light-svg-icons/faFileMedicalAlt'
+import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle'
 
 library.add(
   faAlignLeft,
@@ -54,6 +55,7 @@ library.add(
   faOctagon,
   faSearch,
   faTimes,
+  faTimesCircle,
   faUserCheck,
   faWindowClose
 )

@@ -21,11 +21,13 @@ export const CheckboxInput = ({
   setFieldTouched,
   // TODO: pushed in from Form.js but not used here
   formTouched, // eslint-disable-line no-unused-vars
+  checked,
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
   const [touched, setTouched] = useState(initialValue ? true : false)
   const [isChecked, setIsChecked] = useState(initialChecked)
+
   const [getError, setError, , validate] = useErrorMessage(validator)
   const [doValidation] = useInputValidation({
     validate,
@@ -87,6 +89,11 @@ export const CheckboxInput = ({
       : `${styles.CheckboxInput}`
   }
 
+  /**
+   * If consumer's used the brute force `checked` prop, we prioritize that
+   */
+  const resolvedIsChecked = typeof checked !== 'undefined' ? checked : isChecked
+
   return (
     <>
       <label htmlFor={name} className={styles.root}>
@@ -98,7 +105,7 @@ export const CheckboxInput = ({
             data-tid={rest['data-tid']}
             onKeyPress={onKeyPress}
             disabled={disabled}
-            checked={isChecked}
+            checked={resolvedIsChecked}
             id={name}
             name={name}
           />
@@ -114,17 +121,35 @@ export const CheckboxInput = ({
 }
 
 CheckboxInput.propTypes = {
+  /** low level prop used only by the form engine */
   formTouched: PropTypes.bool,
-  name: PropTypes.string.isRequired, // must be unique
+  /** Name of the field */
+  name: PropTypes.string.isRequired,
+  /** Required data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string.isRequired,
+  /** Optionally sets a default value for the checkbox */
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  /** Allows for brute force setting of whether checked or not. Usually,
+   * you should let the component manage this itself, but this may be
+   * useful if you need to set the checked state programatically */
+  checked: PropTypes.bool,
+  /** currentValue is a low level prop used only by the form engine */
   currentValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  /** setFieldTouched is a low level prop used only by the form engine */
   setFieldTouched: PropTypes.func,
+  /** currentError is a low level prop used only by the form engine */
   currentError: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  allCaps: PropTypes.bool,
-  validator: PropTypes.func,
+  /** formChangeHandler is a low level prop used only by the form engine */
   formChangeHandler: PropTypes.func,
+  /** The Accordion's children. Likely AccordionSection's */
+  children: PropTypes.node.isRequired,
+  /** `disabled` - whether to disable the the checkbox */
+  disabled: PropTypes.bool,
+  /** whether to display label in all caps */
+  allCaps: PropTypes.bool,
+  /** field validation callback */
+  validator: PropTypes.func,
+  /** only useful if you need to completely override the checkbox facade e.g
+   * NoraCheckboxInput does this */
   facadeRenderer: PropTypes.func,
 }

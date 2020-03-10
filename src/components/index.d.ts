@@ -2,16 +2,8 @@
 
 import React, { Component, HTMLAttributes, ReactNode } from 'react'
 
-declare class UniversalNavbar extends React.Component {
-  state: {
-    showMobileMenu: boolean
-  }
-  toggleHamburger: () => void
-  render(): JSX.Element
-}
-export { UniversalNavbar }
-
-// TODO UniversalNavbarExpanded definition
+export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
+export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 
 export { Layout } from './Layout/index.js'
 
@@ -126,6 +118,7 @@ export declare const CheckboxInput: {
     disabled,
     name,
     initialValue,
+    checked,
     currentValue,
     currentError,
     setFieldTouched,
@@ -140,6 +133,7 @@ export declare const CheckboxInput: {
     name: string
     'data-tid': string
     initialValue?: string | boolean
+    checked?: boolean
     currentValue?: string | boolean
     currentError?: string
     setFieldTouched?: (touched: boolean) => void
@@ -993,6 +987,8 @@ export declare const Drawer: {
     isOpen,
     position,
     className,
+    ignoredSelectors,
+    floatingDrawerContentRenderer,
     ...rest
   }: {
     children: React.ReactNode
@@ -1000,6 +996,8 @@ export declare const Drawer: {
     isOpen: boolean
     position?: string
     className?: string
+    ignoredSelectors?: string[]
+    floatingDrawerContentRenderer?: any
     'data-tid'?: string
   }): JSX.Element
   propTypes: {
@@ -1013,9 +1011,11 @@ export declare const NoraDrawer: {
     onDismiss,
     isOpen,
     position,
-    className,
     labelCopy,
     closeCopy,
+    floatingDrawerContentRenderer,
+    ignoredSelectors,
+    drawerClasses,
   }: {
     children: React.ReactNode
     onDismiss: any
@@ -1023,7 +1023,9 @@ export declare const NoraDrawer: {
     labelCopy: string
     closeCopy: string
     position?: string
-    className?: string
+    drawerClasses?: string
+    floatingDrawerContentRenderer?: any
+    ignoredSelectors?: string[]
   }): JSX.Element
   propTypes: {
     props: any
@@ -1092,9 +1094,9 @@ export declare const NoraTextAreaInput: {
     labelClassName?: string
     textClassName?: string
     placeholder?: string
-    onBlur?: () => void
-    onFocus?: () => void
-    onChange?: () => void
+    onBlur?: any
+    onFocus?: any
+    onChange?: any
   }): JSX.Element
   propTypes: {
     props: any
@@ -1105,14 +1107,19 @@ export declare const NoraCheckboxInput: {
   ({
     name,
     initialValue,
+    checked,
     children,
     validator,
+    disabled,
     ...rest
   }: {
     name: string
-    initialValue?: string
+    initialValue?: string | boolean
+    checked?: boolean
+    'data-tid': string
     children: React.ReactNode
-    validator?: (value: string) => string
+    disabled?: boolean
+    validator?: (value: string | boolean) => string
   }): JSX.Element
   propTypes: {
     props: any
