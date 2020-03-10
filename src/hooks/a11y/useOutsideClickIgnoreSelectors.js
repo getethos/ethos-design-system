@@ -1,4 +1,5 @@
 import { useLayoutEffect } from 'react'
+import matches from '../../helpers/matches.js'
 
 /**
  * Hook handles a click outside the targeted component or ignored selector
@@ -6,16 +7,20 @@ import { useLayoutEffect } from 'react'
  * @public
  *
  * @param {React.MutableRefObject<HTMLElement | null>} ref - the component's ref
- * @param {String} ignoreSelector - the selector to ignore when we consider outside clicks
+ * @param {Array} of selectors to ignore - selectors to ignore when we consider outside clicks
  * @param {() => void} handler - a callback that fires when an outside click is detected
  *
  * @return {void}
  */
-function useOutsideClickIgnoreSelector(ref, ignoreSelector, handler) {
+function useOutsideClickIgnoreSelectors(ref, ignoredSelectors, handler) {
   const handleClickOutside = (e) => {
     let isIgnoredElement = false
-    if (e.target.classList && e.target.classList.contains(ignoreSelector)) {
-      isIgnoredElement = true
+    if (ignoredSelectors) {
+      for (let sel of ignoredSelectors) {
+        if (e.target.matches(sel)) {
+          isIgnoredElement = true
+        }
+      }
     }
     if (!isIgnoredElement && ref.current && !ref.current.contains(e.target)) {
       handler.call(this, [e])
@@ -35,4 +40,4 @@ function useOutsideClickIgnoreSelector(ref, ignoreSelector, handler) {
   }, [])
 }
 
-export default useOutsideClickIgnoreSelector
+export default useOutsideClickIgnoreSelectors
