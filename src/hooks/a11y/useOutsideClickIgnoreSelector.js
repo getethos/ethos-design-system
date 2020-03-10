@@ -12,7 +12,6 @@ import { useLayoutEffect } from 'react'
  */
 function useOutsideClickIgnoreSelector(ref, ignoreSelector, handler) {
   const handleClickOutside = (e) => {
-    console.log('floatingDrawerContentSelector. e.target: ', e.target)
     let isIgnoredElement = false
     if (e.target.classList && e.target.classList.contains(ignoreSelector)) {
       isIgnoredElement = true
