@@ -37,9 +37,6 @@
 .IconContainer {
   margin-left: var(--Space-24);
 }
-.CustomButton {
-  margin-right: var(--Space-24);
-}
 
 .IconContainer {
   display: flex;
@@ -49,7 +46,16 @@
 .CustomButton {
   background: none;
   border: none;
-  padding: 5px 5px 0;
+  padding: var(--Space-4) var(--Space-4) 0;
+  position: absolute;
+  top: var(--Space-6);
+  right: var(--Space-8);
+
+  > svg {
+    height: var(--Space-14);
+    color: var(--NoraNeutral-400);
+  }
+
   &:hover {
     cursor: pointer;
   }

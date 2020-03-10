@@ -43,7 +43,9 @@ const NoraSnackbarExample = () => {
             tabIndex="0"
             className={styles.CustomButton}
             onClick={() => setIsOpen(false)}
-          ></button>
+          >
+            <Icon iconPrefix="fal" iconName="times" />
+          </button>
         </div>
       </NoraSnackbar>
     </>
