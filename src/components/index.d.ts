@@ -987,6 +987,7 @@ export declare const Drawer: {
     isOpen,
     position,
     className,
+    ignoredSelectors,
     floatingDrawerContentRenderer,
     ...rest
   }: {
@@ -995,6 +996,7 @@ export declare const Drawer: {
     isOpen: boolean
     position?: string
     className?: string
+    ignoredSelectors?: string[]
     floatingDrawerContentRenderer?: any
     'data-tid'?: string
   }): JSX.Element
@@ -1012,6 +1014,7 @@ export declare const NoraDrawer: {
     labelCopy,
     closeCopy,
     floatingDrawerContentRenderer,
+    ignoredSelectors,
     drawerClasses,
   }: {
     children: React.ReactNode
@@ -1022,6 +1025,7 @@ export declare const NoraDrawer: {
     position?: string
     drawerClasses?: string
     floatingDrawerContentRenderer?: any
+    ignoredSelectors?: string[]
   }): JSX.Element
   propTypes: {
     props: any

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
-import useOutsideClick from '../../hooks/a11y/useOutsideClick'
+import useOutsideClickIgnoreSelectors from '../../hooks/a11y/useOutsideClickIgnoreSelectors'
 import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import useTrapFocus from '../../hooks/a11y/useTrapFocus'
@@ -13,6 +13,7 @@ const DrawerContent = ({
   isOpen,
   position,
   className,
+  ignoredSelectors,
   ...rest
 }) => {
   const drawerRef = useRef(null)
@@ -24,7 +25,9 @@ const DrawerContent = ({
 
   classes = className ? `${className} ${classes}` : classes
 
-  useOutsideClick(drawerRef, () => onDismiss(false))
+  useOutsideClickIgnoreSelectors(drawerRef, ignoredSelectors, () =>
+    onDismiss(false)
+  )
   useOutsideEscape(drawerRef, () => onDismiss(false))
   useTrapFocus(drawerRef, isOpen)
   useHideAriaSiblings(drawerRef, isOpen)
@@ -49,6 +52,7 @@ DrawerContent.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   position: PropTypes.oneOf(['left', 'right']),
   className: PropTypes.string,
+  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
   'data-tid': PropTypes.string,
 }
 
@@ -60,6 +64,7 @@ export const Drawer = ({
   onDismiss,
   isOpen,
   position,
+  ignoredSelectors,
   floatingDrawerContentRenderer,
   className,
   ...rest
@@ -81,6 +86,7 @@ export const Drawer = ({
           isOpen={isOpen}
           position={position}
           className={className}
+          ignoredSelectors={ignoredSelectors}
           {...rest}
         >
           {children}
@@ -105,6 +111,8 @@ Drawer.propTypes = {
   className: PropTypes.string,
   /** optional renderer for rendering floating items e.g. a floating action button */
   floatingDrawerContentRenderer: PropTypes.func,
+  /** selector for floating button to be rendered so we don't consider it an "outside click" */
+  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
   /** data attribute for testing */
   'data-tid': PropTypes.string,
 }

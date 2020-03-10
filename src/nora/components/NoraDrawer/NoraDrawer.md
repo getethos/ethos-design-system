@@ -15,6 +15,7 @@ const MyApp = () => {
   const renderFloatingDrawer = () => {
     return (
       <h1
+        id="ignored-selectors-example"
         style={{
           right: '0',
           bottom: '0',
@@ -35,6 +36,7 @@ const MyApp = () => {
         labelCopy="Order Evidences"
         closeCopy="Cancel"
         onDismiss={setIsOpen}
+        ignoredSelectors={['#ignored-selectors-example']}
         floatingDrawerContentRenderer={renderFloatingDrawer}
       >
         <section className={styles.Section}>

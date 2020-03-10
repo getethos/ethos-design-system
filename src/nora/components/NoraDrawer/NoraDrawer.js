@@ -22,6 +22,7 @@ export const NoraDrawer = ({
   labelCopy,
   closeCopy,
   floatingDrawerContentRenderer,
+  ignoredSelectors,
   drawerClasses,
 }) => {
   return (
@@ -30,6 +31,7 @@ export const NoraDrawer = ({
       onDismiss={onDismiss}
       isOpen={isOpen}
       position={position}
+      ignoredSelectors={ignoredSelectors}
       floatingDrawerContentRenderer={floatingDrawerContentRenderer}
     >
       <header className={styles.Header}>
@@ -52,6 +54,7 @@ NoraDrawer.propTypes = {
   labelCopy: PropTypes.string.isRequired,
   closeCopy: PropTypes.string.isRequired,
   drawerClasses: PropTypes.string,
+  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
   floatingDrawerContentRenderer: PropTypes.func,
 }
 
