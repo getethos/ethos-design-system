@@ -11,6 +11,7 @@ Snackbar a11y / UX—some things to try:
 ```jsx
 import React, { useState } from 'react'
 import { Icon } from '../../nora/components/Icon/Icon.js'
+import { Snack } from './Snack.js'
 import { Button } from '../index'
 /**
  * All of this is custom code for example's sake (the styles,
@@ -22,11 +23,20 @@ const [isOpen, setIsOpen] = useState(true)
 const SNACKBAR_LBL_ID = 'a11y-snackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-described-by'
 
+const CloseButton = () => {
+  return (
+    <button
+      tabIndex="0"
+      className={styles.CustomButton}
+      onClick={() => setIsOpen(false)}
+    >
+      <Icon iconName="window-close" iconPrefix="fal" />
+    </button>
+  )
+}
+
 const SnackbarExample = () => {
   // Try switching styles.Left with styles.Right
-  const klasses = `${styles.SnackbarContainer} ${styles.SnackbarSkin} ${
-    styles.Bottom
-  } ${styles.Left} ${isOpen ? styles.Open : ''}`
   return (
     <>
       <Button.Medium.Black onClick={() => setIsOpen(true)}>
@@ -38,17 +48,19 @@ const SnackbarExample = () => {
         onDismiss={setIsOpen}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
+        className={`${styles.SnackbarContainer} ${styles.Bottom} ${
+          styles.Left
+        } ${isOpen ? styles.Open : ''}`}
       >
-        <div className={klasses}>
+        <Snack classNameSkin={styles.SnackbarSkin}>
           <p>😞 Something bad happened</p>
-          <button
-            tabIndex="0"
-            className={styles.CustomButton}
-            onClick={() => setIsOpen(false)}
-          >
-            <Icon iconName="window-close" iconPrefix="fal" />
-          </button>
-        </div>
+          <CloseButton />
+        </Snack>
+
+        <Snack classNameSkin={styles.SnackbarSkin}>
+          <p>😞 More sadness</p>
+          <CloseButton />
+        </Snack>
       </Snackbar>
     </>
   )

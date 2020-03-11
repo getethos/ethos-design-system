@@ -19,6 +19,7 @@ export const Snackbar = ({
   ariaLabelledBy,
   ariaDescribedBy,
   children,
+  className,
 }) => {
   const snackbarRef = useRef(null)
   useOutsideClick(snackbarRef, () => onDismiss(false))
@@ -43,6 +44,7 @@ export const Snackbar = ({
         aria-labelledby={ariaLabelledBy && ariaLabelledBy}
         aria-hidden={!isOpen}
         data-testid="snackbar-container"
+        className={className}
         ref={snackbarRef}
       >
         {isOpen && children}
@@ -64,4 +66,6 @@ Snackbar.propTypes = {
   isOpen: PropTypes.bool,
   /** handler that onDismiss the state of the modal */
   onDismiss: PropTypes.func.isRequired,
+  /** classes for the Snackbar container. Likely fixed to some position. */
+  className: PropTypes.string.isRequired,
 }
