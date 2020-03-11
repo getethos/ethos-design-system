@@ -3,15 +3,18 @@
 
 .SnackbarContainer {
   position: fixed;
-  display: none;
-  transition: transform var(--transition-duration-medium);
 }
 
 .SnackbarSkin {
   display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: $z-index-navbar;
-  box-sizing: border-box;
+  position: relative;
   border-radius: 3px;
+  padding: var(--Space-16) var(--Space-24);
+  transition: transform var(--transition-duration-medium);
+  box-sizing: border-box;
   background-color: var(--NoraNeutral-900);
   width: 320px;
   min-height: var(--Space-64);

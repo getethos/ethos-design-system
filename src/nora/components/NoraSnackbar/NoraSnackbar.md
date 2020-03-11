@@ -13,17 +13,29 @@ Alert level:
 ```jsx
 import React, { useState } from 'react'
 import { Icon } from '../Icon/Icon.js'
-import { Button } from '../../../components/index'
+import { Button, Snack } from '../../../components/index'
 import styles from './NoraSnackbar.module.scss'
 const [isOpen, setIsOpen] = useState(true)
 const SNACKBAR_LBL_ID = 'a11y-norasnackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-noradescribed-by'
 
+const CloseButton = () => {
+  return (
+    <button
+      tabIndex="0"
+      className={styles.CustomButton}
+      onClick={() => setIsOpen(false)}
+    >
+      <Icon iconPrefix="fal" iconName="times" />
+    </button>
+  )
+}
+
 const NoraSnackbarExample = () => {
   // Try switching styles.Left with styles.Right
-  const klasses = `${styles.SnackbarContainer} ${styles.SnackbarSkin} ${
-    styles.Bottom
-  } ${styles.Left} ${isOpen ? styles.Open : ''}`
+  const klasses = `${styles.SnackbarContainer} ${styles.Bottom} ${
+    styles.Left
+  } ${isOpen ? styles.Open : ''}`
   return (
     <>
       <Button.Medium.Black onClick={() => setIsOpen(true)}>
@@ -35,71 +47,27 @@ const NoraSnackbarExample = () => {
         onDismiss={setIsOpen}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
+        className={klasses}
       >
         <div className={klasses}>
-          <div className={styles.IconContainer}>
-            <Icon iconPrefix="fal" iconName="exclamation-triangle" />
-          </div>
-          <p className={styles.CenteredGrow}>Woe is me &#9785;</p>
-          <button
-            tabIndex="0"
-            className={styles.CustomButton}
-            onClick={() => setIsOpen(false)}
-          >
-            <Icon iconPrefix="fal" iconName="times" />
-          </button>
+          <Snack classNameSkin={styles.SnackbarSkin}>
+            <div className={styles.IconContainer}>
+              <Icon iconPrefix="fal" iconName="exclamation-triangle" />
+            </div>
+            <p className={styles.CenteredGrow}>Woe is me &#9785;</p>
+            <CloseButton />
+          </Snack>
+          <Snack classNameSkin={styles.SnackbarSkin}>
+            <div className={styles.IconContainer}>
+              <Icon iconPrefix="fal" iconName="info-circle" />
+            </div>
+            <p className={styles.CenteredGrow}>More sadness &#9785;</p>
+            <CloseButton />
+          </Snack>
         </div>
       </NoraSnackbar>
     </>
   )
 }
 ;<NoraSnackbarExample />
-```
-
-Info level:
-
-```jsx
-import React, { useState } from 'react'
-import { Icon } from '../Icon/Icon.js'
-import { Button } from '../../../components/index'
-import styles from './NoraSnackbar.module.scss'
-const [isOpen, setIsOpen] = useState(true)
-const SNACKBAR_LBL_ID = 'a11y-norasnackbar-id'
-const SNACKBAR_DESC_ID = 'a11y-noradescribed-by'
-
-const NoraSnackbarExample2 = () => {
-  // Try switching styles.Left with styles.Right
-  const klasses = `${styles.SnackbarContainer} ${styles.SnackbarSkin} ${
-    styles.Bottom
-  } ${styles.Left} ${isOpen ? styles.Open : ''}`
-  return (
-    <>
-      <Button.Medium.Black onClick={() => setIsOpen(true)}>
-        Open Programmatically
-      </Button.Medium.Black>{' '}
-      <NoraSnackbar
-        id="nora-snackbar"
-        isOpen={isOpen}
-        onDismiss={setIsOpen}
-        ariaLabelledBy={SNACKBAR_LBL_ID}
-        ariaDescribedBy={SNACKBAR_DESC_ID}
-      >
-        <div className={klasses}>
-          <div className={styles.IconContainer}>
-            <Icon iconPrefix="fal" iconName="info-circle" />
-          </div>
-          <p className={styles.CenteredGrow}>Woe is me &#9785;</p>
-          <button
-            tabIndex="0"
-            className={styles.CustomButton}
-            onClick={() => setIsOpen(false)}
-          >
-            <Icon iconPrefix="fal" iconName="times" />
-          </button>
-        </div>
-      </NoraSnackbar>
-    </>
-  )
-}
-;<NoraSnackbarExample2 />
 ```
