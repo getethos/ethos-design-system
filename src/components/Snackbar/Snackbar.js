@@ -1,10 +1,14 @@
 import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
-import useOutsideClick from '../../hooks/a11y/useOutsideClick'
 import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import useTrapFocus from '../../hooks/a11y/useTrapFocus'
+
+// TODO: ----- Snackbar TODOS -----
+// TODO: Snackbar onDismiss needs to be passed the snack id so it can only dismiss that card
+// TODO: Add timeout functionality. Defaults or props.
+// TODO: Add animation when showing / dismissing the Snacks
 
 /**
  * This is a base snackbar component meant to be unstyled and flexible so
@@ -22,7 +26,6 @@ export const Snackbar = ({
   className,
 }) => {
   const snackbarRef = useRef(null)
-  useOutsideClick(snackbarRef, () => onDismiss(false))
   useOutsideEscape(snackbarRef, () => onDismiss(false))
   useTrapFocus(snackbarRef, isOpen)
   useHideAriaSiblings(snackbarRef, isOpen)

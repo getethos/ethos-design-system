@@ -19,51 +19,71 @@ import { Button } from '../index'
  */
 import styles from './Snackbar.module.scss'
 
-const [isOpen, setIsOpen] = useState(true)
+const issues = [
+  {
+    id: 0,
+    message: '😞 Something bad happened',
+  },
+  {
+    id: 1,
+    message: '😞 More sadness',
+  },
+  {
+    id: 2,
+    message: '😞 Woe Woe Woe',
+  },
+]
+
 const SNACKBAR_LBL_ID = 'a11y-snackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-described-by'
 
-const CloseButton = () => {
-  return (
-    <button
-      tabIndex="0"
-      className={styles.CustomButton}
-      onClick={() => setIsOpen(false)}
-    >
-      <Icon iconName="window-close" iconPrefix="fal" />
-    </button>
-  )
-}
+const SnackbarExample = ({ snacks }) => {
+  const [openSnacks, setOpenSnacks] = useState(snacks)
 
-const SnackbarExample = () => {
+  const renderCloseButton = (snackId) => {
+    console.log('close button snackId: ', snackId)
+    return (
+      <button
+        tabIndex="0"
+        className={styles.CustomButton}
+        onClick={() => {
+          const updatedSnacks = openSnacks.filter((card) => card.id !== snackId)
+          setOpenSnacks(updatedSnacks)
+        }}
+      >
+        <Icon iconName="window-close" iconPrefix="fal" />
+      </button>
+    )
+  }
   // Try switching styles.Left with styles.Right
   return (
     <>
-      <Button.Medium.Black onClick={() => setIsOpen(true)}>
-        Open Programmatically
+      <Button.Medium.Black onClick={() => setOpenSnacks([])}>
+        Open Programmatically (TODO)
       </Button.Medium.Black>{' '}
       <Snackbar
         id="le-snackbar"
-        isOpen={isOpen}
-        onDismiss={setIsOpen}
+        isOpen={openSnacks.length > 0}
+        onDismiss={() => {
+          console.log('TODO -- implement snackbar onDismiss')
+        }}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
         className={`${styles.SnackbarContainer} ${styles.Bottom} ${
           styles.Left
-        } ${isOpen ? styles.Open : ''}`}
+        } ${openSnacks.length ? styles.Open : ''}`}
       >
-        <Snack classNameSkin={styles.SnackbarSkin}>
-          <p>😞 Something bad happened</p>
-          <CloseButton />
-        </Snack>
-
-        <Snack classNameSkin={styles.SnackbarSkin}>
-          <p>😞 More sadness</p>
-          <CloseButton />
-        </Snack>
+        {openSnacks &&
+          openSnacks.map((snack) => (
+            <Snack key={snack.id} classNameSkin={styles.SnackbarSkin}>
+              <p>{snack.message}</p>
+              {renderCloseButton(snack.id)}
+            </Snack>
+          ))}
       </Snackbar>
     </>
   )
 }
-;<SnackbarExample />
+
+;<SnackbarExample snacks={issues} />
 ```
