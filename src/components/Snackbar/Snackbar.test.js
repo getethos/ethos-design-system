@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Snackbar } from './Snackbar'
-import { render, fireEvent, act } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('Snackbar', () => {
   beforeAll(() => {
