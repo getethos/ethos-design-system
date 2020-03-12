@@ -40,6 +40,7 @@ import { faLayerPlus } from '@fortawesome/pro-light-svg-icons/faLayerPlus'
 import { faChevronLeft } from '@fortawesome/pro-regular-svg-icons/faChevronLeft'
 import { faFileMedicalAlt } from '@fortawesome/pro-light-svg-icons/faFileMedicalAlt'
 import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle'
+import { faTimesSquare } from '@fortawesome/pro-solid-svg-icons/faTimesSquare'
 import { faAward } from '@fortawesome/pro-regular-svg-icons/faAward'
 import { faAddressCard } from '@fortawesome/pro-regular-svg-icons/faAddressCard'
 import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil'
@@ -48,8 +49,8 @@ import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt'
 import { faTrashAlt as faTrashAltLight } from '@fortawesome/pro-light-svg-icons/faTrashAlt'
 import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown'
 import { faInfoCircle as faInfoCircleLight } from '@fortawesome/pro-light-svg-icons/faInfoCircle'
-import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus'
 import { faInfoCircle } from '@fortawesome/pro-regular-svg-icons/faInfoCircle'
+import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus'
 import { faQuestionCircle } from '@fortawesome/pro-regular-svg-icons/faQuestionCircle'
 import { faStethoscope } from '@fortawesome/pro-regular-svg-icons/faStethoscope'
 import { faLockAlt } from '@fortawesome/pro-regular-svg-icons/faLockAlt'
@@ -91,6 +92,7 @@ library.add(
   faStethoscope,
   faTimes,
   faTimesCircle,
+  faTimesSquare,
   faTrashAlt,
   faTrashAltLight,
   faUserCheck,
