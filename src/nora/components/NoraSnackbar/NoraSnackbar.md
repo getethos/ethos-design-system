@@ -8,66 +8,84 @@ Snackbar a11y / UX—some things to try:
 - Press `<Escape>` key and note it closes the Snackbar
 - Also note, `useOutsideClick` closes the Snackbar if you click anywhere outside of the snackbar itself
 
-Alert level:
-
 ```jsx
 import React, { useState } from 'react'
 import { Icon } from '../Icon/Icon.js'
 import { Button, Snack } from '../../../components/index'
 import styles from './NoraSnackbar.module.scss'
-const [isOpen, setIsOpen] = useState(true)
+
+const issues = [
+  {
+    id: 0,
+    type: 'info',
+    message: 'Informational message...',
+  },
+  {
+    id: 1,
+    type: 'alert',
+    message: 'Something alert worthy',
+  },
+  {
+    id: 2,
+    type: 'alert',
+    message: 'Another alert message',
+  },
+]
 const SNACKBAR_LBL_ID = 'a11y-norasnackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-noradescribed-by'
 
-const CloseButton = () => {
-  return (
-    <button
-      tabIndex="0"
-      className={styles.CustomButton}
-      onClick={() => setIsOpen(false)}
-    >
-      <Icon iconPrefix="fal" iconName="times" />
-    </button>
-  )
-}
+const NoraSnackbarExample = ({ snacks }) => {
+  const [openSnacks, setOpenSnacks] = useState(snacks)
 
-const NoraSnackbarExample = () => {
+  const renderCloseButton = (snackId) => {
+    return (
+      <button
+        tabIndex="0"
+        className={styles.CustomButton}
+        onClick={() => {
+          const updatedSnacks = openSnacks.filter((card) => card.id !== snackId)
+          setOpenSnacks(updatedSnacks)
+        }}
+      >
+        <Icon iconName="times" iconPrefix="fal" />
+      </button>
+    )
+  }
   // Try switching styles.Left with styles.Right
-  const klasses = `${styles.SnackbarContainer} ${styles.Bottom} ${
-    styles.Left
-  } ${isOpen ? styles.Open : ''}`
   return (
     <>
-      <Button.Medium.Black onClick={() => setIsOpen(true)}>
+      <Button.Medium.Black onClick={() => setOpenSnacks(snacks)}>
         Open Programmatically
       </Button.Medium.Black>{' '}
       <NoraSnackbar
         id="nora-snackbar"
-        isOpen={isOpen}
-        onDismiss={setIsOpen}
+        isOpen={openSnacks.length > 0}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
-        className={klasses}
+        className={`${styles.SnackbarContainer} ${styles.Bottom} ${
+          styles.Left
+        } ${openSnacks.length ? styles.Open : ''}`}
       >
-        <div className={klasses}>
-          <Snack classNameSkin={styles.SnackbarSkin}>
-            <div className={styles.IconContainer}>
-              <Icon iconPrefix="fal" iconName="exclamation-triangle" />
-            </div>
-            <p className={styles.CenteredGrow}>Woe is me &#9785;</p>
-            <CloseButton />
-          </Snack>
-          <Snack classNameSkin={styles.SnackbarSkin}>
-            <div className={styles.IconContainer}>
-              <Icon iconPrefix="fal" iconName="info-circle" />
-            </div>
-            <p className={styles.CenteredGrow}>More sadness &#9785;</p>
-            <CloseButton />
-          </Snack>
-        </div>
+        {openSnacks &&
+          openSnacks.map((snack) => (
+            <Snack key={snack.id} classNameSkin={styles.SnackbarSkin}>
+              <div className={styles.IconContainer}>
+                <Icon
+                  iconPrefix="fal"
+                  iconName={
+                    snack.type === 'alert'
+                      ? 'exclamation-triangle'
+                      : 'info-circle'
+                  }
+                />
+              </div>
+              <p className={styles.CenteredGrow}>{snack.message}</p>
+              {renderCloseButton(snack.id)}
+            </Snack>
+          ))}
       </NoraSnackbar>
     </>
   )
 }
-;<NoraSnackbarExample />
+;<NoraSnackbarExample snacks={issues} />
 ```

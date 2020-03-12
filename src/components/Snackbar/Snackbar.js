@@ -5,6 +5,7 @@ import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import { getFocusableElements } from '../../hooks/a11y/useTrapFocus'
 
 // TODO: ----- Snackbar TODOS -----
+// TODO: Convert the NoraSnackbar to use latest approaches
 // TODO: Add timeout functionality. Defaults or props.
 // TODO: Add animation when showing / dismissing the Snacks
 // TODO: Specs

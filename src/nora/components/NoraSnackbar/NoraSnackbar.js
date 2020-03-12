@@ -17,6 +17,4 @@ NoraSnackbar.propTypes = {
   children: PropTypes.node.isRequired,
   /** Boolean that sets the state of the modal */
   isOpen: PropTypes.bool,
-  /** handler that onDismiss the state of the modal */
-  onDismiss: PropTypes.func.isRequired,
 }

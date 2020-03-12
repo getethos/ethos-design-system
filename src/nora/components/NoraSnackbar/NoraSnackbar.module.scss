@@ -11,6 +11,7 @@
   align-items: center;
   z-index: $z-index-navbar;
   position: relative;
+  margin-top: var(--Space-6);
   border-radius: 3px;
   padding: var(--Space-16) var(--Space-24);
   transition: transform var(--transition-duration-medium);
