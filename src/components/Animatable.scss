@@ -1,4 +1,4 @@
-/* TODO: Move some of this stuff into an animation specific module */
+@import './Animation.scss';
 
 .Animatable {
   animation-duration: var(--transition-duration-medium);
