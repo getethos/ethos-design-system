@@ -18,7 +18,6 @@ describe('Snackbar', () => {
 
   it("Render's a Snackbar", () => {
     const isOpen = true
-    const onDismissMock = jest.fn()
     window.scrollTo = jest.fn()
     const ariaDescribedBy = 'some-id'
     const ariaLabelledBy = 'some-other-id'
@@ -28,7 +27,6 @@ describe('Snackbar', () => {
       ariaDescribedBy,
       ariaLabelledBy,
       isOpen,
-      onDismiss: onDismissMock,
     }
 
     const tree = render(
@@ -39,35 +37,5 @@ describe('Snackbar', () => {
     )
 
     expect(tree).toMatchSnapshot()
-  })
-
-  it("Fire's `onDismiss` when the `escape` key is pressed", () => {
-    const isOpen = true
-    const onDismissMock = jest.fn()
-    window.scrollTo = jest.fn()
-    const ariaDescribedBy = 'some-id'
-    const ariaLabelledBy = 'some-other-id'
-
-    const props = {
-      id: 'leSnAcK',
-      ariaDescribedBy,
-      ariaLabelledBy,
-      isOpen,
-      onDismiss: onDismissMock,
-    }
-
-    const { getByTestId } = render(
-      <Snackbar {...props}>
-        <h1>snackbar</h1>
-      </Snackbar>
-    )
-
-    const snack = getByTestId('snackbar-container')
-
-    act(() => {
-      fireEvent.keyDown(snack, { key: 'Escape', keyCode: 27 })
-    })
-
-    expect(onDismissMock).toHaveBeenCalled()
   })
 })

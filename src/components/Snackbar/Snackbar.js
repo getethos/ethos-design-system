@@ -5,7 +5,6 @@ import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import { getFocusableElements } from '../../hooks/a11y/useTrapFocus'
 
 // TODO: ----- Snackbar TODOS -----
-// TODO: Snackbar onDismiss needs to be passed the snack id so it can only dismiss that card
 // TODO: Add timeout functionality. Defaults or props.
 // TODO: Add animation when showing / dismissing the Snacks
 // TODO: Specs
@@ -35,19 +34,12 @@ export const Snackbar = ({
     }
   }, [snackbarRef, children])
 
-  const handleKeyDown = (e) => {
-    if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
-      onDismiss(false)
-    }
-  }
-
   return (
     <Portal id={id}>
       {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
       <div
         role="dialog"
         aria-modal="true"
-        onKeyDown={handleKeyDown}
         aria-describedby={ariaDescribedBy && ariaDescribedBy}
         aria-labelledby={ariaLabelledBy && ariaLabelledBy}
         aria-hidden={!isOpen}
