@@ -41,7 +41,6 @@ const SnackbarExample = ({ snacks }) => {
   const [openSnacks, setOpenSnacks] = useState(snacks)
 
   const renderCloseButton = (snackId) => {
-    console.log('close button snackId: ', snackId)
     return (
       <button
         tabIndex="0"
@@ -58,15 +57,12 @@ const SnackbarExample = ({ snacks }) => {
   // Try switching styles.Left with styles.Right
   return (
     <>
-      <Button.Medium.Black onClick={() => setOpenSnacks([])}>
-        Open Programmatically (TODO)
+      <Button.Medium.Black onClick={() => setOpenSnacks(snacks)}>
+        Open Programmatically
       </Button.Medium.Black>{' '}
       <Snackbar
         id="le-snackbar"
         isOpen={openSnacks.length > 0}
-        onDismiss={() => {
-          console.log('TODO -- implement snackbar onDismiss')
-        }}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
         className={`${styles.SnackbarContainer} ${styles.Bottom} ${

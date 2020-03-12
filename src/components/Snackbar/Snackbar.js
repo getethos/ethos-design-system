@@ -1,14 +1,14 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
-import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
-import useTrapFocus from '../../hooks/a11y/useTrapFocus'
+import { getFocusableElements } from '../../hooks/a11y/useTrapFocus'
 
 // TODO: ----- Snackbar TODOS -----
 // TODO: Snackbar onDismiss needs to be passed the snack id so it can only dismiss that card
 // TODO: Add timeout functionality. Defaults or props.
 // TODO: Add animation when showing / dismissing the Snacks
+// TODO: Specs
 
 /**
  * This is a base snackbar component meant to be unstyled and flexible so
@@ -18,7 +18,6 @@ import useTrapFocus from '../../hooks/a11y/useTrapFocus'
  */
 export const Snackbar = ({
   id,
-  onDismiss,
   isOpen = false,
   ariaLabelledBy,
   ariaDescribedBy,
@@ -26,9 +25,15 @@ export const Snackbar = ({
   className,
 }) => {
   const snackbarRef = useRef(null)
-  useOutsideEscape(snackbarRef, () => onDismiss(false))
-  useTrapFocus(snackbarRef, isOpen)
   useHideAriaSiblings(snackbarRef, isOpen)
+
+  useEffect(() => {
+    // Focus on first focusable element in the snackbar
+    const focusableElements = getFocusableElements(snackbarRef.current)
+    if (focusableElements.length) {
+      focusableElements[0].focus()
+    }
+  }, [snackbarRef, children])
 
   const handleKeyDown = (e) => {
     if (['Escape', 'esc'].includes(e.key) || e.keyCode === 27) {
@@ -67,8 +72,6 @@ Snackbar.propTypes = {
   children: PropTypes.node.isRequired,
   /** Boolean that sets the state of the modal */
   isOpen: PropTypes.bool,
-  /** handler that onDismiss the state of the modal */
-  onDismiss: PropTypes.func.isRequired,
   /** classes for the Snackbar container. Likely fixed to some position. */
   className: PropTypes.string.isRequired,
 }
