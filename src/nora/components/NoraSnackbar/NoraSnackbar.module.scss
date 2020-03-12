@@ -3,11 +3,11 @@
 
 .SnackbarContainer {
   position: fixed;
-  composes: Animatable from '../../../components/Animatable.scss';
 }
 
 .SnackbarSkin {
   display: flex;
+  composes: Animatable from '../../../components/Animatable.scss';
   justify-content: center;
   align-items: center;
   z-index: $z-index-navbar;
@@ -15,7 +15,6 @@
   margin-top: var(--Space-6);
   border-radius: 3px;
   padding: var(--Space-16) var(--Space-24);
-  transition: transform var(--transition-duration-medium);
   box-sizing: border-box;
   background-color: var(--NoraNeutral-900);
   width: 320px;

@@ -6,6 +6,7 @@
 }
 
 .SnackbarSkin {
+  composes: Animatable from '../Animatable.scss';
   display: flex;
   justify-content: center;
   align-items: center;

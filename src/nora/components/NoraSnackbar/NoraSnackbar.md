@@ -31,6 +31,7 @@ const issues = [
     message: 'Another alert message',
   },
 ]
+
 const SNACKBAR_LBL_ID = 'a11y-norasnackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-noradescribed-by'
 
@@ -62,13 +63,16 @@ const NoraSnackbarExample = ({ snacks }) => {
         isOpen={openSnacks.length > 0}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
-        className={`${styles.SnackbarContainer} ${styles.Bottom} ${
-          styles.Left
-        } ${openSnacks.length ? styles.Open : ''}`}
+        className={`${styles.SnackbarContainer} ${styles.Bottom} ${styles.Left}`}
       >
         {openSnacks &&
           openSnacks.map((snack) => (
-            <Snack key={snack.id} classNameSkin={styles.SnackbarSkin}>
+            <Snack
+              key={snack.id}
+              classNameSkin={`${styles.SnackbarSkin} ${
+                openSnacks.length ? styles.Open : ''
+              }`}
+            >
               <div className={styles.IconContainer}>
                 <Icon
                   iconPrefix="fal"

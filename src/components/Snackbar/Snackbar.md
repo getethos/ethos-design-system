@@ -65,13 +65,16 @@ const SnackbarExample = ({ snacks }) => {
         isOpen={openSnacks.length > 0}
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
-        className={`${styles.SnackbarContainer} ${styles.Bottom} ${
-          styles.Left
-        } ${openSnacks.length ? styles.Open : ''}`}
+        className={`${styles.SnackbarContainer} ${styles.Bottom} ${styles.Left}`}
       >
         {openSnacks &&
           openSnacks.map((snack) => (
-            <Snack key={snack.id} classNameSkin={styles.SnackbarSkin}>
+            <Snack
+              key={snack.id}
+              classNameSkin={`${styles.SnackbarSkin} ${
+                openSnacks.length ? styles.Open : ''
+              }`}
+            >
               <p>{snack.message}</p>
               {renderCloseButton(snack.id)}
             </Snack>
