@@ -63,8 +63,8 @@ const NoraSnackbarExample = ({ snacks }) => {
         ariaLabelledBy={SNACKBAR_LBL_ID}
         ariaDescribedBy={SNACKBAR_DESC_ID}
         className={`${styles.SnackbarContainer} ${styles.Bottom} ${
-          styles.Left
-        } ${openSnacks.length ? styles.Open : ''}`}
+          styles.Animatable
+        } ${styles.Left} ${openSnacks.length ? styles.ZoomInUp : ''}`}
       >
         {openSnacks &&
           openSnacks.map((snack) => (

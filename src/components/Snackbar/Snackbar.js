@@ -5,8 +5,9 @@ import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import { getFocusableElements } from '../../hooks/a11y/useTrapFocus'
 
 // TODO: ----- Snackbar TODOS -----
+// TODO: Move the animation stuff into it's own module
+// TODO: Animation on dismiss (only animating on show currently)
 // TODO: Add timeout functionality. Defaults or props.
-// TODO: Add animation when showing / dismissing the Snacks
 // TODO: Specs
 // TODO: index.d.ts typings and tests
 

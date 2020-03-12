@@ -16,7 +16,6 @@
   background-color: var(--BrandPasty);
   border-radius: 3px;
   padding: var(--Space-16) var(--Space-24);
-  transition: transform var(--transition-duration-medium);
 }
 
 .CustomButton {
@@ -30,11 +29,6 @@
 
 .Bottom {
   bottom: 20px;
-  transform: translateY(300px);
-}
-
-.Open {
-  transform: translateY(0);
 }
 
 .Right {
@@ -43,4 +37,29 @@
 
 .Left {
   left: 20px;
+}
+
+// TODO: Move some of this stuff into an animation specific module
+
+.Animatable {
+  animation-duration: var(--transition-duration-medium);
+  animation-fill-mode: both;
+}
+
+.ZoomInUp {
+  animation-name: zoomInUp;
+}
+
+@keyframes zoomInUp {
+  from {
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5) translate3d(0, 1000px, 0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(0.75, 0.75, 0.75) translate3d(0, 20px, 0);
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+  }
 }
