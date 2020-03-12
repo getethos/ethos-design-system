@@ -3,6 +3,7 @@
 
 .SnackbarContainer {
   position: fixed;
+  composes: Animatable from '../../../components/Animatable.scss';
 }
 
 .SnackbarSkin {
@@ -73,7 +74,11 @@
   left: 20px;
 }
 
-// TODO: Move some of this stuff into an animation specific module
+.Open {
+  composes: ZoomInUp from '../../../components/Animatable.scss';
+}
+
+/* TODO: Move some of this stuff into an animation specific module */
 
 .Animatable {
   animation-duration: var(--transition-duration-medium);
