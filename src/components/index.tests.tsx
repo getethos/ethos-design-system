@@ -10,9 +10,11 @@ import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { Icon } from './index'
 import { IconLink } from './index'
+import { Snack } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
 import { NoraDrawer } from './index'
+import { NoraSnackbar } from './index'
 import { NoraTextAreaInput } from './index'
 import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
@@ -30,6 +32,24 @@ const UniversalNavbarTest: React.FC = () => (
 )
 
 // -------------- Localized tests ----------------//
+
+class NoraSnackbarTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraSnackbar
+        id="le-snackbar"
+        isOpen={true}
+        ariaLabelledBy="xyz"
+        ariaDescribedBy="def"
+        className="abc"
+      >
+        <Snack classNameSkin="foo">
+          <p>yo yo yo</p>
+        </Snack>
+      </NoraSnackbar>
+    )
+  }
+}
 
 class AccordionTest extends React.Component<any, any> {
   render() {

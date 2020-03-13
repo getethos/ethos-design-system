@@ -1125,3 +1125,57 @@ export declare const NoraCheckboxInput: {
     props: any
   }
 }
+
+export declare const Snack: {
+  ({
+    children,
+    classNameSkin,
+  }: {
+    children: React.ReactNode
+    classNameSkin: string
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+export declare const Snackbar: {
+  ({
+    id,
+    ariaLabelledBy,
+    ariaDescribedBy,
+    children,
+    isOpen,
+    className,
+  }: {
+    id: string
+    children: React.ReactNode
+    className: string
+    ariaLabelledBy?: string
+    ariaDescribedBy?: string
+    isOpen?: boolean
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
+
+export declare const NoraSnackbar: {
+  ({
+    id,
+    ariaLabelledBy,
+    ariaDescribedBy,
+    children,
+    isOpen,
+    className,
+  }: {
+    id: string
+    children: React.ReactNode
+    className: string
+    ariaLabelledBy?: string
+    ariaDescribedBy?: string
+    isOpen?: boolean
+  }): JSX.Element
+  propTypes: {
+    props: any
+  }
+}
