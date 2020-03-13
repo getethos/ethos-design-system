@@ -9,7 +9,7 @@ Snackbar a11y / UX—some things to try:
 - Also note, `useOutsideClick` closes the Snackbar if you click anywhere outside of the snackbar itself
 
 ```jsx
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Icon } from '../Icon/Icon.js'
 import { Button, Snack } from '../../../components/index'
 import styles from './NoraSnackbar.module.scss'
@@ -34,9 +34,18 @@ const issues = [
 
 const SNACKBAR_LBL_ID = 'a11y-norasnackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-noradescribed-by'
+const SNACKBAR_DURATION = 10000
 
 const NoraSnackbarExample = ({ snacks }) => {
   const [openSnacks, setOpenSnacks] = useState(snacks)
+
+  // Automatically closes the snackbar by removing all snacks
+  useEffect(() => {
+    const leTimeout = setTimeout(() => setOpenSnacks([]), SNACKBAR_DURATION)
+    return () => {
+      clearTimeout(leTimeout)
+    }
+  }, [openSnacks, setOpenSnacks])
 
   const renderCloseButton = (snackId) => {
     return (

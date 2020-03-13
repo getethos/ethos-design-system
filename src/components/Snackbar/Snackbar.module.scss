@@ -29,16 +29,6 @@
 
 .Bottom {
   bottom: 20px;
-  animation: fadeOut var(--transition-duration-medium) ease-in-out 5s forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
 
 .Right {
