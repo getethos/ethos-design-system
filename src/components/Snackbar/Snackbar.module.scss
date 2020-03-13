@@ -1,5 +1,6 @@
 @import '../Variables.scss';
 @import '../Animation.scss';
+@import '../Animatable.scss';
 
 .SnackbarContainer {
   position: fixed;
@@ -40,6 +41,6 @@
 }
 
 .Open {
-  composes: Animatable from '../Animatable.scss';
-  composes: ZoomInUp from '../Animatable.scss';
+  @extend .Animatable;
+  @extend .ZoomInUp;
 }
