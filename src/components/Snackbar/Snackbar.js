@@ -5,7 +5,6 @@ import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import { getFocusableElements } from '../../hooks/a11y/useTrapFocus'
 
 // TODO: ----- Snackbar TODOS -----
-// TODO: Add timeout functionality. Defaults or props.
 // TODO: Specs
 // TODO: index.d.ts typings and tests
 
