@@ -1,12 +1,11 @@
 @import '../Variables.scss';
+@import '../Animation.scss';
 
 .SnackbarContainer {
   position: fixed;
-  composes: Animatable from '../Animatable.scss';
 }
 
 .SnackbarSkin {
-  composes: Animatable from '../Animatable.scss';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,6 +29,16 @@
 
 .Bottom {
   bottom: 20px;
+  animation: fadeOut var(--transition-duration-medium) ease-in-out 5s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .Right {
@@ -41,5 +50,6 @@
 }
 
 .Open {
+  composes: Animatable from '../Animatable.scss';
   composes: ZoomInUp from '../Animatable.scss';
 }
