@@ -14,19 +14,20 @@ import { Icon } from '../Icon/Icon.js'
 import { Button, Snack } from '../../../components/index'
 import styles from './NoraSnackbar.module.scss'
 
+let count = 0
 const issues = [
   {
-    id: 0,
+    id: count,
     type: 'info',
     message: 'Informational message...',
   },
   {
-    id: 1,
+    id: ++count,
     type: 'alert',
     message: 'Something alert worthy',
   },
   {
-    id: 2,
+    id: ++count,
     type: 'alert',
     message: 'Another alert message',
   },
@@ -41,11 +42,27 @@ const NoraSnackbarExample = ({ snacks }) => {
 
   // Automatically closes the snackbar by removing all snacks
   useEffect(() => {
+    /* Contrived test of randomly adding snacks
+    const leInterval = setInterval(() => {
+      const number = Math.floor(Math.random() * 100 + 1)
+      if (number % 2 == 0 && openSnacks.length < 5) {
+        setOpenSnacks([
+          ...openSnacks,
+          {
+            id: ++count,
+            type: 'alert',
+            message: `Alert message ${number}`,
+          },
+        ])
+      }
+    }, 10000)
+    */
+
     const leTimeout = setTimeout(() => setOpenSnacks([]), SNACKBAR_DURATION)
     return () => {
       clearTimeout(leTimeout)
     }
-  }, [openSnacks, setOpenSnacks])
+  }, [openSnacks, setOpenSnacks, issues, count])
 
   const renderCloseButton = (snackId) => {
     return (

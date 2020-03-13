@@ -37,6 +37,7 @@ const issues = [
 const SNACKBAR_LBL_ID = 'a11y-snackbar-id'
 const SNACKBAR_DESC_ID = 'a11y-described-by'
 const SNACKBAR_DURATION = 10000
+
 const SnackbarExample = ({ snacks }) => {
   const [openSnacks, setOpenSnacks] = useState(snacks)
 
