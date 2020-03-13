@@ -1,5 +1,6 @@
 @import '../../../components/Animation.scss';
 @import '../../../components/Variables.scss';
+@import '../../../components/Animatable.scss';
 
 .SnackbarContainer {
   position: fixed;
@@ -7,7 +8,7 @@
 
 .SnackbarSkin {
   display: flex;
-  composes: Animatable from '../../../components/Animatable.scss';
+  @extend .Animatable;
   justify-content: center;
   align-items: center;
   z-index: $z-index-navbar;
@@ -74,5 +75,5 @@
 }
 
 .Open {
-  composes: ZoomInUp from '../../../components/Animatable.scss';
+  @extend .ZoomInUp;
 }
