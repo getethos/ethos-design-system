@@ -950,6 +950,7 @@ export declare const IconLink: {
     textPosition,
     copy,
     onClick,
+    ...rest
   }: {
     iconPrefix: string
     iconName: string
@@ -959,6 +960,7 @@ export declare const IconLink: {
     textPosition: LinkPositionType
     copy: string
     onClick?: any
+    'data-link-id'?: string
   }): any
   propTypes: {
     props: any
