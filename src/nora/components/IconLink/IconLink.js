@@ -13,7 +13,11 @@ const Link = ({
 }) => {
   const handleClick = (ev) => {
     ev.preventDefault()
-    onClick(ev)
+
+    // eslint-disable-next-line no-extra-boolean-cast
+    if (!!onClick) {
+      onClick(ev)
+    }
   }
   return (
     <a
