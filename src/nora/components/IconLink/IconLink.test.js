@@ -1,7 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { IconLink } from './IconLink'
-import { link } from 'fs'
 
 describe('IconLink', () => {
   it('renders default IconLink', () => {
