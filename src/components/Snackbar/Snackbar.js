@@ -4,10 +4,6 @@ import { Portal } from '../Portal'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import { getFocusableElements } from '../../hooks/a11y/useTrapFocus'
 
-// TODO: ----- Snackbar TODOS -----
-// TODO: Specs
-// TODO: index.d.ts typings and tests
-
 /**
  * This is a base snackbar component meant to be unstyled and flexible so
  * that it is customizable and skinnable by consumers. Currently, only the
