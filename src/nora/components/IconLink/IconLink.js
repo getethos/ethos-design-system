@@ -13,7 +13,9 @@ const Link = ({
 }) => {
   const handleClick = (ev) => {
     ev.preventDefault()
-    onClick(ev)
+    if (!!onClick) {
+      onClick(ev)
+    }
   }
   return (
     <a
