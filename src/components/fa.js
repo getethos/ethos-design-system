@@ -18,9 +18,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // REMINDER! each import must be a separate "deep import" as below  //
 //////////////////////////////////////////////////////////////////////
 
+// Nora Icons
 import { faAlignLeft } from '@fortawesome/pro-solid-svg-icons/faAlignLeft'
 import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch'
-import { faExclamationTriangle } from '@fortawesome/pro-light-svg-icons/faExclamationTriangle'
+import { faExclamationTriangle as faExclamationTriangleLight } from '@fortawesome/pro-light-svg-icons/faExclamationTriangle'
+import { faExclamationTriangle as faExclamationTriangleSolid } from '@fortawesome/pro-solid-svg-icons/faExclamationTriangle'
 import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
 import { faAsterisk } from '@fortawesome/pro-light-svg-icons/faAsterisk'
 import { faInfoCircle } from '@fortawesome/pro-light-svg-icons'
@@ -32,32 +34,68 @@ import { faCheckSquare as faCheckSquareSolid } from '@fortawesome/pro-solid-svg-
 import { faWindowClose } from '@fortawesome/pro-light-svg-icons/faWindowClose'
 import { faOctagon } from '@fortawesome/pro-light-svg-icons/faOctagon'
 import { faExternalLink } from '@fortawesome/pro-regular-svg-icons/faExternalLink'
-import { faCheck } from '@fortawesome/pro-light-svg-icons/faCheck'
+import { faCheck as faCheckLight } from '@fortawesome/pro-light-svg-icons/faCheck'
+import { faCheck } from '@fortawesome/pro-regular-svg-icons/faCheck'
 import { faTimes } from '@fortawesome/pro-light-svg-icons/faTimes'
 import { faLayerPlus } from '@fortawesome/pro-light-svg-icons/faLayerPlus'
 import { faChevronLeft } from '@fortawesome/pro-regular-svg-icons/faChevronLeft'
 import { faFileMedicalAlt } from '@fortawesome/pro-light-svg-icons/faFileMedicalAlt'
 import { faTimesCircle } from '@fortawesome/pro-solid-svg-icons/faTimesCircle'
+import { faTimesSquare } from '@fortawesome/pro-solid-svg-icons/faTimesSquare'
+import { faAward } from '@fortawesome/pro-regular-svg-icons/faAward'
+import { faAddressCard } from '@fortawesome/pro-regular-svg-icons/faAddressCard'
+import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil'
+import { faFilePlus } from '@fortawesome/pro-regular-svg-icons/faFilePlus'
+import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt'
+import { faTrashAlt as faTrashAltLight } from '@fortawesome/pro-light-svg-icons/faTrashAlt'
+import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown'
+import { faInfoCircle as faInfoCircleLight } from '@fortawesome/pro-light-svg-icons/faInfoCircle'
+import { faInfoCircle } from '@fortawesome/pro-regular-svg-icons/faInfoCircle'
+import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus'
+import { faQuestionCircle } from '@fortawesome/pro-regular-svg-icons/faQuestionCircle'
+import { faStethoscope } from '@fortawesome/pro-regular-svg-icons/faStethoscope'
+import { faLockAlt } from '@fortawesome/pro-regular-svg-icons/faLockAlt'
+import { faEdit } from '@fortawesome/pro-regular-svg-icons/faEdit'
+import { faMinusCircle } from '@fortawesome/pro-regular-svg-icons/faMinusCircle'
+import { faSpinnerThird } from '@fortawesome/pro-regular-svg-icons/faSpinnerThird'
 
 library.add(
+  faAddressCard,
   faAlignLeft,
   faAsterisk,
+  faAward,
+  faCaretDown,
   faCheck,
+  faCheckLight,
   faCheckSquare,
   faCheckSquareSolid,
   faChevronLeft,
   faCircleNotch,
   faClock,
+  faEdit,
   faExchange,
-  faExclamationTriangle,
+  faExclamationTriangleLight,
+  faExclamationTriangleSolid,
   faExternalLink,
   faFileMedicalAlt,
+  faFilePlus,
   faInfoCircle,
+  faInfoCircleLight,
   faLayerPlus,
+  faLockAlt,
+  faMinusCircle,
   faOctagon,
+  faPencil,
+  faPlus,
+  faQuestionCircle,
   faSearch,
+  faSpinnerThird,
+  faStethoscope,
   faTimes,
   faTimesCircle,
+  faTimesSquare,
+  faTrashAlt,
+  faTrashAltLight,
   faUserCheck,
   faWindowClose
 )

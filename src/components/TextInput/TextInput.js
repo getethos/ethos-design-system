@@ -94,12 +94,6 @@ function PrivateTextInput({
     doValidation(ev.target.value, true)
   }
 
-  const onPaste = (ev) => {
-    const val = ev.clipboardData.getData('text/plain')
-    const restrictedVal = restrictIllegal ? restrict(val) : val
-    setValue(restrictedVal)
-  }
-
   const getClasses = () => {
     return getError(currentError, touched)
       ? `${styles.TextInput} ${errorStyles.Error}`
@@ -115,7 +109,6 @@ function PrivateTextInput({
         disabled={disabled}
         name={name}
         placeholder={rest.placeholder}
-        onPaste={onPaste}
         onChange={onChange}
         onBlur={onBlur}
         value={value}

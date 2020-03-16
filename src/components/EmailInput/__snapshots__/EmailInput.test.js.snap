@@ -23,7 +23,6 @@ Array [
     name="the-email-input-example"
     onBlur={[Function]}
     onChange={[Function]}
-    onPaste={[Function]}
     placeholder="example@ethoslife.com"
     type="email"
     value=""

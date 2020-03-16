@@ -3,13 +3,26 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // TODO -- we should probably create a generic Link component :)
-const Link = ({ className, href, onClick, children, target = '_self' }) => {
+const Link = ({
+  className,
+  href,
+  onClick,
+  children,
+  target = '_self',
+  ...rest
+}) => {
   const handleClick = (ev) => {
     ev.preventDefault()
     onClick(ev)
   }
   return (
-    <a href={href} className={className} onClick={handleClick} target={target}>
+    <a
+      href={href}
+      className={className}
+      onClick={handleClick}
+      target={target}
+      data-link-id={rest['data-link-id']}
+    >
       {children}
     </a>
   )
@@ -21,6 +34,7 @@ Link.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node,
   target: PropTypes.string,
+  'data-link-id': PropTypes.string,
 }
 
 export const IconLink = ({
@@ -32,10 +46,16 @@ export const IconLink = ({
   textPosition,
   copy,
   onClick,
+  ...rest
 }) => {
   if (textPosition === 'left') {
     return (
-      <Link href="#" className={iconContainerClassName} onClick={onClick}>
+      <Link
+        href="#"
+        className={iconContainerClassName}
+        onClick={onClick}
+        data-link-id={rest['data-link-id']}
+      >
         <span className={textClassName}>{copy}</span>
         <FontAwesomeIcon
           className={iconClassName}
@@ -45,7 +65,12 @@ export const IconLink = ({
     )
   } else {
     return (
-      <Link href="#" className={iconContainerClassName} onClick={onClick}>
+      <Link
+        href="#"
+        className={iconContainerClassName}
+        onClick={onClick}
+        data-link-id={rest['data-link-id']}
+      >
         <FontAwesomeIcon
           className={iconClassName}
           icon={[iconPrefix, iconName]}
@@ -66,5 +91,6 @@ IconLink.propTypes = {
     textPosition: PropTypes.oneOf(['left', 'right']).isRequired,
     copy: PropTypes.string.isRequired,
     onClick: PropTypes.func,
+    'data-link-id': PropTypes.string,
   }),
 }
