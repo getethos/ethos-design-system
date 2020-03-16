@@ -25,7 +25,6 @@ import { faExclamationTriangle as faExclamationTriangleLight } from '@fortawesom
 import { faExclamationTriangle as faExclamationTriangleSolid } from '@fortawesome/pro-solid-svg-icons/faExclamationTriangle'
 import { faSearch } from '@fortawesome/pro-regular-svg-icons/faSearch'
 import { faAsterisk } from '@fortawesome/pro-light-svg-icons/faAsterisk'
-import { faInfoCircle } from '@fortawesome/pro-light-svg-icons'
 import { faExchange } from '@fortawesome/pro-regular-svg-icons/faExchange'
 import { faClock } from '@fortawesome/pro-light-svg-icons/faClock'
 import { faUserCheck } from '@fortawesome/pro-light-svg-icons/faUserCheck'
