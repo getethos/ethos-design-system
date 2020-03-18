@@ -3,7 +3,8 @@ import XhrResponse from './XhrResponse'
 /**
  * An extended Error class sepcifically tailored for
  * handling errors emitted by the Fetch API and,
- * consequently, our Xhr class.
+ * consequently, our Xhr class. Also, supports Nest.js
+ * which, for example, uses `statusCode` not `status`
  */
 export default class XhrError extends Error {
   public response: XhrResponse
@@ -18,11 +19,10 @@ export default class XhrError extends Error {
         response.statusText
     )
 
-    this.name = response.statusText
     this.response = response
     this.details = response.parsedBody.details
     this.message = response.parsedBody.message
-    this.name = response.parsedBody.name
-    this.status = response.parsedBody.status
+    this.name = response.parsedBody.name || response.statusText
+    this.status = response.parsedBody.status || response.parsedBody.statusCode
   }
 }

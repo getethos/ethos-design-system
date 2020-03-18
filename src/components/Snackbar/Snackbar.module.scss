@@ -1,0 +1,46 @@
+@import '../Variables.scss';
+@import '../Animation.scss';
+@import '../Animatable.scss';
+
+.SnackbarContainer {
+  position: fixed;
+}
+
+.SnackbarSkin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: $z-index-navbar;
+  border: 1px solid var(--BrandSunburn);
+  color: var(--GrayPrimary--opaque);
+  font-size: var(--Space-24);
+  background-color: var(--BrandPasty);
+  border-radius: 3px;
+  padding: var(--Space-16) var(--Space-24);
+}
+
+.CustomButton {
+  background: none;
+  border: none;
+  padding: 5px 5px 0;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Bottom {
+  bottom: 20px;
+}
+
+.Right {
+  right: 20px;
+}
+
+.Left {
+  left: 20px;
+}
+
+.Open {
+  @extend .Animatable;
+  @extend .ZoomInUp;
+}

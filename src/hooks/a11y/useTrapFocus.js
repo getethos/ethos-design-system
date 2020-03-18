@@ -9,7 +9,7 @@ const FOCUSABLE_ELEMENTS_STRING =
  *
  * @param {HTMLElement} el - the container element
  */
-function getFocusableElements(el) {
+export const getFocusableElements = (el) => {
   if (!el) {
     return []
   }

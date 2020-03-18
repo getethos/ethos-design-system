@@ -24,8 +24,12 @@ export default {
       // Must be an XhrResponse
       response = errorOrResponse
       message = response.parsedBody.message
-      name = response.parsedBody.name
-      status = response.parsedBody.status
+      name = response.parsedBody.name || name
+      // Need to account for ether parsedBody.status || parsedBody.statusCode
+      // to work with both Nest.js which uses statusCode and Fetch API's Response
+      // See https://docs.nestjs.com/exception-filters
+      // See https://developer.mozilla.org/en-US/docs/Web/API/Response
+      status = response.parsedBody.status || response.parsedBody.statusCode
     } else {
       // tslint:disable-next-line no-console
       console.error(
