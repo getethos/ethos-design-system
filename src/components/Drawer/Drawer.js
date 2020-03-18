@@ -76,9 +76,13 @@ export const Drawer = ({
   ...rest
 }) => {
   // We need this so we can track key down events esp the ESC key
-  const overlayClasses = isOpen
+  const defaultOverlayClasses = isOpen
     ? styles.DrawerWrapperActive
     : styles.DrawerWrapper
+
+  const overlayClasses = lock
+    ? [defaultOverlayClasses, styles.DrawerWrapperLocked].join(' ')
+    : defaultOverlayClasses
 
   return (
     <Portal id="drawer-root">
