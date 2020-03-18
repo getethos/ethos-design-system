@@ -29,6 +29,7 @@ describe('NoraSnackbar', () => {
       ariaLabelledBy,
       isOpen,
       onDismiss: onDismissMock,
+      className: 'foobar',
     }
 
     const tree = render(
