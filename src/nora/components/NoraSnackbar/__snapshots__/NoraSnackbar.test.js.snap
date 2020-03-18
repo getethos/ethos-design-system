@@ -10,6 +10,7 @@ Object {
         aria-hidden="false"
         aria-labelledby="some-other-id"
         aria-modal="true"
+        class="foobar"
         data-testid="snackbar-container"
         role="dialog"
       >
@@ -35,6 +36,7 @@ Object {
       aria-hidden="false"
       aria-labelledby="some-other-id"
       aria-modal="true"
+      class="foobar"
       data-testid="snackbar-container"
       role="dialog"
     >
