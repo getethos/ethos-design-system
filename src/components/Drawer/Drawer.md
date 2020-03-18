@@ -44,7 +44,7 @@ const MyApp = () => {
 ;<MyApp />
 ```
 
-By default, drawers will be dimissed when you click outside of them, or hit the Escape key (in addition to any button you might have to manually close the drawer like the `toggleDrawer` we have here). However, you can opt-out of this behavior by passing in the prop `lock={true}`.
+By default, drawers will be dimissed when you click outside of them, or hit the Escape key (in addition to any button you might have to manually close the drawer like the `renderCloseButton` we have here). However, you can opt-out of this behavior by passing in the prop `lock={true}`.
 
 ```jsx
 import { Button } from '../index'
