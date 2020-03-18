@@ -11,6 +11,7 @@ const DrawerContent = ({
   children,
   onDismiss,
   isOpen,
+  lock,
   position,
   className,
   ignoredSelectors,
@@ -25,10 +26,13 @@ const DrawerContent = ({
 
   classes = className ? `${className} ${classes}` : classes
 
-  useOutsideClickIgnoreSelectors(drawerRef, ignoredSelectors, () =>
-    onDismiss(false)
-  )
-  useOutsideEscape(drawerRef, () => onDismiss(false))
+  if (!lock) {
+    useOutsideClickIgnoreSelectors(drawerRef, ignoredSelectors, () =>
+      onDismiss(false)
+    )
+    useOutsideEscape(drawerRef, () => onDismiss(false))
+  }
+
   useTrapFocus(drawerRef, isOpen)
   useHideAriaSiblings(drawerRef, isOpen)
 
@@ -50,6 +54,7 @@ DrawerContent.propTypes = {
   children: PropTypes.node.isRequired,
   onDismiss: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
+  lock: PropTypes.bool,
   position: PropTypes.oneOf(['left', 'right']),
   className: PropTypes.string,
   ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
@@ -63,6 +68,7 @@ export const Drawer = ({
   children,
   onDismiss,
   isOpen,
+  lock = false,
   position,
   ignoredSelectors,
   floatingDrawerContentRenderer,
@@ -82,6 +88,7 @@ export const Drawer = ({
         data-testid="base-drawer-container"
       >
         <DrawerContent
+          lock={lock}
           onDismiss={onDismiss}
           isOpen={isOpen}
           position={position}
@@ -104,6 +111,9 @@ Drawer.propTypes = {
   onDismiss: PropTypes.func.isRequired,
   /** Boolean that sets the state of the drawer */
   isOpen: PropTypes.bool.isRequired,
+  /** Boolean that allows consumer to opt out of the default behavior which is to dismiss
+   * the drawer if you click outside or escape */
+  lock: PropTypes.bool,
   // TODO: top / bottom
   /** drawer should come from left or right */
   position: PropTypes.oneOf(['left', 'right']),

@@ -987,6 +987,7 @@ export declare const Drawer: {
     children,
     onDismiss,
     isOpen,
+    lock,
     position,
     className,
     ignoredSelectors,
@@ -996,6 +997,7 @@ export declare const Drawer: {
     children: React.ReactNode
     onDismiss: any
     isOpen: boolean
+    lock?: boolean
     position?: string
     className?: string
     ignoredSelectors?: string[]
@@ -1012,6 +1014,7 @@ export declare const NoraDrawer: {
     children,
     onDismiss,
     isOpen,
+    lock,
     position,
     labelCopy,
     closeCopy,
@@ -1022,6 +1025,7 @@ export declare const NoraDrawer: {
     children: React.ReactNode
     onDismiss: any
     isOpen: boolean
+    lock?: boolean
     labelCopy: string
     closeCopy: string
     position?: string
