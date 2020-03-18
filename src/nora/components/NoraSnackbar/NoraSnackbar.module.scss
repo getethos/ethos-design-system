@@ -1,0 +1,79 @@
+@import '../../../components/Animation.scss';
+@import '../../../components/Variables.scss';
+@import '../../../components/Animatable.scss';
+
+.SnackbarContainer {
+  position: fixed;
+}
+
+.SnackbarSkin {
+  display: flex;
+  @extend .Animatable;
+  justify-content: center;
+  align-items: center;
+  z-index: $z-index-navbar;
+  position: relative;
+  margin-top: var(--Space-6);
+  border-radius: 3px;
+  padding: var(--Space-16) var(--Space-24);
+  box-sizing: border-box;
+  background-color: var(--NoraNeutral-900);
+  width: 320px;
+  min-height: var(--Space-64);
+  font-size: var(--Nora-Font-15);
+  color: var(--White);
+  box-shadow: 0px 0px var(--Space-4) rgba(0, 0, 0, 0.1),
+    0px var(--Space-4) var(--Space-10) rgba(0, 0, 0, 0.1);
+}
+
+.CenteredGrow {
+  /* within our top level flex container allows us to "grow" */
+  flex-grow: 1;
+  /* helps with centering alignment between text and icon */
+  line-height: 1;
+  /* a child flex context to allow us to align left vertically centered */
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: var(--Space-12);
+  margin-right: var(--Space-12);
+}
+
+.IconContainer {
+  display: flex;
+  align-items: center;
+}
+
+.CustomButton {
+  background: none;
+  border: none;
+  padding: var(--Space-4) var(--Space-4) 0;
+  position: absolute;
+  top: var(--Space-6);
+  right: var(--Space-8);
+
+  > svg {
+    height: var(--Space-14);
+    color: var(--NoraNeutral-400);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.Bottom {
+  bottom: 20px;
+}
+
+.Right {
+  right: 20px;
+}
+
+.Left {
+  left: 20px;
+}
+
+.Open {
+  @extend .ZoomInUp;
+}
