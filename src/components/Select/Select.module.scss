@@ -37,7 +37,6 @@
         font-size: calc(var(--base-font-size) * 1px);
         line-height: calc(var(--base-line-height) / var(--base-font-size));
         padding: 0;
-        width: 4em !important; /* overrides lib inline style *sigh* */
       }
     }
 
