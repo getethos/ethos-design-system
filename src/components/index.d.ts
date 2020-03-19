@@ -88,6 +88,7 @@ export interface RowProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ColProps extends HTMLAttributes<HTMLDivElement> {
+  nopad?: boolean
   readonly xs?: ColumnSizeType
   readonly sm?: ColumnSizeType
   readonly md?: ColumnSizeType

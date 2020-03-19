@@ -6,6 +6,8 @@ import { ColumnSizeType, ViewportSizeType } from './types'
 import styles from './FlexCol.module.scss'
 
 const propTypes = {
+  /** nopad - opt out of any horizontal left or right padding on columns */
+  nopad: PropTypes.bool,
   /** xs - number of units when viewport is "extra small" */
   xs: ColumnSizeType,
   /** sm - number of units when viewport is "small" */

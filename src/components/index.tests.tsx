@@ -169,7 +169,7 @@ class FlexGridTest extends React.Component<any, any> {
     return (
       <FlexGrid>
         <FlexRow>
-          <FlexCol xs={12} sm={4} lg={6}>
+          <FlexCol nopad xs={12} sm={4} lg={6}>
             <p>Hi</p>
           </FlexCol>
         </FlexRow>
