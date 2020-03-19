@@ -16,5 +16,5 @@
   line-height: 1.42857;
   color: var(--ariagrid-grid-container-color, --default-grid-container-color);
   font-size: var(--Space-16);
-  composes: Theinhardt from '../Type/Type.module.scss';
+  composes: Theinhardt from '../TypeBase/TypeBase.module.scss';
 }
