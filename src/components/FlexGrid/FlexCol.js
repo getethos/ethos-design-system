@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import createProps from './createProps'
 import getClass from './classNames'
 import { ColumnSizeType, ViewportSizeType } from './types'
+import styles from './FlexCol.module.scss'
 
 const propTypes = {
   /** xs - number of units when viewport is "extra small" */
@@ -69,6 +70,10 @@ function getColClassNames(props) {
 
   if (props.last) {
     extraClasses.push(getClass('last-' + props.last))
+  }
+
+  if (props.nopad) {
+    extraClasses.push(styles.NoHorizontalPadding)
   }
 
   return Object.keys(props)
