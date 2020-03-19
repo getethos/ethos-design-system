@@ -47,6 +47,7 @@ export {
   TitleXXLarge,
   Link,
 } from './Type'
+export { TitleSmallTwo } from './TypeTwo'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 export { ValueProps } from './ValueProps'
