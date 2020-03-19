@@ -1,0 +1,45 @@
+/* @getethos/design-system/Type.scss
+   ========================================================================== */
+
+@import '../Media/Media.scss';
+
+// Typefaces
+
+:root {
+  --system-sans-font-stack: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
+    Helvetica, Arial, sans-serif;
+  --system-serif-font-stack: Georgia, 'Times New Roman', serif;
+  --Theinhardt-font-stack: Theinhardt, var(--system-sans-font-stack);
+  --Cambon-font-stack: Cambon, var(--system-serif-font-stack);
+  --base-font-size: 19;
+  --base-line-height: 24;
+  --compact-font-size: 15;
+}
+
+// Global defaults
+
+body {
+  font-family: var(--Theinhardt-font-stack);
+  color: var(--GrayPrimary--translucent);
+  word-break: break-word;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+// TODO: come up with a comprehensive plan for links and link styles. This is
+// complicated by the number of design features we may need to support, plus
+// the complications from JS routers with <Link>s that are not standard <a>s.
+// See also ./TypeBase.module.scss.
+
+a {
+  &,
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
+
+  color: var(--GrayPrimary--translucent);
+}
