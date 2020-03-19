@@ -830,6 +830,7 @@ export declare const Faq: {
   }
 }
 
+// Type
 export { Caption } from './Caption.js'
 export { Footnote } from './Footnote.js'
 export { Body } from './Body.js'
@@ -839,6 +840,9 @@ export { TitleMedium } from './Type/TitleMedium.js'
 export { TitleLarge } from './Type/TitleLarge.js'
 export { TitleXLarge } from './Type/TitleXLarge.js'
 export { TitleXXLarge } from './Type/TitleXXLarge.js'
+
+// TypeTwo
+export { TitleSmallTwo } from './TypeTwo/TitleSmallTwo.js'
 
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
