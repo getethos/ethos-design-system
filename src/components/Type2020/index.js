@@ -1,4 +1,4 @@
-export { TitleSmallTwo } from './TitleSmallTwo.js'
+export { TitleSmall2020 } from './TitleSmall2020.js'
 // export { TitleMedium } from './TitleMedium.js'
 // export { TitleLarge } from './TitleLarge.js'
 // export { TitleXLarge } from './TitleXLarge.js'

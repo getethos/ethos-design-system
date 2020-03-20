@@ -841,8 +841,8 @@ export { TitleLarge } from './TypeBase/TitleLarge.js'
 export { TitleXLarge } from './TypeBase/TitleXLarge.js'
 export { TitleXXLarge } from './TypeBase/TitleXXLarge.js'
 
-// TypeTwo
-export { TitleSmallTwo } from './TypeTwo/TitleSmallTwo.js'
+// Type2020
+export { TitleSmall2020 } from './Type2020/TitleSmall2020.js'
 
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
