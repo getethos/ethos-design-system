@@ -86,8 +86,7 @@
  *  1 |  [-2-]  |  3  |  4  |  5  |  6
  */
 
-
-
-// Steps for consumers to migrate
-// 1. Check for Type/Type.module.scss import & convert to TypeBase/TypbeBase.module.scss
-// 2. ???
+/** Steps for consumers to migrate
+ * 1. Check for Type/Type.module.scss import & convert to TypeBase/TypbeBase.module.scss
+ * 2. ???
+ */
