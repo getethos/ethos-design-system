@@ -6,7 +6,7 @@
 */
 
 .TextInput {
-  /* Same as Type.scss Body. Should we use a mixin? */
+  /* Same as TypeBase.scss Body. Should we use a mixin? */
   $font-size: 19;
   $line-height: 24;
   font-size: $font-size * 1px;
