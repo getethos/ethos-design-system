@@ -1,9 +1,4 @@
 :root {
-  --gutter-width: 16px;
-  --outer-margin: 32px;
-  --gutter-compensation: calc((var(--gutter-width) * 0.5) * -1);
-  --half-gutter-width: calc((var(--gutter-width) * 0.5));
-  --xs-min: 0rem;
   --sm-min: 576px;
   --md-min: 768px;
   --lg-min: 992px;
@@ -50,8 +45,6 @@
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: var(--gutter-compensation, -08px);
-  margin-left: var(--gutter-compensation, -08px);
 }
 
 .row.reverse {
@@ -195,8 +188,6 @@
   box-sizing: border-box;
   flex: 0 0 auto;
   flex-basis: 100%;
-  padding-right: var(--half-gutter-width, 8px);
-  padding-left: var(--half-gutter-width, 8px);
   max-width: 100%;
 }
 
@@ -553,8 +544,6 @@
   .col-md-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: var(--half-gutter-width, 08px);
-    padding-left: var(--half-gutter-width, 08px);
   }
 
   .col-md {
@@ -748,8 +737,6 @@
   .col-lg-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: var(--half-gutter-width, 08px);
-    padding-left: var(--half-gutter-width, 08px);
   }
 
   .col-lg {
@@ -943,8 +930,6 @@
   .col-xl-offset-12 {
     box-sizing: border-box;
     flex: 0 0 auto;
-    padding-right: var(--half-gutter-width, 08px);
-    padding-left: var(--half-gutter-width, 08px);
   }
 
   .col-xl {
