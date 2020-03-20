@@ -1,7 +1,7 @@
 import { TypeBase, TypeFoundry } from '../TypeBase/TypeBase.js'
 
 // Currently drastically different than existing TitleSmall for testing purposes
-export const TitleSmall2020 = {
+export const TitleSmall2 = {
   Sans: {
     Light300: TypeFoundry({
       subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,

@@ -6,14 +6,14 @@
  * --------------------------
  * Type refers to the current soon to be "legacy" Type components.
  * We need something to differentiate from our current Type component while transitioning.
- *   - Type2020 (working prototype in this doc & files)
- *   - Type2020 / TwentyType
+ *   - Type2 (working prototype in this doc & files)
+ *   - Type2 / TwentyType
  *   - TypeNew / NewType
  *   - TrendyType
  *   - ???
  *
- * Should we append the new name to the end of Type2020 components like below?
- * TitleSmall vs TitleSmall2020
+ * Should we append the new name to the end of Type2 components like below?
+ * TitleSmall vs TitleSmall2
  *
  * Should we rename Type to TypeLegacy or similar?
  *
@@ -26,7 +26,7 @@
  *
  * Make transitioning as seamless as possible, existing components should work without any developer
  * interference aside from setting a new import name for the component.
- * Ex: import Type2020.TitleXLarge as TitleXLarge
+ * Ex: import Type2.TitleXLarge as TitleXLarge
  *
  * Allow for easy deprecation of the legacy Type styles once all components are ready to 'upgrade'.
  *
@@ -58,24 +58,24 @@
  *    Nothing should change visually.
  *    This should be deployable on it's own to consumers to prove there is no regression.
  *
- * 2. Fork BaseType and build Type2020 with a single component POC, deployable to consumers.
- *	  Build a Type2020 root component that extends TypeBase.
+ * 2. Fork BaseType and build Type2 with a single component POC, deployable to consumers.
+ *	  Build a Type2 root component that extends TypeBase.
  *
- *    When a new component is available in Type2020, EDS should warn the consumer to check if they
+ *    When a new component is available in Type2, EDS should warn the consumer to check if they
  *    can switch if it sees them implement an instance of the matching legacy Type component.
  *
  *    Test this component and deprecation feature by updating a CMS module from the bulk modules
  *    update ticket.
  *
- * 3. Build remaining Type2020 components needed for high priority consumer tickets.
+ * 3. Build remaining Type2 components needed for high priority consumer tickets.
  *
- * 4. Build any Type2020 components still remaining.
+ * 4. Build any Type2 components still remaining.
  *
  * 5. Rollout deprecation strategy and encourage developers to stop using legacy Type entirely and
- *    actively replace legacy components with Type2020 components.
+ *    actively replace legacy components with Type2 components.
  *
  * 6. Once deprecation is complete, remove legacy Type (it will 'live on' through BaseType) and
- *    rename Type2020 to Type.
+ *    rename Type2 to Type.
  *
  *
  *

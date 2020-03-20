@@ -47,7 +47,7 @@ export {
   TitleXXLarge,
   Link,
 } from './Type'
-export { TitleSmall2020 } from './Type2020'
+export { TitleSmall2 } from './Type2'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 export { ValueProps } from './ValueProps'
