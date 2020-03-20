@@ -23,7 +23,7 @@ const propTypes = {
  * @param {ReactNode} children - children to render within the grid
  */
 export const FlexGrid = (props) => {
-  const containerClass = getClass(props.fluid ? 'container-fluid' : 'container')
+  const containerClass = getClass('flexgrid-container')
   const classNames = [props.className, containerClass]
 
   return React.createElement(

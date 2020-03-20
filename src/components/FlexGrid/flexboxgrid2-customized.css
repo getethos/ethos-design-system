@@ -10,36 +10,36 @@
   --xl-min: 1200px;
 }
 
-.container {
+.flexgrid-container {
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media only screen and (min-width: 576px) {
-  .container {
-    width: calc(var(--sm-min) - var(--gutter-width));
+  .flexgrid-container {
+    width: var(--sm-min);
     max-width: 100%;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .container {
-    width: calc(var(--md-min) - var(--gutter-width));
+  .flexgrid-container {
+    width: var(--md-min);
     max-width: 100%;
   }
 }
 
 @media only screen and (min-width: 992px) {
-  .container {
-    width: calc(var(--lg-min) - var(--gutter-width));
+  .flexgrid-container {
+    width: var(--lg-min);
     max-width: 100%;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .container {
-    width: calc(var(--xl-min) - var(--gutter-width));
+  .flexgrid-container {
+    width: var(--xl-min);
     max-width: 100%;
   }
 }
