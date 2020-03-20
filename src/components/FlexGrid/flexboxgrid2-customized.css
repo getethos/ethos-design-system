@@ -14,37 +14,30 @@
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 8px;
-  padding-left: 8px;
 }
 
-.container-fluid {
-  padding-right: var(--gutter-width, 16px);
-  padding-left: var(--gutter-width, 16px);
-}
-
-@media only screen and (min-width: var(--sm-min)) {
+@media only screen and (min-width: 576px) {
   .container {
     width: calc(var(--sm-min) - var(--gutter-width));
     max-width: 100%;
   }
 }
 
-@media only screen and (min-width: var(--md-min)) {
+@media only screen and (min-width: 768px) {
   .container {
     width: calc(var(--md-min) - var(--gutter-width));
     max-width: 100%;
   }
 }
 
-@media only screen and (min-width: var(--lg-min)) {
+@media only screen and (min-width: 992px) {
   .container {
     width: calc(var(--lg-min) - var(--gutter-width));
     max-width: 100%;
   }
 }
 
-@media only screen and (min-width: var(--xl-min)) {
+@media only screen and (min-width: 1200px) {
   .container {
     width: calc(var(--xl-min) - var(--gutter-width));
     max-width: 100%;
@@ -368,7 +361,7 @@
   order: initial;
 }
 
-@media only screen and (min-width: var(--sm-min)) {
+@media only screen and (min-width: 576px) {
   .col-sm {
     flex-grow: 1;
     flex-basis: 0;
@@ -531,7 +524,7 @@
   }
 }
 
-@media only screen and (min-width: var(--md-min)) {
+@media only screen and (min-width: 768px) {
   .col-md,
   .col-md-1,
   .col-md-2,
@@ -726,7 +719,7 @@
   }
 }
 
-@media only screen and (min-width: var(--lg-min)) {
+@media only screen and (min-width: 992px) {
   .col-lg,
   .col-lg-1,
   .col-lg-2,
@@ -921,7 +914,7 @@
   }
 }
 
-@media only screen and (min-width: var(--xl-min)) {
+@media only screen and (min-width: 1200px) {
   .col-xl,
   .col-xl-1,
   .col-xl-2,
@@ -1116,31 +1109,31 @@
   }
 }
 
-@media only screen and (max-width: var(--sm-min)) {
+@media only screen and (max-width: 576px) {
   .hidden-xs {
     display: none;
   }
 }
 
-@media only screen and (min-width: var(--sm-min)) and (max-width: var(--md-min)) {
+@media only screen and (min-width: 576px) and (max-width: 768px) {
   .hidden-sm {
     display: none;
   }
 }
 
-@media only screen and (min-width: var(--md-min)) and (max-width: var(--lg-min)) {
+@media only screen and (min-width: 768px) and (max-width: 992px) {
   .hidden-md {
     display: none;
   }
 }
 
-@media only screen and (min-width: var(--lg-min)) and (max-width: var(--xl-min)) {
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
   .hidden-lg {
     display: none;
   }
 }
 
-@media only screen and (min-width: var(--xl-min)) {
+@media only screen and (min-width: 1200px) {
   .hidden-xl {
     display: none;
   }
