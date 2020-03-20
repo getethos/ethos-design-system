@@ -2,7 +2,7 @@
   "name": "ethos-design-system",
   "version": "1.1.143",
   "description": "Ethos Design System v1",
-  "main": "./src/components/index.js",
+  "main": "./src/build/bundle.js",
   "types": "./src/components/index.d.ts",
   "license": "UNLICENSED",
   "scripts": {
@@ -27,7 +27,8 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot",
     "test:scss": "./scss-test.sh",
-    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components"
+    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components",
+    "webpack": "webpack --config webpack.config.js"
   },
   "jest": {
     "verbose": true,
@@ -102,7 +103,8 @@
     "style-loader": "^1.0.0",
     "typescript": "^3.7.3",
     "url-loader": "^2.1.0",
-    "webpack": "^4.41.2"
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.11"
   },
   "husky": {
     "hooks": {
