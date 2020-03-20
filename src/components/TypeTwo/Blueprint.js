@@ -59,6 +59,7 @@
  *    This should be deployable on it's own to consumers to prove there is no regression.
  *
  * 2. Fork BaseType and build TypeTwo with a single component POC, deployable to consumers.
+ *	  Build a TypeTwo root component that extends TypeBase.
  *
  *    When a new component is available in TypeTwo, EDS should warn the consumer to check if they
  *    can switch if it sees them implement an instance of the matching legacy Type component.
