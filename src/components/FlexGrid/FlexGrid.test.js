@@ -18,7 +18,7 @@ describe('FlexGrid', () => {
     test('default', () => {
       const tree = renderer
         .create(
-          <FlexGrid fluid>
+          <FlexGrid>
             <FlexRow className={styles.DemoCol}>
               <FlexCol xs={12} sm={4} lg={6}>
                 <Field />
