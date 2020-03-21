@@ -32,7 +32,8 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        exclude: /node_modules/,
+        // We need to ensure sass-loader doesn't try to load flexboxgrid!
+        exclude: [/flexboxgrid/, /node_modules/],
         // So foo.module.scss gets treated as a css module foo.css does not
         oneOf: [
           {
