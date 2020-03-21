@@ -3,7 +3,7 @@ import { FlexRow } from './FlexRow.js'
 import { FlexCol } from './FlexCol.js'
 import styles from './FlexGridExample.module.scss'
 const Field = () => <p className={styles.Field}>Field</p>
-;<FlexGrid fluid>
+;<FlexGrid>
   <FlexRow className={styles.DemoCol}>
     <FlexCol xs={12} sm={4} lg={6}>
       <Field />
@@ -32,7 +32,7 @@ Offsets
 ```jsx
 import { FlexRow } from './FlexRow.js'
 import { FlexCol } from './FlexCol.js'
-;<FlexGrid fluid>
+;<FlexGrid>
   <FlexRow>
     <FlexCol sm={2} style={{ border: '1px solid #f7cac9' }}>
       <p>First column</p>

@@ -68,7 +68,6 @@ type ViewportSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 type ColumnSizeType = number | boolean
 
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
-  readonly fluid?: boolean
   readonly className?: string
   readonly tagName?: string
 }
