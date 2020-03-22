@@ -7,7 +7,7 @@
 
 .TextInput {
   /* Same as TypeBase.scss Body. Should we use a mixin? */
-  $font-size: 19;
+  $font-size: 19; // TODO use --base-font-size
   $line-height: 24;
   font-size: $font-size * 1px;
   line-height: $line-height / $font-size;
