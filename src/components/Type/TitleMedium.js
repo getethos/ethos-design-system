@@ -1,38 +1,38 @@
-import { Type, TypeFoundry } from './Type.js'
+import { TypeBase, TypeFoundry } from '../TypeBase/TypeBase.js'
 
 export const TitleMedium = {
   Sans: {
     Light300: TypeFoundry({
-      subtype: Type.SUBTYPES.TITLE_MEDIUM,
-      typeface: Type.TYPEFACES.THEINHARDT,
-      weight: Type.WEIGHTS.LIGHT_300,
+      subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,
+      typeface: TypeBase.TYPEFACES.THEINHARDT,
+      weight: TypeBase.WEIGHTS.LIGHT_300,
     }),
     Medium500: TypeFoundry({
-      subtype: Type.SUBTYPES.TITLE_MEDIUM,
-      typeface: Type.TYPEFACES.THEINHARDT,
-      weight: Type.WEIGHTS.MEDIUM_500,
+      subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,
+      typeface: TypeBase.TYPEFACES.THEINHARDT,
+      weight: TypeBase.WEIGHTS.MEDIUM_500,
     }),
     Regular400: TypeFoundry({
-      subtype: Type.SUBTYPES.TITLE_MEDIUM,
-      typeface: Type.TYPEFACES.THEINHARDT,
-      weight: Type.WEIGHTS.REGULAR_400,
+      subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,
+      typeface: TypeBase.TYPEFACES.THEINHARDT,
+      weight: TypeBase.WEIGHTS.REGULAR_400,
     }),
   },
   Serif: {
     Regular400: TypeFoundry({
-      subtype: Type.SUBTYPES.TITLE_MEDIUM,
-      typeface: Type.TYPEFACES.CAMBON,
-      weight: Type.WEIGHTS.REGULAR_400,
+      subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,
+      typeface: TypeBase.TYPEFACES.CAMBON,
+      weight: TypeBase.WEIGHTS.REGULAR_400,
     }),
     Book500: TypeFoundry({
-      subtype: Type.SUBTYPES.TITLE_MEDIUM,
-      typeface: Type.TYPEFACES.CAMBON,
-      weight: Type.WEIGHTS.BOOK_500,
+      subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,
+      typeface: TypeBase.TYPEFACES.CAMBON,
+      weight: TypeBase.WEIGHTS.BOOK_500,
     }),
     Demi600: TypeFoundry({
-      subtype: Type.SUBTYPES.TITLE_MEDIUM,
-      typeface: Type.TYPEFACES.CAMBON,
-      weight: Type.WEIGHTS.DEMI_600,
+      subtype: TypeBase.SUBTYPES.TITLE_MEDIUM,
+      typeface: TypeBase.TYPEFACES.CAMBON,
+      weight: TypeBase.WEIGHTS.DEMI_600,
     }),
   },
 }

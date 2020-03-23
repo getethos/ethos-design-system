@@ -4,26 +4,26 @@ import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 import { COLORS } from '../Colors'
-import styles from './Type.module.scss'
+import styles from './TypeBase.module.scss'
 
-/* @getethos/design-system/Type.js
+/* @getethos/design-system/TypeBase.js
 
    Legend:
 
-   - `Type` is a private component that returns an element with CSS classes.
-   - `Type.module.scss` styles the element via the classes.
+   - `TypeBase` is a private component that returns an element with CSS classes.
+   - `TypeBase.module.scss` styles the element via the classes.
    - `TypeFoundry` is a HOC that creates public components with correct props.
    - `<Caption.Medium500>`, etc. are the Design-approved public components.
    ========================================================================== */
 
 /**
- * `Type` is a private component that returns an element with CSS classes.
+ * `TypeBase` is a private component that returns an element with CSS classes.
  *
  * Note that it is ignorant of which combinations Design considers legal or
  * illegal. Legal combinations must be declared via the enumerated exports at
  * the end of this file.
  *
- * The public props (Type.PUBLIC_PROPS) may be passed in downstream.
+ * The public props (TypeBase.PUBLIC_PROPS) may be passed in downstream.
  * Other props may only be specified in this file.
  *
  * @param  {String}  props.children       The text to display
@@ -35,7 +35,7 @@ import styles from './Type.module.scss'
  * @param  {String}  props.typeface       (private) Typeface
  * @param  {String}  props.weight         (private) Typeface weight
  */
-export const Type = ({
+export const TypeBase = ({
   children,
   centered,
   allCaps,
@@ -47,13 +47,13 @@ export const Type = ({
   ...rest
 }) => {
   // Verify that color, subtype, typeface, and weight were valid enum values
-  const [isValidColor] = useIncludes(Type.COLORS)
+  const [isValidColor] = useIncludes(TypeBase.COLORS)
   color && isValidColor(color)
-  const [isValidSubtype] = useIncludes(Type.SUBTYPES)
+  const [isValidSubtype] = useIncludes(TypeBase.SUBTYPES)
   isValidSubtype(subtype)
-  const [isValidTypeface] = useIncludes(Type.TYPEFACES)
+  const [isValidTypeface] = useIncludes(TypeBase.TYPEFACES)
   isValidTypeface(typeface)
-  const [isValidWeight] = useIncludes(Type.WEIGHTS)
+  const [isValidWeight] = useIncludes(TypeBase.WEIGHTS)
   isValidWeight(weight)
 
   const WHITELISTED_PROPS = ['htmlFor', 'data-tid', 'id']
@@ -61,7 +61,7 @@ export const Type = ({
   isWhiteListedProp(rest)
 
   // Verify that no invalid props were supplied
-  const [includesInvalid] = useInvalid(Object.keys(Type.PUBLIC_PROPS))
+  const [includesInvalid] = useInvalid(Object.keys(TypeBase.PUBLIC_PROPS))
   includesInvalid(rest)
 
   // Generate list of css classes
@@ -85,7 +85,7 @@ export const Type = ({
   )
 }
 
-Type.SUBTYPES = {
+TypeBase.SUBTYPES = {
   CAPTION: 'Caption', // smallest
   FOOTNOTE: 'Footnote',
   BODY: 'Body', // default
@@ -96,12 +96,12 @@ Type.SUBTYPES = {
   TITLE_XXLARGE: 'TitleXXLarge',
 }
 
-Type.TYPEFACES = {
+TypeBase.TYPEFACES = {
   THEINHARDT: 'Theinhardt', // sans
   CAMBON: 'Cambon', // serif
 }
 
-Type.WEIGHTS = {
+TypeBase.WEIGHTS = {
   // Possibly we shouldn't lump these all together given they vary per typeface.
   LIGHT_300: 'Light300',
   REGULAR_400: 'Regular400',
@@ -110,7 +110,7 @@ Type.WEIGHTS = {
   DEMI_600: 'Demi600',
 }
 
-Type.COLORS = {
+TypeBase.COLORS = {
   // Brand
   BRAND_FOREST: COLORS.BRAND_FOREST,
   BRAND_SALAMANDER: COLORS.BRAND_SALAMANDER,
@@ -122,7 +122,7 @@ Type.COLORS = {
   WHITE: COLORS.WHITE,
 }
 
-Type.ELEMENTS = {
+TypeBase.ELEMENTS = {
   H1: 'h1',
   H2: 'h2',
   H3: 'h3',
@@ -135,33 +135,33 @@ Type.ELEMENTS = {
   LABEL: 'label',
 }
 
-Type.PUBLIC_PROPS = {
+TypeBase.PUBLIC_PROPS = {
   children: PropTypes.node,
   centered: PropTypes.bool,
   allCaps: PropTypes.bool,
-  color: PropTypes.oneOf(Object.values(Type.COLORS)),
-  element: PropTypes.oneOf(Object.values(Type.ELEMENTS)),
+  color: PropTypes.oneOf(Object.values(TypeBase.COLORS)),
+  element: PropTypes.oneOf(Object.values(TypeBase.ELEMENTS)),
   htmlFor: PropTypes.string,
   'data-tid': PropTypes.string,
   id: PropTypes.string,
 }
 
-Type.propTypes = {
-  ...Type.PUBLIC_PROPS,
-  typeface: PropTypes.oneOf(Object.values(Type.TYPEFACES)),
-  weight: PropTypes.oneOf(Object.values(Type.WEIGHTS)),
+TypeBase.propTypes = {
+  ...TypeBase.PUBLIC_PROPS,
+  typeface: PropTypes.oneOf(Object.values(TypeBase.TYPEFACES)),
+  weight: PropTypes.oneOf(Object.values(TypeBase.WEIGHTS)),
 }
 
 export const TypeFoundry = (privateProps) => {
   function throwIllegalProp(prop) {
-    const isIllegal = !Object.keys(Type.PUBLIC_PROPS).includes(prop)
+    const isIllegal = !Object.keys(TypeBase.PUBLIC_PROPS).includes(prop)
     if (isIllegal) throw new TypeError(`Illegal prop '${prop}'`)
   }
 
   // TODO: figure out if downstream or upstream is the correct nomenclature here
   const PublicTypeComponent = (downstreamProps) => {
     Object.keys(downstreamProps).forEach(throwIllegalProp)
-    return <Type {...downstreamProps} {...privateProps} />
+    return <TypeBase {...downstreamProps} {...privateProps} />
   }
 
   return PublicTypeComponent

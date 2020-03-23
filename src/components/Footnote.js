@@ -1,14 +1,14 @@
-import { Type, TypeFoundry } from './Type/Type.js'
+import { TypeBase, TypeFoundry } from './TypeBase/TypeBase.js'
 
 export const Footnote = {
   Regular400: TypeFoundry({
-    subtype: Type.SUBTYPES.FOOTNOTE,
-    typeface: Type.TYPEFACES.THEINHARDT,
-    weight: Type.WEIGHTS.REGULAR_400,
+    subtype: TypeBase.SUBTYPES.FOOTNOTE,
+    typeface: TypeBase.TYPEFACES.THEINHARDT,
+    weight: TypeBase.WEIGHTS.REGULAR_400,
   }),
   Medium500: TypeFoundry({
-    subtype: Type.SUBTYPES.FOOTNOTE,
-    typeface: Type.TYPEFACES.THEINHARDT,
-    weight: Type.WEIGHTS.MEDIUM_500,
+    subtype: TypeBase.SUBTYPES.FOOTNOTE,
+    typeface: TypeBase.TYPEFACES.THEINHARDT,
+    weight: TypeBase.WEIGHTS.MEDIUM_500,
   }),
 }
