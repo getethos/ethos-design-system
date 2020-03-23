@@ -132,15 +132,8 @@ $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
     - `@include for-phone-and-tablet {`
   - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations.
 
-## CI/CD
-
-We have a light-weight CI/CD process via Travis and deployment to eds.ethoslabs.io via GitHub actions. The important files to look at to understand these are:
-
-- [deploy script](https://github.com/getethos/ethos-design-system/blob/master/.github/workflows/deploy.yml)
-- [travis yaml](https://github.com/getethos/ethos-design-system/blob/master/.travis.yml)
-
-## Typography: Type vs Type2 vs TypeBase
-### (TitleLarge/Small/etc, Body, Caption, Footnote)
+#### Typography: Type vs Type2 vs TypeBase
+_(TitleLarge/Small/etc, Body, Caption, Footnote)_
 As of Q1 2020 we're undergoing a transition to make some new `Type` components available. If you're wondering what `Type2`, `TypeBase` or any of the new `Type` like components are, checkout `src/components/Type2/Blueprint.js`.
 
 If you have a Figma spec that uses the "new" `Type` styles, your designer should be able to let you know which components to use from `Type2`. They share the same name as Type components but are suffixed with `2` and usually smaller than their original `Type` counterpart.
@@ -150,4 +143,11 @@ If you have a Figma spec that uses the "new" `Type` styles, your designer should
 This notice will be removed from the README once a working set of Type2 components has been established. It will be replaced with contributing and deprecation instructions.
 
 The core functionality of `Type` has been migrated to `TypeBase` as we transition. Ideally in the later quarters of 2020 we will begin to deprecate the original `Type` component and move all typography components already in use to `Type2`.
+
+## CI/CD
+
+We have a light-weight CI/CD process via Travis and deployment to eds.ethoslabs.io via GitHub actions. The important files to look at to understand these are:
+
+- [deploy script](https://github.com/getethos/ethos-design-system/blob/master/.github/workflows/deploy.yml)
+- [travis yaml](https://github.com/getethos/ethos-design-system/blob/master/.travis.yml)
 
