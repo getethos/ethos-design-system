@@ -87,7 +87,7 @@
  *  1 |  [-2-]  |  3  |  4  |  5  |  6
  */
 
-/** Steps for consumers to migrate
- * 1. Check for Type/Type.module.scss import & convert to TypeBase/TypbeBase.module.scss
- * 2. ???
+/** Steps for consumers to migrate from Type to TypeBase
+ * 1. Check for ethos-design-system/src/components/Type/Type.[js, module.scss, scss] imports &
+ *    convert Type/Type.* to TypeBase/TypeBase.*
  */
