@@ -2,7 +2,7 @@
 
 exports[`FlexGrid rendering component default 1`] = `
 <div
-  className="container-fluid"
+  className="flexgrid-container"
 >
   <div
     className="DemoCol row"

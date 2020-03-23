@@ -27,6 +27,7 @@ describe('Snackbar', () => {
       ariaDescribedBy,
       ariaLabelledBy,
       isOpen,
+      className: 'foobar',
     }
 
     const tree = render(

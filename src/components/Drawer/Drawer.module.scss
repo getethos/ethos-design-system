@@ -23,12 +23,20 @@
   background: transparent;
   display: flex;
   height: 100vh;
+  width: 100vw;
   justify-content: center;
   left: 0;
   position: fixed;
   top: 0;
-  width: 100vw;
   z-index: $z-index-modal;
+}
+
+/* When lock prop passed in, they've asked to not allow outside clicks and escape
+to close the drawer. Additionally, we'd like to make any outside content editable
+so we remove the 100vh / 100vw by setting to default values here */
+.DrawerWrapperLocked {
+  height: initial;
+  width: initial;
 }
 
 .Left {

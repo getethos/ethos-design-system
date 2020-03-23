@@ -1,4 +1,4 @@
-import styles from 'flexboxgrid2/flexboxgrid2.css'
+import styles from './flexboxgrid2-customized.css'
 
 /**
  * Note we exclude node_modules in our

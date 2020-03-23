@@ -17,6 +17,7 @@ import styles from './NoraDrawer.module.scss'
 export const NoraDrawer = ({
   children,
   isOpen,
+  lock = false,
   onDismiss,
   position,
   labelCopy,
@@ -30,6 +31,7 @@ export const NoraDrawer = ({
       className={[drawerClasses, styles.Drawer].join(' ')}
       onDismiss={onDismiss}
       isOpen={isOpen}
+      lock={lock}
       position={position}
       ignoredSelectors={ignoredSelectors}
       floatingDrawerContentRenderer={floatingDrawerContentRenderer}
@@ -46,16 +48,30 @@ export const NoraDrawer = ({
 }
 
 NoraDrawer.propTypes = {
-  children: PropTypes.node.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  // TODO: top / bottom
-  position: PropTypes.oneOf(['left', 'right']),
-  onDismiss: PropTypes.func.isRequired,
-  labelCopy: PropTypes.string.isRequired,
-  closeCopy: PropTypes.string.isRequired,
+  /** override classes for the drawer */
   drawerClasses: PropTypes.string,
-  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
+  /** close copy to display */
+  closeCopy: PropTypes.string.isRequired,
+  /** label copy to display */
+  labelCopy: PropTypes.string.isRequired,
+  /** The Drawer's children */
+  children: PropTypes.node.isRequired,
+  /** handler that onDismiss's the state of the modal */
+  onDismiss: PropTypes.func.isRequired,
+  /** Boolean that sets the state of the drawer */
+  isOpen: PropTypes.bool.isRequired,
+  /** Boolean that allows consumer to opt out of the default behavior which is to dismiss
+   * the drawer if you click outside or escape */
+  lock: PropTypes.bool,
+  // TODO: top / bottom
+  /** drawer should come from left or right */
+  position: PropTypes.oneOf(['left', 'right']),
+  /** optional renderer for rendering floating items e.g. a floating action button */
   floatingDrawerContentRenderer: PropTypes.func,
+  /** selector for floating button to be rendered so we don't consider it an "outside click" */
+  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
+  /** data attribute for testing */
+  'data-tid': PropTypes.string,
 }
 
 NoraDrawer.defaultProps = {
