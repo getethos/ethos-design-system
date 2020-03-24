@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './useGridSorting.module.scss'
 
 const DIR = {
@@ -14,14 +14,25 @@ export const useGridSorting = (rows, columns) => {
   const SortIcon = ({ direction }) => {
     let sortIcon
     if (direction === DIR.UP) {
-      sortIcon = <FaSortUp className={[styles.icon, styles.iconUp].join(' ')} />
+      sortIcon = (
+        <FontAwesomeIcon
+          icon={['fas', 'sort-up']}
+          className={[styles.icon, styles.iconUp].join(' ')}
+        />
+      )
     } else if (direction === DIR.DOWN) {
       sortIcon = (
-        <FaSortDown className={[styles.icon, styles.iconDown].join(' ')} />
+        <FontAwesomeIcon
+          icon={['fas', 'sort-down']}
+          className={[styles.icon, styles.iconDown].join(' ')}
+        />
       )
     } else {
       sortIcon = (
-        <FaSort className={[styles.icon, styles.iconDefault].join(' ')} />
+        <FontAwesomeIcon
+          icon={['fas', 'sort']}
+          className={[styles.icon, styles.iconDefault].join(' ')}
+        />
       )
     }
     return sortIcon

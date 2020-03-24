@@ -18,6 +18,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 // REMINDER! each import must be a separate "deep import" as below  //
 //////////////////////////////////////////////////////////////////////
 
+import { faHamburger } from '@fortawesome/pro-regular-svg-icons/faHamburger'
+import { faSort } from '@fortawesome/pro-solid-svg-icons/faSort'
+import { faSortDown } from '@fortawesome/pro-solid-svg-icons/faSortDown'
+import { faSortUp } from '@fortawesome/pro-solid-svg-icons/faSortUp'
+
 // Nora Icons
 import { faAlignLeft } from '@fortawesome/pro-solid-svg-icons/faAlignLeft'
 import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch'
@@ -59,6 +64,10 @@ import { faMinusCircle } from '@fortawesome/pro-regular-svg-icons/faMinusCircle'
 import { faSpinnerThird } from '@fortawesome/pro-regular-svg-icons/faSpinnerThird'
 
 library.add(
+  faHamburger,
+  faSort,
+  faSortDown,
+  faSortUp,
   faAddressCard,
   faAlignLeft,
   faAsterisk,
