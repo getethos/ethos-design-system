@@ -21,7 +21,7 @@ Place focus anywhere just above the data grid and then tab. You've put focus on 
 ```jsx
 import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'
-import { FaHamburger } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Grid } from './Grid.js'
 import { Row } from './Row.js'
 import { Column } from './Column.js'
@@ -204,7 +204,7 @@ function GridExample() {
                     <div className={styles.iconContainer}>
                       {row[col.name]}{' '}
                       {col.name === 'Type' && row[col.name] === 'Food' && (
-                        <FaHamburger className={styles.icon} />
+                        <FontAwesomeIcon icon={['far', 'hamburger']} className={styles.icon} />
                       )}
                     </div>
                   )}
@@ -227,7 +227,7 @@ Here's an example of using `Small` and `Large` on jut the row with _Guitar Lesso
 ```jsx
 import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'
-import { FaHamburger } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Grid } from './Grid'
 import { Row } from './Row'
 import { Column } from './Column'
@@ -416,7 +416,7 @@ function GridSmall() {
                     <div className={styles.iconContainer}>
                       {row[col.name]}{' '}
                       {col.name === 'Type' && row[col.name] === 'Food' && (
-                        <FaHamburger className={styles.icon} />
+                        <FontAwesomeIcon icon={['far', 'hamburger']} className={styles.icon} />
                       )}
                     </div>
                   )}
