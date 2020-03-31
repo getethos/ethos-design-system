@@ -62,6 +62,7 @@ import { faLockAlt } from '@fortawesome/pro-regular-svg-icons/faLockAlt'
 import { faEdit } from '@fortawesome/pro-regular-svg-icons/faEdit'
 import { faMinusCircle } from '@fortawesome/pro-regular-svg-icons/faMinusCircle'
 import { faSpinnerThird } from '@fortawesome/pro-regular-svg-icons/faSpinnerThird'
+import { faMoneyCheckEditAlt } from '@fortawesome/pro-regular-svg-icons/faMoneyCheckEditAlt'
 
 library.add(
   faHamburger,
@@ -91,6 +92,7 @@ library.add(
   faInfoCircleLight,
   faLayerPlus,
   faLockAlt,
+  faMoneyCheckEditAlt,
   faMinusCircle,
   faOctagon,
   faPencil,
