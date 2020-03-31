@@ -517,6 +517,32 @@ export declare const EmailInput: {
   }
 }
 
+export declare const Tooltip: {
+  ({
+    placement,
+    label,
+    inline,
+    details,
+    boundariesElement,
+    children,
+  }: {
+    placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
+    label: string
+    inline?: boolean
+    details: string
+    boundariesElement?: 'viewport' | 'scrollParent' | 'window'
+    children?: React.ReactNode
+  }): JSX.Element
+  propTypes: {
+    placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
+    label: string
+    inline?: boolean
+    details: string
+    boundariesElement?: 'viewport' | 'scrollParent' | 'window'
+    children?: React.ReactNode
+  }
+}
+
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
