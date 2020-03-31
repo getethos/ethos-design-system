@@ -361,8 +361,7 @@ export declare namespace ValueProps {
           header: string
           subHeader: string
           alt?: undefined
-        }
-    )[]
+        })[]
   }
 }
 
@@ -483,10 +482,7 @@ export declare const useGridSorting: (
   rowsRefs: any
   columnRefs: any[]
   sortedRows: any
-  compareBy: (
-    key: string | number,
-    sortMethod?: (a: any, b: any) => 1 | 0 | -1
-  ) => (a: any, b: any) => 1 | 0 | -1
+  compareBy: (key: string | number, sortMethod?: (a: any, b: any) => 1 | 0 | -1) => (a: any, b: any) => 1 | 0 | -1
   setSortState: (key: string | number) => void
   updateRowsRefs: (sortedRowsCopy: any) => void
   getSortIcon: (key: string | number) => JSX.Element
@@ -522,6 +518,7 @@ export declare const Tooltip: {
     placement,
     label,
     inline,
+    popperBoxStyles,
     details,
     boundariesElement,
     children,
@@ -530,6 +527,7 @@ export declare const Tooltip: {
     label: string
     inline?: boolean
     details: string
+    popperBoxStyles?: string
     boundariesElement?: 'viewport' | 'scrollParent' | 'window'
     children?: React.ReactNode
   }): JSX.Element
@@ -538,6 +536,7 @@ export declare const Tooltip: {
     label: string
     inline?: boolean
     details: string
+    popperBoxStyles?: string
     boundariesElement?: 'viewport' | 'scrollParent' | 'window'
     children?: React.ReactNode
   }
@@ -669,13 +668,7 @@ export declare const ZipInput: {
   }
 }
 
-export declare function Form({
-  children,
-  config,
-}: {
-  children: React.ReactNode
-  config: any
-}): JSX.Element
+export declare function Form({ children, config }: { children: React.ReactNode; config: any }): JSX.Element
 export declare namespace Form {
   var propTypes: {
     children: React.ReactNode
@@ -930,16 +923,7 @@ interface NoraButtonProps {
 }
 
 export declare const NoraButton: {
-  ({
-    children,
-    disabled,
-    type,
-    name,
-    onClick,
-    role,
-    className,
-    ...rest
-  }: NoraButtonProps): JSX.Element
+  ({ children, disabled, type, name, onClick, role, className, ...rest }: NoraButtonProps): JSX.Element
   propTypes: {
     children: React.ReactNode
     'data-tid': string
@@ -997,15 +981,7 @@ export declare const IconLink: {
 }
 
 export declare const Icon: {
-  ({
-    iconPrefix,
-    iconName,
-    className,
-  }: {
-    iconPrefix: string
-    iconName: string
-    className?: string
-  }): JSX.Element
+  ({ iconPrefix, iconName, className }: { iconPrefix: string; iconName: string; className?: string }): JSX.Element
   propTypes: {
     props: any
   }
@@ -1162,13 +1138,7 @@ export declare const NoraCheckboxInput: {
 }
 
 export declare const Snack: {
-  ({
-    children,
-    classNameSkin,
-  }: {
-    children: React.ReactNode
-    classNameSkin: string
-  }): JSX.Element
+  ({ children, classNameSkin }: { children: React.ReactNode; classNameSkin: string }): JSX.Element
   propTypes: {
     props: any
   }
