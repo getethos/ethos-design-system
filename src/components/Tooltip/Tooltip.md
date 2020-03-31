@@ -9,10 +9,31 @@ import React, { useRef, useState, useEffect } from 'react'
 import styles from './TooltipExamples.module.scss'
 ;<>
   <div className={styles.basicExample}>
-    Basic Tootlip <Tooltip label="Flip" details="Hi!" />
+    Basic Tooltip <Tooltip label="Flip" details="Hi!" />
   </div>
 </>
 ```
+
+### Children
+
+If you don't want to use the default information 'i' SVG icon, you can suppy your own
+custom children and wrap those within the tooltip. You can even steal the tooltip's own
+CSS Module styles (see `tipStyles` below for example).
+
+```jsx
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useRef, useState, useEffect } from 'react'
+import styles from './TooltipExamples.module.scss'
+import tipStyles from './Tooltip.module.scss'
+;<>
+  <div className={styles.basicExample}>
+    <Tooltip popperBoxStyles={styles.CustomTipExample} label="burger icon" details="Burgers are so tasty!" placement={'right'} >
+        <FontAwesomeIcon icon={['far', 'hamburger']} className={tipStyles.icon} />
+    </Tooltip>
+  </div>
+</>
+```
+
 
 ### `placement`
 
