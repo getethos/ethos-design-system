@@ -21,6 +21,7 @@ import { RadioButtonGroup } from './index'
 import { Select } from './index'
 import { SearchInput } from './index'
 import { TextMaskedInput } from './index'
+import { Tooltip } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
 import { UniversalNavbar } from './index'
@@ -330,6 +331,12 @@ class TextMaskedInputTest extends React.Component<any, any> {
         setTouched={setTouchedFn}
       />
     )
+  }
+}
+
+class TooltipTest extends React.Component<any, any> {
+  render() {
+    return <Tooltip label="Flip" details="Hi!" />
   }
 }
 

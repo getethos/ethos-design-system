@@ -22,39 +22,6 @@
 }
 
 .popperContainer {
-  .contentBox {
-    @include for-phone-only {
-      display: none;
-    }
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: var(--Space-12);
-    text-align: left;
-    width: max-content;
-    max-width: 320px;
-    background-color: white;
-    padding: var(--Space-24);
-    box-shadow: var(--BoxShadow-Outer-light);
-    color: var(--GrayDarkHover--translucent);
-    transition: var(--transition-default);
-
-    &.noTransition {
-      transition: unset;
-    }
-
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    &.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
-
   .arrow {
     position: absolute;
     width: var(--Space-12);
@@ -107,6 +74,39 @@
       height: 0;
       border-style: solid;
     }
+  }
+}
+
+.popperContentBox {
+  @include for-phone-only {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: var(--Space-12);
+  text-align: left;
+  width: max-content;
+  max-width: 320px;
+  background-color: white;
+  padding: var(--Space-24);
+  box-shadow: var(--BoxShadow-Outer-light);
+  color: var(--GrayDarkHover--translucent);
+  transition: var(--transition-default);
+
+  &.noTransition {
+    transition: unset;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
