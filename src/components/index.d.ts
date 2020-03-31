@@ -522,6 +522,7 @@ export declare const Tooltip: {
     placement,
     label,
     inline,
+    popperBoxStyles,
     details,
     boundariesElement,
     children,
@@ -530,6 +531,7 @@ export declare const Tooltip: {
     label: string
     inline?: boolean
     details: string
+    popperBoxStyles?: string
     boundariesElement?: 'viewport' | 'scrollParent' | 'window'
     children?: React.ReactNode
   }): JSX.Element
@@ -538,6 +540,7 @@ export declare const Tooltip: {
     label: string
     inline?: boolean
     details: string
+    popperBoxStyles?: string
     boundariesElement?: 'viewport' | 'scrollParent' | 'window'
     children?: React.ReactNode
   }
