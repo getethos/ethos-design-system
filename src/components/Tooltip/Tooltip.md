@@ -5,7 +5,6 @@
 To use a placeholder in its most basic form and with all defaults: provide two properties to the component, `label` and `details`
 
 ```jsx
-import React, { useRef, useState, useEffect } from 'react'
 import styles from './TooltipExamples.module.scss'
 ;<>
   <div className={styles.basicExample}>
@@ -22,7 +21,6 @@ CSS Module styles (see `tipStyles` below for example).
 
 ```jsx
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React, { useRef, useState, useEffect } from 'react'
 import styles from './TooltipExamples.module.scss'
 import tipStyles from './Tooltip.module.scss'
 ;<>
@@ -40,7 +38,6 @@ import tipStyles from './Tooltip.module.scss'
 Customize the **Starting** position of a Tooltip
 
 ```jsx
-import React, { useRef, useState, useEffect } from 'react'
 import styles from './TooltipExamples.module.scss'
 ;<>
   <div className={styles.centeredExample}>
@@ -61,7 +58,6 @@ This property will allow you to set what element the Tooltips event should activ
 Setting the `boundariesElement` to `'scrollParent'` will make the tooltip flip against the first scrollable parent element. To always flip Tooltips against the outermost scroll use `viewport` or `window`.
 
 ```jsx
-import React, { useRef, useState, useEffect } from 'react'
 import styles from './TooltipExamples.module.scss'
 ;<>
   <div className={styles.staticOuterDiv}>
@@ -82,7 +78,6 @@ import styles from './TooltipExamples.module.scss'
 ### `inline`
 
 ```jsx
-import React, { useRef, useState, useEffect } from 'react'
 import styles from './TooltipExamples.module.scss'
 ;<>
   <div className={styles.basicExample}>
