@@ -22,6 +22,7 @@ export { InfoMessage } from './InfoMessage'
 export { Layout } from './Layout'
 export { Logo } from './Logo'
 export { Media } from './Media'
+export { Modal } from './Modal'
 export { NumberInput } from './NumberInput/NumberInput'
 export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 export { PasswordInput } from './PasswordInput'
@@ -52,7 +53,6 @@ export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
 export { ValueProps } from './ValueProps'
 export { ZipInput } from './ZipInput'
-export { Modal } from './Modal'
 
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
