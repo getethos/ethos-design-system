@@ -10,6 +10,7 @@ import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { Icon } from './index'
 import { IconLink } from './index'
+import { Modal } from './index'
 import { Snack } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
@@ -136,6 +137,22 @@ class IconLinkTest extends React.Component<any, any> {
         textPosition="right"
         copy="Decision"
       />
+    )
+  }
+}
+
+class ModalTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Modal>
+        <div>
+          <h1>Le Modal</h1>
+          <p>Lorem ipsum, dolor</p>
+          <button tabIndex={0} onClick={() => {}}>
+            Yes
+          </button>
+        </div>
+      </Modal>
     )
   }
 }

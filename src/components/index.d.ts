@@ -185,6 +185,34 @@ interface downstreamButtonProps {
   ariaLabelId?: string
 }
 
+export declare const Modal: {
+  ({
+    ariaLabelledBy,
+    ariaDescribedBy,
+    children,
+    isOpen,
+    onDismiss,
+  }: {
+    /** Id of an element that labels the modal */
+    ariaLabelledBy?: string
+    /** Id of an element that describes the modal */
+    ariaDescribedBy?: string
+    /** The Modal's children */
+    children: React.ReactNode
+    /** Boolean that sets the state of the modal */
+    isOpen?: boolean
+    /** handler that onDismisss the state of the modal */
+    onDismiss: any
+  }): JSX.Element
+  propTypes: {
+    ariaLabelledBy?: string
+    ariaDescribedBy?: string
+    children: React.ReactNode
+    isOpen?: boolean
+    onDismiss: any
+  }
+}
+
 export declare const Button: {
   Medium: {
     Black: (downstreamProps: downstreamButtonProps) => any
