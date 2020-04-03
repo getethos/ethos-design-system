@@ -14,6 +14,7 @@ import { Modal } from './index'
 import { Snack } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
+import { NoraRadioButtonGroup } from './index'
 import { NoraDrawer } from './index'
 import { NoraSnackbar } from './index'
 import { NoraTextAreaInput } from './index'
@@ -153,6 +154,26 @@ class ModalTest extends React.Component<any, any> {
           </button>
         </div>
       </Modal>
+    )
+  }
+}
+
+class NoraRadioButtonGroupTest extends React.Component<any, any> {
+  render() {
+    const ReasonsOptions = [
+      { value: 'Already fullfilled' },
+      { value: 'Already have on file' },
+    ]
+    return (
+      <NoraRadioButtonGroup
+        name="reasons-test"
+        options={ReasonsOptions.map((t) => ({
+          name: t.value,
+          value: t.value,
+          label: t.value,
+        }))}
+        onChange={() => {}}
+      />
     )
   }
 }

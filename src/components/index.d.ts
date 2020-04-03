@@ -1169,6 +1169,18 @@ export declare const NoraTextAreaInput: {
   }
 }
 
+export declare const NoraRadioButtonGroup: {
+  ({
+    name,
+    options,
+    onChange,
+  }: {
+    name: string
+    options: any
+    onChange: any
+  }): JSX.Element
+}
+
 export declare const NoraCheckboxInput: {
   ({
     name,
