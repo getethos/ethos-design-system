@@ -1173,11 +1173,27 @@ export declare const NoraRadioButtonGroup: {
   ({
     name,
     options,
+    initialValue,
+    formTouched,
+    currentValue,
+    currentError,
+    formChangeHandler,
     onChange,
+    validator,
+    disabled,
+    required,
   }: {
     name: string
     options: any
-    onChange: any
+    initialValue?: string[] | boolean[]
+    formTouched?: boolean
+    currentValue?: string
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    onChange?: any
+    validator?: (value: string) => string
+    disabled?: boolean
+    required?: boolean
   }): JSX.Element
 }
 
