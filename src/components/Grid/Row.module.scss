@@ -50,11 +50,3 @@
     --default-row-hover-background
   );
 }
-
-.rowSmall {
-  composes: row;
-}
-
-.rowLarge {
-  composes: row;
-}
