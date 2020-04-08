@@ -39,6 +39,23 @@
   --ariagrid-header-letter-spacing: 0.1em;
   /* Header's line height */
   --ariagrid-header-line-height: var(--Space-16);
+  /* Header's padding top */
+  --ariagrid-header-padding-top: 18px;
+  /* Header's padding bottom */
+  --ariagrid-header-padding-top: 18px;
+
+  /* Column padding top */
+  --ariagrid-column-padding-top: var(--Space-16);
+  /* Column padding bottom */
+  --ariagrid-column-padding-bottom: var(--Space-16);
+  /* Column padding left */
+  --ariagrid-column-padding-left: var(--Space-12);
+  /* Column padding right*/
+  --ariagrid-column-padding-right: var(--Space-12);
+  /* Column outmost padding left */
+  --ariagrid-column-outside-padding-left: var(--Space-24);
+  /* Column outmost padding right*/
+  --ariagrid-column-outside-padding-right: var(--Space-24);
 }
 
 .iconContainer {

@@ -37,9 +37,6 @@
   border-bottom: 1px solid
     var(--ariagrid-header-border-bottom, --default-header-border-bottom);
   border-bottom: 1px solid var(--ariagrid-border-color, --default-border-color);
-  height: var(--Space-48);
-  vertical-align: bottom;
-  font-weight: 600;
   color: var(
     --ariagrid-grid-header-font-color,
     --default-grid-header-font-color
