@@ -1,3 +1,5 @@
+@import '../../nora/components/Colors.css';
+
 :root {
   /**
    * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
@@ -7,7 +9,9 @@
   --ariagrid-grid-border-bottom: #f5f5f5;
   --ariagrid-header-border-bottom: #d8dcde;
   --ariagrid-row-hover-background: var(--BrandDuckegg);
-  --ariagrid-grid-header-font-color: var(--GraySecondary--opaque);
+
+  /* Header font color */
+  --ariagrid-grid-header-font-color: var(--NoraNeutral-300);
 }
 
 .iconContainer {
