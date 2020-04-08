@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+.row:last-child {
+  /* We put borders around entire grid so don't want "double border" on bottom */
+  border-bottom: none;
+}
+
 /* Header */
 .row:first-child {
   text-align: left;
@@ -31,6 +36,7 @@
 
   border-bottom: 1px solid
     var(--ariagrid-header-border-bottom, --default-header-border-bottom);
+  border-bottom: 1px solid var(--ariagrid-border-color, --default-border-color);
   height: var(--Space-48);
   vertical-align: bottom;
   font-weight: 600;
