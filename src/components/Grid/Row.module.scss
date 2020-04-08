@@ -15,8 +15,8 @@
   transition: background-color 0.1s ease-in-out;
   border-bottom: 1px solid
     var(--ariagrid-grid-border-bottom, --default-grid-border-bottom);
-  height: var(--Space-40);
-  min-height: var(--Space-40);
+  // height: var(--Space-40);
+  // min-height: var(--Space-40);
   vertical-align: top;
   box-sizing: border-box;
 }
@@ -58,12 +58,12 @@
 
 .rowSmall {
   composes: row;
-  height: var(--Space-32);
-  min-height: var(--Space-32);
+  // height: var(--Space-32);
+  // min-height: var(--Space-32);
 }
 
 .rowLarge {
   composes: row;
-  height: var(--Space-64);
-  min-height: var(--Space-64);
+  // height: var(--Space-64);
+  // min-height: var(--Space-64);
 }

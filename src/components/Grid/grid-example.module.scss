@@ -6,19 +6,25 @@
    * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
    * allowing us to declaratively theme our grid!
    */
-  --ariagrid-grid-container-color: #272727;
   --ariagrid-row-hover-background: var(--BrandDuckegg);
 
   /* Header font color */
   --ariagrid-grid-header-font-color: var(--NoraNeutral-300);
+  /* Main grid font color */
+  --ariagrid-grid-container-color: var(--NoraNeutral-900);
+  /* Main grid font size */
+  --ariagrid-font-size: var(--Nora-Font-15);
+  /* Main grid line height */
+  --ariagrid-line-height: 20px;
+  /* Main grid letter spacing */
+  --ariagrid-letter-spacing: 0.003em;
 
+  /* Header's bottom border color for grid */
+  --ariagrid-header-border-bottom: var(--NoraNeutral-200);
   /* Main border color for grid */
   --ariagrid-border-color: var(--NoraNeutral-200);
   /* Bottom border color for grid */
   --ariagrid-grid-border-bottom: var(--NoraNeutral-200);
-  /* Header's bottom border color for grid */
-  --ariagrid-header-border-bottom: var(--NoraNeutral-200);
-
   /* border-radius for the outside grid rectangular border */
   --ariagrid-radius: var(--Radius-3);
 }
