@@ -1,16 +1,16 @@
 .column {
   display: flex;
   transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
-  padding: var(--Space-16) var(--Space-12);
+  padding: var(--Space-16) var(--Space-24);
   box-sizing: border-box;
 }
 
 .columnheader {
-  text-transform: uppercase;
-  font-size: 11px;
-  line-height: 16px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  text-transform: var(--ariagrid-header-text-transform, uppercase);
+  font-size: var(--ariagrid-header-font-size, 11px);
+  line-height: var(--ariagrid-header-line-height, 16px);
+  font-weight: var(--ariagrid-header-font-weight, 500);
+  letter-spacing: var(--ariagrid-header-letter-spacing, 0.1em);
 }
 
 .column > a,
