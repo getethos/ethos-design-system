@@ -6,6 +6,10 @@
 
   /* TODO -- make this Ethos specific */
   --default-grid-container-color: #2f3941;
+  --default-border-color: #dfe1e6;
+  --default-border-radius: 3px;
+  --default-line-height: 20px;
+  --default-leter-spacing: 0.003em;
 
   display: table;
   border: none;
@@ -13,8 +17,12 @@
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
-  line-height: 1.42857;
+  font-size: var(--ariagrid-font-size, var(--Space-16));
+  line-height: var(--ariagrid-line-height, --default-line-height);
+  letter-spacing: var(--ariagrid-letter-spacing, --default-leter-spacing);
   color: var(--ariagrid-grid-container-color, --default-grid-container-color);
-  font-size: var(--Space-16);
+  border: 1px solid var(--ariagrid-border-color, --default-border-color);
+  box-sizing: border-box;
+  border-radius: var(-ariagrid-radius, --default-border-radius);
   composes: Theinhardt from '../TypeBase/TypeBase.module.scss';
 }
