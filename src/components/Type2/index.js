@@ -1,5 +1,5 @@
 export { TitleSmall2 } from './TitleSmall2.js'
-// export { TitleMedium } from './TitleMedium.js'
+export { TitleMedium2 } from './TitleMedium2.js'
 // export { TitleLarge } from './TitleLarge.js'
 // export { TitleXLarge } from './TitleXLarge.js'
 // export { TitleXXLarge } from './TitleXXLarge.js'

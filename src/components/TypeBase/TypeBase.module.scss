@@ -16,7 +16,11 @@
 .TitleMedium,
 .TitleLarge,
 .TitleXLarge,
-.TitleXXLarge {
+.TitleXXLarge,
+.TitleSmall2,
+.TitleMedium2,
+.TitleLarge2,
+.TitleXLarge2 {
   /* Brand colors */
 
   &.BrandForest {
@@ -122,7 +126,11 @@ h6,
 .TitleMedium,
 .TitleLarge,
 .TitleXLarge,
-.TitleXXLarge {
+.TitleXXLarge,
+.TitleSmall2,
+.TitleMedium2,
+.TitleLarge2,
+.TitleXLarge2 {
   margin: 0;
 }
 
@@ -397,3 +405,52 @@ h6,
     }
   }
 }
+
+/* ------------------------ Start Type2 ------------------------ */
+.TitleSmall2 {
+  &.Theinhardt {
+    $font-size: 20;
+    $line-height: 26;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: 0.001em;
+  }
+
+  &.Cambon {
+    $font-size: 24.5;
+    $line-height: 28;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.017em;
+  }
+}
+
+.TitleMedium2 {
+  &.Theinhardt {
+    @include for-phone-only {
+      /* TitleSmall2 */
+      $font-size: 20;
+      $line-height: 26;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: 0.001em;
+    }
+
+    @include for-tablet-and-up {
+      $font-size: 24;
+      $line-height: 32;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: -0.0125em;
+    }
+  }
+
+  &.Cambon {
+    $font-size: 32;
+    $line-height: 36;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.022em;
+  }
+}
+/* ------------------------ Close Type2 ------------------------ */
