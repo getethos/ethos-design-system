@@ -428,7 +428,7 @@ h6,
 .TitleMedium2 {
   &.Theinhardt {
     @include for-phone-only {
-      /* TitleSmall2 */
+      /* Matches TitleSmall2 all viewports*/
       $font-size: 20;
       $line-height: 26;
       font-size: $font-size * 1px;
@@ -451,6 +451,35 @@ h6,
     font-size: $font-size * 1px;
     line-height: $line-height / $font-size;
     letter-spacing: -0.022em;
+  }
+}
+
+.TitleLarge2 {
+  &.Theinhardt {
+    @include for-phone-only {
+      /* Matches TitleMedium2 for-tablet-and-up */
+      $font-size: 24;
+      $line-height: 32;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: -0.0125em;
+    }
+
+    @include for-tablet-and-up {
+      $font-size: 28;
+      $line-height: 36;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: -0.016em;
+    }
+  }
+
+  &.Cambon {
+    $font-size: 43.5;
+    $line-height: 48;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.0275em;
   }
 }
 /* ------------------------ Close Type2 ------------------------ */

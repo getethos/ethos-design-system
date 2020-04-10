@@ -900,6 +900,7 @@ export { TitleXXLarge } from './Type/TitleXXLarge.js'
 // Type2
 export { TitleSmall2 } from './Type2/TitleSmall2.js'
 export { TitleMedium2 } from './Type2/TitleMedium2.js'
+export { TitleLarge2 } from './Type2/TitleLarge2.js'
 
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
