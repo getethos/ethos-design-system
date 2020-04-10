@@ -34,7 +34,7 @@ export const NoraTextAreaInput = ({
 
   const [val, setVal] = useState(currentValue || initialValue || '')
 
-  const [touched, setTouched] = useState(initialValue ? true : false)
+  const [touched, setTouched] = useState(value || initialValue ? true : false)
 
   const [doValidation] = useInputValidation({
     validate,
@@ -62,12 +62,18 @@ export const NoraTextAreaInput = ({
     }
   }
 
+  /**
+   * If consumer's used the brute force `value` prop, we prioritize that
+   * (this is similar to what we're doing in CheckboxInput for `checked`)
+   */
+  const resolvedValue = typeof value !== 'undefined' ? value : val
+
   // Initial Value aka prefilled—are considered "touched", but must prevalidate
   // which will in turn update the internal form state as to their validity
   useEffect(() => {
-    if (!!formChangeHandler && initialValue) {
+    if (!!formChangeHandler && (resolvedValue || initialValue)) {
       console.log('TextAreaInput useEffect -- calling doValidation')
-      doValidation(initialValue, '')
+      doValidation(resolvedValue || initialValue, '')
     }
   }, [])
 
@@ -76,12 +82,6 @@ export const NoraTextAreaInput = ({
     doValidation(ev.target.value, true)
     if (onBlur) onBlur(ev)
   }
-
-  /**
-   * If consumer's used the brute force `value` prop, we prioritize that
-   * (this is similar to what we're doing in CheckboxInput for `checked`)
-   */
-  const resolvedValue = typeof value !== 'undefined' ? value : val
 
   // TODO: this indicates a field level error on the NoraTextAreaInput
   if (getError(currentError, touched)) {
