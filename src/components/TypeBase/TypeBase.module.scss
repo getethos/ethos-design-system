@@ -482,4 +482,14 @@ h6,
     letter-spacing: -0.0275em;
   }
 }
+
+.TitleXLarge2 {
+  &.Cambon {
+    $font-size: 60;
+    $line-height: 64;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.034em;
+  }
+}
 /* ------------------------ Close Type2 ------------------------ */
