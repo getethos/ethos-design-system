@@ -140,6 +140,8 @@ If you have a Figma spec that uses the "new" `Type` styles, your designer should
 
 Type2 components are available for use in production. Be aware that some components no longer resize on smaller viewports and a reduced number of weights are available.
 
+Since the only weight for Cambon is now 500, Medium500 has been added as an alias for Book500, to ease memory strain on developers and only having to remember one 500 weight name for both font families. Book500 remains backwards compatible for Type2.
+
 New/existing weights:
 ```
 Sans.Medium500

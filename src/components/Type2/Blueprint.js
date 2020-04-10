@@ -81,6 +81,8 @@
  * 5. Rollout deprecation strategy and encourage developers to stop using legacy Type entirely and
  *    actively replace legacy components with Type2 components.
  *
+ *    Add any customizations specific to Type2 for developer ease of use.
+ *
  * 6. Once deprecation is complete, remove legacy Type (it will 'live on' through BaseType) and
  *    rename Type2 to Type.
  *
@@ -90,8 +92,9 @@
  * --------------------------
  * (March 18) 1
  * (March 19) 1 -> 2
+ * (April 10) 2 -> 3 -> 4
  *
- *  1 |  [-2-]  |  3  |  4  |  5  |  6
+ *  1 |  2  |  3  |  [4]  |  5  |  6
  */
 
 /** Steps for consumers to migrate from Type to TypeBase
