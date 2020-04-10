@@ -26,7 +26,7 @@
   letter-spacing: var(--ariagrid-header-letter-spacing, 0.1em);
   /* since our header font size is likely different we need adjusted top/bottom padding */
   padding-top: var(--ariagrid-header-padding-top, var(--Space-18));
-  padding-bottom: var(--ariagrid-header-padding-top, var(--Space-18));
+  padding-bottom: var(--ariagrid-header-padding-bottom, var(--Space-18));
 }
 
 .column > a,
