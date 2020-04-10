@@ -138,9 +138,26 @@ As of Q1 2020 we're undergoing a transition to make some new `Type` components a
 
 If you have a Figma spec that uses the "new" `Type` styles, your designer should be able to let you know which components to use from `Type2`. They share the same name as Type components but are suffixed with `2` and usually smaller than their original `Type` counterpart.
 
-**There are currently no `Type2` components available for use in production!**
-**`TitleSmall2` is for demonstrative purposes only.**
-This notice will be removed from the README once a working set of Type2 components has been established. It will be replaced with contributing and deprecation instructions.
+Type2 components are available for use in production. Be aware that some components no longer resize on smaller viewports and a reduced number of weights are available.
+
+New/existing weights:
+```
+Sans.Medium500
+Sans.Regular400
+Serif.Book500 / Serif.Medium500 (same thing)
+```
+
+Deprecated weights:
+```
+Serif.Demi600
+Serif.Regular400
+*.Light300
+```
+
+Deprecated sizes:
+`Footnote` (use `Caption` instead)
+`TitleXXL`
+`TitleXL.Sans` (`Serif` still available)
 
 The core functionality of `Type` has been migrated to `TypeBase` as we transition. Ideally in the later quarters of 2020 we will begin to deprecate the original `Type` component and move all typography components already in use to `Type2`.
 
