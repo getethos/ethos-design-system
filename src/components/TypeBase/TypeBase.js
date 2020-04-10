@@ -96,6 +96,8 @@ TypeBase.SUBTYPES = {
   TITLE_XLARGE: 'TitleXLarge',
   TITLE_XXLARGE: 'TitleXXLarge',
   // Type2
+  CAPTION2: 'Caption2',
+  BODY2: 'Body2',
   TITLE_SMALL2: 'TitleSmall2',
   TITLE_MEDIUM2: 'TitleMedium2',
   TITLE_LARGE2: 'TitleLarge2',
