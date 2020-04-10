@@ -49,7 +49,7 @@ export const NoraTextAreaInput = ({
     // We call setTouched in onBlur, so can reliably call getter here
     doValidation(val, touched)
 
-    if (!!onChange) onChange(ev)
+    if (!onChange) onChange(ev)
   }
 
   const setAllTouched = () => {
@@ -74,8 +74,14 @@ export const NoraTextAreaInput = ({
   const handleBlur = (ev) => {
     setAllTouched()
     doValidation(ev.target.value, true)
-    if (!!onBlur) onBlur(ev)
+    if (!onBlur) onBlur(ev)
   }
+
+  /**
+   * If consumer's used the brute force `value` prop, we prioritize that
+   * (this is similar to what we're doing in CheckboxInput for `checked`)
+   */
+  const resolvedValue = typeof value !== 'undefined' ? value : val
 
   // TODO: this indicates a field level error on the NoraTextAreaInput
   if (getError(currentError, touched)) {
@@ -93,7 +99,7 @@ export const NoraTextAreaInput = ({
         onBlur={handleBlur}
         onFocus={onFocus}
         onChange={handleChange}
-        value={val}
+        value={resolvedValue}
         data-tid={rest['data-tid']}
       />
     </>
