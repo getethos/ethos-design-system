@@ -34,6 +34,13 @@
  *   - Less rigidity for passing extra properties like className
  *   - ???
  *
+ * Should we drop weight param from Cambon now that there is only * one weight? Probably not for
+ * consistency of including a weight when using a comonent.
+ *
+ * Book500 backwards compatibility added but would like to use Medium500 going forward across both
+ * font families, since it's the only weight for Cambon in Type2. Easier to remember if Medium500
+ * is the same weight name across both families.
+ *
  *
  * Specifications from design
  * --------------------------
@@ -59,7 +66,7 @@
  *    This should be deployable on it's own to consumers to prove there is no regression.
  *
  * 2. Fork BaseType and build Type2 with a single component POC, deployable to consumers.
- *	  Build a Type2 root component that extends TypeBase.
+ *    Build a Type2 root component that extends TypeBase.
  *
  *    When a new component is available in Type2, EDS should warn the consumer to check if they
  *    can switch if it sees them implement an instance of the matching legacy Type component.
