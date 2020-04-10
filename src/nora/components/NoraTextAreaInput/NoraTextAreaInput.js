@@ -49,7 +49,7 @@ export const NoraTextAreaInput = ({
     // We call setTouched in onBlur, so can reliably call getter here
     doValidation(val, touched)
 
-    if (!onChange) onChange(ev)
+    if (onChange) onChange(ev)
   }
 
   const setAllTouched = () => {
@@ -74,7 +74,7 @@ export const NoraTextAreaInput = ({
   const handleBlur = (ev) => {
     setAllTouched()
     doValidation(ev.target.value, true)
-    if (!onBlur) onBlur(ev)
+    if (onBlur) onBlur(ev)
   }
 
   /**
