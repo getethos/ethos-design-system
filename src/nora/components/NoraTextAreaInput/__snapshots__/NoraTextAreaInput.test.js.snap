@@ -5,6 +5,9 @@ exports[`NoraTextAreaInput default rendering 1`] = `
   className="NoraTextInput "
   data-tid="text-nora-textareainput"
   name="nombre"
+  onBlur={[Function]}
+  onChange={[Function]}
   placeholder="enter text here"
+  value=""
 />
 `;
