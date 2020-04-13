@@ -60,7 +60,7 @@ function usePortal(id) {
  */
 export const Portal = ({ id, children }) => {
   if (typeof document === 'undefined' || !document) {
-    return
+    return null
   }
 
   const root = usePortal(id)
