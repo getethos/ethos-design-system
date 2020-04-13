@@ -86,6 +86,7 @@ export const TypeBase = ({
 }
 
 TypeBase.SUBTYPES = {
+  // Original Type
   CAPTION: 'Caption', // smallest
   FOOTNOTE: 'Footnote',
   BODY: 'Body', // default
@@ -94,6 +95,13 @@ TypeBase.SUBTYPES = {
   TITLE_LARGE: 'TitleLarge',
   TITLE_XLARGE: 'TitleXLarge',
   TITLE_XXLARGE: 'TitleXXLarge',
+  // Type2
+  CAPTION2: 'Caption2',
+  BODY2: 'Body2',
+  TITLE_SMALL2: 'TitleSmall2',
+  TITLE_MEDIUM2: 'TitleMedium2',
+  TITLE_LARGE2: 'TitleLarge2',
+  TITLE_XLARGE2: 'TitleXLarge2',
 }
 
 TypeBase.TYPEFACES = {

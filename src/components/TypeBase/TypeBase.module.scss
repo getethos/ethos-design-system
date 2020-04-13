@@ -16,7 +16,13 @@
 .TitleMedium,
 .TitleLarge,
 .TitleXLarge,
-.TitleXXLarge {
+.TitleXXLarge,
+.Caption2,
+.Body2,
+.TitleSmall2,
+.TitleMedium2,
+.TitleLarge2,
+.TitleXLarge2 {
   /* Brand colors */
 
   &.BrandForest {
@@ -122,7 +128,11 @@ h6,
 .TitleMedium,
 .TitleLarge,
 .TitleXLarge,
-.TitleXXLarge {
+.TitleXXLarge,
+.TitleSmall2,
+.TitleMedium2,
+.TitleLarge2,
+.TitleXLarge2 {
   margin: 0;
 }
 
@@ -386,7 +396,13 @@ h6,
 .TitleMedium,
 .TitleLarge,
 .TitleXLarge,
-.TitleXXLarge {
+.TitleXXLarge,
+.Caption2,
+.Body2,
+.TitleSmall2,
+.TitleMedium2,
+.TitleLarge2,
+.TitleXLarge2 {
   a {
     &,
     &:active,
@@ -397,3 +413,111 @@ h6,
     }
   }
 }
+
+/* ------------------------ Start Type2 ------------------------ */
+.Caption2 {
+  &.Theinhardt {
+    $font-size: 14;
+    $line-height: 16;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: 0.0045em;
+  }
+}
+
+.Body2 {
+  &.Theinhardt {
+    $font-size: 17.5;
+    $line-height: 24;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: 0;
+  }
+}
+
+.TitleSmall2 {
+  &.Theinhardt {
+    $font-size: 20;
+    $line-height: 26;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: 0.001em;
+  }
+
+  &.Cambon {
+    $font-size: 24.5;
+    $line-height: 28;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.017em;
+  }
+}
+
+.TitleMedium2 {
+  &.Theinhardt {
+    @include for-phone-only {
+      /* Matches TitleSmall2 all viewports*/
+      $font-size: 20;
+      $line-height: 26;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: 0.001em;
+    }
+
+    @include for-tablet-and-up {
+      $font-size: 24;
+      $line-height: 32;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: -0.0125em;
+    }
+  }
+
+  &.Cambon {
+    $font-size: 32;
+    $line-height: 36;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.022em;
+  }
+}
+
+.TitleLarge2 {
+  &.Theinhardt {
+    @include for-phone-only {
+      /* Matches TitleMedium2 for-tablet-and-up */
+      $font-size: 24;
+      $line-height: 32;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: -0.0125em;
+    }
+
+    @include for-tablet-and-up {
+      $font-size: 28;
+      $line-height: 36;
+      font-size: $font-size * 1px;
+      line-height: $line-height / $font-size;
+      letter-spacing: -0.016em;
+    }
+  }
+
+  &.Cambon {
+    $font-size: 43.5;
+    $line-height: 48;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.0275em;
+  }
+}
+
+.TitleXLarge2 {
+  &.Cambon {
+    $font-size: 60;
+    $line-height: 64;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.034em;
+  }
+}
+/* ------------------------ Close Type2 ------------------------ */
