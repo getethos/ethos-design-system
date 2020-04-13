@@ -14,10 +14,6 @@ import PropTypes from 'prop-types'
  * @return {HTMLElement} - The DOM node to use as the Portal target
  */
 function usePortal(id) {
-  if (typeof document === 'undefined' || !document) {
-    return
-  }
-
   const [isAttached, setIsAttached] = useState(false)
   const elRef = useRef(
     document.getElementById(id) || document.createElement('div')
@@ -63,6 +59,10 @@ function usePortal(id) {
  * @return {React.ReactPortal}
  */
 export const Portal = ({ id, children }) => {
+  if (typeof document === 'undefined' || !document) {
+    return
+  }
+
   const root = usePortal(id)
 
   return createPortal(children, root)
