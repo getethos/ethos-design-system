@@ -41,6 +41,10 @@
  * font families, since it's the only weight for Cambon in Type2. Easier to remember if Medium500
  * is the same weight name across both families.
  *
+ * CSS for font sizes could be dried up if font size calculation can be removed. Do we need sass math?
+ * Font size values could also be variables.
+ *
+ *
  *
  * Specifications from design
  * --------------------------
