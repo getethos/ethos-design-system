@@ -20,6 +20,8 @@ $ mkdir -p ethos-design-system/src/fonts/
 $ cp -a ~/Downloads/fonts/ ethos-design-system/src/fonts/
 ```
 
+4. You will likely not be able to `yarn install` without first configuring your `.npmrc` file with the appropriate auth token. See guide [Font Awesome Local Dev Env Setup](https://www.notion.so/getethos/Font-Awesome-Local-Dev-Env-Setup-94eddc9f27044b489a545ddcd9e173d4)
+
 ## Development
 
 1. Run `yarn css:develop` if you're editing global CSS (optional).
