@@ -109,6 +109,36 @@ Set of Design-approved public buttons.
 <Button.Unstyled backArrowIcon>Button.Unstyled + backArrowIcon</Button.Unstyled>
 ```
 
+#### React Nodes as Button children
+
+```jsx
+  <div style={{ backgroundColor: 'var(--BrandForest)', padding: 20 }}>
+    <strong style={{ color: 'white' }}>
+      Children can be ReactNode, Array&lt;ReactNode&gt;, string, number, undefined, null, boolean
+    </strong>
+    <br />
+    <br />
+    <Button.Medium.WhiteOutline>
+      {/*  */}
+      {[
+        <div
+          key="top-div"
+          style={{backgroundColor: 'rgba(0, 0, 0, 0.1)', height: '30%', padding: '0.5rem'}}
+        >
+          Top Div
+        </div>,
+        <div
+          key="bottom-div"
+          style={{backgroundColor: 'rgba(0, 0, 0, 0.2)', height: '30%', padding: '0.5rem'}}
+        >
+          Bottom Div
+        </div>,
+        <Fragment key="fragment">Fragment with key</Fragment>
+      ]}
+    </Button.Medium.WhiteOutline>
+  </div>
+```
+
 ---
 
 ## Do not use

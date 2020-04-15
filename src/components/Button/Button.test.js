@@ -56,5 +56,23 @@ describe('Button', () => {
         .toJSON()
       expect(tree).toMatchSnapshot()
     })
+    test('Array<ReactNode>', () => {
+      const tree = renderer
+        .create(
+          <Button.Medium.Black data-tid="foo" name="bar" disabled={false}>
+            {[
+              <div key='div1'/>,
+              <div key='div2'/>,
+              null,
+              undefined,
+              3,
+              "string",
+              <>Fragment</>
+            ]}
+          </Button.Medium.Black>
+        )
+        .toJSON()
+      expect(tree).toMatchSnapshot()
+    })
   })
 })

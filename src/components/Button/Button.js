@@ -133,7 +133,7 @@ PrivateButton.HTML_TYPES = { BUTTON: 'button', SUBMIT: 'submit' } // read the do
 PrivateButton.PUBLIC_PROPS = {
   ariaLabelId: PropTypes.string,
   role: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.node,
   'data-tid': PropTypes.string,
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
