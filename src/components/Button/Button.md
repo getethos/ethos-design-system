@@ -119,7 +119,6 @@ Set of Design-approved public buttons.
     <br />
     <br />
     <Button.Medium.WhiteOutline>
-      {/*  */}
       {[
         <div
           key="top-div"
@@ -133,6 +132,7 @@ Set of Design-approved public buttons.
         >
           Bottom Div
         </div>,
+        <br key='br'/>,
         <React.Fragment key="fragment">Fragment with key</React.Fragment>
       ]}
     </Button.Medium.WhiteOutline>
