@@ -67,7 +67,7 @@ describe('Button', () => {
               undefined,
               3,
               "string",
-              <>Fragment</>
+              <React.Fragment key="fragment">Fragment with key</React.Fragment>
             ]}
           </Button.Medium.Black>
         )

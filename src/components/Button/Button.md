@@ -133,7 +133,7 @@ Set of Design-approved public buttons.
         >
           Bottom Div
         </div>,
-        <Fragment key="fragment">Fragment with key</Fragment>
+        <React.Fragment key="fragment">Fragment with key</React.Fragment>
       ]}
     </Button.Medium.WhiteOutline>
   </div>
