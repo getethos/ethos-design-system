@@ -61,13 +61,13 @@ describe('Button', () => {
         .create(
           <Button.Medium.Black data-tid="foo" name="bar" disabled={false}>
             {[
-              <div key='div1'/>,
-              <div key='div2'/>,
+              <div key="div1" />,
+              <div key="div2" />,
               null,
               undefined,
               3,
-              "string",
-              <React.Fragment key="fragment">Fragment with key</React.Fragment>
+              'string',
+              <React.Fragment key="fragment">Fragment with key</React.Fragment>,
             ]}
           </Button.Medium.Black>
         )
