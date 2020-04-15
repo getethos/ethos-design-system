@@ -1,3 +1,5 @@
+Note that you can define `--async-selected-color` and `--async-active-color` CSS properties in your application and the Ethos brand colors will be overriden as such. This is a global setting, so we only use this in our auxilarary applications e.g. Nora.
+
 ```jsx
 import { useState } from 'react'
 import { SearchInput } from '../index'
