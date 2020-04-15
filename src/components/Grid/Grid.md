@@ -18,6 +18,14 @@ While support from screenreaders for aria roles is not yet perfect, it's on an [
 
 Place focus anywhere just above the data grid and then tab. You've put focus on the grid. Now, use your arrow keys to navigate within the grid. On a Mac, `fn-rightarrow` simulates a _Page Right_, `fn-downarrow` a _Page Down_ and so on.
 
+#### Skinning the data grid
+
+If you look at `grid-example.module.scss` that we'r'e using below, you'll note that we've
+pretty much overriden every `--ariagrid-*` property, and thus skinned our Grid to our
+liking. Please note, that this is a one-time global override, and so it's best to use if you
+have a separate application that uses a differing color scheme. An example of this is the
+Nora application which utilizes this.
+
 ```jsx
 import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'

@@ -18,11 +18,14 @@
   border-collapse: collapse;
   border-spacing: 0;
   font-size: var(--ariagrid-font-size, var(--Space-16));
-  line-height: var(--ariagrid-line-height, --default-line-height);
-  letter-spacing: var(--ariagrid-letter-spacing, --default-leter-spacing);
-  color: var(--ariagrid-grid-container-color, --default-grid-container-color);
-  border: 1px solid var(--ariagrid-border-color, --default-border-color);
+  line-height: var(--ariagrid-line-height, var(--default-line-height));
+  letter-spacing: var(--ariagrid-letter-spacing, var(--default-leter-spacing));
+  color: var(
+    --ariagrid-grid-container-color,
+    var(--default-grid-container-color)
+  );
+  border: 1px solid var(--ariagrid-border-color, var(--default-border-color));
   box-sizing: border-box;
-  border-radius: var(-ariagrid-radius, --default-border-radius);
+  border-radius: var(-ariagrid-radius, var(--default-border-radius));
   composes: Theinhardt from '../TypeBase/TypeBase.module.scss';
 }

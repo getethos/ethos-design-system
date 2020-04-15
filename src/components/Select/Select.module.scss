@@ -51,7 +51,7 @@
     }
     .StyledReactSelect__option--is-focused,
     .StyledReactSelect__option:hover {
-      background: var(--BrandMoss);
+      background: var(--select-active-color, var(--BrandMoss));
     }
 
     /* Do not hover highlight if disabled option */
@@ -61,7 +61,7 @@
 
     .StyledReactSelect__option--is-selected,
     .StyledReactSelect__option--is-selected:hover {
-      background: var(--BrandForest);
+      background: var(--select-selected-color, var(--BrandForest));
     }
 
     .StyledReactSelect__control {
