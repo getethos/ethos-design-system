@@ -1,72 +1,11 @@
-import React, {
-  forwardRef,
-  useState,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { PopoverOption } from '../PopoverOption'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
-import scrollToParentTop from '../../helpers/scrollToParentTop.js'
 import { useFetchEntities } from './useFetchEntities.js'
 import { codes } from '../../helpers/constants.js'
 import styles from './AsyncTypeahead.module.scss'
-
-const Item = forwardRef((props, forwardedRef) => {
-  const innerRef = useRef()
-  const {
-    currentActive,
-    itemIndex,
-    item,
-    dataKey,
-    selectedOption,
-    setSelectedOptionDelegate,
-    onChange,
-  } = props
-  useImperativeHandle(forwardedRef, () => ({
-    scrollToTop: () => {
-      scrollToParentTop(innerRef.current)
-    },
-  }))
-
-  let className = styles.Option
-
-  if (itemIndex === currentActive) {
-    className = `${className} ${styles.ActiveOption}`
-  }
-  // Note the if an item is both active (you've navigated to it)
-  // and also selected (it was the previous selection), we want
-  // both of those classes as that has it's own unique affordance.
-  // See the AsyncTypeahead.module.scss for the details :)
-  if (itemIndex === selectedOption) {
-    className = `${className} ${styles.SelectedOption}`
-  }
-  return (
-    <li ref={innerRef}>
-      <button
-        className={className}
-        onClick={() => {
-          setSelectedOptionDelegate(itemIndex)
-          onChange(item)
-        }}
-      >
-        {item[dataKey]}
-      </button>
-    </li>
-  )
-})
-Item.displayName = 'Item'
-Item.propTypes = {
-  currentActive: PropTypes.number,
-  itemIndex: PropTypes.number,
-  item: PropTypes.object,
-  dataKey: PropTypes.string,
-  selectedOption: PropTypes.number,
-  setSelectedOptionDelegate: PropTypes.func,
-  onChange: PropTypes.func,
-}
 
 /**
  * AsyncTypeahead is a component that allows you to make asynchronous API
@@ -153,9 +92,11 @@ export const AsyncTypeahead = ({
     ) {
       return
     }
-    // Here we call the method defined in useImperativeHandle within Item
+    // Here we call the method defined in useImperativeHandle within PopoverOption
     const itemEl = optionsRefs[entityIndex].current
-    itemEl.scrollToTop()
+    if (itemEl) {
+      itemEl.scrollToTop()
+    }
   }
 
   const handleInputChange = useCallback(
@@ -242,7 +183,7 @@ export const AsyncTypeahead = ({
           {entities.map((item, i) => {
             optionsRefs[i] = React.createRef()
             return (
-              <Item
+              <PopoverOption
                 selectedOption={selectedOption}
                 setSelectedOptionDelegate={setSelectedOptionDelegate}
                 onChange={onChange}

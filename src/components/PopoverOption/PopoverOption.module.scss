@@ -1,0 +1,77 @@
+.Container {
+  position: relative;
+}
+
+.Options {
+  background-color: var(--White);
+  max-height: calc(var(--Space-80) * 3); /* 240px */
+  width: 100%;
+  position: absolute;
+  overflow: auto;
+  border-radius: var(--Space-4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-top: var(--Space-4);
+  z-index: 2;
+  list-style: none;
+  padding: 0;
+}
+
+.Option {
+  /* Needed in Firefox */
+  background-color: var(--White);
+  padding: var(--Space-10);
+  cursor: pointer;
+  width: 100%;
+  border: none;
+
+  &:hover {
+    background: var(--async-active-color, var(--BrandMoss));
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+}
+
+.ActiveOption {
+  background: var(--async-active-color, var(--BrandMoss));
+}
+
+.SelectedOption {
+  background: var(--async-selected-color, var(--BrandForest));
+  color: var(--White);
+}
+
+/**
+ * This covers case where they've made a previous selection, but are now
+ * hovering or keyboard navigating over that same item. We offer the border on
+ * left so they can ascertain it's both been selected and the currently active
+ * (navigated to or hovered over) item. UX credit to Wesley for the idea :)
+ */
+.SelectedOption.ActiveOption {
+  background: var(--async-active-color, var(--BrandMoss));
+  color: inherit;
+  border-left: var(--Space-6) solid
+    var(--async-selected-color, var(--BrandForest));
+}
+
+.Spin {
+  animation: spin 2s infinite linear;
+  position: absolute;
+  right: var(--Space-16);
+  top: calc(50% - var(--Space-8));
+  color: var(--GraySecondary--translucent);
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
