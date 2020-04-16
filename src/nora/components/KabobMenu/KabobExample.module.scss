@@ -1,5 +1,7 @@
 .Container {
+  /* This is required since options are absolutely positioned */
   position: relative;
-  width: 210px;
-  height: 90px;
+  /* These can be set however by the consumer */
+  max-width: 210px;
+  max-height: 90px;
 }
