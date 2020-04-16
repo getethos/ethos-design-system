@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { PopoverOption } from '../PopoverOption'
+import { Option } from '../Popover'
 import PropTypes from 'prop-types'
 import uuidv4 from 'uuid/v4'
 import { useFetchEntities } from './useFetchEntities.js'
@@ -92,7 +92,7 @@ export const AsyncTypeahead = ({
     ) {
       return
     }
-    // Here we call the method defined in useImperativeHandle within PopoverOption
+    // Here we call the method defined in useImperativeHandle within Option
     const itemEl = optionsRefs[entityIndex].current
     if (itemEl) {
       itemEl.scrollToTop()
@@ -183,7 +183,7 @@ export const AsyncTypeahead = ({
           {entities.map((item, i) => {
             optionsRefs[i] = React.createRef()
             return (
-              <PopoverOption
+              <Option
                 selectedOption={selectedOption}
                 setSelectedOptionDelegate={setSelectedOptionDelegate}
                 onChange={onChange}

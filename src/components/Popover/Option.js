@@ -1,9 +1,9 @@
 import React, { forwardRef, useImperativeHandle, useRef } from 'react'
 import PropTypes from 'prop-types'
 import scrollToParentTop from '../../helpers/scrollToParentTop.js'
-import styles from './PopoverOption.module.scss'
+import styles from './Option.module.scss'
 
-export const PopoverOption = forwardRef((props, forwardedRef) => {
+export const Option = forwardRef((props, forwardedRef) => {
   const innerRef = useRef()
   const {
     currentActive,
@@ -46,8 +46,8 @@ export const PopoverOption = forwardRef((props, forwardedRef) => {
     </li>
   )
 })
-PopoverOption.displayName = 'PopoverOption'
-PopoverOption.propTypes = {
+Option.displayName = 'Option'
+Option.propTypes = {
   currentActive: PropTypes.number,
   itemIndex: PropTypes.number,
   item: PropTypes.object,
