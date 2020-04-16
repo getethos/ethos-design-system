@@ -1,21 +1,38 @@
 ```jsx
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import uuidv4 from 'uuid/v4'
+import { codes } from '../../../helpers/constants.js'
 import styles from '../../../components/AsyncTypeahead/AsyncTypeahead.module.scss'
 import kabobExampleStyles from './KabobExample.module.scss'
 
-const PopoverChildren = ({ options, setSelected }) => {
-  // TODO -- requires a keydown handler
-  // const [activeOption, setActiveOption] = useState(0)
-  const [selectedOption, setSelectedOption] = useState(-1)
-
+const PopoverChildren = ({
+  options,
+  setSelected,
+  showPopover,
+  setShowPopover,
+  activeOption,
+  selectedOption,
+}) => {
   const optionsRefs = Array(options.length)
     .fill(0)
     .map(() => React.createRef())
 
-  const onChange = useCallback((item, i) => {
+  const onClick = useCallback((item, i) => {
     setSelected({ index: i, value: item.value })
   })
+
+  const getOptionClasses = (index) => {
+    let klasses = styles.Option
+    if (activeOption === index) {
+      console.log('Setting active classes...')
+      klasses = `${klasses} ${styles.ActiveOption}`
+    }
+    if (index === selectedOption) {
+      console.log('Setting selected classes...')
+      klasses = `${klasses} ${styles.SelectedOption}`
+    }
+    return klasses
+  }
 
   return (
     <div className={kabobExampleStyles.Container}>
@@ -25,10 +42,9 @@ const PopoverChildren = ({ options, setSelected }) => {
           return (
             <li key={uuidv4()} ref={optionsRefs[i]}>
               <button
-                className={styles.Option}
+                className={getOptionClasses(i)}
                 onClick={() => {
-                  setSelectedOption(i)
-                  onChange(item, i)
+                  onClick(item, i)
                 }}
               >
                 {item.value}
@@ -41,7 +57,10 @@ const PopoverChildren = ({ options, setSelected }) => {
   )
 }
 const ExampleConsumer = () => {
-  const [showOptions, setShowOptions] = useState(false)
+  console.log('ExampleConsumer...')
+  const [showPopover, setShowPopover] = useState(false)
+  const [activeOption, setActiveOption] = useState(0)
+  const [selectedOption, setSelectedOption] = useState(-1)
   const options = [
     {
       value: 'OTAF Reason',
@@ -50,27 +69,79 @@ const ExampleConsumer = () => {
       value: 'Amendment',
     },
   ]
-
-  const setActiveOption = (option) => {
-    console.log('setActiveOption--option: ', option)
-  }
-
-  const setSelectedOption = (option) => {
-    console.log('setSelectedOption--option: ', option)
-    setShowOptions(false)
+  /**
+   * Handles keydown events so we can navigate via tabs and arrows
+   */
+  const handleOnKeydown = (ev) => {
+    console.log('handleOnKeydown')
+    switch (ev.keyCode) {
+      case codes.SPACE:
+      case codes.RETURN:
+        console.log('space or return')
+        setSelected({ index: i, value: item.value })
+        break
+      case codes.TAB:
+        if (ev.shiftKey) {
+          console.log('shift tab')
+        } else {
+          console.log('tab')
+        }
+        break
+      case codes.UP:
+        console.log('up')
+        ev.preventDefault()
+        if (activeOption > 0) {
+          const previous = activeOption - 1
+          setActiveOption(previous)
+        }
+        break
+      case codes.DOWN:
+        console.log('down')
+        ev.preventDefault()
+        if (!showPopover) {
+          setShowPopover(true)
+        }
+        if (activeOption < options.length - 1) {
+          console.log('increment next active')
+          const next = activeOption + 1
+          setActiveOption(next)
+        } else {
+          console.log('circle aournd next active')
+          setActiveOption(0)
+        }
+        break
+      default:
+        break
+    }
   }
 
   return (
     <KabobMenu
       onFocus={(ev) => {
-        setShowOptions(true)
+        console.log('onFocus from KabobMenu Button...')
+        if (!showPopover) {
+          setShowPopover(true)
+        }
       }}
       onClick={(ev) => {
-        setShowOptions(true)
+        console.log('onClick from clicking on KabobMenu Button...')
+        if (!showPopover) {
+          setShowPopover(true)
+        }
       }}
+      // onChange={handleInputChange}
+      onKeyDown={handleOnKeydown}
+      // onBlur={() => setTimeout(() => setSelectedOption(false), 200)}
     >
-      {showOptions && (
-        <PopoverChildren options={options} setSelected={setSelectedOption} />
+      {showPopover && (
+        <PopoverChildren
+          options={options}
+          setSelected={setSelectedOption}
+          showPopover
+          setShowPopover
+          activeOption
+          selectedOption
+        />
       )}
     </KabobMenu>
   )
