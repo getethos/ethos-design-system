@@ -2,8 +2,8 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { NoOptions, Options } from '../Popover'
 import PropTypes from 'prop-types'
 import useScrollItemIntoView from '../../hooks/useScrollItemIntoView'
+import usePopoverNavigation from '../../hooks/usePopoverNavigation'
 import { useFetchEntities } from './useFetchEntities'
-import { codes } from '../../helpers/constants'
 import styles from './AsyncTypeahead.module.scss'
 
 /**
@@ -32,18 +32,19 @@ export const AsyncTypeahead = ({
 }) => {
   let optionsRefs = []
   const [searchString, setSearchString] = useState('')
-  const [showOptions, setShowOptions] = useState(false)
-  const [activeOption, setActiveOption] = useState(0)
-  const [selectedOption, setSelectedOption] = useState(-1)
-
-  const { scrollItemIntoView } = useScrollItemIntoView()
-
   const { entities, loading } = useFetchEntities({
     searchString,
     fetchEntities: fetchCallback,
     entitiesKey,
     delay: 300,
   })
+
+  // Popover setup
+  const [showPopover, setShowPopover] = useState(false)
+  const [activeOption, setActiveOption] = useState(0)
+  const [selectedOption, setSelectedOption] = useState(-1)
+  const { scrollItemIntoView } = useScrollItemIntoView()
+  const { handlePopoverNavigation } = usePopoverNavigation()
 
   /**
    * Has user typed min chars to show dropdown options
@@ -57,15 +58,7 @@ export const AsyncTypeahead = ({
    */
   const setShow = (e) => {
     const inputValue = e.target.value
-    setShowOptions(hasMinChars(inputValue))
-  }
-
-  /**
-   * Sets the selected options and also active option
-   */
-  const setSelectedAndActiveOptions = (index) => {
-    setSelectedOption(index)
-    setActiveOption(index)
+    setShowPopover(hasMinChars(inputValue))
   }
 
   /**
@@ -83,7 +76,7 @@ export const AsyncTypeahead = ({
   const handleInputChange = useCallback(
     (e) => {
       const inputValue = e.target.value
-      setShowOptions(hasMinChars(inputValue))
+      setShowPopover(hasMinChars(inputValue))
       if (!isSearchTermShorterThenSelectedValue(inputValue)) {
         // For clearing selected input. Resets back to current search term
         setSearchString(inputValue)
@@ -94,48 +87,11 @@ export const AsyncTypeahead = ({
   )
 
   /**
-   * Handles keydown events so we can navigate via tabs and arrows
+   * Sets the selected options and also active option
    */
-  const handleOnKeydown = (ev) => {
-    switch (ev.keyCode) {
-      case codes.SPACE:
-      case codes.RETURN:
-        // Call the consumer with the currently selected item so they can update
-        // their state accordingly, and also dismiss the dropdown options
-        setSelectedAndActiveOptions(activeOption)
-        setShowOptions(false)
-        onChange(entities[activeOption])
-        scrollItemIntoView(activeOption, optionsRefs)
-        break
-      case codes.UP:
-        // Prevents input cursor from jumping
-        ev.preventDefault()
-        if (activeOption > 0) {
-          const previous = activeOption - 1
-          setActiveOption(previous)
-          scrollItemIntoView(previous, optionsRefs)
-        }
-        break
-      case codes.DOWN:
-        // Prevents input cursor from jumping
-        ev.preventDefault()
-        // if options closed and we're attempting to trigger opening w/down arrow
-        if (!showOptions) {
-          setShowOptions(true)
-        }
-        if (activeOption < entities.length - 1) {
-          const next = activeOption + 1
-          setActiveOption(next)
-          scrollItemIntoView(next, optionsRefs)
-        } else {
-          // On last item so circle back around to topmost item
-          setActiveOption(0)
-          scrollItemIntoView(0, optionsRefs)
-        }
-        break
-      default:
-        break
-    }
+  const setSelectedAndActiveOptions = (index) => {
+    setSelectedOption(index)
+    setActiveOption(index)
   }
 
   /**
@@ -155,7 +111,7 @@ export const AsyncTypeahead = ({
    */
   const getOptions = () => {
     // We're done loading, have our entities, and enough characters
-    if (!loading && showOptions && entities) {
+    if (!loading && showPopover && entities) {
       return (
         <Options
           activeOption={activeOption}
@@ -167,7 +123,7 @@ export const AsyncTypeahead = ({
           setSelectedAndActiveOptions={setSelectedAndActiveOptions}
         />
       )
-    } else if (loading && showOptions) {
+    } else if (loading && showPopover) {
       return <NoOptions loadingText="Loading..." />
     }
   }
@@ -179,8 +135,20 @@ export const AsyncTypeahead = ({
         onChange: handleInputChange,
         onFocus: setShow,
         onClick: setShow,
-        onKeyDown: handleOnKeydown,
-        onBlur: () => setTimeout(() => setShowOptions(false), 200),
+        onKeyDown: (ev) =>
+          handlePopoverNavigation({
+            ev,
+            items: entities,
+            onChange,
+            optionsRefs,
+            activeOption,
+            setActiveOption,
+            scrollItemIntoView,
+            showPopover,
+            setShowPopover,
+            setSelectedAndActiveOptions,
+          }),
+        onBlur: () => setTimeout(() => setShowPopover(false), 200),
         placeholder,
       })}
       {getOptions()}
