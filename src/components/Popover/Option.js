@@ -3,6 +3,11 @@ import PropTypes from 'prop-types'
 import scrollToParentTop from '../../helpers/scrollToParentTop.js'
 import styles from './Option.module.scss'
 
+/**
+ * A single option item e.g. <li>..</li>
+ * @param {object} props -- the props
+ * @param {int} forwardedRef - TBD
+ */
 export const Option = forwardRef((props, forwardedRef) => {
   const innerRef = useRef()
   const {

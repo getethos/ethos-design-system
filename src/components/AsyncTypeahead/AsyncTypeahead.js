@@ -1,8 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Option } from '../Popover'
+import { NoOptions, Options } from '../Popover'
 import PropTypes from 'prop-types'
-import uuidv4 from 'uuid/v4'
 import { useFetchEntities } from './useFetchEntities.js'
 import { codes } from '../../helpers/constants.js'
 import styles from './AsyncTypeahead.module.scss'
@@ -176,43 +174,18 @@ export const AsyncTypeahead = ({
     // We're done loading, have our entities, and enough characters
     if (!loading && showOptions && entities) {
       return (
-        <ul
-          data-testid="typeahead-options-container"
-          className={styles.Options}
-        >
-          {entities.map((item, i) => {
-            optionsRefs[i] = React.createRef()
-            return (
-              <Option
-                selectedOption={selectedOption}
-                setSelectedOptionDelegate={setSelectedOptionDelegate}
-                onChange={onChange}
-                currentActive={activeOption}
-                item={item}
-                itemIndex={i}
-                dataKey={dataKey}
-                key={uuidv4()}
-                ref={optionsRefs[i]}
-              />
-            )
-          })}
-        </ul>
+        <Options
+          activeOption={activeOption}
+          dataKey={dataKey}
+          entities={entities}
+          onChange={onChange}
+          optionsRefs={optionsRefs}
+          selectedOption={selectedOption}
+          setSelectedOptionDelegate={setSelectedOptionDelegate}
+        />
       )
     } else if (loading && showOptions) {
-      return (
-        <>
-          <FontAwesomeIcon
-            className={styles.Spin}
-            icon={['far', 'circle-notch']}
-          />
-          <ul
-            data-testid="typeahead-no-options-container"
-            className={styles.Options}
-          >
-            <li className={styles.Option}>Loading...</li>
-          </ul>
-        </>
-      )
+      return <NoOptions loadingText="Loading..." />
     }
   }
 
