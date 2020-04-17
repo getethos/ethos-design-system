@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './Options.module.scss'
 import optionStyles from './Option.module.scss'
@@ -19,4 +20,7 @@ export const NoOptions = ({ loadingText }) => {
       </ul>
     </>
   )
+}
+NoOptions.propTypes = {
+  loadingText: PropTypes.string.isRequired,
 }
