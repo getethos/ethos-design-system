@@ -180,7 +180,7 @@ interface downstreamButtonProps {
   name?: string
   onClick?: any
   'data-tid'?: string
-  children: string
+  children: React.ReactNode
   role?: string
   ariaLabelId?: string
 }
