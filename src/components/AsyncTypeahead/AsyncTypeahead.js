@@ -60,7 +60,7 @@ export const AsyncTypeahead = ({
   /**
    * Sets the selected options and also active option
    */
-  const setSelectedOptionDelegate = (index) => {
+  const setSelectedAndActiveOptions = (index) => {
     setSelectedOption(index)
     setActiveOption(index)
   }
@@ -119,7 +119,7 @@ export const AsyncTypeahead = ({
       case codes.RETURN:
         // Call the consumer with the currently selected item so they can update
         // their state accordingly, and also dismiss the dropdown options
-        setSelectedOptionDelegate(activeOption)
+        setSelectedAndActiveOptions(activeOption)
         setShowOptions(false)
         onChange(entities[activeOption])
         scrollItemIntoView(activeOption)
@@ -181,7 +181,7 @@ export const AsyncTypeahead = ({
           onChange={onChange}
           optionsRefs={optionsRefs}
           selectedOption={selectedOption}
-          setSelectedOptionDelegate={setSelectedOptionDelegate}
+          setSelectedAndActiveOptions={setSelectedAndActiveOptions}
         />
       )
     } else if (loading && showOptions) {

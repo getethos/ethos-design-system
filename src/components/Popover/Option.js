@@ -16,7 +16,7 @@ export const Option = forwardRef((props, forwardedRef) => {
     item,
     dataKey,
     selectedOption,
-    setSelectedOptionDelegate,
+    setSelectedAndActiveOptions,
     onChange,
   } = props
   useImperativeHandle(forwardedRef, () => ({
@@ -42,7 +42,7 @@ export const Option = forwardRef((props, forwardedRef) => {
       <button
         className={className}
         onClick={() => {
-          setSelectedOptionDelegate(itemIndex)
+          setSelectedAndActiveOptions(itemIndex)
           onChange(item)
         }}
       >
@@ -58,6 +58,6 @@ Option.propTypes = {
   item: PropTypes.object,
   dataKey: PropTypes.string,
   selectedOption: PropTypes.number,
-  setSelectedOptionDelegate: PropTypes.func,
+  setSelectedAndActiveOptions: PropTypes.func,
   onChange: PropTypes.func,
 }

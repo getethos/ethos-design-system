@@ -14,7 +14,7 @@ import uuidv4 from 'uuid/v4'
  * @param {func} onChange - callback for on change
  * @param {array} optionsRefs- an array of option refs
  * @param {int} selectedOption - the currently selected option item
- * @param {func} setSelectedOptionDelegate - callback that gets called
+ * @param {func} setSelectedAndActiveOptions - callback that gets called
  * once an option is selected
  */
 export const Options = ({
@@ -24,7 +24,7 @@ export const Options = ({
   onChange,
   optionsRefs,
   selectedOption,
-  setSelectedOptionDelegate,
+  setSelectedAndActiveOptions,
 }) => {
   return (
     <ul data-testid="typeahead-options-container" className={styles.Options}>
@@ -33,7 +33,7 @@ export const Options = ({
         return (
           <Option
             selectedOption={selectedOption}
-            setSelectedOptionDelegate={setSelectedOptionDelegate}
+            setSelectedAndActiveOptions={setSelectedAndActiveOptions}
             onChange={onChange}
             currentActive={activeOption}
             item={item}
@@ -55,5 +55,5 @@ Option.propTypes = {
   onChange: PropTypes.func,
   optionsRefs: PropTypes.array,
   selectedOption: PropTypes.number,
-  setSelectedOptionDelegate: PropTypes.func,
+  setSelectedAndActiveOptions: PropTypes.func,
 }
