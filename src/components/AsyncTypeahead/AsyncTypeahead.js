@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import { NoOptions, Options } from '../Popover'
 import PropTypes from 'prop-types'
-import { useFetchEntities } from './useFetchEntities.js'
-import { codes } from '../../helpers/constants.js'
+import useScrollItemIntoView from '../../hooks/useScrollItemIntoView'
+import { useFetchEntities } from './useFetchEntities'
+import { codes } from '../../helpers/constants'
 import styles from './AsyncTypeahead.module.scss'
 
 /**
@@ -34,6 +35,8 @@ export const AsyncTypeahead = ({
   const [showOptions, setShowOptions] = useState(false)
   const [activeOption, setActiveOption] = useState(0)
   const [selectedOption, setSelectedOption] = useState(-1)
+
+  const { scrollItemIntoView } = useScrollItemIntoView()
 
   const { entities, loading } = useFetchEntities({
     searchString,
@@ -77,26 +80,6 @@ export const AsyncTypeahead = ({
     )
   }
 
-  /**
-   * Used to scroll dropdown option in to view if it's hidden
-   */
-  const scrollItemIntoView = (entityIndex) => {
-    /**
-     * This is here to account for when React unmounts our ref
-     */
-    if (
-      !optionsRefs ||
-      !optionsRefs[entityIndex || !optionsRefs[entityIndex]]
-    ) {
-      return
-    }
-    // Here we call the method defined in useImperativeHandle within Option
-    const itemEl = optionsRefs[entityIndex].current
-    if (itemEl) {
-      itemEl.scrollToTop()
-    }
-  }
-
   const handleInputChange = useCallback(
     (e) => {
       const inputValue = e.target.value
@@ -122,7 +105,7 @@ export const AsyncTypeahead = ({
         setSelectedAndActiveOptions(activeOption)
         setShowOptions(false)
         onChange(entities[activeOption])
-        scrollItemIntoView(activeOption)
+        scrollItemIntoView(activeOption, optionsRefs)
         break
       case codes.UP:
         // Prevents input cursor from jumping
@@ -130,7 +113,7 @@ export const AsyncTypeahead = ({
         if (activeOption > 0) {
           const previous = activeOption - 1
           setActiveOption(previous)
-          scrollItemIntoView(previous)
+          scrollItemIntoView(previous, optionsRefs)
         }
         break
       case codes.DOWN:
@@ -143,11 +126,11 @@ export const AsyncTypeahead = ({
         if (activeOption < entities.length - 1) {
           const next = activeOption + 1
           setActiveOption(next)
-          scrollItemIntoView(next)
+          scrollItemIntoView(next, optionsRefs)
         } else {
           // On last item so circle back around to topmost item
           setActiveOption(0)
-          scrollItemIntoView(0)
+          scrollItemIntoView(0, optionsRefs)
         }
         break
       default:
