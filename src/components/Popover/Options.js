@@ -47,7 +47,7 @@ export const Options = ({
     </ul>
   )
 }
-Options.displayName = 'Option'
+Options.displayName = 'Options'
 Options.propTypes = {
   activeOption: PropTypes.number,
   dataKey: PropTypes.string,
