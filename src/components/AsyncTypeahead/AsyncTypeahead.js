@@ -151,6 +151,7 @@ export const AsyncTypeahead = ({
         onBlur: () => setTimeout(() => setShowPopover(false), 200),
         placeholder,
       })}
+      {console.log('async typeahead showPopover: ', showPopover)}
       {getOptions()}
     </div>
   )

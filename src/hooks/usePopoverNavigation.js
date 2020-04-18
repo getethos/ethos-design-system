@@ -31,10 +31,14 @@ const usePopoverNavigation = () => {
     switch (ev.keyCode) {
       case codes.SPACE:
       case codes.RETURN:
+        ev.preventDefault()
         // Call the consumer with the currently selected item so they can update
         // their state accordingly, and also dismiss the dropdown options
         setSelectedAndActiveOptions(activeOption)
-        setShowPopover(false)
+        // If this is being used on the trigger button or similar, we may need to
+        // show our popover. If our popover is displayed, we want to dismiss it
+        // as we've selected an item.
+        setShowPopover(!showPopover)
         onChange(items[activeOption])
         scrollItemIntoView(activeOption, optionsRefs)
         break

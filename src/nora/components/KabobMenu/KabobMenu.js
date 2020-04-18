@@ -20,15 +20,19 @@ const KabobIcon = () => {
 }
 
 export const KabobMenu = ({
-  // onBlur,
+  className,
   onClick,
-  onFocus,
+  // onFocus,
   onKeyDown,
   children,
 }) => {
+  const containerClasses = className
+    ? `${styles.Container} ${className}`
+    : styles.Container
+
   return (
-    <div className={styles.Container} onKeyDown={onKeyDown}>
-      <button className={styles.Box} onClick={onClick} onFocus={onFocus}>
+    <div className={containerClasses} onKeyDown={onKeyDown}>
+      <button className={styles.Box} onClick={onClick}>
         <KabobIcon />
       </button>
       {children}
@@ -37,12 +41,12 @@ export const KabobMenu = ({
 }
 
 KabobMenu.propTypes = {
+  /** `className` - optional classes to add onto the Kabob's container element styles */
+  className: PropTypes.string,
   /** `onFocus` - required callback for when the kabob is focused */
-  onFocus: PropTypes.func.isRequired,
+  // onFocus: PropTypes.func,
   /** `onClick` - required callback for when the kabob is clicked */
-  onClick: PropTypes.func.isRequired,
-  /** `onBlur` - required callback for when the kabob is blurred */
-  // onBlur: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   /** `onKeyDown` - required callback for when a keydown event occurs */
   onKeyDown: PropTypes.func.isRequired,
   /** `children` - required node to display as a popover */
