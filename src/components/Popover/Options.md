@@ -40,7 +40,6 @@ const ExamplePopoverConsumer = () => {
   }
 
   const setSelectedAndActiveOptions = (index) => {
-    console.log('setSelectedAndActiveOptions called w/index: ', index)
     setSelectedOption(index)
     setActiveOption(index)
   }
@@ -66,7 +65,6 @@ const ExamplePopoverConsumer = () => {
         })
       }
     >
-      {console.log('isOpen: ', isOpen)}
       {isOpen && (
         <ul className={styles.Container}>
           <Options

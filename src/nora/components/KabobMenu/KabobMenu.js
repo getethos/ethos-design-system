@@ -19,13 +19,7 @@ const KabobIcon = () => {
   )
 }
 
-export const KabobMenu = ({
-  className,
-  onClick,
-  // onFocus,
-  onKeyDown,
-  children,
-}) => {
+export const KabobMenu = ({ className, onClick, onKeyDown, children }) => {
   const containerClasses = className
     ? `${styles.Container} ${className}`
     : styles.Container
@@ -43,8 +37,6 @@ export const KabobMenu = ({
 KabobMenu.propTypes = {
   /** `className` - optional classes to add onto the Kabob's container element styles */
   className: PropTypes.string,
-  /** `onFocus` - required callback for when the kabob is focused */
-  // onFocus: PropTypes.func,
   /** `onClick` - required callback for when the kabob is clicked */
   onClick: PropTypes.func,
   /** `onKeyDown` - required callback for when a keydown event occurs */
