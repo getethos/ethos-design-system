@@ -4,8 +4,8 @@ import { Body2, Spacer } from '../../../components/index'
 
 const ExampleKabobMenuConsumer = () => {
   const [isOpen, setIsOpen] = React.useState(false)
-  const [activeOption, setActiveOption] = React.useState(0)
-  const [selectedOption, setSelectedOption] = React.useState(-1)
+  const [, setActiveOption] = React.useState(0)
+  const [, setSelectedOption] = React.useState(-1)
 
   const [lastSelected, setLastSelected] = React.useState('Select something')
 
