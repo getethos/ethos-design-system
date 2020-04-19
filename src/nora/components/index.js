@@ -1,6 +1,7 @@
 export { Header } from './Header'
 export { Icon } from './Icon'
 export { IconLink } from './IconLink'
+export { KabobMenu } from './KabobMenu'
 export { NoraButton } from './NoraButton'
 export { NoraCheckboxInput } from './NoraCheckboxInput'
 export { NoraDrawer } from './NoraDrawer'

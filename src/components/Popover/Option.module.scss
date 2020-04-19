@@ -5,6 +5,7 @@
   cursor: pointer;
   width: 100%;
   border: none;
+  color: var(--async-color, inherit);
 
   &:hover {
     background: var(--async-active-color, var(--BrandMoss));

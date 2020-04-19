@@ -4,9 +4,7 @@ import scrollToParentTop from '../../helpers/scrollToParentTop.js'
 import styles from './Option.module.scss'
 
 /**
- * A single option item e.g. <li>..</li>
- * @param {object} props -- the props
- * @param {int} forwardedRef - TBD
+ * Represents a single option item e.g. `<li>..</li>`. See propTypes for details.
  */
 export const Option = forwardRef((props, forwardedRef) => {
   const innerRef = useRef()
@@ -53,11 +51,21 @@ export const Option = forwardRef((props, forwardedRef) => {
 })
 Option.displayName = 'Option'
 Option.propTypes = {
+  /** The currently active option item. This is the item that is currently
+   * being focused on (but not necessarily selected yet!) */
   currentActive: PropTypes.number,
+  /** The option item's index in the options */
   itemIndex: PropTypes.number,
+  /** The data object with the data for this option via the `dataKey` */
   item: PropTypes.object,
+  /** The key to access via `item` e.g. `item.name` */
   dataKey: PropTypes.string,
+  /** The currently selected option item. Unlike an active item, this signifies
+      that the user has actually selected or chosen this item. Of course an
+      item can be both active and selected. */
   selectedOption: PropTypes.number,
+  /** Callback that gets called once an option is selected */
   setSelectedAndActiveOptions: PropTypes.func,
+  /** Callback that gets called on change */
   onChange: PropTypes.func,
 }

@@ -24,6 +24,7 @@ export { Logo } from './Logo'
 export { Media } from './Media'
 export { Modal } from './Modal'
 export { NumberInput } from './NumberInput/NumberInput'
+export { NoOptions, Option, Options } from './Popover'
 export { OPTION_BUTTON_STYLES } from './ButtonSelectGroup/OptionButton'
 export { PasswordInput } from './PasswordInput'
 export { RadioButtonGroup } from './RadioButtons'
@@ -67,6 +68,10 @@ export { ZipInput } from './ZipInput'
 export { Header } from '../nora/components/index'
 export { Icon } from '../nora/components/index'
 export { IconLink } from '../nora/components/index'
+export {
+  KabobMenuContainer,
+  KabobMenu,
+} from '../nora/components/KabobMenu/index'
 export { NoraButton } from '../nora/components/index'
 export { NoraCheckboxInput } from '../nora/components/index'
 export { NoraDrawer } from '../nora/components/index'

@@ -1,0 +1,15 @@
+@import '../Colors.css';
+.Container {
+  --async-active-color: var(--NoraBlue-100);
+  --async-selected-color: var(--NoraBlue-400);
+  position: relative;
+  /* These can be set however we wish depending on usage scenario */
+  max-width: 210px;
+  max-height: 90px;
+}
+
+.KabobContainer {
+  --async-color: var(--NoraNeutral-400);
+  /* Required as this covers .SelectedOption.ActiveOption which `inherits` */
+  color: var(--NoraNeutral-400);
+}

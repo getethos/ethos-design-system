@@ -14,4 +14,5 @@ export const codes = {
   UP: 38,
   RIGHT: 39,
   DOWN: 40,
+  TAB: 9,
 }
