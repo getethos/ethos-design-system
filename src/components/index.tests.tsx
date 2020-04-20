@@ -12,6 +12,7 @@ import { Icon } from './index'
 import { IconLink } from './index'
 import { Modal } from './index'
 import { Snack } from './index'
+import { KabobMenuContainer } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
 import { NoraRadioButtonGroup } from './index'
@@ -36,6 +37,21 @@ const UniversalNavbarTest: React.FC = () => (
 
 // -------------- Localized tests ----------------//
 
+class KabobMenuContainerTest extends React.Component<any, any> {
+  render() {
+    return (
+      <KabobMenuContainer
+        dataKey="name"
+        items={[{ name: 'jack' }, { name: 'jill' }, { name: 'joe' }]}
+        isOpen={false}
+        setIsOpen={() => {}}
+        setLastSelected={() => {}}
+        kabobContainerClasses={'.a{}'}
+        popoverContainerClasses={'.b{}'}
+      />
+    )
+  }
+}
 class NoraSnackbarTest extends React.Component<any, any> {
   render() {
     return (
