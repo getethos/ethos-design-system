@@ -53,19 +53,19 @@ Option.displayName = 'Option'
 Option.propTypes = {
   /** The currently active option item. This is the item that is currently
    * being focused on (but not necessarily selected yet!) */
-  currentActive: PropTypes.number,
+  currentActive: PropTypes.number.isRequired,
   /** The option item's index in the options */
-  itemIndex: PropTypes.number,
+  itemIndex: PropTypes.number.isRequired,
   /** The data object with the data for this option via the `dataKey` */
-  item: PropTypes.object,
+  item: PropTypes.object.isRequired,
   /** The key to access via `item` e.g. `item.name` */
-  dataKey: PropTypes.string,
+  dataKey: PropTypes.string.isRequired,
   /** The currently selected option item. Unlike an active item, this signifies
       that the user has actually selected or chosen this item. Of course an
       item can be both active and selected. */
-  selectedOption: PropTypes.number,
+  selectedOption: PropTypes.number.isRequired,
   /** Callback that gets called once an option is selected */
-  setSelectedAndActiveOptions: PropTypes.func,
+  setSelectedAndActiveOptions: PropTypes.func.isRequired,
   /** Callback that gets called on change */
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 }
