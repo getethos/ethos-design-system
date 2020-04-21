@@ -17,6 +17,7 @@ const usePopoverNavigation = () => {
    * active and selected item indexes
    */
   const handlePopoverNavigation = ({
+    autoopenOnFocus,
     ev,
     items,
     onChange,
@@ -55,7 +56,8 @@ const usePopoverNavigation = () => {
         // Prevents input cursor from jumping
         ev.preventDefault()
         // if options closed and we're attempting to trigger opening w/down arrow
-        if (!showPopover) {
+        // but only if we've opted in with autoopenOnFocus
+        if (!showPopover && autoopenOnFocus) {
           setShowPopover(true)
         }
         if (activeOption < items.length - 1) {

@@ -137,6 +137,7 @@ export const AsyncTypeahead = ({
         onClick: setShow,
         onKeyDown: (ev) =>
           handlePopoverNavigation({
+            autoopenOnFocus: true,
             ev,
             items: entities,
             onChange,
