@@ -73,11 +73,13 @@ export const KabobMenuContainer = ({
     const elements = getFocusableElements(popoverTrapRef.current)
     if (isOpen && elements.length > 0) {
       elements[0].focus()
-      document.body.addEventListener('keydown', handleOnKeyDown)
+      popoverTrapRef.current.addEventListener('keydown', handleOnKeyDown)
     }
     return () => {
       prevFocusedEl.focus()
-      document.body.removeEventListener('keydown', handleOnKeyDown)
+      if (popoverTrapRef && popoverTrapRef.current) {
+        popoverTrapRef.current.removeEventListener('keydown', handleOnKeyDown)
+      }
     }
   }, [popoverTrapRef, isOpen])
 
