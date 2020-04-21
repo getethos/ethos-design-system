@@ -1,11 +1,6 @@
 /// <reference types="react" />
 
-import React, {
-  Component,
-  HTMLAttributes,
-  ReactNode,
-  JSXElementConstructor,
-} from 'react'
+import React, { Component, HTMLAttributes } from 'react'
 
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
