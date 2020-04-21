@@ -966,20 +966,22 @@ declare module 'react' {
 
 export declare const KabobMenuContainer: {
   ({
+    focusRef,
+    tabIndex,
     setIsOpen,
     isOpen,
     items,
     dataKey,
     setLastSelected,
-    kabobContainerClasses,
     popoverContainerClasses,
   }: {
+    focusRef?: any
+    tabIndex?: number
     setIsOpen: (b: boolean) => void
     isOpen: boolean
     items: any[]
     dataKey: string
     setLastSelected: (ls: string) => void
-    kabobContainerClasses: string
     popoverContainerClasses: string
   }): JSX.Element
 }

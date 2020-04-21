@@ -6,14 +6,17 @@ import useScrollItemIntoView from '../../../hooks/useScrollItemIntoView'
 import usePopoverNavigation from '../../../hooks/usePopoverNavigation'
 
 export const KabobMenuContainer = ({
+  focusRef,
+  tabIndex,
   dataKey,
   items,
   isOpen,
   setIsOpen,
   setLastSelected,
-  kabobContainerClasses,
   popoverContainerClasses,
 }) => {
+  const tabIndexResolved = tabIndex ? tabIndex : null
+  const focusRefResolved = focusRef ? focusRef : null
   const [activeOption, setActiveOption] = useState(0)
   const [selectedOption, setSelectedOption] = useState(-1)
   const { scrollItemIntoView } = useScrollItemIntoView()
@@ -35,7 +38,8 @@ export const KabobMenuContainer = ({
 
   return (
     <KabobMenu
-      className={kabobContainerClasses}
+      focusRef={focusRefResolved}
+      tabIndex={tabIndexResolved}
       onClick={() => {
         setIsOpen(!isOpen)
       }}
@@ -74,11 +78,12 @@ export const KabobMenuContainer = ({
 }
 
 KabobMenuContainer.propTypes = {
+  focusRef: PropTypes.object,
+  tabIndex: PropTypes.number,
   setIsOpen: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   items: PropTypes.array.isRequired,
   dataKey: PropTypes.string.isRequired,
   setLastSelected: PropTypes.func.isRequired,
-  kabobContainerClasses: PropTypes.string.isRequired,
   popoverContainerClasses: PropTypes.string.isRequired,
 }
