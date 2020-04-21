@@ -1,5 +1,6 @@
 @import '../Colors.css';
 .Container {
+  /* These custom props that start with --async are for the Popover styles */
   --async-active-color: var(--NoraBlue-100);
   --async-selected-color: var(--NoraBlue-400);
   position: relative;
@@ -10,6 +11,34 @@
 
 .KabobContainer {
   --async-color: var(--NoraNeutral-400);
+
+  /* Kabob custom properties */
+  --kabob-box-height: var(--Space-24);
+  --kabob-box-width: var(--Space-24);
+  --kabob-background-color: var(--White);
+  --kabob-border-color: var(--NoraNeutral-200);
+  --kabob-border-radius: var(--Radius-3);
+  --kabob-background-hover-color: var(--NoraNeutral-100);
+  /*
+
+.Box {
+  height: var(--kabob-box-height, var(--Space-24));
+  width: var(--kabob-box-width, var(--Space-24));
+  background-color: var(--kabob-background-color, var(--White));
+  border: 1px solid var(--kabob-border-color, var(--NoraNeutral-200));
+  border-radius: var(--kabob-border-radius, var(--Radius-3));
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Box:hover {
+  cursor: pointer;
+  background-color: var(--kabob-background-hover-color, var(--NoraNeutral-100));
+}
+*/
+
   /* Required as this covers .SelectedOption.ActiveOption which `inherits` */
   color: var(--NoraNeutral-400);
 }
