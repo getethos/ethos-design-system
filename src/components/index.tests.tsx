@@ -46,7 +46,6 @@ class KabobMenuContainerTest extends React.Component<any, any> {
         isOpen={false}
         setIsOpen={() => {}}
         setLastSelected={() => {}}
-        kabobContainerClasses={'.a{}'}
         popoverContainerClasses={'.b{}'}
       />
     )
