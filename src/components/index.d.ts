@@ -1,6 +1,6 @@
 /// <reference types="react" />
 
-import React, { Component, HTMLAttributes, ReactNode } from 'react'
+import React, { Component, HTMLAttributes } from 'react'
 
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
@@ -848,6 +848,50 @@ export declare const OptionButton: {
   }
 }
 
+export declare const NoOptions: {
+  ({ loadingText }: { loadingText: string }): JSX.Element
+}
+
+export declare const Option: {
+  ({
+    currentActive,
+    itemIndex,
+    item,
+    dataKey,
+    selectedOption,
+    setSelectedAndActiveOptions,
+    onChange,
+  }: {
+    currentActive: number
+    itemIndex: number
+    item: object
+    dataKey: string
+    selectedOption: number
+    setSelectedAndActiveOptions: (index: number) => void
+    onChange: any
+  }): JSX.Element
+}
+
+export declare const Options: {
+  ({
+    activeOption,
+    dataKey,
+    entities,
+    onChange,
+    optionsRefs,
+    selectedOption,
+    setSelectedAndActiveOptions,
+  }: {
+    activeOption: number
+    dataKey: string
+    entities: any[]
+    onChange: any
+    optionsRefs: any[]
+    selectedOption: number
+    setSelectedAndActiveOptions: (index: number) => void
+  }): JSX.Element
+}
+
 export declare const integerMask: any
 export declare const NumberInput: {
   (props: any): JSX.Element
@@ -913,6 +957,28 @@ declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     name?: string
   }
+}
+
+export declare const KabobMenuContainer: {
+  ({
+    focusRef,
+    tabIndex,
+    setIsOpen,
+    isOpen,
+    items,
+    dataKey,
+    setLastSelected,
+    popoverContainerClasses,
+  }: {
+    focusRef?: any
+    tabIndex?: number
+    setIsOpen: (b: boolean) => void
+    isOpen: boolean
+    items: any[]
+    dataKey: string
+    setLastSelected: (ls: string) => void
+    popoverContainerClasses: string
+  }): JSX.Element
 }
 
 interface HeaderProps {

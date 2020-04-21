@@ -3,11 +3,11 @@
 }
 
 .Box {
-  height: var(--Space-24);
-  width: var(--Space-24);
-  background-color: var(--White);
-  border: 1px solid var(--NoraNeutral-200);
-  border-radius: var(--Radius-3);
+  height: var(--kabob-box-height, var(--Space-24));
+  width: var(--kabob-box-width, var(--Space-24));
+  background-color: var(--kabob-background-color, var(--White));
+  border: 1px solid var(--kabob-border-color, var(--NoraNeutral-200));
+  border-radius: var(--kabob-border-radius, var(--Radius-3));
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -16,5 +16,5 @@
 
 .Box:hover {
   cursor: pointer;
-  background-color: var(--NoraNeutral-100);
+  background-color: var(--kabob-background-hover-color, var(--NoraNeutral-100));
 }

@@ -53,11 +53,11 @@ export const Options = ({
 }
 Options.displayName = 'Options'
 Options.propTypes = {
-  activeOption: PropTypes.number,
-  dataKey: PropTypes.string,
-  entities: PropTypes.array,
-  onChange: PropTypes.func,
-  optionsRefs: PropTypes.array,
-  selectedOption: PropTypes.number,
-  setSelectedAndActiveOptions: PropTypes.func,
+  activeOption: PropTypes.number.isRequired,
+  dataKey: PropTypes.string.isRequired,
+  entities: PropTypes.array.isRequired,
+  onChange: PropTypes.func.isRequired,
+  optionsRefs: PropTypes.array.isRequired,
+  selectedOption: PropTypes.number.isRequired,
+  setSelectedAndActiveOptions: PropTypes.func.isRequired,
 }

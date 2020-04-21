@@ -19,24 +19,36 @@ const KabobIcon = () => {
   )
 }
 
-export const KabobMenu = ({ className, onClick, onKeyDown, children }) => {
-  const containerClasses = className
-    ? `${styles.Container} ${className}`
-    : styles.Container
-
+export const KabobMenu = ({
+  focusRef,
+  tabIndex,
+  onClick,
+  onKeyDown,
+  children,
+}) => {
+  const tabIndexResolved = tabIndex ? tabIndex : null
+  const focusRefResolved = focusRef ? focusRef : null
   return (
-    <div className={containerClasses} onKeyDown={onKeyDown}>
-      <button className={styles.Box} onClick={onClick}>
+    <>
+      <button
+        ref={focusRefResolved}
+        tabIndex={tabIndexResolved}
+        className={styles.Box}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+      >
         <KabobIcon />
       </button>
       {children}
-    </div>
+    </>
   )
 }
 
 KabobMenu.propTypes = {
-  /** `className` - optional classes to add onto the Kabob's container element styles */
-  className: PropTypes.string,
+  /** `tabIndex` - Used if data grid wants to put as a handle on the button */
+  focusRef: PropTypes.object,
+  /** `tabIndex` - Used if data grid wants to put focus via tab index attribute */
+  tabIndex: PropTypes.number,
   /** `onClick` - required callback for when the kabob is clicked */
   onClick: PropTypes.func,
   /** `onKeyDown` - required callback for when a keydown event occurs */
