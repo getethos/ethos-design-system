@@ -45,7 +45,9 @@ export const KabobMenu = ({
 }
 
 KabobMenu.propTypes = {
-  /** `tabIndex` - Used if data grid wants to put focus */
+  /** `tabIndex` - Used if data grid wants to put as a handle on the button */
+  focusRef: PropTypes.object,
+  /** `tabIndex` - Used if data grid wants to put focus via tab index attribute */
   tabIndex: PropTypes.number,
   /** `onClick` - required callback for when the kabob is clicked */
   onClick: PropTypes.func,
