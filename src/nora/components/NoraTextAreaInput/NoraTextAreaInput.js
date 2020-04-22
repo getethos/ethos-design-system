@@ -72,7 +72,6 @@ export const NoraTextAreaInput = ({
   // which will in turn update the internal form state as to their validity
   useEffect(() => {
     if (!!formChangeHandler && (resolvedValue || initialValue)) {
-      console.log('TextAreaInput useEffect -- calling doValidation')
       doValidation(resolvedValue || initialValue, '')
     }
   }, [])
@@ -85,7 +84,7 @@ export const NoraTextAreaInput = ({
 
   // TODO: this indicates a field level error on the NoraTextAreaInput
   if (getError(currentError, touched)) {
-    console.log('NoraTextAreaInput field error: ', currentError)
+    // console.log('NoraTextAreaInput field error: ', currentError)
   }
 
   return (

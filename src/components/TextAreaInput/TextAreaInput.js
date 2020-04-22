@@ -78,7 +78,6 @@ function PrivateTextAreaInput({
   // which will in turn update the internal form state as to their validity
   useEffect(() => {
     if (!!formChangeHandler && initialValue) {
-      console.log('TextAreaInput useEffect -- calling doValidation')
       doValidation(initialValue, '')
     }
   }, [])
