@@ -180,6 +180,8 @@ UniversalNavbarExpanded.propTypes = {
       })
     ),
   }).isRequired,
+  /** Estimate copy experiment on optimizely */
+  estimateExperiment: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -188,6 +190,7 @@ UniversalNavbarExpanded.defaultProps = {
   logoHref: '/',
   trackCtaClick: () => {},
   links: {},
+  estimateExperiment: false,
 }
 
 export { UniversalNavbarExpanded }
