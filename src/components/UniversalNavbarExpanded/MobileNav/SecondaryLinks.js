@@ -38,6 +38,7 @@ const SecondaryLinks = ({
         <div
           className={styles.secondaryLinksItem}
           key={`secondaryLinks${index}`}
+          data-optimizely={`estimateNavBarCopyMobileOptimizely${index}`}
         >
           <NavLink
             href={link.href}

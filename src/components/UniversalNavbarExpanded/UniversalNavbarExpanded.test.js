@@ -13,6 +13,17 @@ describe('<UniversalNavbarExpanded>', () => {
         )
       ).toMatchSnapshot()
     })
+    it('builds with sample links provided and estimateExperiment enabled', () => {
+      expect(
+        shallowSnapshot(
+          <UniversalNavbarExpanded
+            logoHref="/"
+            links={CMS_LINKS}
+            estimateExperiment={true}
+          />
+        )
+      ).toMatchSnapshot()
+    })
   })
 })
 

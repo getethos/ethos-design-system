@@ -49,6 +49,8 @@ type UniversalNavbarExpandedProps = {
       title: string
     }
     NAVLINKS: NavLink[]
+    /** Estimate copy experiment on optimizely */
+    estimateExperiment?: boolean
   }
 }
 

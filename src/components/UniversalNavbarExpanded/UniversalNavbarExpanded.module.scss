@@ -95,3 +95,14 @@ $laptop-range-small-end: 929px;
     display: none;
   }
 }
+
+.estimateCopyOptimizely {
+  display: none;
+}
+
+.estimateCopy {
+  width: 100px;
+  @include for-phone-only {
+    display: none;
+  }
+}
