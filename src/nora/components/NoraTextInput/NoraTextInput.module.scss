@@ -1,0 +1,10 @@
+.CompactTextInputContainer {
+  /* TextInput Overrides */
+  > input {
+    height: 40px;
+    border-radius: 3px;
+    /* TODO -- this is overriding EDS TextInput's base padding */
+    padding: 17px var(--Space-16) 15px var(--Space-40);
+    font-size: calc(var(--compact-font-size) * 1px);
+  }
+}

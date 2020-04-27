@@ -18,6 +18,7 @@ import textInputStyles from '../TextInput/TextInput.module.scss'
  */
 export const SearchInput = ({
   disabled = false,
+  compact = false,
   name,
   value,
   onBlur,
@@ -37,8 +38,16 @@ export const SearchInput = ({
     }
   }
 
+  const getContainerClasses = () => {
+    let classes = styles.SearchInputContainer
+    if (compact) {
+      classes = `${styles.SearchInputContainer} ${styles.SearchInputCompact}`
+    }
+    return classes
+  }
+
   return (
-    <div className={styles.SearchInputContainer}>
+    <div className={getContainerClasses()}>
       <input
         type="text"
         disabled={disabled}
@@ -53,7 +62,10 @@ export const SearchInput = ({
         placeholder={placeholder}
         name={name}
       />
-      <FontAwesomeIcon className={styles.SearchIcon} icon={['far', 'search']} />
+      <FontAwesomeIcon
+        className={compact ? styles.SearchIconCompact : styles.SearchIcon}
+        icon={['far', 'search']}
+      />
     </div>
   )
 }
@@ -65,6 +77,8 @@ SearchInput.propTypes = {
   name: PropTypes.string.isRequired,
   /** `value` - value */
   value: PropTypes.string,
+  /** `compact` - whether input should be made more compact in height Search Input is a simple primitive. Please also see `AsyncTypeahead`.*/
+  compact: PropTypes.bool,
   /** `disabled` - whether to disable the search input */
   disabled: PropTypes.bool,
   /** `placeholder` - placeholder text */

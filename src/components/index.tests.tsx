@@ -314,7 +314,16 @@ class SearchInputTest extends React.Component<any, any> {
   render() {
     return (
       <>
-        <SearchInput data-tid="search-input-tid" name="search-input" />
+        <SearchInput
+          data-tid="search-input-tid"
+          name="search-input"
+          onFocus={() => {}}
+          onChange={() => {}}
+          onClick={() => {}}
+          onBlur={() => {}}
+          onKeyDown={() => {}}
+          placeholder="search..."
+        />
       </>
     )
   }

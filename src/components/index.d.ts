@@ -282,23 +282,41 @@ export { COLORS } from './Colors'
 export declare const SearchInput: {
   ({
     disabled,
+    compact,
     name,
-    onEnter,
+    onChange,
+    onFocus,
+    onClick,
+    onBlur,
+    onKeyDown,
     placeholder,
+    value,
     ...rest
   }: {
     [x: string]: any
     disabled?: boolean
+    compact?: boolean
     name: string
-    onEnter?: any
+    onChange?: any
+    onFocus: any
+    onClick: any
+    onBlur: any
+    onKeyDown: any
     placeholder?: string
+    value?: string
   }): JSX.Element
   propTypes: {
     'data-tid': any
     disabled?: boolean
+    compact?: boolean
     name: string
-    onEnter?: any
+    onChange?: any
+    onFocus: any
+    onClick: any
+    onBlur: any
+    onKeyDown: any
     placeholder?: string
+    value?: string
   }
 }
 
