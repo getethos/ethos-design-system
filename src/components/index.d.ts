@@ -1333,7 +1333,7 @@ export declare const NoraButtonInput: {
     iconName: string
     side: string
     buttonDisabled?: boolean
-    onClick?: any
+    onClick?: (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
     // NoraTextInput props are passed through
     type?: string
     'data-tid': string
