@@ -1,5 +1,6 @@
 :root {
   --Radius-3: 3px;
+  --NoraInputHeight: var(--Space-40);
 
   /* Font sizes */
   --Nora-Font-15: 15px;

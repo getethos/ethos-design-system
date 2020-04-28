@@ -15,6 +15,7 @@ import { Snack } from './index'
 import { KabobMenuContainer } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
+import { NoraButtonInput } from './index'
 import { NoraTextInput } from './index'
 import { NoraRadioButtonGroup } from './index'
 import { NoraDrawer } from './index'
@@ -94,6 +95,26 @@ class NoraCheckboxInputTest extends React.Component<any, any> {
           Agreement
         </a>
       </NoraCheckboxInput>
+    )
+  }
+}
+
+class NoraButtonInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraButtonInput
+        name="example"
+        data-tid="the-button-input"
+        formChangeHandler={() => {}}
+        onClick={() => {}}
+        buttonDisabled
+        iconName="trash-alt"
+        iconPrefix="far"
+        side="right"
+        validator={(x) => {
+          return ''
+        }}
+      />
     )
   }
 }

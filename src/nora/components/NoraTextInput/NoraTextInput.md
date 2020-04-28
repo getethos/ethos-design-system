@@ -6,7 +6,6 @@ const formChangeHandlerStub = () => {}
 
 ;<NoraTextInput
   name="example"
-  labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
   data-tid="the-text-input"
   formChangeHandler={formChangeHandlerStub}
   validator={(x) => {
