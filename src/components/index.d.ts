@@ -1331,7 +1331,7 @@ export declare const NoraTextInput: {
     allCaps?: boolean
     initialValue?: string
     formChangeHandler?: (value: string, errorValue: string) => void
-    labelCopy: string
+    labelCopy?: string
     validator?: (value: string) => string
     placeholder?: string
     onBlur?: any
