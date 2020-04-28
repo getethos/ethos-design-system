@@ -18,7 +18,9 @@ export const NoraButtonInput = (props) => {
   const side = cloned.side
   const buttonDisabled = cloned.buttonDisabled
   const onClickHandler = cloned.onClick
+  const additionalClasses = cloned.className
   // Remove these so EDS TextInput et al don't throw error
+  delete cloned.classes
   delete cloned.iconPrefix
   delete cloned.iconName
   delete cloned.side
@@ -39,9 +41,14 @@ export const NoraButtonInput = (props) => {
       classes = styles.ButtonLeft
     }
 
+    if (additionalClasses) {
+      classes = [classes, additionalClasses].join(' ')
+    }
+
     if (buttonDisabled) {
       classes = [classes, styles.Disabled].join(' ')
     }
+
     return classes
   }
 

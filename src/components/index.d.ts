@@ -1310,6 +1310,7 @@ export declare const NoraCheckboxInput: {
 }
 export declare const NoraButtonInput: {
   ({
+    className,
     iconPrefix,
     iconName,
     side,
@@ -1329,6 +1330,7 @@ export declare const NoraButtonInput: {
     onFocus,
     restrictIllegal,
   }: {
+    className?: string
     iconPrefix: string
     iconName: string
     side: string
