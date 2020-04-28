@@ -41,10 +41,6 @@ export const NoraButtonInput = (props) => {
       classes = styles.ButtonLeft
     }
 
-    if (additionalClasses) {
-      classes = [classes, additionalClasses].join(' ')
-    }
-
     if (buttonDisabled) {
       classes = [classes, styles.Disabled].join(' ')
     }
