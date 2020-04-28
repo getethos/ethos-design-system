@@ -1314,6 +1314,7 @@ export declare const NoraButtonInput: {
     iconName,
     side,
     buttonDisabled,
+    onClick,
     // NoraTextInput props are passed through
     type,
     name,
@@ -1332,6 +1333,7 @@ export declare const NoraButtonInput: {
     iconName: string
     side: string
     buttonDisabled?: boolean
+    onClick?: any
     // NoraTextInput props are passed through
     type?: string
     'data-tid': string

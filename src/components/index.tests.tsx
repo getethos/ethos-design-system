@@ -106,6 +106,7 @@ class NoraButtonInputTest extends React.Component<any, any> {
         name="example"
         data-tid="the-button-input"
         formChangeHandler={() => {}}
+        onClick={() => {}}
         buttonDisabled
         iconName="trash-alt"
         iconPrefix="far"
