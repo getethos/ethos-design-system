@@ -26,6 +26,9 @@
   width: var(--Space-40);
   background: transparent;
   color: var(--NoraNeutral-300);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 .ButtonLeft {
   composes: Button;
