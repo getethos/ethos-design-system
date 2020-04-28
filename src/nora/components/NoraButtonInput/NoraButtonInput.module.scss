@@ -1,0 +1,41 @@
+.NoraButtonInputContainer {
+  display: flex;
+}
+
+.Input {
+  flex: 1;
+}
+
+.InputRight {
+  composes: Input;
+  > input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.InputLeft {
+  composes: Input;
+  > input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.Button {
+  width: var(--Space-40);
+  background: transparent;
+  color: var(--NoraNeutral-300);
+}
+.ButtonLeft {
+  composes: Button;
+  margin-right: -1px;
+}
+.ButtonRight {
+  composes: Button;
+  margin-left: -1px;
+}
+
+.Disabled {
+  pointer-events: none;
+}
