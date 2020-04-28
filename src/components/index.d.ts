@@ -540,6 +540,7 @@ export declare const useGridSorting: (
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
 export declare const PasswordInput: (props: any) => JSX.Element
+export declare const NoraPasswordInput: (props: any) => JSX.Element
 
 export declare const TextAreaInput: (downstreamProps: any) => JSX.Element
 

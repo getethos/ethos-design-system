@@ -75,6 +75,7 @@ export {
 export { NoraButton } from '../nora/components/index'
 export { NoraCheckboxInput } from '../nora/components/index'
 export { NoraTextInput } from '../nora/components/index'
+export { NoraPasswordInput } from '../nora/components/index'
 export { NoraDrawer } from '../nora/components/index'
 export { NoraSnackbar } from '../nora/components/index'
 export { NoraRadioButtonGroup } from '../nora/components/index'
