@@ -20,7 +20,7 @@ export const NoraButtonInput = (props) => {
   const onClickHandler = cloned.onClick
   const additionalClasses = cloned.className
   // Remove these so EDS TextInput et al don't throw error
-  delete cloned.classes
+  delete cloned.className
   delete cloned.iconPrefix
   delete cloned.iconName
   delete cloned.side
@@ -51,9 +51,16 @@ export const NoraButtonInput = (props) => {
 
     return classes
   }
+  const getContainerStyles = () => {
+    let classes = styles.NoraButtonInputContainer
+    if (additionalClasses) {
+      classes = [classes, additionalClasses].join(' ')
+    }
+    return classes
+  }
 
   return (
-    <div className={styles.NoraButtonInputContainer}>
+    <div className={getContainerStyles()}>
       {side === 'right' && (
         <NoraTextInput className={styles.InputLeft} {...cloned} />
       )}
