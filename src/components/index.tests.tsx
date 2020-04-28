@@ -15,6 +15,7 @@ import { Snack } from './index'
 import { KabobMenuContainer } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
+import { NoraTextInput } from './index'
 import { NoraRadioButtonGroup } from './index'
 import { NoraDrawer } from './index'
 import { NoraSnackbar } from './index'
@@ -93,6 +94,22 @@ class NoraCheckboxInputTest extends React.Component<any, any> {
           Agreement
         </a>
       </NoraCheckboxInput>
+    )
+  }
+}
+
+class NoraTextInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraTextInput
+        name="example"
+        labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
+        data-tid="the-text-input"
+        formChangeHandler={() => {}}
+        validator={(s) => {
+          return ''
+        }}
+      />
     )
   }
 }
