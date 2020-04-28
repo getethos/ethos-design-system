@@ -1,3 +1,5 @@
+Button on the right side and disabled:
+
 ```jsx
 import validateMinMaxFactory from '../../../validators/validateMinMax'
 import validateExists from '../../../validators/validateExists'
@@ -22,6 +24,8 @@ const formChangeHandlerStub = () => {}
 ></NoraButtonInput>
 ```
 
+Button on the left side and enabled:
+
 ```jsx
 import validateMinMaxFactory from '../../../validators/validateMinMax'
 import validateExists from '../../../validators/validateExists'
@@ -33,9 +37,9 @@ const formChangeHandlerStub = () => {}
   data-tid="the-button-input"
   formChangeHandler={formChangeHandlerStub}
   iconName="trash-alt"
-  buttonDisabled
   iconPrefix="far"
   side="left"
+  onClick={(ev) => console.log('NoraButtonInput onclick called with: ', ev)}
   validator={(x) => {
     const truthyErr = validateExists(x)
     if (!!truthyErr) return truthyErr

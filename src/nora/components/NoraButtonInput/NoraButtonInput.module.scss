@@ -1,3 +1,5 @@
+@import '../../../components/Animation.scss';
+
 .NoraButtonInputContainer {
   display: flex;
 }
@@ -30,11 +32,21 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  transition-property: background-color;
+  transition-duration: var(--transition-duration-short);
+  transition-delay: var(--transition-delay-long);
 }
+.Button:hover {
+  background-color: var(--NoraNeutral-100);
+  transition-delay: var(--transition-delay-short);
+  cursor: pointer;
+}
+
 .ButtonLeft {
   composes: Button;
   margin-right: -1px;
 }
+
 .ButtonRight {
   composes: Button;
   margin-left: -1px;

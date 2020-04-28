@@ -17,11 +17,19 @@ export const NoraButtonInput = (props) => {
   // Side refers to side the button is on (so input is opposite)
   const side = cloned.side
   const buttonDisabled = cloned.buttonDisabled
+  const onClickHandler = cloned.onClick
   // Remove these so EDS TextInput et al don't throw error
   delete cloned.iconPrefix
   delete cloned.iconName
   delete cloned.side
   delete cloned.buttonDisabled
+  delete cloned.onClick
+
+  const onClick = (ev) => {
+    if (onClickHandler) {
+      onClickHandler(ev)
+    }
+  }
 
   const getButtonStyles = () => {
     let classes = ''
@@ -44,10 +52,8 @@ export const NoraButtonInput = (props) => {
       )}
       <button
         className={getButtonStyles()}
-        tabIndex="-1"
-        onClick={() => {
-          console.log('got clicked...')
-        }}
+        tabIndex={buttonDisabled ? '-1' : '0'}
+        onClick={onClick}
       >
         <Icon iconName={iconName} iconPrefix={iconPrefix} />
       </button>
