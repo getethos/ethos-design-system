@@ -1308,6 +1308,46 @@ export declare const NoraCheckboxInput: {
     props: any
   }
 }
+export declare const NoraButtonInput: {
+  ({
+    iconPrefix,
+    iconName,
+    side,
+    buttonDisabled,
+    // NoraTextInput props are passed through
+    type,
+    name,
+    disabled,
+    allCaps,
+    initialValue,
+    formChangeHandler,
+    labelCopy,
+    validator,
+    placeholder,
+    onBlur,
+    onFocus,
+    restrictIllegal,
+  }: {
+    iconPrefix: string
+    iconName: string
+    side: string
+    buttonDisabled?: boolean
+    // NoraTextInput props are passed through
+    type?: string
+    'data-tid': string
+    name: string
+    disabled?: boolean
+    allCaps?: boolean
+    initialValue?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    labelCopy?: string
+    validator?: (value: string) => string
+    placeholder?: string
+    onBlur?: any
+    onFocus?: any
+    restrictIllegal?: boolean
+  }): JSX.Element
+}
 
 export declare const NoraTextInput: {
   ({
