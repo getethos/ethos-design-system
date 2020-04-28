@@ -282,23 +282,41 @@ export { COLORS } from './Colors'
 export declare const SearchInput: {
   ({
     disabled,
+    compact,
     name,
-    onEnter,
+    onChange,
+    onFocus,
+    onClick,
+    onBlur,
+    onKeyDown,
     placeholder,
+    value,
     ...rest
   }: {
     [x: string]: any
     disabled?: boolean
+    compact?: boolean
     name: string
-    onEnter?: any
+    onChange?: any
+    onFocus: any
+    onClick: any
+    onBlur: any
+    onKeyDown: any
     placeholder?: string
+    value?: string
   }): JSX.Element
   propTypes: {
     'data-tid': any
     disabled?: boolean
+    compact?: boolean
     name: string
-    onEnter?: any
+    onChange?: any
+    onFocus: any
+    onClick: any
+    onBlur: any
+    onKeyDown: any
     placeholder?: string
+    value?: string
   }
 }
 
@@ -521,8 +539,8 @@ export declare const useGridSorting: (
 }
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
-
 export declare const PasswordInput: (props: any) => JSX.Element
+export declare const NoraPasswordInput: (props: any) => JSX.Element
 
 export declare const TextAreaInput: (downstreamProps: any) => JSX.Element
 
@@ -1289,6 +1307,37 @@ export declare const NoraCheckboxInput: {
   propTypes: {
     props: any
   }
+}
+
+export declare const NoraTextInput: {
+  ({
+    type,
+    name,
+    disabled,
+    allCaps,
+    initialValue,
+    formChangeHandler,
+    labelCopy,
+    validator,
+    placeholder,
+    onBlur,
+    onFocus,
+    restrictIllegal,
+  }: {
+    type?: string
+    'data-tid': string
+    name: string
+    disabled?: boolean
+    allCaps?: boolean
+    initialValue?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    labelCopy: string
+    validator?: (value: string) => string
+    placeholder?: string
+    onBlur?: any
+    onFocus?: any
+    restrictIllegal?: boolean
+  }): JSX.Element
 }
 
 export declare const Snack: {
