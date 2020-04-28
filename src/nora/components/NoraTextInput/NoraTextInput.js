@@ -27,7 +27,7 @@ NoraTextInput.propTypes = {
   initialValue: PropTypes.string,
   formChangeHandler: PropTypes.func,
   // TODO -- make this optional
-  labelCopy: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
   onBlur: PropTypes.func,

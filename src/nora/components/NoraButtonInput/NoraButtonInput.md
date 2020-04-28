@@ -4,9 +4,9 @@ import validateExists from '../../../validators/validateExists'
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 
-;<NoraTextInput
+;<NoraButtonInput
   name="example"
-  data-tid="the-text-input"
+  data-tid="the-button-input"
   formChangeHandler={formChangeHandlerStub}
   validator={(x) => {
     const truthyErr = validateExists(x)

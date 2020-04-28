@@ -4,9 +4,10 @@ import validateExists from '../../validators/validateExists'
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
 
+// labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
+
 ;<TextInput
   name="example"
-  labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
   data-tid="the-text-input"
   formChangeHandler={formChangeHandlerStub}
   validator={(x) => {
