@@ -34,10 +34,9 @@ function PrivateTextInput({
   ...rest
 }) {
   // Verify that all required props were supplied
-  const [includesRequired] = useRequired(['data-tid', 'name', 'labelCopy'])
+  const [includesRequired] = useRequired(['data-tid', 'name'])
   let allRelevantProps = Object.assign({}, rest, {
     name: name,
-    labelCopy: labelCopy,
     allCaps: allCaps,
   })
   includesRequired(allRelevantProps)
@@ -84,7 +83,6 @@ function PrivateTextInput({
   // which will in turn update the internal form state as to their validity
   useEffect(() => {
     if (!!formChangeHandler && initialValue) {
-      console.log('TextInput useEffect -- calling doValidation')
       doValidation(initialValue, true)
     }
   }, [])
@@ -102,7 +100,7 @@ function PrivateTextInput({
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} />
+      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
       <input
         type={type}
         className={getClasses()}
@@ -126,7 +124,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
   initialValue: PropTypes.string,
-  labelCopy: PropTypes.string.isRequired,
+  labelCopy: PropTypes.string,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
   onBlur: PropTypes.func,

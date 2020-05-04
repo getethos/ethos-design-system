@@ -15,6 +15,8 @@ import { Snack } from './index'
 import { KabobMenuContainer } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
+import { NoraButtonInput } from './index'
+import { NoraTextInput } from './index'
 import { NoraRadioButtonGroup } from './index'
 import { NoraDrawer } from './index'
 import { NoraSnackbar } from './index'
@@ -93,6 +95,42 @@ class NoraCheckboxInputTest extends React.Component<any, any> {
           Agreement
         </a>
       </NoraCheckboxInput>
+    )
+  }
+}
+
+class NoraButtonInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraButtonInput
+        name="example"
+        data-tid="the-button-input"
+        formChangeHandler={() => {}}
+        onClick={() => {}}
+        buttonDisabled
+        iconName="trash-alt"
+        iconPrefix="far"
+        side="right"
+        validator={(x) => {
+          return ''
+        }}
+      />
+    )
+  }
+}
+
+class NoraTextInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraTextInput
+        name="example"
+        labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
+        data-tid="the-text-input"
+        formChangeHandler={() => {}}
+        validator={(s) => {
+          return ''
+        }}
+      />
     )
   }
 }
@@ -314,7 +352,16 @@ class SearchInputTest extends React.Component<any, any> {
   render() {
     return (
       <>
-        <SearchInput data-tid="search-input-tid" name="search-input" />
+        <SearchInput
+          data-tid="search-input-tid"
+          name="search-input"
+          onFocus={() => {}}
+          onChange={() => {}}
+          onClick={() => {}}
+          onBlur={() => {}}
+          onKeyDown={() => {}}
+          placeholder="search..."
+        />
       </>
     )
   }
