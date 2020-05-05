@@ -20,6 +20,7 @@ const options = [
   placeholder="Custom placeholder..."
   onChange={onSelected}
   options={options}
+  data-tid="my-select"
 />
 ```
 

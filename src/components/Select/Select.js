@@ -20,6 +20,7 @@ export const Select = ({
   const compactClass = isCompact ? styles.Compact : ''
   const props = {
     className: `${className ? className : ''} ${compactClass} ${styles.root}`,
+    'aria-label': title, // https://react-select.com/props#select-props
     ...rest,
   }
 
@@ -40,7 +41,7 @@ export const Select = ({
   const SelectTag = getTag()
 
   return (
-    <div className={wrapperClass}>
+    <div className={wrapperClass} data-tid={rest['data-tid']}>
       <SelectTag {...props} />
       {title && <div className={styles.title}>{title}</div>}
     </div>

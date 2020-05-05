@@ -342,6 +342,7 @@ export declare const Select: {
     title?: string
     className?: string
     isCreatable?: boolean
+    'data-tid'?: string
   }
   defaultProps: {
     classNamePrefix?: string
