@@ -14,7 +14,7 @@ describe('Select', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  test('title adds a div and aria-label', () => {
+  test('adding a title prop adds a div and aria-label', () => {
     const tree = renderer
       .create(<Select {...mockProps} title="Hello World" />)
       .toJSON()
