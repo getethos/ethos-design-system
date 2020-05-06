@@ -168,7 +168,6 @@ export const TypeFoundry = (privateProps) => {
 
   // TODO: figure out if downstream or upstream is the correct nomenclature here
   const PublicTypeComponent = (downstreamProps) => {
-    console.log('downstreamProps props in type foundry: ', downstreamProps)
     Object.keys(downstreamProps).forEach(throwIllegalProp)
     return <TypeBase {...downstreamProps} {...privateProps} />
   }
