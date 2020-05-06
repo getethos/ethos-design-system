@@ -25,6 +25,7 @@ import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
 import { SearchInput } from './index'
+import { Stepper } from './index'
 import { TextMaskedInput } from './index'
 import { Tooltip } from './index'
 import { ValueProps } from './index'
@@ -343,6 +344,20 @@ class NumberInputTest extends React.Component<any, any> {
           }
           return n % 2 === 0 ? '' : 'Must be an even number'
         }}
+      />
+    )
+  }
+}
+
+class StepperTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Stepper
+        steps={[
+          { title: 'foo', status: 'completed' },
+          { title: 'bar', status: 'active' },
+          { title: 'baz', status: 'incomplete' },
+        ]}
       />
     )
   }

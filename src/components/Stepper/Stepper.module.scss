@@ -1,0 +1,84 @@
+.StepperContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--Theinhardt-font-stack);
+  > ol,
+  > ul {
+    padding: 0;
+  }
+}
+
+.Node {
+  display: flex;
+  align-items: center;
+  height: var(--Space-32);
+  position: relative;
+}
+
+.Title {
+  color: var(--GrayStrokeAndDisabled--opaque);
+}
+
+.TitleComplete,
+.TitleActive {
+  color: var(--GrayPrimary--opaque);
+}
+.TitleActive {
+  font-weight: 500;
+}
+
+/* Steps are circles until they become completed and turn to checks */
+.Step {
+  width: var(--Space-10);
+  height: var(--Space-10);
+  border-radius: 50%;
+  background-color: var(--GrayStrokeAndDisabled--opaque);
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--Space-10);
+}
+.StepActive {
+  composes: Step;
+  background-color: var(--GrayPrimary--opaque);
+}
+
+/* fontawesome check svg */
+.StepComplete {
+  display: flex;
+  flex-shrink: 0;
+  margin-right: var(--Space-6);
+  color: var(--GrayPrimary--opaque);
+}
+
+.VerticalLine {
+  width: var(--Space-48);
+  display: inline-block;
+  height: 0px;
+  border-bottom-color: var(--GrayStrokeAndDisabled--opaque);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  align-self: center;
+  transform: rotate(90deg);
+  position: absolute;
+  /* Since we've rotated it 90deg we need to manually push it back over */
+  left: -19px;
+}
+.VerticalLineComplete {
+  composes: VerticalLine;
+  border-bottom-color: var(--GrayPrimary--opaque);
+}
+
+/* Hidden visually, but present for assistive tech:
+ see: zellwk.com/blog/hide-content-accessibly */
+.ScreenreaderOnly:not(:focus):not(:active) {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: auto;
+}
