@@ -15,18 +15,6 @@
   position: relative;
 }
 
-.Title {
-  color: var(--GrayStrokeAndDisabled--opaque);
-}
-
-.TitleComplete,
-.TitleActive {
-  color: var(--GrayPrimary--opaque);
-}
-.TitleActive {
-  font-weight: 500;
-}
-
 /* Steps are circles until they become completed and turn to checks */
 .Step {
   width: var(--Space-10);
