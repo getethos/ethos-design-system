@@ -1,6 +1,4 @@
-/* Hidden visually, but present for assistive tech
-https://zellwk.com/blog/hide-content-accessibly/
-*/
+/* Hidden visually, but present for assistive tech https://zellwk.com/blog/hide-content-accessibly/ */
 .ScreenreaderOnly:not(:focus):not(:active) {
   border: 0;
   margin: 0;
