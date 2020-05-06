@@ -17,7 +17,6 @@ const Demo = () => {
   ])
 
   const set1 = () => {
-    console.log('set1')
     const stepz = steps
     stepz[0].status = 'active'
     stepz[0].title = 'Now Active'

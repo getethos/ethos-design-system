@@ -29,7 +29,6 @@ export const Stepper = ({ steps }) => {
 
   return (
     <div className={styles.StepperContainer} role="group" aria-label="progress">
-      {console.log('rerendering...')}
       <ol>
         {steps.map((step, i) => (
           <React.Fragment key={uuidv4()}>
