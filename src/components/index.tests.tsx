@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Accordion } from './index'
+import { Accordion, Stepper } from './index'
 import { AccordionSection } from './index'
 import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
@@ -343,6 +343,20 @@ class NumberInputTest extends React.Component<any, any> {
           }
           return n % 2 === 0 ? '' : 'Must be an even number'
         }}
+      />
+    )
+  }
+}
+
+class StepperTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Stepper
+        steps={[
+          { title: 'foo', status: 'completed' },
+          { title: 'bar', status: 'active' },
+          { title: 'baz', status: 'incomplete' },
+        ]}
       />
     )
   }

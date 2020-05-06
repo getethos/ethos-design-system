@@ -564,6 +564,16 @@ export declare const EmailInput: {
   }
 }
 
+export declare const Stepper: {
+  (props: any): JSX.Element
+  propTypes: {
+    steps: {
+      title: string
+      status: 'complete' | 'active' | 'incomplete'
+    }[]
+  }
+}
+
 export declare const Tooltip: {
   ({
     placement,
