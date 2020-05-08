@@ -65,7 +65,6 @@ const PrivateBirthdateInput = (props) => {
   // which will in turn update the internal form state as to their validity
   useEffect(() => {
     if (!!formChangeHandler && initialValue) {
-      console.log('BirthdateInput useEffect -- calling doValidation')
       doValidation(initialValue, true)
     }
   }, [])
