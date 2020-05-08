@@ -44,7 +44,6 @@ export const ZipInput = (props) => {
 
   useEffect(() => {
     if (!!formChangeHandler && initialValue) {
-      console.log('ZipInput useEffect -- calling doValidation')
       formChangeHandler(initialValue, '')
     }
   }, [])

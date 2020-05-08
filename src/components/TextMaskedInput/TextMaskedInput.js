@@ -65,7 +65,6 @@ export const TextMaskedInput = (props) => {
   // which will in turn update the internal form state as to their validity
   useEffect(() => {
     if (!!formChangeHandler && initialValue) {
-      console.log('TextMaskedInput useEffect -- calling formChangeHandler')
       const cleansed = cleanse(initialValue)
       whichDoValidation(cleansed, true)
     }
