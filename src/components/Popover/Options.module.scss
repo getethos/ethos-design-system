@@ -1,0 +1,33 @@
+.Options {
+  background-color: var(--White);
+  max-height: calc(var(--Space-80) * 3); /* 240px */
+  width: 100%;
+  position: absolute;
+  overflow: auto;
+  border-radius: var(--Space-4);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-top: var(--Space-4);
+  z-index: 2;
+  list-style: none;
+  padding: 0;
+}
+
+.Spin {
+  animation: spin 2s infinite linear;
+  position: absolute;
+  right: var(--Space-16);
+  top: calc(50% - var(--Space-8));
+  color: var(--GraySecondary--translucent);
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}

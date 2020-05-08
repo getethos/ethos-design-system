@@ -1,6 +1,6 @@
 /// <reference types="react" />
 
-import React, { Component, HTMLAttributes, ReactNode } from 'react'
+import React, { Component, HTMLAttributes } from 'react'
 
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
@@ -180,9 +180,37 @@ interface downstreamButtonProps {
   name?: string
   onClick?: any
   'data-tid'?: string
-  children: string
+  children: React.ReactNode
   role?: string
   ariaLabelId?: string
+}
+
+export declare const Modal: {
+  ({
+    ariaLabelledBy,
+    ariaDescribedBy,
+    children,
+    isOpen,
+    onDismiss,
+  }: {
+    /** Id of an element that labels the modal */
+    ariaLabelledBy?: string
+    /** Id of an element that describes the modal */
+    ariaDescribedBy?: string
+    /** The Modal's children */
+    children: React.ReactNode
+    /** Boolean that sets the state of the modal */
+    isOpen?: boolean
+    /** handler that onDismisss the state of the modal */
+    onDismiss: any
+  }): JSX.Element
+  propTypes: {
+    ariaLabelledBy?: string
+    ariaDescribedBy?: string
+    children: React.ReactNode
+    isOpen?: boolean
+    onDismiss: any
+  }
 }
 
 export declare const Button: {
@@ -254,23 +282,41 @@ export { COLORS } from './Colors'
 export declare const SearchInput: {
   ({
     disabled,
+    compact,
     name,
-    onEnter,
+    onChange,
+    onFocus,
+    onClick,
+    onBlur,
+    onKeyDown,
     placeholder,
+    value,
     ...rest
   }: {
     [x: string]: any
     disabled?: boolean
+    compact?: boolean
     name: string
-    onEnter?: any
+    onChange?: any
+    onFocus: any
+    onClick: any
+    onBlur: any
+    onKeyDown: any
     placeholder?: string
+    value?: string
   }): JSX.Element
   propTypes: {
     'data-tid': any
     disabled?: boolean
+    compact?: boolean
     name: string
-    onEnter?: any
+    onChange?: any
+    onFocus: any
+    onClick: any
+    onBlur: any
+    onKeyDown: any
     placeholder?: string
+    value?: string
   }
 }
 
@@ -296,6 +342,7 @@ export declare const Select: {
     title?: string
     className?: string
     isCreatable?: boolean
+    'data-tid'?: string
   }
   defaultProps: {
     classNamePrefix?: string
@@ -493,8 +540,8 @@ export declare const useGridSorting: (
 }
 
 export declare const TextInput: (downstreamProps: any) => JSX.Element
-
 export declare const PasswordInput: (props: any) => JSX.Element
+export declare const NoraPasswordInput: (props: any) => JSX.Element
 
 export declare const TextAreaInput: (downstreamProps: any) => JSX.Element
 
@@ -514,6 +561,45 @@ export declare const EmailInput: {
   defaultProps: {
     labelCopy: string
     placeholder: string
+  }
+}
+
+export declare const Stepper: {
+  (props: any): JSX.Element
+  propTypes: {
+    steps: {
+      title: string
+      status: 'complete' | 'active' | 'incomplete'
+    }[]
+  }
+}
+
+export declare const Tooltip: {
+  ({
+    placement,
+    label,
+    inline,
+    popperBoxStyles,
+    details,
+    boundariesElement,
+    children,
+  }: {
+    placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
+    label: string
+    inline?: boolean
+    details: string
+    popperBoxStyles?: string
+    boundariesElement?: 'viewport' | 'scrollParent' | 'window'
+    children?: React.ReactNode
+  }): JSX.Element
+  propTypes: {
+    placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
+    label: string
+    inline?: boolean
+    details: string
+    popperBoxStyles?: string
+    boundariesElement?: 'viewport' | 'scrollParent' | 'window'
+    children?: React.ReactNode
   }
 }
 
@@ -791,6 +877,50 @@ export declare const OptionButton: {
   }
 }
 
+export declare const NoOptions: {
+  ({ loadingText }: { loadingText: string }): JSX.Element
+}
+
+export declare const Option: {
+  ({
+    currentActive,
+    itemIndex,
+    item,
+    dataKey,
+    selectedOption,
+    setSelectedAndActiveOptions,
+    onChange,
+  }: {
+    currentActive: number
+    itemIndex: number
+    item: object
+    dataKey: string
+    selectedOption: number
+    setSelectedAndActiveOptions: (index: number) => void
+    onChange: any
+  }): JSX.Element
+}
+
+export declare const Options: {
+  ({
+    activeOption,
+    dataKey,
+    entities,
+    onChange,
+    optionsRefs,
+    selectedOption,
+    setSelectedAndActiveOptions,
+  }: {
+    activeOption: number
+    dataKey: string
+    entities: any[]
+    onChange: any
+    optionsRefs: any[]
+    selectedOption: number
+    setSelectedAndActiveOptions: (index: number) => void
+  }): JSX.Element
+}
+
 export declare const integerMask: any
 export declare const NumberInput: {
   (props: any): JSX.Element
@@ -841,7 +971,12 @@ export { TitleXLarge } from './Type/TitleXLarge.js'
 export { TitleXXLarge } from './Type/TitleXXLarge.js'
 
 // Type2
+export { Caption2 } from './Caption2.js'
+export { Body2 } from './Body2.js'
 export { TitleSmall2 } from './Type2/TitleSmall2.js'
+export { TitleMedium2 } from './Type2/TitleMedium2.js'
+export { TitleLarge2 } from './Type2/TitleLarge2.js'
+export { TitleXLarge2 } from './Type2/TitleXLarge2.js'
 
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
@@ -851,6 +986,28 @@ declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
     name?: string
   }
+}
+
+export declare const KabobMenuContainer: {
+  ({
+    focusRef,
+    tabIndex,
+    setIsOpen,
+    isOpen,
+    items,
+    dataKey,
+    setLastSelected,
+    popoverContainerClasses,
+  }: {
+    focusRef?: any
+    tabIndex?: number
+    setIsOpen: (b: boolean) => void
+    isOpen: boolean
+    items: any[]
+    dataKey: string
+    setLastSelected: (ls: string) => void
+    popoverContainerClasses: string
+  }): JSX.Element
 }
 
 interface HeaderProps {
@@ -1112,6 +1269,34 @@ export declare const NoraTextAreaInput: {
   }
 }
 
+export declare const NoraRadioButtonGroup: {
+  ({
+    name,
+    options,
+    initialValue,
+    formTouched,
+    currentValue,
+    currentError,
+    formChangeHandler,
+    onChange,
+    validator,
+    disabled,
+    required,
+  }: {
+    name: string
+    options: any
+    initialValue?: string[] | boolean[]
+    formTouched?: boolean
+    currentValue?: string
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    onChange?: any
+    validator?: (value: string) => string
+    disabled?: boolean
+    required?: boolean
+  }): JSX.Element
+}
+
 export declare const NoraCheckboxInput: {
   ({
     name,
@@ -1133,6 +1318,81 @@ export declare const NoraCheckboxInput: {
   propTypes: {
     props: any
   }
+}
+export declare const NoraButtonInput: {
+  ({
+    className,
+    iconPrefix,
+    iconName,
+    side,
+    buttonDisabled,
+    onClick,
+    // NoraTextInput props are passed through
+    type,
+    name,
+    disabled,
+    allCaps,
+    initialValue,
+    formChangeHandler,
+    labelCopy,
+    validator,
+    placeholder,
+    onBlur,
+    onFocus,
+    restrictIllegal,
+  }: {
+    className?: string
+    iconPrefix: string
+    iconName: string
+    side: string
+    buttonDisabled?: boolean
+    onClick?: (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+    // NoraTextInput props are passed through
+    type?: string
+    'data-tid': string
+    name: string
+    disabled?: boolean
+    allCaps?: boolean
+    initialValue?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    labelCopy?: string
+    validator?: (value: string) => string
+    placeholder?: string
+    onBlur?: any
+    onFocus?: any
+    restrictIllegal?: boolean
+  }): JSX.Element
+}
+
+export declare const NoraTextInput: {
+  ({
+    type,
+    name,
+    disabled,
+    allCaps,
+    initialValue,
+    formChangeHandler,
+    labelCopy,
+    validator,
+    placeholder,
+    onBlur,
+    onFocus,
+    restrictIllegal,
+  }: {
+    type?: string
+    'data-tid': string
+    name: string
+    disabled?: boolean
+    allCaps?: boolean
+    initialValue?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    labelCopy?: string
+    validator?: (value: string) => string
+    placeholder?: string
+    onBlur?: any
+    onFocus?: any
+    restrictIllegal?: boolean
+  }): JSX.Element
 }
 
 export declare const Snack: {

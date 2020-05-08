@@ -34,6 +34,17 @@
  *   - Less rigidity for passing extra properties like className
  *   - ???
  *
+ * Should we drop weight param from Cambon now that there is only * one weight? Probably not for
+ * consistency of including a weight when using a comonent.
+ *
+ * Book500 backwards compatibility added but would like to use Medium500 going forward across both
+ * font families, since it's the only weight for Cambon in Type2. Easier to remember if Medium500
+ * is the same weight name across both families.
+ *
+ * CSS for font sizes could be dried up if font size calculation can be removed. Do we need sass math?
+ * Font size values could also be variables.
+ *
+ *
  *
  * Specifications from design
  * --------------------------
@@ -59,7 +70,7 @@
  *    This should be deployable on it's own to consumers to prove there is no regression.
  *
  * 2. Fork BaseType and build Type2 with a single component POC, deployable to consumers.
- *	  Build a Type2 root component that extends TypeBase.
+ *    Build a Type2 root component that extends TypeBase.
  *
  *    When a new component is available in Type2, EDS should warn the consumer to check if they
  *    can switch if it sees them implement an instance of the matching legacy Type component.
@@ -74,6 +85,8 @@
  * 5. Rollout deprecation strategy and encourage developers to stop using legacy Type entirely and
  *    actively replace legacy components with Type2 components.
  *
+ *    Add any customizations specific to Type2 for developer ease of use.
+ *
  * 6. Once deprecation is complete, remove legacy Type (it will 'live on' through BaseType) and
  *    rename Type2 to Type.
  *
@@ -83,8 +96,9 @@
  * --------------------------
  * (March 18) 1
  * (March 19) 1 -> 2
+ * (April 10) 2 -> 3 -> 4
  *
- *  1 |  [-2-]  |  3  |  4  |  5  |  6
+ *  1 |  2  |  3  |  [4]  |  5  |  6
  */
 
 /** Steps for consumers to migrate from Type to TypeBase

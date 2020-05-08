@@ -59,6 +59,10 @@ function usePortal(id) {
  * @return {React.ReactPortal}
  */
 export const Portal = ({ id, children }) => {
+  if (typeof document === 'undefined' || !document) {
+    return null
+  }
+
   const root = usePortal(id)
 
   return createPortal(children, root)

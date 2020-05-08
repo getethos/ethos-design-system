@@ -18,6 +18,7 @@ const DESC_ID = 'mobile-modal-description'
 export const Tooltip = ({
   label,
   placement,
+  popperBoxStyles = '',
   details,
   inline,
   children,
@@ -111,6 +112,7 @@ export const Tooltip = ({
                 innerRef={ref}
                 visible={tooltipVisible}
                 details={details}
+                popperBoxStyles={popperBoxStyles}
                 {...rest}
               />
             )}
@@ -202,6 +204,8 @@ Tooltip.propTypes = {
   label: PropTypes.string.isRequired,
   /** Boolean used to change Tooltip reference element to `display: inline-block;` */
   inline: PropTypes.bool,
+  /** String for overriding default tooltip box styles. You can, for example override the white background color with this. */
+  popperBoxStyles: PropTypes.string,
   /** Tooltip description */
   details: PropTypes.string.isRequired,
   /** String that sets what Element the tooltip events should trigger against, can be `'viewport'`, `'scrollParent'` or`'window'`*/
@@ -214,6 +218,7 @@ const PopperContent = ({
   innerRef,
   visible,
   style,
+  popperBoxStyles = '',
   placement,
   arrowProps,
   scheduleUpdate,
@@ -243,7 +248,8 @@ const PopperContent = ({
   }, [position])
 
   const contentBoxClasses = [
-    styles.contentBox,
+    popperBoxStyles,
+    styles.popperContentBox,
     visible && isPositioned ? styles.visible : styles.hidden,
   ]
 
@@ -277,6 +283,7 @@ PopperContent.propTypes = {
   innerRef: PropTypes.func,
   visible: PropTypes.bool,
   style: PropTypes.object,
+  popperBoxStyles: PropTypes.string,
   placement: PropTypes.string,
   arrowProps: PropTypes.object,
   scheduleUpdate: PropTypes.func,

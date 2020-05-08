@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button default rendering Array<ReactNode> 1`] = `
+<button
+  className="Button Medium Black"
+  data-tid="foo"
+  disabled={false}
+  name="bar"
+  type="button"
+>
+  <div />
+  <div />
+  3
+  string
+  Fragment with key
+</button>
+`;
+
 exports[`Button default rendering Button.Medium.Black 1`] = `
 <button
   className="Button Medium Black"

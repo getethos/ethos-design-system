@@ -3,7 +3,7 @@ Used in tandem with the DataGrid component:
 ```jsx
 import React, { memo, useEffect, useState } from 'react'
 import uuidv4 from 'uuid/v4'
-import { FaHamburger } from 'react-icons/fa'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Grid } from '../Grid/Grid.js'
 import { Row } from '../Grid/Row.js'
 import { Column } from '../Grid/Column.js'
@@ -126,7 +126,7 @@ const LeGrid = ({ rows, columns }) => {
                   <div className={styles.iconContainer}>
                     {row[col.name]}{' '}
                     {col.name === 'Type' && row[col.name] === 'Food' && (
-                      <FaHamburger className={styles.icon} />
+                      <FontAwesomeIcon icon={['far', 'hamburger']} className={styles.icon} />
                     )}
                   </div>
                 )}

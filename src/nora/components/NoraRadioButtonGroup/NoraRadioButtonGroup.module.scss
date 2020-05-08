@@ -1,0 +1,30 @@
+/* Shameful but works ¯\_(ツ)_/¯ */
+.NoraRadioButtonGroup {
+  aside {
+    width: var(--Nora-Font-15);
+    height: var(--Nora-Font-15);
+  }
+
+  input:checked ~ aside {
+    border: 5px solid var(--NoraBlue-400);
+  }
+
+  /* Hacks: Coupled to base RadioButtonGroup's markup structure */
+  fieldset label {
+    /* 2nd label siblins onwards can't beat 3 classes with 3 elements so !important */
+    + label {
+      margin-top: var(--Space-12) !important;
+    }
+
+    > span {
+      height: inherit;
+      width: inherit;
+      margin-right: var(--Space-8);
+    }
+    > div:last-child {
+      font-size: var(--Nora-Font-15);
+      line-height: 1.5;
+      color: var(--NoraNeutral-900);
+    }
+  }
+}

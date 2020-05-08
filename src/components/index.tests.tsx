@@ -10,9 +10,14 @@ import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
 import { Icon } from './index'
 import { IconLink } from './index'
+import { Modal } from './index'
 import { Snack } from './index'
+import { KabobMenuContainer } from './index'
 import { NoraButton } from './index'
 import { NoraCheckboxInput } from './index'
+import { NoraButtonInput } from './index'
+import { NoraTextInput } from './index'
+import { NoraRadioButtonGroup } from './index'
 import { NoraDrawer } from './index'
 import { NoraSnackbar } from './index'
 import { NoraTextAreaInput } from './index'
@@ -20,7 +25,9 @@ import { NumberInput } from './index'
 import { RadioButtonGroup } from './index'
 import { Select } from './index'
 import { SearchInput } from './index'
+import { Stepper } from './index'
 import { TextMaskedInput } from './index'
+import { Tooltip } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
 import { UniversalNavbar } from './index'
@@ -33,6 +40,20 @@ const UniversalNavbarTest: React.FC = () => (
 
 // -------------- Localized tests ----------------//
 
+class KabobMenuContainerTest extends React.Component<any, any> {
+  render() {
+    return (
+      <KabobMenuContainer
+        dataKey="name"
+        items={[{ name: 'jack' }, { name: 'jill' }, { name: 'joe' }]}
+        isOpen={false}
+        setIsOpen={() => {}}
+        setLastSelected={() => {}}
+        popoverContainerClasses={'.b{}'}
+      />
+    )
+  }
+}
 class NoraSnackbarTest extends React.Component<any, any> {
   render() {
     return (
@@ -75,6 +96,42 @@ class NoraCheckboxInputTest extends React.Component<any, any> {
           Agreement
         </a>
       </NoraCheckboxInput>
+    )
+  }
+}
+
+class NoraButtonInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraButtonInput
+        name="example"
+        data-tid="the-button-input"
+        formChangeHandler={() => {}}
+        onClick={() => {}}
+        buttonDisabled
+        iconName="trash-alt"
+        iconPrefix="far"
+        side="right"
+        validator={(x) => {
+          return ''
+        }}
+      />
+    )
+  }
+}
+
+class NoraTextInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <NoraTextInput
+        name="example"
+        labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
+        data-tid="the-text-input"
+        formChangeHandler={() => {}}
+        validator={(s) => {
+          return ''
+        }}
+      />
     )
   }
 }
@@ -134,6 +191,42 @@ class IconLinkTest extends React.Component<any, any> {
         textClassName="linkClassName"
         textPosition="right"
         copy="Decision"
+      />
+    )
+  }
+}
+
+class ModalTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Modal>
+        <div>
+          <h1>Le Modal</h1>
+          <p>Lorem ipsum, dolor</p>
+          <button tabIndex={0} onClick={() => {}}>
+            Yes
+          </button>
+        </div>
+      </Modal>
+    )
+  }
+}
+
+class NoraRadioButtonGroupTest extends React.Component<any, any> {
+  render() {
+    const ReasonsOptions = [
+      { value: 'Already fullfilled' },
+      { value: 'Already have on file' },
+    ]
+    return (
+      <NoraRadioButtonGroup
+        name="reasons-test"
+        options={ReasonsOptions.map((t) => ({
+          name: t.value,
+          value: t.value,
+          label: t.value,
+        }))}
+        onChange={() => {}}
       />
     )
   }
@@ -256,11 +349,34 @@ class NumberInputTest extends React.Component<any, any> {
   }
 }
 
+class StepperTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Stepper
+        steps={[
+          { title: 'foo', status: 'completed' },
+          { title: 'bar', status: 'active' },
+          { title: 'baz', status: 'incomplete' },
+        ]}
+      />
+    )
+  }
+}
+
 class SearchInputTest extends React.Component<any, any> {
   render() {
     return (
       <>
-        <SearchInput data-tid="search-input-tid" name="search-input" />
+        <SearchInput
+          data-tid="search-input-tid"
+          name="search-input"
+          onFocus={() => {}}
+          onChange={() => {}}
+          onClick={() => {}}
+          onBlur={() => {}}
+          onKeyDown={() => {}}
+          placeholder="search..."
+        />
       </>
     )
   }
@@ -282,8 +398,14 @@ class SelectTest extends React.Component<any, any> {
           options={options}
           isAsync={true}
           isCreatable={true}
+          data-tid="foo"
         />
-        <Select onChange={onSelected} options={options} isAsync={true} />
+        <Select
+          onChange={onSelected}
+          options={options}
+          isAsync={true}
+          data-tid="foo"
+        />
         <Select onChange={onSelected} options={options} isCreatable={true} />
         <Select onChange={onSelected} options={options} />
       </>
@@ -330,6 +452,12 @@ class TextMaskedInputTest extends React.Component<any, any> {
         setTouched={setTouchedFn}
       />
     )
+  }
+}
+
+class TooltipTest extends React.Component<any, any> {
+  render() {
+    return <Tooltip label="Flip" details="Hi!" />
   }
 }
 

@@ -1,14 +1,32 @@
 .column {
   display: flex;
   transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
-  padding: var(--Space-8) 12px;
+
+  padding-top: var(--ariagrid-column-padding-top, var(--Space-16));
+  padding-bottom: var(--ariagrid-column-padding-bottom, var(--Space-16));
+  /* left and right within the body of grid is 12px per cell */
+  padding-left: var(--ariagrid-column-padding-left, var(--Space-12));
+  padding-right: var(--ariagrid-column-padding-right, var(--Space-12));
   box-sizing: border-box;
 }
 
+/* first and last columns are outside padding of grid and are 24 */
+.column:first-child {
+  padding-left: var(--ariagrid-column-outside-padding-left, var(--Space-24));
+}
+.column:last-child {
+  padding-right: var(--ariagrid-column-outside-padding-right, var(--Space-24));
+}
+
 .columnheader {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 500;
+  text-transform: var(--ariagrid-header-text-transform, uppercase);
+  font-size: var(--ariagrid-header-font-size, 11px);
+  line-height: var(--ariagrid-header-line-height, 16px);
+  font-weight: var(--ariagrid-header-font-weight, 500);
+  letter-spacing: var(--ariagrid-header-letter-spacing, 0.1em);
+  /* since our header font size is likely different we need adjusted top/bottom padding */
+  padding-top: var(--ariagrid-header-padding-top, var(--Space-18));
+  padding-bottom: var(--ariagrid-header-padding-bottom, var(--Space-18));
 }
 
 .column > a,

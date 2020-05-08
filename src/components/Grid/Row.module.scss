@@ -14,11 +14,14 @@
   align-items: center;
   transition: background-color 0.1s ease-in-out;
   border-bottom: 1px solid
-    var(--ariagrid-grid-border-bottom, --default-grid-border-bottom);
-  height: var(--Space-40);
-  min-height: var(--Space-40);
+    var(--ariagrid-grid-border-bottom, var(--default-grid-border-bottom));
   vertical-align: top;
   box-sizing: border-box;
+}
+
+.row:last-child {
+  /* We put borders around entire grid so don't want "double border" on bottom */
+  border-bottom: none;
 }
 
 /* Header */
@@ -30,13 +33,12 @@
   --default-grid-header-font-color: var(--GraySecondary--opaque);
 
   border-bottom: 1px solid
-    var(--ariagrid-header-border-bottom, --default-header-border-bottom);
-  height: var(--Space-48);
-  vertical-align: bottom;
-  font-weight: 600;
+    var(--ariagrid-header-border-bottom, var(--default-header-border-bottom));
+  border-bottom: 1px solid
+    var(--ariagrid-border-color, var(--default-border-color));
   color: var(
     --ariagrid-grid-header-font-color,
-    --default-grid-header-font-color
+    var(--default-grid-header-font-color)
   );
 }
 
@@ -46,18 +48,6 @@
 
   background-color: var(
     --ariagrid-row-hover-background,
-    --default-row-hover-background
+    var(--default-row-hover-background)
   );
-}
-
-.rowSmall {
-  composes: row;
-  height: var(--Space-32);
-  min-height: var(--Space-32);
-}
-
-.rowLarge {
-  composes: row;
-  height: var(--Space-64);
-  min-height: var(--Space-64);
 }

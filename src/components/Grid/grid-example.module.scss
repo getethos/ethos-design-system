@@ -1,13 +1,61 @@
+@import '../../nora/components/Colors.css';
+@import '../../nora/components/Attributes.css';
+
 :root {
   /**
    * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
    * allowing us to declaratively theme our grid!
    */
-  --ariagrid-grid-container-color: #272727;
-  --ariagrid-grid-border-bottom: #f5f5f5;
-  --ariagrid-header-border-bottom: #d8dcde;
   --ariagrid-row-hover-background: var(--BrandDuckegg);
-  --ariagrid-grid-header-font-color: var(--GraySecondary--opaque);
+
+  /* Main grid font color */
+  --ariagrid-grid-container-color: var(--NoraNeutral-900);
+  /* Main grid font size */
+  --ariagrid-font-size: var(--Nora-Font-15);
+  /* Main grid line height */
+  --ariagrid-line-height: 20px;
+  /* Main grid letter spacing */
+  --ariagrid-letter-spacing: 0.003em;
+
+  /* Main border color for grid */
+  --ariagrid-border-color: var(--NoraNeutral-200);
+  /* Bottom border color for grid */
+  --ariagrid-grid-border-bottom: var(--NoraNeutral-200);
+  /* border-radius for the outside grid rectangular border */
+  --ariagrid-radius: var(--Radius-3);
+
+  /* Header column font size */
+  --ariagrid-grid-header-font-color: var(--NoraNeutral-300);
+  /* Header's bottom border color for grid */
+  --ariagrid-header-border-bottom: var(--NoraNeutral-200);
+
+  /* Header's text trasform */
+  --ariagrid-header-text-transform: uppercase;
+  /* Header's font size */
+  --ariagrid-header-font-size: var(--Nora-Font-11);
+  /* Header's font weight */
+  --ariagrid-header-font-weight: 500;
+  /* Header's letter spacing */
+  --ariagrid-header-letter-spacing: 0.1em;
+  /* Header's line height */
+  --ariagrid-header-line-height: var(--Space-16);
+  /* Header's padding top */
+  --ariagrid-header-padding-top: 18px;
+  /* Header's padding bottom */
+  --ariagrid-header-padding-bottom: 18px;
+
+  /* Column padding top */
+  --ariagrid-column-padding-top: var(--Space-16);
+  /* Column padding bottom */
+  --ariagrid-column-padding-bottom: var(--Space-16);
+  /* Column padding left */
+  --ariagrid-column-padding-left: var(--Space-12);
+  /* Column padding right*/
+  --ariagrid-column-padding-right: var(--Space-12);
+  /* Column outmost padding left */
+  --ariagrid-column-outside-padding-left: var(--Space-24);
+  /* Column outmost padding right*/
+  --ariagrid-column-outside-padding-right: var(--Space-24);
 }
 
 .iconContainer {

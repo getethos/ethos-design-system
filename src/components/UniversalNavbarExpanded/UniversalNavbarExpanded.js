@@ -6,7 +6,7 @@ import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-black.js'
 import { AccountIcon, SearchIcon } from '../UniversalNavbar/assets/icons.js'
 
 // EDS core components
-import { Layout } from '../index'
+import { Layout, Caption2 } from '../index'
 
 // UniversalNavbarExpanded simple siblings
 import CtaButton from './CtaButton'
@@ -34,6 +34,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {string} logoHref - Href for the logo
  * @param {object} links - URLs and text
+ * @param {boolean} estimateExperiment - enable the estimate experiment button/copy
  *
  * @return {JSX.Element}
  */
@@ -44,6 +45,7 @@ const UniversalNavbarExpanded = ({
   logoHref,
   trackCtaClick,
   links,
+  estimateExperiment,
 }) => {
   const BELOW_ACCORDION_LINKS = [links.CTA, links.ACCOUNT, links.SEARCH]
 
@@ -57,6 +59,17 @@ const UniversalNavbarExpanded = ({
     <NavLink className={styles.accountIcon} href={links.ACCOUNT.href}>
       <AccountIcon />
     </NavLink>
+  )
+
+  const ExperimentCopy = () => (
+    <div
+      className={styles.estimateCopyOptimizely}
+      data-optimizely="estimateNavBarCopyOptimizely"
+    >
+      <div className={styles.estimateCopy}>
+        <Caption2.Regular400>Want to know your real rate?</Caption2.Regular400>
+      </div>
+    </div>
   )
 
   const layoutClasses = [styles.flex, styles.itemsCenter]
@@ -83,6 +96,7 @@ const UniversalNavbarExpanded = ({
                 <DropdownNav links={links} LinkComponent={LinkComponent} />
               </div>
               <div className={layoutClasses.join(' ')}>
+                {estimateExperiment && <ExperimentCopy />}
                 <SearchIconLink />
                 <AccountIconLink />
                 <div className={styles.cta}>
@@ -166,6 +180,8 @@ UniversalNavbarExpanded.propTypes = {
       })
     ),
   }).isRequired,
+  /** Estimate copy experiment on optimizely */
+  estimateExperiment: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -174,6 +190,7 @@ UniversalNavbarExpanded.defaultProps = {
   logoHref: '/',
   trackCtaClick: () => {},
   links: {},
+  estimateExperiment: false,
 }
 
 export { UniversalNavbarExpanded }

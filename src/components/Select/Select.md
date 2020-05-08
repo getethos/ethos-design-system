@@ -1,5 +1,6 @@
 We leverage [React-Select](https://github.com/JedWatson/react-select) for our single and multi selects. For example, you can add
-`menuIsOpen={true}` below as an attribute to `<Select>` and the menu will remain open.
+`menuIsOpen={true}` below as an attribute to `<Select>` and the menu will remain open. Additionally, you can define `--select-selected-color` and `--select-active-color` CSS properties in your application and the Ethos brand colors will be overriden as such. This is a global setting, so we
+only use this in our auxilarary applications e.g. Nora.
 
 ```jsx
 const onSelected = (selectedOption) => {
@@ -19,6 +20,7 @@ const options = [
   placeholder="Custom placeholder..."
   onChange={onSelected}
   options={options}
+  data-tid="my-select"
 />
 ```
 

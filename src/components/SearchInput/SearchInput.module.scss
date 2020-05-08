@@ -9,11 +9,15 @@
 
   /* TextInput Overrides */
   > input {
-    height: 40px;
-    border-radius: 3px;
     /* TODO -- this is overriding EDS TextInput's base padding */
-    padding: 17px var(--Space-16) 15px var(--Space-40);
-    font-size: calc(var(--compact-font-size) * 1px);
+    padding-left: var(--Space-40);
+  }
+}
+
+.SearchInputCompact {
+  composes: CompactTextInputContainer from '../../nora/components/NoraTextInput/NoraTextInput.module.scss';
+  > input {
+    padding-left: 36px;
   }
 }
 
@@ -28,4 +32,9 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+
+.SearchIconCompact {
+  composes: SearchIcon;
+  left: var(--Space-14);
 }
