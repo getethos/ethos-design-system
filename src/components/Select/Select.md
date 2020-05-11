@@ -158,12 +158,31 @@ import { Form, Spacer, Button, InfoMessage, Select } from '../index'
     fields: {
       states: {
         component: (props, options) => {
-          return <Select placeholder="State" options={options} {...props} />
+          return (
+            <Select
+              title="What state?"
+              placeholder="State"
+              options={options}
+              {...props}
+            />
+          )
         },
         name: 'states',
-        labelCopy: 'What state?',
-        options: [{ value: 'CA', label: 'CA' }],
-        validators: [validateExists],
+        options: [
+          { value: 'CA', label: 'CA' },
+          { value: 'OR', label: 'OR' },
+          { value: 'NY', label: 'NY' },
+          {
+            value: 'default and invalid choice',
+            label: 'Select something other then me :)',
+          },
+        ],
+        validators: [
+          (val) =>
+            val.length && val == 'default and invalid choice'
+              ? 'You must select an actual state'
+              : '',
+        ],
       },
     },
     onSubmit: async (formData) => {
