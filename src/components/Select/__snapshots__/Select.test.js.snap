@@ -114,6 +114,7 @@ exports[`Select adding a title prop adds a div and aria-label 1`] = `
   >
     Hello World
   </div>
+  
 </div>
 `;
 
@@ -225,5 +226,6 @@ exports[`Select matches snapshot 1`] = `
       </div>
     </div>
   </div>
+  
 </div>
 `;
