@@ -144,3 +144,66 @@ const options = [
 
 ;<Select isMulti isCreatable name="colors" options={options} />
 ```
+
+Form engine example:
+
+```jsx
+import validateExists from '../../validators/validateExists'
+import { Form, Spacer, Button, InfoMessage, Select } from '../index'
+;<Form
+  config={{
+    formName: 'Select in form example',
+    autocompleteOff: true,
+    formId: '1',
+    fields: {
+      states: {
+        component: (props, options) => {
+          return <Select placeholder="State" options={options} {...props} />
+        },
+        name: 'states',
+        labelCopy: 'What state?',
+        options: [{ value: 'CA', label: 'CA' }],
+        validators: [validateExists],
+      },
+    },
+    onSubmit: async (formData) => {
+      alert(
+        'form submission successful with values:' + JSON.stringify(formData)
+      )
+    },
+  }}
+>
+  {(api) => {
+    const {
+      field,
+      getFormErrorMessage,
+      getFormIsValid,
+      getFormInteractedWith,
+    } = api
+    return (
+      <div>
+        {!!getFormInteractedWith() && (
+          <>
+            <InfoMessage.Alert.Success>
+              {'Form interacted with.'}
+            </InfoMessage.Alert.Success>
+          </>
+        )}
+
+        {getFormErrorMessage() && (
+          <>
+            <InfoMessage.Alert.Error>
+              {getFormErrorMessage()}
+            </InfoMessage.Alert.Error>
+          </>
+        )}
+        {field('states')}
+        <Spacer.H16 />
+        <Button.Medium.Black disabled={!getFormIsValid()} type="submit">
+          Submit
+        </Button.Medium.Black>
+      </div>
+    )
+  }}
+</Form>
+```
