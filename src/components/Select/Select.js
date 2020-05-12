@@ -129,7 +129,7 @@ export const Select = ({
 
 Select.propTypes = {
   /** class name prefix */
-  classNamePrefix: PropTypes.string.isRequired,
+  classNamePrefix: PropTypes.string,
   /** loadOptions should take an inputValue and return a Promise that resolves */
   // to an array of options.
   loadOptions: PropTypes.func,

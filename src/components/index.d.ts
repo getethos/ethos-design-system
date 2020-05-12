@@ -322,23 +322,46 @@ export declare const SearchInput: {
 
 export declare const Select: {
   ({
+    classNamePrefix,
     className,
     title,
     isAsync,
+    isCompact,
     isCreatable,
+    validator,
+    onChange,
+    formChangeHandler,
+    currentError,
+    formTouched,
+    labelCopy,
+    name,
     ...rest
   }: {
     [x: string]: any
+    classNamePrefix?: string
     className?: string
     title?: string
     isAsync?: boolean
     isCreatable?: boolean
+    isCompact?: boolean
+    validator?: (selectStringOrArrayOfSelections: any) => string
+    loadOptions?: (selectStringOrArrayOfSelections: any) => any
+    onChange?: (selectStringOrArrayOfSelections: any) => any
+    formChangeHandler?: (
+      selectStringOrArrayOfSelections: any,
+      errorValue: string
+    ) => void
+    currentError?: string
+    formTouched?: boolean
+    labelCopy?: string
+    name?: string
   }): JSX.Element
   propTypes: {
     classNamePrefix?: string
     loadOptions?: any
     onChange?: any
     isAsync?: boolean
+    isCompact?: boolean
     title?: string
     className?: string
     isCreatable?: boolean
