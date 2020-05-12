@@ -1,6 +1,6 @@
 import React from 'react'
 import { Select } from './Select.js'
-import { render, fireEvent, waitForElement } from '@testing-library/react'
+import { render } from '@testing-library/react'
 
 describe('Select', () => {
   const mockProps = {
