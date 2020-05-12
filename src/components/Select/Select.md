@@ -24,7 +24,9 @@ const options = [
 />
 ```
 
-Compact Select
+Compact Select with a default value. Note that a default value can either be
+an index into your options e.g. `defaultValue={[options[3]]}`, or, you may
+hard code it (but it will need to have the same shape!)
 
 ```jsx
 const onSelected = (selectedOption) => {
@@ -44,6 +46,10 @@ const options = [
   placeholder="Custom placeholder..."
   isCompact={true}
   onChange={onSelected}
+  // Notice it's the same shape as the options? It's probably preferable to
+  // just index into that original array like the commented out one below. //// But hopefully this provides clarity on the requirements of defaultValue.
+  defaultValue={{ value: 'la', label: 'Los Angeles' }}
+  // defaultValue={[options[3]]} /* probably even better approach */
   options={options}
 />
 ```
@@ -164,12 +170,31 @@ validator you hook up (if you choose to).
   previously selected items; so, once there are no selections left, the multi select's
   corresponding form validator will be called with an empty array.
 
-_Put differently, the [react-select docs](https://react-select.com/props#statemanager-props) specify this in Typescript notation as:
-`<Object, Array<Object>, null, undefined>`_
+_Put differently, the [react-select docs](https://react-select.com/props#statemanager-props) specify this in Typescript notation as: `<Object, Array<Object>, null, undefined>`_
 
 ```jsx
 import validateExists from '../../validators/validateExists'
+import { STATES } from './states-fixture.js'
 import { Form, Spacer, Button, InfoMessage, Select } from '../index'
+
+const loadOptions = (searchQuery) => {
+  const filteredStates = STATES.filter((item) => {
+    return item.value.toLowerCase().includes(searchQuery.toLowerCase())
+  })
+
+  const options = [
+    {
+      value: 'default and invalid choice',
+      label: 'Select me to see inline field error :)',
+    },
+    ...filteredStates,
+  ]
+  // Setting at 2 seconds so we can "feel" a noticable delay in the demo :)
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(options), 2000)
+  })
+}
+
 ;<Form
   config={{
     formName: 'Select in form example',
@@ -181,22 +206,15 @@ import { Form, Spacer, Button, InfoMessage, Select } from '../index'
           return (
             <Select
               title="What state?"
+              isAsync
               placeholder="State (single select)"
               options={options}
+              loadOptions={loadOptions}
               {...props}
             />
           )
         },
         name: 'states',
-        options: [
-          { value: 'CA', label: 'CA' },
-          { value: 'OR', label: 'OR' },
-          { value: 'NY', label: 'NY' },
-          {
-            value: 'default and invalid choice',
-            label: 'Select something other then me :)',
-          },
-        ],
         validators: [
           (val) =>
             val.length && val == 'default and invalid choice'

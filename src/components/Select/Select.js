@@ -120,7 +120,6 @@ export const Select = ({
   return (
     <div className={wrapperClass} data-tid={rest['data-tid']}>
       {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
-      {console.log('SelectTag ...props: ', { ...props })}
       <SelectTag {...props} />
       {title && <div className={styles.title}>{title}</div>}
       {getError(currentError, formTouched)}
