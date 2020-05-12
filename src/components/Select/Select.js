@@ -11,6 +11,14 @@ import { InputLabel } from '../InputLabel'
 
 import styles from './Select.module.scss'
 
+/**
+ * Component which wraps [react-select](https://github.com/JedWatson/react-select). Note,
+ * within the form engine, your validator should be able to handle the two potential shapes
+ * react-select calls [onChange with](https://react-select.com/props#statemanager-props).
+ * TL;DR is single select gets an object like:
+ * {value: "abc", label: "abc"}, and multi: [{value: "abc", label: "abc"}]
+ * So, a multi-select validator would likely want to loop and validate each items one by one.
+ */
 export const Select = ({
   className,
   title,
@@ -26,25 +34,35 @@ export const Select = ({
   name,
   ...rest
 }) => {
-  console.log('Select props: ', {
-    className,
-    title,
-    isAsync,
-    isCompact,
-    validator,
-    onChange,
-    formChangeHandler,
-    currentError,
-    formTouched,
-    labelCopy,
-    name,
-  })
+  const resolvedValidator = validator ? validator : () => ''
+  const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
   const compactClass = isCompact ? styles.Compact : ''
-  // Since we're using arrow function we need to come before props assignment below
-  const onChangeHandler = (event) => {
-    updateSelectedValue(event.value)
+
+  // According to the react-select https://react-select.com/props#statemanager-props docs
+  // type will be: one of<Object, Array<Object>, null, undefined>,
+  // For single (object) in shape of:
+  //    {value: "CA", label: "CA"}
+  // for multi (array):
+  //    [{"value": "CA", "label": "CA"}, {"value": "NY", "label": "NY"}]
+  const [userSelection, updateUserSelection] = useState(undefined)
+  const onChangeHandler = (lastSelection) => {
+    /**
+     * For multi selects, react-select allows the user to remove all the
+     * selected items, and once there are no more, this will be `null`. But,
+     * for our state and validation purposes, it's more convenient to resolve
+     * this to an empty array here. This will in turn result in the form engine's
+     * validator getting called with an empty array which is easier for it to do
+     * meaningful validation against since it's already expecting an array.
+     */
+    if (!lastSelection) {
+      // This condition should not happen for single selects because once user has
+      // selected a value, react-select prevent removing. So only form multi selects.
+      updateUserSelection([])
+    } else {
+      updateUserSelection(lastSelection)
+    }
     if (onChange) {
-      onChange(event)
+      onChange(lastSelection)
     }
   }
 
@@ -55,24 +73,29 @@ export const Select = ({
     'aria-label': title, // https://react-select.com/props#select-props
     ...rest,
   }
-  const resolvedValidator = validator ? validator : () => ''
-  const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
-  const [selectedValue, updateSelectedValue] = useState(undefined)
 
   const validationSelect = () => {
-    const errorMessage = validate(selectedValue)
+    let errorMessage = ''
+    // react-select multi select case
+    if (Array.isArray(userSelection)) {
+      const arrayOfValues = userSelection.map((selection) => selection.value)
+      errorMessage = validate(arrayOfValues)
+    } else {
+      // react-select single select case
+      errorMessage = validate(userSelection.value)
+    }
     setError(errorMessage)
     if (formChangeHandler) {
-      formChangeHandler(selectedValue, errorMessage)
+      formChangeHandler(userSelection, errorMessage)
     }
   }
 
   useEffect(() => {
-    const isSelectedValue = typeof selectedValue !== 'undefined'
+    const isSelectedValue = typeof userSelection !== 'undefined'
     if (isSelectedValue) {
       validationSelect()
     }
-  }, [selectedValue])
+  }, [userSelection])
 
   const onBlur = () => {
     validationSelect()
@@ -106,15 +129,27 @@ export const Select = ({
 }
 
 Select.propTypes = {
+  /** class name prefix */
   classNamePrefix: PropTypes.string.isRequired,
-  // loadOptions should take an inputValue and return a Promise that resolves
+  /** loadOptions should take an inputValue and return a Promise that resolves */
   // to an array of options.
   loadOptions: PropTypes.func,
+
+  /** The last user's selection which will be one of:
+   *  `<Object, Array<Object>, null, undefined>` according to the react-select docs.
+   *  For single (object) in shape of: {value: "CA", label: "CA"}
+   *  For multi (array): [{"value": "CA", "label": "CA"}, ...]
+   */
   onChange: PropTypes.func,
+  /** Is asynchronous (see react-select docs) */
   isAsync: PropTypes.bool,
+  /** Is compact or shorter */
   isCompact: PropTypes.bool,
+  /** The title for this select */
   title: PropTypes.string,
+  /** className */
   className: PropTypes.string,
+  /** Is creatable (see react-select docs) */
   isCreatable: PropTypes.bool,
   formChangeHandler: PropTypes.func,
   currentError: PropTypes.string,
