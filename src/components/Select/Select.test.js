@@ -1,6 +1,6 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
 import { Select } from './Select.js'
+import { render } from '@testing-library/react'
 
 describe('Select', () => {
   const mockProps = {
@@ -9,8 +9,8 @@ describe('Select', () => {
     'data-tid': 'my-select',
   }
 
-  test('matches snapshot', () => {
-    const tree = renderer.create(<Select {...mockProps} />).toJSON()
+  test.only('matches snapshot', () => {
+    const tree = render(<Select {...mockProps} />)
     expect(tree).toMatchSnapshot()
   })
 
