@@ -218,6 +218,7 @@ const GridAndPagination = memo(() => {
       <Pagination
         currentPage={pagingState.currentPage}
         pageCount={pagingState.pageCount}
+        displayedPagesCount={6}
         fetchPageCallback={fetchPage}
       />
     </>
@@ -225,4 +226,45 @@ const GridAndPagination = memo(() => {
 })
 
 ;<GridAndPagination />
+```
+** Example Pagination views **
+
+Pagination view with all page numbers displayed
+```jsx
+<Pagination
+ currentPage={2}
+ pageCount={5}
+ displayedPagesCount={6}
+ fetchPageCallback={() => {}}
+/>
+```
+
+Pagination view with total count more than display pages
+```jsx
+<Pagination
+ currentPage={2}
+ pageCount={10}
+ displayedPagesCount={6}
+ fetchPageCallback={() => {}}
+/>
+```
+
+Pagination view with left ellipsis
+```jsx
+<Pagination
+ currentPage={15}
+ pageCount={20}
+ displayedPagesCount={10}
+ fetchPageCallback={() => {}}
+/>
+```
+
+Pagination view with left and right ellipsis
+```jsx
+<Pagination
+ currentPage={6}
+ pageCount={20}
+ displayedPagesCount={10}
+ fetchPageCallback={() => {}}
+/>
 ```

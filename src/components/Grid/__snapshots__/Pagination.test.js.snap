@@ -45,3 +45,292 @@ exports[`Pagination Component default rendering 1`] = `
   </button>
 </nav>
 `;
+
+exports[`Pagination Component rendering with end ellipsis 1`] = `
+<nav
+  aria-label="pagination"
+  className="pagination"
+>
+  <button
+    aria-label="Goto Page 4"
+    className="paginationButtons"
+    disabled={false}
+    onClick={[Function]}
+  >
+    «
+  </button>
+  <button
+    aria-label="Goto Page 1"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    1
+  </button>
+  <button
+    aria-label="Goto Page 2"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    2
+  </button>
+  <button
+    aria-label="Goto Page 3"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    3
+  </button>
+  <button
+    aria-label="Goto Page 4"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    4
+  </button>
+  <button
+    aria-current="page"
+    aria-label="Goto Page 5"
+    className="paginationButtons active"
+    onClick={[Function]}
+  >
+    5
+  </button>
+  <button
+    aria-label="Goto Page 6"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    6
+  </button>
+  <button
+    aria-label="Goto Page 7"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    7
+  </button>
+  <button
+    aria-label="Goto Page 8"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    8
+  </button>
+  <button
+    aria-disabled={true}
+    aria-label="More Pages"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    ...
+  </button>
+  <button
+    aria-label="Goto Page 20"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    20
+  </button>
+  <button
+    aria-label="Goto Page 6"
+    className="paginationButtons"
+    disabled={false}
+    onClick={[Function]}
+  >
+    »
+  </button>
+</nav>
+`;
+
+exports[`Pagination Component rendering with start and end ellipsis 1`] = `
+<nav
+  aria-label="pagination"
+  className="pagination"
+>
+  <button
+    aria-label="Goto Page 5"
+    className="paginationButtons"
+    disabled={false}
+    onClick={[Function]}
+  >
+    «
+  </button>
+  <button
+    aria-label="Goto Page 1"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    1
+  </button>
+  <button
+    aria-disabled={true}
+    aria-label="More Pages"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    ...
+  </button>
+  <button
+    aria-label="Goto Page 4"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    4
+  </button>
+  <button
+    aria-label="Goto Page 5"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    5
+  </button>
+  <button
+    aria-current="page"
+    aria-label="Goto Page 6"
+    className="paginationButtons active"
+    onClick={[Function]}
+  >
+    6
+  </button>
+  <button
+    aria-label="Goto Page 7"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    7
+  </button>
+  <button
+    aria-label="Goto Page 8"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    8
+  </button>
+  <button
+    aria-label="Goto Page 9"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    9
+  </button>
+  <button
+    aria-disabled={true}
+    aria-label="More Pages"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    ...
+  </button>
+  <button
+    aria-label="Goto Page 20"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    20
+  </button>
+  <button
+    aria-label="Goto Page 7"
+    className="paginationButtons"
+    disabled={false}
+    onClick={[Function]}
+  >
+    »
+  </button>
+</nav>
+`;
+
+exports[`Pagination Component rendering with start ellipsis 1`] = `
+<nav
+  aria-label="pagination"
+  className="pagination"
+>
+  <button
+    aria-label="Goto Page 14"
+    className="paginationButtons"
+    disabled={false}
+    onClick={[Function]}
+  >
+    «
+  </button>
+  <button
+    aria-label="Goto Page 1"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    1
+  </button>
+  <button
+    aria-disabled={true}
+    aria-label="More Pages"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    ...
+  </button>
+  <button
+    aria-label="Goto Page 13"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    13
+  </button>
+  <button
+    aria-label="Goto Page 14"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    14
+  </button>
+  <button
+    aria-current="page"
+    aria-label="Goto Page 15"
+    className="paginationButtons active"
+    onClick={[Function]}
+  >
+    15
+  </button>
+  <button
+    aria-label="Goto Page 16"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    16
+  </button>
+  <button
+    aria-label="Goto Page 17"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    17
+  </button>
+  <button
+    aria-label="Goto Page 18"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    18
+  </button>
+  <button
+    aria-label="Goto Page 19"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    19
+  </button>
+  <button
+    aria-label="Goto Page 20"
+    className="paginationButtons"
+    onClick={[Function]}
+  >
+    20
+  </button>
+  <button
+    aria-label="Goto Page 16"
+    className="paginationButtons"
+    disabled={false}
+    onClick={[Function]}
+  >
+    »
+  </button>
+</nav>
+`;
