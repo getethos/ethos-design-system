@@ -31,6 +31,7 @@ import { Tooltip } from './index'
 import { ValueProps } from './index'
 import { ZipInput } from './index'
 import { UniversalNavbar } from './index'
+import { Pagination } from './index'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 
@@ -508,5 +509,34 @@ class Header extends React.Component<any, any> {
 class Tag extends React.Component<any, any> {
   render() {
     return <Tag type="approved">approved</Tag>
+  }
+}
+
+class PaginationTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Pagination
+        currentPage={5}
+        pageCount={10}
+        fetchPageCallback={() => {
+          return {}
+        }}
+      />
+    )
+  }
+}
+
+class PaginationWithDisplayLimitTest extends React.Component<any, any> {
+  render() {
+    return (
+      <Pagination
+        currentPage={5}
+        pageCount={10}
+        displayedPagesCount={6}
+        fetchPageCallback={() => {
+          return {}
+        }}
+      />
+    )
   }
 }
