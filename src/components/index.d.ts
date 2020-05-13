@@ -522,10 +522,12 @@ export declare const Pagination: {
   ({
     currentPage,
     pageCount,
+    displayedPagesCount,
     fetchPageCallback,
   }: {
     currentPage: any
     pageCount: any
+    displayedPagesCount?: any
     /**
      * Ultimately, this returns the JSON.parse'd data
      */
@@ -534,6 +536,7 @@ export declare const Pagination: {
   propTypes: {
     currentPage: any
     pageCount: any
+    displayedPagesCount?: any
     /**
      * Ultimately, this returns the JSON.parse'd data
      */

@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './Pagination.module.scss'
+import uuidv4 from 'uuid/v4'
+import { generatePagination, ELLIPSIS } from './PaginationHelper'
 
 /**
  * usePagination hook for getting paging number buttons
@@ -19,26 +21,42 @@ export const usePagination = ({ fetchPageCallback = null }) => {
    * @private
    *
    * @param {number} pageCount the number of pages
-   * @param {number}} currentPage the current page
+   * @param {number} currentPage the current page
+   * @param {number} displayedPagesCount number of pages to be displayed
    *
    * @returns JSX.Element
    */
-  const getPaginationNumbers = (pageCount, currentPage) => {
+  const getPaginationNumbers = (
+    pageCount,
+    currentPage,
+    displayedPagesCount
+  ) => {
     const pageNumbers = []
     const totalPages = pageCount
     let paginationNumbers
 
     if (totalPages) {
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i)
-      }
+      pageNumbers.push(
+        ...generatePagination({ currentPage, pageCount, displayedPagesCount })
+      )
       paginationNumbers = pageNumbers.map((number) => {
         const isCurrentPage = currentPage === number
         const klasses = isCurrentPage
           ? `${styles.paginationButtons} ${styles.active}`
           : styles.paginationButtons
+        const isEllipsis = number === ELLIPSIS
 
-        return (
+        return isEllipsis ? (
+          <button
+            key={uuidv4()}
+            className={klasses}
+            onClick={() => {}}
+            aria-label={'More Pages'}
+            aria-disabled={true}
+          >
+            {number}
+          </button>
+        ) : (
           <button
             key={number}
             // eslint-disable-next-line
@@ -59,10 +77,15 @@ export const usePagination = ({ fetchPageCallback = null }) => {
    * @public
    *
    * @param {number} pageCount the number of pages
-   * @param {number}} currentPage the current page
+   * @param {number} currentPage the current page
+   * @param {number} displayedPagesCount number of pages to be displayed
    * @returns JSX.Element | null
    */
-  const conditionallyRenderPagingButtons = (pageCount, currentPage) => {
+  const conditionallyRenderPagingButtons = (
+    pageCount,
+    currentPage,
+    displayedPagesCount
+  ) => {
     const previousDisabled = currentPage === 1
     const nextDisabled = currentPage === pageCount
 
@@ -77,7 +100,7 @@ export const usePagination = ({ fetchPageCallback = null }) => {
           >
             &laquo;
           </button>
-          {getPaginationNumbers(pageCount, currentPage)}
+          {getPaginationNumbers(pageCount, currentPage, displayedPagesCount)}
           <button
             className={styles.paginationButtons}
             onClick={() => fetchPageCallback(currentPage + 1)}

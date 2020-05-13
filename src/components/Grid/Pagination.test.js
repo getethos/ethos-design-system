@@ -28,7 +28,57 @@ describe('Pagination Component', () => {
   it('default rendering', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
+        <Pagination
+          currentPage={2}
+          pageCount={3}
+          displayedPagesCount={3}
+          fetchPageCallback={fetchFn}
+        />
+      )
+    })
+    let snapShot = tree.toJSON()
+    expect(snapShot).toMatchSnapshot()
+  })
+
+  it('rendering with end ellipsis', async () => {
+    await act(async () => {
+      tree = TestRenderer.create(
+        <Pagination
+          currentPage={5}
+          pageCount={20}
+          displayedPagesCount={10}
+          fetchPageCallback={fetchFn}
+        />
+      )
+    })
+    let snapShot = tree.toJSON()
+    expect(snapShot).toMatchSnapshot()
+  })
+
+  it('rendering with start ellipsis', async () => {
+    await act(async () => {
+      tree = TestRenderer.create(
+        <Pagination
+          currentPage={15}
+          pageCount={20}
+          displayedPagesCount={10}
+          fetchPageCallback={fetchFn}
+        />
+      )
+    })
+    let snapShot = tree.toJSON()
+    expect(snapShot).toMatchSnapshot()
+  })
+
+  it('rendering with start and end ellipsis', async () => {
+    await act(async () => {
+      tree = TestRenderer.create(
+        <Pagination
+          currentPage={6}
+          pageCount={20}
+          displayedPagesCount={10}
+          fetchPageCallback={fetchFn}
+        />
       )
     })
     let snapShot = tree.toJSON()
@@ -38,7 +88,12 @@ describe('Pagination Component', () => {
   it('fetches', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination currentPage={1} pageCount={3} fetchPageCallback={fetchFn} />
+        <Pagination
+          currentPage={1}
+          pageCount={3}
+          displayedPagesCount={3}
+          fetchPageCallback={fetchFn}
+        />
       )
     })
     const root = tree.root
@@ -55,7 +110,12 @@ describe('Pagination Component', () => {
   it('has aria labels', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination currentPage={2} pageCount={3} fetchPageCallback={fetchFn} />
+        <Pagination
+          currentPage={2}
+          pageCount={3}
+          displayedPagesCount={3}
+          fetchPageCallback={fetchFn}
+        />
       )
     })
     const root = tree.root
@@ -92,7 +152,12 @@ describe('Hide Pagination', () => {
   it('hides the pagination if only a single page worth of items', async () => {
     await act(async () => {
       tree = TestRenderer.create(
-        <Pagination currentPage={1} pageCount={1} fetchPageCallback={fetchFn} />
+        <Pagination
+          currentPage={1}
+          pageCount={1}
+          displayedPagesCount={1}
+          fetchPageCallback={fetchFn}
+        />
       )
     })
     const root = tree.root
