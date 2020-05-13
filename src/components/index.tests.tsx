@@ -405,6 +405,7 @@ class SelectTest extends React.Component<any, any> {
           onChange={onSelected}
           options={options}
           isAsync={true}
+          isMulti={true}
           data-tid="foo"
         />
         <Select onChange={onSelected} options={options} isCreatable={true} />
