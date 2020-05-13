@@ -80,10 +80,8 @@ export const Select = ({
     // react-select multi select case
     if (Array.isArray(userSelection)) {
       resolvedValues = userSelection.map((selection) => selection.value)
-      // errorMessage = validate(arrayOfValues)
     } else {
       // react-select single select case
-      // errorMessage = validate(userSelection.value)
       resolvedValues = userSelection.value
     }
 
