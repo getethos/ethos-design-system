@@ -76,17 +76,21 @@ export const Select = ({
 
   const validationSelect = () => {
     let errorMessage = ''
+    let resolvedValues = ''
     // react-select multi select case
     if (Array.isArray(userSelection)) {
-      const arrayOfValues = userSelection.map((selection) => selection.value)
-      errorMessage = validate(arrayOfValues)
+      resolvedValues = userSelection.map((selection) => selection.value)
+      // errorMessage = validate(arrayOfValues)
     } else {
       // react-select single select case
-      errorMessage = validate(userSelection.value)
+      // errorMessage = validate(userSelection.value)
+      resolvedValues = userSelection.value
     }
+
+    errorMessage = validate(resolvedValues)
     setError(errorMessage)
     if (formChangeHandler) {
-      formChangeHandler(userSelection, errorMessage)
+      formChangeHandler(resolvedValues, errorMessage)
     }
   }
 
