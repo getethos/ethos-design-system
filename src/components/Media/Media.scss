@@ -2,6 +2,7 @@ $phone-range-end: 599px;
 $tablet-range-start: 600px;
 $tablet-range-end: 899px;
 $laptop-range-start: 900px;
+$laptop-range-mid: 1024px;
 $laptop-range-end: 1199px;
 $desktop-range-start: 1200px;
 
@@ -43,6 +44,18 @@ $desktop-range-start: 1200px;
 
 @mixin for-laptop-only {
   @media (min-width: $laptop-range-start) and (max-width: $laptop-range-end) {
+    @content;
+  }
+}
+
+@mixin for-laptop-to-laptop-mid {
+  @media (min-width: $laptop-range-start) and (max-width: $laptop-range-mid) {
+    @content;
+  }
+}
+
+@mixin for-laptop-mid-and-up {
+  @media (min-width: $laptop-range-mid) {
     @content;
   }
 }
