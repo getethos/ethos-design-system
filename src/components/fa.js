@@ -53,6 +53,8 @@ import { faFilePlus } from '@fortawesome/pro-regular-svg-icons/faFilePlus'
 import { faTrashAlt } from '@fortawesome/pro-regular-svg-icons/faTrashAlt'
 import { faTrashAlt as faTrashAltLight } from '@fortawesome/pro-light-svg-icons/faTrashAlt'
 import { faCaretDown } from '@fortawesome/pro-solid-svg-icons/faCaretDown'
+import { faPhoneAlt } from '@fortawesome/pro-solid-svg-icons/faPhoneAlt'
+import { faCommentAlt } from '@fortawesome/pro-solid-svg-icons/faCommentAlt'
 import { faInfoCircle as faInfoCircleLight } from '@fortawesome/pro-light-svg-icons/faInfoCircle'
 import { faInfoCircle } from '@fortawesome/pro-regular-svg-icons/faInfoCircle'
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus'
@@ -75,6 +77,8 @@ library.add(
   faAsterisk,
   faAward,
   faCaretDown,
+  faPhoneAlt,
+  faCommentAlt,
   faCheck,
   faCheckLight,
   faCheckSquare,
