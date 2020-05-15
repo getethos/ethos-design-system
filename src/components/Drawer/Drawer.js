@@ -18,8 +18,22 @@ const DrawerContent = ({
   ...rest
 }) => {
   const drawerRef = useRef(null)
-
-  const positionClass = position == 'left' ? styles.Left : styles.Right
+  let positionClass = ''
+  console.log('position test...')
+  switch (position) {
+    case 'left':
+      positionClass = styles.Left
+      break
+    case 'right':
+      positionClass = styles.Right
+      break
+    case 'top':
+      positionClass = styles.Top
+      break
+    case 'bottom':
+      positionClass = styles.Bottom
+      break
+  }
   let classes = isOpen
     ? `${styles.Container} ${styles.Open} ${positionClass}`
     : `${styles.Container} ${positionClass}`
@@ -55,7 +69,7 @@ DrawerContent.propTypes = {
   onDismiss: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   lock: PropTypes.bool,
-  position: PropTypes.oneOf(['left', 'right']),
+  position: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
   className: PropTypes.string,
   ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
   'data-tid': PropTypes.string,
@@ -119,8 +133,8 @@ Drawer.propTypes = {
    * the drawer if you click outside or escape */
   lock: PropTypes.bool,
   // TODO: top / bottom
-  /** drawer should come from left or right */
-  position: PropTypes.oneOf(['left', 'right']),
+  /** drawer should come from left, right, top, or bottom */
+  position: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
   /** additional css classes */
   className: PropTypes.string,
   /** optional renderer for rendering floating items e.g. a floating action button */

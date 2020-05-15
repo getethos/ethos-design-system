@@ -1,3 +1,16 @@
+#### Skinning Drawers
+
+Drawers -- Note that you can override some of the styles by using CSS custom property overrides. If you look at `Drawer.module.scss`, you'll note that we've
+pretty much overriden every `--drawer-override-*` property, and thus you can use these to skin the drawer to your liking. Please note though, that this is a one-time global override as per how CSS properties generally work, and so it's best to use if you
+have a separate application that uses a differing skinning for example.
+
+Here are the custom properties you can override:
+
+- `--drawer-override-depth` -- pixel value used to indicate width or height depending on the orientation of the drawer. For example, if it's positioned left the depth will be used for the width; if it's oriented to the top, the depth will be used for the height.
+
+- `--drawer-override-padding` -- padding for the drawer's content
+- `--drawer-override-box-shadow` -- box shadow for the drawer
+
 ```jsx
 import { Button } from '../index'
 
@@ -7,9 +20,17 @@ const MyApp = () => {
     console.log('toggle drawer called...')
     setOpen(!open)
   }
+
+  /**
+   * Try changing the position below to "top", "bottom", or "right" and toggling the drawer.
+   */
   return (
     <>
       <Drawer onDismiss={setOpen} isOpen={open} position="left">
+        <h3>
+          Don't forget you can override some of the{' '}
+          <pre>--drawer-override-*</pre> CSS properties!
+        </h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor
           urna sed quam rhoncus lobortis. In malesuada cursus lacus, quis dictum
