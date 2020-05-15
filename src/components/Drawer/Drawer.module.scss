@@ -2,16 +2,24 @@
 @import '../Variables.scss';
 
 .Container {
-  height: 100vh;
-  width: 375px;
+  /* depth is used to indicate width or height depending on the orientation of the
+  drawer -- e.g. if it's positioned left depth is the width; if top depth is height */
+  --default-drawer-depth: 375px;
+  --default-drawer-padding: 0 var(--Space-24) var(--Space-32);
+  --default-drawer-box-shadow: var(--Space-10) 0px var(--Space-10)
+    rgba(0, 0, 0, 0);
+
+  padding: var(--drawer-override-padding, var(--default-drawer-padding));
   background-color: var(--White);
-  padding: 0 var(--Space-24) var(--Space-32);
   transition: transform var(--transition-duration-short);
   position: fixed;
   overflow: auto;
   top: 0;
   z-index: 1;
-  box-shadow: var(--Space-10) 0px var(--Space-10) rgba(0, 0, 0, 0);
+  box-shadow: var(
+    --drawer-override-box-shadow,
+    var(--default-drawer-box-shadow)
+  );
 }
 
 .DrawerWrapper {
@@ -39,14 +47,42 @@ so we remove the 100vh / 100vw by setting to default values here */
   width: initial;
 }
 
+.Sidebars {
+  height: 100vh;
+  width: var(--drawer-override-depth, var(--default-drawer-depth));
+}
+
 .Left {
+  composes: Sidebars;
   left: 0;
-  transform: translate(-375px);
+  transform: translate(
+    calc(var(--drawer-override-depth, var(--default-drawer-depth)) * -1)
+  );
 }
 
 .Right {
+  composes: Sidebars;
   right: 0;
-  transform: translate(375px);
+  transform: translate(
+    var(--drawer-override-depth, var(--default-drawer-depth))
+  );
+}
+
+.Horizontals {
+  width: 100vw;
+  height: var(--drawer-override-depth, var(--default-drawer-depth));
+}
+
+.Top {
+  composes: Horizontals;
+  top: 0;
+  bottom: initial;
+}
+
+.Bottom {
+  composes: Horizontals;
+  bottom: 0;
+  top: initial;
 }
 
 .Open {
