@@ -19,7 +19,6 @@ const DrawerContent = ({
 }) => {
   const drawerRef = useRef(null)
   let positionClass = ''
-  console.log('position test...')
   switch (position) {
     case 'left':
       positionClass = styles.Left
