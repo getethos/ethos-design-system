@@ -111,6 +111,7 @@ function PrivateTextInput({
         onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
+        aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
       />
       {getError(currentError, touched)}
     </>
