@@ -16,6 +16,7 @@ const TransformingBurgerButton = ({
         className={styles.iconWrapper}
         role="button"
         tabIndex="0"
+        aria-label="Menu"
       >
         <div className={styles.icon}>
           <i />
