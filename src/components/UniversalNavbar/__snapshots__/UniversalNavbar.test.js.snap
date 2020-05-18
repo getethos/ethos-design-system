@@ -3,6 +3,7 @@
 exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
 <div
   className="blockNavbar"
+  role="navigation"
 >
   <div
     className="navbar"
