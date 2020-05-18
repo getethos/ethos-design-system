@@ -18,6 +18,7 @@ Array [
     }
   />,
   <input
+    aria-label="nombre"
     className="TextInput"
     data-tid="the-text-input"
     name="nombre"
