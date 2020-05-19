@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { DateInput } from '../DateInput'
 import * as Validators from '../../validators/BirthdateInputValidator'
@@ -67,12 +67,6 @@ BirthdateInput.propTypes = {
   currentError: PropTypes.string,
   /** formChangeHandler is a low level prop used only by the form engine */
   formChangeHandler: PropTypes.func,
-  /** The Accordion's children. Likely AccordionSection's */
-  children: PropTypes.node.isRequired,
-  /** `disabled` - whether to disable the the checkbox */
-  disabled: PropTypes.bool,
-  /** field validation callback */
-  validator: PropTypes.func,
 }
 
 export const BirthdateInputValidators = Validators
