@@ -37,10 +37,6 @@ const PrivateDateInput = (props) => {
   const callErrorHandlers = (value, handlerFn) => {
     const cleansed = cleanse(value)
 
-    console.log(
-      'Check date string format validity -- date format: ',
-      dateFormat
-    )
     // Check date string format validity
     let errMsg = dateStringMatchesFormat(cleansed, dateFormat)
     const errorMessage = errMsg.length ? errMsg : ''

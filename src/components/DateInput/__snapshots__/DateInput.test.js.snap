@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateInput default rendering 1`] = `
+Array [
+  <label
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    htmlFor="birthdate-auto-corrected"
+  >
+    When did you apply for this life insurance?
+  </label>,
+  <div
+    aria-hidden={true}
+    className="Spacer"
+    style={
+      Object {
+        "height": 8,
+      }
+    }
+  />,
+  <input
+    className="TextMaskedInput TextInput"
+    data-tid="when-applied-for"
+    disabled={false}
+    guide={true}
+    keepCharPositions={true}
+    mask={
+      Array [
+        /\\\\d/,
+        /\\\\d/,
+        "/",
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+        /\\\\d/,
+      ]
+    }
+    name="birthdate-auto-corrected"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onPaste={[Function]}
+    pipe={[Function]}
+    placeholder="mm/yyyy"
+    type="tel"
+    value=""
+  />,
+  "",
+]
+`;
