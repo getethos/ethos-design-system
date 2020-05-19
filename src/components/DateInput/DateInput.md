@@ -10,7 +10,6 @@ import {
 
 import { TitleLarge2, Form, Spacer, Button, InfoMessage } from '../index'
 
-console.log('Date Input md')
 const MIN_ERROR_MESSAGE = "That's too far in the past!"
 const minDate = dayjs('1/1/1700', 'M/D/YYYY')
   .utc()

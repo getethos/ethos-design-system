@@ -23,6 +23,15 @@ export const dateStringMatchesFormat = (cleansedDateString, dateFormat) => {
   return ''
 }
 
+/**
+ * Verifies that a date is "before" `maxDate`.
+ * @param {*} props
+ * @param {object} maxDate a dayjs object representing the maximum incoming date
+ * must be after
+ * @param {string} customErrorMessage -- error message
+ * @param {string} dateFormat -- defaults to `mm/dd/yyyy` but any of:
+ * `'mm/dd/yyyy', 'mm/yyyy', 'mm/yy'` may be used.
+ */
 export const getMaxDateValidator = (props) => {
   const { maxDate, customErrorMessage, dateFormat = 'mm/dd/yyyy' } = props
 
@@ -37,6 +46,17 @@ export const getMaxDateValidator = (props) => {
   }
 }
 
+/**
+ * Verifies that a date is "after" `minDate`. Note that the underlying `isAfter`
+ * method of dayjs will return False for this if, for example, you've set `1/1/1700`
+ * and then want to verify 1/1/1700 is after (since they are the same!)
+ * @param {*} props
+ * @param {object} minDate a dayjs object representing the minimum incoming date
+ * must be after
+ * @param {string} customErrorMessage -- error message
+ * @param {string} dateFormat -- defaults to `mm/dd/yyyy` but any of:
+ * `'mm/dd/yyyy', 'mm/yyyy', 'mm/yy'` may be used.
+ */
 export const getMinDateValidator = (props) => {
   const { minDate, customErrorMessage, dateFormat = 'mm/dd/yyyy' } = props
 
