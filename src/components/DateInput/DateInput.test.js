@@ -2,7 +2,6 @@ import React from 'react'
 import { DateInput } from './DateInput'
 import renderer from 'react-test-renderer'
 
-// TODO: make a helper
 // https://github.com/text-mask/text-mask/issues/427
 jest.mock('react-text-mask', () => (props) => <input type="text" {...props} />)
 
