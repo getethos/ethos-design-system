@@ -769,8 +769,107 @@ export declare namespace Form {
   }
 }
 
+export declare const DateInput: {
+  ({
+    optional,
+    dateFormat,
+    disabled,
+    allCaps,
+    name,
+    labelCopy,
+    validator,
+    initialValue,
+    formTouched,
+    currentValue,
+    setFieldTouched,
+    currentError,
+    formChangeHandler,
+    ...rest
+  }: {
+    optional?: boolean
+    dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
+    'data-tid': string
+    disabled?: boolean
+    allCaps?: boolean
+    name: string
+    labelCopy?: string
+    validator?: (value: string) => string
+    initialValue?: string
+    formTouched?: boolean
+    currentValue?: string
+    setFieldTouched?: (touched: boolean) => void
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+  }): JSX.Element
+  propTypes: {
+    optional?: boolean
+    dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
+    'data-tid': string
+    disabled?: boolean
+    allCaps?: boolean
+    name: string
+    labelCopy?: string
+    validator?: (value: string) => string
+    initialValue?: string
+    formTouched?: boolean
+    currentValue?: string
+    setFieldTouched?: (touched: boolean) => void
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+  }
+}
+
 import * as Validators from '../validators/BirthdateInputValidator'
-export declare const BirthdateInput: (downstreamProps: any) => JSX.Element
+export declare const BirthdateInput: {
+  ({
+    optional,
+    dateFormat,
+    disabled,
+    allCaps,
+    name,
+    labelCopy,
+    validator,
+    initialValue,
+    formTouched,
+    currentValue,
+    setFieldTouched,
+    currentError,
+    formChangeHandler,
+    ...rest
+  }: {
+    optional?: boolean
+    dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
+    'data-tid': string
+    disabled?: boolean
+    allCaps?: boolean
+    name: string
+    labelCopy?: string
+    validator?: (value: string) => string
+    initialValue?: string
+    formTouched?: boolean
+    currentValue?: string
+    setFieldTouched?: (touched: boolean) => void
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+  }): JSX.Element
+  propTypes: {
+    optional?: boolean
+    dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
+    'data-tid': string
+    disabled?: boolean
+    allCaps?: boolean
+    name: string
+    labelCopy?: string
+    validator?: (value: string) => string
+    initialValue?: string
+    formTouched?: boolean
+    currentValue?: string
+    setFieldTouched?: (touched: boolean) => void
+    currentError?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
+  }
+}
+
 export declare const BirthdateInputValidators: typeof Validators
 
 /**

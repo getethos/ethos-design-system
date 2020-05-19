@@ -5,6 +5,7 @@ import { AsyncTypeahead } from './index'
 import { ButtonSelectGroup } from './index'
 import { CheckboxInput } from './index'
 import { Drawer } from './index'
+import { DateInput } from './index'
 import { EmailInput } from './index'
 import { Faq } from './index'
 import { FlexGrid, FlexCol, FlexRow } from './index'
@@ -136,6 +137,23 @@ class NoraTextInputTest extends React.Component<any, any> {
     )
   }
 }
+
+class DateInputTest extends React.Component<any, any> {
+  render() {
+    return (
+      <DateInput
+        dateFormat="mm/yyyy"
+        labelCopy="When did you apply for this life insurance?"
+        data-tid="when-applied-for"
+        validator={(s) => {
+          return s
+        }}
+        name="whenapplied"
+      />
+    )
+  }
+}
+
 class DrawerTest extends React.Component<any, any> {
   render() {
     return (
