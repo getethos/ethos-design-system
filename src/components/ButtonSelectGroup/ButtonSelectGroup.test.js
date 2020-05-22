@@ -3,9 +3,9 @@ import { OPTION_BUTTON_STYLES } from './OptionButton'
 import { ButtonSelectGroup } from './ButtonSelectGroup'
 import renderer from 'react-test-renderer'
 
-jest.mock('uuid/v4', () => {
-  return jest.fn(() => 1)
-})
+jest.mock('uuid', () => ({
+  v4: jest.fn(() => 1),
+}))
 
 describe('ButtonSelectGroup', () => {
   test('The ButtonSelectGroup renders (default button style, `buttonStyle` not passed)', () => {

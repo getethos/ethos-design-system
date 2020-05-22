@@ -1,4 +1,4 @@
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 
 export const LINKS = {
   // These are used e.g. in the logo and CTA button:
