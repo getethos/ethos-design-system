@@ -130,6 +130,7 @@ class NoraTextInputTest extends React.Component<any, any> {
         labelCopy="Validation happens after first blur ('touched')—Value's length % 2"
         data-tid="the-text-input"
         formChangeHandler={() => {}}
+        aria-label="text-input"
         validator={(s) => {
           return ''
         }}

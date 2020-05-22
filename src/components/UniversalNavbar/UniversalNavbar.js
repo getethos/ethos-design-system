@@ -76,7 +76,7 @@ const UniversalNavbar = ({
   }
 
   return (
-    <div className={styles.blockNavbar}>
+    <div className={styles.blockNavbar} role="navigation">
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
           <div className={styles.hamburger}>

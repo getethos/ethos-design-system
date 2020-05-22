@@ -18,6 +18,7 @@ Array [
     }
   />,
   <input
+    aria-label="the-email-input-example"
     className="TextInput"
     data-tid="the-email-input"
     name="the-email-input-example"
