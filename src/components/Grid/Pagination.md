@@ -2,7 +2,7 @@ Used in tandem with the DataGrid component:
 
 ```jsx
 import React, { memo, useEffect, useState } from 'react'
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Grid } from '../Grid/Grid.js'
 import { Row } from '../Grid/Row.js'

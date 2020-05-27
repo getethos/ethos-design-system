@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Pagination.module.scss'
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 import { generatePagination, ELLIPSIS } from './PaginationHelper'
 
 /**

@@ -28,7 +28,7 @@ Nora application which utilizes this.
 
 ```jsx
 import React, { useState } from 'react'
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Grid } from './Grid.js'
 import { Row } from './Row.js'

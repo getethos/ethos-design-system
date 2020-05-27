@@ -4,7 +4,7 @@ import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
 import cloudinary from 'cloudinary-core'
-import uuidv4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 // eslint-disable-next-line
 import lazysizes from 'lazysizes'
 
