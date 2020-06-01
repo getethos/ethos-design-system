@@ -66,7 +66,7 @@ import { faMinusCircle } from '@fortawesome/pro-regular-svg-icons/faMinusCircle'
 import { faSpinnerThird } from '@fortawesome/pro-regular-svg-icons/faSpinnerThird'
 import { faMoneyCheckEditAlt } from '@fortawesome/pro-regular-svg-icons/faMoneyCheckEditAlt'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons/faHashtag'
-import { faSignOut } from '@fortawesome/pro-light-svg-icons/faSignOut'
+import { faSignOut } from '@fortawesome/pro-regular-svg-icons/faSignOut'
 
 library.add(
   faHamburger,
