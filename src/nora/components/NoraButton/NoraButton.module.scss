@@ -10,6 +10,7 @@
   border-radius: var(--Radius-3);
   text-align: center;
   display: inline-block;
+  border: none;
 
   &[disabled] {
     opacity: 0.65;
