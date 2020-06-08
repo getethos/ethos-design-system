@@ -17,6 +17,9 @@ export const Tag = ({ children, type }) => {
     case 'cyan':
       colorClass = styles.Cyan
       break
+    case 'neutral':
+      colorClass = styles.Neutral
+      break
     case 'gray':
       colorClass = styles.Default
       break
