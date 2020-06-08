@@ -31,7 +31,7 @@ export const Tag = ({ children, type }) => {
 }
 
 Tag.propTypes = {
-  type: PropTypes.oneOf(['red', 'orange', 'green', 'cyan', 'gray']),
+  type: PropTypes.oneOf(['red', 'orange', 'green', 'cyan', 'gray', 'neutral']),
   children: PropTypes.string.isRequired,
 }
 
