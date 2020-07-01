@@ -25,6 +25,7 @@ const PrivateDateInput = (props) => {
     currentError,
     formTouched,
     setFieldTouched,
+    disabled,
     ...restProps
   } = props
 
@@ -105,6 +106,7 @@ const PrivateDateInput = (props) => {
         setFieldTouched={setFieldTouched}
         getTouched={touched}
         setTouched={setTouched}
+        disabled={disabled}
       />
       {getError(currentError, touched)}
     </>
