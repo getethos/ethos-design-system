@@ -58,6 +58,7 @@
     "react-select": "^3.0.8",
     "react-text-mask": "^5.4.3",
     "text-mask-addons": "^3.8.0",
+    "cloudinary-core": "^2.7.4",
     "uuid": "^8.1.0"
   },
   "devDependencies": {
@@ -73,7 +74,6 @@
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "chokidar-cli": "^1.2.2",
-    "cloudinary-core": "^2.7.4",
     "css-loader": "^3.2.0",
     "css-tree": "^1.0.0-alpha.36",
     "cypress": "^3.4.1",
