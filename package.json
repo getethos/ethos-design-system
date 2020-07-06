@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.1.215",
+  "version": "1.1.216",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
@@ -49,6 +49,7 @@
     "@fortawesome/pro-regular-svg-icons": "^5.12.0",
     "@fortawesome/pro-solid-svg-icons": "^5.12.0",
     "@fortawesome/react-fontawesome": "^0.1.8",
+    "cloudinary-core": "^2.7.4",
     "dayjs": "^1.8.16",
     "dayjs-plugin-utc": "^0.1.2",
     "js-cookie": "^2.2.1",
@@ -58,7 +59,6 @@
     "react-select": "^3.0.8",
     "react-text-mask": "^5.4.3",
     "text-mask-addons": "^3.8.0",
-    "cloudinary-core": "^2.7.4",
     "uuid": "^8.1.0"
   },
   "devDependencies": {
