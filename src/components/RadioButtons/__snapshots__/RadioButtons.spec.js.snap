@@ -19,7 +19,7 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
     className="Spacer"
     style={
       Object {
-        "height": 8,
+        "height": 4,
       }
     }
   />
