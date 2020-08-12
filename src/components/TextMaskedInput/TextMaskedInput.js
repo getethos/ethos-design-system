@@ -161,7 +161,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   validator: PropTypes.func,
   setTouched: PropTypes.func,
   getTouched: PropTypes.bool,
-  placeholderChar: PropTypes.string
+  placeholderChar: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {
