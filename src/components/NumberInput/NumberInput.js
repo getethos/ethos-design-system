@@ -27,6 +27,7 @@ export const NumberInput = (props) => {
     currentError,
     placeholder,
     setFieldTouched,
+    placeholderChar,
     ...restProps
   } = props
 
@@ -49,6 +50,7 @@ export const NumberInput = (props) => {
         setFieldTouched={setFieldTouched}
         validator={validator}
         formChangeHandler={formChangeHandler}
+        placeholderChar={placeholderChar}
       />
     </>
   )
@@ -69,6 +71,7 @@ NumberInput.propTypes = {
   initialValue: PropTypes.string,
   type: PropTypes.oneOf(['tel', 'number']),
   mask: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
+  placeholderChar: PropTypes.string,
 }
 
 NumberInput.defaultProps = {
