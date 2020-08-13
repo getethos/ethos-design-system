@@ -649,6 +649,7 @@ export declare const TextMaskedInput: {
     validator?: (value: string) => string
     setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
+    placeholderChar?: string
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -668,6 +669,7 @@ export declare const TextMaskedInput: {
     validator?: (value: string) => string
     setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
+    placeholderChar?: string
   }
   defaultProps: {
     placeholder: string
@@ -1064,6 +1066,7 @@ export declare const NumberInput: {
     initialValue?: string
     type?: string
     mask?: (mask: (string | RegExp)[]) => any
+    placeholderChar?: string
   }
   defaultProps: {
     type: string
