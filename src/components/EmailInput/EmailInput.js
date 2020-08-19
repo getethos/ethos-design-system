@@ -8,6 +8,7 @@ export const EmailInput = (props) => {
     name,
     optional,
     allCaps,
+    capitalize,
     labelCopy,
     initialValue,
     placeholder,
@@ -23,6 +24,7 @@ export const EmailInput = (props) => {
         name={name}
         labelCopy={labelCopy}
         allCaps={allCaps}
+        capitalize={capitalize}
         initialValue={value}
         optional={optional}
         type="email"
@@ -42,6 +44,8 @@ EmailInput.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string,
   validator: PropTypes.func,

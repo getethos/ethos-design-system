@@ -13,6 +13,7 @@ import { Caption, COLORS, Spacer } from './index'
  * @param  {String}   props.element     HTML element, defaults to <label>
  * @param  {String}   props.id          HTML id, used with aria-labelledby
  * @param  {Boolean}  props.allCaps     If true apply "allCaps" label styling
+ * @param  {Boolean}  props.capitalize  If true apply "capitalize" label styling
  */
 
 export function InputLabel({
@@ -21,6 +22,7 @@ export function InputLabel({
   element = 'label',
   id,
   allCaps = true,
+  capitalize = false,
 }) {
   // `name` prop should be supplied for most fields, unless
   // the field uses aria-labelledby
@@ -43,6 +45,7 @@ export function InputLabel({
         element={element}
         color={COLORS.GRAY_PRIMARY}
         allCaps={allCaps}
+        capitalize={capitalize}
         {...nameOrIdProps}
       >
         {labelCopy}
@@ -55,6 +58,8 @@ export function InputLabel({
 InputLabel.propTypes = {
   element: PropTypes.string,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   name: PropTypes.string,
   labelCopy: PropTypes.string,
   id: PropTypes.string,

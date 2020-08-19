@@ -9,6 +9,7 @@ export const BirthdateInput = (props) => {
     optional,
     dateFormat,
     allCaps,
+    capitalize,
     labelCopy,
     validator,
     formChangeHandler,
@@ -25,6 +26,7 @@ export const BirthdateInput = (props) => {
       optional={optional}
       dateFormat={dateFormat}
       allCaps={allCaps}
+      capitalize={capitalize}
       labelCopy={labelCopy}
       validator={validator}
       formChangeHandler={formChangeHandler}
@@ -49,6 +51,8 @@ BirthdateInput.propTypes = {
   disabled: PropTypes.bool,
   /** whether to display label in all caps */
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   /** Name of the field */
   name: PropTypes.string.isRequired,
   /** label  */

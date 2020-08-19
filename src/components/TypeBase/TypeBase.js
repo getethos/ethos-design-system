@@ -39,6 +39,7 @@ export const TypeBase = ({
   children,
   centered,
   allCaps,
+  capitalize,
   color,
   element,
   subtype,
@@ -69,6 +70,7 @@ export const TypeBase = ({
   if (color) classNames.push(styles[color])
   if (centered) classNames.push(styles.Centered)
   if (allCaps) classNames.push(styles.AllCaps)
+  if (capitalize) classNames.push(styles.Capitalize)
 
   // Defaults to div, but can be overridden
   const Element = element || 'div'
@@ -147,6 +149,8 @@ TypeBase.PUBLIC_PROPS = {
   children: PropTypes.node,
   centered: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   color: PropTypes.oneOf(Object.values(TypeBase.COLORS)),
   element: PropTypes.oneOf(Object.values(TypeBase.ELEMENTS)),
   htmlFor: PropTypes.string,

@@ -12,6 +12,7 @@ export const ZipInput = (props) => {
     name,
     labelCopy,
     allCaps,
+    capitalize,
     validator,
     formChangeHandler,
     initialValue,
@@ -71,6 +72,7 @@ export const ZipInput = (props) => {
         type="tel"
         labelCopy={labelCopy}
         allCaps={allCaps}
+        capitalize={capitalize}
         data-tid={restProps['data-tid']}
         guide={true}
         doValidation={doValidation}
@@ -93,6 +95,8 @@ ZipInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,

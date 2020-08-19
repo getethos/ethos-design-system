@@ -59,6 +59,10 @@
   &.AllCaps {
     text-transform: uppercase;
   }
+
+  &.Capitalize {
+    text-transform: capitalize;
+  }
 }
 
 .Light300 {

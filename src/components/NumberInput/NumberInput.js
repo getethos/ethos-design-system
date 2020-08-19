@@ -20,6 +20,7 @@ export const NumberInput = (props) => {
     disabled,
     labelCopy,
     allCaps,
+    capitalize,
     validator,
     formChangeHandler,
     initialValue,
@@ -42,6 +43,7 @@ export const NumberInput = (props) => {
         type={type}
         labelCopy={labelCopy}
         allCaps={allCaps}
+        capitalize={capitalize}
         data-tid={restProps['data-tid']}
         name={name}
         currentValue={currentValue}
@@ -58,6 +60,8 @@ NumberInput.propTypes = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   currentValue: PropTypes.string,
   currentError: PropTypes.string,
   placeholder: PropTypes.string,

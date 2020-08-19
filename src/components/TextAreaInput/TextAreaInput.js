@@ -17,6 +17,7 @@ function PrivateTextAreaInput({
   name,
   labelCopy,
   allCaps,
+  capitalize,
   formChangeHandler,
   validator,
   placeholder,
@@ -33,6 +34,7 @@ function PrivateTextAreaInput({
     name: name,
     labelCopy: labelCopy,
     allCaps: allCaps,
+    capitalize: capitalize,
   })
   includesRequired(allRelevantProps)
 
@@ -97,7 +99,12 @@ function PrivateTextAreaInput({
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} />
+      <InputLabel
+        name={name}
+        labelCopy={labelCopy}
+        allCaps={allCaps}
+        capitalize={capitalize}
+      />
       <BaseTextAreaInput
         className={classes.join(' ')}
         disabled={disabled}
@@ -119,6 +126,8 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   formChangeHandler: PropTypes.func,
   currentValue: PropTypes.string,
   initialValue: PropTypes.string,

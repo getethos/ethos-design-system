@@ -16,6 +16,7 @@ export const TextMaskedInput = (props) => {
     mask,
     labelCopy,
     allCaps,
+    capitalize,
     validator,
     getTouched,
     setTouched,
@@ -134,7 +135,12 @@ export const TextMaskedInput = (props) => {
 
   return (
     <>
-      <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
+      <InputLabel
+        name={name}
+        labelCopy={labelCopy}
+        allCaps={allCaps}
+        capitalize={capitalize}
+      />
       {getMaskedInputByType(mask)}
       {!doValidation && getError(currentError, whichTouched)}
     </>
@@ -153,6 +159,8 @@ TextMaskedInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,

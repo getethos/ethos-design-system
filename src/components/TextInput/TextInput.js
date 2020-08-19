@@ -24,6 +24,7 @@ function PrivateTextInput({
   name,
   labelCopy,
   allCaps,
+  capitalize,
   formChangeHandler,
   validator,
   initialValue,
@@ -38,6 +39,7 @@ function PrivateTextInput({
   let allRelevantProps = Object.assign({}, rest, {
     name: name,
     allCaps: allCaps,
+    capitalize: capitalize,
   })
   includesRequired(allRelevantProps)
 
@@ -100,7 +102,14 @@ function PrivateTextInput({
 
   return (
     <>
-      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
+      {labelCopy && (
+        <InputLabel
+          name={name}
+          labelCopy={labelCopy}
+          allCaps={allCaps}
+          capitalize={capitalize}
+        />
+      )}
       <input
         type={type}
         className={getClasses()}
@@ -124,6 +133,8 @@ PrivateTextInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   initialValue: PropTypes.string,
   labelCopy: PropTypes.string,
   validator: PropTypes.func,
