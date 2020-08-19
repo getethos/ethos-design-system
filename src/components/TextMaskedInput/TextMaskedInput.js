@@ -26,6 +26,7 @@ export const TextMaskedInput = (props) => {
     currentError,
     setFieldTouched,
     doValidation,
+    placeholderChar,
     ...restProps
   } = props
 
@@ -109,6 +110,7 @@ export const TextMaskedInput = (props) => {
           placeholder={restProps.placeholder}
           className={getClasses()}
           disabled={restProps.disabled}
+          placeholderChar={placeholderChar}
         />
       )
     } else {
@@ -128,6 +130,7 @@ export const TextMaskedInput = (props) => {
           disabled={restProps.disabled}
           keepCharPositions={restProps.keepCharPositions}
           pipe={restProps.pipe}
+          placeholderChar={placeholderChar}
         />
       )
     }
@@ -166,6 +169,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   validator: PropTypes.func,
   setTouched: PropTypes.func,
   getTouched: PropTypes.bool,
+  placeholderChar: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {

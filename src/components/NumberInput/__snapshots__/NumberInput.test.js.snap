@@ -13,7 +13,7 @@ Array [
     className="Spacer"
     style={
       Object {
-        "height": 8,
+        "height": 4,
       }
     }
   />,

@@ -50,7 +50,7 @@ export function InputLabel({
       >
         {labelCopy}
       </Caption.Medium500>
-      <Spacer.H8 />
+      <Spacer.H4 />
     </>
   )
 }
