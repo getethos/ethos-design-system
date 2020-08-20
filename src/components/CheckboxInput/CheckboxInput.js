@@ -144,8 +144,6 @@ CheckboxInput.propTypes = {
   children: PropTypes.node.isRequired,
   /** `disabled` - whether to disable the the checkbox */
   disabled: PropTypes.bool,
-  /** whether to display label in all caps */
-  allCaps: PropTypes.bool,
   /** field validation callback */
   validator: PropTypes.func,
   /** only useful if you need to completely override the checkbox facade e.g

@@ -444,6 +444,7 @@ export declare function RadioButtonGroup({
   onChange,
   formChangeHandler,
   allCaps,
+  capitalize,
   name,
   initialValue,
   currentValue,
@@ -743,6 +744,7 @@ export declare const ZipInput: {
     name: string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     validator?: (value: string) => string
     initialValue?: string
   }
@@ -752,6 +754,7 @@ export declare const ZipInput: {
     name: string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     validator?: (value: string) => string
     initialValue?: string
   }
@@ -777,6 +780,7 @@ export declare const DateInput: {
     dateFormat,
     disabled,
     allCaps,
+    capitalize,
     name,
     labelCopy,
     validator,
@@ -793,6 +797,7 @@ export declare const DateInput: {
     'data-tid': string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     name: string
     labelCopy?: string
     validator?: (value: string) => string
@@ -809,6 +814,7 @@ export declare const DateInput: {
     'data-tid': string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     name: string
     labelCopy?: string
     validator?: (value: string) => string
@@ -828,6 +834,7 @@ export declare const BirthdateInput: {
     dateFormat,
     disabled,
     allCaps,
+    capitalize,
     name,
     labelCopy,
     validator,
@@ -844,6 +851,7 @@ export declare const BirthdateInput: {
     'data-tid': string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     name: string
     labelCopy?: string
     validator?: (value: string) => string
@@ -860,6 +868,7 @@ export declare const BirthdateInput: {
     'data-tid': string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     name: string
     labelCopy?: string
     validator?: (value: string) => string
@@ -913,6 +922,7 @@ export declare const ButtonSelectGroup: {
     formChangeHandler,
     name,
     allCaps,
+    capitalize,
     buttonStyle,
     validator,
     fullWidth,
@@ -930,6 +940,7 @@ export declare const ButtonSelectGroup: {
     formChangeHandler?: (value: string, errorValue: string) => void
     name?: string
     allCaps?: boolean
+    capitalize?: boolean
     buttonStyle?: string
     validator?: (value: string) => string
     fullWidth?: boolean
@@ -945,6 +956,8 @@ export declare const ButtonSelectGroup: {
     name?: string
     /** When set to `true`, the group's label will be displayed uppercase */
     allCaps?: boolean
+    /** When set to `true`, the group's label will be displayed capitalize */
+    capitalize?: boolean
     /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
     initialValue?: string | boolean
     /** Optional value that sets the background color of all the buttons in the group (unselected state) */
@@ -1057,6 +1070,7 @@ export declare const NumberInput: {
     labelCopy: string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     currentValue?: string
     currentError?: string
     placeholder?: string
@@ -1460,6 +1474,7 @@ export declare const NoraButtonInput: {
     name,
     disabled,
     allCaps,
+    capitalize,
     initialValue,
     formChangeHandler,
     labelCopy,
@@ -1481,6 +1496,7 @@ export declare const NoraButtonInput: {
     name: string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     initialValue?: string
     formChangeHandler?: (value: string, errorValue: string) => void
     labelCopy?: string
@@ -1498,6 +1514,7 @@ export declare const NoraTextInput: {
     name,
     disabled,
     allCaps,
+    capitalize,
     initialValue,
     formChangeHandler,
     labelCopy,
@@ -1512,6 +1529,7 @@ export declare const NoraTextInput: {
     name: string
     disabled?: boolean
     allCaps?: boolean
+    capitalize?: boolean
     initialValue?: string
     formChangeHandler?: (value: string, errorValue: string) => void
     labelCopy?: string

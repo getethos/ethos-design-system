@@ -17,6 +17,7 @@ const PrivateDateInput = (props) => {
     optional,
     dateFormat,
     allCaps,
+    capitalize,
     labelCopy,
     validator,
     formChangeHandler,
@@ -94,6 +95,7 @@ const PrivateDateInput = (props) => {
         type="tel"
         labelCopy={labelCopy}
         allCaps={allCaps}
+        capitalize={capitalize}
         data-tid={restProps['data-tid']}
         guide={true}
         doValidation={doValidation}
@@ -119,6 +121,8 @@ PrivateDateInput.PUBLIC_PROPS = {
   'data-tid': PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,

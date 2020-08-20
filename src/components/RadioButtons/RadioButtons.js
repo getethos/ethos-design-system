@@ -95,6 +95,7 @@ export function RadioButtonGroup({
   onChange,
   formChangeHandler,
   allCaps = true,
+  capitalize,
   name = `radio-button-group-${uuidv4()}`,
   initialValue = undefined,
   currentValue,
@@ -235,6 +236,7 @@ export function RadioButtonGroup({
         id={name}
         labelCopy={labelCopy}
         allCaps={allCaps}
+        capitalize={capitalize}
       />
       {finalOptions.map((option, i) => {
         // Setting tabindex to 0 means that this radio item will be what's
@@ -264,6 +266,8 @@ RadioButtonGroup.PUBLIC_PROPS = {
   name: PropTypes.string,
   labelCopy: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   options: PropTypes.arrayOf(PropTypes.shape(RadioButton.propTypes)).isRequired,
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   formTouched: PropTypes.bool,

@@ -48,6 +48,7 @@ export const ButtonSelectGroup = ({
   formChangeHandler,
   name = `button-select-group-${uuidv4()}`,
   allCaps = true,
+  capitalize,
   buttonStyle = 'default',
   validator,
   fullWidth = true,
@@ -141,6 +142,7 @@ export const ButtonSelectGroup = ({
             id={name}
             labelCopy={labelCopy}
             allCaps={allCaps}
+            capitalize={capitalize}
           />
         )}
         <div className={optionsContainerClassNames.join(' ')}>{options}</div>
@@ -161,6 +163,8 @@ ButtonSelectGroup.propTypes = {
   name: PropTypes.string,
   /** When set to `true`, the group's label will be displayed uppercase */
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   /** Optionally sets a default value for the group. If set, the matching option will be set as `isSelected` */
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** Optional value that sets the background color of all the buttons in the group (unselected state) */

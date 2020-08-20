@@ -31,6 +31,8 @@ NoraTextInput.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
   initialValue: PropTypes.string,
   formChangeHandler: PropTypes.func,
   // TODO -- make this optional
