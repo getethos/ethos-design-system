@@ -36,7 +36,7 @@ export const Tooltip = ({
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
-    return window.matchMedia(`(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px`)
+    return window.matchMedia(`(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px)`)
       .matches
   }
 
