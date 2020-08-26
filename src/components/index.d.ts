@@ -334,6 +334,7 @@ export declare const Select: {
     currentError,
     formTouched,
     labelCopy,
+    allCaps,
     name,
     ...rest
   }: {
@@ -354,6 +355,7 @@ export declare const Select: {
     currentError?: string
     formTouched?: boolean
     labelCopy?: string
+    allCaps?: boolean
     name?: string
   }): JSX.Element
   propTypes: {
@@ -366,6 +368,7 @@ export declare const Select: {
     className?: string
     isCreatable?: boolean
     'data-tid'?: string
+    allCaps?: boolean
   }
   defaultProps: {
     classNamePrefix?: string

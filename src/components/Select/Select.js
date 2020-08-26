@@ -31,6 +31,7 @@ export const Select = ({
   currentError,
   formTouched,
   labelCopy,
+  allCaps = true,
   name,
   ...rest
 }) => {
@@ -121,7 +122,9 @@ export const Select = ({
 
   return (
     <div className={wrapperClass} data-tid={rest['data-tid']}>
-      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
+      {labelCopy && (
+        <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
+      )}
       <SelectTag {...props} />
       {title && <div className={styles.title}>{title}</div>}
       {getError(currentError, formTouched)}
@@ -156,6 +159,7 @@ Select.propTypes = {
   currentError: PropTypes.string,
   formTouched: PropTypes.bool,
   labelCopy: PropTypes.string,
+  allCaps: PropTypes.bool,
   name: PropTypes.string,
   validator: PropTypes.func,
 }
