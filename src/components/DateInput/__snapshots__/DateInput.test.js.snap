@@ -4,7 +4,7 @@ exports[`DateInput default rendering 1`] = `
 Array [
   <label
     className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
-    htmlFor="birthdate-auto-corrected"
+    htmlFor="whenapplied"
   >
     When did you apply for this life insurance?
   </label>,
@@ -34,7 +34,7 @@ Array [
         /\\\\d/,
       ]
     }
-    name="birthdate-auto-corrected"
+    name="whenapplied"
     onBlur={[Function]}
     onChange={[Function]}
     onPaste={[Function]}
