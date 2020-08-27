@@ -10,7 +10,7 @@
       overflow: visible;
       padding: var(--Space-8) var(--Space-16);
       /* Force to be consistent with TextInput */
-      min-height: var(--Space-56);
+      min-height: 54px;
     }
 
     .StyledReactSelect__multi-value {
