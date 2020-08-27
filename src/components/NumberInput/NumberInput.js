@@ -29,6 +29,8 @@ export const NumberInput = (props) => {
     placeholder,
     setFieldTouched,
     placeholderChar,
+    guide = true,
+    keepCharPositions = true,
     ...restProps
   } = props
 
@@ -53,6 +55,8 @@ export const NumberInput = (props) => {
         validator={validator}
         formChangeHandler={formChangeHandler}
         placeholderChar={placeholderChar}
+        guide={guide}
+        keepCharPositions={keepCharPositions}
       />
     </>
   )
@@ -76,6 +80,8 @@ NumberInput.propTypes = {
   type: PropTypes.oneOf(['tel', 'number']),
   mask: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
   placeholderChar: PropTypes.string,
+  guide: PropTypes.bool,
+  keepCharPositions: PropTypes.bool,
 }
 
 NumberInput.defaultProps = {

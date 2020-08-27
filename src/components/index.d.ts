@@ -1096,6 +1096,8 @@ export declare const NumberInput: {
     type?: string
     mask?: (mask: (string | RegExp)[]) => any
     placeholderChar?: string
+    guide?: boolean
+    keepCharPositions?: boolean
   }
   defaultProps: {
     type: string
