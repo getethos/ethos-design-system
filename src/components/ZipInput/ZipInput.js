@@ -19,6 +19,8 @@ export const ZipInput = (props) => {
     currentValue,
     currentError,
     formTouched,
+    guide = true,
+    keepCharPositions = true,
     ...restProps
   } = props
 
@@ -74,11 +76,11 @@ export const ZipInput = (props) => {
         allCaps={allCaps}
         capitalize={capitalize}
         data-tid={restProps['data-tid']}
-        guide={true}
+        guide={guide}
         doValidation={doValidation}
         name={name}
         className={getClasses()}
-        keepCharPositions={true}
+        keepCharPositions={keepCharPositions}
         currentValue={currentValue}
         currentError={currentError}
         formTouched={formTouched}
@@ -101,6 +103,8 @@ ZipInput.PUBLIC_PROPS = {
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   initialValue: PropTypes.string,
+  guide: PropTypes.bool,
+  keepCharPositions: PropTypes.bool,
 }
 
 ZipInput.propTypes = {
