@@ -654,6 +654,7 @@ export declare const TextMaskedInput: {
     setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
     placeholderChar?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -674,6 +675,7 @@ export declare const TextMaskedInput: {
     setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
     placeholderChar?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
   }
   defaultProps: {
     placeholder: string
