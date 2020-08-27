@@ -46,7 +46,7 @@ export const Select = ({
   // for multi (array):
   //    [{"value": "CA", "label": "CA"}, {"value": "NY", "label": "NY"}]
   const [userSelection, updateUserSelection] = useState(undefined)
-  const onChangeHandler = (lastSelection) => {
+  const onChangeHandler = (lastSelection, actionMeta) => {
     /**
      * For multi selects, react-select allows the user to remove all the
      * selected items, and once there are no more, this will be `null`. But,
@@ -63,7 +63,7 @@ export const Select = ({
       updateUserSelection(lastSelection)
     }
     if (onChange) {
-      onChange(lastSelection)
+      onChange(lastSelection, actionMeta)
     }
   }
 

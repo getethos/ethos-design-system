@@ -347,7 +347,7 @@ export declare const Select: {
     isCompact?: boolean
     validator?: (selectStringOrArrayOfSelections: any) => string
     loadOptions?: (selectStringOrArrayOfSelections: any) => any
-    onChange?: (selectStringOrArrayOfSelections: any) => any
+    onChange?: (selectStringOrArrayOfSelections: any, actionMeta: any) => any
     formChangeHandler?: (
       selectStringOrArrayOfSelections: any,
       errorValue: string
