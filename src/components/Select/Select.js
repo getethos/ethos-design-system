@@ -31,6 +31,7 @@ export const Select = ({
   currentError,
   formTouched,
   labelCopy,
+  allCaps = true,
   name,
   ...rest
 }) => {
@@ -45,7 +46,7 @@ export const Select = ({
   // for multi (array):
   //    [{"value": "CA", "label": "CA"}, {"value": "NY", "label": "NY"}]
   const [userSelection, updateUserSelection] = useState(undefined)
-  const onChangeHandler = (lastSelection) => {
+  const onChangeHandler = (lastSelection, actionMeta) => {
     /**
      * For multi selects, react-select allows the user to remove all the
      * selected items, and once there are no more, this will be `null`. But,
@@ -62,7 +63,7 @@ export const Select = ({
       updateUserSelection(lastSelection)
     }
     if (onChange) {
-      onChange(lastSelection)
+      onChange(lastSelection, actionMeta)
     }
   }
 
@@ -121,7 +122,9 @@ export const Select = ({
 
   return (
     <div className={wrapperClass} data-tid={rest['data-tid']}>
-      {labelCopy && <InputLabel name={name} labelCopy={labelCopy} />}
+      {labelCopy && (
+        <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
+      )}
       <SelectTag {...props} />
       {title && <div className={styles.title}>{title}</div>}
       {getError(currentError, formTouched)}
@@ -156,6 +159,7 @@ Select.propTypes = {
   currentError: PropTypes.string,
   formTouched: PropTypes.bool,
   labelCopy: PropTypes.string,
+  allCaps: PropTypes.bool,
   name: PropTypes.string,
   validator: PropTypes.func,
 }
