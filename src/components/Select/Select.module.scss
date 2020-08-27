@@ -7,7 +7,6 @@
       font-family: var(--Theinhardt-font-stack);
       font-size: calc(var(--base-font-size) * 1px);
       line-height: calc(var(--base-line-height) / var(--base-font-size));
-      overflow: visible;
       padding: var(--Space-8) var(--Space-16);
       /* Force to be consistent with TextInput */
       min-height: 54px;
