@@ -654,6 +654,7 @@ export declare const TextMaskedInput: {
     setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
     placeholderChar?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -674,6 +675,7 @@ export declare const TextMaskedInput: {
     setTouched?: (wasTouched: boolean) => void
     getTouched?: boolean
     placeholderChar?: string
+    formChangeHandler?: (value: string, errorValue: string) => void
   }
   defaultProps: {
     placeholder: string
@@ -750,6 +752,8 @@ export declare const ZipInput: {
     capitalize?: boolean
     validator?: (value: string) => string
     initialValue?: string
+    guide?: boolean
+    keepCharPositions?: boolean
   }
   propTypes: {
     'data-tid': string
@@ -760,6 +764,8 @@ export declare const ZipInput: {
     capitalize?: boolean
     validator?: (value: string) => string
     initialValue?: string
+    guide?: boolean
+    keepCharPositions?: boolean
   }
 }
 
@@ -793,6 +799,8 @@ export declare const DateInput: {
     setFieldTouched,
     currentError,
     formChangeHandler,
+    guide,
+    keepCharPositions,
     ...rest
   }: {
     optional?: boolean
@@ -810,6 +818,8 @@ export declare const DateInput: {
     setFieldTouched?: (touched: boolean) => void
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    guide?: boolean
+    keepCharPositions?: boolean
   }): JSX.Element
   propTypes: {
     optional?: boolean
@@ -827,6 +837,8 @@ export declare const DateInput: {
     setFieldTouched?: (touched: boolean) => void
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    guide?: boolean
+    keepCharPositions?: boolean
   }
 }
 
@@ -1084,6 +1096,8 @@ export declare const NumberInput: {
     type?: string
     mask?: (mask: (string | RegExp)[]) => any
     placeholderChar?: string
+    guide?: boolean
+    keepCharPositions?: boolean
   }
   defaultProps: {
     type: string

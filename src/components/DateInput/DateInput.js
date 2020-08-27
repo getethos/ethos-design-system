@@ -27,6 +27,9 @@ const PrivateDateInput = (props) => {
     formTouched,
     setFieldTouched,
     disabled,
+    guide = true,
+    keepCharPositions = true,
+    name = 'birthdate-auto-corrected',
     ...restProps
   } = props
 
@@ -97,11 +100,11 @@ const PrivateDateInput = (props) => {
         allCaps={allCaps}
         capitalize={capitalize}
         data-tid={restProps['data-tid']}
-        guide={true}
+        guide={guide}
         doValidation={doValidation}
-        name="birthdate-auto-corrected"
+        name={name}
         placeholder={dateFormat}
-        keepCharPositions={true}
+        keepCharPositions={keepCharPositions}
         currentValue={currentValue}
         currentError={currentError}
         formTouched={formTouched}
@@ -127,6 +130,8 @@ PrivateDateInput.PUBLIC_PROPS = {
   labelCopy: PropTypes.string.isRequired,
   validator: PropTypes.func,
   initialValue: PropTypes.string,
+  guide: PropTypes.bool,
+  keepCharPositions: PropTypes.bool,
 }
 
 PrivateDateInput.propTypes = {
