@@ -12,5 +12,10 @@ export const COLORS = {
   GRAY_STROKE_AND_DISABLED: 'GrayStrokeAndDisabled',
   WHITE: 'White',
 
+  // Background colors
+  BRAND_DUCKEGG: 'BrandDuckegg',
+  BRAND_MOSS: 'BrandMoss',
+  BRAND_BUTTERCUP: 'BrandButtercup',
+
   // Miscellany
 }

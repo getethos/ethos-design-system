@@ -1,0 +1,27 @@
+@import '../../src/components/Media/Media.scss';
+
+/* These stylesheets don't  css/scss modules 
+they are basically just ordinary stylesheets */
+
+/**
+ * Used in Columns.md 
+ */
+.hideOnPhoneAndTablet {
+  @include for-phone-and-tablet {
+    display: none;
+  }
+}
+
+.columns-demo-margin-left-nonmobile,
+.columns-demo-margin-right-nonmobile {
+  background-color: white;
+  padding: 32px;
+}
+@include for-laptop-and-up {
+  .columns-demo-margin-left-nonmobile {
+    margin-left: 1px;
+  }
+  .columns-demo-margin-right-nonmobile {
+    margin-right: 1px;
+  }
+}
