@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxInput2 checked takes precedence over initial and current values 1`] = `
+Array [
+  <div
+    className="root2"
+    data-checked={true}
+    data-variant="default"
+  >
+    <label
+      className="label "
+      htmlFor="le-check"
+    >
+      <div
+        className="checkboxWrapper2"
+      >
+        <input
+          checked={true}
+          className="CheckboxInput "
+          data-tid="le-tid"
+          id="le-check"
+          name="le-check"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          type="checkbox"
+        />
+        <svg
+          className="Facade FacadeBorder"
+          fill="none"
+          height="18"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.75 12.127L3.623 9l-1.065 1.057L6.75 14.25l9-9-1.057-1.058-7.943 7.935z"
+            fill="#fff"
+          />
+        </svg>
+      </div>
+      <div
+        className="Body2 Theinhardt Regular400 GrayPrimary"
+      >
+        le children
+      </div>
+    </label>
+  </div>,
+  "",
+]
+`;
+
+exports[`CheckboxInput2 default rendering 1`] = `
+Array [
+  <div
+    className="root2"
+    data-checked={false}
+    data-variant="default"
+  >
+    <label
+      className="label "
+      htmlFor="le-check"
+    >
+      <div
+        className="checkboxWrapper2"
+      >
+        <input
+          checked={false}
+          className="CheckboxInput "
+          data-tid="le-tid"
+          id="le-check"
+          name="le-check"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          type="checkbox"
+        />
+        <svg
+          className="Facade FacadeBorder"
+          fill="none"
+          height="18"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.75 12.127L3.623 9l-1.065 1.057L6.75 14.25l9-9-1.057-1.058-7.943 7.935z"
+            fill="#fff"
+          />
+        </svg>
+      </div>
+      <div
+        className="Body2 Theinhardt Regular400 GrayPrimary"
+      >
+        I agree to the
+         
+        <a
+          href="/"
+          target="_blank"
+        >
+          Agreement
+        </a>
+      </div>
+    </label>
+  </div>,
+  "",
+]
+`;

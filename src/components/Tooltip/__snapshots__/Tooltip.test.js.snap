@@ -7,14 +7,14 @@ Object {
     <div>
       <div />
       <div
-        class="root block"
+        class="root block "
       />
     </div>
   </body>,
   "container": <div>
     <div />
     <div
-      class="root block"
+      class="root block "
     />
   </div>,
   "debug": [Function],
