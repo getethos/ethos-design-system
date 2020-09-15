@@ -154,6 +154,57 @@ export declare const CheckboxInput: {
   }
 }
 
+export declare const CheckboxInput2: {
+  ({
+    formChangeHandler,
+    validator,
+    children,
+    disabled,
+    name,
+    initialValue,
+    checked,
+    currentValue,
+    currentError,
+    setFieldTouched,
+    formTouched,
+    tooltip,
+    variant,
+    ...rest
+  }: {
+    [x: string]: any
+    formChangeHandler?: (value: string, errorValue: string) => void
+    validator?: (value: string) => string
+    children: React.ReactNode
+    disabled?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    checked?: boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: (touched: boolean) => void
+    formTouched?: boolean
+    tooltip?: TooltipProps
+    variant?: 'default' | 'textonly'
+  }): JSX.Element
+  propTypes: {
+    formTouched?: boolean
+    name: string
+    'data-tid': string
+    initialValue?: string | boolean
+    currentValue?: string | boolean
+    currentError?: string
+    setFieldTouched?: (touched: boolean) => void
+    children: React.ReactNode
+    disabled?: boolean
+    allCaps?: boolean
+    validator?: (value: string) => string
+    formChangeHandler?: (value: string, errorValue: string) => void
+    tooltip?: TooltipProps
+    variant?: 'default' | 'textonly'
+  }
+}
+
 declare function LogoInline(props: any): JSX.Element
 declare namespace LogoInline {
   var propTypes: {
@@ -604,6 +655,18 @@ export declare const Stepper: {
   }
 }
 
+interface TooltipProps {
+  placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
+  label: string
+  inline?: boolean
+  details: string
+  popperBoxStyles?: string
+  boundariesElement?: 'viewport' | 'scrollParent' | 'window'
+  children?: React.ReactNode
+  className?: string
+  noLayout?: boolean
+}
+
 export declare const Tooltip: {
   ({
     placement,
@@ -613,24 +676,8 @@ export declare const Tooltip: {
     details,
     boundariesElement,
     children,
-  }: {
-    placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
-    label: string
-    inline?: boolean
-    details: string
-    popperBoxStyles?: string
-    boundariesElement?: 'viewport' | 'scrollParent' | 'window'
-    children?: React.ReactNode
-  }): JSX.Element
-  propTypes: {
-    placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
-    label: string
-    inline?: boolean
-    details: string
-    popperBoxStyles?: string
-    boundariesElement?: 'viewport' | 'scrollParent' | 'window'
-    children?: React.ReactNode
-  }
+  }: TooltipProps): JSX.Element
+  propTypes: TooltipProps
 }
 
 export declare const TextMaskedInput: {
