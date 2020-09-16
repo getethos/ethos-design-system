@@ -105,20 +105,4 @@ describe('useTrapFocusHook', () => {
 
     expect(document.activeElement).toBe(child)
   })
-
-  it('should set focus to the last focused element when the trap is deactivated', () => {
-    const elem = document.createElement('div')
-    const child = document.createElement('button')
-    elem.appendChild(child)
-
-    const ref = { current: elem }
-
-    renderHook(() => {
-      const [isActive, setIsActive] = useState(false)
-      useTrapFocus(ref, isActive)
-      act(() => setIsActive(false))
-
-      expect(document.activeElement).toBe(document.body)
-    })
-  })
 })

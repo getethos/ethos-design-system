@@ -21,6 +21,8 @@ export const Tooltip = ({
   popperBoxStyles = '',
   details,
   inline,
+  noLayout,
+  className,
   children,
   boundariesElement,
 }) => {
@@ -87,7 +89,11 @@ export const Tooltip = ({
     eventsEnabled: true,
   }
 
-  const tooltipClasses = [styles.root, inline ? styles.inline : styles.block]
+  const tooltipClasses = [
+    styles.root,
+    inline ? styles.inline : noLayout ? '' : styles.block,
+    className,
+  ]
 
   const renderTooltip = (
     <div className={tooltipClasses.join(' ')}>
@@ -204,6 +210,8 @@ Tooltip.propTypes = {
   label: PropTypes.string.isRequired,
   /** Boolean used to change Tooltip reference element to `display: inline-block;` */
   inline: PropTypes.bool,
+  /** Boolean used to change Tooltip reference element to not "display" anything */
+  noLayout: PropTypes.bool,
   /** String for overriding default tooltip box styles. You can, for example override the white background color with this. */
   popperBoxStyles: PropTypes.string,
   /** Tooltip description */
@@ -212,6 +220,8 @@ Tooltip.propTypes = {
   boundariesElement: PropTypes.oneOf(Object.values(Tooltip.BOUNDARIES_ELEMENT)),
   /** The Modal's children */
   children: PropTypes.node,
+  /** Classes to apply to root element */
+  className: PropTypes.string,
 }
 
 const PopperContent = ({
