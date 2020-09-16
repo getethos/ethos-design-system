@@ -73,6 +73,7 @@ const formChangeHandlerStub = () => {}
 Multiple example
 
 ```jsx
+import styles from '../Tooltip/TooltipExamples.module.scss'
 ;<div>
   <CheckboxInput2
     name="stacked-1"
@@ -98,7 +99,11 @@ Multiple example
   <div style={{ marginBottom: '10px' }} />
   <CheckboxInput2
     name="stacked-3"
-    tooltip={{ label: 'label', details: 'details' }}
+    tooltip={{
+      label: 'label',
+      details: 'details',
+      popperBoxStyles: styles.CustomTipExample,
+    }}
   >
     With tooltip
   </CheckboxInput2>

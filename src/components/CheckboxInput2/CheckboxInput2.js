@@ -136,10 +136,12 @@ export const CheckboxInput2 = ({
             label={tooltip.label}
             details={tooltip.details}
             placement={tooltip.placement || 'right'}
-            popperBoxStyles={styles.popper}
+            popperBoxStyles={tooltip.popperBoxStyles || styles.popper}
             noLayout
           >
-            <InfoIcon className={styles.infoIcon} />
+            <div className={styles.tooltipBody}>
+              <InfoIcon className={styles.infoIcon} />
+            </div>
           </Tooltip>
         )}
       </div>

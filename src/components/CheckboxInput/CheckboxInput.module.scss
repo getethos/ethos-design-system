@@ -102,15 +102,20 @@ label:focus-within ~ .tooltip {
   border-color: var(--GrayPrimary--opaque);
 }
 
-.tooltip {
+.tooltip,
+.tooltip > div {
+  display: flex;
+  transition: border-color 250ms ease;
+}
+
+.tooltipBody {
+  display: flex;
+  align-items: center;
   background: #f5f5f5;
   border: 1px solid #c2c2c2;
   box-sizing: border-box;
   border-radius: 0px 2px 2px 0px;
   padding: 8px;
-  display: flex;
-  align-items: center;
-  transition: border-color 250ms ease;
 }
 
 .popper {
