@@ -16,7 +16,7 @@ Object {
             class="StyledReactSelect__control css-yk16xz-control"
           >
             <div
-              class="StyledReactSelect__value-container css-1hwfws3"
+              class="StyledReactSelect__value-container css-g1d714-ValueContainer"
             >
               <div
                 class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
@@ -96,7 +96,7 @@ Object {
           class="StyledReactSelect__control css-yk16xz-control"
         >
           <div
-            class="StyledReactSelect__value-container css-1hwfws3"
+            class="StyledReactSelect__value-container css-g1d714-ValueContainer"
           >
             <div
               class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
@@ -233,7 +233,7 @@ Object {
             class="StyledReactSelect__control css-yk16xz-control"
           >
             <div
-              class="StyledReactSelect__value-container css-1hwfws3"
+              class="StyledReactSelect__value-container css-g1d714-ValueContainer"
             >
               <div
                 class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
@@ -307,7 +307,7 @@ Object {
           class="StyledReactSelect__control css-yk16xz-control"
         >
           <div
-            class="StyledReactSelect__value-container css-1hwfws3"
+            class="StyledReactSelect__value-container css-g1d714-ValueContainer"
           >
             <div
               class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
