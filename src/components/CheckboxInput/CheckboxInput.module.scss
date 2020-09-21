@@ -126,7 +126,12 @@ label:focus-within ~ .tooltip {
 
 .tooltip {
   background: #f5f5f5;
-  border: 1px solid #c2c2c2;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 0px;
+  border-color: #c2c2c2;
+  border-style: solid;
   border-radius: 0px 2px 2px 0px;
 }
 
@@ -134,6 +139,10 @@ label:focus-within ~ .tooltip {
   display: flex;
   align-items: center;
   padding: 8px;
+  border-left: 1px solid #c2c2c2;
+}
+[data-variant='textonly'][data-checked='true'] .tooltipBody {
+  border-left-color: var(--BrandForest);
 }
 
 .popper {
