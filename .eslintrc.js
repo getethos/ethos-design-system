@@ -38,6 +38,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 'warn',
     'jsx-a11y/no-static-element-interactions': 'warn',
     'jsx-a11y/anchor-has-content': 'warn',
+    'react/display-name': 'off',
   },
 
   // https://eslint.org/docs/user-guide/configuring#specifying-parser

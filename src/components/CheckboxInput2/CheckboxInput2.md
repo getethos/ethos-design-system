@@ -108,6 +108,24 @@ import styles from '../Tooltip/TooltipExamples.module.scss'
     With tooltip
   </CheckboxInput2>
   <div style={{ marginBottom: '10px' }} />
+  <CheckboxInput2
+    name="stacked-31"
+    tooltip={{
+      label: 'label',
+      details: 'details',
+      popperBoxStyles: styles.CustomTipExample,
+    }}
+    validator={(n) => {
+      // We only will accept the value of true!
+      if (n === true) {
+        return ''
+      }
+      return 'You must agree to submit form'
+    }}
+  >
+    With tooltip and validator
+  </CheckboxInput2>
+  <div style={{ marginBottom: '10px' }} />
   <CheckboxInput2 name="stacked-4" variant="textonly">
     With no checkbox
   </CheckboxInput2>
@@ -118,6 +136,21 @@ import styles from '../Tooltip/TooltipExamples.module.scss'
     tooltip={{ label: 'label', details: 'details' }}
   >
     With no checkbox and tooltip
+  </CheckboxInput2>
+  <div style={{ marginBottom: '10px' }} />
+  <CheckboxInput2
+    name="stacked-6"
+    variant="textonly"
+    tooltip={{ label: 'label', details: 'details' }}
+    validator={(n) => {
+      // We only will accept the value of true!
+      if (n === true) {
+        return ''
+      }
+      return 'You must agree to submit form'
+    }}
+  >
+    With no checkbox and tooltip and validator
   </CheckboxInput2>
 </div>
 ```

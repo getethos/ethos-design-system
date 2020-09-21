@@ -8,7 +8,7 @@ A collection of reusable [React](https://reactjs.org/) components, patterns, and
 1. See `package.json` for node `engines` – you need to have that version of node installed specifically, e.g. via `nvm`:
 
 ```shell
-nvm install v10.16.3  # then do `nvm list` to ensure version is available
+nvm install v12.18.4  # then do `nvm list` to ensure version is available
 nvm use               # use the version specified in `.nvmrc`, if installed
 ```
 
@@ -98,12 +98,16 @@ To use a release downstream, update your app's `package.json` as follows:
 Each time you need to consume recent EDS changes elsewhere, you need to bump the version and create a new git release:
 
 1. To bump the package.json version, run `yarn version` in your branch, This will:
-  - Prompt you for the new version number
-  - Update `package.json` with the version number
-  - Commit the change in a new commit
+
+- Prompt you for the new version number
+- Update `package.json` with the version number
+- Commit the change in a new commit
+
 2. To create and push a git tag, do one of these:
-  - Run `git tag v1.2.3 && git push origin v1.2.3` on your branch.
-  - Create a release `v1.2.3` on GitHub, if it's already in trunk.
+
+- Run `git tag v1.2.3 && git push origin v1.2.3` on your branch.
+- Create a release `v1.2.3` on GitHub, if it's already in trunk.
+
 3. Never force push a tag, to avoid confusing yarn or Jenkins later. Cut a new version instead.
 
 For more granular control:
@@ -135,6 +139,7 @@ $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
   - CSS variables don't always work nicely with scss; we have a preference for calc over scss math operations.
 
 #### Typography: Type vs Type2 vs TypeBase
+
 _(TitleLarge/Small/etc, Body, Caption, Footnote)_
 As of Q1 2020 we're undergoing a transition to make some new `Type` components available. If you're wondering what `Type2`, `TypeBase` or any of the new `Type` like components are, checkout `src/components/Type2/Blueprint.js`.
 
@@ -145,6 +150,7 @@ Type2 components are available for use in production. Be aware that some compone
 Since the only weight for Cambon is now 500, Medium500 has been added as an alias for Book500, to ease memory strain on developers and only having to remember one 500 weight name for both font families. Book500 remains backwards compatible for Type2.
 
 New/existing weights:
+
 ```
 Sans.Medium500
 Sans.Regular400
@@ -152,6 +158,7 @@ Serif.Book500 / Serif.Medium500 (same thing)
 ```
 
 Deprecated weights:
+
 ```
 Serif.Demi600
 Serif.Regular400
@@ -171,4 +178,3 @@ We have a light-weight CI/CD process via Travis and deployment to eds.ethoslabs.
 
 - [deploy script](https://github.com/getethos/ethos-design-system/blob/master/.github/workflows/deploy.yml)
 - [travis yaml](https://github.com/getethos/ethos-design-system/blob/master/.travis.yml)
-

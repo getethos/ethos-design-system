@@ -2,7 +2,6 @@ import { renderHook } from '@testing-library/react-hooks'
 import { fireEvent } from '@testing-library/dom'
 import useTrapFocus from './useTrapFocus'
 import { act } from 'react-test-renderer'
-import { useState } from 'react'
 
 describe('useTrapFocusHook', () => {
   it('should keep focus on` the last focused element when a `ref` with no children is passed', () => {
