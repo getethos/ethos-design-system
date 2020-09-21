@@ -119,5 +119,20 @@ import styles from '../Tooltip/TooltipExamples.module.scss'
   >
     With no checkbox and tooltip
   </CheckboxInput2>
+  <div style={{ marginBottom: '10px' }} />
+  <CheckboxInput2
+    name="stacked-6"
+    variant="textonly"
+    tooltip={{ label: 'label', details: 'details' }}
+    validator={(n) => {
+      // We only will accept the value of true!
+      if (n === true) {
+        return ''
+      }
+      return 'You must agree to submit form'
+    }}
+  >
+    With no checkbox and tooltip and validator
+  </CheckboxInput2>
 </div>
 ```
