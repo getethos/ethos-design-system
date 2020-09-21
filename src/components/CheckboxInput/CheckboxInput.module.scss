@@ -42,8 +42,7 @@ label:focus-within ~ .tooltip {
 
 [data-error='true'] label,
 [data-error='true'] .tooltip,
-[data-error='true'] label:focus-within,
-[data-error='true'] label:focus-within ~ .tooltip {
+[data-error='true'] label ~ .tooltip {
   border-color: var(--BrandSunburn);
 }
 
