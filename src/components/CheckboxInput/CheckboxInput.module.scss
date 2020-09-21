@@ -6,6 +6,7 @@
 .root2 {
   display: flex;
   align-items: stretch;
+  min-height: var(--Space-56);
 }
 
 .label {
@@ -14,9 +15,18 @@
   align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.24);
   border-radius: 2px;
-  padding: 12px 12px 12px 15px;
   cursor: pointer;
   transition: border-color background-color color 250ms ease;
+  padding: 0px 16px;
+}
+.label input {
+  cursor: inherit;
+}
+[data-disabled='true'] * {
+  cursor: default;
+}
+.label > *:nth-child(2) {
+  padding: 18px 0px 14px 0px;
 }
 [data-variant='textonly'][data-checked='true'] .label {
   background-color: var(--BrandForest);
@@ -28,6 +38,13 @@
 label:focus-within,
 label:focus-within ~ .tooltip {
   border-color: var(--BrandForest);
+}
+
+[data-error='true'] label,
+[data-error='true'] .tooltip,
+[data-error='true'] label:focus-within,
+[data-error='true'] label:focus-within ~ .tooltip {
+  border-color: var(--BrandSunburn);
 }
 
 .labelWithTooltip {
@@ -45,8 +62,7 @@ label:focus-within ~ .tooltip {
 .checkboxWrapper2 {
   display: inline-block;
   position: relative;
-  top: 1px;
-  margin-right: var(--Space-16);
+  padding-right: var(--Space-16);
 }
 [data-variant='textonly'] .checkboxWrapper2 {
   clip: rect(0 0 0 0);
@@ -54,6 +70,7 @@ label:focus-within ~ .tooltip {
   height: 1px;
   width: 1px;
   margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -103,18 +120,20 @@ label:focus-within ~ .tooltip {
 }
 
 .tooltip,
-.tooltip > div {
+.tooltip * {
   display: flex;
   transition: border-color 250ms ease;
+}
+
+.tooltip {
+  background: #f5f5f5;
+  border: 1px solid #c2c2c2;
+  border-radius: 0px 2px 2px 0px;
 }
 
 .tooltipBody {
   display: flex;
   align-items: center;
-  background: #f5f5f5;
-  border: 1px solid #c2c2c2;
-  box-sizing: border-box;
-  border-radius: 0px 2px 2px 0px;
   padding: 8px;
 }
 

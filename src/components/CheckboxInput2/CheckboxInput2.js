@@ -91,11 +91,15 @@ export const CheckboxInput2 = ({
    */
   const resolvedIsChecked = typeof checked !== 'undefined' ? checked : isChecked
 
+  const error = getError(currentError, touched)
+
   return (
     <>
       <div
         className={styles.root2}
         data-checked={resolvedIsChecked}
+        data-disabled={disabled}
+        data-error={!!error}
         data-variant={variant}
       >
         <label
@@ -107,7 +111,7 @@ export const CheckboxInput2 = ({
           <div className={styles.checkboxWrapper2}>
             <input
               className={`${styles.CheckboxInput} ${
-                getError(currentError, touched) ? errorStyles.Error : ''
+                error ? errorStyles.Error : ''
               }`}
               type="checkbox"
               onChange={onChange}
