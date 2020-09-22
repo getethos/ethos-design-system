@@ -81,14 +81,6 @@ export const TextMaskedInput = (props) => {
     whichDoValidation(cleansed, true)
   }
 
-  const onPaste = (ev) => {
-    const val = ev.clipboardData.getData('text/plain')
-    const restrictedVal = restrict(val)
-    // Used to remove mask characters e.g. abc___ becomes just abc
-    const cleansed = cleanse(restrictedVal)
-    setValue(cleansed)
-  }
-
   const getClasses = () => {
     return getError(currentError, whichTouched)
       ? `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}`
@@ -105,7 +97,6 @@ export const TextMaskedInput = (props) => {
           data-tid={restProps['data-tid']}
           onChange={onChange}
           onBlur={onBlur}
-          onPaste={onPaste}
           name={props.name}
           placeholder={restProps.placeholder}
           className={getClasses()}
@@ -123,7 +114,6 @@ export const TextMaskedInput = (props) => {
           guide={restProps.guide}
           onChange={onChange}
           onBlur={onBlur}
-          onPaste={onPaste}
           name={props.name}
           placeholder={restProps.placeholder}
           className={getClasses()}
