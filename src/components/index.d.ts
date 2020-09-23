@@ -830,6 +830,28 @@ export declare namespace Form {
   }
 }
 
+interface DateInputProps {
+  optional?: boolean
+  dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
+  'data-tid': string
+  disabled?: boolean
+  allCaps?: boolean
+  capitalize?: boolean
+  name: string
+  labelCopy?: string
+  validator?: (value: string) => string
+  initialValue?: string
+  formTouched?: boolean
+  currentValue?: string
+  setFieldTouched?: (touched: boolean) => void
+  currentError?: string
+  formChangeHandler?: (value: string, errorValue: string) => void
+  guide?: boolean
+  keepCharPositions?: boolean
+  pipe?: any
+  mask?: (string | RegExp)[]
+}
+
 export declare const DateInput: {
   ({
     optional,
@@ -848,45 +870,11 @@ export declare const DateInput: {
     formChangeHandler,
     guide,
     keepCharPositions,
+    pipe,
+    mask,
     ...rest
-  }: {
-    optional?: boolean
-    dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
-    'data-tid': string
-    disabled?: boolean
-    allCaps?: boolean
-    capitalize?: boolean
-    name: string
-    labelCopy?: string
-    validator?: (value: string) => string
-    initialValue?: string
-    formTouched?: boolean
-    currentValue?: string
-    setFieldTouched?: (touched: boolean) => void
-    currentError?: string
-    formChangeHandler?: (value: string, errorValue: string) => void
-    guide?: boolean
-    keepCharPositions?: boolean
-  }): JSX.Element
-  propTypes: {
-    optional?: boolean
-    dateFormat?: 'mm/dd/yyyy' | 'mm/yyyy' | 'mm/yy'
-    'data-tid': string
-    disabled?: boolean
-    allCaps?: boolean
-    capitalize?: boolean
-    name: string
-    labelCopy?: string
-    validator?: (value: string) => string
-    initialValue?: string
-    formTouched?: boolean
-    currentValue?: string
-    setFieldTouched?: (touched: boolean) => void
-    currentError?: string
-    formChangeHandler?: (value: string, errorValue: string) => void
-    guide?: boolean
-    keepCharPositions?: boolean
-  }
+  }: DateInputProps): JSX.Element
+  propTypes: DateInputProps
 }
 
 import * as Validators from '../validators/BirthdateInputValidator'

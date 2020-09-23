@@ -30,10 +30,11 @@ const PrivateDateInput = (props) => {
     guide = true,
     keepCharPositions = true,
     name = 'birthdate-auto-corrected',
+    pipe = createAutoCorrectedDatePipe(dateFormat),
+    mask = dateMaskByFormat[dateFormat],
     ...restProps
   } = props
 
-  const autoCorrectedDatePipe = createAutoCorrectedDatePipe(dateFormat)
   const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
@@ -92,8 +93,8 @@ const PrivateDateInput = (props) => {
       <TextMaskedInput
         initialValue={value}
         optional={optional}
-        mask={dateMaskByFormat[dateFormat]}
-        pipe={autoCorrectedDatePipe}
+        mask={mask}
+        pipe={pipe}
         className={getClasses()}
         type="tel"
         labelCopy={labelCopy}

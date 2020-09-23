@@ -37,7 +37,6 @@ Array [
     name="whenapplied"
     onBlur={[Function]}
     onChange={[Function]}
-    onPaste={[Function]}
     pipe={[Function]}
     placeholder="mm/yyyy"
     type="tel"

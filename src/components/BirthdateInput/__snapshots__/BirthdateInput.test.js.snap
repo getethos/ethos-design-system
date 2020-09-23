@@ -40,7 +40,6 @@ Array [
     name="birthDate"
     onBlur={[Function]}
     onChange={[Function]}
-    onPaste={[Function]}
     pipe={[Function]}
     placeholder="mm/dd/yyyy"
     type="tel"

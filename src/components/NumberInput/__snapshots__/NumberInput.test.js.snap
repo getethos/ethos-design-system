@@ -25,7 +25,6 @@ Array [
     name="the-number-input-example"
     onBlur={[Function]}
     onChange={[Function]}
-    onPaste={[Function]}
     placeholder="number input"
     type="tel"
     value="123"
