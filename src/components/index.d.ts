@@ -371,6 +371,8 @@ export declare const SearchInput: {
   }
 }
 
+export declare const ReactSelectComponents: any
+
 export declare const Select: {
   ({
     classNamePrefix,
