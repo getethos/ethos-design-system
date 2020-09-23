@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 // See React-Select -- https://github.com/JedWatson/react-select for documentation
 // on usage, Async configuration, etc.
-import ReactSelect from 'react-select'
+import ReactSelect, { components } from 'react-select'
 import ReactSelectAsync from 'react-select/async'
 import ReactSelectAsyncCreatable from 'react-select/async-creatable'
 import ReactSelectCreatable from 'react-select/creatable'
@@ -10,6 +10,8 @@ import useErrorMessage from '../../hooks/useErrorMessage.js'
 import { InputLabel } from '../InputLabel'
 
 import styles from './Select.module.scss'
+
+export const ReactSelectComponents = components
 
 /**
  * Component which wraps [react-select](https://github.com/JedWatson/react-select). Note,

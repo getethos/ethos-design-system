@@ -371,6 +371,34 @@ export declare const SearchInput: {
   }
 }
 
+export declare const ReactSelectComponents: {
+  ClearIndicator: any
+  Control: any
+  DropdownIndicator: any
+  DownChevron: any
+  CrossIcon: any
+  Group: any
+  GroupHeading: any
+  IndicatorsContainer: any
+  IndicatorSeparator: any
+  Input: any
+  LoadingIndicator: any | null
+  Menu: any
+  MenuList: any
+  MenuPortal: any
+  LoadingMessage: any
+  NoOptionsMessage: any
+  MultiValue: any
+  MultiValueContainer: any
+  MultiValueLabel: any
+  MultiValueRemove: any
+  Option: any
+  Placeholder: any
+  SelectContainer: any
+  SingleValue: any
+  ValueContainer: any
+}
+
 export declare const Select: {
   ({
     classNamePrefix,

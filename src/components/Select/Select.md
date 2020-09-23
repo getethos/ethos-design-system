@@ -293,3 +293,36 @@ const loadOptions = (searchQuery) => {
   }}
 </Form>
 ```
+
+Customizing the react select components
+
+```jsx
+import { ReactSelectComponents } from './Select'
+const Input = (props) => {
+  return (
+    <div style={{ border: `5px solid red` }}>
+      <ReactSelectComponents.Input {...props} />
+    </div>
+  )
+}
+const onSelected = (selectedOption) => {
+  console.log('Option selected: ', selectedOption)
+}
+const options = [
+  { value: 'nyc', label: 'New York' },
+  { value: 'sf', label: 'San Francisco' },
+  { value: 'chicago', label: 'Chicago' },
+  { value: 'phoenix', label: 'Phoenix' },
+  { value: 'la', label: 'Los Angeles' },
+  { value: 'seattle', label: 'Seattle' },
+  { value: 'Portland', label: 'Portland' },
+  { value: 'Miami', label: 'Miami' },
+]
+;<Select
+  placeholder="Custom placeholder..."
+  onChange={onSelected}
+  options={options}
+  data-tid="my-select"
+  components={{ Input }}
+/>
+```
