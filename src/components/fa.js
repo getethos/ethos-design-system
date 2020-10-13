@@ -67,7 +67,7 @@ import { faSpinnerThird } from '@fortawesome/pro-regular-svg-icons/faSpinnerThir
 import { faMoneyCheckEditAlt } from '@fortawesome/pro-regular-svg-icons/faMoneyCheckEditAlt'
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons/faHashtag'
 import { faSignOut } from '@fortawesome/pro-regular-svg-icons/faSignOut'
-import { faSync } from '@fortawesome/pro-regular-svg-icons/faSync'
+import { faSyncAlt } from '@fortawesome/pro-regular-svg-icons/faSyncAlt'
 
 library.add(
   faHamburger,
@@ -117,5 +117,5 @@ library.add(
   faUserCheck,
   faWindowClose,
   faSignOut,
-  faSync
+  faSyncAlt
 )
