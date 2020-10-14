@@ -1,9 +1,10 @@
 const path = require('path')
+const TerserPlugin = require('terser-webpack-plugin')
+const PrettierPlugin = require('prettier-webpack-plugin')
 
-module.exports = {
-  // resolve: {
-  //   modules: [path.resolve(__dirname, 'src'), 'node_modules']
-  // },
+// Source maps is a useful debugging tool that allows you to view where the minified code originated from.
+module.exports = ['source-map'].map((devtool) => ({
+  devtool,
   entry: './src/components/index.js',
   output: {
     filename: 'bundle.js',
@@ -21,7 +22,16 @@ module.exports = {
       root: 'react',
     },
   },
-  mode: 'development',
+  mode: 'production',
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
+    runtimeChunk: true,
+  },
   module: {
     rules: [
       {
@@ -64,13 +74,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        use: ['style-loader', 'css-loader'],
         include: /flexboxgrid/,
       },
       {
         test: /\.svg$/,
         loader: 'file-loader',
-        query: {
+        options: {
           name: 'static/media/[name].[hash:8].[ext]',
         },
       },
@@ -82,4 +92,4 @@ module.exports = {
       },
     ],
   },
-}
+}))
