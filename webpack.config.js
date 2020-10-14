@@ -1,6 +1,5 @@
 const path = require('path')
 const TerserPlugin = require('terser-webpack-plugin')
-const PrettierPlugin = require('prettier-webpack-plugin')
 
 // Source maps is a useful debugging tool that allows you to view where the minified code originated from.
 module.exports = ['source-map'].map((devtool) => ({
@@ -30,7 +29,6 @@ module.exports = ['source-map'].map((devtool) => ({
         extractComments: false,
       }),
     ],
-    runtimeChunk: true,
   },
   module: {
     rules: [
