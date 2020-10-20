@@ -25,12 +25,14 @@ export const OptionButton = ({
   isSelected,
   onClick,
   buttonStyle,
+  'data-tid': dataTid,
 }) => {
   const props = {
     ariaLabelId: `selection-option-${uuidv4()}`,
     role: 'radio',
     onClick: onClick,
     isSelected: isSelected,
+    'data-tid': dataTid,
   }
 
   switch (buttonStyle) {
@@ -60,4 +62,5 @@ OptionButton.propTypes = {
   isSelected: PropTypes.bool,
   /** An optional onClick handler that fires **after** an option has been selected */
   onClick: PropTypes.func,
+  'data-tid': PropTypes.string,
 }
