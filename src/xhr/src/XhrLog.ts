@@ -37,7 +37,7 @@ export default class XhrLog {
 
     this.logger.groupCollapsed(
       '↓' +
-        `%c ${response.method.toUpperCase()}` +
+        `%c ${response.method && response.method.toUpperCase()}` +
         `%c ${response.url}` +
         `%c ${response.status}` +
         `%c ${response.statusText}` +

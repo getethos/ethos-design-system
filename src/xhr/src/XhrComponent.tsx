@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { InfoMessage } from '../../components/index'
 import XhrError from './XhrError'
 import XhrState from './XhrState'

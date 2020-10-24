@@ -6,73 +6,7 @@ import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
 import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import useTrapFocus from '../../hooks/a11y/useTrapFocus'
 import styles from './Drawer.module.scss'
-
-const DrawerContent = ({
-  children,
-  onDismiss,
-  isOpen,
-  lock,
-  position,
-  className,
-  ignoredSelectors,
-  ...rest
-}) => {
-  const drawerRef = useRef(null)
-  let positionClass = ''
-  switch (position) {
-    case 'left':
-      positionClass = styles.Left
-      break
-    case 'right':
-      positionClass = styles.Right
-      break
-    case 'top':
-      positionClass = styles.Top
-      break
-    case 'bottom':
-      positionClass = styles.Bottom
-      break
-  }
-  let classes = isOpen
-    ? `${styles.Container} ${styles.Open} ${positionClass}`
-    : `${styles.Container} ${positionClass}`
-
-  classes = className ? `${className} ${classes}` : classes
-
-  if (!lock) {
-    useOutsideClickIgnoreSelectors(drawerRef, ignoredSelectors, () =>
-      onDismiss(false)
-    )
-    useOutsideEscape(drawerRef, () => onDismiss(false))
-  }
-
-  useTrapFocus(drawerRef, isOpen)
-  useHideAriaSiblings(drawerRef, isOpen)
-
-  return (
-    <div
-      className={classes}
-      aria-label="drawer"
-      role="dialog"
-      aria-hidden={!isOpen}
-      ref={drawerRef}
-      data-testid={rest['data-tid']}
-    >
-      {children}
-    </div>
-  )
-}
-
-DrawerContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  onDismiss: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  lock: PropTypes.bool,
-  position: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-  className: PropTypes.string,
-  ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
-  'data-tid': PropTypes.string,
-}
+import { DrawerContent } from './DrawerContent'
 
 /**
  * Drawer component used to progressively disclose information when toggled

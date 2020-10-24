@@ -1,1 +1,1 @@
-export { Media } from './Media.js'
+export { Media } from './Media'

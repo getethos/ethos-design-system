@@ -1,4 +1,4 @@
-import useErrorMessage from './useErrorMessage.js'
+import useErrorMessage from './useErrorMessage'
 import testHook from './testHook.js'
 
 describe('useErrorMessage hook', () => {

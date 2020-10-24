@@ -1,1 +1,1 @@
-export { Spacer } from './Spacer.js'
+export { Spacer } from './Spacer'

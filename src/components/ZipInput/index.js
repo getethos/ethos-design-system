@@ -1,1 +1,1 @@
-export { ZipInput } from './ZipInput.js'
+export { ZipInput } from './ZipInput'

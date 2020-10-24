@@ -1,1 +1,1 @@
-export { NoraCheckboxInput } from './NoraCheckboxInput.js'
+export { NoraCheckboxInput } from './NoraCheckboxInput'

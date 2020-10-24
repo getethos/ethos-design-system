@@ -6,7 +6,7 @@ import useInvalid from '../../hooks/useInvalid.js'
 import { COLORS } from '../Colors'
 import styles from './TypeBase.module.scss'
 
-/* @getethos/design-system/TypeBase.js
+/* @getethos/design-system/TypeBase
 
    Legend:
 
@@ -159,7 +159,16 @@ TypeBase.PUBLIC_PROPS = {
 }
 
 TypeBase.propTypes = {
-  ...TypeBase.PUBLIC_PROPS,
+  children: PropTypes.node,
+  centered: PropTypes.bool,
+  allCaps: PropTypes.bool,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
+  color: PropTypes.oneOf(Object.values(TypeBase.COLORS)),
+  element: PropTypes.oneOf(Object.values(TypeBase.ELEMENTS)),
+  htmlFor: PropTypes.string,
+  'data-tid': PropTypes.string,
+  id: PropTypes.string,
   typeface: PropTypes.oneOf(Object.values(TypeBase.TYPEFACES)),
   weight: PropTypes.oneOf(Object.values(TypeBase.WEIGHTS)),
 }

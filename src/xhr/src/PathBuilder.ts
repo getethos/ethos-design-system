@@ -1,4 +1,4 @@
-import q from 'querystring'
+import { stringify } from 'querystring'
 import { KeyValMap } from './helpers'
 
 export interface IPathBuilder {
@@ -26,7 +26,7 @@ export default class PathBuilder implements IPathBuilder {
   }
 
   public query(obj: KeyValMap) {
-    this.queryString = q.stringify(obj)
+    this.queryString = stringify(obj)
     return this
   }
 

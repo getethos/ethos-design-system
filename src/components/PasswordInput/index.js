@@ -1,1 +1,1 @@
-export { PasswordInput } from './PasswordInput.js'
+export { PasswordInput } from './PasswordInput'

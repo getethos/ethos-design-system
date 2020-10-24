@@ -1,1 +1,1 @@
-export { NoraTextAreaInput } from './NoraTextAreaInput.js'
+export { NoraTextAreaInput } from './NoraTextAreaInput'

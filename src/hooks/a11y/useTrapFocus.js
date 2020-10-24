@@ -7,7 +7,7 @@ const FOCUSABLE_ELEMENTS_STRING =
 /**
  * Helper function returns a list of focusable children of the passed element
  *
- * @param {HTMLElement} el - the container element
+ * @param {HTMLElement | null} el - the container element
  */
 export const getFocusableElements = (el) => {
   if (!el) {

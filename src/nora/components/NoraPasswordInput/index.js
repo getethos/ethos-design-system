@@ -1,1 +1,1 @@
-export { NoraPasswordInput } from './NoraPasswordInput.js'
+export { NoraPasswordInput } from './NoraPasswordInput'

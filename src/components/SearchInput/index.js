@@ -1,1 +1,1 @@
-export { SearchInput } from './SearchInput.js'
+export { SearchInput } from './SearchInput'

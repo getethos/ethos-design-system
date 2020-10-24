@@ -1,1 +1,1 @@
-export { Select, ReactSelectComponents } from './Select.js'
+export { Select, ReactSelectComponents } from './Select'

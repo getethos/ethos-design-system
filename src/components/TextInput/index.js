@@ -1,1 +1,1 @@
-export { TextInput } from './TextInput.js'
+export { TextInput } from './TextInput'

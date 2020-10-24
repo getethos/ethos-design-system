@@ -25,7 +25,8 @@ async function xhr(options: XhrOptions) {
     const xhrOptions = configureRequestOptions(options)
 
     // path may be either a PathBuilder, or for convenience a path string e.g. path: 'api/posts',
-    const resolvedPath = typeof path === 'string' ? path : path.buildPath()
+    const resolvedPath =
+      typeof path === 'string' ? path : path && path.buildPath()
 
     // Create a new XhrRequest object that will be passed into browser fetch
 

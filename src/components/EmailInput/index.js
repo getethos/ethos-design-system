@@ -1,1 +1,1 @@
-export { EmailInput } from './EmailInput.js'
+export { EmailInput } from './EmailInput'

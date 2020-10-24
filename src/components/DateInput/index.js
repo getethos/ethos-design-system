@@ -1,1 +1,1 @@
-export { DateInput } from './DateInput.js'
+export { DateInput } from './DateInput'

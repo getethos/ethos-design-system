@@ -1,0 +1,28 @@
+export const BREAKPOINTS = {
+  PHONE_RANGE_END: 599,
+  TABLET_RANGE_START: 600,
+  TABLET_RANGE_END: 899,
+  LAPTOP_RANGE_START: 900,
+  LAPTOP_RANGE_END: 1199,
+  DESKTOP_RANGE_START: 1200,
+}
+
+export const QUERIES = {
+  PHONE_ONLY: `(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px)`,
+  PHONE_AND_TABLET: `(max-width: ${BREAKPOINTS.TABLET_RANGE_END}px)`,
+  TABLET_ONLY: [
+    `(min-width: ${BREAKPOINTS.TABLET_RANGE_START}px)`,
+    `(max-width: ${BREAKPOINTS.TABLET_RANGE_END}px)`,
+  ].join(' and '),
+  TABLET_AND_LAPTOP: [
+    `(min-width: ${BREAKPOINTS.TABLET_RANGE_START}px)`,
+    `(max-width: ${BREAKPOINTS.LAPTOP_RANGE_END}px)`,
+  ].join(' and '),
+  TABLET_AND_UP: `(min-width: ${BREAKPOINTS.TABLET_RANGE_START}px)`,
+  LAPTOP_ONLY: [
+    `(min-width: ${BREAKPOINTS.LAPTOP_RANGE_START}px)`,
+    `(max-width: ${BREAKPOINTS.LAPTOP_RANGE_END}px)`,
+  ].join(' and '),
+  LAPTOP_AND_UP: `(min-width: ${BREAKPOINTS.LAPTOP_RANGE_START}px)`,
+  DESKTOP_ONLY: `(min-width: ${BREAKPOINTS.DESKTOP_RANGE_START}px)`,
+}

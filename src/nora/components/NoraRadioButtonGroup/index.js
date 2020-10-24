@@ -1,1 +1,1 @@
-export { NoraRadioButtonGroup } from './NoraRadioButtonGroup.js'
+export { NoraRadioButtonGroup } from './NoraRadioButtonGroup'

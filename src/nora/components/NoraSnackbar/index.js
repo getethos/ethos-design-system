@@ -1,1 +1,1 @@
-export { NoraSnackbar } from './NoraSnackbar.js'
+export { NoraSnackbar } from './NoraSnackbar'

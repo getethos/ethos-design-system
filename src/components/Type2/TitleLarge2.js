@@ -1,4 +1,4 @@
-import { TypeBase, TypeFoundry } from '../TypeBase/TypeBase.js'
+import { TypeBase, TypeFoundry } from '../TypeBase/TypeBase'
 
 export const TitleLarge2 = {
   Sans: {

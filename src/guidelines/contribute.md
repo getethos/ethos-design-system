@@ -72,7 +72,7 @@ Further, when a field like `TextInput` takes user input, that input may be valid
 Thus, as EDS component authors, we need to make this distinction and follow some additional steps for components that interact with the form engine. Here are some common TBD:
 
 - Inline field level errors:
-  `import useErrorMessage from '../../hooks/useErrorMessage.js'`
+  `import useErrorMessage from '../../hooks/useErrorMessage'`
 - Validation
   See the `Form.md` examples and `src/validators/*`. Also see `hooks/useInputValidation.js` which is used by the fields to do validation via the `doValidation` function
 - Form State

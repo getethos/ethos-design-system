@@ -1,1 +1,1 @@
-export { Portal } from './Portal.js'
+export { Portal } from './Portal'

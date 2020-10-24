@@ -1,2 +1,2 @@
-export { Snackbar } from './Snackbar.js'
-export { Snack } from './Snack.js'
+export { Snackbar } from './Snackbar'
+export { Snack } from './Snack'

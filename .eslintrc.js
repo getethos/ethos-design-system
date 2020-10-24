@@ -61,4 +61,19 @@ module.exports = {
       version: 'detect',
     },
   },
+
+  overrides: [
+    {
+      parser: '@typescript-eslint/parser',
+      files: ['**/*.tsx', '**/*.ts'],
+      parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
+      },
+      extends: ['plugin:@typescript-eslint/recommended'],
+      plugins: ['@typescript-eslint'],
+      rules: {
+        'react/prop-types': 'off',
+      },
+    },
 }

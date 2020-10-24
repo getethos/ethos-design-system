@@ -1,1 +1,1 @@
-export { CheckboxInput } from './CheckboxInput.js'
+export { CheckboxInput } from './CheckboxInput'

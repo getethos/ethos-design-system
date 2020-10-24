@@ -5,10 +5,9 @@ export interface KeyValMap {
 }
 
 export interface XhrComponentState {
-  status?: string
-  error?: XhrError
-  successMessage?: string
+  status?: string | null
+  error?: XhrError | null
+  successMessage?: string | null
 }
 
 export type FormEvent = React.FormEvent<HTMLFormElement>
-
