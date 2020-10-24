@@ -1,38 +1,42 @@
 import * as React from 'react'
-import { Accordion } from '.'
-import { AccordionSection } from '.'
-import { AsyncTypeahead } from '.'
-import { ButtonSelectGroup } from '.'
-import { CheckboxInput } from '.'
-import { Drawer } from '.'
-import { DateInput } from '.'
-import { EmailInput } from '.'
-import { Faq } from '.'
-import { FlexGrid, FlexCol, FlexRow } from '.'
-import { Icon } from '.'
-import { IconLink } from '.'
-import { Modal } from '.'
-import { Snack } from '.'
-import { KabobMenuContainer } from '.'
-import { NoraButton } from '.'
-import { NoraCheckboxInput } from '.'
-import { NoraButtonInput } from '.'
-import { NoraTextInput } from '.'
-import { NoraRadioButtonGroup } from '.'
-import { NoraDrawer } from '.'
-import { NoraSnackbar } from '.'
-import { NoraTextAreaInput } from '.'
-import { NumberInput } from '.'
-import { RadioButtonGroup } from '.'
-import { Select } from '.'
-import { SearchInput } from '.'
-import { Stepper } from '.'
-import { TextMaskedInput } from '.'
-import { Tooltip } from '.'
-import { ValueProps } from '.'
-import { ZipInput } from '.'
-import { UniversalNavbar } from '.'
-import { Pagination } from '.'
+import {
+  Accordion,
+  AccordionSection,
+  AsyncTypeahead,
+  ButtonSelectGroup,
+  CheckboxInput,
+  DateInput,
+  Drawer,
+  EmailInput,
+  Faq,
+  FlexCol,
+  FlexGrid,
+  FlexRow,
+  Icon,
+  IconLink,
+  KabobMenuContainer,
+  Modal,
+  NoraButton,
+  NoraButtonInput,
+  NoraCheckboxInput,
+  NoraDrawer,
+  NoraRadioButtonGroup,
+  NoraSnackbar,
+  NoraTextAreaInput,
+  NoraTextInput,
+  NumberInput,
+  Pagination,
+  RadioButtonGroup,
+  SearchInput,
+  Select,
+  Snack,
+  Stepper,
+  TextMaskedInput,
+  Tooltip,
+  UniversalNavbar,
+  ValueProps,
+  ZipInput,
+} from '.'
 
 // Usage: `yarn test:types` -- see [package.json](../../package.json):
 

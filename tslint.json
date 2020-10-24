@@ -1,15 +1,24 @@
 {
   "defaultSeverity": "error",
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["./**/*.css.d.ts", "./**/*.scss.d.ts"]
+  },
   "jsRules": {},
   "rules": {
     "curly": false,
-    "prettier": [true, ".prettierrc"],
+    "interface-name": false,
+    "jsdoc-format": false,
+    "jsx-boolean-value": false,
     "jsx-curly-spacing": true,
     "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false,
     "jsx-self-close": true,
     "jsx-space-before-trailing-slash": true,
-    "interface-name": false,
+    "max-classes-per-file": false,
+    "no-duplicate-imports": false,
+    "no-empty": false,
+    "no-implicit-dependencies": false,
     "no-relative-imports": false,
     "no-submodule-imports": [true, "ethos-design-system"],
     "object-literal-sort-keys": false,
@@ -19,7 +28,9 @@
         "import-sources-order": "any",
         "named-imports-order": "case-insensitive"
       }
-    ]
+    ],
+    "prefer-object-spread": false,
+    "prettier": [true, ".prettierrc"]
   },
   "rulesDirectory": ["tslint-plugin-prettier"]
 }

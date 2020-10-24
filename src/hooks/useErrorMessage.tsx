@@ -1,8 +1,26 @@
+// tslint:disable-next-line
 import * as React from 'react'
 import { useState } from 'react'
 import { Spacer } from '../components'
 import { InfoMessage } from '../components/InfoMessage'
 import { INIT_INVALID } from '../helpers/constants.js'
+
+// ethan - not sure why this hook was created in an unorthodox way but here i tried to bring it back to standard react pattern for formatted error
+const FormattedError = ({ msg }: { msg: any }) => {
+  return (
+    <>
+      <Spacer.H8 />
+      <InfoMessage.Text.Error>{msg}</InfoMessage.Text.Error>
+    </>
+  )
+}
+
+const getFormattedError = (msg) => {
+  if (msg) {
+    return <FormattedError msg={msg} />
+  }
+  return ''
+}
 
 const useErrorMessage = (validator) => {
   const noopValidator = () => ''
@@ -24,18 +42,6 @@ const useErrorMessage = (validator) => {
       if (currentError && fieldTouched && currentError !== INIT_INVALID) {
         return getFormattedError(currentError)
       }
-    }
-    return ''
-  }
-
-  const getFormattedError = (msg) => {
-    if (msg) {
-      return (
-        <>
-          <Spacer.H8 />
-          <InfoMessage.Text.Error>{msg} </InfoMessage.Text.Error>
-        </>
-      )
     }
     return ''
   }

@@ -1,8 +1,8 @@
 // Convenience wrapper around src/validators/DateInputValidator.d.ts
 export {
-  DATE_FORMATS,
   dateMaskByFormat,
   dateStringMatchesFormat,
+  DATE_FORMATS,
   getMaxDateValidator,
   getMinDateValidator,
   validateMinMaxDateFactory,

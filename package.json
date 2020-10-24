@@ -27,7 +27,7 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot",
     "test:scss": "./scss-test.sh",
-    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components"
+    "tslint": "tslint src/**/*.ts{,x}"
   },
   "jest": {
     "verbose": true,
@@ -127,7 +127,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test && yarn test:types"
+      "pre-push": "yarn test && yarn lint"
     }
   }
 }
