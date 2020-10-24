@@ -20,6 +20,17 @@ if (!isCi) {
 // We ignore warnings e.g. Button.js matches a pattern defined in "components"...
 // https://github.com/styleguidist/react-styleguidist/pull/588
 module.exports = {
+  propsParser: (filePath, source, resolver, handlers) => {
+    const { ext } = path.parse(filePath)
+    return ext === '.tsx'
+      ? require('react-docgen-typescript').parse(
+          filePath,
+          source,
+          resolver,
+          handlers
+        )
+      : require('react-docgen').parse(source, resolver, handlers)
+  },
   title: 'EDS',
   skipComponentsWithoutExample: true,
   exampleMode: 'expand',
