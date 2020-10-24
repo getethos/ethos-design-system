@@ -70,7 +70,7 @@ export const CloudinaryImage: React.FC<CloudinaryImageProps> & {
     fetchFormat: 'auto',
     flags: ['progressive:semi'],
   }
-  let imageClasses = ['lazyload', className]
+  const imageClasses = ['lazyload', className]
   let reverseWidth, reverseHeight
   if (width) {
     reverseWidth = width.slice().reverse()
@@ -103,8 +103,8 @@ export const CloudinaryImage: React.FC<CloudinaryImageProps> & {
   }
   const buildTags = () => {
     const dprSettings = ['1.0', '2.0', '3.0']
-    let tags: JSX.Element[] = []
-    let imageSrcSet: string[] = []
+    const tags: JSX.Element[] = []
+    const imageSrcSet: string[] = []
     // We are expecting width/height attribute arrays in the order of
     // Phone/Tablet/Laptop/Desktop but we have to setup media queries
     // in the opposite order, so we reverse the arrays here.
@@ -159,7 +159,7 @@ export const CloudinaryImage: React.FC<CloudinaryImageProps> & {
     const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
     return (
       <img
-        data-src={svgUrl}
+        src={svgUrl} // ethan - why was this a data-src?
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
       />
