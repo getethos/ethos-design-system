@@ -10,8 +10,8 @@ Snackbar a11y / UX—some things to try:
 
 ```jsx
 import React, { useState, useEffect } from 'react'
-import { Icon } from '../Icon/Icon.js'
-import { Button, Snack } from '../../../components/index'
+import { Icon } from '../Icon/Icon'
+import { Button, Snack } from '../index'
 import styles from './NoraSnackbar.module.scss'
 
 let count = 0

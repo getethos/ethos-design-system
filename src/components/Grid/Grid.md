@@ -30,9 +30,9 @@ Nora application which utilizes this.
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Grid } from './Grid.js'
-import { Row } from './Row.js'
-import { Column } from './Column.js'
+import { Grid } from './Grid'
+import { Row } from './Row'
+import { Column } from './Column'
 import { useGridSorting } from './useGridSorting.js'
 import styles from './grid-example.module.scss'
 

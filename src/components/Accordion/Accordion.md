@@ -8,7 +8,7 @@ Keyboard navigation:
 - End—moves focus to last section header
 
 ```jsx
-import { AccordionSection } from './AccordionSection.js'
+import { AccordionSection } from './AccordionSection'
 import styles from './AccordionSectionExample.module.css'
 import { useAccordionState } from './useAccordionState'
 const { expanded, onToggle } = useAccordionState({ 1: true })
@@ -78,7 +78,7 @@ that indicates that you'd like to use that as the toggle (not the entire
 `AccordionSection` header bar).
 
 ```jsx
-import { AccordionSection } from './AccordionSection.js'
+import { AccordionSection } from './AccordionSection'
 import { useAccordionState } from './useAccordionState'
 import styles from './AccordionSectionExample.module.css'
 const { expanded, onToggle } = useAccordionState({ 1: true })

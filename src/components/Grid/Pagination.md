@@ -4,9 +4,9 @@ Used in tandem with the DataGrid component:
 import React, { memo, useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Grid } from '../Grid/Grid.js'
-import { Row } from '../Grid/Row.js'
-import { Column } from '../Grid/Column.js'
+import { Grid } from '../Grid/Grid'
+import { Row } from '../Grid/Row'
+import { Column } from '../Grid/Column'
 import { useGridSorting } from '../Grid/useGridSorting.js'
 import styles from '../Grid/grid-example.module.scss'
 
@@ -126,7 +126,10 @@ const LeGrid = ({ rows, columns }) => {
                   <div className={styles.iconContainer}>
                     {row[col.name]}{' '}
                     {col.name === 'Type' && row[col.name] === 'Food' && (
-                      <FontAwesomeIcon icon={['far', 'hamburger']} className={styles.icon} />
+                      <FontAwesomeIcon
+                        icon={['far', 'hamburger']}
+                        className={styles.icon}
+                      />
                     )}
                   </div>
                 )}
@@ -227,44 +230,49 @@ const GridAndPagination = memo(() => {
 
 ;<GridAndPagination />
 ```
+
 ** Example Pagination views **
 
 Pagination view with all page numbers displayed
+
 ```jsx
 <Pagination
- currentPage={2}
- pageCount={5}
- displayedPagesCount={6}
- fetchPageCallback={() => {}}
+  currentPage={2}
+  pageCount={5}
+  displayedPagesCount={6}
+  fetchPageCallback={() => {}}
 />
 ```
 
 Pagination view with total count more than display pages
+
 ```jsx
 <Pagination
- currentPage={2}
- pageCount={10}
- displayedPagesCount={6}
- fetchPageCallback={() => {}}
+  currentPage={2}
+  pageCount={10}
+  displayedPagesCount={6}
+  fetchPageCallback={() => {}}
 />
 ```
 
 Pagination view with left ellipsis
+
 ```jsx
 <Pagination
- currentPage={15}
- pageCount={20}
- displayedPagesCount={10}
- fetchPageCallback={() => {}}
+  currentPage={15}
+  pageCount={20}
+  displayedPagesCount={10}
+  fetchPageCallback={() => {}}
 />
 ```
 
 Pagination view with left and right ellipsis
+
 ```jsx
 <Pagination
- currentPage={6}
- pageCount={20}
- displayedPagesCount={10}
- fetchPageCallback={() => {}}
+  currentPage={6}
+  pageCount={20}
+  displayedPagesCount={10}
+  fetchPageCallback={() => {}}
 />
 ```

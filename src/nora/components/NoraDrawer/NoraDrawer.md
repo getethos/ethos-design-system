@@ -1,5 +1,5 @@
 ```jsx
-import { Button } from '../../../components/index'
+import { Button } from '../index'
 import { codes } from '../../../helpers/constants.js'
 import styles from './NoraDrawerExample.module.scss'
 

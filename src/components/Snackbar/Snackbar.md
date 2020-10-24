@@ -10,9 +10,8 @@ Snackbar a11y / UX—some things to try:
 
 ```jsx
 import React, { useState, useEffect } from 'react'
-import { Icon } from '../../nora/components/Icon/Icon.js'
-import { Snack } from './Snack.js'
-import { Button } from '../index'
+import { Snack } from './Snack'
+import { Button, Icon } from '../index'
 /**
  * All of this is custom code for example's sake (the styles,
  * and JSX children used within the <Snackbar> element)
