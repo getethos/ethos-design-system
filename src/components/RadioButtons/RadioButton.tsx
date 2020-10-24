@@ -8,7 +8,7 @@ import styles from './RadioButtons.module.scss'
 // Wrapping this way facilitates spying with spyOn
 export const focusHelper = {
   focus: (elementRef) => {
-    elementRef.current.focus()
+    elementRef.current?.focus()
   },
 }
 export type RadioButtonProps = PublicFormProps & {
