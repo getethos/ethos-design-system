@@ -1,4 +1,6 @@
 import cloudinary, { Cloudinary } from 'cloudinary-core'
+// required for lazyloading
+import 'lazysizes'
 import * as PropTypes from 'prop-types'
 import * as React from 'react'
 import { v4 as uuidv4 } from 'uuid'
@@ -6,6 +8,7 @@ import useInvalid from '../../hooks/useInvalid.js'
 import useRequired from '../../hooks/useRequired.js'
 import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
+
 // https://cloudinary.com/documentation/image_transformation_reference
 export const CLOUDINARY_CLOUD_NAME = 'getethos'
 // @ts-ignore
@@ -159,7 +162,7 @@ export const CloudinaryImage: React.FC<CloudinaryImageProps> & {
     const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
     return (
       <img
-        src={svgUrl} // ethan - why was this a data-src?
+        data-src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
       />
