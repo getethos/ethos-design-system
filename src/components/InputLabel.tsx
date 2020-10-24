@@ -20,7 +20,7 @@ type InputLabelProps = {
  * @param  {Boolean}  props.allCaps     If true apply "allCaps" label styling
  * @param  {Boolean}  props.capitalize  If true apply "capitalize" label styling
  */
-export const InputLabel: React.SFC<InputLabelProps> = ({
+export const InputLabel: React.FC<InputLabelProps> = ({
   name,
   labelCopy,
   element = 'label',

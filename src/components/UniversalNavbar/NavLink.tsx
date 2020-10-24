@@ -3,7 +3,7 @@ type NavLinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
   href: string
   LinkComponent?: React.ElementType
 }
-const NavLink: React.SFC<NavLinkProps> = ({
+const NavLink: React.FC<NavLinkProps> = ({
   href,
   children,
   LinkComponent,

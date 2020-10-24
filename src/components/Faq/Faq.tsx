@@ -10,7 +10,7 @@ type FaqProps = {
   }[]
   open?: boolean
 }
-export const Faq: React.SFC<FaqProps> = ({ questions = [], open = true }) => {
+export const Faq: React.FC<FaqProps> = ({ questions = [], open = true }) => {
   return (
     <div className={styles.root}>
       <div className={styles.leftColumn}>

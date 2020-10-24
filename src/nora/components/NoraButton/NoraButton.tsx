@@ -9,7 +9,7 @@ type NoraButtonProps = {
   role?: string
   className?: string
 }
-export const NoraButton: React.SFC<NoraButtonProps> = ({
+export const NoraButton: React.FC<NoraButtonProps> = ({
   className,
   disabled,
   type,

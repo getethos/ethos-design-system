@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { Spacer } from './Spacer.js'
+import { Spacer } from './Spacer'
 
 describe('Spacer', () => {
   describe('matches snapshot', () => {

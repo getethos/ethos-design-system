@@ -27,7 +27,7 @@ type SearchInputProps = PublicFormProps & {
  *
  * @return {JSX.Element}
  */
-export const SearchInput: React.SFC<SearchInputProps> = ({
+export const SearchInput: React.FC<SearchInputProps> = ({
   disabled = false,
   compact = false,
   name,

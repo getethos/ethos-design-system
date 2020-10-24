@@ -27,7 +27,7 @@ type CheckboxInput2Props = PublicFormProps & {
   }
   variant?: 'default' | 'textonly'
 }
-export const CheckboxInput2: React.SFC<CheckboxInput2Props> = ({
+export const CheckboxInput2: React.FC<CheckboxInput2Props> = ({
   formChangeHandler,
   validator,
   children,

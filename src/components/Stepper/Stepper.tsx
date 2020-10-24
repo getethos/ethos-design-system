@@ -9,7 +9,7 @@ type StepperProps = {
     status: 'complete' | 'active' | 'incomplete'
   }[]
 }
-export const Stepper: React.SFC<StepperProps> = ({ steps = [] }) => {
+export const Stepper: React.FC<StepperProps> = ({ steps = [] }) => {
   return (
     <div className={styles.StepperContainer} role="group" aria-label="progress">
       <ol>

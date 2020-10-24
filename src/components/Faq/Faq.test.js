@@ -1,5 +1,5 @@
 import React from 'react'
-import { Faq } from './Faq.js'
+import { Faq } from './Faq'
 import renderer from 'react-test-renderer'
 
 describe('Faq', () => {

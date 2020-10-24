@@ -15,7 +15,7 @@ type SnackbarProps = React.HTMLAttributes<HTMLDivElement> & {
  * Nora application uses this component. If you plan to use in another Ethos
  * application, **please consult design first**!
  */
-export const Snackbar: React.SFC<SnackbarProps> = ({
+export const Snackbar: React.FC<SnackbarProps> = ({
   id,
   isOpen = false,
   ariaLabelledBy,

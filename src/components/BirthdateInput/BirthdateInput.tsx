@@ -1,7 +1,7 @@
 import * as React from 'react'
+import * as Validators from '../../validators/BirthdateInputValidator'
 import { DateInput } from '../DateInput'
 import { PublicFormProps } from '../Form/Form'
-import * as Validators from '../../validators/BirthdateInputValidator'
 const { DATE_FORMATS } = Validators
 type BirthdateInputProps = PublicFormProps & {
   dateFormat?: any
@@ -13,7 +13,7 @@ type BirthdateInputProps = PublicFormProps & {
   currentValue?: string
   currentError?: string
 }
-export const BirthdateInput: React.SFC<BirthdateInputProps> = (props) => {
+export const BirthdateInput: React.FC<BirthdateInputProps> = (props) => {
   const {
     optional,
     dateFormat,

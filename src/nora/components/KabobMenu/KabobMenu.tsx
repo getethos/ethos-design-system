@@ -7,7 +7,7 @@ type KabobMenuProps = {
   onClick?: (...args: any[]) => any
   onKeyDown: (...args: any[]) => any
 }
-export const KabobMenu: React.SFC<KabobMenuProps> = ({
+export const KabobMenu: React.FC<KabobMenuProps> = ({
   focusRef,
   tabIndex,
   onClick,

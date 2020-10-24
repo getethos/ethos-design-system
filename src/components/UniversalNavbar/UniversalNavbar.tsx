@@ -16,7 +16,7 @@ type UniversalNavbarProps = {
   LinkComponent?: React.ElementType
   logoHref?: string
 }
-const UniversalNavbar: React.SFC<UniversalNavbarProps> = ({
+const UniversalNavbar: React.FC<UniversalNavbarProps> = ({
   LinkComponent,
   hideMobileCta,
   hideDesktopCta,

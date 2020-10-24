@@ -39,7 +39,7 @@ const PUBLIC_PROPS = {
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CROP_METHODS)),
 }
-export const CloudinaryImage: React.SFC<CloudinaryImageProps> & {
+export const CloudinaryImage: React.FC<CloudinaryImageProps> & {
   CROP_METHODS: typeof CROP_METHODS
   PUBLIC_PROPS: typeof PUBLIC_PROPS
 } = ({

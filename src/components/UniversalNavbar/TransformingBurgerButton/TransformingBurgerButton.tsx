@@ -5,7 +5,7 @@ type TransformingBurgerButtonProps = {
   keyPressHandler: (...args: any[]) => any
   showMobileMenu: boolean
 }
-const TransformingBurgerButton: React.SFC<TransformingBurgerButtonProps> = ({
+const TransformingBurgerButton: React.FC<TransformingBurgerButtonProps> = ({
   clickHandler,
   keyPressHandler,
   showMobileMenu,

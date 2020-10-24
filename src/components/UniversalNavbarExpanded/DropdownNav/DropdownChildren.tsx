@@ -24,7 +24,7 @@ type DropdownChildrenProps = {
   }
   LinkComponent?: React.ElementType
 }
-const DropdownChildren: React.SFC<DropdownChildrenProps> = ({
+const DropdownChildren: React.FC<DropdownChildrenProps> = ({
   containerClasses,
   child,
   LinkComponent,

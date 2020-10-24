@@ -11,7 +11,7 @@ type NavLinkProps = React.HTMLAttributes<HTMLAnchorElement> & {
   currentPageCondition?: boolean
   LinkComponent?: React.ElementType
 }
-const NavLink: React.SFC<NavLinkProps> = ({
+const NavLink: React.FC<NavLinkProps> = ({
   className,
   key,
   href,

@@ -48,7 +48,7 @@ type TextMaskedInputProps = PublicFormProps & {
   getTouched?: boolean
   placeholderChar?: string
 }
-export const TextMaskedInput: React.SFC<TextMaskedInputProps> & {
+export const TextMaskedInput: React.FC<TextMaskedInputProps> & {
   PUBLIC_PROPS: typeof PUBLIC_PROPS
 } = (props) => {
   const {

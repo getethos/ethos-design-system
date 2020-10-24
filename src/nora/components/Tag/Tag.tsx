@@ -3,7 +3,7 @@ import styles from './Tag.module.scss'
 type TagProps = {
   type?: 'red' | 'orange' | 'green' | 'cyan' | 'gray' | 'neutral'
 }
-export const Tag: React.SFC<TagProps> = ({ children, type }) => {
+export const Tag: React.FC<TagProps> = ({ children, type }) => {
   let colorClass
   switch (type) {
     case 'red':

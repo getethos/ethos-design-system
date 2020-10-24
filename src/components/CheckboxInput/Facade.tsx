@@ -2,7 +2,7 @@ import * as React from 'react'
 type FacadeProps = {
   classes?: string
 }
-export const Facade: React.SFC<FacadeProps> = ({ classes = '' }) => {
+export const Facade: React.FC<FacadeProps> = ({ classes = '' }) => {
   return (
     <svg
       className={classes}

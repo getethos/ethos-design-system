@@ -18,7 +18,7 @@ type ModalProps = {
  *
  * @return {JSX.Element}
  */
-export const Modal: React.SFC<ModalProps> = ({
+export const Modal: React.FC<ModalProps> = ({
   children,
   onDismiss,
   ariaLabelledBy,

@@ -2,11 +2,13 @@ import * as React from 'react'
 import { useEffect, useState } from 'react'
 // See React-Select -- https://github.com/JedWatson/react-select for documentation
 // on usage, Async configuration, etc.
-import * as ReactSelect from 'react-select'
-import { components, Props as ReactSelectProps } from 'react-select'
-import * as ReactSelectAsync from 'react-select/async'
-import * as ReactSelectAsyncCreatable from 'react-select/async-creatable'
-import * as ReactSelectCreatable from 'react-select/creatable'
+import ReactSelect, {
+  components,
+  Props as ReactSelectProps,
+} from 'react-select'
+import ReactSelectAsync from 'react-select/async'
+import ReactSelectAsyncCreatable from 'react-select/async-creatable'
+import ReactSelectCreatable from 'react-select/creatable'
 import useErrorMessage from '../../hooks/useErrorMessage'
 import { PublicFormProps } from '../Form/Form'
 import { InputLabel } from '../InputLabel'
@@ -61,8 +63,10 @@ type SelectProps = PublicFormProps &
  * {value: "abc", label: "abc"}, and multi: [{value: "abc", label: "abc"}]
  * So, a multi-select validator would likely want to loop and validate each items one by one.
  */
-export const Select: React.SFC<SelectProps> = ({
+export const Select: React.FC<SelectProps> = ({
   className,
+  classNamePrefix = 'StyledReactSelect',
+  placeholder = 'Type to search',
   title,
   isAsync,
   isCompact,
@@ -160,14 +164,13 @@ export const Select: React.SFC<SelectProps> = ({
       {labelCopy && (
         <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
       )}
-      <SelectTag {...props} />
+      <SelectTag
+        {...props}
+        classNamePrefix={classNamePrefix}
+        placeholder={placeholder}
+      />
       {title && <div className={styles.title}>{title}</div>}
       {getError(currentError, formTouched)}
     </div>
   )
-}
-Select.defaultProps = {
-  classNamePrefix: 'StyledReactSelect',
-  className: undefined,
-  placeholder: 'Type to search',
 }

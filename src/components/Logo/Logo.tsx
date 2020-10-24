@@ -2,7 +2,7 @@ import * as React from 'react'
 type LogoInlineProps = {
   style?: object
 }
-const LogoInline: React.SFC<LogoInlineProps> = (props) => {
+const LogoInline: React.FC<LogoInlineProps> = (props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

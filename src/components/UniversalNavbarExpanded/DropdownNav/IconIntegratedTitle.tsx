@@ -13,7 +13,7 @@ type IconIntegratedTitleProps = {
  *
  * @return {JSX.Element}
  */
-const IconIntegratedTitle: React.SFC<IconIntegratedTitleProps> = ({
+const IconIntegratedTitle: React.FC<IconIntegratedTitleProps> = ({
   title,
   children,
 }) => {

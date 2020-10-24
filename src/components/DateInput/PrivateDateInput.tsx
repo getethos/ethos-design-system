@@ -36,7 +36,7 @@ type PrivateDateInputProps = PublicFormProps & {
   pipe?: any
   mask?: (string | RegExp)[]
 }
-export const PrivateDateInput: React.SFC<PrivateDateInputProps> & {
+export const PrivateDateInput: React.FC<PrivateDateInputProps> & {
   PUBLIC_PROPS: typeof PUBLIC_PROPS
 } = (props) => {
   const {

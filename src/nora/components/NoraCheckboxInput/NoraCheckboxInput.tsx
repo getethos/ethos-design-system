@@ -8,7 +8,7 @@ type NoraCheckboxInputProps = PublicFormProps & {
   checked?: boolean
   disabled?: boolean
 }
-export const NoraCheckboxInput: React.SFC<NoraCheckboxInputProps> = ({
+export const NoraCheckboxInput: React.FC<NoraCheckboxInputProps> = ({
   validator,
   children,
   name,

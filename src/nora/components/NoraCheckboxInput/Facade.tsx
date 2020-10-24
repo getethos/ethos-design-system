@@ -4,7 +4,7 @@ type FacadeProps = {
 }
 // Nora's Facade (checkbox shape) needs to be smaller to
 // account for overall smaller font sizes we use in Nora
-export const Facade: React.SFC<FacadeProps> = ({ classes }) => {
+export const Facade: React.FC<FacadeProps> = ({ classes }) => {
   return (
     <svg
       className={classes}

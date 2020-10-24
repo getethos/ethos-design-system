@@ -5,7 +5,7 @@ type RowProps = {
   columnIndex?: number
   className?: string
 }
-export const Row: React.SFC<RowProps> = React.memo((props) => {
+export const Row: React.FC<RowProps> = React.memo((props) => {
   return (
     <div className={props.className} role="row">
       {React.Children.map(

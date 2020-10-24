@@ -25,7 +25,7 @@ export type RadioButtonProps = PublicFormProps & {
   onDrop?: (...args: any[]) => any
   onFocus?: (...args: any[]) => any
 }
-export const RadioButton: React.SFC<RadioButtonProps> = ({
+export const RadioButton: React.FC<RadioButtonProps> = ({
   name,
   value,
   checked,

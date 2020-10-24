@@ -109,7 +109,7 @@ const PUBLIC_PROPS = {
  * @param  {String}  props.typeface       (private) Typeface
  * @param  {String}  props.weight         (private) Typeface weight
  */
-export const TypeBase: React.SFC<TypeBaseProps> & {
+export const TypeBase: React.FC<TypeBaseProps> & {
   SUBTYPES: typeof SUBTYPES
   TYPEFACES: typeof TYPEFACES
   WEIGHTS: typeof WEIGHTS

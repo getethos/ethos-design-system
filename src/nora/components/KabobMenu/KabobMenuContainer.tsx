@@ -13,7 +13,7 @@ type KabobMenuContainerProps = {
   setLastSelected: (...args: any[]) => any
   popoverContainerClasses: string
 }
-export const KabobMenuContainer: React.SFC<KabobMenuContainerProps> = ({
+export const KabobMenuContainer: React.FC<KabobMenuContainerProps> = ({
   focusRef,
   tabIndex,
   dataKey,

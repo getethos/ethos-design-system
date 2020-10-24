@@ -54,7 +54,7 @@ type PortalProps = {
  *
  * @return {React.ReactPortal}
  */
-export const Portal: React.SFC<PortalProps> = ({ id, children }) => {
+export const Portal: React.FC<PortalProps> = ({ id, children }) => {
   if (typeof document === 'undefined' || !document) {
     return null
   }

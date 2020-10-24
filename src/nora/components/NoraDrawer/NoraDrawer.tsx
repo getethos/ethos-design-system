@@ -24,7 +24,7 @@ type NoraDrawerProps = {
  *
  * @return {JsxElement}
  */
-export const NoraDrawer: React.SFC<NoraDrawerProps> = ({
+export const NoraDrawer: React.FC<NoraDrawerProps> = ({
   children,
   isOpen,
   lock = false,

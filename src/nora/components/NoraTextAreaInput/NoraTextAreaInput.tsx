@@ -17,7 +17,7 @@ type NoraTextAreaInputProps = PublicFormProps & {
   onChange?: (...args: any[]) => any
   initialValue?: any
 }
-export const NoraTextAreaInput: React.SFC<NoraTextAreaInputProps> = ({
+export const NoraTextAreaInput: React.FC<NoraTextAreaInputProps> = ({
   disabled,
   name,
   value,

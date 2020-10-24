@@ -3,7 +3,7 @@ import styles from './Layout.module.scss'
 type HorizontallyPaddedContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   element?: string
 }
-export const HorizontallyPaddedContainer: React.SFC<HorizontallyPaddedContainerProps> = ({
+export const HorizontallyPaddedContainer: React.FC<HorizontallyPaddedContainerProps> = ({
   className,
   element = 'div',
   ...rest

@@ -12,7 +12,7 @@ type DropdownNavProps = {
   links: Links
   LinkComponent?: React.ElementType
 }
-const DropdownNav: React.SFC<DropdownNavProps> = ({ links, LinkComponent }) => {
+const DropdownNav: React.FC<DropdownNavProps> = ({ links, LinkComponent }) => {
   return (
     <div className={styles.dropdownNav}>
       {links.NAVLINKS?.map((link) => (

@@ -30,7 +30,6 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
       aria-checked={true}
       role="radio"
       tabIndex={0}
-      value="M"
     >
       <input
         checked={true}
@@ -56,7 +55,6 @@ exports[`RadioButtonGroup default rendering RadioButtonGroup 1`] = `
       aria-checked={false}
       role="radio"
       tabIndex={-1}
-      value="F"
     >
       <input
         checked={false}

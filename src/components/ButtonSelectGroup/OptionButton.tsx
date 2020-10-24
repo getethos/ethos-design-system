@@ -24,7 +24,7 @@ export type OptionButtonProps = {
  *
  * @return {JSX.Element}
  */
-export const OptionButton: React.SFC<OptionButtonProps> = ({
+export const OptionButton: React.FC<OptionButtonProps> = ({
   children: label,
   isSelected,
   onClick,

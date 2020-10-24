@@ -42,7 +42,7 @@ type PrivateTextAreaInputProps = PublicFormProps & {
   setFieldTouched?: boolean
   restrictIllegal?: boolean
 }
-export const PrivateTextAreaInput: React.SFC<PrivateTextAreaInputProps> & {
+export const PrivateTextAreaInput: React.FC<PrivateTextAreaInputProps> & {
   PUBLIC_PROPS: typeof PUBLIC_PROPS
 } = ({
   resize,

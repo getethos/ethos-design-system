@@ -13,7 +13,7 @@ type SecondaryLinksProps = {
   currentPageFunction: (...args: any[]) => any
   LinkComponent?: React.ElementType
 }
-const SecondaryLinks: React.SFC<SecondaryLinksProps> = ({
+const SecondaryLinks: React.FC<SecondaryLinksProps> = ({
   links,
   className,
   currentPageCondition,

@@ -87,7 +87,7 @@ export type PublicFormProps = {
  *
  * @see See also: `src/hooks/useFormState.js`
  */
-export const Form: React.SFC<FormProps> = ({ children, config }) => {
+export const Form: React.FC<FormProps> = ({ children, config }) => {
   const fieldNames = Object.keys(config.fields)
   // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form
   const formAutocomplete = config.autocompleteOff ? 'off' : 'on'

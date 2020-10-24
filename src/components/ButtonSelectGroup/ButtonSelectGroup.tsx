@@ -46,7 +46,7 @@ type ButtonSelectGroupProps = PublicFormProps & {
  *
  * @return {JSX.Element}
  */
-export const ButtonSelectGroup: React.SFC<ButtonSelectGroupProps> & {
+export const ButtonSelectGroup: React.FC<ButtonSelectGroupProps> & {
   Option: typeof OptionButton
 } = ({
   labelCopy,

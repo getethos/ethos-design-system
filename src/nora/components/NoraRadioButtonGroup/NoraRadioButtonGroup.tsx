@@ -12,7 +12,7 @@ type NoraRadioButtonGroupProps = PublicFormProps & {
   disabled?: boolean
   required?: boolean
 }
-export const NoraRadioButtonGroup: React.SFC<NoraRadioButtonGroupProps> = ({
+export const NoraRadioButtonGroup: React.FC<NoraRadioButtonGroupProps> = ({
   name,
   options,
   onChange,

@@ -30,7 +30,7 @@ type PositionProps = {
   role?: string
   children(x: number, y: number): JSX.Element
 }
-export const Position: React.SFC<PositionProps> = (props) => {
+export const Position: React.FC<PositionProps> = (props) => {
   const initialState = {
     positionX: -1,
     positionY: -1,

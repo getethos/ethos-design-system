@@ -40,7 +40,7 @@ type PrivateTextInputProps = PublicFormProps & {
   onFocus?: (...args: any[]) => any
   restrictIllegal?: boolean
 }
-export const PrivateTextInput: React.SFC<PrivateTextInputProps> & {
+export const PrivateTextInput: React.FC<PrivateTextInputProps> & {
   PUBLIC_PROPS: typeof PUBLIC_PROPS
 } = ({
   type,

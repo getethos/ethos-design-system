@@ -8,14 +8,14 @@ jest.mock('react-popper', () => {
     Popper: () => <></>,
   }
 })
-jest.mock('../Modal/Modal.js', () => {
+jest.mock('../Modal/Modal', () => {
   return {
     Modal: () => {
       return <></>
     },
   }
 })
-import { Tooltip } from './Tooltip.js'
+import { Tooltip } from './Tooltip'
 import windowMock from '../../mocks/windowMock'
 
 import { render } from '@testing-library/react'

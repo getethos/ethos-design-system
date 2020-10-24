@@ -13,7 +13,7 @@ type IconLinkProps = {
   onClick?: (...args: any[]) => any
   'data-link-id'?: string
 }
-export const IconLink: React.SFC<IconLinkProps> = ({
+export const IconLink: React.FC<IconLinkProps> = ({
   iconPrefix,
   iconName,
   iconClassName,

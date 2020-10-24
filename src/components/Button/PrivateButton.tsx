@@ -52,7 +52,7 @@ const STYLES = {
   // Only used for CMS 'Check my price' CTA button on hero
   WHITE_CTA: 'WhiteCTA',
 }
-export const PrivateButton: React.SFC<PrivateButtonProps> & {
+export const PrivateButton: React.FC<PrivateButtonProps> & {
   HTML_TYPES: typeof HTML_TYPES
   PUBLIC_PROPS: typeof PUBLIC_PROPS
   SIZES: typeof SIZES

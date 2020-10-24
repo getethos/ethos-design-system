@@ -4,7 +4,7 @@ import styles from './Stepper.module.scss'
 type IconForStatusProps = {
   status?: 'complete' | 'active' | 'incomplete'
 }
-export const IconForStatus: React.SFC<IconForStatusProps> = ({ status }) => {
+export const IconForStatus: React.FC<IconForStatusProps> = ({ status }) => {
   if (status == 'complete') {
     return (
       <span className={styles.StepComplete}>

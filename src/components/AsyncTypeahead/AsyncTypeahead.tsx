@@ -29,7 +29,7 @@ type AsyncTypeaheadProps = {
  *
  * @return {JSX.Element}
  */
-export const AsyncTypeahead: React.SFC<AsyncTypeaheadProps> = ({
+export const AsyncTypeahead: React.FC<AsyncTypeaheadProps> = ({
   renderInput,
   lastSelectedValue,
   dataKey,

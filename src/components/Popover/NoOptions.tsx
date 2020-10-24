@@ -1,7 +1,7 @@
-import * as React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Options.module.scss'
+import * as React from 'react'
 import optionStyles from './Option.module.scss'
+import styles from './Options.module.scss'
 type NoOptionsProps = {
   loadingText: string
 }
@@ -9,7 +9,7 @@ type NoOptionsProps = {
  * Used to display the popover drodown loading indication when still loading data.
  * @param {string} loadingText - text to display as we're loading
  */
-export const NoOptions: React.SFC<NoOptionsProps> = ({ loadingText }) => {
+export const NoOptions: React.FC<NoOptionsProps> = ({ loadingText }) => {
   return (
     <>
       <FontAwesomeIcon className={styles.Spin} icon={['far', 'circle-notch']} />

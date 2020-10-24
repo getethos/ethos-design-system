@@ -10,7 +10,7 @@ type AccordionSectionProps = {
   panelClassName?: string
   toggleClassName?: string
 }
-export const AccordionSection: React.SFC<AccordionSectionProps> = ({
+export const AccordionSection: React.FC<AccordionSectionProps> = ({
   children,
   title,
   renderToggle,

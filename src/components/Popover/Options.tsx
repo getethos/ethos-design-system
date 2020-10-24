@@ -1,7 +1,7 @@
 import * as React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import { Option } from './Option'
 import styles from './Options.module.scss'
-import { v4 as uuidv4 } from 'uuid'
 type OptionsProps = {
   activeOption: number
   dataKey: string
@@ -28,7 +28,7 @@ type OptionsProps = {
  * @param {func} setSelectedAndActiveOptions - callback that gets called
  * once an option is selected
  */
-export const Options: React.SFC<OptionsProps> = ({
+export const Options: React.FC<OptionsProps> = ({
   activeOption,
   dataKey,
   entities,

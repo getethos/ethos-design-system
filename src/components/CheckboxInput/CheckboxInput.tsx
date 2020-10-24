@@ -18,7 +18,7 @@ type CheckboxInputProps = PublicFormProps & {
   disabled?: boolean
   facadeRenderer?: (...args: any[]) => any
 }
-export const CheckboxInput: React.SFC<CheckboxInputProps> = ({
+export const CheckboxInput: React.FC<CheckboxInputProps> = ({
   formChangeHandler,
   validator,
   children,

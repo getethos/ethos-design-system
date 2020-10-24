@@ -9,7 +9,7 @@ type DropdownCtaProps = {
   title: string
   subcopy: string
 }
-const DropdownCta: React.SFC<DropdownCtaProps> = ({ title, subcopy }) => (
+const DropdownCta: React.FC<DropdownCtaProps> = ({ title, subcopy }) => (
   <>
     <TitleSmall.Serif.Book500>
       <IconIntegratedTitle title={title}>

@@ -1,4 +1,4 @@
-import { useFormState } from './useFormState.js'
+import { useFormState } from './useFormState'
 import testHook from './testHook.js'
 
 describe('useFormState hook', () => {

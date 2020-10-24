@@ -32,7 +32,7 @@ const WIDTHS = {
   W4: 4,
   AUTO: 'auto',
 }
-export const Space: React.SFC<SpaceProps> & {
+export const Space: React.FC<SpaceProps> & {
   PUBLIC_PROPS: any
   HEIGHTS: typeof HEIGHTS
   WIDTHS: typeof WIDTHS

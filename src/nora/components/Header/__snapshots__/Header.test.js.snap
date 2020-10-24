@@ -3,7 +3,6 @@
 exports[`Header renders defaults 1`] = `
 <header
   className="Header"
-  name="nombre"
 >
   <nav
     className="Navbar"

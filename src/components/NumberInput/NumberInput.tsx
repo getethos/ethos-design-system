@@ -1,8 +1,8 @@
 import * as React from 'react'
 // https://github.com/text-mask/text-mask/tree/master/addons
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
-import { TextMaskedInput } from '../TextMaskedInput'
 import { PublicFormProps } from '../Form/Form'
+import { TextMaskedInput } from '../TextMaskedInput'
 export const integerMask = createNumberMask({
   allowDecimal: false,
   allowLeadingZeroes: false,
@@ -25,7 +25,7 @@ type NumberInputProps = PublicFormProps & {
   guide?: boolean
   keepCharPositions?: boolean
 }
-export const NumberInput: React.SFC<NumberInputProps> = (props) => {
+export const NumberInput: React.FC<NumberInputProps> = (props) => {
   const {
     name,
     type = 'tel',

@@ -5,7 +5,7 @@ type DetailsProps = {
   summary: string
   open?: boolean
 }
-export const Details: React.SFC<DetailsProps> = ({
+export const Details: React.FC<DetailsProps> = ({
   children,
   summary,
   open = false,

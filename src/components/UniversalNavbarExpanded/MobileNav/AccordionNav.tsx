@@ -19,7 +19,7 @@ type AccordionNavProps = {
   currentPageFunction: (...args: any[]) => any
   LinkComponent?: React.ElementType
 }
-const AccordionNav: React.SFC<AccordionNavProps> = ({
+const AccordionNav: React.FC<AccordionNavProps> = ({
   extraClass,
   links,
   navVisible,

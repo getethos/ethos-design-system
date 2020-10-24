@@ -6,6 +6,6 @@ type NoraSnackbarProps = {
   ariaDescribedBy?: string
   isOpen?: boolean
 }
-export const NoraSnackbar: React.SFC<NoraSnackbarProps> = (props) => {
+export const NoraSnackbar: React.FC<NoraSnackbarProps> = (props) => {
   return <Snackbar {...props}>{props.children}</Snackbar>
 }

@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { useState } from 'react'
-import { TextInput } from '../TextInput'
 import EmailFormatValidator from '../../validators/EmailValidator'
 import { PublicFormProps } from '../Form/Form'
+import { TextInput } from '../TextInput'
 type EmailInputProps = PublicFormProps & {
   placeholder?: string
   disabled?: boolean
@@ -11,7 +11,7 @@ type EmailInputProps = PublicFormProps & {
   labelCopy?: string
   initialValue?: string
 }
-export const EmailInput: React.SFC<EmailInputProps> = (props) => {
+export const EmailInput: React.FC<EmailInputProps> = (props) => {
   const {
     name,
     optional,

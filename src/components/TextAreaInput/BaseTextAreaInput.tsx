@@ -17,7 +17,7 @@ type BaseTextAreaInputProps = PublicFormProps & {
  * @param {string} name
  * @param {string} 'data-tid'
  */
-export const BaseTextAreaInput: React.SFC<BaseTextAreaInputProps> = ({
+export const BaseTextAreaInput: React.FC<BaseTextAreaInputProps> = ({
   className,
   disabled,
   name,

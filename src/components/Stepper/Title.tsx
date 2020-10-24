@@ -6,7 +6,7 @@ type TitleProps = {
     status: 'complete' | 'active' | 'incomplete'
   }
 }
-export const Title: React.SFC<TitleProps> = ({ step }) => {
+export const Title: React.FC<TitleProps> = ({ step }) => {
   if (step.status == 'complete' || step.status == 'active') {
     return (
       <Caption2.Regular400 color={COLORS.GRAY_PRIMARY}>

@@ -18,7 +18,7 @@ type PopperContentProps = {
   scheduleUpdate: (...args: any[]) => any
   details?: string
 }
-export const PopperContent: React.SFC<PopperContentProps> = ({
+export const PopperContent: React.FC<PopperContentProps> = ({
   innerRef,
   visible,
   style = {},

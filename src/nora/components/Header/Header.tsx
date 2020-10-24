@@ -1,21 +1,21 @@
 import * as React from 'react'
 import styles from './Header.module.scss'
 
-const Left: React.SFC<{}> = ({ children }) => {
+const Left: React.FC<{}> = ({ children }) => {
   return <div className={styles.Left}>{children}</div>
 }
 Left.defaultProps = {
   children: undefined,
 }
 
-const Right: React.SFC<{}> = ({ children }) => {
+const Right: React.FC<{}> = ({ children }) => {
   return <div className={styles.Right}>{children}</div>
 }
 Right.defaultProps = {
   children: undefined,
 }
 
-const Navbar: React.SFC<{}> = ({ children }) => {
+const Navbar: React.FC<{}> = ({ children }) => {
   return <nav className={styles.Navbar}>{children}</nav>
 }
 Navbar.defaultProps = {
@@ -42,7 +42,7 @@ type HeaderProps = {
  *
  * @return {JSX.Element}
  */
-export const Header: React.SFC<HeaderProps> = ({
+export const Header: React.FC<HeaderProps> = ({
   leftChildren,
   rightChildren,
 }) => {

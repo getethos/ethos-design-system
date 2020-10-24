@@ -12,7 +12,7 @@ type AccordionProps = {
  * Accessible accordion primitive informed by WAI Practices:
  * https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html
  */
-export const Accordion: React.SFC<AccordionProps> = ({
+export const Accordion: React.FC<AccordionProps> = ({
   children,
   expanded = null,
   onToggle,

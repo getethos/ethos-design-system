@@ -1,5 +1,5 @@
 import React from 'react'
-import { CloudinaryImage } from './Images.js'
+import { CloudinaryImage } from './Images'
 import * as Images from './Images'
 import renderer from 'react-test-renderer'
 

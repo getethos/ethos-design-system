@@ -24,7 +24,7 @@ type MobileNavProps = {
   secondaryLinksLinks: LinkItem[]
   hideMobileCta?: boolean
 }
-const MobileNav: React.SFC<MobileNavProps> = ({
+const MobileNav: React.FC<MobileNavProps> = ({
   extraClass,
   logoHref,
   links,

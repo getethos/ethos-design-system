@@ -20,7 +20,7 @@ type HeaderBarProps = {
  * if `toggleChildIsTarget` is false. If `toggleChildIsTarget` is true,
  * we put those handlers ont the <Toggler /> itself.
  */
-export const HeaderBar: React.SFC<HeaderBarProps> = ({
+export const HeaderBar: React.FC<HeaderBarProps> = ({
   renderToggle,
   focusRef,
   onToggle,

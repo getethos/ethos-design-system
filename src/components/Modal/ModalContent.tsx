@@ -21,7 +21,7 @@ type ModalContentProps = {
  *
  * @return {JSX.Element}
  */
-export const ModalContent: React.SFC<ModalContentProps> = ({
+export const ModalContent: React.FC<ModalContentProps> = ({
   ariaDescribedBy,
   ariaLabelledBy,
   children,

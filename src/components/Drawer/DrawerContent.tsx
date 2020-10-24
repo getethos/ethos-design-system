@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { useRef } from 'react'
-import { Portal } from '../Portal'
+import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import useOutsideClickIgnoreSelectors from '../../hooks/a11y/useOutsideClickIgnoreSelectors'
 import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
-import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
 import useTrapFocus from '../../hooks/a11y/useTrapFocus'
 import styles from './Drawer.module.scss'
 type DrawerContentProps = {
@@ -15,7 +14,7 @@ type DrawerContentProps = {
   ignoredSelectors?: string[]
   'data-tid'?: string
 }
-export const DrawerContent: React.SFC<DrawerContentProps> = ({
+export const DrawerContent: React.FC<DrawerContentProps> = ({
   children,
   onDismiss,
   isOpen,

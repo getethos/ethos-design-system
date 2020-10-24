@@ -22,7 +22,7 @@ type UniversalNavbarExpandedProps = {
   links: Links
   estimateExperiment?: boolean
 }
-const UniversalNavbarExpanded: React.SFC<UniversalNavbarExpandedProps> = ({
+const UniversalNavbarExpanded: React.FC<UniversalNavbarExpandedProps> = ({
   LinkComponent,
   hideMobileCta,
   hideDesktopCta,

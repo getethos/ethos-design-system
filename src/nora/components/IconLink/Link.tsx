@@ -6,7 +6,7 @@ type LinkProps = {
   target?: string
   'data-link-id'?: string
 }
-export const Link: React.SFC<LinkProps> = ({
+export const Link: React.FC<LinkProps> = ({
   className,
   href,
   onClick,

@@ -1,10 +1,5 @@
 import * as React from 'react'
-import { useRef } from 'react'
 import { Portal } from '../Portal'
-import useOutsideClickIgnoreSelectors from '../../hooks/a11y/useOutsideClickIgnoreSelectors'
-import useOutsideEscape from '../../hooks/a11y/useOutsideEscape'
-import useHideAriaSiblings from '../../hooks/a11y/useHideAriaSiblings'
-import useTrapFocus from '../../hooks/a11y/useTrapFocus'
 import styles from './Drawer.module.scss'
 import { DrawerContent } from './DrawerContent'
 type DrawerProps = {
@@ -20,7 +15,7 @@ type DrawerProps = {
 /**
  * Drawer component used to progressively disclose information when toggled
  */
-export const Drawer: React.SFC<DrawerProps> = ({
+export const Drawer: React.FC<DrawerProps> = ({
   children,
   onDismiss,
   isOpen,

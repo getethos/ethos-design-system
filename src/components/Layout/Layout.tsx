@@ -2,7 +2,7 @@ import * as React from 'react'
 import { HorizontallyPaddedContainer } from './HorizontallyPaddedContainer'
 import styles from './Layout.module.scss'
 import { ScrollDetector } from './ScrollDetector'
-export const Layout: React.SFC<{}> & {
+export const Layout: React.FC<{}> & {
   Container: typeof HorizontallyPaddedContainer
   HorizontallyPaddedContainer: typeof HorizontallyPaddedContainer
   ScrollDetector: typeof ScrollDetector

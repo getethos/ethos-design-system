@@ -6,7 +6,7 @@ type BaseHamburgerProps = {
   clickHandler: (...args: any[]) => any
   keyPressHandler: (...args: any[]) => any
 }
-export const BaseHamburger: React.SFC<BaseHamburgerProps> = ({
+export const BaseHamburger: React.FC<BaseHamburgerProps> = ({
   className,
   visibleState,
   clickHandler,

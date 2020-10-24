@@ -30,7 +30,7 @@ type ZipInputProps = PublicFormProps & {
   placeholder?: string
   pipe?: any
 }
-export const ZipInput: React.SFC<ZipInputProps> & {
+export const ZipInput: React.FC<ZipInputProps> & {
   PUBLIC_PROPS: typeof PUBLIC_PROPS
 } = (props) => {
   const {

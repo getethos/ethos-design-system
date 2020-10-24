@@ -1,5 +1,6 @@
 import React from 'react'
-import { RadioButtonGroup, focusHelper } from './RadioButtons.js'
+import { focusHelper } from './RadioButtons'
+import { RadioButtonGroup } from './RadioButtonGroup'
 import renderer from 'react-test-renderer'
 
 var focusOnTargetSpy = jest.fn()

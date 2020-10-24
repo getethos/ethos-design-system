@@ -1,6 +1,6 @@
 import React from 'react'
 import { Accordion } from './index'
-import { AccordionSection } from './AccordionSection.js'
+import { AccordionSection } from './AccordionSection'
 import { act } from 'react-test-renderer'
 import testHook from '../../hooks/testHook.js'
 import { useAccordionState } from './useAccordionState'

@@ -7,7 +7,7 @@ type IconProps = {
   iconName: string
   className?: string
 }
-export const Icon: React.SFC<IconProps> = ({
+export const Icon: React.FC<IconProps> = ({
   iconPrefix,
   iconName,
   className,

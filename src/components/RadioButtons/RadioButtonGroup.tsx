@@ -20,7 +20,7 @@ type RadioButtonGroupProps = PublicFormProps & {
   disabled?: boolean
   required?: boolean
 }
-export const RadioButtonGroup: React.SFC<RadioButtonGroupProps> = ({
+export const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   options,
   onChange,
   formChangeHandler,

@@ -25,7 +25,7 @@ type RadioButtonProps = PublicFormProps & {
   onDrop?: (...args: any[]) => any
   onFocus?: (...args: any[]) => any
 }
-const RadioButton: React.SFC<RadioButtonProps> = ({
+const RadioButton: React.FC<RadioButtonProps> = ({
   name,
   value,
   checked,

@@ -22,7 +22,7 @@ type NoraTextInputProps = PublicFormProps & {
  *
  * @return {JSX.Element}
  */
-export const NoraTextInput: React.SFC<NoraTextInputProps> = (props) => {
+export const NoraTextInput: React.FC<NoraTextInputProps> = (props) => {
   let classes = styles.CompactTextInputContainer
   const cloned = { ...props }
   if (cloned.className) {

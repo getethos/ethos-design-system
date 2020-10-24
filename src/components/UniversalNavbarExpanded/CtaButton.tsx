@@ -8,7 +8,7 @@ type CtaButtonProps = {
   trackingFunction?: (...args: any[]) => any
   hideOnMobile?: boolean
 }
-const CtaButton: React.SFC<CtaButtonProps> = ({
+const CtaButton: React.FC<CtaButtonProps> = ({
   href,
   trackingFunction,
   hideOnMobile,

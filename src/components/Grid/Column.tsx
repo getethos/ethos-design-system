@@ -12,7 +12,7 @@ type ColumnProps = {
   interactive?: boolean
   children(active: boolean, columnRef?: any): JSX.Element
 }
-export const Column: React.SFC<ColumnProps> = React.memo((props) => {
+export const Column: React.FC<ColumnProps> = React.memo((props) => {
   const inlineStyles = {
     flexBasis: props.flexBasis ? props.flexBasis : '1',
   }

@@ -8,6 +8,7 @@ Object {
       <div>
         <div
           aria-controls="undefined-0-section"
+          aria-expanded="false"
           class=""
           id="undefined-0-label"
           role="button"
@@ -69,6 +70,7 @@ Object {
     <div>
       <div
         aria-controls="undefined-0-section"
+        aria-expanded="false"
         class=""
         id="undefined-0-label"
         role="button"

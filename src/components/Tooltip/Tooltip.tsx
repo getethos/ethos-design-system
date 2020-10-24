@@ -80,7 +80,7 @@ type TooltipProps = {
   boundariesElement?: any
   className?: string
 }
-export const Tooltip: React.SFC<TooltipProps> & {
+export const Tooltip: React.FC<TooltipProps> & {
   PLACEMENT_TYPES: typeof PLACEMENT_TYPES
   BOUNDARIES_ELEMENT: typeof BOUNDARIES_ELEMENT
   SVGS: typeof SVGS

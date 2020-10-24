@@ -1,7 +1,7 @@
-import React from 'react'
-import { Select } from './Select.js'
 import { render } from '@testing-library/react'
-
+import React from 'react'
+import { Select } from '../index'
+console.log(Select)
 describe('Select', () => {
   const mockProps = {
     className: 'foo',

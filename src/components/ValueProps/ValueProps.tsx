@@ -13,7 +13,7 @@ type Section = {
 type ValuePropsProps = {
   sections: Section[]
 }
-export const ValueProps: React.SFC<ValuePropsProps> = ({ sections }) => {
+export const ValueProps: React.FC<ValuePropsProps> = ({ sections }) => {
   return (
     <div className={`${styles.container} ${styles.root}`}>
       {sections.map((section) => (

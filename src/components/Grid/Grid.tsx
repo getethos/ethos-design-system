@@ -6,7 +6,7 @@ type GridProps = {
   rowRefs: any[][]
   columnRefs: any[][]
 }
-export const Grid: React.SFC<GridProps> = (props) => {
+export const Grid: React.FC<GridProps> = (props) => {
   const gridRefs = [...props.columnRefs, ...props.rowRefs]
   return (
     <Position className={props.className} refs={gridRefs} role="grid">
