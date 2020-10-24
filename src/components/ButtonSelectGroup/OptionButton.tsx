@@ -5,12 +5,13 @@ export const OPTION_BUTTON_STYLES = {
   DEFAULT: 'default',
   WHITE: 'white',
 }
-export type OptionButtonProps = {
+export type OptionButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
   buttonStyle?: any
   label?: string
   isSelected?: boolean
   onClick?: (...args: any[]) => any
   'data-tid'?: string
+  value: any
 }
 /**
  * Component renders an option button within a `<ButtonSelectGroup />`

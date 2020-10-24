@@ -18,7 +18,7 @@ import SecondaryLinks from './SecondaryLinks'
 type MobileNavProps = {
   links: Links
   extraClass?: string
-  ctaButtonTrackingFunction?: (...args: any[]) => any | void
+  ctaButtonTrackingFunction?: (...args: any[]) => any
   LinkComponent?: React.ElementType
   logoHref: string
   secondaryLinksLinks: LinkItem[]

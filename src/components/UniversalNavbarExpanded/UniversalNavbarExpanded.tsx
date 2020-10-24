@@ -16,7 +16,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
 type UniversalNavbarExpandedProps = {
   hideMobileCta?: boolean
   hideDesktopCta?: boolean
-  trackCtaClick: (...args: any[]) => any | void
+  trackCtaClick: (...args: any[]) => any
   LinkComponent?: React.ElementType
   logoHref: string
   links: Links

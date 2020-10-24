@@ -120,13 +120,7 @@ export const ButtonSelectGroup: React.FC<ButtonSelectGroupProps> & {
   // Iterate through each child, inject stateful props
   const options = React.Children.map(
     children,
-    (
-      child: React.ReactElement<
-        OptionButtonProps & {
-          value: any
-        }
-      >
-    ) => {
+    (child: React.ReactElement<OptionButtonProps>) => {
       const { value, onClick: passedHandler } = child.props
       const isSelected = value === selectedValue
       const onClick = onClickHandler(value, passedHandler)
