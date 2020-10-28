@@ -27,7 +27,8 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot",
     "test:scss": "./scss-test.sh",
-    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components"
+    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components",
+    "preinstall": "node ./preinstall.js"
   },
   "jest": {
     "verbose": true,
