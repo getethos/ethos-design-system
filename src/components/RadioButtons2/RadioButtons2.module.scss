@@ -1,0 +1,87 @@
+/* A single radio button with a styled façade and a text label. */
+.RadioButton {
+  /* Get the text on the same line: */
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  padding: 16px;
+  border-radius: 2px;
+  cursor: pointer;
+
+  /* This wraps the radio button/façade in order to set proper whitespace. */
+  span[role='radio'] {
+    height: var(--Space-24);
+    width: var(--Space-24);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    margin-right: var(--Space-16);
+    padding: 3px;
+  }
+
+  /* This is the actual HTML radio button. Hidden so we can style more freely. */
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
+
+  /* This is a façade styled to the design spec. */
+  aside {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    pointer-events: none; /* pass click events to the real HTML radio button */
+
+    transition: var(--transition-default);
+    transition-property: background-color, border-width, border-color;
+  }
+
+  /* These ~ selectors let us style the façade according to the input state. */
+  input:hover ~ aside {
+    background-color: var(--GrayLightHover--translucent);
+  }
+
+  input:not(:checked) ~ aside {
+    border: 1px solid var(--GrayStrokeAndDisabled--translucent);
+  }
+
+  input:checked ~ aside {
+    border: 5px solid var(--BrandForest);
+    background-color: var(--White);
+  }
+
+  /*
+  The vertical position of the text, given our current fonts/etc., needs to
+  be optically tuned to resemble the spec (`align-items:` isn't enough).
+  TODO: This currently seems to diverge between main and frontend-docs :/
+  */
+  > div {
+    position: relative;
+    top: 0.15em; /* optical */
+  }
+
+  .label {
+    flex: 1;
+  }
+}
+
+label[data-checked='true'] {
+  border-color: var(--GrayPrimary--opaque);
+}
+
+label[data-disabled='true'] {
+  opacity: 50%;
+}
+
+.RadioButtonGroup {
+  /* unset fieldset styles */
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  > .RadioButton + .RadioButton {
+    margin-top: var(--Space-16);
+  }
+}
