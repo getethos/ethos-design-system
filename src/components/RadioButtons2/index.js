@@ -1,1 +1,1 @@
-export { RadioButtonGroup } from './RadioButtons.js'
+export { RadioButtonGroup2 } from './RadioButtons2.js'
