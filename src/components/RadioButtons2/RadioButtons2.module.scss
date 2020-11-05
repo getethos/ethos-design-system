@@ -43,11 +43,11 @@
     background-color: var(--GrayLightHover--translucent);
   }
 
-  input:not(:checked) ~ aside {
+  &[data-checked='false'] aside {
     border: 1px solid var(--GrayStrokeAndDisabled--translucent);
   }
 
-  input:checked ~ aside {
+  &[data-checked='true'] aside {
     border: 5px solid var(--BrandForest);
     background-color: var(--White);
   }
