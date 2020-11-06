@@ -587,6 +587,39 @@ export declare namespace RadioButtonGroup {
     required?: boolean
   }
 }
+export declare function RadioButtonGroup2({
+  options,
+  onChange,
+  formChangeHandler,
+  allCaps,
+  capitalize,
+  name,
+  initialValue,
+  currentValue,
+  currentError,
+  formTouched,
+  disabled,
+  validator,
+  required,
+  labelCopy,
+  ...rest
+}: {
+  [x: string]: any
+  options: any
+  onChange?: any
+  formChangeHandler?: (value: string, errorValue: string) => void
+  allCaps?: boolean
+  name?: string
+  initialValue?: string[] | boolean[]
+  currentValue?: string
+  currentError?: string
+  formTouched?: boolean
+  validator?: (value: string) => string
+  disabled?: boolean
+  required?: boolean
+  labelCopy: string
+}): JSX.Element
+
 export declare const Grid: {
   (props: any): JSX.Element
   propTypes: {

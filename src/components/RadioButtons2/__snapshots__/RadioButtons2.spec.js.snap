@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonGroup2 default rendering RadioButtonGroup2 1`] = `
+<fieldset
+  aria-labelledby="gender"
+  className="RadioButtonGroup"
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  role="radiogroup"
+>
+  <span
+    className="Caption Theinhardt Medium500 GrayPrimary AllCaps"
+    id="gender"
+  >
+    When would you like to apply?
+  </span>
+  <div
+    aria-hidden={true}
+    className="Spacer"
+    style={
+      Object {
+        "height": 4,
+      }
+    }
+  />
+  <label
+    className="RadioButton"
+    data-checked={true}
+  >
+    <span
+      aria-checked={true}
+      role="radio"
+      tabIndex={0}
+      value="M"
+    >
+      <input
+        checked={true}
+        data-tid="gender-male"
+        name="gender"
+        onChange={[Function]}
+        onClick={[Function]}
+        type="radio"
+        value="M"
+      />
+      <aside />
+    </span>
+    <div
+      className="label"
+    >
+      <div
+        className="Body2 Theinhardt Regular400 GrayPrimary"
+      >
+        Male
+      </div>
+    </div>
+  </label>
+  <label
+    className="RadioButton"
+    data-checked={false}
+  >
+    <span
+      aria-checked={false}
+      role="radio"
+      tabIndex={-1}
+      value="F"
+    >
+      <input
+        checked={false}
+        data-tid="gender-female"
+        name="gender"
+        onChange={[Function]}
+        onClick={[Function]}
+        type="radio"
+        value="F"
+      />
+      <aside />
+    </span>
+    <div
+      className="label"
+    >
+      <div
+        className="Body2 Theinhardt Regular400 GrayPrimary"
+      >
+        Female
+      </div>
+    </div>
+  </label>
+  
+</fieldset>
+`;
