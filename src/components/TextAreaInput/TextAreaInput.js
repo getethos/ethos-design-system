@@ -135,7 +135,7 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   validator: PropTypes.func,
   placeholder: PropTypes.string,
   currentError: PropTypes.string,
-  setFieldTouched: PropTypes.bool,
+  setFieldTouched: PropTypes.func,
   restrictIllegal: PropTypes.bool,
 }
 
