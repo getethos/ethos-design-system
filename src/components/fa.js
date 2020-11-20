@@ -68,7 +68,7 @@ import { faMoneyCheckEditAlt } from '@fortawesome/pro-regular-svg-icons/faMoneyC
 import { faHashtag } from '@fortawesome/pro-regular-svg-icons/faHashtag'
 import { faSignOut } from '@fortawesome/pro-regular-svg-icons/faSignOut'
 import { faSyncAlt } from '@fortawesome/pro-regular-svg-icons/faSyncAlt'
-import { faBell } from '@fortawesome/pro-regular-svg-icons/faBell';
+import { faBell } from '@fortawesome/pro-regular-svg-icons/faBell'
 
 library.add(
   faHamburger,
