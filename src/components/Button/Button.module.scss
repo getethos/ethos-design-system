@@ -59,14 +59,8 @@
 }
 
 .Button.arrowIcon.fullWidth {
-  @include for-tablet-and-laptop {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-  @include for-desktop-only {
-    padding-right: 48px;
-    padding-left: 48px;
-  }
+  padding-right: var(--Space-16);
+  padding-left: var(--Space-16);
 }
 
 /* Styles */
