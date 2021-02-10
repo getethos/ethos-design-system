@@ -12,6 +12,7 @@ describe('EmailInput', () => {
           labelCopy="Your email"
           data-tid="the-email-input"
           placeholder="example@ethoslife.com"
+          autoComplete="email"
         />
       )
       .toJSON()
