@@ -18,6 +18,7 @@ Array [
     }
   />,
   <input
+    autoComplete="postal-code"
     className="TextMaskedInput TextInput"
     data-tid="le-zip"
     disabled={false}
