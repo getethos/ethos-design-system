@@ -31,6 +31,7 @@ export const NumberInput = (props) => {
     placeholderChar,
     guide = true,
     keepCharPositions = true,
+    autoComplete,
     ...restProps
   } = props
 
@@ -57,6 +58,7 @@ export const NumberInput = (props) => {
         placeholderChar={placeholderChar}
         guide={guide}
         keepCharPositions={keepCharPositions}
+        autoComplete={autoComplete}
       />
     </>
   )
@@ -82,6 +84,7 @@ NumberInput.propTypes = {
   placeholderChar: PropTypes.string,
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
+  autoComplete: PropTypes.string,
 }
 
 NumberInput.defaultProps = {
