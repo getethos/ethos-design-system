@@ -18,6 +18,7 @@ export const BirthdateInput = (props) => {
     currentError,
     formTouched,
     setFieldTouched,
+    autoComplete,
     ...restProps
   } = props
 
@@ -35,6 +36,7 @@ export const BirthdateInput = (props) => {
       currentError={currentError}
       formTouched={formTouched}
       setFieldTouched={setFieldTouched}
+      autoComplete={autoComplete}
       {...restProps}
     />
   )
@@ -71,6 +73,8 @@ BirthdateInput.propTypes = {
   currentError: PropTypes.string,
   /** formChangeHandler is a low level prop used only by the form engine */
   formChangeHandler: PropTypes.func,
+  /** autoComplete value for auto fill */
+  autoComplete: PropTypes.string,
 }
 
 export const BirthdateInputValidators = Validators
