@@ -19,6 +19,7 @@ Array [
   />,
   <input
     aria-label="the-email-input-example"
+    autoComplete="email"
     className="TextInput"
     data-tid="the-email-input"
     name="the-email-input-example"

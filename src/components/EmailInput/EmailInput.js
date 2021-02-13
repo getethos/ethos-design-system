@@ -13,6 +13,7 @@ export const EmailInput = (props) => {
     initialValue,
     placeholder,
     disabled,
+    autoComplete,
     ...restProps
   } = props
 
@@ -32,6 +33,7 @@ export const EmailInput = (props) => {
         disabled={disabled}
         placeholder={placeholder}
         validator={EmailFormatValidator}
+        autoComplete={autoComplete}
         {...restProps}
       />
     </>
@@ -50,6 +52,7 @@ EmailInput.propTypes = {
   labelCopy: PropTypes.string,
   validator: PropTypes.func,
   initialValue: PropTypes.string,
+  autoComplete: PropTypes.string,
 }
 
 EmailInput.defaultProps = {

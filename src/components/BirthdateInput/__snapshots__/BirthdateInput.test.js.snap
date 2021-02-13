@@ -18,6 +18,7 @@ Array [
     }
   />,
   <input
+    autoComplete="bday"
     className="TextMaskedInput TextInput"
     data-tid="le-birthdate"
     disabled={false}

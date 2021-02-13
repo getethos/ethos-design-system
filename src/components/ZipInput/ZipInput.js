@@ -21,6 +21,7 @@ export const ZipInput = (props) => {
     formTouched,
     guide = true,
     keepCharPositions = true,
+    autoComplete,
     ...restProps
   } = props
 
@@ -87,6 +88,7 @@ export const ZipInput = (props) => {
         setFieldTouched={restProps.setFieldTouched}
         getTouched={touched}
         setTouched={setTouched}
+        autoComplete={autoComplete}
       />
       {getError(currentError, touched)}
     </>
@@ -105,6 +107,7 @@ ZipInput.PUBLIC_PROPS = {
   initialValue: PropTypes.string,
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
+  autoComplete: PropTypes.string,
 }
 
 ZipInput.propTypes = {

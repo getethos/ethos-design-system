@@ -15,6 +15,7 @@ describe('DateInput', () => {
           data-tid="when-applied-for"
           validator={() => {}}
           name="whenapplied"
+          autoComplete="date"
         />
       )
       .toJSON()

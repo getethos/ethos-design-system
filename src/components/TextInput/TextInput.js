@@ -16,6 +16,7 @@ import errorStyles from '../Errors.module.scss'
  * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
  * @param  {Function} props.validator   Function for validating input
  * @param  {Boolean}  props.disabled
+ * @param  {String}   props.autoComplete  Autocomplete label
  */
 
 function PrivateTextInput({
@@ -32,6 +33,7 @@ function PrivateTextInput({
   currentError,
   setFieldTouched,
   restrictIllegal,
+  autoComplete,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -121,6 +123,7 @@ function PrivateTextInput({
         value={value}
         data-tid={rest['data-tid']}
         aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+        autoComplete={autoComplete}
       />
       {getError(currentError, touched)}
     </>
@@ -142,6 +145,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   restrictIllegal: PropTypes.bool,
+  autoComplete: PropTypes.string,
 }
 
 PrivateTextInput.propTypes = {

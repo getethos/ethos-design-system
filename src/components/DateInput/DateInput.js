@@ -32,6 +32,7 @@ const PrivateDateInput = (props) => {
     name = 'birthdate-auto-corrected',
     pipe = createAutoCorrectedDatePipe(dateFormat),
     mask = dateMaskByFormat[dateFormat],
+    autoComplete,
     ...restProps
   } = props
 
@@ -113,6 +114,7 @@ const PrivateDateInput = (props) => {
         getTouched={touched}
         setTouched={setTouched}
         disabled={disabled}
+        autoComplete={autoComplete}
       />
       {getError(currentError, touched)}
     </>
@@ -133,6 +135,7 @@ PrivateDateInput.PUBLIC_PROPS = {
   initialValue: PropTypes.string,
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
+  autoComplete: PropTypes.string,
 }
 
 PrivateDateInput.propTypes = {

@@ -16,6 +16,7 @@ describe('TextInput', () => {
               ? 'Text does not have an even number of characters'
               : ''
           }
+          autoComplete="name"
         />
       )
       .toJSON()

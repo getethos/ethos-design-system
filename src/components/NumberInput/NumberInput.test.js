@@ -23,6 +23,7 @@ describe('NumberInput', () => {
           validator={(n) => {
             return n % 2 === 0 ? '' : 'Must be an even number'
           }}
+          autoComplete="tel"
         />
       )
       .toJSON()

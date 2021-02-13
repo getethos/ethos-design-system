@@ -18,6 +18,7 @@ Array [
     }
   />,
   <input
+    autoComplete="tel"
     className="TextMaskedInput TextInput"
     data-tid="the-number-input"
     disabled={false}

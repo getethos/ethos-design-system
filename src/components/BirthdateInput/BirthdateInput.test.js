@@ -18,6 +18,7 @@ describe('BirthdateInput', () => {
           name="birthDate"
           minAge={20}
           maxAge={65}
+          autoComplete="bday"
         />
       )
       .toJSON()

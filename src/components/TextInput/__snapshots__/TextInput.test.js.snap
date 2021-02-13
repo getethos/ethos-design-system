@@ -19,6 +19,7 @@ Array [
   />,
   <input
     aria-label="nombre"
+    autoComplete="name"
     className="TextInput"
     data-tid="the-text-input"
     name="nombre"

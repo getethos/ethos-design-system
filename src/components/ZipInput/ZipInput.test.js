@@ -16,6 +16,7 @@ describe('ZipInput', () => {
           labelCopy="What is your zip code?"
           data-tid="le-zip"
           validator={() => {}}
+          autoComplete="postal-code"
         />
       )
       .toJSON()

@@ -27,6 +27,7 @@ export const TextMaskedInput = (props) => {
     setFieldTouched,
     doValidation,
     placeholderChar,
+    autoComplete,
     ...restProps
   } = props
 
@@ -102,6 +103,7 @@ export const TextMaskedInput = (props) => {
           className={getClasses()}
           disabled={restProps.disabled}
           placeholderChar={placeholderChar}
+          autoComplete={autoComplete}
         />
       )
     } else {
@@ -121,6 +123,7 @@ export const TextMaskedInput = (props) => {
           keepCharPositions={restProps.keepCharPositions}
           pipe={restProps.pipe}
           placeholderChar={placeholderChar}
+          autoComplete={autoComplete}
         />
       )
     }
@@ -160,6 +163,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   setTouched: PropTypes.func,
   getTouched: PropTypes.bool,
   placeholderChar: PropTypes.string,
+  autoComplete: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {

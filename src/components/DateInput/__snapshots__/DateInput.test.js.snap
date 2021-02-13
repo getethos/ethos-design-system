@@ -18,6 +18,7 @@ Array [
     }
   />,
   <input
+    autoComplete="date"
     className="TextMaskedInput TextInput"
     data-tid="when-applied-for"
     disabled={false}
