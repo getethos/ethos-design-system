@@ -96,7 +96,7 @@ export const TextMaskedInput = (props) => {
           type={restProps.type}
           data-tid={restProps['data-tid']}
           onChange={onChange}
-          onBlur={onBlur}
+          onBlur={() => setTimeout(onBlur, 100)}
           name={props.name}
           placeholder={restProps.placeholder}
           className={getClasses()}
@@ -113,7 +113,7 @@ export const TextMaskedInput = (props) => {
           data-tid={restProps['data-tid']}
           guide={restProps.guide}
           onChange={onChange}
-          onBlur={onBlur}
+          onBlur={() => setTimeout(onBlur, 100)}
           name={props.name}
           placeholder={restProps.placeholder}
           className={getClasses()}
