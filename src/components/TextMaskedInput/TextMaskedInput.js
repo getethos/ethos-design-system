@@ -73,12 +73,15 @@ export const TextMaskedInput = (props) => {
   }, [])
 
   const onBlur = (ev) => {
-    // We set touched to change the react state, but it's async and
-    // processing still, so, we use a flag for doValidation
-    setAllTouched()
-    const val = ev.target.value
-    const cleansed = cleanse(val)
-    whichDoValidation(cleansed, true)
+    ev.persist()
+    setTimeout(() => {
+      // We set touched to change the react state, but it's async and
+      // processing still, so, we use a flag for doValidation
+      setAllTouched()
+      const val = ev.target.value
+      const cleansed = cleanse(val)
+      whichDoValidation(cleansed, true)
+    }, 100)
   }
 
   const getClasses = () => {
@@ -96,12 +99,13 @@ export const TextMaskedInput = (props) => {
           type={restProps.type}
           data-tid={restProps['data-tid']}
           onChange={onChange}
-          onBlur={() => setTimeout(onBlur, 100)}
+          onBlur={onBlur}
           name={props.name}
           placeholder={restProps.placeholder}
           className={getClasses()}
           disabled={restProps.disabled}
           placeholderChar={placeholderChar}
+          autoComplete={autoComplete}
         />
       )
     } else {
@@ -113,7 +117,7 @@ export const TextMaskedInput = (props) => {
           data-tid={restProps['data-tid']}
           guide={restProps.guide}
           onChange={onChange}
-          onBlur={() => setTimeout(onBlur, 100)}
+          onBlur={onBlur}
           name={props.name}
           placeholder={restProps.placeholder}
           className={getClasses()}
@@ -121,6 +125,7 @@ export const TextMaskedInput = (props) => {
           keepCharPositions={restProps.keepCharPositions}
           pipe={restProps.pipe}
           placeholderChar={placeholderChar}
+          autoComplete={autoComplete}
         />
       )
     }
