@@ -105,7 +105,6 @@ export const TextMaskedInput = (props) => {
           className={getClasses()}
           disabled={restProps.disabled}
           placeholderChar={placeholderChar}
-          autoComplete={autoComplete}
         />
       )
     } else {
@@ -125,7 +124,6 @@ export const TextMaskedInput = (props) => {
           keepCharPositions={restProps.keepCharPositions}
           pipe={restProps.pipe}
           placeholderChar={placeholderChar}
-          autoComplete={autoComplete}
         />
       )
     }
