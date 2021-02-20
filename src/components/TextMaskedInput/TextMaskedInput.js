@@ -74,12 +74,15 @@ export const TextMaskedInput = (props) => {
   }, [])
 
   const onBlur = (ev) => {
-    // We set touched to change the react state, but it's async and
-    // processing still, so, we use a flag for doValidation
-    setAllTouched()
-    const val = ev.target.value
-    const cleansed = cleanse(val)
-    whichDoValidation(cleansed, true)
+    ev.persist()
+    setTimeout(() => {
+      // We set touched to change the react state, but it's async and
+      // processing still, so, we use a flag for doValidation
+      setAllTouched()
+      const val = ev.target.value
+      const cleansed = cleanse(val)
+      whichDoValidation(cleansed, true)
+    }, 100)
   }
 
   const getClasses = () => {
