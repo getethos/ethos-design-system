@@ -26,6 +26,7 @@ function PrivateTextAreaInput({
   currentError,
   setFieldTouched,
   restrictIllegal,
+  rows,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -93,6 +94,7 @@ function PrivateTextAreaInput({
   if (getError(currentError, touched)) {
     classes.push(errorStyles.Error)
   }
+
   if (resize) {
     classes.push(styles.Resize)
   }
@@ -114,6 +116,7 @@ function PrivateTextAreaInput({
         onBlur={onBlur}
         value={value}
         data-tid={rest['data-tid']}
+        rows={rows}
       />
       {getError(currentError, touched)}
     </>
@@ -126,6 +129,7 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  rows: PropTypes.number,
   /** text transform capitalize label */
   capitalize: PropTypes.bool,
   formChangeHandler: PropTypes.func,
