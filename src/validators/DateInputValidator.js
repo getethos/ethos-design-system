@@ -18,7 +18,7 @@ export const dateStringMatchesFormat = (cleansedDateString, dateFormat) => {
   const pattern = dateRegexByFormat[dateFormat]
   const matchesFormat = pattern.test(cleansedDateString)
   if (!matchesFormat) {
-    return 'Please enter a valid date.'
+    return 'Please enter a valid date'
   }
   return ''
 }
