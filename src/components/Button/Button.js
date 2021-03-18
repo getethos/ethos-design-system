@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
+import debounce from 'lodash.debounce'
 
 import styles from './Button.module.scss'
 
@@ -54,6 +55,7 @@ function PrivateButton({
   isSelected, // only used for Button.*.Stateful, aka SelectableHtmlButtonGroup
   arrowIcon,
   backArrowIcon,
+  debounceDurationMs = 500,
   ...rest
 }) {
   // Verify that size, type, and style were valid enum values
@@ -93,14 +95,37 @@ function PrivateButton({
     ''
   )
 
+  const [isDebounced, setIsDebounced] = useState(false)
+
+  useEffect(() => {
+    if (isDebounced) {
+      setTimeout(() => setIsDebounced(false), debounceDurationMs)
+    }
+  }, [isDebounced])
+
+  let debouncedOnClick
+  if (typeof onClick === 'function') {
+    debouncedOnClick = debounce(
+      (e) => {
+        onClick(e)
+        setIsDebounced(true)
+      },
+      debounceDurationMs,
+      {
+        leading: true,
+        trailing: false,
+      }
+    )
+  }
+
   return (
     <button
       {...checked}
       className={cssModulesClasses}
-      disabled={disabled}
+      disabled={disabled || isDebounced}
       type={type}
       name={name}
-      onClick={onClick}
+      onClick={debouncedOnClick}
       data-tid={rest['data-tid']}
       role={role}
     >
