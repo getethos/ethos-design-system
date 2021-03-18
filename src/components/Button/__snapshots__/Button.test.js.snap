@@ -33,6 +33,7 @@ exports[`Button default rendering Stateful isSelected 1`] = `
   aria-checked={true}
   className="Button Medium Stateful isSelected isSelected"
   data-tid="foo"
+  disabled={false}
   name="bar"
   type="button"
 >
@@ -45,6 +46,7 @@ exports[`Button default rendering Stateful isSelected White 1`] = `
   aria-checked={true}
   className="Button Medium Stateful White isSelected isSelected"
   data-tid="foo"
+  disabled={false}
   name="bar"
   type="button"
 >
