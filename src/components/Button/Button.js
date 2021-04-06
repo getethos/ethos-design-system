@@ -6,6 +6,8 @@ import debounce from 'lodash.debounce'
 
 import styles from './Button.module.scss'
 
+const DEFAULT_DEBOUNCE_DURATION_MS = 500
+
 /* @getethos/design-system/Button.js
 
    Legend:
@@ -55,7 +57,7 @@ function PrivateButton({
   isSelected, // only used for Button.*.Stateful, aka SelectableHtmlButtonGroup
   arrowIcon,
   backArrowIcon,
-  debounceDurationMs = 500,
+  debounceDurationMs = DEFAULT_DEBOUNCE_DURATION_MS,
   ...rest
 }) {
   // Verify that size, type, and style were valid enum values
