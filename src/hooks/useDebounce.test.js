@@ -21,26 +21,26 @@ describe('useDebounce hook', () => {
     // render the debounced function
     let { result } = renderHook(() => useDebounce(mockFn, mockDurationMs))
 
-    // flag is initially off
-    expect(result.current.isDebounced).toBe(false)
+    // isDebounced flag is initially off
+    expect(result.current[0]).toBe(false)
 
     // flag is on after triggering fn
     act(() => {
-      result.current.debouncedFn()
+      result.current[1]() // debouncedFn()
     })
-    expect(result.current.isDebounced).toBe(true)
+    expect(result.current[0]).toBe(true)
 
     // flag is on during debounce duration
     act(() => {
       jest.advanceTimersByTime(99)
     })
-    expect(result.current.isDebounced).toBe(true)
+    expect(result.current[0]).toBe(true)
 
     // flag is off after debounce duration
     act(() => {
       jest.advanceTimersByTime(1)
     })
-    expect(result.current.isDebounced).toBe(false)
+    expect(result.current[0]).toBe(false)
   })
 
   test('the debounced function can only be retriggered after specified duration', () => {
@@ -49,13 +49,13 @@ describe('useDebounce hook', () => {
 
     // trigger the function once
     act(() => {
-      result.current.debouncedFn()
+      result.current[1]() // debouncedFn()
     })
     expect(mockFn).toHaveBeenCalledTimes(1)
 
     // function wont be invoked during duration
     act(() => {
-      result.current.debouncedFn()
+      result.current[1]() // debouncedFn()
     })
     expect(mockFn).toHaveBeenCalledTimes(1)
 
@@ -67,7 +67,7 @@ describe('useDebounce hook', () => {
 
     // function can be invoked after duration
     act(() => {
-      result.current.debouncedFn()
+      result.current[1]() // debouncedFn()
     })
     expect(mockFn).toHaveBeenCalledTimes(2)
   })
@@ -78,8 +78,8 @@ describe('useDebounce hook', () => {
 
     // function can be immediately invoked
     act(() => {
-      result.current.debouncedFn()
-      result.current.debouncedFn()
+      result.current[1]() // debouncedFn()
+      result.current[1]() // debouncedFn()
     })
     expect(mockFn).toHaveBeenCalledTimes(2)
   })
@@ -91,17 +91,17 @@ describe('useDebounce hook', () => {
     // invoke function with params
     const mockParams = { a: 'aaa', b: 'bbb' }
     act(() => {
-      result.current.debouncedFn(mockParams)
+      result.current[1](mockParams) // debouncedFn()
     })
     expect(mockFn).toHaveBeenCalledTimes(1)
     expect(mockFn).toHaveBeenCalledWith(mockParams)
   })
 
-  test('when fn is not a function, or undefined.... what hsoule happen', () => {
+  test('no errors when target function is not a function', () => {
     let test1 = renderHook(() => useDebounce(undefined, mockDurationMs))
-    expect(test1.result.current.debouncedFn).toBe(undefined)
+    expect(test1.result.current[1]).toBe(undefined)
 
     let test2 = renderHook(() => useDebounce(123, mockDurationMs))
-    expect(test2.result.current.debouncedFn).toBe(123)
+    expect(test2.result.current[1]).toBe(123)
   })
 })
