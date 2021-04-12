@@ -1,5 +1,5 @@
 import useDebounce from './useDebounce'
-import { renderHook, act, cleanup } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react-hooks'
 
 describe('useDebounce hook', () => {
   let mockFn
