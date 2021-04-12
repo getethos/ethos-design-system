@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
-import debounce from 'lodash.debounce'
+import useDebounce from '../../hooks/useDebounce.js'
 
 import styles from './Button.module.scss'
 
-const DEFAULT_DEBOUNCE_DURATION_MS = 500
+const DEFAULT_DEBOUNCE_DURATION_MS = 200
 
 /* @getethos/design-system/Button.js
 
@@ -60,6 +60,11 @@ function PrivateButton({
   debounceDurationMs = DEFAULT_DEBOUNCE_DURATION_MS,
   ...rest
 }) {
+  const [isDebounced, debouncedOnClick] = useDebounce(
+    onClick,
+    debounceDurationMs
+  )
+
   // Verify that size, type, and style were valid enum values
   const [isLegalSize] = useIncludes(PrivateButton.SIZES)
   isLegalSize(size)
@@ -96,29 +101,6 @@ function PrivateButton({
       ),
     ''
   )
-
-  const [isDebounced, setIsDebounced] = useState(false)
-
-  useEffect(() => {
-    if (isDebounced) {
-      setTimeout(() => setIsDebounced(false), debounceDurationMs)
-    }
-  }, [isDebounced])
-
-  let debouncedOnClick
-  if (typeof onClick === 'function') {
-    debouncedOnClick = debounce(
-      (e) => {
-        onClick(e)
-        setIsDebounced(true)
-      },
-      debounceDurationMs,
-      {
-        leading: true,
-        trailing: false,
-      }
-    )
-  }
 
   return (
     <button
@@ -170,6 +152,7 @@ PrivateButton.PUBLIC_PROPS = {
   type: PropTypes.oneOf(Object.values(PrivateButton.HTML_TYPES)),
   arrowIcon: PropTypes.bool,
   backArrowIcon: PropTypes.bool,
+  debounceDurationMs: PropTypes.number,
 }
 
 PrivateButton.SIZES = {
