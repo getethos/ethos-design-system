@@ -69,14 +69,6 @@ export const Select = ({
     }
   }
 
-  const props = {
-    className: `${className ? className : ''} ${compactClass} ${styles.root}`,
-    onChange: onChangeHandler,
-    onBlur,
-    'aria-label': title, // https://react-select.com/props#select-props
-    ...rest,
-  }
-
   const validationSelect = () => {
     let errorMessage = ''
     let resolvedValues = ''
@@ -104,6 +96,14 @@ export const Select = ({
 
   const onBlur = () => {
     validationSelect()
+  }
+
+  const props = {
+    className: `${className ? className : ''} ${compactClass} ${styles.root}`,
+    onChange: onChangeHandler,
+    onBlur,
+    'aria-label': title, // https://react-select.com/props#select-props
+    ...rest,
   }
 
   const wrapperClass = title ? styles.wrapper : ''
