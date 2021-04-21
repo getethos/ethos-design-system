@@ -22,6 +22,8 @@ const useDebounce = (fn, debounceDurationMs) => {
     }
   }, [isDebounced])
 
+  // this (fn === 'function') was added in case there is some unexpected usage
+  // somewhere in the app, could be removed
   const debouncedFn = useCallback(
     typeof fn === 'function' && debounceDurationMs > 0
       ? debounce(
