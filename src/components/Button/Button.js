@@ -41,6 +41,8 @@ const DEFAULT_DEBOUNCE_DURATION_MS = 200
  * @param  {Boolean}  props.arrowIcon   Whether the arrow icon is displayed
  *                                      (behaves differently when fullWidth)
  * @param  {Boolean}  props.backArrowIcon   Back arrow icon
+ * @param  {number}   props.debounceDurationMs   Length of time to debounce button
+ *                                               (if 0, no debounce)
  */
 
 function PrivateButton({

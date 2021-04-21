@@ -3,6 +3,9 @@ import debounce from 'lodash.debounce'
 
 /**
  * Custom hook to debounce a function for a specified amount of time
+ * @param {function} fn - function to debounce
+ * @param {number} debounceDurationMs - number of milliseconds before
+ *    function can be invoked again; if 0, no debounce
  */
 const useDebounce = (fn, debounceDurationMs) => {
   const [isDebounced, setIsDebounced] = useState(false)
@@ -19,7 +22,7 @@ const useDebounce = (fn, debounceDurationMs) => {
     }
   }, [isDebounced])
 
-  let debouncedFn = useCallback(
+  const debouncedFn = useCallback(
     typeof fn === 'function' && debounceDurationMs > 0
       ? debounce(
           (e) => {
