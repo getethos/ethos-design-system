@@ -2,8 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
+import useDebounce from '../../hooks/useDebounce.js'
 
 import styles from './Button.module.scss'
+
+const DEFAULT_DEBOUNCE_DURATION_MS = 100
 
 /* @getethos/design-system/Button.js
 
@@ -38,6 +41,8 @@ import styles from './Button.module.scss'
  * @param  {Boolean}  props.arrowIcon   Whether the arrow icon is displayed
  *                                      (behaves differently when fullWidth)
  * @param  {Boolean}  props.backArrowIcon   Back arrow icon
+ * @param  {number}   props.debounceDurationMs   Length of time to debounce button
+ *                                               (if 0, no debounce)
  */
 
 function PrivateButton({
@@ -54,8 +59,14 @@ function PrivateButton({
   isSelected, // only used for Button.*.Stateful, aka SelectableHtmlButtonGroup
   arrowIcon,
   backArrowIcon,
+  debounceDurationMs = DEFAULT_DEBOUNCE_DURATION_MS,
   ...rest
 }) {
+  const [isDebounced, debouncedOnClick] = useDebounce(
+    onClick,
+    debounceDurationMs
+  )
+
   // Verify that size, type, and style were valid enum values
   const [isLegalSize] = useIncludes(PrivateButton.SIZES)
   isLegalSize(size)
@@ -97,10 +108,10 @@ function PrivateButton({
     <button
       {...checked}
       className={cssModulesClasses}
-      disabled={disabled}
+      disabled={disabled || isDebounced}
       type={type}
       name={name}
-      onClick={onClick}
+      onClick={debouncedOnClick}
       data-tid={rest['data-tid']}
       role={role}
     >
@@ -143,6 +154,7 @@ PrivateButton.PUBLIC_PROPS = {
   type: PropTypes.oneOf(Object.values(PrivateButton.HTML_TYPES)),
   arrowIcon: PropTypes.bool,
   backArrowIcon: PropTypes.bool,
+  debounceDurationMs: PropTypes.number,
 }
 
 PrivateButton.SIZES = {

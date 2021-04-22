@@ -109,6 +109,18 @@ Set of Design-approved public buttons.
 <Button.Unstyled backArrowIcon>Button.Unstyled + backArrowIcon</Button.Unstyled>
 ```
 
+## Custom Debouncing
+
+```
+<Button.Medium.Black
+  onClick={() => console.log("test")}
+  debounceDurationMs={1000}
+>
+  Click Me
+</Button.Medium.Black>
+
+```
+
 ---
 
 ## Do not use
