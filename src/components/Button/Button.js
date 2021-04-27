@@ -6,7 +6,7 @@ import useDebounce from '../../hooks/useDebounce.js'
 
 import styles from './Button.module.scss'
 
-const DEFAULT_DEBOUNCE_DURATION_MS = 100
+const DEFAULT_DEBOUNCE_DURATION_MS = 0
 
 /* @getethos/design-system/Button.js
 
