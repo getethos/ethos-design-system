@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  pull_request:
 
 jobs:
   build:
@@ -11,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Set short sha
+        run: echo "GITHUB_SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
       - name: Cache dependencies
         id: cache-dependencies
         uses: actions/cache@v1
@@ -49,6 +52,22 @@ jobs:
         run: unzip -o ${GITHUB_WORKSPACE}/fonts.zip -d ${GITHUB_WORKSPACE}/src/
       - name: Build styleguide
         run: yarn styleguide:build
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_TOOLS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_TOOLS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+      - name: Build and upload EDS docker image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ env.GITHUB_SHORT_SHA }}
+        run: |
+          docker build -f nginx.Dockerfile . -t $ECR_REGISTRY/ethos-design-system:$IMAGE_TAG
+          docker push
       - name: Sync styleguide to S3
         run: aws s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
         env:
