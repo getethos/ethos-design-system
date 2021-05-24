@@ -67,7 +67,7 @@ jobs:
           IMAGE_TAG: ${{ env.GITHUB_SHORT_SHA }}
         run: |
           docker build -f nginx.Dockerfile . -t $ECR_REGISTRY/ethos-design-system:$IMAGE_TAG
-          docker push
+          docker push $ECR_REGISTRY/ethos-design-system
       - name: Sync styleguide to S3
         run: aws s3 sync ${GITHUB_WORKSPACE}/styleguide s3://eds.ethoslabs.io/ --delete --exclude "fonts.zip" --profile ci-user
         env:
