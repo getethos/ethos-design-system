@@ -427,6 +427,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               className="cta"
             >
               <CtaButton
+                copy="Check my price"
                 href="/term"
                 trackingFunction={[Function]}
               />
@@ -867,6 +868,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               className="cta"
             >
               <CtaButton
+                copy="Check my price"
                 href="/term"
                 trackingFunction={[Function]}
               />
