@@ -153,6 +153,7 @@ const MobileNav = ({
           href={links.CTA.href}
           trackingFunction={ctaButtonTrackingFunction}
           hideOnMobile={hideMobileCta}
+          copy={links.CTA.title}
         />
       </div>
     </>
