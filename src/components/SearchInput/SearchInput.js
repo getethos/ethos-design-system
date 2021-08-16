@@ -47,6 +47,13 @@ export const SearchInput = ({
     return classes
   }
 
+  const getClasses = () => {
+    const base = `SearchInput ${textInputStyles.TextInputCommon}`
+    return classOverrides
+      ? `${base} ${classOverrides}`
+      : `${base} ${textInputStyles.TextInputStylable}`
+  }
+
   return (
     <div className={getContainerClasses()}>
       <input
@@ -57,7 +64,7 @@ export const SearchInput = ({
         onFocus={onFocus}
         onClick={onClick}
         onKeyDown={onKeyDown}
-        className={textInputStyles.TextInput}
+        className={getClasses()}
         value={value || lastValue}
         data-tid={rest['data-tid']}
         placeholder={placeholder}
@@ -95,5 +102,5 @@ SearchInput.propTypes = {
   /** `onKeyDown` - callback for keydown events */
   onKeyDown: PropTypes.func,
   /** `classOverrides` - string of classes to apply to text input */
-  classOverrides: PropTypes.string
+  classOverrides: PropTypes.string,
 }
