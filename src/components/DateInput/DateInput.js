@@ -83,9 +83,13 @@ const PrivateDateInput = ({
   })
 
   const getClasses = () => {
-    return getError(currentError, touched)
-      ? `DateInput ${styles.TextInput} ${errorStyles.Error}`
-      : `DateInput ${styles.TextInput}`
+    const base = `DateInput ${styles.TextInputCommon}`
+    if (getError(currentError, touched)) {
+      return `${base} ${errorStyles.Error}`
+    }
+    return classOverrides
+      ? `${base} ${classOverrides}`
+      : `${base} ${styles.TextInputStylable}`
   }
 
   return (
