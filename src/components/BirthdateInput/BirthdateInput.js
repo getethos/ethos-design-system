@@ -4,43 +4,41 @@ import { DateInput } from '../DateInput'
 import * as Validators from '../../validators/BirthdateInputValidator'
 const { DATE_FORMATS } = Validators
 
-export const BirthdateInput = (props) => {
-  const {
-    optional,
-    dateFormat,
-    allCaps,
-    capitalize,
-    labelCopy,
-    validator,
-    formChangeHandler,
-    initialValue,
-    currentValue,
-    currentError,
-    formTouched,
-    setFieldTouched,
-    autoComplete,
-    ...restProps
-  } = props
-
-  return (
-    <DateInput
-      optional={optional}
-      dateFormat={dateFormat}
-      allCaps={allCaps}
-      capitalize={capitalize}
-      labelCopy={labelCopy}
-      validator={validator}
-      formChangeHandler={formChangeHandler}
-      initialValue={initialValue}
-      currentValue={currentValue}
-      currentError={currentError}
-      formTouched={formTouched}
-      setFieldTouched={setFieldTouched}
-      autoComplete={autoComplete}
-      {...restProps}
-    />
-  )
-}
+export const BirthdateInput = ({
+  optional,
+  dateFormat,
+  allCaps,
+  capitalize,
+  labelCopy,
+  validator,
+  formChangeHandler,
+  initialValue,
+  currentValue,
+  currentError,
+  formTouched,
+  setFieldTouched,
+  autoComplete,
+  classOverrides,
+  ...restProps
+}) => (
+  <DateInput
+    optional={optional}
+    dateFormat={dateFormat}
+    allCaps={allCaps}
+    capitalize={capitalize}
+    labelCopy={labelCopy}
+    validator={validator}
+    formChangeHandler={formChangeHandler}
+    initialValue={initialValue}
+    currentValue={currentValue}
+    currentError={currentError}
+    formTouched={formTouched}
+    setFieldTouched={setFieldTouched}
+    autoComplete={autoComplete}
+    classOverrides={classOverrides}
+    {...restProps}
+  />
+)
 
 BirthdateInput.propTypes = {
   /** whether this field is optional or not */
@@ -75,6 +73,8 @@ BirthdateInput.propTypes = {
   formChangeHandler: PropTypes.func,
   /** autoComplete value for auto fill */
   autoComplete: PropTypes.string,
+  /** passed down through component to override Inputstyles */
+  classOverrides: PropTypes.string,
 }
 
 export const BirthdateInputValidators = Validators

@@ -10,59 +10,39 @@ import cleanse from '../../helpers/cleanse.js'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
-export const TextMaskedInput = (props) => {
-  const {
-    name,
-    mask,
-    labelCopy,
-    allCaps,
-    capitalize,
-    validator,
-    getTouched,
-    setTouched,
-    formChangeHandler,
-    initialValue,
-    currentValue,
-    currentError,
-    setFieldTouched,
-    doValidation,
-    placeholderChar,
-    autoComplete,
-    ...restProps
-  } = props
-
-  const [getError, setError, , validate] = useErrorMessage(validator)
+export const TextMaskedInput = ({
+  name,
+  mask,
+  labelCopy,
+  allCaps,
+  capitalize,
+  validator,
+  getTouched,
+  setTouched,
+  formChangeHandler,
+  initialValue,
+  currentValue,
+  currentError,
+  setFieldTouched,
+  doValidation,
+  placeholderChar,
+  autoComplete,
+  classOverrides,
+  ...restProps
+}) => {
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
   const [internalTouched, internalSetTouched] = useState(
     initialValue ? true : false
   )
   const whichTouched = getTouched ? getTouched : internalTouched
-  const whichSetTouched = setTouched ? setTouched : internalSetTouched
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const [internalDoValidation] = useInputValidation({
     validate,
     setError,
     formChangeHandler,
   })
   const whichDoValidation = doValidation ? doValidation : internalDoValidation
-
-  const onChange = (ev) => {
-    const val = ev.target.value
-    const restrictedVal = restrict(val)
-    setValue(restrictedVal)
-
-    // Used to remove mask characters e.g. abc___ becomes just abc
-    const cleansed = cleanse(restrictedVal)
-
-    whichDoValidation(cleansed, whichTouched)
-  }
-
-  const setAllTouched = () => {
-    whichSetTouched(true)
-    if (setFieldTouched) {
-      setFieldTouched(true)
-    }
-  }
 
   // Initial Value aka prefilled—are considered "touched", but must prevalidate
   // which will in turn update the internal form state as to their validity
@@ -72,6 +52,14 @@ export const TextMaskedInput = (props) => {
       whichDoValidation(cleansed, true)
     }
   }, [])
+
+  const whichSetTouched = setTouched ? setTouched : internalSetTouched
+  const setAllTouched = () => {
+    whichSetTouched(true)
+    if (setFieldTouched) {
+      setFieldTouched(true)
+    }
+  }
 
   const onBlur = (ev) => {
     ev.persist()
@@ -83,6 +71,17 @@ export const TextMaskedInput = (props) => {
       const cleansed = cleanse(val)
       whichDoValidation(cleansed, true)
     }, 100)
+  }
+
+  const onChange = (ev) => {
+    const val = ev.target.value
+    const restrictedVal = restrict(val)
+    setValue(restrictedVal)
+
+    // Used to remove mask characters e.g. abc___ becomes just abc
+    const cleansed = cleanse(restrictedVal)
+
+    whichDoValidation(cleansed, whichTouched)
   }
 
   const getClasses = () => {
@@ -167,6 +166,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   getTouched: PropTypes.bool,
   placeholderChar: PropTypes.string,
   autoComplete: PropTypes.string,
+  classOverrides: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {

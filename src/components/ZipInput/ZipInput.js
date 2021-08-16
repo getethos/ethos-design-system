@@ -22,6 +22,7 @@ export const ZipInput = (props) => {
     guide = true,
     keepCharPositions = true,
     autoComplete,
+    classOverrides,
     ...restProps
   } = props
 
@@ -89,6 +90,7 @@ export const ZipInput = (props) => {
         getTouched={touched}
         setTouched={setTouched}
         autoComplete={autoComplete}
+        classOverrides={classOverrides}
       />
       {getError(currentError, touched)}
     </>

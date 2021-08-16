@@ -12,30 +12,29 @@ import cleanse from '../../helpers/cleanse.js'
 
 const { DATE_FORMATS, dateMaskByFormat, dateStringMatchesFormat } = Validators
 
-const PrivateDateInput = (props) => {
-  const {
-    optional,
-    dateFormat,
-    allCaps,
-    capitalize,
-    labelCopy,
-    validator,
-    formChangeHandler,
-    initialValue,
-    currentValue,
-    currentError,
-    formTouched,
-    setFieldTouched,
-    disabled,
-    guide = true,
-    keepCharPositions = true,
-    name = 'birthdate-auto-corrected',
-    pipe = createAutoCorrectedDatePipe(dateFormat),
-    mask = dateMaskByFormat[dateFormat],
-    autoComplete,
-    ...restProps
-  } = props
-
+const PrivateDateInput = ({
+  optional,
+  dateFormat,
+  allCaps,
+  capitalize,
+  labelCopy,
+  validator,
+  formChangeHandler,
+  initialValue,
+  currentValue,
+  currentError,
+  formTouched,
+  setFieldTouched,
+  disabled,
+  guide = true,
+  keepCharPositions = true,
+  name = 'birthdate-auto-corrected',
+  pipe = createAutoCorrectedDatePipe(dateFormat),
+  mask = dateMaskByFormat[dateFormat],
+  autoComplete,
+  classOverrides,
+  ...restProps
+}) => {
   const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
@@ -115,6 +114,7 @@ const PrivateDateInput = (props) => {
         setTouched={setTouched}
         disabled={disabled}
         autoComplete={autoComplete}
+        classOverrides={classOverrides}
       />
       {getError(currentError, touched)}
     </>
@@ -136,6 +136,7 @@ PrivateDateInput.PUBLIC_PROPS = {
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
   autoComplete: PropTypes.string,
+  classOverrides: PropTypes.string,
 }
 
 PrivateDateInput.propTypes = {

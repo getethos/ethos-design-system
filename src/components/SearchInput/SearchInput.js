@@ -27,6 +27,7 @@ export const SearchInput = ({
   onKeyDown,
   onChange,
   placeholder = 'Search',
+  classOverrides,
   ...rest
 }) => {
   const [lastValue, setLastValue] = useState('')
@@ -93,4 +94,6 @@ SearchInput.propTypes = {
   onChange: PropTypes.func,
   /** `onKeyDown` - callback for keydown events */
   onKeyDown: PropTypes.func,
+  /** `classOverrides` - string of classes to apply to text input */
+  classOverrides: PropTypes.string
 }
