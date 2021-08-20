@@ -126,6 +126,36 @@ describe('ButtonSelectGroup', () => {
     })
   })
 
+  test('The ButtonSelectGroup renders with currentValue set and changed', () => {
+    const tree = renderer
+      .create(
+      <ButtonSelectGroup labelCopy="options" currentValue="first">
+        <ButtonSelectGroup.Option value="first">foo</ButtonSelectGroup.Option>
+        <ButtonSelectGroup.Option value="last">bar</ButtonSelectGroup.Option>
+      </ButtonSelectGroup>
+    )
+
+    // Grab the group
+    let group = tree.root
+    let options = group.findAllByType(ButtonSelectGroup.Option)
+    let [first, last] = options
+    expect(first.props.isSelected).toBe(true)
+    expect(last.props.isSelected).toBe(false)
+
+    tree.update(
+      <ButtonSelectGroup labelCopy="options" currentValue="last">
+        <ButtonSelectGroup.Option value="first">foo</ButtonSelectGroup.Option>
+        <ButtonSelectGroup.Option value="last">bar</ButtonSelectGroup.Option>
+      </ButtonSelectGroup>
+    )
+
+    group = tree.root
+    options = group.findAllByType(ButtonSelectGroup.Option)
+    ;[first, last] = options
+    expect(first.props.isSelected).toBe(false)
+    expect(last.props.isSelected).toBe(true)
+  })
+
   test('When a click handler is passed to an option, it fires', () => {
     const onSelectStub = jest.fn()
     const onClickStub = jest.fn()

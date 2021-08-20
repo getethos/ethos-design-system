@@ -6,6 +6,7 @@ import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
 import styles from './ButtonGroup.module.scss'
+import isUndefined from 'lodash/isUndefined'
 
 /**
  **/
@@ -65,6 +66,9 @@ export const ButtonSelectGroup = ({
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks
   const [getError, setError, , validate] = useErrorMessage(validator)
+  if (!isUndefined(currentValue) && selectedValue !== currentValue) {
+    setSelectedValue(currentValue)
+  }
 
   useEffect(() => {
     // `isSelectedValue` allows `false` to work properly and validate
