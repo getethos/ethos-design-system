@@ -127,8 +127,7 @@ describe('ButtonSelectGroup', () => {
   })
 
   test('The ButtonSelectGroup renders with currentValue set and changed', () => {
-    const tree = renderer
-      .create(
+    const tree = renderer.create(
       <ButtonSelectGroup labelCopy="options" currentValue="first">
         <ButtonSelectGroup.Option value="first">foo</ButtonSelectGroup.Option>
         <ButtonSelectGroup.Option value="last">bar</ButtonSelectGroup.Option>
