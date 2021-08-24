@@ -128,7 +128,7 @@ describe('ButtonSelectGroup', () => {
 
   test('The ButtonSelectGroup renders with currentValue set and changed', () => {
     const tree = renderer.create(
-      <ButtonSelectGroup labelCopy="options" currentValue="first">
+      <ButtonSelectGroup labelCopy="options">
         <ButtonSelectGroup.Option value="first">foo</ButtonSelectGroup.Option>
         <ButtonSelectGroup.Option value="last">bar</ButtonSelectGroup.Option>
       </ButtonSelectGroup>
@@ -138,7 +138,7 @@ describe('ButtonSelectGroup', () => {
     let group = tree.root
     let options = group.findAllByType(ButtonSelectGroup.Option)
     let [first, last] = options
-    expect(first.props.isSelected).toBe(true)
+    expect(first.props.isSelected).toBe(false)
     expect(last.props.isSelected).toBe(false)
 
     tree.update(

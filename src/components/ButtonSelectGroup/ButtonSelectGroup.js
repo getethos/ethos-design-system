@@ -66,7 +66,9 @@ export const ButtonSelectGroup = ({
   const [isAnswered, setIsAnswered] = useState(false)
   // Set up validation hooks
   const [getError, setError, , validate] = useErrorMessage(validator)
-  if (!isUndefined(currentValue) && selectedValue !== currentValue) {
+
+  // can set current value if selectedValue is not selected.  This is important for gatsby rendering
+  if (!isUndefined(currentValue) && isUndefined(selectedValue)) {
     setSelectedValue(currentValue)
   }
 
@@ -82,7 +84,6 @@ export const ButtonSelectGroup = ({
       let errorMessage = validate(selectedValue)
       errorMessage = errorMessage.length ? errorMessage : ''
       setError(errorMessage)
-
       // Update form with the new value and a falsy error message
       formChangeHandler(selectedValue, errorMessage)
     }
