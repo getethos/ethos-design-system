@@ -68,7 +68,11 @@ export const ButtonSelectGroup = ({
   const [getError, setError, , validate] = useErrorMessage(validator)
 
   // can set current value if selectedValue is not selected.  This is important for gatsby rendering
-  if (!isUndefined(currentValue) && isUndefined(selectedValue)) {
+  if (
+    !isUndefined(currentValue) &&
+    isUndefined(selectedValue) &&
+    currentValue !== ''
+  ) {
     setSelectedValue(currentValue)
   }
 
