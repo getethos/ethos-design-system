@@ -87,7 +87,7 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    let base = `TextMaskedInput ${styles.TextInputCommon}`
+    const base = `TextMaskedInput ${styles.TextInputCommon}`
     return getError(currentError, whichTouched)
       ? `${base} ${errorStyles.Error}`
       : classOverrides
