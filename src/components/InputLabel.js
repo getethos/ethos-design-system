@@ -23,6 +23,9 @@ export function InputLabel({
   id,
   allCaps = true,
   capitalize = false,
+  labelColor = COLORS.GRAY_PRIMARY,
+  labelWeight = 'medium',
+  labelClasses = '',
 }) {
   // `name` prop should be supplied for most fields, unless
   // the field uses aria-labelledby
@@ -39,17 +42,26 @@ export function InputLabel({
     nameOrIdProps = name ? { htmlFor: name } : { id }
   }
 
+  if (![COLORS.GRAY_PRIMARY, COLORS.GRAY_SECONDARY].includes(labelColor)) {
+    throw new Error(
+      'only gray primary and gray secondary are allowed as label colors! all other colors are forbidden!'
+    )
+  }
+
+  const CaptionElement = labelWeight === 'regular' ? Caption.Regular400 : Caption.Medium500
+
   return (
     <>
-      <Caption.Medium500
+      <CaptionElement
         element={element}
-        color={COLORS.GRAY_PRIMARY}
+        color={labelColor}
         allCaps={allCaps}
         capitalize={capitalize}
+        elementClasses={labelClasses}
         {...nameOrIdProps}
       >
         {labelCopy}
-      </Caption.Medium500>
+      </CaptionElement>
       <Spacer.H4 />
     </>
   )
