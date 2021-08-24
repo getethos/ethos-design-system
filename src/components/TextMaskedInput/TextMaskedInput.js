@@ -88,10 +88,9 @@ export const TextMaskedInput = (props) => {
 
   const getClasses = () => {
     let base = `TextMaskedInput ${styles.TextInputCommon}`
-    if (getError(currentError, whichTouched)) {
-      return `${base} ${errorStyles.Error}`
-    }
-    return classOverrides
+    return getError(currentError, whichTouched)
+      ? `${base} ${errorStyles.Error}`
+      : classOverrides
       ? `${base} ${classOverrides}`
       : `${base} ${styles.TextInputStylable}`
   }
