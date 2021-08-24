@@ -42,12 +42,6 @@ export function InputLabel({
     nameOrIdProps = name ? { htmlFor: name } : { id }
   }
 
-  if (![COLORS.GRAY_PRIMARY, COLORS.GRAY_SECONDARY].includes(labelColor)) {
-    throw new Error(
-      'only gray primary and gray secondary are allowed as label colors! all other colors are forbidden!'
-    )
-  }
-
   const CaptionElement = labelWeight === 'regular' ? Caption.Regular400 : Caption.Medium500
 
   return (
