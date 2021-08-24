@@ -10,26 +10,28 @@ import cleanse from '../../helpers/cleanse.js'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
-export const TextMaskedInput = ({
-  name,
-  mask,
-  labelCopy,
-  allCaps,
-  capitalize,
-  validator,
-  getTouched,
-  setTouched,
-  formChangeHandler,
-  initialValue,
-  currentValue,
-  currentError,
-  setFieldTouched,
-  doValidation,
-  placeholderChar,
-  autoComplete,
-  classOverrides,
-  ...restProps
-}) => {
+export const TextMaskedInput = (props) => {
+  const {
+    name,
+    mask,
+    labelCopy,
+    allCaps,
+    capitalize,
+    validator,
+    getTouched,
+    setTouched,
+    formChangeHandler,
+    initialValue,
+    currentValue,
+    currentError,
+    setFieldTouched,
+    doValidation,
+    placeholderChar,
+    autoComplete,
+    classOverrides,
+    ...restProps
+  } = props
+
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
   const [internalTouched, internalSetTouched] = useState(
