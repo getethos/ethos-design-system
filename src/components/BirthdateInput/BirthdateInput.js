@@ -7,20 +7,20 @@ const { DATE_FORMATS } = Validators
 export const BirthdateInput = (props) => {
   const {
     optional,
-      dateFormat,
-      allCaps,
-      capitalize,
-      labelCopy,
-      validator,
-      formChangeHandler,
-      initialValue,
-      currentValue,
-      currentError,
-      formTouched,
-      setFieldTouched,
-      autoComplete,
-      classOverrides,
-  ...restProps
+    dateFormat,
+    allCaps,
+    capitalize,
+    labelCopy,
+    validator,
+    formChangeHandler,
+    initialValue,
+    currentValue,
+    currentError,
+    formTouched,
+    setFieldTouched,
+    autoComplete,
+    classOverrides,
+    ...restProps
   } = props
   return (
     <DateInput
