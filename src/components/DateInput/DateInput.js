@@ -12,29 +12,30 @@ import cleanse from '../../helpers/cleanse.js'
 
 const { DATE_FORMATS, dateMaskByFormat, dateStringMatchesFormat } = Validators
 
-const PrivateDateInput = ({
-  optional,
-  dateFormat,
-  allCaps,
-  capitalize,
-  labelCopy,
-  validator,
-  formChangeHandler,
-  initialValue,
-  currentValue,
-  currentError,
-  formTouched,
-  setFieldTouched,
-  disabled,
-  guide = true,
-  keepCharPositions = true,
-  name = 'birthdate-auto-corrected',
-  pipe = createAutoCorrectedDatePipe(dateFormat),
-  mask = dateMaskByFormat[dateFormat],
-  autoComplete,
-  classOverrides,
-  ...restProps
-}) => {
+const PrivateDateInput = (props) => {
+  const {
+    optional,
+    dateFormat,
+    allCaps,
+    capitalize,
+    labelCopy,
+    validator,
+    formChangeHandler,
+    initialValue,
+    currentValue,
+    currentError,
+    formTouched,
+    setFieldTouched,
+    disabled,
+    guide = true,
+    keepCharPositions = true,
+    name = 'birthdate-auto-corrected',
+    pipe = createAutoCorrectedDatePipe(dateFormat),
+    mask = dateMaskByFormat[dateFormat],
+    autoComplete,
+    classOverrides,
+    ...restProps
+  } = props
   const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
