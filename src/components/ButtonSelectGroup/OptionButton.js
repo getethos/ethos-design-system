@@ -7,6 +7,7 @@ export const OPTION_BUTTON_STYLES = {
   DEFAULT: 'default',
   WHITE: 'white',
   UNSTYLED: 'unstyled',
+  FLOATING: 'floating',
 }
 
 /**
@@ -42,6 +43,13 @@ export const OptionButton = ({
         <Button.Medium.Stateful.White {...props}>
           {label}
         </Button.Medium.Stateful.White>
+      )
+
+    case OPTION_BUTTON_STYLES.FLOATING:
+      return (
+        <Button.Medium.Stateful.Floating {...props}>
+          {label}
+        </Button.Medium.Stateful.Floating>
       )
 
     case OPTION_BUTTON_STYLES.DEFAULT:

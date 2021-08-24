@@ -214,6 +214,20 @@
     background-color: var(--White);
   }
 
+  &.Floating {
+    background-color: var(--GrayLightHover--opaque);
+    color: var(--GrayPrimary--opaque);
+    border: none;
+    min-width: 0;
+    width: 100%;
+
+    @include for-phone-only {
+      padding-left: 0;
+      padding-right: 0;
+      font-size: 17.5px;
+    }
+  }
+
   @mixin button-stateful-is-active-or-selected {
     /* These are used in both the HTML "active" state (mid-click), as well as */
     /* the custom "is selected" state (this button is in the "on" state). */

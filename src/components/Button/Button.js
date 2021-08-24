@@ -33,6 +33,7 @@ const DEFAULT_DEBOUNCE_DURATION_MS = 0
  * is a regular button or a form submission button (<button type="submit">).
  * https://developer.mozilla.org/en/docs/Web/HTML/Element/button
  *
+ * @param  {object}   props             props
  * @param  {String}   props.children    The button text to display
  * @param  {Boolean}  props.disabled    Whether the button is disabled
  * @param  {String}   props.type        <button type="button|submit">
@@ -167,10 +168,10 @@ PrivateButton.SIZES = {
 PrivateButton.STYLES = {
   BLACK: 'Black',
   BLACK_OUTLINE: 'BlackOutline',
-  // WHITE: 'White', // TODO pending spec
   WHITE_OUTLINE: 'WhiteOutline',
   STATEFUL: 'Stateful',
   STATEFUL_WHITE: 'Stateful White',
+  STATEFUL_FLOATING: 'Stateful Floating',
 
   // For semantic <buttons> that are not styled as buttons:
   UNSTYLED: 'Unstyled',
@@ -218,6 +219,10 @@ export const Button = {
       White: ButtonFactory({
         size: PrivateButton.SIZES.MEDIUM,
         style: PrivateButton.STYLES.STATEFUL_WHITE,
+      }),
+      Floating: ButtonFactory({
+        size: PrivateButton.SIZES.MEDIUM,
+        style: PrivateButton.STYLES.STATEFUL_FLOATING
       }),
     },
   },
