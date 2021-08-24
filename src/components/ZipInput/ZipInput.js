@@ -62,12 +62,11 @@ export const ZipInput = (props) => {
 
   const getClasses = () => {
     const base = `ZipInput ${styles.TextInputCommon}`
-    if (getError(currentError, touched)) {
-      return `${base} ${errorStyles.Error}`
-    }
-    return classOverrides
-      ? `${base} ${classOverrides}`
-      : `${base} ${styles.TextInputStylable}`
+    return getError(currentError, touched)
+      ? `${base} ${errorStyles.Error}`
+      : classOverrides
+        ? `${base} ${classOverrides}`
+        : `${base} ${styles.TextInputStylable}`
   }
 
   return (
