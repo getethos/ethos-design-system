@@ -67,12 +67,15 @@ export const ButtonSelectGroup = ({
   // Set up validation hooks
   const [getError, setError, , validate] = useErrorMessage(validator)
 
-  // can set current value if selectedValue is not selected.  This is important for gatsby rendering
-  if (
+  /*
+   can set current value if selectedValue is not selected.  This is important for gatsby rendering
+  */
+  const shouldSetCurrentValueOnUnSelectedButtons =
     !isUndefined(currentValue) &&
     isUndefined(selectedValue) &&
-    currentValue !== ''
-  ) {
+    currentValue !== '' // form.js sets currentValue as empty string
+
+  if (shouldSetCurrentValueOnUnSelectedButtons) {
     setSelectedValue(currentValue)
   }
 
