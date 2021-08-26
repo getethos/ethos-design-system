@@ -517,21 +517,11 @@ h6,
 
 .TitleXLarge2 {
   &.Cambon {
-    @include for-phone-and-tablet {
-      $font-size: 43.5;
-      $line-height: 48;
-      font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
-      letter-spacing: -2.75%;
-    }
-
-    @include for-laptop-and-up {
-      $font-size: 60;
-      $line-height: 64;
-      font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
-      letter-spacing: -0.034em;
-    }
+    $font-size: 60;
+    $line-height: 64;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: -0.034em;
   }
 }
 /* ------------------------ Close Type2 ------------------------ */
