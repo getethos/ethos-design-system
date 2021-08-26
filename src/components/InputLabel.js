@@ -42,7 +42,8 @@ export function InputLabel({
     nameOrIdProps = name ? { htmlFor: name } : { id }
   }
 
-  const CaptionElement = labelWeight === 'regular' ? Caption.Regular400 : Caption.Medium500
+  const CaptionElement =
+    labelWeight === 'regular' ? Caption.Regular400 : Caption.Medium500
 
   return (
     <>
@@ -69,4 +70,7 @@ InputLabel.propTypes = {
   name: PropTypes.string,
   labelCopy: PropTypes.string,
   id: PropTypes.string,
+  labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
 }
