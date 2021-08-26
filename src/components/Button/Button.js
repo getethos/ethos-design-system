@@ -222,7 +222,7 @@ export const Button = {
       }),
       Floating: ButtonFactory({
         size: PrivateButton.SIZES.MEDIUM,
-        style: PrivateButton.STYLES.STATEFUL_FLOATING
+        style: PrivateButton.STYLES.STATEFUL_FLOATING,
       }),
     },
   },
