@@ -165,6 +165,7 @@ PrivateButton.SIZES = {
   UNSIZED: 'Unsized',
 }
 
+// a space in the value will generate two different classes.
 PrivateButton.STYLES = {
   BLACK: 'Black',
   BLACK_OUTLINE: 'BlackOutline',
@@ -196,7 +197,6 @@ function ButtonFactory(privateProps) {
   return PublicButtonComponent
 }
 
-// TODO: We need to figure out a better way to compose these button styles
 export const Button = {
   Medium: {
     Black: ButtonFactory({
