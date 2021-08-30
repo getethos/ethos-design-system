@@ -428,6 +428,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             >
               <CtaButton
                 href="/term"
+                title="Check my price"
                 trackingFunction={[Function]}
               />
             </div>
@@ -868,6 +869,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             >
               <CtaButton
                 href="/term"
+                title="Check my price"
                 trackingFunction={[Function]}
               />
             </div>

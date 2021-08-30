@@ -104,6 +104,7 @@ const UniversalNavbarExpanded = ({
                     <CtaButton
                       href={links.CTA.href}
                       trackingFunction={trackCtaClick}
+                      title={links.CTA.title}
                     />
                   )}
                 </div>

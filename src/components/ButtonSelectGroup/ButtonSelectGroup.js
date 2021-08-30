@@ -6,6 +6,7 @@ import { OptionButton } from './OptionButton'
 import { InputLabel } from '../InputLabel'
 
 import styles from './ButtonGroup.module.scss'
+import isUndefined from 'lodash/isUndefined'
 
 /**
  **/
@@ -67,6 +68,18 @@ export const ButtonSelectGroup = ({
   // Set up validation hooks
   const [getError, setError, , validate] = useErrorMessage(validator)
 
+  /*
+   can set current value if selectedValue is not selected.  This is important for gatsby rendering
+  */
+  const shouldSetCurrentValueOnUnSelectedButtons =
+    !isUndefined(currentValue) &&
+    isUndefined(selectedValue) &&
+    currentValue !== '' // form.js sets currentValue as empty string
+
+  if (shouldSetCurrentValueOnUnSelectedButtons) {
+    setSelectedValue(currentValue)
+  }
+
   useEffect(() => {
     // `isSelectedValue` allows `false` to work properly and validate
     // For example, if we have two buttons yes & no mapped to booleans
@@ -79,7 +92,6 @@ export const ButtonSelectGroup = ({
       let errorMessage = validate(selectedValue)
       errorMessage = errorMessage.length ? errorMessage : ''
       setError(errorMessage)
-
       // Update form with the new value and a falsy error message
       formChangeHandler(selectedValue, errorMessage)
     }
