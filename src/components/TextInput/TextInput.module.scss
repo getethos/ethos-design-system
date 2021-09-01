@@ -5,42 +5,43 @@
 @import '../Spacer/Spacer.scss';
 */
 
-.TextInput {
-  /* Same as TypeBase.scss Body. Should we use a mixin? TODO use --base-font-size */
+.TextInputCommon {
+  box-sizing: border-box;
+  width: 100%;
+  outline: 0;
+  margin: 0;
+  padding: 17px var(--Space-16) 13px;
   $font-size: 19;
   $line-height: 24;
   font-size: $font-size * 1px;
   line-height: $line-height / $font-size;
-  width: 100%;
   font-family: var(--Theinhardt-font-stack);
-  box-sizing: border-box;
-  background-color: var(--White);
-  border-style: solid;
-  border-width: 1px;
-  border-color: var(--GrayStrokeAndDisabled--translucent);
-  padding: 17px var(--Space-16) 13px;
-  color: var(--GrayPrimary--opaque);
-  border-radius: 0;
   transition: border-color 250ms ease;
-  outline: 0;
-  margin: 0;
 }
 
-.TextInput:hover {
+.TextInputStylable {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0;
+  border-color: var(--GrayStrokeAndDisabled--translucent);
+  background-color: var(--White);
+  color: var(--GrayPrimary--opaque);
+}
+
+.TextInputStylable:hover {
   background-color: var(--GrayLightHover--translucent);
 }
 
-.TextInput:focus {
+.TextInputStylable:focus {
   border-color: var(--GrayPrimary--opaque);
   background-color: var(--White);
 }
 
-.TextInput::placeholder {
-  /* It's $gray-64 / #a3a3a3 in ethos, but going to try to limit # of grays */
+.TextInputStylable::placeholder {
   color: var(--GrayStrokeAndDisabled--opaque);
 }
 
-.TextInput:disabled {
+.TextInputStylable:disabled {
   color: var(--White);
   background-color: var(--GrayStrokeAndDisabled--translucent);
   border-color: transparent;

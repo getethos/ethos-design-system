@@ -28,41 +28,23 @@ export const TextMaskedInput = (props) => {
     doValidation,
     placeholderChar,
     autoComplete,
+    classOverrides,
     ...restProps
   } = props
 
-  const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
   const [internalTouched, internalSetTouched] = useState(
     initialValue ? true : false
   )
   const whichTouched = getTouched ? getTouched : internalTouched
-  const whichSetTouched = setTouched ? setTouched : internalSetTouched
+  const [getError, setError, , validate] = useErrorMessage(validator)
   const [internalDoValidation] = useInputValidation({
     validate,
     setError,
     formChangeHandler,
   })
   const whichDoValidation = doValidation ? doValidation : internalDoValidation
-
-  const onChange = (ev) => {
-    const val = ev.target.value
-    const restrictedVal = restrict(val)
-    setValue(restrictedVal)
-
-    // Used to remove mask characters e.g. abc___ becomes just abc
-    const cleansed = cleanse(restrictedVal)
-
-    whichDoValidation(cleansed, whichTouched)
-  }
-
-  const setAllTouched = () => {
-    whichSetTouched(true)
-    if (setFieldTouched) {
-      setFieldTouched(true)
-    }
-  }
 
   // Initial Value aka prefilled—are considered "touched", but must prevalidate
   // which will in turn update the internal form state as to their validity
@@ -72,6 +54,14 @@ export const TextMaskedInput = (props) => {
       whichDoValidation(cleansed, true)
     }
   }, [])
+
+  const whichSetTouched = setTouched ? setTouched : internalSetTouched
+  const setAllTouched = () => {
+    whichSetTouched(true)
+    if (setFieldTouched) {
+      setFieldTouched(true)
+    }
+  }
 
   const onBlur = (ev) => {
     ev.persist()
@@ -85,10 +75,24 @@ export const TextMaskedInput = (props) => {
     }, 100)
   }
 
+  const onChange = (ev) => {
+    const val = ev.target.value
+    const restrictedVal = restrict(val)
+    setValue(restrictedVal)
+
+    // Used to remove mask characters e.g. abc___ becomes just abc
+    const cleansed = cleanse(restrictedVal)
+
+    whichDoValidation(cleansed, whichTouched)
+  }
+
   const getClasses = () => {
+    const base = `TextMaskedInput ${styles.TextInputCommon}`
     return getError(currentError, whichTouched)
-      ? `TextMaskedInput ${styles.TextInput} ${errorStyles.Error}`
-      : `TextMaskedInput ${styles.TextInput}`
+      ? `${base} ${errorStyles.Error}`
+      : classOverrides
+      ? `${base} ${classOverrides}`
+      : `${base} ${styles.TextInputStylable}`
   }
 
   const getMaskedInputByType = (mask) => {
@@ -101,7 +105,7 @@ export const TextMaskedInput = (props) => {
           data-tid={restProps['data-tid']}
           onChange={onChange}
           onBlur={onBlur}
-          name={props.name}
+          name={name}
           placeholder={restProps.placeholder}
           className={getClasses()}
           disabled={restProps.disabled}
@@ -119,7 +123,7 @@ export const TextMaskedInput = (props) => {
           guide={restProps.guide}
           onChange={onChange}
           onBlur={onBlur}
-          name={props.name}
+          name={name}
           placeholder={restProps.placeholder}
           className={getClasses()}
           disabled={restProps.disabled}
@@ -167,6 +171,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   getTouched: PropTypes.bool,
   placeholderChar: PropTypes.string,
   autoComplete: PropTypes.string,
+  classOverrides: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {

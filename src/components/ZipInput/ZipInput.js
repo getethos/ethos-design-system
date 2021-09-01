@@ -22,6 +22,7 @@ export const ZipInput = (props) => {
     guide = true,
     keepCharPositions = true,
     autoComplete,
+    classOverrides,
     ...restProps
   } = props
 
@@ -60,9 +61,12 @@ export const ZipInput = (props) => {
   })
 
   const getClasses = () => {
+    const base = `ZipInput ${styles.TextInputCommon}`
     return getError(currentError, touched)
-      ? `ZipInput ${styles.TextInput} ${errorStyles.Error}`
-      : `ZipInput ${styles.TextInput}`
+      ? `${base} ${errorStyles.Error}`
+      : classOverrides
+      ? `${base} ${classOverrides}`
+      : `${base} ${styles.TextInputStylable}`
   }
 
   return (
@@ -89,6 +93,7 @@ export const ZipInput = (props) => {
         getTouched={touched}
         setTouched={setTouched}
         autoComplete={autoComplete}
+        classOverrides={classOverrides}
       />
       {getError(currentError, touched)}
     </>

@@ -5,7 +5,7 @@ exports[`SearchInput default rendering 1`] = `
   className="SearchInputContainer"
 >
   <input
-    className="TextInput"
+    className="SearchInput TextInputCommon TextInputStylable"
     data-tid="search-input-tid"
     disabled={false}
     name="search-input"

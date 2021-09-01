@@ -19,7 +19,7 @@ Array [
   />,
   <input
     autoComplete="date"
-    className="TextMaskedInput TextInput"
+    className="TextMaskedInput TextInputCommon TextInputStylable"
     data-tid="when-applied-for"
     disabled={false}
     guide={true}

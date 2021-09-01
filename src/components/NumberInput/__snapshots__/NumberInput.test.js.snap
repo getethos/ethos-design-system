@@ -19,7 +19,7 @@ Array [
   />,
   <input
     autoComplete="tel"
-    className="TextMaskedInput TextInput"
+    className="TextMaskedInput TextInputCommon TextInputStylable"
     data-tid="the-number-input"
     disabled={false}
     mask={[Function]}

@@ -19,9 +19,9 @@ export const BirthdateInput = (props) => {
     formTouched,
     setFieldTouched,
     autoComplete,
+    classOverrides,
     ...restProps
   } = props
-
   return (
     <DateInput
       optional={optional}
@@ -37,6 +37,7 @@ export const BirthdateInput = (props) => {
       formTouched={formTouched}
       setFieldTouched={setFieldTouched}
       autoComplete={autoComplete}
+      classOverrides={classOverrides}
       {...restProps}
     />
   )
@@ -75,6 +76,8 @@ BirthdateInput.propTypes = {
   formChangeHandler: PropTypes.func,
   /** autoComplete value for auto fill */
   autoComplete: PropTypes.string,
+  /** passed down through component to override Inputstyles */
+  classOverrides: PropTypes.string,
 }
 
 export const BirthdateInputValidators = Validators

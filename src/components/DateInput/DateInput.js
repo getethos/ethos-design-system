@@ -33,9 +33,9 @@ const PrivateDateInput = (props) => {
     pipe = createAutoCorrectedDatePipe(dateFormat),
     mask = dateMaskByFormat[dateFormat],
     autoComplete,
+    classOverrides,
     ...restProps
   } = props
-
   const [getError, setError, , validate] = useErrorMessage(validator)
   const val = currentValue || initialValue
   const [touched, setTouched] = useState(initialValue ? true : false)
@@ -84,9 +84,13 @@ const PrivateDateInput = (props) => {
   })
 
   const getClasses = () => {
-    return getError(currentError, touched)
-      ? `DateInput ${styles.TextInput} ${errorStyles.Error}`
-      : `DateInput ${styles.TextInput}`
+    const base = `DateInput ${styles.TextInputCommon}`
+    if (getError(currentError, touched)) {
+      return `${base} ${errorStyles.Error}`
+    }
+    return classOverrides
+      ? `${base} ${classOverrides}`
+      : `${base} ${styles.TextInputStylable}`
   }
 
   return (
@@ -115,6 +119,7 @@ const PrivateDateInput = (props) => {
         setTouched={setTouched}
         disabled={disabled}
         autoComplete={autoComplete}
+        classOverrides={classOverrides}
       />
       {getError(currentError, touched)}
     </>
@@ -136,6 +141,7 @@ PrivateDateInput.PUBLIC_PROPS = {
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
   autoComplete: PropTypes.string,
+  classOverrides: PropTypes.string,
 }
 
 PrivateDateInput.propTypes = {

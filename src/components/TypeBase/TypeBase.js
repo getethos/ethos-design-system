@@ -26,6 +26,7 @@ import styles from './TypeBase.module.scss'
  * The public props (TypeBase.PUBLIC_PROPS) may be passed in downstream.
  * Other props may only be specified in this file.
  *
+ * @param  {Object}  props
  * @param  {String}  props.children       The text to display
  * @param  {Boolean} props.centered       Whether to text-align: center
  * @param  {Boolean} props.allCaps        Whether to text-transform to: uppercase
@@ -41,10 +42,11 @@ export const TypeBase = ({
   allCaps,
   capitalize,
   color,
-  element,
+  element: Element = 'div',
   subtype,
   typeface,
   weight,
+  elementClasses,
   ...rest
 }) => {
   // Verify that color, subtype, typeface, and weight were valid enum values
@@ -71,9 +73,7 @@ export const TypeBase = ({
   if (centered) classNames.push(styles.Centered)
   if (allCaps) classNames.push(styles.AllCaps)
   if (capitalize) classNames.push(styles.Capitalize)
-
-  // Defaults to div, but can be overridden
-  const Element = element || 'div'
+  if (elementClasses) classNames.push(elementClasses)
 
   const allowedProps = Object.keys(rest).reduce((acc, key) => {
     acc[key] = rest[key]
@@ -152,7 +152,9 @@ TypeBase.PUBLIC_PROPS = {
   /** text transform capitalize label */
   capitalize: PropTypes.bool,
   color: PropTypes.oneOf(Object.values(TypeBase.COLORS)),
+  /** Defaults to 'div', but can be overridden with certain elements */
   element: PropTypes.oneOf(Object.values(TypeBase.ELEMENTS)),
+  elementClasses: PropTypes.string,
   htmlFor: PropTypes.string,
   'data-tid': PropTypes.string,
   id: PropTypes.string,
@@ -170,7 +172,6 @@ export const TypeFoundry = (privateProps) => {
     if (isIllegal) throw new TypeError(`Illegal prop '${prop}'`)
   }
 
-  // TODO: figure out if downstream or upstream is the correct nomenclature here
   const PublicTypeComponent = (downstreamProps) => {
     Object.keys(downstreamProps).forEach(throwIllegalProp)
     return <TypeBase {...downstreamProps} {...privateProps} />
