@@ -54,6 +54,8 @@ export const ButtonSelectGroup = ({
   validator,
   fullWidth = true,
   labelColor,
+  labelWeight,
+  labelClasses,
   ...rest
 }) => {
   let initialSelected
@@ -157,6 +159,8 @@ export const ButtonSelectGroup = ({
             allCaps={allCaps}
             capitalize={capitalize}
             labelColor={labelColor}
+            labelWeight={labelWeight}
+            labelClasses={labelClasses}
           />
         )}
         <div className={optionsContainerClassNames.join(' ')}>{options}</div>
@@ -196,6 +200,8 @@ ButtonSelectGroup.propTypes = {
   fullWidth: PropTypes.bool,
   /** Optional, dictates the color label as Gray Primary (default) or Gray Secondary*/
   labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
 }
 
 // Export the option button
