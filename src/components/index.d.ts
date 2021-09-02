@@ -617,6 +617,30 @@ export declare function RadioButtonGroup2({
   labelCopy: string
 }): JSX.Element
 
+export declare function RadioButton({
+  name,
+  value,
+  checked,
+  tabIndex,
+  required,
+  disabled,
+  label,
+  onClick,
+  onChange,
+  ...rest
+}: {
+  [x: string]: any
+  name?: string
+  value?: string | number
+  checked?: boolean
+  tabIndex?: number | string
+  required?: boolean
+  disabled?: boolean
+  label: string | React.ReactNode
+  onClick: (event: any) => void
+  onChange?: any
+}): JSX.Element
+
 export declare const Grid: {
   (props: any): JSX.Element
   propTypes: {
@@ -936,6 +960,7 @@ export declare const DateInput: {
 }
 
 import * as Validators from '../validators/BirthdateInputValidator'
+import { Node } from '@babel/core'
 export declare const BirthdateInput: {
   ({
     optional,
