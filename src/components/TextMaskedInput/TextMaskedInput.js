@@ -141,6 +141,9 @@ export const TextMaskedInput = (props) => {
       <InputLabel
         name={name}
         labelCopy={labelCopy}
+        labelColor={props.labelColor}
+        labelWeight={props.labelWeight}
+        labelClasses={props.labelClasses}
         allCaps={allCaps}
         capitalize={capitalize}
       />
@@ -172,6 +175,9 @@ TextMaskedInput.PUBLIC_PROPS = {
   placeholderChar: PropTypes.string,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
+  labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {

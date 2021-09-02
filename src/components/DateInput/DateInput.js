@@ -103,6 +103,9 @@ const PrivateDateInput = (props) => {
         className={getClasses()}
         type="tel"
         labelCopy={labelCopy}
+        labelColor={props.labelColor}
+        labelWeight={props.labelWeight}
+        labelClasses={props.labelClasses}
         allCaps={allCaps}
         capitalize={capitalize}
         data-tid={restProps['data-tid']}
@@ -142,6 +145,9 @@ PrivateDateInput.PUBLIC_PROPS = {
   keepCharPositions: PropTypes.bool,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
+  labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
 }
 
 PrivateDateInput.propTypes = {

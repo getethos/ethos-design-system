@@ -7,9 +7,6 @@ export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavb
 
 export { Layout } from './Layout/index.js'
 
-// TODO -- DELETE THIS -- NOT GOING TO EXPORT DEPRECATED MEDIA
-// export { Media } from './Media'
-
 /**
  * AsyncTypeahead is a component that allows you to make asynchronous API
  * fetches, and then use the results (entities) to show suggested results
@@ -1091,6 +1088,8 @@ export declare const ButtonSelectGroup: {
 export declare const OPTION_BUTTON_STYLES: {
   DEFAULT: string
   WHITE: string
+  FLOATING: string
+  UNSTYLED: string
 }
 /**
  * Component renders an option button within a `<ButtonSelectGroup />`
