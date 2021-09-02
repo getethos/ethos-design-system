@@ -325,7 +325,17 @@ export declare const CloudinaryImage: {
 }
 export declare const filePath: (publicId: any) => any
 
-export { COLORS } from './Colors'
+export declare const COLORS: {
+  // Brand
+  BRAND_FOREST: 'BrandForest'
+  BRAND_SALAMANDER: 'BrandSalamander'
+
+  // Grayscales
+  GRAY_PRIMARY: 'GrayPrimary'
+  GRAY_SECONDARY: 'GraySecondary'
+  GRAY_STROKE_AND_DISABLED: 'GrayStrokeAndDisabled'
+  WHITE: 'White'
+}
 
 export declare const SearchInput: {
   ({
