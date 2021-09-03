@@ -95,45 +95,25 @@ export const TextMaskedInput = (props) => {
       : `${base} ${styles.TextInputStylable}`
   }
 
-  const getMaskedInputByType = (mask) => {
-    if (typeof mask === 'function') {
-      return (
-        <MaskedInput
-          value={value}
-          mask={mask}
-          type={restProps.type}
-          data-tid={restProps['data-tid']}
-          onChange={onChange}
-          onBlur={onBlur}
-          name={name}
-          placeholder={restProps.placeholder}
-          className={getClasses()}
-          disabled={restProps.disabled}
-          placeholderChar={placeholderChar}
-          autoComplete={autoComplete}
-        />
-      )
-    } else {
-      return (
-        <MaskedInput
-          value={value}
-          mask={mask}
-          type={restProps.type}
-          data-tid={restProps['data-tid']}
-          guide={restProps.guide}
-          onChange={onChange}
-          onBlur={onBlur}
-          name={name}
-          placeholder={restProps.placeholder}
-          className={getClasses()}
-          disabled={restProps.disabled}
-          keepCharPositions={restProps.keepCharPositions}
-          pipe={restProps.pipe}
-          placeholderChar={placeholderChar}
-          autoComplete={autoComplete}
-        />
-      )
-    }
+  const maskedInputProps = {
+    value,
+    mask,
+    type: restProps.type,
+    'data-tid': restProps['data-tid'],
+    onChange,
+    onBlur,
+    name,
+    placeholder: restProps.placeholder,
+    className: getClasses(),
+    disabled: restProps.disabled,
+    placeholderChar,
+    autoComplete,
+  }
+
+  if (typeof mask !== 'function') {
+    maskedInputProps.guide = restProps.guide
+    maskedInputProps.keepCharPositions = restProps.keepCharPositions
+    maskedInputProps.pipe = restProps.pipe
   }
 
   return (
@@ -147,7 +127,9 @@ export const TextMaskedInput = (props) => {
         allCaps={allCaps}
         capitalize={capitalize}
       />
-      {getMaskedInputByType(mask)}
+
+      <MaskedInput {...maskedInputProps} />
+
       {!doValidation && getError(currentError, whichTouched)}
     </>
   )

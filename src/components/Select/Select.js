@@ -34,6 +34,9 @@ export const Select = ({
   currentError,
   formTouched,
   labelCopy,
+  labelColor,
+  labelWeight,
+  labelClasses,
   allCaps = true,
   name,
   ...rest
@@ -125,9 +128,9 @@ export const Select = ({
         <InputLabel
           name={name}
           labelCopy={labelCopy}
-          labelColor={props.labelColor}
-          labelWeight={props.labelWeight}
-          labelClasses={props.labelClasses}
+          labelColor={labelColor}
+          labelWeight={labelWeight}
+          labelClasses={labelClasses}
           allCaps={allCaps}
         />
       )}
