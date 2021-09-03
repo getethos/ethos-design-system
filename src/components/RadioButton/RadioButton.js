@@ -5,7 +5,6 @@ import useIncludes from '../../hooks/useIncludes.js'
 import useInvalid from '../../hooks/useInvalid.js'
 import { Body } from '../Body.js'
 import { COLORS } from '../Colors.js'
-import { codes } from '../../helpers/constants.js'
 import styles from './RadioButton.module.scss'
 
 // Wrapping this way facilitates spying with spyOn
