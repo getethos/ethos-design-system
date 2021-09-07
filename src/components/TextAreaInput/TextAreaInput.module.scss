@@ -1,5 +1,7 @@
+@import '../TextInput/TextInput.module.scss';
+
 .TextAreaInput {
-  composes: TextInput from '../TextInput/TextInput.module.scss';
+  composes: TextInputCommon TextInputStyleable;
   resize: none;
 }
 .Resize {

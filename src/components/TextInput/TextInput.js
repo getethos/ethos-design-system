@@ -11,12 +11,21 @@ import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 
 /**
- * @param  {String}   props.name        Input name and htmlFor prop for label
- * @param  {String}   props.labelCopy   User-visible text of label for input
- * @param  {Boolean}  props.allCaps     Whether to text-trasform: uppercase
- * @param  {Function} props.validator   Function for validating input
- * @param  {Boolean}  props.disabled
- * @param  {String}   props.autoComplete  Autocomplete label
+ * @param type
+ * @param  {String}   name        Input name and htmlFor prop for label
+ * @param  {String}   labelCopy   User-visible text of label for input
+ * @param  {Boolean}  allCaps     Whether to text-trasform: uppercase
+ * @param  {Function} validator   Function for validating input
+ * @param  {Boolean}  disabled
+ * @param capitalize
+ * @param formChangeHandler
+ * @param initialValue
+ * @param currentValue
+ * @param currentError
+ * @param setFieldTouched
+ * @param restrictIllegal
+ * @param  {String}   autoComplete  Autocomplete label
+ * @param rest
  */
 
 function PrivateTextInput({
@@ -98,8 +107,8 @@ function PrivateTextInput({
 
   const getClasses = () => {
     return getError(currentError, touched)
-      ? `${styles.TextInput} ${errorStyles.Error}`
-      : `${styles.TextInput}`
+      ? `${styles.TextInputCommon} ${errorStyles.Error}`
+      : `${styles.TextInputCommon} ${styles.TextInputStylable}`
   }
 
   return (
