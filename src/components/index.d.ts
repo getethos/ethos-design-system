@@ -5,9 +5,7 @@ import * as Validators from '../validators/BirthdateInputValidator'
 
 export { Body } from './Body.js'
 export { Body2 } from './Body2.js'
-// Type
 export { Caption } from './Caption.js'
-// Type2
 export { Caption2 } from './Caption2.js'
 export { COLORS } from './Colors.js'
 export { Footnote } from './Footnote.js'
