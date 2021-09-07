@@ -20,7 +20,7 @@ Array [
   <input
     aria-label="nombre"
     autoComplete="name"
-    className="TextInput"
+    className="TextInputCommon TextInputStylable"
     data-tid="the-text-input"
     name="nombre"
     onBlur={[Function]}
