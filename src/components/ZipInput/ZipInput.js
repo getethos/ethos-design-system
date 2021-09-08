@@ -94,6 +94,8 @@ export const ZipInput = (props) => {
         setTouched={setTouched}
         autoComplete={autoComplete}
         classOverrides={classOverrides}
+        labelWeight={props.labelWeight}
+        labelColor={props.labelColor}
       />
       {getError(currentError, touched)}
     </>
@@ -108,6 +110,8 @@ ZipInput.PUBLIC_PROPS = {
   capitalize: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string.isRequired,
+  labelWeight: PropTypes.string,
+  labelColor: PropTypes.string,
   validator: PropTypes.func,
   initialValue: PropTypes.string,
   guide: PropTypes.bool,

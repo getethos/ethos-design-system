@@ -23,6 +23,7 @@ export const ReactSelectComponents = components
  */
 export const Select = ({
   className,
+  classOverrides,
   title,
   isAsync,
   isCompact,
@@ -33,13 +34,15 @@ export const Select = ({
   currentError,
   formTouched,
   labelCopy,
+  labelColor,
+  labelWeight,
+  labelClasses,
   allCaps = true,
   name,
   ...rest
 }) => {
   const resolvedValidator = validator ? validator : () => ''
   const [getError, setError, , validate] = useErrorMessage(resolvedValidator)
-  const compactClass = isCompact ? styles.Compact : ''
 
   // According to the react-select https://react-select.com/props#statemanager-props docs
   // type will be: one of<Object, Array<Object>, null, undefined>,
@@ -98,16 +101,6 @@ export const Select = ({
     validationSelect()
   }
 
-  const props = {
-    className: `${className ? className : ''} ${compactClass} ${styles.root}`,
-    onChange: onChangeHandler,
-    onBlur,
-    'aria-label': title, // https://react-select.com/props#select-props
-    ...rest,
-  }
-
-  const wrapperClass = title ? styles.wrapper : ''
-
   const getTag = () => {
     if (isAsync && isCreatable) {
       return ReactSelectAsyncCreatable
@@ -122,12 +115,34 @@ export const Select = ({
 
   const SelectTag = getTag()
 
+  const getClasses = () => {
+    const cName = className || ''
+    const cOverride = classOverrides || ''
+    const compactClass = isCompact ? styles.Compact : ''
+    return `${cName} ${compactClass} ${styles.root} ${cOverride}`
+  }
+
   return (
-    <div className={wrapperClass} data-tid={rest['data-tid']}>
+    <div className={title ? styles.wrapper : ''} data-tid={rest['data-tid']}>
       {labelCopy && (
-        <InputLabel name={name} labelCopy={labelCopy} allCaps={allCaps} />
+        <InputLabel
+          name={name}
+          labelCopy={labelCopy}
+          labelColor={labelColor}
+          labelWeight={labelWeight}
+          labelClasses={labelClasses}
+          allCaps={allCaps}
+        />
       )}
-      <SelectTag {...props} />
+
+      <SelectTag
+        className={getClasses()}
+        onChange={onChangeHandler}
+        onBlur={onBlur}
+        aria-label={title} // https://react-select.com/props#select-props
+        {...rest}
+      />
+
       {title && <div className={styles.title}>{title}</div>}
       {getError(currentError, formTouched)}
     </div>
@@ -161,6 +176,10 @@ Select.propTypes = {
   currentError: PropTypes.string,
   formTouched: PropTypes.bool,
   labelCopy: PropTypes.string,
+  labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
+  classOverrides: PropTypes.string,
   allCaps: PropTypes.bool,
   name: PropTypes.string,
   validator: PropTypes.func,

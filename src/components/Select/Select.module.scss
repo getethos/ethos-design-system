@@ -13,12 +13,8 @@
     }
 
     .StyledReactSelect__multi-value {
-      margin: 0;
       padding: 2px;
-      margin-left: 0;
-      margin-bottom: 0;
-      margin-top: 2px;
-      margin-right: var(--Space-6);
+      margin: 2px var(--Space-6) 0 0;
     }
 
     .StyledReactSelect__value-container > div:last-child {

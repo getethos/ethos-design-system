@@ -1,11 +1,27 @@
 /// <reference types="react" />
 
 import React, { Component, HTMLAttributes } from 'react'
+import * as Validators from '../validators/BirthdateInputValidator'
 
+export { Body } from './Body.js'
+export { Body2 } from './Body2.js'
+export { Caption } from './Caption.js'
+export { Caption2 } from './Caption2.js'
+export { COLORS } from './Colors.js'
+export { Footnote } from './Footnote.js'
+export { Layout } from './Layout/index.js'
+export { Link } from './Link.js'
+export { TitleLarge } from './Type/TitleLarge.js'
+export { TitleMedium } from './Type/TitleMedium.js'
+export { TitleSmall } from './Type/TitleSmall.js'
+export { TitleXLarge } from './Type/TitleXLarge.js'
+export { TitleXXLarge } from './Type/TitleXXLarge.js'
+export { TitleLarge2 } from './Type2/TitleLarge2.js'
+export { TitleMedium2 } from './Type2/TitleMedium2.js'
+export { TitleSmall2 } from './Type2/TitleSmall2.js'
+export { TitleXLarge2 } from './Type2/TitleXLarge2.js'
 export { UniversalNavbar } from './UniversalNavbar/UniversalNavbar'
 export { UniversalNavbarExpanded } from './UniversalNavbarExpanded/UniversalNavbarExpanded'
-
-export { Layout } from './Layout/index.js'
 
 /**
  * AsyncTypeahead is a component that allows you to make asynchronous API
@@ -324,8 +340,6 @@ export declare const CloudinaryImage: {
   }
 }
 export declare const filePath: (publicId: any) => any
-
-export { COLORS } from './Colors'
 
 export declare const SearchInput: {
   ({
@@ -959,7 +973,6 @@ export declare const DateInput: {
   propTypes: DateInputProps
 }
 
-import * as Validators from '../validators/BirthdateInputValidator'
 export declare const BirthdateInput: {
   ({
     optional,
@@ -1236,25 +1249,6 @@ export declare const Faq: {
     open: any
   }
 }
-
-// Type
-export { Caption } from './Caption.js'
-export { Footnote } from './Footnote.js'
-export { Body } from './Body.js'
-export { Link } from './Link.js'
-export { TitleSmall } from './Type/TitleSmall.js'
-export { TitleMedium } from './Type/TitleMedium.js'
-export { TitleLarge } from './Type/TitleLarge.js'
-export { TitleXLarge } from './Type/TitleXLarge.js'
-export { TitleXXLarge } from './Type/TitleXXLarge.js'
-
-// Type2
-export { Caption2 } from './Caption2.js'
-export { Body2 } from './Body2.js'
-export { TitleSmall2 } from './Type2/TitleSmall2.js'
-export { TitleMedium2 } from './Type2/TitleMedium2.js'
-export { TitleLarge2 } from './Type2/TitleLarge2.js'
-export { TitleXLarge2 } from './Type2/TitleXLarge2.js'
 
 ////////////////////////////
 // ---- NORA EXPORTS ---- //
