@@ -20,7 +20,7 @@ Array [
   <input
     aria-label="the-email-input-example"
     autoComplete="email"
-    className="TextInput"
+    className="TextInputCommon TextInputStylable"
     data-tid="the-email-input"
     name="the-email-input-example"
     onBlur={[Function]}
