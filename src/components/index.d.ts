@@ -651,7 +651,7 @@ export declare function RadioButton({
   required?: boolean
   disabled?: boolean
   label: string | React.ReactNode
-  onClick: (event: any) => void
+  onClick?: (event: any) => void
   onChange?: any
 }): JSX.Element
 
