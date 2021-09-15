@@ -71,6 +71,12 @@ Set of Design-approved public buttons.
 </Button.Medium.Black>
 ```
 
+```jsx
+<Button.Medium.Black refreshIcon>
+  Edit Answers
+</Button.Medium.Black>
+```
+
 #### Fullwidth
 
 ```jsx
@@ -82,6 +88,12 @@ Set of Design-approved public buttons.
 ```jsx
 <Button.Medium.Black fullWidth backArrowIcon>
   Button.Medium.Black + fullWidth + backArrowIcon
+</Button.Medium.Black>
+```
+
+```jsx
+<Button.Medium.Black refreshIcon fullWidth>
+  Edit Answers
 </Button.Medium.Black>
 ```
 
