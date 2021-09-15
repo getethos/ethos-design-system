@@ -111,9 +111,9 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             <a
               href="/term"
             >
-              <WhiteOutline>
+              <PublicButtonComponent>
                 Check my price
-              </WhiteOutline>
+              </PublicButtonComponent>
             </a>
           </div>
         </div>
