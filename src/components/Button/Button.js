@@ -92,6 +92,7 @@ function PrivateButton({
   if (fullWidth) classNames.push('fullWidth')
   if (isSelected) classNames.push('isSelected')
   if (arrowIcon || backArrowIcon) classNames.push('arrowIcon')
+  if (refreshIcon) classNames.push('refreshIcon')
 
   let checked
   if (isSelected) {
