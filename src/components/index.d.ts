@@ -237,6 +237,7 @@ export declare const Logo: {
 interface downstreamButtonProps {
   backArrowIcon?: boolean
   arrowIcon?: boolean
+  refreshIcon?: boolean
   type?: string
   isSelected?: boolean
   fullWidth?: boolean
