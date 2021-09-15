@@ -42,6 +42,7 @@ const DEFAULT_DEBOUNCE_DURATION_MS = 0
  * @param  {Boolean}  props.arrowIcon   Whether the arrow icon is displayed
  *                                      (behaves differently when fullWidth)
  * @param  {Boolean}  props.backArrowIcon   Back arrow icon
+ * @param  {Boolean}  props.refreshIcon   refresh icon
  * @param  {number}   props.debounceDurationMs   Length of time to debounce button
  *                                               (if 0, no debounce)
  */
@@ -60,6 +61,7 @@ function PrivateButton({
   isSelected, // only used for Button.*.Stateful, aka SelectableHtmlButtonGroup
   arrowIcon,
   backArrowIcon,
+  refreshIcon,
   debounceDurationMs = DEFAULT_DEBOUNCE_DURATION_MS,
   ...rest
 }) {
@@ -90,6 +92,7 @@ function PrivateButton({
   if (fullWidth) classNames.push('fullWidth')
   if (isSelected) classNames.push('isSelected')
   if (arrowIcon || backArrowIcon) classNames.push('arrowIcon')
+  if (refreshIcon) classNames.push('refreshIcon')
 
   let checked
   if (isSelected) {
@@ -119,6 +122,7 @@ function PrivateButton({
       {backArrowIcon && ArrowIconInline(true)}
       {ariaLabelId ? <span id={ariaLabelId}>{children}</span> : children}
       {arrowIcon && ArrowIconInline()}
+      {refreshIcon && <RefreshIcon />}
     </button>
   )
 }
@@ -136,6 +140,31 @@ const ArrowIconInline = (shouldFlip) => {
       }
     >
       <path d="M7.00016 0.333374L5.82516 1.50837L10.4752 6.16671H0.333496V7.83337H10.4752L5.82516 12.4917L7.00016 13.6667L13.6668 7.00004L7.00016 0.333374Z" />
+    </svg>
+  )
+}
+
+function RefreshIcon() {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 1 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={styles.refreshIcon}
+    >
+      <g clipPath="url(#clip0)">
+        <path
+          d="M5.01064 11.9989C5.01128 9.9477 5.78291 7.90328 7.34659 6.3396C10.474 3.21223 15.5314 3.21772 18.6568 6.34313C21.7822 9.46855 21.7877 14.5259 18.6603 17.6533C16.0211 20.2925 12.0175 20.6898 8.94831 18.88L10.42 17.4083C12.6478 18.4757 15.3994 18.0858 17.2461 16.2391C19.5881 13.8971 19.5893 10.0917 17.2487 7.75116C14.9082 5.41063 11.1028 5.41182 8.76081 7.75381C7.58627 8.92834 7.02701 10.4634 7.0336 11.9983L11.5888 11.9969L6.63595 16.9497L1.6862 12L5.01064 11.9989Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0">
+          <rect width="24" height="24" fill="white" />
+        </clipPath>
+      </defs>
     </svg>
   )
 }

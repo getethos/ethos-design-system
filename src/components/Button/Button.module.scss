@@ -53,7 +53,12 @@
   transform: rotate(180deg);
 }
 
-.Button.arrowIcon {
+.refreshIcon {
+  margin-left: 10px;
+}
+
+.Button.arrowIcon,
+.Button.refreshIcon {
   display: flex;
   justify-content: space-between;
 }

@@ -24,7 +24,7 @@ $ cp -a ~/Downloads/fonts/ ethos-design-system/src/fonts/
 
 ## Development
 
-1. Run `yarn css:develop` if you're editing global CSS (optional).
+1. Run `yarn css:dev` if you're editing global CSS (optional).
 2. Run the live style guide with `yarn styleguide`.
 3. Open [http://localhost:9008](http://localhost:9008) in your browser.
 
