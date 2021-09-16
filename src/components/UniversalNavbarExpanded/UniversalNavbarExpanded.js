@@ -30,6 +30,8 @@ import styles from './UniversalNavbarExpanded.module.scss'
  *
  * @param {boolean} hideMobileCta - Hide cta on mobile
  * @param {boolean} hideDesktopCta - Hide cta on desktop
+ * @param {boolean} hideSearchIcon - Hide search icon on desktop and link on mobile
+ * @param {boolean} hideAccountIcon - Hide account icon on desktop and link on mobile
  * @param {function} trackCtaClick - Analytics function run when CTA Button is clicked
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {string} logoHref - Href for the logo
@@ -42,12 +44,21 @@ const UniversalNavbarExpanded = ({
   LinkComponent,
   hideMobileCta,
   hideDesktopCta,
+  hideSearchIcon,
+  hideAccountIcon,
   logoHref,
   trackCtaClick,
   links,
   estimateExperiment,
 }) => {
-  const BELOW_ACCORDION_LINKS = [links.CTA, links.ACCOUNT, links.SEARCH]
+  let BELOW_ACCORDION_LINKS = [links.CTA]
+
+  if (!hideAccountIcon) {
+    BELOW_ACCORDION_LINKS.push(links.ACCOUNT)
+  }
+  if (!hideSearchIcon) {
+    BELOW_ACCORDION_LINKS.push(links.SEARCH)
+  }
 
   const SearchIconLink = () => (
     <NavLink className={styles.searchIcon} href={links.SEARCH.href}>
@@ -97,8 +108,8 @@ const UniversalNavbarExpanded = ({
               </div>
               <div className={layoutClasses.join(' ')}>
                 {estimateExperiment && <ExperimentCopy />}
-                <SearchIconLink />
-                <AccountIconLink />
+                {!hideSearchIcon && <SearchIconLink />}
+                {!hideAccountIcon && <AccountIconLink />}
                 <div className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
@@ -122,6 +133,10 @@ UniversalNavbarExpanded.propTypes = {
   hideMobileCta: PropTypes.bool,
   /** Hide cta on desktop */
   hideDesktopCta: PropTypes.bool,
+  /** Hide search icon on desktop and link on mobile */
+  hideSearchIcon: PropTypes.bool,
+  /** Hide account icon on desktop and link on mobile */
+  hideAccountIcon: PropTypes.bool,
   /** Analytics function run when CTA Button is clicked */
   trackCtaClick: PropTypes.func,
   /** Agnotistic Reach and React Router Link (ex. Gatsby's <Link>) */
@@ -169,6 +184,10 @@ UniversalNavbarExpanded.propTypes = {
             title: PropTypes.string,
             id: PropTypes.string,
             subcopy: PropTypes.string,
+            alternateIcon: PropTypes.oneOfType([
+              PropTypes.element,
+              PropTypes.bool,
+            ]),
           }),
           items: PropTypes.arrayOf(
             PropTypes.shape({
@@ -188,6 +207,8 @@ UniversalNavbarExpanded.propTypes = {
 UniversalNavbarExpanded.defaultProps = {
   hideMobileCta: false,
   hideDesktopCta: false,
+  hideSearchIcon: false,
+  hideAccountIcon: false,
   logoHref: '/',
   trackCtaClick: () => {},
   links: {},

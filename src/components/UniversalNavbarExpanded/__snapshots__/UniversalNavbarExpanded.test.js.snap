@@ -33,10 +33,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_1",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": [Function],
                     "href": "/#/Components/UniversalNavbarExpanded",
                     "id": "NAVLINKS_MOCK_ID_2",
                     "subcopy": "Learn more about term life insurance and the plans and options you have available.",
-                    "title": "Our plans",
+                    "title": "Watch the video",
                   },
                   "items": Array [
                     Object {
@@ -72,6 +73,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": false,
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
                     "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
@@ -111,6 +113,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_15",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": false,
                     "href": "/why-ethos/",
                     "id": "NAVLINKS_MOCK_ID_16",
                     "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
@@ -150,6 +153,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_22",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": false,
                     "href": "/faq/",
                     "id": "NAVLINKS_MOCK_ID_23",
                     "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
@@ -257,10 +261,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_1",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": [Function],
                           "href": "/#/Components/UniversalNavbarExpanded",
                           "id": "NAVLINKS_MOCK_ID_2",
                           "subcopy": "Learn more about term life insurance and the plans and options you have available.",
-                          "title": "Our plans",
+                          "title": "Watch the video",
                         },
                         "items": Array [
                           Object {
@@ -296,6 +301,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": false,
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
                           "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
@@ -335,6 +341,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_15",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": false,
                           "href": "/why-ethos/",
                           "id": "NAVLINKS_MOCK_ID_16",
                           "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
@@ -374,6 +381,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_22",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": false,
                           "href": "/faq/",
                           "id": "NAVLINKS_MOCK_ID_23",
                           "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
@@ -473,10 +481,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_1",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": [Function],
                     "href": "/#/Components/UniversalNavbarExpanded",
                     "id": "NAVLINKS_MOCK_ID_2",
                     "subcopy": "Learn more about term life insurance and the plans and options you have available.",
-                    "title": "Our plans",
+                    "title": "Watch the video",
                   },
                   "items": Array [
                     Object {
@@ -512,6 +521,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": false,
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
                     "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
@@ -551,6 +561,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_15",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": false,
                     "href": "/why-ethos/",
                     "id": "NAVLINKS_MOCK_ID_16",
                     "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
@@ -590,6 +601,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "id": "NAVLINKS_MOCK_ID_22",
                 "subnav": Object {
                   "cta": Object {
+                    "alternateIcon": false,
                     "href": "/faq/",
                     "id": "NAVLINKS_MOCK_ID_23",
                     "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
@@ -697,10 +709,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_1",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": [Function],
                           "href": "/#/Components/UniversalNavbarExpanded",
                           "id": "NAVLINKS_MOCK_ID_2",
                           "subcopy": "Learn more about term life insurance and the plans and options you have available.",
-                          "title": "Our plans",
+                          "title": "Watch the video",
                         },
                         "items": Array [
                           Object {
@@ -736,6 +749,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": false,
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
                           "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
@@ -775,6 +789,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_15",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": false,
                           "href": "/why-ethos/",
                           "id": "NAVLINKS_MOCK_ID_16",
                           "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
@@ -814,6 +829,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "id": "NAVLINKS_MOCK_ID_22",
                       "subnav": Object {
                         "cta": Object {
+                          "alternateIcon": false,
                           "href": "/faq/",
                           "id": "NAVLINKS_MOCK_ID_23",
                           "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",

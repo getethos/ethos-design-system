@@ -16,24 +16,30 @@ import IconIntegratedTitle from './IconIntegratedTitle'
  *
  * @param {string} title - A short title
  * @param {string} subcopy - A sentence of supporting copy
+ * @param {element | boolean} alternateIcon - Alternate icon to display in place of DropdownLinkIcon
  *
  * @return {JSX.Element}
  */
-const DropdownCta = ({ title, subcopy }) => (
-  <>
-    <TitleSmall.Serif.Book500>
-      <IconIntegratedTitle title={title}>
-        <DropdownLinkIcon />
-      </IconIntegratedTitle>
-    </TitleSmall.Serif.Book500>
-    <Spacer.H8 />
-    <Body.Regular400 color={COLORS.GRAY_SECONDARY}>{subcopy}</Body.Regular400>
-  </>
-)
+const DropdownCta = ({ title, subcopy, alternateIcon }) => {
+  const Icon = alternateIcon ? alternateIcon : DropdownLinkIcon
+
+  return (
+    <>
+      <TitleSmall.Serif.Book500>
+        <IconIntegratedTitle title={title}>
+          <Icon />
+        </IconIntegratedTitle>
+      </TitleSmall.Serif.Book500>
+      <Spacer.H8 />
+      <Body.Regular400 color={COLORS.GRAY_SECONDARY}>{subcopy}</Body.Regular400>
+    </>
+  )
+}
 
 DropdownCta.propTypes = {
   title: PropTypes.string.isRequired,
   subcopy: PropTypes.string.isRequired,
+  alternateIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 }
 
 export default DropdownCta
