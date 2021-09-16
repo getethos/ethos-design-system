@@ -1,3 +1,21 @@
+import React from 'react'
+
+const playIcon = () => (
+  <svg
+    width="21"
+    height="21"
+    viewBox="0 0 21 21"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.39941 5L15.1996 10.8002L8.39941 16.6005V10.8002L8.39941 5Z"
+      fill="#272727"
+    />
+    <circle cx="10.5" cy="10.5" r="10" stroke="black" />
+  </svg>
+)
+
 /**
  * Sample of UniversalNavbarExpanded links.
  * For demonstration in styleguide & test files (.md/.test.js files) only!
@@ -29,10 +47,11 @@ export const CMS_LINKS = {
       subnav: {
         cta: {
           href: '/#/Components/UniversalNavbarExpanded',
-          title: 'Our plans',
+          title: 'Watch the video',
           subcopy:
             'Learn more about term life insurance and the plans and options you have available.',
           id: 'NAVLINKS_MOCK_ID_2',
+          alternateIcon: playIcon,
         },
         items: [
           {
@@ -73,6 +92,7 @@ export const CMS_LINKS = {
           subcopy:
             'Wondering where to start? We’ve broken down the essentials for you.',
           id: 'NAVLINKS_MOCK_ID_9',
+          alternateIcon: false,
         },
         items: [
           {
@@ -114,6 +134,7 @@ export const CMS_LINKS = {
           subcopy:
             'We put people before profit. Find out how we bring our policyholders the best experience possible.',
           id: 'NAVLINKS_MOCK_ID_16',
+          alternateIcon: false,
         },
         items: [
           {
@@ -154,6 +175,7 @@ export const CMS_LINKS = {
           subcopy:
             'Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.',
           id: 'NAVLINKS_MOCK_ID_23',
+          alternateIcon: false,
         },
         items: [
           {

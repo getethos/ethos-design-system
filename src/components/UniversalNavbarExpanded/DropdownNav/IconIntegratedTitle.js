@@ -31,5 +31,5 @@ IconIntegratedTitle.propTypes = {
   /** `title` - (string) Some text to integrate the icon into. */
   title: PropTypes.string,
   /** `children` - (ReactNode) Icon to integrate into title. */
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired,
 }

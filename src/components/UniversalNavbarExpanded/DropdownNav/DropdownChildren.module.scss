@@ -43,6 +43,9 @@ $laptop-range-medium-end: 1050px;
       opacity: var(--HoverOpacity);
       text-decoration: underline;
     }
+    svg {
+      opacity: var(--HoverOpacity);
+    }
   }
 
   @include for-laptop-only {

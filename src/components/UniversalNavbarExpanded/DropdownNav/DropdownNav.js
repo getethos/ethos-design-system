@@ -58,6 +58,10 @@ DropdownNav.propTypes = {
             title: PropTypes.string,
             id: PropTypes.string,
             subcopy: PropTypes.string,
+            alternateIcon: PropTypes.oneOfType([
+              PropTypes.element,
+              PropTypes.bool,
+            ]),
           }),
           items: PropTypes.arrayOf(
             PropTypes.shape({

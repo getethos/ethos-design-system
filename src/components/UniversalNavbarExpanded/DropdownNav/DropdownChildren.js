@@ -65,6 +65,11 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
                   <DropdownCta
                     title={get(child, 'subnav.cta.title')}
                     subcopy={get(child, 'subnav.cta.subcopy')}
+                    alternateIcon={get(
+                      child,
+                      'subnav.cta.alternateIcon',
+                      false
+                    )}
                   />
                 </NavLink>
               )}
