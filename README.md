@@ -119,6 +119,9 @@ $ git push origin v1.2.3            # push tag v1.2.3
 $ git push -d origin v1.2.3         # delete tag v1.2.3 remotely
 ```
 
+## Product QA
+The EDS can be accessed internally at https://eds.eks.dev.ethos-int.com/. In order to access, you must be on the internal VPN. This link is a great resource to share with designers.
+
 ## Design patterns
 
 #### JS concepts
