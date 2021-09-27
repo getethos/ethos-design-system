@@ -63,7 +63,12 @@ export function Form({ children, config }) {
   fieldNames.forEach((fieldName) => {
     // We don't do the preinitialize to non empty string trick for optional
     // fields as we'd like those to only be validated upon entering something
-    if (config.fields[fieldName].optional) return
+    if (
+      config.fields[fieldName].optional ||
+      config.fields[fieldName].isPrefill
+    ) {
+      return
+    }
 
     // By default fields have "hidden" errors declared here.
     //
