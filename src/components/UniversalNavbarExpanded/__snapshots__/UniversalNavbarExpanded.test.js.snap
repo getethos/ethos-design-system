@@ -194,6 +194,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               "href": "/search/",
               "title": "Search",
             },
+            "SECONDARY_CTA": Object {
+              "href": "/login",
+              "title": "Login",
+            },
           }
         }
         logoHref="/"
@@ -421,6 +425,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                   "SEARCH": Object {
                     "href": "/search/",
                     "title": "Search",
+                  },
+                  "SECONDARY_CTA": Object {
+                    "href": "/login",
+                    "title": "Login",
                   },
                 }
               }
@@ -642,6 +650,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               "href": "/search/",
               "title": "Search",
             },
+            "SECONDARY_CTA": Object {
+              "href": "/login",
+              "title": "Login",
+            },
           }
         }
         logoHref="/"
@@ -869,6 +881,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                   "SEARCH": Object {
                     "href": "/search/",
                     "title": "Search",
+                  },
+                  "SECONDARY_CTA": Object {
+                    "href": "/login",
+                    "title": "Login",
                   },
                 }
               }

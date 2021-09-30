@@ -31,6 +31,10 @@ export const CMS_LINKS = {
     href: '/term',
     title: 'Check my price',
   },
+  SECONDARY_CTA: {
+    href: '/login',
+    title: 'Login',
+  },
   ACCOUNT: {
     href: '/login/',
     title: 'Account',
