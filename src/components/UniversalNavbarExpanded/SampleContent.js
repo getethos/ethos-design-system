@@ -33,7 +33,7 @@ export const CMS_LINKS = {
   },
   SECONDARY_CTA: {
     href: '/login',
-    title: 'Login'
+    title: 'Login',
   },
   ACCOUNT: {
     href: '/login/',
