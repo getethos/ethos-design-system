@@ -32,7 +32,9 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {boolean} hideDesktopCta - Hide cta on desktop
  * @param {boolean} hideSearchIcon - Hide search icon on desktop and link on mobile
  * @param {boolean} hideAccountIcon - Hide account icon on desktop and link on mobile
+ * @param {boolean} showSecondaryCta - Show secondary CTA text link on desktop and mobile
  * @param {function} trackCtaClick - Analytics function run when CTA Button is clicked
+ * @param {function} trackSecondaryCtaClick - Analytics function run when secondary CTA text link is clicked
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {string} logoHref - Href for the logo
  * @param {object} links - URLs and text
@@ -46,12 +48,18 @@ const UniversalNavbarExpanded = ({
   hideDesktopCta,
   hideSearchIcon,
   hideAccountIcon,
+  showSecondaryCta,
   logoHref,
   trackCtaClick,
+  trackSecondaryCtaClick,
   links,
   estimateExperiment,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
+
+  if (showSecondaryCta) {
+    BELOW_ACCORDION_LINKS.push(links.SECONDARY_CTA)
+  }
 
   if (!hideAccountIcon) {
     BELOW_ACCORDION_LINKS.push(links.ACCOUNT)
@@ -110,6 +118,14 @@ const UniversalNavbarExpanded = ({
                 {estimateExperiment && <ExperimentCopy />}
                 {!hideSearchIcon && <SearchIconLink />}
                 {!hideAccountIcon && <AccountIconLink />}
+                {showSecondaryCta && (
+                  <a
+                    href={links.SECONDARY_CTA.href}
+                    onClick={trackSecondaryCtaClick}
+                  >
+                    {links.SECONDARY_CTA.title}
+                  </a>
+                )}
                 <div className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
@@ -137,8 +153,12 @@ UniversalNavbarExpanded.propTypes = {
   hideSearchIcon: PropTypes.bool,
   /** Hide account icon on desktop and link on mobile */
   hideAccountIcon: PropTypes.bool,
+  /** Show secondary CTA text link */
+  showSecondaryCta: PropTypes.bool,
   /** Analytics function run when CTA Button is clicked */
   trackCtaClick: PropTypes.func,
+  /** Analytics function run when secondary CTA text link is clicked */
+  trackSecondaryCtaClick: PropTypes.func,
   /** Agnotistic Reach and React Router Link (ex. Gatsby's <Link>) */
   LinkComponent: PropTypes.object,
   /** Href for the logo */
@@ -151,6 +171,11 @@ UniversalNavbarExpanded.propTypes = {
     }),
     /** CTA button link & text { href: string, title: string } */
     CTA: PropTypes.shape({
+      href: PropTypes.string,
+      title: PropTypes.string,
+    }),
+    /** CTA text link { href: string, title: string } */
+    SECONDARY_CTA: PropTypes.shape({
       href: PropTypes.string,
       title: PropTypes.string,
     }),
