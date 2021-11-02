@@ -12,11 +12,11 @@ import errorStyles from '../Errors.module.scss'
 
 /**
  * @param type
- * @param  {String}   name        Input name and htmlFor prop for label
- * @param  {String}   labelCopy   User-visible text of label for input
- * @param  {Boolean}  allCaps     Whether to text-trasform: uppercase
+ * @param  {string}   name        Input name and htmlFor prop for label
+ * @param  {string}   labelCopy   User-visible text of label for input
+ * @param  {boolean}  allCaps     Whether to text-trasform: uppercase
  * @param  {Function} validator   Function for validating input
- * @param  {Boolean}  disabled
+ * @param  {boolean}  disabled
  * @param capitalize
  * @param formChangeHandler
  * @param initialValue
@@ -24,7 +24,11 @@ import errorStyles from '../Errors.module.scss'
  * @param currentError
  * @param setFieldTouched
  * @param restrictIllegal
- * @param  {String}   autoComplete  Autocomplete label
+ * @param  {string}   autoComplete  Autocomplete label
+ * @param {string} [classOverrides]
+ * @param {string} [labelColor]
+ * @param {string} [labelWeight]
+ * @param {string} [labelClasses]
  * @param rest
  */
 
@@ -43,6 +47,10 @@ function PrivateTextInput({
   setFieldTouched,
   restrictIllegal,
   autoComplete,
+  classOverrides,
+  labelColor,
+  labelWeight,
+  labelClasses,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -106,9 +114,17 @@ function PrivateTextInput({
   }
 
   const getClasses = () => {
-    return getError(currentError, touched)
-      ? `${styles.TextInputCommon} ${errorStyles.Error}`
-      : `${styles.TextInputCommon} ${styles.TextInputStylable}`
+    let returnClasses
+
+    if (getError(currentError, touched)) {
+      returnClasses = `${styles.TextInputCommon} ${errorStyles.Error}`
+    } else if (classOverrides) {
+      returnClasses = `${styles.TextInputCommon} ${classOverrides}`
+    } else {
+      returnClasses = `${styles.TextInputCommon} ${styles.TextInputStylable}`
+    }
+
+    return returnClasses
   }
 
   return (
@@ -117,6 +133,9 @@ function PrivateTextInput({
         <InputLabel
           name={name}
           labelCopy={labelCopy}
+          labelColor={props.labelColor}
+          labelWeight={props.labelWeight}
+          labelClasses={props.labelClasses}
           allCaps={allCaps}
           capitalize={capitalize}
         />
@@ -149,12 +168,16 @@ PrivateTextInput.PUBLIC_PROPS = {
   capitalize: PropTypes.bool,
   initialValue: PropTypes.string,
   labelCopy: PropTypes.string,
+  labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
   validator: PropTypes.func,
   placeholder: PropTypes.string,
   onBlur: PropTypes.func,
   onFocus: PropTypes.func,
   restrictIllegal: PropTypes.bool,
   autoComplete: PropTypes.string,
+  classOverrides: PropTypes.string,
 }
 
 PrivateTextInput.propTypes = {

@@ -733,6 +733,9 @@ export declare const EmailInput: {
     allCaps?: boolean
     name: string
     labelCopy?: string
+    labelColor?: string,
+    labelWeight?: string,
+    labelClasses?: string,
     validator?: (value: string) => string
     initialValue?: string
   }
