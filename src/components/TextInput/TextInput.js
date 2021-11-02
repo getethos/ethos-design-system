@@ -133,9 +133,9 @@ function PrivateTextInput({
         <InputLabel
           name={name}
           labelCopy={labelCopy}
-          labelColor={props.labelColor}
-          labelWeight={props.labelWeight}
-          labelClasses={props.labelClasses}
+          labelColor={labelColor}
+          labelWeight={labelWeight}
+          labelClasses={labelClasses}
           allCaps={allCaps}
           capitalize={capitalize}
         />
