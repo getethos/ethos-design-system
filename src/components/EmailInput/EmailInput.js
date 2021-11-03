@@ -50,9 +50,13 @@ EmailInput.propTypes = {
   capitalize: PropTypes.bool,
   name: PropTypes.string.isRequired,
   labelCopy: PropTypes.string,
+  labelColor: PropTypes.string,
+  labelWeight: PropTypes.string,
+  labelClasses: PropTypes.string,
   validator: PropTypes.func,
   initialValue: PropTypes.string,
   autoComplete: PropTypes.string,
+  classOverrides: PropTypes.string,
 }
 
 EmailInput.defaultProps = {

@@ -1,20 +1,14 @@
-**Description:**
+## [Jira Task]()
 
-- [Asana Task]()
--
+### Please review these reminders and either check the box or explain why not:
 
-**Is this a new component? Please review these reminders: **
-
-_Please pick one and delete options that are not relevant:_
-
-- [ ] Have you read the [contributing guidelines](https://eds.ethoslabs.io/#/Guidelines?id=section-contribute)?
-- [ ] Have exported the component from the main [index.js](https://github.com/getethos/ethos-design-system/blob/master/src/components/index.js)?
-- [ ] Have you exported it from the [index.d.ts](https://github.com/getethos/ethos-design-system/blob/master/src/components/index.d.ts) so Typescript users can consume it? Added a test and ran `yarn test:types`?
-- [ ] Followed the checklist at the bottom of the [contributing guidelines](https://eds.ethoslabs.io/#/Guidelines?id=section-contribute) guide?
+- [ ] Read and followed the [contributing guidelines](https://eds.ethoslabs.io/#/Guidelines?id=section-contribute)?
+- [ ] Component is exported from [index.js](https://github.com/getethos/ethos-design-system/blob/master/src/components/index.js)?
+- [ ] Type is exported from [index.d.ts](https://github.com/getethos/ethos-design-system/blob/master/src/components/index.d.ts) so Typescript users can consume it? Added a test and ran `yarn test:types`?
 - [ ] Bumped the yarn version?
 
-**Referencing PR or Branch (e.g. in CMS or monorepo):**
+### Referencing PR or Branch (e.g. in CMS or monorepo):
 
 -
 
-**Screenshots:**
+### Screenshots and extra notes:
