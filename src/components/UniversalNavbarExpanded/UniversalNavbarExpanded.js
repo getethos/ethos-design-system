@@ -112,7 +112,10 @@ const UniversalNavbarExpanded = ({
           <div className={styles.laptopAndUp}>
             <div className={styles.laptopAndUpContainer}>
               <div className={layoutClasses.join(' ')}>
-                <NavLink href={singleCta.href ? singleCta.href : logoHref} LinkComponent={LinkComponent}>
+                <NavLink
+                  href={singleCta.href ? singleCta.href : logoHref}
+                  LinkComponent={LinkComponent}
+                >
                   {LogoNotAnimated({ className: styles.logo })}
                 </NavLink>
                 {!singleCta.href && (
@@ -120,27 +123,29 @@ const UniversalNavbarExpanded = ({
                 )}
               </div>
               <div className={layoutClasses.join(' ')}>
-              {!singleCta.href && (
-                <>
-                {estimateExperiment && <ExperimentCopy />}
-                {!hideSearchIcon && <SearchIconLink />}
-                {!hideAccountIcon && <AccountIconLink />}
-                {showSecondaryCta && (
-                  <a
-                    href={links.SECONDARY_CTA.href}
-                    onClick={trackSecondaryCtaClick}
-                  >
-                    {links.SECONDARY_CTA.title}
-                  </a>
-                )}
-                </>
+                {!singleCta.href && (
+                  <>
+                    {estimateExperiment && <ExperimentCopy />}
+                    {!hideSearchIcon && <SearchIconLink />}
+                    {!hideAccountIcon && <AccountIconLink />}
+                    {showSecondaryCta && (
+                      <a
+                        href={links.SECONDARY_CTA.href}
+                        onClick={trackSecondaryCtaClick}
+                      >
+                        {links.SECONDARY_CTA.title}
+                      </a>
+                    )}
+                  </>
                 )}
                 <div className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
                       href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
-                      title={singleCta.title ? singleCta.title : links.CTA.title}
+                      title={
+                        singleCta.title ? singleCta.title : links.CTA.title
+                      }
                     />
                   )}
                 </div>

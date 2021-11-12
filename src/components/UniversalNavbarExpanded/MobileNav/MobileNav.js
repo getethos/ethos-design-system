@@ -98,7 +98,7 @@ const MobileNav = ({
   if (extraClass) {
     MobileNavClasses.push(extraClass)
   }
-  if(singleCta.href){
+  if (singleCta.href) {
     MobileNavClasses.push(styles.singleCta)
   }
 
