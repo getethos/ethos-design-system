@@ -24,6 +24,10 @@ const playIcon = () => (
  * TODO when Kustomer implementation is ready and we want to include a talk button
  *      add TALK to the object with href & title
  */
+export const SINGLE_CTA = {
+  href: 'https://stage.ethoslife.com/agents-portal/',
+  title: 'Go to Agent Portal',
+}
 export const CMS_LINKS = {
   // These are used e.g. in the logo, icons and bottom of mobile nav:
   INDEX: { href: '/' },

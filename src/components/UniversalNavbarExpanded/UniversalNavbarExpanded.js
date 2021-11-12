@@ -39,6 +39,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {string} logoHref - Href for the logo
  * @param {object} links - URLs and text
  * @param {boolean} estimateExperiment - enable the estimate experiment button/copy
+ * @param {string} singleCta - A single CTA URL to link to in a reduced version of the navbar
  *
  * @return {JSX.Element}
  */
@@ -54,6 +55,7 @@ const UniversalNavbarExpanded = ({
   trackSecondaryCtaClick,
   links,
   estimateExperiment,
+  singleCta,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -105,16 +107,21 @@ const UniversalNavbarExpanded = ({
             hideMobileCta={hideMobileCta}
             ctaButtonTrackingFunction={trackCtaClick}
             LinkComponent={LinkComponent}
+            singleCta={singleCta}
           />
           <div className={styles.laptopAndUp}>
             <div className={styles.laptopAndUpContainer}>
               <div className={layoutClasses.join(' ')}>
-                <NavLink href={logoHref} LinkComponent={LinkComponent}>
+                <NavLink href={singleCta.href ? singleCta.href : logoHref} LinkComponent={LinkComponent}>
                   {LogoNotAnimated({ className: styles.logo })}
                 </NavLink>
-                <DropdownNav links={links} LinkComponent={LinkComponent} />
+                {!singleCta.href && (
+                  <DropdownNav links={links} LinkComponent={LinkComponent} />
+                )}
               </div>
               <div className={layoutClasses.join(' ')}>
+              {!singleCta.href && (
+                <>
                 {estimateExperiment && <ExperimentCopy />}
                 {!hideSearchIcon && <SearchIconLink />}
                 {!hideAccountIcon && <AccountIconLink />}
@@ -126,12 +133,14 @@ const UniversalNavbarExpanded = ({
                     {links.SECONDARY_CTA.title}
                   </a>
                 )}
+                </>
+                )}
                 <div className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
-                      href={links.CTA.href}
+                      href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
-                      title={links.CTA.title}
+                      title={singleCta.title ? singleCta.title : links.CTA.title}
                     />
                   )}
                 </div>
@@ -227,6 +236,10 @@ UniversalNavbarExpanded.propTypes = {
   }).isRequired,
   /** Estimate copy experiment on optimizely */
   estimateExperiment: PropTypes.bool,
+  singleCta: PropTypes.shape({
+    href: PropTypes.string,
+    title: PropTypes.string,
+  }),
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -238,6 +251,7 @@ UniversalNavbarExpanded.defaultProps = {
   trackCtaClick: () => {},
   links: {},
   estimateExperiment: false,
+  singleCta: {},
 }
 
 export { UniversalNavbarExpanded }
