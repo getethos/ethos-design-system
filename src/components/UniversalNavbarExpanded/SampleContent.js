@@ -20,9 +20,6 @@ const playIcon = () => (
  * Sample of UniversalNavbarExpanded links.
  * For demonstration in styleguide & test files (.md/.test.js files) only!
  * Real implementation of this structure should use uuid() for id values!
- *
- * TODO when Kustomer implementation is ready and we want to include a talk button
- *      add TALK to the object with href & title
  */
 export const SINGLE_CTA = {
   href: 'https://stage.ethoslife.com/agents-portal/',
