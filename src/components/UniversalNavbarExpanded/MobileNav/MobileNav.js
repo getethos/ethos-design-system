@@ -67,7 +67,7 @@ BaseHamburger.propTypes = {
  * @param {string} logoHref - Href for the logo
  * @param {array} secondaryLinksLinks - List of links for static display below accordion
  * @param {boolean} hideMobileCta - Hide the cta
- * @param {string} singleCta - A single CTA URL to link to in a reduced version of the navbar
+ * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  *
  * @return {JSX.Element}
  */
