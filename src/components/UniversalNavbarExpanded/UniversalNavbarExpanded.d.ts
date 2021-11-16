@@ -15,6 +15,7 @@ type NavLink = {
       title: string
       id: string
       subcopy: string
+      alternateIcon?: any
     }
     items: SubNavItem[]
   }

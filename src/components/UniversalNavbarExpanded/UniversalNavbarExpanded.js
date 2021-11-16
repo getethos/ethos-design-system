@@ -20,13 +20,8 @@ import MobileNav from './MobileNav/MobileNav'
 import styles from './UniversalNavbarExpanded.module.scss'
 
 /**
- * Fork of UniversalNavbar for testing on CMS, likely to be consolidated
- * into one component before deploy to Mono.
- *
  * Top level website navigation, fixed to the top of the viewport while scrolling.
  * Consumers can provide a custom link and content structure.
- *
- * TODO for more reusability, make the Account/Search links agnostic and optional
  *
  * @param {boolean} hideMobileCta - Hide cta on mobile
  * @param {boolean} hideDesktopCta - Hide cta on desktop
@@ -225,6 +220,7 @@ UniversalNavbarExpanded.propTypes = {
             subcopy: PropTypes.string,
             alternateIcon: PropTypes.oneOfType([
               PropTypes.element,
+              PropTypes.func,
               PropTypes.bool,
             ]),
           }),
