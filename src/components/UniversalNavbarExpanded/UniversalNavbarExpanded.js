@@ -55,7 +55,7 @@ const UniversalNavbarExpanded = ({
   trackSecondaryCtaClick,
   links,
   estimateExperiment,
-  singleCta,
+  singleCta = {},
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
