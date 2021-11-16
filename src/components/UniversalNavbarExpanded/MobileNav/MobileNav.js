@@ -79,7 +79,7 @@ const MobileNav = ({
   hideMobileCta,
   ctaButtonTrackingFunction,
   LinkComponent,
-  singleCta,
+  singleCta = {},
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
