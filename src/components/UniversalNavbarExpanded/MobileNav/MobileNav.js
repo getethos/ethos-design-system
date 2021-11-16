@@ -67,6 +67,7 @@ BaseHamburger.propTypes = {
  * @param {string} logoHref - Href for the logo
  * @param {array} secondaryLinksLinks - List of links for static display below accordion
  * @param {boolean} hideMobileCta - Hide the cta
+ * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  *
  * @return {JSX.Element}
  */
@@ -78,6 +79,7 @@ const MobileNav = ({
   hideMobileCta,
   ctaButtonTrackingFunction,
   LinkComponent,
+  singleCta = {},
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -96,6 +98,9 @@ const MobileNav = ({
   if (extraClass) {
     MobileNavClasses.push(extraClass)
   }
+  if (singleCta.href) {
+    MobileNavClasses.push(styles.singleCta)
+  }
 
   const Hamburger = () => (
     <BaseHamburger
@@ -108,40 +113,44 @@ const MobileNav = ({
 
   return (
     <>
-      <Hamburger />
+      {!singleCta.href && <Hamburger />}
       <div className={MobileNavClasses.join(' ')}>
-        <div
-          className={showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu}
-        >
-          <NavLink
-            className={styles.phoneLogo}
-            href={logoHref}
-            currentPageAwareness={true}
-            currentPageFunction={(e) => toggleHamburger(e)}
-            currentPageCondition={showMobileMenu}
-            LinkComponent={LinkComponent}
+        {!singleCta.href && (
+          <div
+            className={
+              showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
+            }
           >
-            {LogoWhite({ className: styles.logo })}
-          </NavLink>
-          <Hamburger />
-          <AccordionNav
-            extraClass={styles.accordion}
-            links={links}
-            currentPageFunction={(e) => toggleHamburger(e)}
-            navVisible={showMobileMenu}
-            LinkComponent={LinkComponent}
-          />
-          <SecondaryLinks
-            links={secondaryLinksLinks}
-            className={styles.secondaryLinks}
-            currentPageFunction={(e) => toggleHamburger(e)}
-            currentPageCondition={showMobileMenu}
-            LinkComponent={LinkComponent}
-          />
-        </div>
+            <NavLink
+              className={styles.phoneLogo}
+              href={logoHref}
+              currentPageAwareness={true}
+              currentPageFunction={(e) => toggleHamburger(e)}
+              currentPageCondition={showMobileMenu}
+              LinkComponent={LinkComponent}
+            >
+              {LogoWhite({ className: styles.logo })}
+            </NavLink>
+            <Hamburger />
+            <AccordionNav
+              extraClass={styles.accordion}
+              links={links}
+              currentPageFunction={(e) => toggleHamburger(e)}
+              navVisible={showMobileMenu}
+              LinkComponent={LinkComponent}
+            />
+            <SecondaryLinks
+              links={secondaryLinksLinks}
+              className={styles.secondaryLinks}
+              currentPageFunction={(e) => toggleHamburger(e)}
+              currentPageCondition={showMobileMenu}
+              LinkComponent={LinkComponent}
+            />
+          </div>
+        )}
         <NavLink
           className={styles.phoneLogoFancy}
-          href={logoHref}
+          href={singleCta.href ? singleCta.href : logoHref}
           currentPageAwareness={true}
           currentPageFunction={(e) => toggleHamburger(e)}
           currentPageCondition={showMobileMenu}
@@ -150,10 +159,10 @@ const MobileNav = ({
           <FancyAnimatedLogo />
         </NavLink>
         <CtaButton
-          href={links.CTA.href}
+          href={singleCta.href ? singleCta.href : links.CTA.href}
           trackingFunction={ctaButtonTrackingFunction}
           hideOnMobile={hideMobileCta}
-          title={links.CTA.title}
+          title={singleCta.title ? singleCta.title : links.CTA.title}
         />
       </div>
     </>
@@ -168,6 +177,10 @@ MobileNav.propTypes = {
   logoHref: PropTypes.string.isRequired,
   secondaryLinksLinks: PropTypes.array.isRequired,
   hideMobileCta: PropTypes.bool,
+  singleCta: PropTypes.shape({
+    href: PropTypes.string,
+    title: PropTypes.string,
+  }),
 }
 
 export default MobileNav

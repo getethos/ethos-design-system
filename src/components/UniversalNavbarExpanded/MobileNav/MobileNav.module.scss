@@ -51,6 +51,16 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
       }
     }
   }
+
+  &.singleCta {
+    :global {
+      @include for-phone-and-tablet {
+        .cta-button.show-when-scrolled.navbar-expanded {
+          right: 7px;
+        }
+      }
+    }
+  }
 }
 
 .logo {

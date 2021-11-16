@@ -15,6 +15,7 @@ type NavLink = {
       title: string
       id: string
       subcopy: string
+      alternateIcon?: any
     }
     items: SubNavItem[]
   }
@@ -51,6 +52,7 @@ type UniversalNavbarExpandedProps = {
     NAVLINKS: NavLink[]
     /** Estimate copy experiment on optimizely */
     estimateExperiment?: boolean
+    singleCta?: { href: string; title: string }
   }
 }
 

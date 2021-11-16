@@ -217,6 +217,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             },
           ]
         }
+        singleCta={Object {}}
       />
       <div
         className="laptopAndUp"
@@ -437,8 +438,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           <div
             className="flex itemsCenter"
           >
-            <SearchIconLink />
-            <AccountIconLink />
+            <React.Fragment>
+              <SearchIconLink />
+              <AccountIconLink />
+            </React.Fragment>
             <div
               className="cta"
             >
@@ -673,6 +676,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             },
           ]
         }
+        singleCta={Object {}}
       />
       <div
         className="laptopAndUp"
@@ -893,9 +897,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           <div
             className="flex itemsCenter"
           >
-            <ExperimentCopy />
-            <SearchIconLink />
-            <AccountIconLink />
+            <React.Fragment>
+              <ExperimentCopy />
+              <SearchIconLink />
+              <AccountIconLink />
+            </React.Fragment>
             <div
               className="cta"
             >
