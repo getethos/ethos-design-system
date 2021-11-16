@@ -39,7 +39,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {string} logoHref - Href for the logo
  * @param {object} links - URLs and text
  * @param {boolean} estimateExperiment - enable the estimate experiment button/copy
- * @param {string} singleCta - A single CTA URL to link to in a reduced version of the navbar
+ * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  *
  * @return {JSX.Element}
  */
