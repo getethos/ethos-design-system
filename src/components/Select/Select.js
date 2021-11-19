@@ -123,7 +123,11 @@ export const Select = ({
   }
 
   return (
-    <div className={title ? styles.wrapper : ''} data-tid={rest['data-tid']}>
+    <div
+      name={name}
+      className={title ? styles.wrapper : ''}
+      data-tid={rest['data-tid']}
+    >
       {labelCopy && (
         <InputLabel
           name={'this is a test'}

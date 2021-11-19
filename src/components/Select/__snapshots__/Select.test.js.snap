@@ -9,6 +9,7 @@ Object {
         class="wrapper"
         data-tid="my-select"
       >
+        This is a test
         <div
           class="foo Compact root css-2b097c-container"
         >
@@ -89,6 +90,7 @@ Object {
       class="wrapper"
       data-tid="my-select"
     >
+      This is a test
       <div
         class="foo Compact root css-2b097c-container"
       >
@@ -226,6 +228,7 @@ Object {
         class=""
         data-tid="my-select"
       >
+        This is a test
         <div
           class="foo Compact root css-2b097c-container"
         >
@@ -300,6 +303,7 @@ Object {
       class=""
       data-tid="my-select"
     >
+      This is a test
       <div
         class="foo Compact root css-2b097c-container"
       >
