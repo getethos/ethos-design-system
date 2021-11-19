@@ -139,6 +139,8 @@ export const Select = ({
         className={getClasses()}
         onChange={onChangeHandler}
         onBlur={onBlur}
+        name={name}
+        id={name}
         aria-label={title} // https://react-select.com/props#select-props
         {...rest}
       />
