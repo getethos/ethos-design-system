@@ -126,7 +126,7 @@ export const Select = ({
     <div className={title ? styles.wrapper : ''} data-tid={rest['data-tid']}>
       {labelCopy && (
         <InputLabel
-          name={name}
+          name={'this is a test'}
           labelCopy={labelCopy}
           labelColor={labelColor}
           labelWeight={labelWeight}
@@ -134,7 +134,7 @@ export const Select = ({
           allCaps={allCaps}
         />
       )}
-
+      {'This is a test'}
       <SelectTag
         className={getClasses()}
         onChange={onChangeHandler}
