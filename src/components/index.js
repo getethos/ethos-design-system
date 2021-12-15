@@ -56,6 +56,7 @@ export {
 } from './Type'
 export {
   Caption2,
+  Eyebrow2,
   Body2,
   TitleSmall2,
   TitleMedium2,

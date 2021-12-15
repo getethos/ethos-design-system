@@ -18,6 +18,7 @@
 .TitleXLarge,
 .TitleXXLarge,
 .Caption2,
+.Eyebrow2,
 .Body2,
 .TitleSmall2,
 .TitleMedium2,
@@ -402,6 +403,7 @@ h6,
 .TitleXLarge,
 .TitleXXLarge,
 .Caption2,
+.Eyebrow2,
 .Body2,
 .TitleSmall2,
 .TitleMedium2,
@@ -426,6 +428,16 @@ h6,
     font-size: $font-size * 1px;
     line-height: $line-height / $font-size;
     letter-spacing: 0.0045em;
+  }
+}
+
+.Eyebrow2 {
+  &.Theinhardt {
+    $font-size: 10.5;
+    $line-height: 16;
+    font-size: $font-size * 1px;
+    line-height: $line-height / $font-size;
+    letter-spacing: 0.08em;
   }
 }
 

@@ -104,6 +104,7 @@ TypeBase.SUBTYPES = {
   TITLE_MEDIUM2: 'TitleMedium2',
   TITLE_LARGE2: 'TitleLarge2',
   TITLE_XLARGE2: 'TitleXLarge2',
+  EYEBROW2: 'Eyebrow2',
 }
 
 TypeBase.TYPEFACES = {
