@@ -1,4 +1,5 @@
 export { Caption2 } from '../Caption2.js'
+export { Eyebrow2 } from '../Eyebrow2.js'
 export { Body2 } from '../Body2.js'
 export { TitleSmall2 } from './TitleSmall2.js'
 export { TitleMedium2 } from './TitleMedium2.js'
