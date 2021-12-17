@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../Media/Media.scss';
 
 .Theinhardt {
@@ -90,14 +92,14 @@
     $font-size: 12;
     $line-height: 15;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
   }
 
   @include for-tablet-and-up {
     $font-size: 13.5;
     $line-height: 16;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
   }
 }
 
@@ -106,14 +108,14 @@
     $font-size: 15;
     $line-height: 18;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
   }
 
   @include for-tablet-and-up {
     $font-size: 15.5;
     $line-height: 20;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
   }
 }
 
@@ -147,21 +149,21 @@ h6,
       $font-size: 21.75;
       $line-height: 26;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 24;
       $line-height: 28;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 27;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 
@@ -170,21 +172,21 @@ h6,
       $font-size: 21.75;
       $line-height: 26;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 24;
       $line-height: 28;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 27;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 }
@@ -195,21 +197,21 @@ h6,
       $font-size: 23.5;
       $line-height: 28;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 28;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 35.5;
       $line-height: 40;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 
@@ -218,21 +220,21 @@ h6,
       $font-size: 27.5;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 32;
       $line-height: 36;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 33;
       $line-height: 40;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 }
@@ -243,21 +245,21 @@ h6,
       $font-size: 28;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 38;
       $line-height: 40;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 45;
       $line-height: 48;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 
@@ -266,21 +268,21 @@ h6,
       $font-size: 32;
       $line-height: 36;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 40;
       $line-height: 46;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 43.5;
       $line-height: 49;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 }
@@ -291,21 +293,21 @@ h6,
       $font-size: 33;
       $line-height: 36;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 59;
       $line-height: 64;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 69;
       $line-height: 72;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 
@@ -314,21 +316,21 @@ h6,
       $font-size: 36.5;
       $line-height: 40;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 51;
       $line-height: 56;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 69.5;
       $line-height: 72;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 }
@@ -339,28 +341,28 @@ h6,
       $font-size: 44;
       $line-height: 41.5;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-only {
       $font-size: 76;
       $line-height: 76;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-laptop-only {
       $font-size: 78;
       $line-height: 80;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 92;
       $line-height: 92;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 
@@ -369,21 +371,21 @@ h6,
       $font-size: 41.5;
       $line-height: 44;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-tablet-and-laptop {
       $font-size: 71;
       $line-height: 76;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
 
     @include for-desktop-only {
       $font-size: 90.5;
       $line-height: 96;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
     }
   }
 }
@@ -426,7 +428,7 @@ h6,
     $font-size: 14;
     $line-height: 16;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: 0.0045em;
   }
 }
@@ -436,7 +438,7 @@ h6,
     $font-size: 10.5;
     $line-height: 16;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: 0.08em;
   }
 }
@@ -446,7 +448,7 @@ h6,
     $font-size: 17.5;
     $line-height: 24;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: 0;
   }
 }
@@ -456,7 +458,7 @@ h6,
     $font-size: 20;
     $line-height: 26;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: 0.001em;
   }
 
@@ -464,7 +466,7 @@ h6,
     $font-size: 24.5;
     $line-height: 28;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: -0.017em;
   }
 }
@@ -476,7 +478,7 @@ h6,
       $font-size: 20;
       $line-height: 26;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
       letter-spacing: 0.001em;
     }
 
@@ -484,7 +486,7 @@ h6,
       $font-size: 24;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
       letter-spacing: -0.0125em;
     }
   }
@@ -493,7 +495,7 @@ h6,
     $font-size: 32;
     $line-height: 36;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: -0.022em;
   }
 }
@@ -505,7 +507,7 @@ h6,
       $font-size: 24;
       $line-height: 32;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
       letter-spacing: -0.0125em;
     }
 
@@ -513,7 +515,7 @@ h6,
       $font-size: 28;
       $line-height: 36;
       font-size: $font-size * 1px;
-      line-height: $line-height / $font-size;
+      line-height: math.div($line-height, $font-size);
       letter-spacing: -0.016em;
     }
   }
@@ -522,7 +524,7 @@ h6,
     $font-size: 43.5;
     $line-height: 48;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: -0.0275em;
   }
 }
@@ -532,7 +534,7 @@ h6,
     $font-size: 60;
     $line-height: 64;
     font-size: $font-size * 1px;
-    line-height: $line-height / $font-size;
+    line-height: math.div($line-height, $font-size);
     letter-spacing: -0.034em;
   }
 }
