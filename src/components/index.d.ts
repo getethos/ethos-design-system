@@ -1235,6 +1235,7 @@ export declare const NumberInput: {
     placeholderChar?: string
     guide?: boolean
     keepCharPositions?: boolean
+    maxLength?: number
   }
   defaultProps: {
     type: string
