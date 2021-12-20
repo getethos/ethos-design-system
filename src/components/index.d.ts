@@ -803,6 +803,7 @@ export declare const TextMaskedInput: {
     getTouched?: boolean
     placeholderChar?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    maxLength?: number
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -824,6 +825,7 @@ export declare const TextMaskedInput: {
     getTouched?: boolean
     placeholderChar?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    maxLength?: number
   }
   defaultProps: {
     placeholder: string
