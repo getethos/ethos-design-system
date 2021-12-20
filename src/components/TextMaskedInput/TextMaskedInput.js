@@ -29,6 +29,7 @@ export const TextMaskedInput = (props) => {
     placeholderChar,
     autoComplete,
     classOverrides,
+    maxLength,
     ...restProps
   } = props
 
@@ -108,6 +109,7 @@ export const TextMaskedInput = (props) => {
     disabled: restProps.disabled,
     placeholderChar,
     autoComplete,
+    maxLength,
   }
 
   if (typeof mask !== 'function') {
@@ -160,6 +162,7 @@ TextMaskedInput.PUBLIC_PROPS = {
   labelColor: PropTypes.string,
   labelWeight: PropTypes.string,
   labelClasses: PropTypes.string,
+  maxLength: PropTypes.number,
 }
 
 TextMaskedInput.propTypes = {

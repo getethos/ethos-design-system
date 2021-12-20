@@ -32,6 +32,7 @@ export const NumberInput = (props) => {
     guide = true,
     keepCharPositions = true,
     autoComplete,
+    maxLength,
     ...restProps
   } = props
 
@@ -59,6 +60,7 @@ export const NumberInput = (props) => {
         guide={guide}
         keepCharPositions={keepCharPositions}
         autoComplete={autoComplete}
+        maxLength={maxLength}
       />
     </>
   )
@@ -85,6 +87,7 @@ NumberInput.propTypes = {
   guide: PropTypes.bool,
   keepCharPositions: PropTypes.bool,
   autoComplete: PropTypes.string,
+  maxLength: PropTypes.number,
 }
 
 NumberInput.defaultProps = {
