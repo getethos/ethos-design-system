@@ -45,4 +45,21 @@ describe('Tooltip', () => {
       expect(tree).toMatchSnapshot()
     })
   })
+
+  describe('rendering component with JSX details', () => {
+    const testJSX = (
+      <p>
+        Details 1<br />
+        <br />
+        Details 2
+      </p>
+    )
+
+    test('rendering with jsx details', () => {
+      const tree = render(
+        <Tooltip label={'testLabel'} details={testJSX} useSoftEdges></Tooltip>
+      )
+      expect(tree).toMatchSnapshot()
+    })
+  })
 })
