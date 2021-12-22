@@ -45,22 +45,6 @@ export const Tooltip = ({
 
   const modalStyle = [styles.mobileModal, useSoftEdges ? styles.softEdges : '']
 
-  const CloseButtton = (useSoftEdges) => {
-    const closeButtonClassName = useSoftEdges
-      ? styles.closeButtonCircle
-      : styles.closeButton
-
-    return (
-      <button
-        className={closeButtonClassName}
-        onClick={() => setModalVisibility(false)}
-      >
-        {useSoftEdges && Tooltip.SVGS.closeButtonCircle}
-        {!useSoftEdges && Tooltip.SVGS.closeButton}
-      </button>
-    )
-  }
-
   const renderModal = (
     <div>
       <Modal
@@ -76,7 +60,10 @@ export const Tooltip = ({
             </TitleLarge.Sans.Regular400>
           </div>
           <Body.Regular400 id={DESC_ID}>{details}</Body.Regular400>
-          <CloseButtton useSoftEdges />
+          <ModalCloseButtton
+            useSoftEdges={useSoftEdges}
+            onClick={() => setModalVisibility(false)}
+          />
         </div>
       </Modal>
     </div>
@@ -335,6 +322,24 @@ PopperContent.propTypes = {
   scheduleUpdate: PropTypes.func,
   details: PropTypes.string | PropTypes.element,
   useSoftEdges: PropTypes.bool,
+}
+
+const ModalCloseButtton = ({ useSoftEdges, onClick }) => {
+  const closeButtonClassName = useSoftEdges
+    ? styles.closeButtonCircle
+    : styles.closeButton
+
+  return (
+    <button className={closeButtonClassName} onClick={onClick}>
+      {useSoftEdges && Tooltip.SVGS.closeButtonCircle}
+      {!useSoftEdges && Tooltip.SVGS.closeButton}
+    </button>
+  )
+}
+
+ModalCloseButtton.propTypes = {
+  useSoftEdges: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 export default Tooltip
