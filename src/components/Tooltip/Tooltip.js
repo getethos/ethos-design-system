@@ -134,7 +134,7 @@ export const Tooltip = ({
                 visible={tooltipVisible}
                 details={details}
                 popperBoxStyles={popperBoxStyles}
-                useSoftEdges
+                useSoftEdges={useSoftEdges}
                 {...rest}
               />
             )}
