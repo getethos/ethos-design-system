@@ -766,7 +766,7 @@ interface TooltipProps {
   children?: React.ReactNode
   className?: string
   noLayout?: boolean
-  useSoftEdges?: boolean
+  softCorners?: boolean
 }
 
 export declare const Tooltip: {
@@ -778,7 +778,7 @@ export declare const Tooltip: {
     details,
     boundariesElement,
     children,
-    useSoftEdges,
+    softCorners,
   }: TooltipProps): JSX.Element
   propTypes: TooltipProps
 }
