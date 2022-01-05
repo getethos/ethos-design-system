@@ -25,7 +25,7 @@ export const Tooltip = ({
   className,
   children,
   boundariesElement,
-  useSoftEdges,
+  softCorners,
 }) => {
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
@@ -43,7 +43,7 @@ export const Tooltip = ({
       .matches
   }
 
-  const modalStyle = [styles.mobileModal, useSoftEdges ? styles.softEdges : '']
+  const modalStyle = [styles.mobileModal, softCorners ? styles.softCorners : '']
 
   const renderModal = (
     <div>
@@ -61,7 +61,7 @@ export const Tooltip = ({
           </div>
           <Body.Regular400 id={DESC_ID}>{details}</Body.Regular400>
           <ModalCloseButtton
-            useSoftEdges={useSoftEdges}
+            softCorners={softCorners}
             onClick={() => setModalVisibility(false)}
           />
         </div>
@@ -88,7 +88,7 @@ export const Tooltip = ({
     outOfBoundaries: true,
     modifiers,
     eventsEnabled: true,
-    useSoftEdges,
+    softCorners,
   }
 
   const tooltipClasses = [
@@ -121,7 +121,7 @@ export const Tooltip = ({
                 visible={tooltipVisible}
                 details={details}
                 popperBoxStyles={popperBoxStyles}
-                useSoftEdges={useSoftEdges}
+                softCorners={softCorners}
                 {...rest}
               />
             )}
@@ -219,6 +219,7 @@ Tooltip.defaultProps = {
   placement: Tooltip.PLACEMENT_TYPES.TOP,
   inline: false,
   boundariesElement: Tooltip.BOUNDARIES_ELEMENT.SCROLL_PARENT,
+  softCorners: false,
 }
 
 Tooltip.propTypes = {
@@ -242,7 +243,7 @@ Tooltip.propTypes = {
   /** Classes to apply to root element */
   className: PropTypes.string,
   /** Indicates whether to use soft edges*/
-  useSoftEdges: PropTypes.bool,
+  softCorners: PropTypes.bool,
 }
 
 const PopperContent = ({
@@ -254,7 +255,7 @@ const PopperContent = ({
   arrowProps,
   scheduleUpdate,
   details,
-  useSoftEdges,
+  softCorners,
 }) => {
   const [isPositioned, setIsPositioned] = useState(false)
 
@@ -283,7 +284,7 @@ const PopperContent = ({
     popperBoxStyles,
     styles.popperContentBox,
     visible && isPositioned ? styles.visible : styles.hidden,
-    useSoftEdges ? styles.softEdges : '',
+    softCorners ? styles.softCorners : '',
   ]
 
   // On first reveal of tooltip, schedule an update so positioning
@@ -321,24 +322,24 @@ PopperContent.propTypes = {
   arrowProps: PropTypes.object,
   scheduleUpdate: PropTypes.func,
   details: PropTypes.string | PropTypes.element,
-  useSoftEdges: PropTypes.bool,
+  softCorners: PropTypes.bool,
 }
 
-const ModalCloseButtton = ({ useSoftEdges, onClick }) => {
-  const closeButtonClassName = useSoftEdges
+const ModalCloseButtton = ({ softCorners, onClick }) => {
+  const closeButtonClassName = softCorners
     ? styles.closeButtonCircle
     : styles.closeButton
 
   return (
     <button className={closeButtonClassName} onClick={onClick}>
-      {useSoftEdges && Tooltip.SVGS.closeButtonCircle}
-      {!useSoftEdges && Tooltip.SVGS.closeButton}
+      {softCorners && Tooltip.SVGS.closeButtonCircle}
+      {!softCorners && Tooltip.SVGS.closeButton}
     </button>
   )
 }
 
 ModalCloseButtton.propTypes = {
-  useSoftEdges: PropTypes.bool,
+  softCorners: PropTypes.bool,
   onClick: PropTypes.func,
 }
 
