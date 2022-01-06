@@ -77,10 +77,6 @@
   }
 }
 
-.softCorners {
-  border-radius: 8px;
-}
-
 .popperContentBox {
   @include for-phone-only {
     display: none;
@@ -111,6 +107,10 @@
   &.hidden {
     opacity: 0;
     visibility: hidden;
+  }
+
+  &.softCorners {
+    border-radius: 8px;
   }
 }
 
@@ -155,5 +155,9 @@
 
   .label {
     margin-bottom: var(--Space-24);
+  }
+
+  &.softCorners {
+    border-radius: 8px;
   }
 }
