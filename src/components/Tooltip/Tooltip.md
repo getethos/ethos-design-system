@@ -25,13 +25,17 @@ import styles from './TooltipExamples.module.scss'
 import tipStyles from './Tooltip.module.scss'
 ;<>
   <div className={styles.basicExample}>
-    <Tooltip popperBoxStyles={styles.CustomTipExample} label="burger icon" details="Burgers are so tasty!" placement={'right'} >
-        <FontAwesomeIcon icon={['far', 'hamburger']} className={tipStyles.icon} />
+    <Tooltip
+      popperBoxStyles={styles.CustomTipExample}
+      label="burger icon"
+      details="Burgers are so tasty!"
+      placement={'right'}
+    >
+      <FontAwesomeIcon icon={['far', 'hamburger']} className={tipStyles.icon} />
     </Tooltip>
   </div>
 </>
 ```
-
 
 ### `placement`
 
@@ -83,6 +87,38 @@ import styles from './TooltipExamples.module.scss'
   <div className={styles.basicExample}>
     Hey there this <Tooltip label="Inline" details="Hi again" inline /> is an
     inline tooltip
+  </div>
+</>
+```
+
+### `softCorners`
+
+Customize the corner of tooltip. Setting 'softCorners' properties as trye will display rounded corners
+
+```jsx
+import styles from './TooltipExamples.module.scss'
+;<>
+  <div className={styles.softCornerExampleLayout}>
+    <div className={styles.basicExample}>
+      Soft corners tooltip example
+      <Tooltip
+        popperBoxStyles={styles.softCornerExample}
+        label="Soft Corners"
+        details="Soft Corners"
+        placement={'top'}
+        softCorners
+      />
+    </div>
+    <div className={styles.basicExample}>
+      Default corners tooltip example
+      <Tooltip
+        popperBoxStyles={styles.softCornerExample}
+        label="Default Corners"
+        details="Default Corners"
+        placement={'top'}
+        softCorners={false}
+      />
+    </div>
   </div>
 </>
 ```
