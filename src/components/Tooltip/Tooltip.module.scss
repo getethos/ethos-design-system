@@ -109,7 +109,7 @@
     visibility: hidden;
   }
 
-  &.softEdges {
+  &.softCorners {
     border-radius: 8px;
   }
 }
@@ -157,7 +157,7 @@
     margin-bottom: var(--Space-24);
   }
 
-  &.softEdges {
+  &.softCorners {
     border-radius: 8px;
   }
 }
