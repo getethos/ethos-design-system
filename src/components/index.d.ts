@@ -734,9 +734,9 @@ export declare const EmailInput: {
     allCaps?: boolean
     name: string
     labelCopy?: string
-    labelColor?: string,
-    labelWeight?: string,
-    labelClasses?: string,
+    labelColor?: string
+    labelWeight?: string
+    labelClasses?: string
     validator?: (value: string) => string
     initialValue?: string
   }
@@ -760,12 +760,13 @@ interface TooltipProps {
   placement?: 'top' | 'right' | 'left' | 'bottom' | 'auto'
   label: string
   inline?: boolean
-  details: string
+  details: string | JSX.Element
   popperBoxStyles?: string
   boundariesElement?: 'viewport' | 'scrollParent' | 'window'
   children?: React.ReactNode
   className?: string
   noLayout?: boolean
+  softCorners?: boolean
 }
 
 export declare const Tooltip: {
@@ -777,6 +778,7 @@ export declare const Tooltip: {
     details,
     boundariesElement,
     children,
+    softCorners,
   }: TooltipProps): JSX.Element
   propTypes: TooltipProps
 }

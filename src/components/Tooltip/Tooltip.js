@@ -25,6 +25,7 @@ export const Tooltip = ({
   className,
   children,
   boundariesElement,
+  softCorners,
 }) => {
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
@@ -42,6 +43,8 @@ export const Tooltip = ({
       .matches
   }
 
+  const modalStyle = [styles.mobileModal, softCorners ? styles.softCorners : '']
+
   const renderModal = (
     <div>
       <Modal
@@ -50,19 +53,17 @@ export const Tooltip = ({
         ariaLabelledBy={HEADER_ID}
         ariaDescribedBy={DESC_ID}
       >
-        <div className={styles.mobileModal}>
+        <div className={modalStyle.join(' ')}>
           <div className={styles.label}>
             <TitleLarge.Sans.Regular400 id={HEADER_ID}>
               {label}
             </TitleLarge.Sans.Regular400>
           </div>
           <Body.Regular400 id={DESC_ID}>{details}</Body.Regular400>
-          <button
-            className={styles.closeButton}
+          <ModalCloseButtton
+            softCorners={softCorners}
             onClick={() => setModalVisibility(false)}
-          >
-            {Tooltip.SVGS.closeButton}
-          </button>
+          />
         </div>
       </Modal>
     </div>
@@ -87,6 +88,7 @@ export const Tooltip = ({
     outOfBoundaries: true,
     modifiers,
     eventsEnabled: true,
+    softCorners,
   }
 
   const tooltipClasses = [
@@ -119,6 +121,7 @@ export const Tooltip = ({
                 visible={tooltipVisible}
                 details={details}
                 popperBoxStyles={popperBoxStyles}
+                softCorners={softCorners}
                 {...rest}
               />
             )}
@@ -148,6 +151,21 @@ Tooltip.SVGS = {
       <path
         d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z"
         fill="black"
+      />
+    </svg>
+  ),
+  closeButtonCircle: (
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="16" cy="16" r="16" fill="#F5F5F5" />
+      <path
+        d="M17.0606 16L20.2656 12.795L20.9266 12.1341C21.0241 12.0366 21.0241 11.8781 20.9266 11.7806L20.2194 11.0734C20.1219 10.9759 19.9634 10.9759 19.8659 11.0734L16 14.9394L12.1341 11.0731C12.0366 10.9756 11.8781 10.9756 11.7806 11.0731L11.0731 11.7803C10.9756 11.8778 10.9756 12.0363 11.0731 12.1338L14.9394 16L11.0731 19.8659C10.9756 19.9634 10.9756 20.1219 11.0731 20.2194L11.7803 20.9266C11.8778 21.0241 12.0362 21.0241 12.1337 20.9266L16 17.0606L19.205 20.2656L19.8659 20.9266C19.9634 21.0241 20.1219 21.0241 20.2194 20.9266L20.9266 20.2194C21.0241 20.1219 21.0241 19.9634 20.9266 19.8659L17.0606 16Z"
+        fill="#727272"
       />
     </svg>
   ),
@@ -201,6 +219,7 @@ Tooltip.defaultProps = {
   placement: Tooltip.PLACEMENT_TYPES.TOP,
   inline: false,
   boundariesElement: Tooltip.BOUNDARIES_ELEMENT.SCROLL_PARENT,
+  softCorners: false,
 }
 
 Tooltip.propTypes = {
@@ -215,13 +234,16 @@ Tooltip.propTypes = {
   /** String for overriding default tooltip box styles. You can, for example override the white background color with this. */
   popperBoxStyles: PropTypes.string,
   /** Tooltip description */
-  details: PropTypes.string.isRequired,
+  details: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    .isRequired,
   /** String that sets what Element the tooltip events should trigger against, can be `'viewport'`, `'scrollParent'` or`'window'`*/
   boundariesElement: PropTypes.oneOf(Object.values(Tooltip.BOUNDARIES_ELEMENT)),
   /** The Modal's children */
   children: PropTypes.node,
   /** Classes to apply to root element */
   className: PropTypes.string,
+  /** Indicates whether to use soft edges*/
+  softCorners: PropTypes.bool,
 }
 
 const PopperContent = ({
@@ -233,6 +255,7 @@ const PopperContent = ({
   arrowProps,
   scheduleUpdate,
   details,
+  softCorners,
 }) => {
   const [isPositioned, setIsPositioned] = useState(false)
 
@@ -261,6 +284,7 @@ const PopperContent = ({
     popperBoxStyles,
     styles.popperContentBox,
     visible && isPositioned ? styles.visible : styles.hidden,
+    softCorners ? styles.softCorners : '',
   ]
 
   // On first reveal of tooltip, schedule an update so positioning
@@ -297,7 +321,26 @@ PopperContent.propTypes = {
   placement: PropTypes.string,
   arrowProps: PropTypes.object,
   scheduleUpdate: PropTypes.func,
-  details: PropTypes.string,
+  details: PropTypes.string | PropTypes.element,
+  softCorners: PropTypes.bool,
+}
+
+const ModalCloseButtton = ({ softCorners, onClick }) => {
+  const closeButtonClassName = softCorners
+    ? styles.closeButtonCircle
+    : styles.closeButton
+
+  return (
+    <button className={closeButtonClassName} onClick={onClick}>
+      {softCorners && Tooltip.SVGS.closeButtonCircle}
+      {!softCorners && Tooltip.SVGS.closeButton}
+    </button>
+  )
+}
+
+ModalCloseButtton.propTypes = {
+  softCorners: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 export default Tooltip
