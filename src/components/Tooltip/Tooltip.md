@@ -93,7 +93,7 @@ import styles from './TooltipExamples.module.scss'
 
 ### `softCorners`
 
-Customize the corner of tooltip. Setting 'softCorners' properties as trye will display rounded corners
+Customize the corner of tooltip. Setting 'softCorners={true}' will display rounded corners
 
 ```jsx
 import styles from './TooltipExamples.module.scss'
