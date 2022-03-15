@@ -50,10 +50,7 @@ export const Select = ({
   //    {value: "CA", label: "CA"}
   // for multi (array):
   //    [{"value": "CA", "label": "CA"}, {"value": "NY", "label": "NY"}]
-  const [userSelection, updateUserSelection] = useState({
-    value: '',
-    label: '',
-  })
+  const [userSelection, updateUserSelection] = useState(undefined)
   const onChangeHandler = (lastSelection, actionMeta) => {
     /**
      * For multi selects, react-select allows the user to remove all the
@@ -80,10 +77,12 @@ export const Select = ({
     let resolvedValues = ''
     // react-select multi select case
     if (Array.isArray(userSelection)) {
-      resolvedValues = userSelection.map((selection) => selection.value)
+      resolvedValues = userSelection
+        ?.map((selection) => selection?.value)
+        ?.filter((selection) => selection !== undefined)
     } else {
       // react-select single select case
-      resolvedValues = userSelection.value
+      resolvedValues = userSelection?.value
     }
 
     errorMessage = validate(resolvedValues)
