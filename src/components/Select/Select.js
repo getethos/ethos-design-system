@@ -78,8 +78,8 @@ export const Select = ({
     // react-select multi select case
     if (Array.isArray(userSelection)) {
       resolvedValues = userSelection
-        ?.filter((selection) => selection !== undefined)
         ?.map((selection) => selection?.value)
+        ?.filter((selection) => selection !== undefined)
     } else {
       // react-select single select case
       resolvedValues = userSelection?.value
