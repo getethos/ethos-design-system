@@ -77,10 +77,10 @@ export const Select = ({
     let resolvedValues = ''
     // react-select multi select case
     if (Array.isArray(userSelection)) {
-      resolvedValues = userSelection.map((selection) => selection.value)
+      resolvedValues = userSelection?.map((selection) => selection?.value)
     } else {
       // react-select single select case
-      resolvedValues = userSelection.value
+      resolvedValues = userSelection?.value
     }
 
     errorMessage = validate(resolvedValues)
