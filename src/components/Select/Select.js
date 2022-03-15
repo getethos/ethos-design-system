@@ -50,10 +50,7 @@ export const Select = ({
   //    {value: "CA", label: "CA"}
   // for multi (array):
   //    [{"value": "CA", "label": "CA"}, {"value": "NY", "label": "NY"}]
-  const [userSelection, updateUserSelection] = useState({
-    value: '',
-    label: '',
-  })
+  const [userSelection, updateUserSelection] = useState(undefined)
   const onChangeHandler = (lastSelection, actionMeta) => {
     /**
      * For multi selects, react-select allows the user to remove all the
