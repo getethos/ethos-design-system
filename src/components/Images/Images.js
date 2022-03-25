@@ -145,6 +145,7 @@ export const CloudinaryImage = ({
       const urlWithChainedTransformation = cld
         .imageTag(filePath(publicId), imageSettings)
         .transformation()
+        .chain()
         .getParent()
         .getAttr('src')
 
