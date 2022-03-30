@@ -20,7 +20,7 @@ exports[`CloudinaryImage default rendering CloudinaryImage 1`] = `
   />
   <img
     alt="alt text"
-    className="Image blurUp lazyload testImage"
+    className="Image testImage lazyload blurUp"
     src="https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,q_auto:eco,t_unsupported/v1/something.com/otherthing.png"
     srcSet="https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_100,q_auto:eco,w_100/t_lqip/v1/something.com/otherthing.png 600w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_200,q_auto:eco,w_200/t_lqip/v1/something.com/otherthing.png 900w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_300,q_auto:eco,w_300/t_lqip/v1/something.com/otherthing.png 1200w, https://res.cloudinary.com/getethos/image/upload/c_fill,f_auto,fl_progressive:semi,h_400,q_auto:eco,w_400/t_lqip/v1/something.com/otherthing.png 1201w"
   />

@@ -31,6 +31,7 @@ export const CloudinaryImage = ({
   width,
   height,
   crop,
+  lazyLoad,
   ...rest
 }) => {
   // Verify that all required props were supplied
@@ -56,7 +57,11 @@ export const CloudinaryImage = ({
     fetchFormat: 'auto',
     flags: ['progressive:semi'],
   }
-  let imageClasses = ['lazyload', className]
+  let imageClasses = [className]
+  if (lazyLoad) {
+    imageClasses.push('lazyload')
+  }
+
   let reverseWidth, reverseHeight
 
   if (width) {
@@ -77,14 +82,21 @@ export const CloudinaryImage = ({
 
     // srcSet is the LQIP image, src is the fallback image for older browsers
     // that do not support the 'srcSet' attribute (IE zero support)
+
+    const srcString = cld.url(filePath(publicId), {
+      transformation: 'unsupported',
+      ...baseImageSettings,
+    })
+
+    if (lazyLoad) {
+      imageClasses.push(styles['blurUp'])
+    }
+
     return (
       <img
         key={`${uuidv4()}`}
-        className={[styles.Image, styles['blurUp'], ...imageClasses].join(' ')}
-        src={cld.url(filePath(publicId), {
-          transformation: 'unsupported',
-          ...baseImageSettings,
-        })}
+        className={[styles.Image, ...imageClasses].join(' ')}
+        src={srcString}
         srcSet={srcSetString}
         alt={alt}
       />
@@ -134,11 +146,22 @@ export const CloudinaryImage = ({
         .imageTag(filePath(publicId), imageSettings)
         .transformation()
         .chain()
+        .getParent()
+        .getAttr('src')
+
+      const urlWithChainedLqipTransformation = cld
+        .imageTag(filePath(publicId), imageSettings)
+        .transformation()
+        .chain()
         .transformation('lqip')
         .getParent()
         .getAttr('src')
 
-      imageSrcSet.push(urlWithChainedTransformation)
+      if (lazyLoad) {
+        imageSrcSet.push(urlWithChainedLqipTransformation)
+      } else {
+        imageSrcSet.push(urlWithChainedTransformation)
+      }
     }
 
     tags.push(buildImageTag(imageSrcSet))
@@ -189,11 +212,13 @@ CloudinaryImage.PUBLIC_PROPS = {
   alt: PropTypes.string,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
+  lazyLoad: PropTypes.bool,
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
+  lazyLoad: true,
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS

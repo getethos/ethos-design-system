@@ -305,6 +305,7 @@ export declare const CloudinaryImage: {
     width,
     height,
     crop,
+    lazyLoad,
     ...rest
   }: {
     [x: string]: any
@@ -314,6 +315,7 @@ export declare const CloudinaryImage: {
     width: any
     height: any
     crop: any
+    lazyLoad?: boolean
   }): JSX.Element
   CROP_METHODS: {
     FILL: string
@@ -327,10 +329,12 @@ export declare const CloudinaryImage: {
     alt: any
     publicId: any
     crop: any
+    lazyLoad: boolean
   }
   defaultProps: {
     crop: string
     alt: string
+    lazyLoad?: boolean
   }
   propTypes: {
     height: any
@@ -339,6 +343,7 @@ export declare const CloudinaryImage: {
     alt: any
     publicId: any
     crop: any
+    lazyLoad?: boolean
   }
 }
 export declare const filePath: (publicId: any) => any
