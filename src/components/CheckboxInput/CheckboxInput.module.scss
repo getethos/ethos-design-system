@@ -82,13 +82,20 @@ label:focus-within ~ .tooltip {
   width: 18px;
   height: 18px;
   overflow: hidden;
-  background-color: transparent;
 }
 
 .FacadeBorder {
   border-color: var(--GrayStrokeAndDisabled--translucent);
   border-style: solid;
   border-width: 1px;
+}
+
+.FacadeWhiteBackground {
+  background-color: white;
+}
+
+.FacadeDefaultBackground {
+  background-color: transparent;
 }
 
 .CheckboxInput {
