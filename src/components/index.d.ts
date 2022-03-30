@@ -136,6 +136,7 @@ export declare const CheckboxInput: {
     currentError,
     setFieldTouched,
     formTouched,
+    useWhiteBackground,
     ...rest
   }: {
     [x: string]: any
@@ -151,6 +152,7 @@ export declare const CheckboxInput: {
     currentError?: string
     setFieldTouched?: (touched: boolean) => void
     formTouched?: boolean
+    useWhiteBackground?: boolean
   }): JSX.Element
   propTypes: {
     formTouched?: boolean
@@ -165,6 +167,7 @@ export declare const CheckboxInput: {
     allCaps?: boolean
     validator?: (value: string) => string
     formChangeHandler?: (value: string, errorValue: string) => void
+    useWhiteBackground?: boolean
   }
 }
 

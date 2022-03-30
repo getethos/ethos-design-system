@@ -20,7 +20,7 @@ Array [
         type="checkbox"
       />
       <svg
-        className="Facade FacadeBorder"
+        className="Facade FacadeDefaultBackground FacadeBorder"
         fill="none"
         height="18"
         width="18"
@@ -62,7 +62,7 @@ Array [
         type="checkbox"
       />
       <svg
-        className="Facade FacadeBorder"
+        className="Facade FacadeDefaultBackground FacadeBorder"
         fill="none"
         height="18"
         width="18"
