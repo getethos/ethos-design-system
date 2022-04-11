@@ -33,6 +33,8 @@ export const NumberInput = (props) => {
     keepCharPositions = true,
     autoComplete,
     maxLength,
+    iconPrefix,
+    iconName,
     ...restProps
   } = props
 
@@ -61,6 +63,8 @@ export const NumberInput = (props) => {
         keepCharPositions={keepCharPositions}
         autoComplete={autoComplete}
         maxLength={maxLength}
+        iconPrefix={iconPrefix}
+        iconName={iconName}
       />
     </>
   )
@@ -88,9 +92,13 @@ NumberInput.propTypes = {
   keepCharPositions: PropTypes.bool,
   autoComplete: PropTypes.string,
   maxLength: PropTypes.number,
+  iconPrefix: PropTypes.string,
+  iconName: PropTypes.string,
 }
 
 NumberInput.defaultProps = {
   type: 'tel',
   mask: integerMask,
+  iconPrefix: '',
+  iconName: '',
 }

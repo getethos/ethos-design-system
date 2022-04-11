@@ -9,6 +9,7 @@ import cleanse from '../../helpers/cleanse.js'
 
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const TextMaskedInput = (props) => {
   const {
@@ -30,6 +31,8 @@ export const TextMaskedInput = (props) => {
     autoComplete,
     classOverrides,
     maxLength,
+    iconPrefix,
+    iconName,
     ...restProps
   } = props
 
@@ -118,6 +121,9 @@ export const TextMaskedInput = (props) => {
     maskedInputProps.pipe = restProps.pipe
   }
 
+  // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
+  const maskedInputClass = `${styles.TextInputCommon} ${styles.TextInputStylable} ${styles.hasIcon}`
+
   return (
     <>
       <InputLabel
@@ -129,9 +135,21 @@ export const TextMaskedInput = (props) => {
         allCaps={allCaps}
         capitalize={capitalize}
       />
-
-      <MaskedInput {...maskedInputProps} />
-
+      <div className={styles.TextInputWrapper}>
+        {iconPrefix && iconName ? (
+          <MaskedInput {...maskedInputProps} className={maskedInputClass} />
+        ) : (
+          <MaskedInput {...maskedInputProps} />
+        )}
+        {iconPrefix && iconName && (
+          <div className={styles.TextInputIconWrapper}>
+            <FontAwesomeIcon
+              icon={[iconPrefix, iconName]}
+              className={styles.TextInputIcon}
+            />
+          </div>
+        )}
+      </div>
       {!doValidation && getError(currentError, whichTouched)}
     </>
   )
@@ -163,6 +181,8 @@ TextMaskedInput.PUBLIC_PROPS = {
   labelWeight: PropTypes.string,
   labelClasses: PropTypes.string,
   maxLength: PropTypes.number,
+  iconPrefix: PropTypes.string,
+  iconName: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {
@@ -175,4 +195,6 @@ TextMaskedInput.defaultProps = {
   keepCharPositions: true,
   disabled: false,
   allCaps: true,
+  iconPrefix: '',
+  iconName: '',
 }

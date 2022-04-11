@@ -14,6 +14,8 @@ export const EmailInput = (props) => {
     placeholder,
     disabled,
     autoComplete,
+    iconPrefix,
+    iconName,
     ...restProps
   } = props
 
@@ -34,6 +36,8 @@ export const EmailInput = (props) => {
         placeholder={placeholder}
         validator={EmailFormatValidator}
         autoComplete={autoComplete}
+        iconPrefix={iconPrefix}
+        iconName={iconName}
         {...restProps}
       />
     </>
@@ -57,9 +61,13 @@ EmailInput.propTypes = {
   initialValue: PropTypes.string,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
+  iconPrefix: PropTypes.string,
+  iconName: PropTypes.string,
 }
 
 EmailInput.defaultProps = {
   labelCopy: 'Email',
   placeholder: '',
+  iconPrefix: '',
+  iconName: '',
 }

@@ -9,6 +9,7 @@ import useInputValidation from '../../hooks/useInputValidation.js'
 import restrict from '../../helpers/restrict.js'
 import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 /**
  * @param type
@@ -51,6 +52,8 @@ function PrivateTextInput({
   labelColor,
   labelWeight,
   labelClasses,
+  iconPrefix,
+  iconName,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -123,7 +126,10 @@ function PrivateTextInput({
     } else {
       returnClasses = `${styles.TextInputCommon} ${styles.TextInputStylable}`
     }
-
+    // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
+    if (iconPrefix && iconName) {
+      returnClasses += ` ${styles.hasIcon}`
+    }
     return returnClasses
   }
 
@@ -140,19 +146,29 @@ function PrivateTextInput({
           capitalize={capitalize}
         />
       )}
-      <input
-        type={type}
-        className={getClasses()}
-        disabled={disabled}
-        name={name}
-        placeholder={rest.placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
-        value={value}
-        data-tid={rest['data-tid']}
-        aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
-        autoComplete={autoComplete}
-      />
+      <div className={styles.TextInputWrapper}>
+        <input
+          type={type}
+          className={getClasses()}
+          disabled={disabled}
+          name={name}
+          placeholder={rest.placeholder}
+          onChange={onChange}
+          onBlur={onBlur}
+          value={value}
+          data-tid={rest['data-tid']}
+          aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
+          autoComplete={autoComplete}
+        />
+        {iconPrefix && iconName && (
+          <div className={styles.TextInputIconWrapper}>
+            <FontAwesomeIcon
+              icon={[iconPrefix, iconName]}
+              className={styles.TextInputIcon}
+            />
+          </div>
+        )}
+      </div>
       {getError(currentError, touched)}
     </>
   )
@@ -178,6 +194,8 @@ PrivateTextInput.PUBLIC_PROPS = {
   restrictIllegal: PropTypes.bool,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
+  iconPrefix: PropTypes.string,
+  iconName: PropTypes.string,
 }
 
 PrivateTextInput.propTypes = {
@@ -188,6 +206,8 @@ PrivateTextInput.defaultProps = {
   type: 'text',
   placeholder: '',
   restrictIllegal: true,
+  iconPrefix: '',
+  iconName: '',
 }
 
 function TextInputFactory(privateProps) {

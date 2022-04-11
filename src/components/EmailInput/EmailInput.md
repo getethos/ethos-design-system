@@ -51,3 +51,39 @@ const formChangeHandlerStub = () => {}
   formChangeHandler={formChangeHandlerStub}
 />
 ```
+
+This one sets a `solid lock icon`, which results in the email input with solid lock icon.
+```jsx
+import EmailFormatValidator from '../../validators/EmailValidator'
+import { EmailInput } from './index.js'
+const formChangeHandlerStub = () => {}
+;<EmailInput
+  name="the-email-input-example"
+  allCaps={true}
+  labelCopy="Your email"
+  data-tid="the-email-input"
+  placeholder="example@ethoslife.com"
+  validator={EmailFormatValidator}
+  formChangeHandler={formChangeHandlerStub}
+  iconPrefix="fas"
+  iconName="lock"
+/>
+```
+
+This one sets a `regular eye-slash icon`, which results in the email input with regular eye-slash icon.
+```jsx
+import EmailFormatValidator from '../../validators/EmailValidator'
+import { EmailInput } from './index.js'
+const formChangeHandlerStub = () => {}
+;<EmailInput
+  name="the-email-input-example"
+  allCaps={true}
+  labelCopy="Your email"
+  data-tid="the-email-input"
+  placeholder="example@ethoslife.com"
+  validator={EmailFormatValidator}
+  formChangeHandler={formChangeHandlerStub}
+  iconPrefix="far"
+  iconName="eye-slash"
+/>
+```
