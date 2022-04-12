@@ -52,7 +52,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `solid lock icon`, which results in the email input with solid lock icon.
+This one sets a `solid lock icon`, which results in the email input with solid lock icon. `iconPrefix="fas"` is the prefix for solid icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name.
 ```jsx
 import EmailFormatValidator from '../../validators/EmailValidator'
 import { EmailInput } from './index.js'
@@ -70,7 +70,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `regular eye-slash icon`, which results in the email input with regular eye-slash icon.
+This one sets a `regular eye-slash icon`, which results in the email input with regular eye-slash icon. `iconPrefix="far"` is the prefix for regular icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name.
 ```jsx
 import EmailFormatValidator from '../../validators/EmailValidator'
 import { EmailInput } from './index.js'
@@ -85,5 +85,23 @@ const formChangeHandlerStub = () => {}
   formChangeHandler={formChangeHandlerStub}
   iconPrefix="far"
   iconName="eye-slash"
+/>
+```
+
+This one sets a random/invalid input for iconPrefix and iconName, which results in the email input with NO icon.
+```jsx
+import EmailFormatValidator from '../../validators/EmailValidator'
+import { EmailInput } from './index.js'
+const formChangeHandlerStub = () => {}
+;<EmailInput
+  name="the-email-input-example"
+  allCaps={true}
+  labelCopy="Your email"
+  data-tid="the-email-input"
+  placeholder="example@ethoslife.com"
+  validator={EmailFormatValidator}
+  formChangeHandler={formChangeHandlerStub}
+  iconPrefix="dgdsgadg"
+  iconName="4dsagag"
 />
 ```

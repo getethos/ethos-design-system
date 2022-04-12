@@ -195,7 +195,9 @@ PrivateTextInput.PUBLIC_PROPS = {
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
   iconPrefix: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
   iconName: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
 }
 
 PrivateTextInput.propTypes = {

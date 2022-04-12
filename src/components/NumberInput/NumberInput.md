@@ -49,7 +49,7 @@ const dollarMaskFunction = createNumberMask({
 />
 ```
 
-This one sets a `solid lock icon`, which results in the number input with solid lock icon.
+This one sets a `solid lock icon`, which results in the number input with solid lock icon. `iconPrefix="fas"` is the prefix for solid icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
 ```jsx
 import { NumberInput } from './index.js';
 // formChangeHandler gets wired up automatically if using <Form /> component
@@ -73,7 +73,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `regular eye-slash icon`, which results in the number input with regular eye-slash icon.
+This one sets a `regular eye-slash icon`, which results in the number input with regular eye-slash icon. `iconPrefix="far"` is the prefix for regular icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
 ```jsx
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { NumberInput } from './index.js';
@@ -101,5 +101,35 @@ const dollarMaskFunction = createNumberMask({
   }}
   iconPrefix="far"
   iconName="eye-slash"
+/>
+```
+This one sets a random/invalid input for iconPrefix and iconName, which results in the number input with NO icon.
+```jsx
+import createNumberMask from 'text-mask-addons/dist/createNumberMask'
+import { NumberInput } from './index.js';
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+
+const dollarMaskFunction = createNumberMask({
+  allowDecimal: false,
+  allowLeadingZeroes: false,
+  guide: false,
+  includeThousandsSeparator: true,
+  prefix: '$',
+})
+
+;<NumberInput
+  mask={dollarMaskFunction}
+  name="dollar-input-example"
+  allCaps={true}
+  labelCopy="Enter a number (Must be less then $100,000)"
+  data-tid='dollar-number-input'
+  placeholder='Dollar via number input...'
+  formChangeHandler={formChangeHandlerStub}
+  validator={(n) => {
+    return n > 0 && n < 100000 ? '' : 'Must be less then $100,000'
+  }}
+  iconPrefix="sdjgoaeug"
+  iconName="ewguoui"
 />
 ```
