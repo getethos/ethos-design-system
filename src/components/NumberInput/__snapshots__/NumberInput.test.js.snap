@@ -17,19 +17,24 @@ Array [
       }
     }
   />,
-  <input
-    autoComplete="tel"
-    className="TextMaskedInput TextInputCommon TextInputStylable"
-    data-tid="the-number-input"
-    disabled={false}
-    mask={[Function]}
-    name="the-number-input-example"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="number input"
-    type="tel"
-    value="123"
-  />,
+  <div
+    className="TextInputWrapper"
+  >
+    <input
+      autoComplete="tel"
+      className="TextMaskedInput TextInputCommon TextInputStylable"
+      data-tid="the-number-input"
+      disabled={false}
+      mask={[Function]}
+      name="the-number-input-example"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="number input"
+      type="tel"
+      value="123"
+    />
+    
+  </div>,
   "",
 ]
 `;

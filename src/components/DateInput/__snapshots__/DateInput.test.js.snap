@@ -17,32 +17,37 @@ Array [
       }
     }
   />,
-  <input
-    autoComplete="date"
-    className="TextMaskedInput TextInputCommon TextInputStylable"
-    data-tid="when-applied-for"
-    disabled={false}
-    guide={true}
-    keepCharPositions={true}
-    mask={
-      Array [
-        /\\\\d/,
-        /\\\\d/,
-        "/",
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-      ]
-    }
-    name="whenapplied"
-    onBlur={[Function]}
-    onChange={[Function]}
-    pipe={[Function]}
-    placeholder="mm/yyyy"
-    type="tel"
-    value=""
-  />,
+  <div
+    className="TextInputWrapper"
+  >
+    <input
+      autoComplete="date"
+      className="TextMaskedInput TextInputCommon TextInputStylable"
+      data-tid="when-applied-for"
+      disabled={false}
+      guide={true}
+      keepCharPositions={true}
+      mask={
+        Array [
+          /\\\\d/,
+          /\\\\d/,
+          "/",
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+        ]
+      }
+      name="whenapplied"
+      onBlur={[Function]}
+      onChange={[Function]}
+      pipe={[Function]}
+      placeholder="mm/yyyy"
+      type="tel"
+      value=""
+    />
+    
+  </div>,
   "",
 ]
 `;

@@ -17,18 +17,23 @@ Array [
       }
     }
   />,
-  <input
-    aria-label="the-email-input-example"
-    autoComplete="email"
-    className="TextInputCommon TextInputStylable"
-    data-tid="the-email-input"
-    name="the-email-input-example"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder="example@ethoslife.com"
-    type="email"
-    value=""
-  />,
+  <div
+    className="TextInputWrapper"
+  >
+    <input
+      aria-label="the-email-input-example"
+      autoComplete="email"
+      className="TextInputCommon TextInputStylable"
+      data-tid="the-email-input"
+      name="the-email-input-example"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="example@ethoslife.com"
+      type="email"
+      value=""
+    />
+    
+  </div>,
   "",
 ]
 `;

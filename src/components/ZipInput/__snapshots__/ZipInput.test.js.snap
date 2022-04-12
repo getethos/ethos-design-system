@@ -17,29 +17,34 @@ Array [
       }
     }
   />,
-  <input
-    autoComplete="postal-code"
-    className="TextMaskedInput TextInputCommon TextInputStylable"
-    data-tid="le-zip"
-    disabled={false}
-    guide={true}
-    keepCharPositions={true}
-    mask={
-      Array [
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-      ]
-    }
-    name="le-zip"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    type="tel"
-    value=""
-  />,
+  <div
+    className="TextInputWrapper"
+  >
+    <input
+      autoComplete="postal-code"
+      className="TextMaskedInput TextInputCommon TextInputStylable"
+      data-tid="le-zip"
+      disabled={false}
+      guide={true}
+      keepCharPositions={true}
+      mask={
+        Array [
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+        ]
+      }
+      name="le-zip"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder=""
+      type="tel"
+      value=""
+    />
+    
+  </div>,
   "",
 ]
 `;

@@ -17,35 +17,40 @@ Array [
       }
     }
   />,
-  <input
-    autoComplete="bday"
-    className="TextMaskedInput TextInputCommon TextInputStylable"
-    data-tid="le-birthdate"
-    disabled={false}
-    guide={true}
-    keepCharPositions={true}
-    mask={
-      Array [
-        /\\\\d/,
-        /\\\\d/,
-        "/",
-        /\\\\d/,
-        /\\\\d/,
-        "/",
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-        /\\\\d/,
-      ]
-    }
-    name="birthDate"
-    onBlur={[Function]}
-    onChange={[Function]}
-    pipe={[Function]}
-    placeholder="mm/dd/yyyy"
-    type="tel"
-    value=""
-  />,
+  <div
+    className="TextInputWrapper"
+  >
+    <input
+      autoComplete="bday"
+      className="TextMaskedInput TextInputCommon TextInputStylable"
+      data-tid="le-birthdate"
+      disabled={false}
+      guide={true}
+      keepCharPositions={true}
+      mask={
+        Array [
+          /\\\\d/,
+          /\\\\d/,
+          "/",
+          /\\\\d/,
+          /\\\\d/,
+          "/",
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+          /\\\\d/,
+        ]
+      }
+      name="birthDate"
+      onBlur={[Function]}
+      onChange={[Function]}
+      pipe={[Function]}
+      placeholder="mm/dd/yyyy"
+      type="tel"
+      value=""
+    />
+    
+  </div>,
   "",
 ]
 `;
