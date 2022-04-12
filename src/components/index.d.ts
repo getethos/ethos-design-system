@@ -739,10 +739,14 @@ export declare const EmailInput: {
     labelClasses?: string
     validator?: (value: string) => string
     initialValue?: string
+    iconPrefix?: string
+    iconName?: string
   }
   defaultProps: {
     labelCopy: string
     placeholder: string
+    iconPrefix: string
+    iconName: string
   }
 }
 
@@ -806,6 +810,8 @@ export declare const TextMaskedInput: {
     placeholderChar?: string
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
+    iconPrefix?: string
+    iconName?: string
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -828,6 +834,8 @@ export declare const TextMaskedInput: {
     placeholderChar?: string
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
+    iconPrefix?: string
+    iconName?: string
   }
   defaultProps: {
     placeholder: string
@@ -835,6 +843,8 @@ export declare const TextMaskedInput: {
     keepCharPositions: boolean
     disabled: boolean
     allCaps: boolean
+    iconPrefix: string
+    iconName: string
   }
 }
 
@@ -1240,10 +1250,14 @@ export declare const NumberInput: {
     guide?: boolean
     keepCharPositions?: boolean
     maxLength?: number
+    iconPrefix?: string
+    iconName?: string
   }
   defaultProps: {
     type: string
     mask: (mask: (string | RegExp)[]) => any
+    iconPrefix: string
+    iconName: string
   }
 }
 
