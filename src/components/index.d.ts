@@ -507,18 +507,18 @@ export declare function ValueProps({
 }: {
   sections: {
     iconUrl: string
-    header: string
-    subHeader: string
-    alt?: string | undefined
+    header: string | JSX.Element
+    subHeader: string | JSX.Element
+    alt?: string
   }[]
 }): JSX.Element
 export declare namespace ValueProps {
   var propTypes: {
     sections: {
       iconUrl: string
-      header: string
-      subHeader: string
-      alt?: string | undefined
+      header: string | JSX.Element
+      subHeader: string | JSX.Element
+      alt?: string
     }[]
   }
   var defaultProps: {
