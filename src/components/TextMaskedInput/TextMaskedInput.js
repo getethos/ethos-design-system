@@ -181,14 +181,20 @@ TextMaskedInput.PUBLIC_PROPS = {
   labelWeight: PropTypes.string,
   labelClasses: PropTypes.string,
   maxLength: PropTypes.number,
-  iconPrefix: PropTypes.string,
   /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
-  iconName: PropTypes.string,
+  iconPrefix: PropTypes.string,
   /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
+  iconName: PropTypes.string,
 }
 
 TextMaskedInput.propTypes = {
   ...TextMaskedInput.PUBLIC_PROPS,
+  /** text transform capitalize label */
+  capitalize: PropTypes.bool,
+  /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
+  iconPrefix: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
+  iconName: PropTypes.string,
 }
 
 TextMaskedInput.defaultProps = {
