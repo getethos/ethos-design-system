@@ -136,12 +136,14 @@ export const TextMaskedInput = (props) => {
         capitalize={capitalize}
       />
       <div className={styles.TextInputWrapper}>
-        {iconPrefix && iconName ? (
+        {(iconPrefix === 'fas' && iconName === 'lock') ||
+        (iconPrefix === 'far' && iconName === 'eye-slash') ? (
           <MaskedInput {...maskedInputProps} className={maskedInputClass} />
         ) : (
           <MaskedInput {...maskedInputProps} />
         )}
-        {iconPrefix && iconName && (
+        {((iconPrefix === 'fas' && iconName === 'lock') ||
+          (iconPrefix === 'far' && iconName === 'eye-slash')) && (
           <div className={styles.TextInputIconWrapper}>
             <FontAwesomeIcon
               icon={[iconPrefix, iconName]}

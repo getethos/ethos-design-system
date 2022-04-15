@@ -127,7 +127,10 @@ function PrivateTextInput({
       returnClasses = `${styles.TextInputCommon} ${styles.TextInputStylable}`
     }
     // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
-    if (iconPrefix && iconName) {
+    if (
+      (iconPrefix === 'fas' && iconName === 'lock') ||
+      (iconPrefix === 'far' && iconName === 'eye-slash')
+    ) {
       returnClasses += ` ${styles.hasIcon}`
     }
     return returnClasses
@@ -160,7 +163,8 @@ function PrivateTextInput({
           aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
           autoComplete={autoComplete}
         />
-        {iconPrefix && iconName && (
+        {((iconPrefix === 'fas' && iconName === 'lock') ||
+          (iconPrefix === 'far' && iconName === 'eye-slash')) && (
           <div className={styles.TextInputIconWrapper}>
             <FontAwesomeIcon
               icon={[iconPrefix, iconName]}
