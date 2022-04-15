@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 // https://github.com/text-mask/text-mask/tree/master/addons
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { TextMaskedInput } from '../TextMaskedInput'
+import { VALID_ICONS } from '../../helpers/constants'
 
 export const integerMask = createNumberMask({
   allowDecimal: false,
@@ -33,6 +34,7 @@ export const NumberInput = (props) => {
     keepCharPositions = true,
     autoComplete,
     maxLength,
+    icon,
     ...restProps
   } = props
 
@@ -61,6 +63,7 @@ export const NumberInput = (props) => {
         keepCharPositions={keepCharPositions}
         autoComplete={autoComplete}
         maxLength={maxLength}
+        icon={icon}
       />
     </>
   )
@@ -88,6 +91,8 @@ NumberInput.propTypes = {
   keepCharPositions: PropTypes.bool,
   autoComplete: PropTypes.string,
   maxLength: PropTypes.number,
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
 }
 
 NumberInput.defaultProps = {

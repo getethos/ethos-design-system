@@ -17,18 +17,22 @@ Array [
       }
     }
   />,
-  <input
-    aria-label="nombre"
-    autoComplete="name"
-    className="TextInputCommon TextInputStylable"
-    data-tid="the-text-input"
-    name="nombre"
-    onBlur={[Function]}
-    onChange={[Function]}
-    placeholder=""
-    type="text"
-    value=""
-  />,
+  <div
+    className="TextInputWrapper"
+  >
+    <input
+      aria-label="nombre"
+      autoComplete="name"
+      className="TextInputCommon TextInputStylable"
+      data-tid="the-text-input"
+      name="nombre"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder=""
+      type="text"
+      value=""
+    />
+  </div>,
   "",
 ]
 `;

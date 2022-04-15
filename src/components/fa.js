@@ -22,6 +22,8 @@ import { faHamburger } from '@fortawesome/pro-regular-svg-icons/faHamburger'
 import { faSort } from '@fortawesome/pro-solid-svg-icons/faSort'
 import { faSortDown } from '@fortawesome/pro-solid-svg-icons/faSortDown'
 import { faSortUp } from '@fortawesome/pro-solid-svg-icons/faSortUp'
+import { faLock } from '@fortawesome/pro-solid-svg-icons/faLock'
+import { faEyeSlash } from '@fortawesome/pro-regular-svg-icons/faEyeSlash'
 
 // Nora Icons
 import { faAlignLeft } from '@fortawesome/pro-solid-svg-icons/faAlignLeft'
@@ -119,5 +121,7 @@ library.add(
   faWindowClose,
   faSignOut,
   faSyncAlt,
-  faBell
+  faBell,
+  faLock,
+  faEyeSlash
 )

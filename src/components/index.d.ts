@@ -747,6 +747,7 @@ export declare const EmailInput: {
     labelClasses?: string
     validator?: (value: string) => string
     initialValue?: string
+    icon?: IconTypes
   }
   defaultProps: {
     labelCopy: string
@@ -791,6 +792,11 @@ export declare const Tooltip: {
   propTypes: TooltipProps
 }
 
+// Icontypes, consistent with VALID_ICONS at src/helpers/constants.js
+export type IconTypes = 
+ |'eye_slash'
+ | 'lock'
+
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
   PUBLIC_PROPS: {
@@ -814,6 +820,7 @@ export declare const TextMaskedInput: {
     placeholderChar?: string
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
+    icon?: IconTypes
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -836,6 +843,7 @@ export declare const TextMaskedInput: {
     placeholderChar?: string
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
+    icon?: IconTypes
   }
   defaultProps: {
     placeholder: string
@@ -1248,6 +1256,7 @@ export declare const NumberInput: {
     guide?: boolean
     keepCharPositions?: boolean
     maxLength?: number
+    icon?: IconTypes
   }
   defaultProps: {
     type: string

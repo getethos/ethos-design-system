@@ -46,3 +46,25 @@
   background-color: var(--GrayStrokeAndDisabled--translucent);
   border-color: transparent;
 }
+
+.TextInputWrapper {
+  position: relative;
+}
+
+.TextInputIconWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+.TextInputIcon {
+  width: 14px;
+  height: 18px;
+  margin: 3px 5px;
+  color: #c2c2c2;
+}
+
+.hasIcon {
+  padding-right: 50px;
+}

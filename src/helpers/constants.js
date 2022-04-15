@@ -16,3 +16,14 @@ export const codes = {
   DOWN: 40,
   TAB: 9,
 }
+
+export const VALID_ICONS = {
+  eye_slash: {
+    prefix: 'far',
+    name: 'eye-slash',
+  },
+  lock: {
+    prefix: 'fas',
+    name: 'lock',
+  },
+}
