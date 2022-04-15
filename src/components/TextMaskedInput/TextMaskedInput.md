@@ -47,7 +47,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `solid lock icon`, which results in the text masked input with solid lock icon. `iconPrefix="fas"` is the prefix for solid icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
+This one sets a `solid lock icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
@@ -62,12 +62,11 @@ const formChangeHandlerStub = () => {}
   labelCopy="Last 4 SSN Example"
   data-tid="last4-ssn-example"
   validator={(value) => value && value.length === 4 ? '' : 'Four digits required'}
-  iconPrefix="fas"
-  iconName="lock"
+  icon='lock'
 />
 ```
 
-This one sets a `regular eye-slash icon`, which results in the text masked input with regular eye-slash icon. `iconPrefix="far"` is the prefix for regular icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
+This one sets a `regular eye-slash icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
@@ -82,14 +81,11 @@ const formChangeHandlerStub = () => {}
   labelCopy="Last 4 SSN Example"
   data-tid="last4-ssn-example"
   validator={(value) => value && value.length === 4 ? '' : 'Four digits required'}
-  iconPrefix="fas"
-  iconName="lock"
-  iconPrefix="far"
-  iconName="eye-slash"
+  icon='eye_slash'
 />
 ```
 
-This one sets a random/invalid input for iconPrefix and iconName, which results in the text masked input with NO icon.
+This one sets a random/invalid input for icon, which results in the text masked input with NO icon. Currently allowed icons are defined by valid_icons at src/helpers/constants.js
 ```jsx
 // formChangeHandler gets wired up automatically if using <Form /> component
 const formChangeHandlerStub = () => {}
@@ -104,9 +100,6 @@ const formChangeHandlerStub = () => {}
   labelCopy="Last 4 SSN Example"
   data-tid="last4-ssn-example"
   validator={(value) => value && value.length === 4 ? '' : 'Four digits required'}
-  iconPrefix="fas"
-  iconName="lock"
-  iconPrefix="dgiouee"
-  iconName="46436"
+  icon='random'
 />
 ```

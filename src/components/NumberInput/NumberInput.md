@@ -49,7 +49,7 @@ const dollarMaskFunction = createNumberMask({
 />
 ```
 
-This one sets a `solid lock icon`, which results in the number input with solid lock icon. `iconPrefix="fas"` is the prefix for solid icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
+This one sets a `solid lock icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
 ```jsx
 import { NumberInput } from './index.js';
 // formChangeHandler gets wired up automatically if using <Form /> component
@@ -68,12 +68,11 @@ const formChangeHandlerStub = () => {}
     }
     return n % 2 === 0 ? '' : 'Must be an even number'
   }}
-  iconPrefix="fas"
-  iconName="lock"
+  icon="lock"
 />
 ```
 
-This one sets a `regular eye-slash icon`, which results in the number input with regular eye-slash icon. `iconPrefix="far"` is the prefix for regular icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
+This one sets a `regular eye-slash icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
 ```jsx
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { NumberInput } from './index.js';
@@ -99,11 +98,10 @@ const dollarMaskFunction = createNumberMask({
   validator={(n) => {
     return n > 0 && n < 100000 ? '' : 'Must be less then $100,000'
   }}
-  iconPrefix="far"
-  iconName="eye-slash"
+  icon="eye_slash"
 />
 ```
-This one sets a random/invalid input for iconPrefix and iconName, which results in the number input with NO icon.
+This one sets a random/invalid input for icon, which results in the number input with NO icon. Currently allowed icons are defined by valid_icons at src/helpers/constants.js
 ```jsx
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { NumberInput } from './index.js';
@@ -129,7 +127,6 @@ const dollarMaskFunction = createNumberMask({
   validator={(n) => {
     return n > 0 && n < 100000 ? '' : 'Must be less then $100,000'
   }}
-  iconPrefix="sdjgoaeug"
-  iconName="ewguoui"
+  icon="ewguoui"
 />
 ```

@@ -10,6 +10,7 @@ import restrict from '../../helpers/restrict.js'
 import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { valid_icons } from '../../helpers/constants'
 
 /**
  * @param type
@@ -52,8 +53,7 @@ function PrivateTextInput({
   labelColor,
   labelWeight,
   labelClasses,
-  iconPrefix,
-  iconName,
+  icon,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -127,10 +127,7 @@ function PrivateTextInput({
       returnClasses = `${styles.TextInputCommon} ${styles.TextInputStylable}`
     }
     // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
-    if (
-      (iconPrefix === 'fas' && iconName === 'lock') ||
-      (iconPrefix === 'far' && iconName === 'eye-slash')
-    ) {
+    if (Object.keys(valid_icons).includes(icon)) {
       returnClasses += ` ${styles.hasIcon}`
     }
     return returnClasses
@@ -163,11 +160,10 @@ function PrivateTextInput({
           aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
           autoComplete={autoComplete}
         />
-        {((iconPrefix === 'fas' && iconName === 'lock') ||
-          (iconPrefix === 'far' && iconName === 'eye-slash')) && (
+        {Object.keys(valid_icons).includes(icon) && (
           <div className={styles.TextInputIconWrapper}>
             <FontAwesomeIcon
-              icon={[iconPrefix, iconName]}
+              icon={[valid_icons[icon].prefix, valid_icons[icon].name]}
               className={styles.TextInputIcon}
             />
           </div>
@@ -198,28 +194,22 @@ PrivateTextInput.PUBLIC_PROPS = {
   restrictIllegal: PropTypes.bool,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
-  iconPrefix: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
-  iconName: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(valid_icons)),
 }
 
 PrivateTextInput.propTypes = {
   ...PrivateTextInput.PUBLIC_PROPS,
   /** text transform capitalize label */
   capitalize: PropTypes.bool,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
-  iconPrefix: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
-  iconName: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(valid_icons)),
 }
 
 PrivateTextInput.defaultProps = {
   type: 'text',
   placeholder: '',
   restrictIllegal: true,
-  iconPrefix: '',
-  iconName: '',
 }
 
 function TextInputFactory(privateProps) {

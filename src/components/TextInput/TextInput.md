@@ -45,7 +45,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `solid lock icon`, which results in the text input with solid lock icon. `iconPrefix="fas"` is the prefix for solid icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
+This one sets a `solid lock icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
 
 ```jsx
 import validateMinMaxFactory from '../../validators/validateMinMax'
@@ -65,12 +65,11 @@ const formChangeHandlerStub = () => {}
     if (!!minMaxErr) return minMaxErr
     return x.length % 2 ? 'Text does not have an even number of characters' : ''
   }}
-  iconPrefix="fas"
-  iconName="lock"
+  icon='lock'
 />
 ```
 
-This one sets a `regular eye-slash icon`, which results in the text input with regular eye-slash icon. `iconPrefix="far"` is the prefix for regular icons. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix.
+This one sets a `regular eye-slash icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
 
 ```jsx
 import validateMinMaxFactory from '../../validators/validateMinMax'
@@ -90,12 +89,11 @@ const formChangeHandlerStub = () => {}
     if (!!minMaxErr) return minMaxErr
     return x.length % 2 ? 'Text does not have an even number of characters' : ''
   }}
-  iconPrefix="far"
-  iconName="eye-slash"
+  icon='eye_slash'
 />
 ```
 
-This one sets a random/invalid input for iconPrefix and iconName, which results in the text input with NO icon.
+This one sets a random/invalid input for icon, which results in the text input with NO icon. Currently allowed icons are defined by valid_icons at src/helpers/constants.js
 
 ```jsx
 import validateMinMaxFactory from '../../validators/validateMinMax'
@@ -115,7 +113,6 @@ const formChangeHandlerStub = () => {}
     if (!!minMaxErr) return minMaxErr
     return x.length % 2 ? 'Text does not have an even number of characters' : ''
   }}
-  iconPrefix="random1"
-  iconName="radom2"
+  icon='notallowed'
 />
 ```

@@ -10,6 +10,7 @@ import cleanse from '../../helpers/cleanse.js'
 import styles from '../TextInput/TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { valid_icons } from '../../helpers/constants.js'
 
 export const TextMaskedInput = (props) => {
   const {
@@ -31,8 +32,7 @@ export const TextMaskedInput = (props) => {
     autoComplete,
     classOverrides,
     maxLength,
-    iconPrefix,
-    iconName,
+    icon,
     ...restProps
   } = props
 
@@ -136,17 +136,15 @@ export const TextMaskedInput = (props) => {
         capitalize={capitalize}
       />
       <div className={styles.TextInputWrapper}>
-        {(iconPrefix === 'fas' && iconName === 'lock') ||
-        (iconPrefix === 'far' && iconName === 'eye-slash') ? (
+        {icon ? (
           <MaskedInput {...maskedInputProps} className={maskedInputClass} />
         ) : (
           <MaskedInput {...maskedInputProps} />
         )}
-        {((iconPrefix === 'fas' && iconName === 'lock') ||
-          (iconPrefix === 'far' && iconName === 'eye-slash')) && (
+        {Object.keys(valid_icons).includes(icon) && (
           <div className={styles.TextInputIconWrapper}>
             <FontAwesomeIcon
-              icon={[iconPrefix, iconName]}
+              icon={[valid_icons[icon].prefix, valid_icons[icon].name]}
               className={styles.TextInputIcon}
             />
           </div>
@@ -183,20 +181,16 @@ TextMaskedInput.PUBLIC_PROPS = {
   labelWeight: PropTypes.string,
   labelClasses: PropTypes.string,
   maxLength: PropTypes.number,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
-  iconPrefix: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
-  iconName: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(valid_icons)),
 }
 
 TextMaskedInput.propTypes = {
   ...TextMaskedInput.PUBLIC_PROPS,
   /** text transform capitalize label */
   capitalize: PropTypes.bool,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. e.g. `iconPrefix="fas"` is the prefix for solid icons; `iconPrefix="far"` is the prefix for regular icons.*/
-  iconPrefix: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input; Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. */
-  iconName: PropTypes.string,
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(valid_icons)),
 }
 
 TextMaskedInput.defaultProps = {
@@ -205,6 +199,4 @@ TextMaskedInput.defaultProps = {
   keepCharPositions: true,
   disabled: false,
   allCaps: true,
-  iconPrefix: '',
-  iconName: '',
 }
