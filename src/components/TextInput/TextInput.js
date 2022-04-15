@@ -10,7 +10,7 @@ import restrict from '../../helpers/restrict.js'
 import styles from './TextInput.module.scss'
 import errorStyles from '../Errors.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { valid_icons } from '../../helpers/constants'
+import { VALID_ICONS } from '../../helpers/constants'
 
 /**
  * @param type
@@ -127,7 +127,7 @@ function PrivateTextInput({
       returnClasses = `${styles.TextInputCommon} ${styles.TextInputStylable}`
     }
     // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
-    if (Object.keys(valid_icons).includes(icon)) {
+    if (Object.keys(VALID_ICONS).includes(icon)) {
       returnClasses += ` ${styles.hasIcon}`
     }
     return returnClasses
@@ -160,10 +160,10 @@ function PrivateTextInput({
           aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
           autoComplete={autoComplete}
         />
-        {Object.keys(valid_icons).includes(icon) && (
+        {Object.keys(VALID_ICONS).includes(icon) && (
           <div className={styles.TextInputIconWrapper}>
             <FontAwesomeIcon
-              icon={[valid_icons[icon].prefix, valid_icons[icon].name]}
+              icon={[VALID_ICONS[icon].prefix, VALID_ICONS[icon].name]}
               className={styles.TextInputIcon}
             />
           </div>
@@ -194,16 +194,16 @@ PrivateTextInput.PUBLIC_PROPS = {
   restrictIllegal: PropTypes.bool,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
-  icon: PropTypes.oneOf(Object.keys(valid_icons)),
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
 }
 
 PrivateTextInput.propTypes = {
   ...PrivateTextInput.PUBLIC_PROPS,
   /** text transform capitalize label */
   capitalize: PropTypes.bool,
-  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
-  icon: PropTypes.oneOf(Object.keys(valid_icons)),
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
 }
 
 PrivateTextInput.defaultProps = {

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { TextInput } from '../TextInput'
 import EmailFormatValidator from '../../validators/EmailValidator'
-import { valid_icons } from '../../helpers/constants'
+import { VALID_ICONS } from '../../helpers/constants'
 
 export const EmailInput = (props) => {
   const {
@@ -60,8 +60,8 @@ EmailInput.propTypes = {
   initialValue: PropTypes.string,
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
-  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by valid_icons at src/helpers/constants.js */
-  icon: PropTypes.oneOf(Object.keys(valid_icons)),
+  /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
+  icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
 }
 
 EmailInput.defaultProps = {

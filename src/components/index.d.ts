@@ -792,7 +792,7 @@ export declare const Tooltip: {
   propTypes: TooltipProps
 }
 
-// Icontypes, consistent with valid_icons at src/helpers/constants.js
+// Icontypes, consistent with VALID_ICONS at src/helpers/constants.js
 export type IconTypes = 
  |'eye_slash'
  | 'lock'

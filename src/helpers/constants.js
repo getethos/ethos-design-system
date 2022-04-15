@@ -17,7 +17,7 @@ export const codes = {
   TAB: 9,
 }
 
-export const valid_icons = {
+export const VALID_ICONS = {
   eye_slash: {
     prefix: 'far',
     name: 'eye-slash',

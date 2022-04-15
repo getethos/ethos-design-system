@@ -45,7 +45,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `solid lock icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
+This one sets a `solid lock icon`. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js.
 
 ```jsx
 import validateMinMaxFactory from '../../validators/validateMinMax'
@@ -69,7 +69,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `regular eye-slash icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
+This one sets a `regular eye-slash icon`. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js.
 
 ```jsx
 import validateMinMaxFactory from '../../validators/validateMinMax'
@@ -93,7 +93,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a random/invalid input for icon, which results in the text input with NO icon. Currently allowed icons are defined by valid_icons at src/helpers/constants.js
+This one sets a random/invalid input for icon, which results in the text input with NO icon. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js
 
 ```jsx
 import validateMinMaxFactory from '../../validators/validateMinMax'

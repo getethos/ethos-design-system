@@ -49,7 +49,7 @@ const dollarMaskFunction = createNumberMask({
 />
 ```
 
-This one sets a `solid lock icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
+This one sets a `solid lock icon`. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js.
 ```jsx
 import { NumberInput } from './index.js';
 // formChangeHandler gets wired up automatically if using <Form /> component
@@ -72,7 +72,7 @@ const formChangeHandlerStub = () => {}
 />
 ```
 
-This one sets a `regular eye-slash icon`. Currently allowed icons are defined by valid_icons at src/helpers/constants.js.
+This one sets a `regular eye-slash icon`. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js.
 ```jsx
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { NumberInput } from './index.js';
@@ -101,7 +101,7 @@ const dollarMaskFunction = createNumberMask({
   icon="eye_slash"
 />
 ```
-This one sets a random/invalid input for icon, which results in the number input with NO icon. Currently allowed icons are defined by valid_icons at src/helpers/constants.js
+This one sets a random/invalid input for icon, which results in the number input with NO icon. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js
 ```jsx
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
 import { NumberInput } from './index.js';
