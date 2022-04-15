@@ -22,6 +22,7 @@ export const CheckboxInput = ({
   // TODO: pushed in from Form.js but not used here
   formTouched, // eslint-disable-line no-unused-vars
   checked,
+  useWhiteBackground,
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
@@ -76,10 +77,15 @@ export const CheckboxInput = ({
       return <Facade classes={klasses} />
     }
   }
+
+  const facadeBackground = useWhiteBackground
+    ? styles.FacadeWhiteBackground
+    : styles.FacadeDefaultBackground
+
   const getFacadeClasses = () => {
     return getError(currentError, touched)
-      ? `${styles.Facade} FacadeError ${errorStyles.Error}`
-      : `${styles.Facade} ${styles.FacadeBorder}`
+      ? `${styles.Facade} ${facadeBackground} FacadeError ${errorStyles.Error}`
+      : `${styles.Facade} ${facadeBackground} ${styles.FacadeBorder}`
   }
 
   const getClasses = () => {
@@ -149,4 +155,6 @@ CheckboxInput.propTypes = {
   /** only useful if you need to completely override the checkbox facade e.g
    * NoraCheckboxInput does this */
   facadeRenderer: PropTypes.func,
+  /** Indicate whether to use white background or the default transparent background */
+  useWhiteBackground: PropTypes.bool,
 }

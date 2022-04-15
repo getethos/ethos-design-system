@@ -76,6 +76,18 @@ import {
   alt="icon test"
   publicId="https://res.cloudinary.com/getethos/image/upload/v1565206784/02_Icons/Icon_slot_3_Duckegg_ktjkor.svg"
   />
+
+  <TitleSmall.Serif.Book500>Lazy load false</TitleSmall.Serif.Book500>
+  <Spacer.H24/>
+  <CloudinaryImage
+    alt="father and kids playing"
+    publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
+    height={[100,200,300,400]}
+    width={[100,200,300,400]}
+    crop="fit"
+    lazyLoad={false}
+  />
+  <Spacer.H24/>
      
 </div>
 ```

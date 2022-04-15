@@ -136,6 +136,7 @@ export declare const CheckboxInput: {
     currentError,
     setFieldTouched,
     formTouched,
+    useWhiteBackground,
     ...rest
   }: {
     [x: string]: any
@@ -151,6 +152,7 @@ export declare const CheckboxInput: {
     currentError?: string
     setFieldTouched?: (touched: boolean) => void
     formTouched?: boolean
+    useWhiteBackground?: boolean
   }): JSX.Element
   propTypes: {
     formTouched?: boolean
@@ -165,6 +167,7 @@ export declare const CheckboxInput: {
     allCaps?: boolean
     validator?: (value: string) => string
     formChangeHandler?: (value: string, errorValue: string) => void
+    useWhiteBackground?: boolean
   }
 }
 
@@ -305,6 +308,7 @@ export declare const CloudinaryImage: {
     width,
     height,
     crop,
+    lazyLoad,
     ...rest
   }: {
     [x: string]: any
@@ -314,6 +318,7 @@ export declare const CloudinaryImage: {
     width: any
     height: any
     crop: any
+    lazyLoad?: boolean
   }): JSX.Element
   CROP_METHODS: {
     FILL: string
@@ -327,10 +332,12 @@ export declare const CloudinaryImage: {
     alt: any
     publicId: any
     crop: any
+    lazyLoad: boolean
   }
   defaultProps: {
     crop: string
     alt: string
+    lazyLoad?: boolean
   }
   propTypes: {
     height: any
@@ -339,6 +346,7 @@ export declare const CloudinaryImage: {
     alt: any
     publicId: any
     crop: any
+    lazyLoad?: boolean
   }
 }
 export declare const filePath: (publicId: any) => any
@@ -499,18 +507,18 @@ export declare function ValueProps({
 }: {
   sections: {
     iconUrl: string
-    header: string
-    subHeader: string
-    alt?: string | undefined
+    header: string | JSX.Element
+    subHeader: string | JSX.Element
+    alt?: string
   }[]
 }): JSX.Element
 export declare namespace ValueProps {
   var propTypes: {
     sections: {
       iconUrl: string
-      header: string
-      subHeader: string
-      alt?: string | undefined
+      header: string | JSX.Element
+      subHeader: string | JSX.Element
+      alt?: string
     }[]
   }
   var defaultProps: {

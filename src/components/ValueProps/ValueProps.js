@@ -57,7 +57,15 @@ const defaultSections = [
 ]
 
 ValueProps.propTypes = {
-  sections: PropTypes.array,
+  sections: PropTypes.arrayOf(
+    PropTypes.shape({
+      iconUrl: PropTypes.string.isRequired,
+      header: PropTypes.oneOf([PropTypes.string, PropTypes.element]).isRequired,
+      subHeader: PropTypes.oneOf([PropTypes.string, PropTypes.element])
+        .isRequired,
+      alt: PropTypes.string,
+    })
+  ),
 }
 
 ValueProps.defaultProps = {
