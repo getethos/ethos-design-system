@@ -103,3 +103,20 @@ const formChangeHandlerStub = () => {}
   icon="4dsagag"
 />
 ```
+
+This one sets an empty input for icon, which results in the email input with NO icon. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js
+```jsx
+import EmailFormatValidator from '../../validators/EmailValidator'
+import { EmailInput } from './index.js'
+const formChangeHandlerStub = () => {}
+;<EmailInput
+  name="the-email-input-example"
+  allCaps={true}
+  labelCopy="Your email"
+  data-tid="the-email-input"
+  placeholder="example@ethoslife.com"
+  validator={EmailFormatValidator}
+  formChangeHandler={formChangeHandlerStub}
+  icon=""
+/>
+```

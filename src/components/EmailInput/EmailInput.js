@@ -61,7 +61,7 @@ EmailInput.propTypes = {
   autoComplete: PropTypes.string,
   classOverrides: PropTypes.string,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
-  icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
+  icon: PropTypes.oneOf([...Object.keys(VALID_ICONS), '']),
 }
 
 EmailInput.defaultProps = {

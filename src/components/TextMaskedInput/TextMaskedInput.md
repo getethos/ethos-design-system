@@ -103,3 +103,22 @@ const formChangeHandlerStub = () => {}
   icon='random'
 />
 ```
+
+This one sets an empty input for icon, which results in the text masked input with NO icon. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js
+```jsx
+// formChangeHandler gets wired up automatically if using <Form /> component
+const formChangeHandlerStub = () => {}
+;<TextMaskedInput
+  placeholder="0000"
+  mask={[/\d/, /\d/, /\d/, /\d/]}
+  guide={true}
+  keepCharPositions={true}
+  type='text'
+  formChangeHandler={formChangeHandlerStub}
+  name="last4-ssn"
+  labelCopy="Last 4 SSN Example"
+  data-tid="last4-ssn-example"
+  validator={(value) => value && value.length === 4 ? '' : 'Four digits required'}
+  icon=''
+/>
+```
