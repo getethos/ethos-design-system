@@ -313,11 +313,11 @@ export declare const CloudinaryImage: {
   }: {
     [x: string]: any
     publicId: any
-    className: any
+    className?: any
     alt: any
-    width: any
-    height: any
-    crop: any
+    width?: any
+    height?: any
+    crop?: any
     lazyLoad?: boolean
   }): JSX.Element
   CROP_METHODS: {
@@ -793,9 +793,7 @@ export declare const Tooltip: {
 }
 
 // Icontypes, consistent with VALID_ICONS at src/helpers/constants.js
-export type IconTypes = 
- |'eye_slash'
- | 'lock'
+export type IconTypes = 'eye_slash' | 'lock'
 
 export declare const TextMaskedInput: {
   (props: any): JSX.Element
