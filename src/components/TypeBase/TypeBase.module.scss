@@ -26,27 +26,60 @@
 .TitleXLarge2 {
   /* Brand colors */
 
+  &.BrandButtercup {
+    color: var(--BrandButtercup);
+  }
+  &.BrandDuckegg {
+    color: var(--BrandDuckegg);
+  }
   &.BrandForest {
     color: var(--BrandForest);
+  }
+  &.BrandMoss {
+    color: var(--BrandMoss);
+  }
+  &.BrandMossTranslucent {
+    color: var(--BrandMoss--translucent);
   }
   &.BrandSalamander {
     color: var(--BrandSalamander);
   }
+  &.BrandSand {
+    color: var(--BrandSand);
+  }
 
   /* Grayscales */
 
+  &.GrayDarkHover {
+    color: var(--GrayDarkHover--opaque);
+  }
+  &.GrayDarkHoverTrans {
+    color: var(--GrayDarkHover--translucent);
+  }
+  &.GrayLightHover {
+    color: var(--GrayLightHover--opaque);
+  }
+  &.GrayLightHoverTrans {
+    color: var(--GrayLightHover--translucent);
+  }
   &.GrayPrimary {
+    color: var(--GrayPrimary--opaque);
+  }
+  &.GrayPrimaryTrans {
     color: var(--GrayPrimary--translucent);
   }
-
   &.GrayStrokeAndDisabled {
+    color: var(--GrayStrokeAndDisabled--opaque);
+  }
+  &.GrayStrokeAndDisabledTrans {
     color: var(--GrayStrokeAndDisabled--translucent);
   }
-
   &.GraySecondary {
+    color: var(--GraySecondary--opaque);
+  }
+  &.GraySecondaryTrans {
     color: var(--GraySecondary--translucent);
   }
-
   &.White {
     color: var(--White);
   }
