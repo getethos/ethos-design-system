@@ -19,14 +19,17 @@
 ```jsx
 import { COLORS } from './Colors'
 ;<>
+  <Body2.Regular400 color={COLORS.BRAND_DUCKEGG}>
+    Brand Duckegg color
+  </Body2.Regular400>
   <Body2.Regular400 color={COLORS.BRAND_FOREST}>
     Brand Forest color
   </Body2.Regular400>
   <Body2.Regular400 color={COLORS.BRAND_SALAMANDER}>
     Brand Salamander color
   </Body2.Regular400>
-  <Body2.Regular400 color={COLORS.BRAND_SAND}>
-    Brand Sand color
+  <Body2.Regular400 color={COLORS.GRAY_SECONDARY}>
+    Gray Secondary color
   </Body2.Regular400>
 </>
 ```
