@@ -25,5 +25,8 @@ import { COLORS } from './Colors'
   <Body2.Regular400 color={COLORS.BRAND_SALAMANDER}>
     Brand Salamander color
   </Body2.Regular400>
+  <Body2.Regular400 color={COLORS.BRAND_MOSS_TRANSLUCENT}>
+    Brand Moss Translucent color
+  </Body2.Regular400>
 </>
 ```

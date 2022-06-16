@@ -29,8 +29,14 @@
   &.BrandForest {
     color: var(--BrandForest);
   }
+  &.BrandMossTranslucent {
+    color: var(--BrandMoss--translucent);
+  }
   &.BrandSalamander {
     color: var(--BrandSalamander);
+  }
+  &.BrandSand {
+    color: var(--BrandSand);
   }
 
   /* Grayscales */

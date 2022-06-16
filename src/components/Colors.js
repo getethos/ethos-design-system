@@ -2,7 +2,6 @@
 // This map is for high-level colors names (conflating e.g. opaque/transparent).
 // It's also possible we'll need to make this isomorphic with the Sass file.
 export const COLORS = {
-  // TODO: Confirm that the value strings are what they need to be; should they match their css variables in Colors.scss?
   // Brand
   BRAND_BUTTERCUP: 'BrandButtercup',
   BRAND_DUCKEGG: 'BrandDuckegg',
