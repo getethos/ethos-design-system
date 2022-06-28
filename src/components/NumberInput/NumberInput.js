@@ -35,6 +35,7 @@ export const NumberInput = (props) => {
     autoComplete,
     maxLength,
     icon,
+    classOverrides,
     ...restProps
   } = props
 
@@ -64,6 +65,7 @@ export const NumberInput = (props) => {
         autoComplete={autoComplete}
         maxLength={maxLength}
         icon={icon}
+        classOverrides={classOverrides}
       />
     </>
   )
@@ -93,6 +95,8 @@ NumberInput.propTypes = {
   maxLength: PropTypes.number,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
+  /** passed down through component to override Inputstyles */
+  classOverrides: PropTypes.string,
 }
 
 NumberInput.defaultProps = {

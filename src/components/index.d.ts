@@ -1255,6 +1255,7 @@ export declare const NumberInput: {
     keepCharPositions?: boolean
     maxLength?: number
     icon?: IconTypes
+    classOverrides?: string
   }
   defaultProps: {
     type: string
