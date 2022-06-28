@@ -36,6 +36,8 @@ export const NumberInput = (props) => {
     maxLength,
     icon,
     classOverrides,
+    labelWeight,
+    labelColor,
     ...restProps
   } = props
 
@@ -66,6 +68,8 @@ export const NumberInput = (props) => {
         maxLength={maxLength}
         icon={icon}
         classOverrides={classOverrides}
+        labelWeight={labelWeight}
+        labelColor={labelColor}
       />
     </>
   )
@@ -97,6 +101,10 @@ NumberInput.propTypes = {
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
   /** passed down through component to override Inputstyles */
   classOverrides: PropTypes.string,
+  /** passed down through component to override label weight */
+  labelWeight: PropTypes.string,
+  /** passed down through component to override label color */
+  labelColor: PropTypes.string,
 }
 
 NumberInput.defaultProps = {
