@@ -120,7 +120,7 @@
   width: calc(100vw - var(--Space-24));
   padding: var(--Space-64) var(--Space-24) var(--Space-80) var(--Space-24);
   max-height: 95vh;
-  overflow-y: scroll;
+  overflow-y: none;
 
   background: white;
   outline: none;
