@@ -134,6 +134,7 @@ export declare const CheckboxInput: {
     validator,
     children,
     disabled,
+    id,
     name,
     initialValue,
     checked,
@@ -150,6 +151,7 @@ export declare const CheckboxInput: {
     validator?: (value: string) => string
     children: React.ReactNode
     disabled?: boolean
+    id?: string
     name: string
     'data-tid': string
     initialValue?: string | boolean
@@ -166,6 +168,7 @@ export declare const CheckboxInput: {
   }): JSX.Element
   propTypes: {
     formTouched?: boolean
+    id?: string
     name: string
     'data-tid': string
     initialValue?: string | boolean
@@ -192,6 +195,7 @@ export declare const CheckboxInput2: {
     children,
     disabled,
     name,
+    id,
     initialValue,
     checked,
     currentValue,
@@ -208,6 +212,7 @@ export declare const CheckboxInput2: {
     validator?: (value: string) => string
     children: React.ReactNode
     disabled?: boolean
+    id?: string
     name: string
     'data-tid': string
     initialValue?: string | boolean
@@ -225,6 +230,7 @@ export declare const CheckboxInput2: {
   }): JSX.Element
   propTypes: {
     formTouched?: boolean
+    id?: string
     name: string
     'data-tid': string
     initialValue?: string | boolean
