@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 // Nora's Facade (checkbox shape) needs to be smaller to
 // account for overall smaller font sizes we use in Nora
-export const Facade = ({ classes }) => {
+export const Facade = ({ className }) => {
   return (
     <svg
-      className={classes}
+      className={className}
       width="18"
       height="18"
       fill="none"
@@ -20,5 +20,5 @@ export const Facade = ({ classes }) => {
   )
 }
 Facade.propTypes = {
-  classes: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 }
