@@ -1,6 +1,6 @@
 /// <reference types="react" />
 
-import React, { Component, HTMLAttributes } from 'react'
+import React, { Component, HTMLAttributes, ReactNode } from 'react'
 import * as Validators from '../validators/BirthdateInputValidator'
 
 export { Body } from './Body.js'
@@ -123,6 +123,11 @@ export class FlexRow extends Component<RowProps, {}> {}
 
 export class FlexCol extends Component<ColProps, {}> {}
 
+type facadeRendererParams = {
+  className: string
+  isChecked: boolean
+}
+
 export declare const CheckboxInput: {
   ({
     formChangeHandler,
@@ -135,6 +140,7 @@ export declare const CheckboxInput: {
     currentValue,
     currentError,
     setFieldTouched,
+    facadeRenderer,
     formTouched,
     useWhiteBackground,
     ...rest
@@ -150,6 +156,10 @@ export declare const CheckboxInput: {
     checked?: boolean
     currentValue?: string | boolean
     currentError?: string
+    facadeRenderer?: ({
+      className,
+      isChecked,
+    }: facadeRendererParams) => ReactNode
     setFieldTouched?: (touched: boolean) => void
     formTouched?: boolean
     useWhiteBackground?: boolean
@@ -166,6 +176,10 @@ export declare const CheckboxInput: {
     disabled?: boolean
     allCaps?: boolean
     validator?: (value: string) => string
+    facadeRenderer?: ({
+      className,
+      isChecked,
+    }: facadeRendererParams) => ReactNode
     formChangeHandler?: (value: string, errorValue: string) => void
     useWhiteBackground?: boolean
   }
@@ -183,6 +197,7 @@ export declare const CheckboxInput2: {
     currentValue,
     currentError,
     setFieldTouched,
+    facadeRenderer,
     formTouched,
     tooltip,
     variant,
@@ -199,6 +214,10 @@ export declare const CheckboxInput2: {
     checked?: boolean
     currentValue?: string | boolean
     currentError?: string
+    facadeRenderer?: ({
+      className,
+      isChecked,
+    }: facadeRendererParams) => ReactNode
     setFieldTouched?: (touched: boolean) => void
     formTouched?: boolean
     tooltip?: TooltipProps
@@ -217,6 +236,10 @@ export declare const CheckboxInput2: {
     allCaps?: boolean
     validator?: (value: string) => string
     formChangeHandler?: (value: string, errorValue: string) => void
+    facadeRenderer?: ({
+      className,
+      isChecked,
+    }: facadeRendererParams) => ReactNode
     tooltip?: TooltipProps
     variant?: 'default' | 'textonly'
   }

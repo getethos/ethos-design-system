@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Facade = ({ classes }) => {
+export const Facade = ({ className }) => {
   return (
     <svg
-      className={classes}
+      className={className}
       width="18"
       height="18"
       fill="none"
@@ -18,5 +18,5 @@ export const Facade = ({ classes }) => {
   )
 }
 Facade.propTypes = {
-  classes: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 }

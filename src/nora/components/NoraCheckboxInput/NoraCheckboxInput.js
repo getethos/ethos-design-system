@@ -13,7 +13,7 @@ export const NoraCheckboxInput = ({
   disabled,
   ...rest
 }) => {
-  const renderFacade = (klasses) => <Facade classes={klasses} />
+  const renderFacade = ({ className }) => <Facade className={className} />
   return (
     <div className={styles.NoraCheckboxInput}>
       <CheckboxInput
