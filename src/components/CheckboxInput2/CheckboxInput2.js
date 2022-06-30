@@ -17,6 +17,7 @@ export const CheckboxInput2 = ({
   children,
   disabled,
   name,
+  id,
   initialValue,
   currentValue,
   currentError,
@@ -26,6 +27,7 @@ export const CheckboxInput2 = ({
   checked,
   tooltip,
   variant = 'default',
+  facadeRenderer,
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
@@ -73,11 +75,11 @@ export const CheckboxInput2 = ({
   }
 
   const getFacade = () => {
-    const klasses = getFacadeClasses()
-    if (rest.facadeRenderer) {
-      return rest.facadeRenderer(klasses)
+    const className = getFacadeClasses()
+    if (facadeRenderer) {
+      return facadeRenderer({ className, isChecked })
     } else {
-      return <Facade classes={klasses} />
+      return <Facade className={className} />
     }
   }
   const getFacadeClasses = () => {
@@ -103,7 +105,7 @@ export const CheckboxInput2 = ({
         data-variant={variant}
       >
         <label
-          htmlFor={name}
+          htmlFor={id || name}
           className={`${styles.label} ${
             tooltip ? styles.labelWithTooltip : ''
           }`}
@@ -119,7 +121,7 @@ export const CheckboxInput2 = ({
               onKeyPress={onKeyPress}
               disabled={disabled}
               checked={resolvedIsChecked}
-              id={name}
+              id={id || name}
               name={name}
             />
             {getFacade()}
@@ -159,6 +161,8 @@ CheckboxInput2.propTypes = {
   formTouched: PropTypes.bool,
   /** Name of the field */
   name: PropTypes.string.isRequired,
+  /** ID of the field */
+  id: PropTypes.string.isRequired,
   /** Required data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string.isRequired,
   /** Optionally sets a default value for the checkbox */

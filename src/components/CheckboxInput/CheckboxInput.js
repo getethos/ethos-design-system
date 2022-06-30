@@ -23,6 +23,7 @@ export const CheckboxInput = ({
   formTouched, // eslint-disable-line no-unused-vars
   checked,
   useWhiteBackground,
+  facadeRenderer,
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
@@ -70,11 +71,11 @@ export const CheckboxInput = ({
   }
 
   const getFacade = () => {
-    const klasses = getFacadeClasses()
-    if (rest.facadeRenderer) {
-      return rest.facadeRenderer(klasses)
+    const className = getFacadeClasses()
+    if (facadeRenderer) {
+      return facadeRenderer({ className, isChecked })
     } else {
-      return <Facade classes={klasses} />
+      return <Facade className={className} />
     }
   }
 

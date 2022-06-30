@@ -1,6 +1,6 @@
 {
   "name": "ethos-design-system",
-  "version": "1.2.28",
+  "version": "1.2.29",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
