@@ -9,6 +9,7 @@ describe('Button', () => {
       expect(Button.Medium).toBeDefined()
       expect(Button.Medium.Black).toBeDefined()
       expect(Button.Medium.BlackOutline).toBeDefined()
+      expect(Button.Medium.Salamander).toBeDefined()
       expect(Button.Medium.WhiteOutline).toBeDefined()
       expect(Button.Medium.Stateful).toBeDefined()
       expect(Button.Medium.Stateful.Default).toBeDefined()
@@ -24,6 +25,16 @@ describe('Button', () => {
           <Button.Medium.Black data-tid="foo" name="bar" disabled={false}>
             test
           </Button.Medium.Black>
+        )
+        .toJSON()
+      expect(tree).toMatchSnapshot()
+    })
+    test('Button.Medium.Salamander', () => {
+      const tree = renderer
+        .create(
+          <Button.Medium.Salamander data-tid="foo" name="bar" disabled={false}>
+            test
+          </Button.Medium.Salamander>
         )
         .toJSON()
       expect(tree).toMatchSnapshot()
