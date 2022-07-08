@@ -149,6 +149,7 @@ textarea {
   --White: #ffffff;
   --Transparent--white: rgba(255, 255, 255, 0);
   --BrandMoss--translucent: rgba(219, 237, 229, 0.2);
+  --SalamanderHover--translucent: rgba(250, 100, 10, 0.8);
   --BrandPasty: #ffe0de;
   --BrandSunburn: #e11f13;
 }

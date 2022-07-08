@@ -6,12 +6,22 @@ Set of Design-approved public buttons.
 
 ```jsx
 <Button.Medium.Black>Button.Medium.Black</Button.Medium.Black>
+<Button.Medium.Black disabled={true}>
+  Button.Medium.Black disabled
+</Button.Medium.Black>
 ```
 
 ```jsx
 <Button.Medium.BlackOutline>
   Button.Medium.BlackOutline
 </Button.Medium.BlackOutline>
+```
+
+```jsx
+<Button.Medium.Salamander>Button.Medium.Salamander</Button.Medium.Salamander>
+<Button.Medium.Salamander disabled={true}>
+  Button.Medium.Salamander disabled
+</Button.Medium.Salamander>
 ```
 
 ```jsx
@@ -72,9 +82,7 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
-<Button.Medium.Black refreshIcon>
-  Edit Answers
-</Button.Medium.Black>
+<Button.Medium.Black refreshIcon>Edit Answers</Button.Medium.Black>
 ```
 
 #### Fullwidth

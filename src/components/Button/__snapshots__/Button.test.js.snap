@@ -28,6 +28,18 @@ exports[`Button default rendering Button.Medium.Black 1`] = `
 </button>
 `;
 
+exports[`Button default rendering Button.Medium.Salamander 1`] = `
+<button
+  className="Button Medium Salamander"
+  data-tid="foo"
+  disabled={false}
+  name="bar"
+  type="button"
+>
+  test
+</button>
+`;
+
 exports[`Button default rendering Stateful isSelected 1`] = `
 <button
   aria-checked={true}
