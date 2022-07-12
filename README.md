@@ -99,14 +99,15 @@ Each time you need to consume recent EDS changes elsewhere, you need to bump the
 
 1. To bump the package.json version, run `yarn version` in your branch, This will:
 
-- Prompt you for the new version number
-- Update `package.json` with the version number
+- Prompt you for the new version number (yarn version also creates a new git tag using this version number)
+- Updates `package.json` with the version number
 - Commit the change in a new commit
+- Get your PR approved in your branch and merge it to master
 
-2. To create and push a git tag, do one of these:
+2. To push a git tag:
 
-- Run `git tag v1.2.3 && git push origin v1.2.3` on your branch.
-- Create a release `v1.2.3` on GitHub, if it's already in trunk.
+- Run `git push origin v{new version number}` this will create the new tag with the version number in Github
+- Draft a new release in Github using the new tag
 
 3. Never force push a tag, to avoid confusing yarn or Jenkins later. Cut a new version instead.
 
