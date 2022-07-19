@@ -8,7 +8,7 @@ A collection of reusable [React](https://reactjs.org/) components, patterns, and
 1. See `package.json` for node `engines` – you need to have that version of node installed specifically, e.g. via `nvm`:
 
 ```shell
-nvm install v12.18.4  # then do `nvm list` to ensure version is available
+nvm install v16.15.1  # then do `nvm list` to ensure version is available
 nvm use               # use the version specified in `.nvmrc`, if installed
 ```
 
