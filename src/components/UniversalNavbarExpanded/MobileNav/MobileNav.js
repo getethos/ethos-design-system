@@ -60,6 +60,7 @@ BaseHamburger.propTypes = {
  *
  * TODO Make the link list optional for better reusability
  *
+ * @param {string} ctaButtonStyle - 'Black' | 'BlackOutline'
  * @param {object} links - URLs and text for accordion
  * @param {string} extraClass - Extra top level class
  * @param {function} ctaButtonTrackingFunction - Analytics function run when CTA Button is clicked
@@ -72,6 +73,7 @@ BaseHamburger.propTypes = {
  * @return {JSX.Element}
  */
 const MobileNav = ({
+  ctaButtonStyle,
   extraClass,
   logoHref,
   links,
@@ -159,6 +161,7 @@ const MobileNav = ({
           <FancyAnimatedLogo />
         </NavLink>
         <CtaButton
+          buttonStyle={ctaButtonStyle}
           href={singleCta.href ? singleCta.href : links.CTA.href}
           trackingFunction={ctaButtonTrackingFunction}
           hideOnMobile={hideMobileCta}
