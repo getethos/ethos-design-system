@@ -23,6 +23,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * Top level website navigation, fixed to the top of the viewport while scrolling.
  * Consumers can provide a custom link and content structure.
  *
+ * @param {string} ctaButtonStyle - 'Black' | 'BlackOutline'
  * @param {boolean} hideMobileCta - Hide cta on mobile
  * @param {boolean} hideDesktopCta - Hide cta on desktop
  * @param {boolean} hideSearchIcon - Hide search icon on desktop and link on mobile
@@ -39,6 +40,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @return {JSX.Element}
  */
 const UniversalNavbarExpanded = ({
+  ctaButtonStyle,
   LinkComponent,
   hideMobileCta,
   hideDesktopCta,
@@ -95,6 +97,7 @@ const UniversalNavbarExpanded = ({
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
           <MobileNav
+            ctaButtonStyle={ctaButtonStyle}
             extraClass={'isFixedCta'}
             logoHref={logoHref}
             links={links}
@@ -136,6 +139,7 @@ const UniversalNavbarExpanded = ({
                 <div className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
+                      buttonStyle={ctaButtonStyle}
                       href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
                       title={
@@ -154,6 +158,7 @@ const UniversalNavbarExpanded = ({
 }
 
 UniversalNavbarExpanded.propTypes = {
+  ctaButtonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   /** Hide cta on mobile */
   hideMobileCta: PropTypes.bool,
   /** Hide cta on desktop */
@@ -244,6 +249,7 @@ UniversalNavbarExpanded.propTypes = {
 }
 
 UniversalNavbarExpanded.defaultProps = {
+  ctaButtonStyle: 'Black',
   hideMobileCta: false,
   hideDesktopCta: false,
   hideSearchIcon: false,

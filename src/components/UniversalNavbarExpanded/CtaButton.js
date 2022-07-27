@@ -12,6 +12,7 @@ import styles from './CtaButton.module.scss'
  *
  * TODO Add onKeyPress for tracking function
  *
+ * @param {string} buttonStyle - 'Black' | 'BlackOutline'
  * @param {string} href - URL for the button to link to
  * @param {function} trackingFunction - Analytics function run when CTA Button is clicked
  * @param {boolean} hideOnMobile - Hide the CTA on phone only
@@ -19,7 +20,13 @@ import styles from './CtaButton.module.scss'
  *
  * @return {JSX.Element}
  */
-const CtaButton = ({ href, trackingFunction, hideOnMobile, title }) => {
+const CtaButton = ({
+  buttonStyle,
+  href,
+  trackingFunction,
+  hideOnMobile,
+  title,
+}) => {
   // We still rely on some legacy UniversalNavbar styles from FancyAnimatedLogo.scss
   // TODO convert these to module.scss capable styles
   const CtaButtonClasses = [
@@ -32,22 +39,35 @@ const CtaButton = ({ href, trackingFunction, hideOnMobile, title }) => {
     CtaButtonClasses.push(styles.hidden)
   }
 
+  const buttons = {
+    Black: Button.Small.Black,
+    BlackOutline: Button.Small.BlackOutline,
+  }
+
+  const CTA = buttons[buttonStyle] || buttons.Black
+
   return (
     <a
       className={CtaButtonClasses.join(' ')}
       onClick={trackingFunction}
       href={href}
     >
-      <Button.Small.Black>{title}</Button.Small.Black>
+      <CTA>{title}</CTA>
     </a>
   )
 }
 
 CtaButton.propTypes = {
+  buttonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
+  hideOnMobile: PropTypes.bool,
   href: PropTypes.string.isRequired,
   trackingFunction: PropTypes.func.isRequired,
-  hideOnMobile: PropTypes.bool,
   title: PropTypes.string.isRequired,
+}
+
+CtaButton.defaultProps = {
+  buttonStyle: 'Black',
+  hideOnMobile: false,
 }
 
 export default CtaButton

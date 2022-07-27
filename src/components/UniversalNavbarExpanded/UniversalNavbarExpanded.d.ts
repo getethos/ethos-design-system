@@ -50,10 +50,14 @@ type UniversalNavbarExpandedProps = {
       title: string
     }
     NAVLINKS: NavLink[]
-    /** Estimate copy experiment on optimizely */
-    estimateExperiment?: boolean
-    singleCta?: { href: string; title: string }
   }
+
+  /** Estimate copy experiment on optimizely */
+  estimateExperiment?: boolean
+
+  singleCta?: { href: string; title: string }
+
+  ctaButtonStyle?: 'BlackOutline' | 'Black'
 }
 
 export declare const UniversalNavbarExpanded: React.FC<UniversalNavbarExpandedProps>
