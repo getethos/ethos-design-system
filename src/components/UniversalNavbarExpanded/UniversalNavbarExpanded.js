@@ -158,6 +158,7 @@ const UniversalNavbarExpanded = ({
 }
 
 UniversalNavbarExpanded.propTypes = {
+  ctaButtonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   /** Hide cta on mobile */
   hideMobileCta: PropTypes.bool,
   /** Hide cta on desktop */
@@ -248,6 +249,7 @@ UniversalNavbarExpanded.propTypes = {
 }
 
 UniversalNavbarExpanded.defaultProps = {
+  ctaButtonStyle: 'Black',
   hideMobileCta: false,
   hideDesktopCta: false,
   hideSearchIcon: false,

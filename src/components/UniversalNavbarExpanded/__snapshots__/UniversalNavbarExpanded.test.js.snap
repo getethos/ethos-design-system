@@ -12,6 +12,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
       offsetHeight={0}
     >
       <MobileNav
+        ctaButtonStyle="Black"
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
@@ -446,6 +447,8 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               className="cta"
             >
               <CtaButton
+                buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 title="Check my price"
                 trackingFunction={[Function]}
@@ -471,6 +474,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
       offsetHeight={0}
     >
       <MobileNav
+        ctaButtonStyle="Black"
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
@@ -906,6 +910,8 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               className="cta"
             >
               <CtaButton
+                buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 title="Check my price"
                 trackingFunction={[Function]}

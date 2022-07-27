@@ -173,6 +173,7 @@ const MobileNav = ({
 }
 
 MobileNav.propTypes = {
+  ctaButtonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,
   ctaButtonTrackingFunction: PropTypes.func,
