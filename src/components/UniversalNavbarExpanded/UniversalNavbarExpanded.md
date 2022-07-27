@@ -10,5 +10,5 @@ import { CMS_LINKS, SINGLE_CTA } from './SampleContent';
 // <UniversalNavbarExpanded logoHref={'/#/Components/UniversalNavbarExpanded'} links={CMS_LINKS} hideAccountIcon={true}/>
 // <UniversalNavbarExpanded logoHref={'/#/Components/UniversalNavbarExpanded'} links={CMS_LINKS} hideAccountIcon={true} hideSearchIcon={true}/>
 // <UniversalNavbarExpanded logoHref={'/#/Components/UniversalNavbarExpanded'} links={CMS_LINKS} hideAccountIcon={true} hideSearchIcon={true} showSecondaryCta={true}/>
-<UniversalNavbarExpanded logoHref={'/#/Components/UniversalNavbarExpanded'} links={CMS_LINKS} singleCta={SINGLE_CTA}/>
+<UniversalNavbarExpanded logoHref={'/#/Components/UniversalNavbarExpanded'} links={CMS_LINKS} singleCta={SINGLE_CTA} ctaButtonStyle={'BlackOutline'}/>
 ```
