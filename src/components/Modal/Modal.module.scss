@@ -21,3 +21,18 @@
   position: relative;
   overflow: auto;
 }
+
+.ModalBackdrop {
+  display: none;
+  z-index: -1;
+}
+
+.ModalBackdropActive {
+  display: flex;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: $z-index-backdrop;
+}

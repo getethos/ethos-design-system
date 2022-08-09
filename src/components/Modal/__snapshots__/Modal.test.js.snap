@@ -8,6 +8,9 @@ Object {
   >
     <div>
       <div
+        class="ModalBackdrop"
+      />
+      <div
         aria-hidden="false"
         class="ModalWrapperActive"
         data-testid="base-modal-container"
@@ -37,6 +40,9 @@ Object {
     />
   </body>,
   "container": <div>
+    <div
+      class="ModalBackdrop"
+    />
     <div
       aria-hidden="false"
       class="ModalWrapperActive"

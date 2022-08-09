@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Portal } from '../Portal'
 import styles from './Modal.module.scss'
@@ -72,6 +72,16 @@ export const Modal = ({
   isOpen = false,
 }) => {
   const classes = isOpen ? styles.ModalWrapperActive : styles.ModalWrapper
+  const [backDropClass, setBackDropClass] = useState(styles.ModalBackdrop)
+
+  useEffect(() => {
+    setTimeout(() => {
+      debugger
+      setBackDropClass(
+        isOpen ? styles.ModalBackdropActive : styles.ModalBackdrop
+      )
+    }, 2000)
+  })
 
   /**
    * Handler will set the the modal onDismiss to `false` when the escape key is
@@ -91,6 +101,7 @@ export const Modal = ({
 
   return (
     <Portal id="modal-root">
+      <div className={backDropClass} />
       {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions */}
       <div
         className={classes}
