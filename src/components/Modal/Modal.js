@@ -76,7 +76,6 @@ export const Modal = ({
 
   useEffect(() => {
     setTimeout(() => {
-      debugger
       setBackDropClass(
         isOpen ? styles.ModalBackdropActive : styles.ModalBackdrop
       )
