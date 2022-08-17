@@ -79,7 +79,7 @@ export const Modal = ({
       setBackDropClass(
         isOpen ? styles.ModalBackdropActive : styles.ModalBackdrop
       )
-    }, 1000)
+    }, 300)
   })
 
   /**
