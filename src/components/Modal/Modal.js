@@ -80,7 +80,7 @@ export const Modal = ({
         isOpen ? styles.ModalBackdropActive : styles.ModalBackdrop
       )
     }, 300)
-  })
+  }, [])
 
   /**
    * Handler will set the the modal onDismiss to `false` when the escape key is
