@@ -74,6 +74,7 @@ const UniversalNavbarExpanded = ({
       className={styles.searchIcon}
       href={links.SEARCH.href}
       trackingFunction={trackMenuClick}
+      ctaLabel={'SearchIcon'}
     >
       <SearchIcon />
     </NavLink>
@@ -84,6 +85,7 @@ const UniversalNavbarExpanded = ({
       className={styles.accountIcon}
       href={links.ACCOUNT.href}
       trackingFunction={trackMenuClick}
+      ctaLabel={'AccountIcon'}
     >
       <AccountIcon />
     </NavLink>
@@ -125,11 +127,11 @@ const UniversalNavbarExpanded = ({
                   href={singleCta.href ? singleCta.href : logoHref}
                   LinkComponent={LinkComponent}
                   trackingFunction={trackMenuClick}
+                  ctaLabel={'Logo'}
                 >
                   {LogoNotAnimated({ className: styles.logo })}
                 </NavLink>
                 {!singleCta.href && (
-                  //TODO: pass the tracking props down to DropdownNav to handle all the child links
                   <DropdownNav
                     links={links}
                     LinkComponent={LinkComponent}

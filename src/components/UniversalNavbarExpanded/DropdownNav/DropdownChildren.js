@@ -64,11 +64,11 @@ const DropdownChildren = ({
             {child.subnav &&
               get(child, 'subnav.cta') &&
               get(child, 'subnav.cta.href') && (
-                //NOTE: main big link
                 <NavLink
                   href={get(child, 'subnav.cta.href')}
                   LinkComponent={LinkComponent}
                   trackingFunction={trackingFunction}
+                  ctaLabel={child.subnav.cta.title}
                 >
                   <DropdownCta
                     title={get(child, 'subnav.cta.title')}
@@ -89,10 +89,14 @@ const DropdownChildren = ({
                 key={`navChildColumn${idx}`}
               >
                 {column.map((link) => (
-                  //NOTE: child links
                   <div className={styles.child} key={link.id}>
                     <Footnote.Regular400>
-                      <NavLink href={link.href} LinkComponent={LinkComponent}>
+                      <NavLink
+                        href={link.href}
+                        LinkComponent={LinkComponent}
+                        trackingFunction={trackingFunction}
+                        ctaLabel={link.title}
+                      >
                         <div className={styles.childLink}>
                           <IconIntegratedTitle title={link.title}>
                             <DropdownLinkIcon />
