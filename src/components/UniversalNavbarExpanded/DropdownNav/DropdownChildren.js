@@ -26,10 +26,16 @@ import styles from './DropdownChildren.module.scss'
  * @param {string} containerClasses - Extra top level class
  * @param {object} child - CTA copy, url and link items with titles/urls
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ * @param {function} trackingFunction - Analytics tracking function
  *
  * @return {JSX.Element}
  */
-const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
+const DropdownChildren = ({
+  containerClasses,
+  child,
+  LinkComponent,
+  trackingFunction,
+}) => {
   // ------------------------------------------------
   // Split the links for the subnav into two columns.
   // Related to the way design wanted spacing to work.
@@ -58,9 +64,11 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
             {child.subnav &&
               get(child, 'subnav.cta') &&
               get(child, 'subnav.cta.href') && (
+                //NOTE: main big link
                 <NavLink
                   href={get(child, 'subnav.cta.href')}
                   LinkComponent={LinkComponent}
+                  trackingFunction={trackingFunction}
                 >
                   <DropdownCta
                     title={get(child, 'subnav.cta.title')}
@@ -81,6 +89,7 @@ const DropdownChildren = ({ containerClasses, child, LinkComponent }) => {
                 key={`navChildColumn${idx}`}
               >
                 {column.map((link) => (
+                  //NOTE: child links
                   <div className={styles.child} key={link.id}>
                     <Footnote.Regular400>
                       <NavLink href={link.href} LinkComponent={LinkComponent}>
@@ -106,6 +115,7 @@ DropdownChildren.propTypes = {
   containerClasses: PropTypes.string,
   child: PropTypes.object,
   LinkComponent: PropTypes.object,
+  trackingFunction: PropTypes.func,
 }
 
 export default DropdownChildren

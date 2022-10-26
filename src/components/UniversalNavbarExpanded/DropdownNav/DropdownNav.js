@@ -18,11 +18,12 @@ import styles from './DropdownNav.module.scss'
  *
  * @param {object} links - URLs and text
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
+ * @param {function} trackingFunction - Analytics tracking function
  *
  * @return {JSX.Element}
  */
 
-const DropdownNav = ({ links, LinkComponent }) => {
+const DropdownNav = ({ links, LinkComponent, trackingFunction }) => {
   return (
     <div className={styles.dropdownNav}>
       {links.NAVLINKS.map((link) => (
@@ -37,6 +38,7 @@ const DropdownNav = ({ links, LinkComponent }) => {
             child={link}
             LinkComponent={LinkComponent}
             containerClasses={styles.children}
+            trackingFunction={trackingFunction}
           />
         </div>
       ))}
@@ -76,6 +78,7 @@ DropdownNav.propTypes = {
   }).isRequired,
   /** Agnotistic Reach and React Router Link (ex. Gatsby's <Link>) */
   LinkComponent: PropTypes.object,
+  trackingFunction: PropTypes.func,
 }
 
 export default DropdownNav
