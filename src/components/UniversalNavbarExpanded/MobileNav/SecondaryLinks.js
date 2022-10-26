@@ -17,6 +17,7 @@ import styles from './SecondaryLinks.module.scss'
  * @param {string} className - Extra top level class
  * @param {boolean} currentPageCondition - Condition to check before executing currentPageFunction
  * @param {function} currentPageFunction - Function to execute when navigating to link of present page
+ * @param {function} trackingFunction - Analytics tracking function
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  *
  * @return {JSX.Element}
@@ -26,6 +27,7 @@ const SecondaryLinks = ({
   className,
   currentPageCondition,
   currentPageFunction,
+  trackingFunction,
   LinkComponent,
 }) => {
   const classes = [styles.secondaryLinks]
@@ -46,6 +48,8 @@ const SecondaryLinks = ({
             currentPageCondition={currentPageCondition}
             currentPageAwareness={true}
             LinkComponent={LinkComponent}
+            trackingFunction={trackingFunction}
+            itemLabel={link.title}
           >
             <TitleMedium.Sans.Regular400>
               {link.title}
@@ -62,6 +66,7 @@ SecondaryLinks.propTypes = {
   className: PropTypes.string,
   currentPageCondition: PropTypes.bool,
   currentPageFunction: PropTypes.func,
+  trackingFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
 }
 

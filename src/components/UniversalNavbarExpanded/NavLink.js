@@ -18,7 +18,7 @@ import { preventCurrentPageNavigation } from '../../helpers/preventCurrentPageNa
  * @param {string} href - URL for the link
  * @param {boolean} currentPageAwareness - Enable an onClick & onKeyPress listener
  * @param {function} currentPageFunction - Use with currentPageAwareness to handle onClick & onKeyPress
- * @param {function} itemLabel - Menu item label
+ * @param {function} itemLabel - Item label used as property in Analytics event
  * @param {function} trackingFunction - Analytics tracking function
  * @param {object} component - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {ReactNode} children - Children to render within the link

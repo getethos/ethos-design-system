@@ -26,7 +26,7 @@ import styles from './AccordionNav.module.scss'
  * @param {object} links - URLs and text
  * @param {boolean} navVisible - Condition to check before executing currentPageFunction
  * @param {function} currentPageFunction - Function to execute when navigating to link of present page
- * @param {function} itemTrackingFunction - Analytics tracking function
+ * @param {function} trackingFunction - Analytics tracking function
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  *
  * @return {JSX.Element}
@@ -36,7 +36,7 @@ const AccordionNav = ({
   links,
   navVisible,
   currentPageFunction,
-  itemTrackingFunction,
+  trackingFunction,
   LinkComponent,
 }) => {
   const [activeAccordionItem, setActiveAccordionItem] = useState(false)
@@ -99,7 +99,7 @@ const AccordionNav = ({
                   currentPageFunction={(e) => currentPageFunction(e)}
                   currentPageCondition={navVisible}
                   LinkComponent={LinkComponent}
-                  trackingFunction={itemTrackingFunction}
+                  trackingFunction={trackingFunction}
                   itemLabel={link.subnav.cta.title}
                 >
                   {get(link, 'subnav.cta.title')}
@@ -115,7 +115,7 @@ const AccordionNav = ({
                     currentPageFunction={(e) => currentPageFunction(e)}
                     currentPageCondition={navVisible}
                     LinkComponent={LinkComponent}
-                    trackingFunction={itemTrackingFunction}
+                    trackingFunction={trackingFunction}
                     itemLabel={link.title}
                   >
                     {link.title}
@@ -136,7 +136,7 @@ AccordionNav.propTypes = {
   navVisible: PropTypes.bool,
   currentPageFunction: PropTypes.func,
   ctaButtonTrackingFunction: PropTypes.func,
-  itemTrackingFunction: PropTypes.func,
+  trackingFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
 }
 

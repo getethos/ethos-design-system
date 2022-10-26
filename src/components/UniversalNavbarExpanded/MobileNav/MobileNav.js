@@ -144,7 +144,7 @@ const MobileNav = ({
               currentPageFunction={(e) => toggleHamburger(e)}
               navVisible={showMobileMenu}
               LinkComponent={LinkComponent}
-              itemTrackingFunction={itemTrackingFunction}
+              trackingFunction={itemTrackingFunction}
             />
             <SecondaryLinks
               links={secondaryLinksLinks}
@@ -152,6 +152,7 @@ const MobileNav = ({
               currentPageFunction={(e) => toggleHamburger(e)}
               currentPageCondition={showMobileMenu}
               LinkComponent={LinkComponent}
+              trackingFunction={itemTrackingFunction}
             />
           </div>
         )}
