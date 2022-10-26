@@ -31,7 +31,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {boolean} showSecondaryCta - Show secondary CTA text link on desktop and mobile
  * @param {function} trackCtaClick - Analytics function run when CTA Button is clicked
  * @param {function} trackSecondaryCtaClick - Analytics function run when secondary CTA text link is clicked
- * @param {function} trackMenuClick - Analytics function run when a navbar or menu item is clicked
+ * @param {function} trackItemClick - Analytics function run when a navbar or menu item is clicked
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {string} logoHref - Href for the logo
  * @param {object} links - URLs and text
@@ -51,7 +51,7 @@ const UniversalNavbarExpanded = ({
   logoHref,
   trackCtaClick,
   trackSecondaryCtaClick,
-  trackMenuClick,
+  trackItemClick,
   links,
   estimateExperiment,
   singleCta = {},
@@ -73,8 +73,8 @@ const UniversalNavbarExpanded = ({
     <NavLink
       className={styles.searchIcon}
       href={links.SEARCH.href}
-      trackingFunction={trackMenuClick}
-      ctaLabel={'SearchIcon'}
+      trackingFunction={trackItemClick}
+      itemLabel={'SearchIcon'}
     >
       <SearchIcon />
     </NavLink>
@@ -84,8 +84,8 @@ const UniversalNavbarExpanded = ({
     <NavLink
       className={styles.accountIcon}
       href={links.ACCOUNT.href}
-      trackingFunction={trackMenuClick}
-      ctaLabel={'AccountIcon'}
+      trackingFunction={trackItemClick}
+      itemLabel={'AccountIcon'}
     >
       <AccountIcon />
     </NavLink>
@@ -115,7 +115,6 @@ const UniversalNavbarExpanded = ({
             links={links}
             secondaryLinksLinks={BELOW_ACCORDION_LINKS}
             hideMobileCta={hideMobileCta}
-            //TODO: add the tracking props we need to pass in here - make sure all our events fire on the mobile nav
             ctaButtonTrackingFunction={trackCtaClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
@@ -126,8 +125,8 @@ const UniversalNavbarExpanded = ({
                 <NavLink
                   href={singleCta.href ? singleCta.href : logoHref}
                   LinkComponent={LinkComponent}
-                  trackingFunction={trackMenuClick}
-                  ctaLabel={'Logo'}
+                  trackingFunction={trackItemClick}
+                  itemLabel={'Logo'}
                 >
                   {LogoNotAnimated({ className: styles.logo })}
                 </NavLink>
@@ -135,7 +134,7 @@ const UniversalNavbarExpanded = ({
                   <DropdownNav
                     links={links}
                     LinkComponent={LinkComponent}
-                    trackingFunction={trackMenuClick}
+                    trackingFunction={trackItemClick}
                   />
                 )}
               </div>
@@ -193,7 +192,7 @@ UniversalNavbarExpanded.propTypes = {
   /** Analytics function run when secondary CTA text link is clicked */
   trackSecondaryCtaClick: PropTypes.func,
   /** Analytics function run when a navbar or menu item is clicked */
-  trackMenuClick: PropTypes.func,
+  trackItemClick: PropTypes.func,
   /** Agnotistic Reach and React Router Link (ex. Gatsby's <Link>) */
   LinkComponent: PropTypes.object,
   /** Href for the logo */

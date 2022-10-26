@@ -68,7 +68,7 @@ const DropdownChildren = ({
                   href={get(child, 'subnav.cta.href')}
                   LinkComponent={LinkComponent}
                   trackingFunction={trackingFunction}
-                  ctaLabel={child.subnav.cta.title}
+                  itemLabel={child.subnav.cta.title}
                 >
                   <DropdownCta
                     title={get(child, 'subnav.cta.title')}
@@ -95,7 +95,7 @@ const DropdownChildren = ({
                         href={link.href}
                         LinkComponent={LinkComponent}
                         trackingFunction={trackingFunction}
-                        ctaLabel={link.title}
+                        itemLabel={link.title}
                       >
                         <div className={styles.childLink}>
                           <IconIntegratedTitle title={link.title}>

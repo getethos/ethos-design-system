@@ -18,7 +18,7 @@ import { preventCurrentPageNavigation } from '../../helpers/preventCurrentPageNa
  * @param {string} href - URL for the link
  * @param {boolean} currentPageAwareness - Enable an onClick & onKeyPress listener
  * @param {function} currentPageFunction - Use with currentPageAwareness to handle onClick & onKeyPress
- * @param {function} ctaLabel - CTA label displayed to the user
+ * @param {function} itemLabel - Menu item label
  * @param {function} trackingFunction - Analytics tracking function
  * @param {object} component - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {ReactNode} children - Children to render within the link
@@ -32,7 +32,7 @@ const NavLink = ({
   currentPageAwareness,
   currentPageFunction,
   currentPageCondition,
-  ctaLabel,
+  itemLabel,
   trackingFunction,
   LinkComponent,
   children,
@@ -49,7 +49,7 @@ const NavLink = ({
     }
     trackingFunction({
       properties: {
-        ctaLabel,
+        itemLabel,
         clickthroughUrl: href,
       },
     })
@@ -77,7 +77,7 @@ NavLink.propTypes = {
   href: PropTypes.string.isRequired,
   currentPageAwareness: PropTypes.bool,
   currentPageFunction: PropTypes.func,
-  ctaLabel: PropTypes.string,
+  itemLabel: PropTypes.string,
   trackingFunction: PropTypes.func,
   currentPageCondition: PropTypes.bool,
   LinkComponent: PropTypes.object,
