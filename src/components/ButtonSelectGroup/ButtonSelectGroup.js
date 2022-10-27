@@ -87,7 +87,7 @@ export const ButtonSelectGroup = ({
     // For example, if we have two buttons yes & no mapped to booleans
     const isSelectedValue = typeof selectedValue !== 'undefined'
     if (onSelect && isSelectedValue) {
-      onSelect({ value: selectedValue, isAnswered })
+      onSelect({ value: selectedValue, isAnswered, name })
     }
     if (formChangeHandler && isSelectedValue) {
       // Ensure all validators get called
