@@ -83,6 +83,7 @@ describe('ButtonSelectGroup', () => {
     expect(onSelectStub).toHaveBeenCalledWith({
       value: optionValues[0],
       isAnswered: true,
+      name: 'test',
     })
   })
 
@@ -123,6 +124,7 @@ describe('ButtonSelectGroup', () => {
     expect(onSelectStub).toHaveBeenCalledWith({
       value: optionValues[1],
       isAnswered: true,
+      name: 'test',
     })
   })
 
@@ -180,6 +182,7 @@ describe('ButtonSelectGroup', () => {
     expect(onSelectStub).toHaveBeenCalledWith({
       value,
       isAnswered: true,
+      name: 'test',
     })
   })
 })
