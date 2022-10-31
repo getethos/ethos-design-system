@@ -231,6 +231,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           >
             <NavLink
               href="/"
+              itemLabel="Logo"
             >
               <svg
                 className="logo"
@@ -693,6 +694,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           >
             <NavLink
               href="/"
+              itemLabel="Logo"
             >
               <svg
                 className="logo"

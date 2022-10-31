@@ -64,6 +64,7 @@ BaseHamburger.propTypes = {
  * @param {object} links - URLs and text for accordion
  * @param {string} extraClass - Extra top level class
  * @param {function} ctaButtonTrackingFunction - Analytics function run when CTA Button is clicked
+ * @param {function} itemTrackingFunction - Analytics tracking function
  * @param {object} LinkComponent - Agnotistic Reach and React Router Link (ex. Gatsby's <Link>)
  * @param {string} logoHref - Href for the logo
  * @param {array} secondaryLinksLinks - List of links for static display below accordion
@@ -80,6 +81,7 @@ const MobileNav = ({
   secondaryLinksLinks,
   hideMobileCta,
   ctaButtonTrackingFunction,
+  itemTrackingFunction,
   LinkComponent,
   singleCta = {},
 }) => {
@@ -130,6 +132,8 @@ const MobileNav = ({
               currentPageFunction={(e) => toggleHamburger(e)}
               currentPageCondition={showMobileMenu}
               LinkComponent={LinkComponent}
+              trackingFunction={itemTrackingFunction}
+              itemLabel={'Logo'}
             >
               {LogoWhite({ className: styles.logo })}
             </NavLink>
@@ -140,6 +144,7 @@ const MobileNav = ({
               currentPageFunction={(e) => toggleHamburger(e)}
               navVisible={showMobileMenu}
               LinkComponent={LinkComponent}
+              trackingFunction={itemTrackingFunction}
             />
             <SecondaryLinks
               links={secondaryLinksLinks}
@@ -147,6 +152,7 @@ const MobileNav = ({
               currentPageFunction={(e) => toggleHamburger(e)}
               currentPageCondition={showMobileMenu}
               LinkComponent={LinkComponent}
+              trackingFunction={itemTrackingFunction}
             />
           </div>
         )}
@@ -157,6 +163,8 @@ const MobileNav = ({
           currentPageFunction={(e) => toggleHamburger(e)}
           currentPageCondition={showMobileMenu}
           LinkComponent={LinkComponent}
+          trackingFunction={itemTrackingFunction}
+          itemLabel={'Logo'}
         >
           <FancyAnimatedLogo />
         </NavLink>
@@ -177,6 +185,7 @@ MobileNav.propTypes = {
   links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,
   ctaButtonTrackingFunction: PropTypes.func,
+  itemTrackingFunction: PropTypes.func,
   LinkComponent: PropTypes.object,
   logoHref: PropTypes.string.isRequired,
   secondaryLinksLinks: PropTypes.array.isRequired,
