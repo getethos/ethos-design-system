@@ -164,7 +164,7 @@ const MobileNav = ({
           currentPageCondition={showMobileMenu}
           LinkComponent={LinkComponent}
           trackingFunction={itemTrackingFunction}
-          itemLabel={'AnimatedLogo'}
+          itemLabel={'Logo'}
         >
           <FancyAnimatedLogo />
         </NavLink>
