@@ -89,6 +89,24 @@ Simply import the colors and utilize [CSS custom properties](https://developer.m
     <span class="Caption Theinhardt Medium500">`#ffffff`</span>
     <span class="Caption Theinhardt Regular400">White</span>
   </div>
+  <div class="swatch-brand-BrandMossOpaque">
+    <span class="Caption Theinhardt Medium500">`#F2F9F6`</span>
+    <span class="Caption Theinhardt Regular400">BrandMossOpaque</span>
+  </div>
+  <div class="swatch-brand-BrandDuckeggTrans">
+    <span class="Caption Theinhardt Medium500">`#F2F7FF`</span>
+    <span class="Caption Theinhardt Regular400">BrandDuckeggTrans</span>
+  </div>
+</div>
+<div class="flex-wrap">
+  <div class="swatch-brand-BrandDuckeggDark">
+    <span class="Caption Theinhardt Medium500">`#336CC3`</span>
+    <span class="Caption Theinhardt Regular400">BrandDuckeggDark</span>
+  </div>
+  <div class="swatch-brand-GoldTrans">
+    <span class="Caption Theinhardt Medium500">`#FFC24D`</span>
+    <span class="Caption Theinhardt Regular400">GoldTrans</span>
+  </div>
 </div>
 
 
