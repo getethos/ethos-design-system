@@ -116,6 +116,7 @@ const UniversalNavbarExpanded = ({
             secondaryLinksLinks={BELOW_ACCORDION_LINKS}
             hideMobileCta={hideMobileCta}
             ctaButtonTrackingFunction={trackCtaClick}
+            itemTrackingFunction={trackItemClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
           />
