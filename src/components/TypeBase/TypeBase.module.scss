@@ -85,6 +85,21 @@
   }
 
   /* Misc. */
+  &.BrandMossOpaque {
+    color: var(--BrandMoss--opaque);
+  }
+
+  &.BrandDuckeggTrans {
+    color: var(--BrandDuckegg--translucent);
+  }
+
+  &.BrandDuckeggDark {
+    color: var(--BrandDuckegg--dark);
+  }
+
+  &.GoldTrans {
+    color: var(--Gold--translucent);
+  }
 
   &.Centered {
     text-align: center;

@@ -152,6 +152,10 @@ textarea {
   --SalamanderHover--translucent: rgba(250, 100, 10, 0.8);
   --BrandPasty: #ffe0de;
   --BrandSunburn: #e11f13;
+  --BrandMoss--opaque: #f2f9f6;
+  --BrandDuckegg--translucent: #f2f7ff;
+  --BrandDuckegg--dark: #336cc3;
+  --Gold--translucent: #ffc24d;
 }
 
 :root {
