@@ -24,6 +24,78 @@ const mediaBreakpoints = [
   Media.BREAKPOINTS.PHONE_RANGE_END,
 ]
 
+const dprSettings = ['1.0', '2.0', '3.0']
+
+const defaultImageSettings = {
+  quality: 'auto:eco',
+  secure: true,
+  fetchFormat: 'auto',
+  flags: ['progressive:semi'],
+}
+
+/**
+ *  Sourced from here: https://web.dev/preload-responsive-images/#preload-and-lesspicturegreater
+ *
+ *  Output something like the below
+ *  <link rel="preload" href="small_cat.jpg" as="image" media="(max-width: 400px)" />
+ *  <link rel="preload" href="medium_cat.jpg" as="image" media="(min-width: 400.1px) and (max-width: 800px)" />
+ *  <link rel="preload" href="large_cat.jpg" as="image" media="(min-width: 800.1px)" />
+ *
+ *  When Safari supports imagesrcset, this is unnecessary
+ */
+
+export const PreloadTags = ({ crop, publicId, height, width }) => {
+  let reverseWidth, reverseHeight
+
+  if (width) {
+    reverseWidth = width.slice().reverse()
+  }
+  if (height) {
+    reverseHeight = height.slice().reverse()
+  }
+
+  const preloadTags = []
+  for (let breakpoint = 0; breakpoint < mediaBreakpoints.length; breakpoint++) {
+    const imageSettings = {
+      ...defaultImageSettings,
+      crop,
+      ...(reverseWidth &&
+        !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
+      ...(reverseHeight &&
+        !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
+    }
+
+    dprSettings.forEach((dpr, indx) => {
+      const sourceSettings = {
+        ...imageSettings,
+        dpr,
+      }
+      const dprString = `and (-webkit-min-device-pixel-ratio: ${indx + 1})`
+      let minMaxString
+      if (breakpoint === 0) {
+        minMaxString = `(min-width: ${mediaBreakpoints[breakpoint]}.1px)`
+      } else if (breakpoint === mediaBreakpoints.length - 1) {
+        minMaxString = `(max-width: ${mediaBreakpoints[breakpoint]}px)`
+      } else {
+        minMaxString = `(min-width: ${
+          mediaBreakpoints[breakpoint]
+        }.1px) and (max-width: ${mediaBreakpoints[breakpoint - 1]}px)`
+      }
+      const mediaString = `${minMaxString} ${dprString}`
+      preloadTags.push(
+        <link
+          rel="preload"
+          href={cld.url(filePath(publicId), sourceSettings)}
+          as="image"
+          media={mediaString}
+          key={`${breakpoint}-${dpr}`}
+        />
+      )
+    })
+  }
+  return <>{preloadTags}</>
+}
+
 export const CloudinaryImage = ({
   publicId,
   className,
@@ -51,11 +123,8 @@ export const CloudinaryImage = ({
   includesInvalid(rest)
 
   const baseImageSettings = {
-    quality: 'auto:eco',
     crop,
-    secure: true,
-    fetchFormat: 'auto',
-    flags: ['progressive:semi'],
+    ...defaultImageSettings,
   }
   let imageClasses = [className]
   if (lazyLoad) {
@@ -219,6 +288,13 @@ CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
   lazyLoad: true,
+}
+
+PreloadTags.propTypes = {
+  crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
+  publicId: PropTypes.string.isRequired,
+  height: PropTypes.array,
+  width: PropTypes.array,
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS

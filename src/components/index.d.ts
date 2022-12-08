@@ -328,7 +328,14 @@ export declare const Button: {
   Unstyled: (downstreamProps: downstreamButtonProps) => any
   WhiteCTA: (downstreamProps: downstreamButtonProps) => any
 }
-
+export declare const PreloadTags: ({
+  crop, publicId, height, width,
+}: {
+  crop: string,
+  publicId: string,
+  height: number[],
+  width: number[]
+}) => JSX.Element
 export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
 export declare const CloudinaryImage: {
   ({
