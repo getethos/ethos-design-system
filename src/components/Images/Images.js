@@ -24,6 +24,13 @@ const mediaBreakpoints = [
   Media.BREAKPOINTS.PHONE_RANGE_END,
 ]
 
+const mobileFirstMediaBreakpoints = [
+  Media.BREAKPOINTS.PHONE_RANGE_END,
+  Media.BREAKPOINTS.TABLET_RANGE_END,
+  Media.BREAKPOINTS.LAPTOP_RANGE_END,
+  Media.BREAKPOINTS.DESKTOP_RANGE_START,
+]
+
 const dprSettings = ['1.0', '2.0', '3.0']
 
 const defaultImageSettings = {
@@ -37,7 +44,7 @@ const defaultImageSettings = {
  *  Sourced from here: https://web.dev/preload-responsive-images/#preload-and-lesspicturegreater
  *
  *  Output something like the below
- *  <link rel="preload" href="small_cat.jpg" as="image" media="(max-width: 400px) and " />
+ *  <link rel="preload" href="small_cat.jpg" as="image" media="(max-width: 400px)" />
  *  <link rel="preload" href="medium_cat.jpg" as="image" media="(min-width: 400.1px) and (max-width: 800px)" />
  *  <link rel="preload" href="large_cat.jpg" as="image" media="(min-width: 800.1px)" />
  *
@@ -45,22 +52,12 @@ const defaultImageSettings = {
  */
 
 export const PreloadTags = ({ crop, publicId, height, width }) => {
-  let reverseWidth, reverseHeight
-
-  if (width) {
-    reverseWidth = width.slice().reverse()
-  }
-  if (height) {
-    reverseHeight = height.slice().reverse()
-  }
-
-  const preloadTags = mediaBreakpoints.reduce((acc, curr, idx) => {
+  const preloadTags = mobileFirstMediaBreakpoints.reduce((acc, curr, idx) => {
     const imageSettings = {
       ...defaultImageSettings,
       crop,
-      ...(reverseWidth && !!reverseWidth[idx] && { width: reverseWidth[idx] }),
-      ...(reverseHeight &&
-        !!reverseHeight[idx] && { height: reverseHeight[idx] }),
+      ...(width && !!width[idx] && { width: width[idx] }),
+      ...(height && !!height[idx] && { height: height[idx] }),
     }
     dprSettings.forEach((dpr) => {
       const sourceSettings = {
@@ -71,13 +68,12 @@ export const PreloadTags = ({ crop, publicId, height, width }) => {
       const dprString = `and (-webkit-max-device-pixel-ratio: ${dpr})`
       let minMaxString
       if (idx === 0) {
-        minMaxString = `(min-width: ${curr}.1px)`
-      } else if (idx === mediaBreakpoints.length - 1) {
         minMaxString = `(max-width: ${curr}px)`
+      } else if (idx === mobileFirstMediaBreakpoints.length - 1) {
+        minMaxString = `(min-width: ${curr}px)`
       } else {
-        minMaxString = `(min-width: ${curr}.1px) and (max-width: ${
-          mediaBreakpoints[idx - 1]
-        }px)`
+        minMaxString = `(min-width: ${mobileFirstMediaBreakpoints[idx - 1] +
+          1}px) and (max-width: ${curr}px)`
       }
       acc.push(
         <link
