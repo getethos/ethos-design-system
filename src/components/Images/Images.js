@@ -37,7 +37,7 @@ const defaultImageSettings = {
  *  Sourced from here: https://web.dev/preload-responsive-images/#preload-and-lesspicturegreater
  *
  *  Output something like the below
- *  <link rel="preload" href="small_cat.jpg" as="image" media="(max-width: 400px)" />
+ *  <link rel="preload" href="small_cat.jpg" as="image" media="(max-width: 400px) and " />
  *  <link rel="preload" href="medium_cat.jpg" as="image" media="(min-width: 400.1px) and (max-width: 800px)" />
  *  <link rel="preload" href="large_cat.jpg" as="image" media="(min-width: 800.1px)" />
  *
@@ -54,45 +54,44 @@ export const PreloadTags = ({ crop, publicId, height, width }) => {
     reverseHeight = height.slice().reverse()
   }
 
-  const preloadTags = []
-  for (let breakpoint = 0; breakpoint < mediaBreakpoints.length; breakpoint++) {
+  const preloadTags = mediaBreakpoints.reduce((acc, curr, idx) => {
     const imageSettings = {
       ...defaultImageSettings,
       crop,
-      ...(reverseWidth &&
-        !!reverseWidth[breakpoint] && { width: reverseWidth[breakpoint] }),
+      ...(reverseWidth && !!reverseWidth[idx] && { width: reverseWidth[idx] }),
       ...(reverseHeight &&
-        !!reverseHeight[breakpoint] && { height: reverseHeight[breakpoint] }),
+        !!reverseHeight[idx] && { height: reverseHeight[idx] }),
     }
-
-    dprSettings.forEach((dpr, indx) => {
+    dprSettings.forEach((dpr) => {
       const sourceSettings = {
         ...imageSettings,
         dpr,
       }
-      const dprString = `and (-webkit-min-device-pixel-ratio: ${indx + 1})`
+      /* since we are going from 1.0 -> 3.0 here, use max */
+      const dprString = `and (-webkit-max-device-pixel-ratio: ${dpr})`
       let minMaxString
-      if (breakpoint === 0) {
-        minMaxString = `(min-width: ${mediaBreakpoints[breakpoint]}.1px)`
-      } else if (breakpoint === mediaBreakpoints.length - 1) {
-        minMaxString = `(max-width: ${mediaBreakpoints[breakpoint]}px)`
+      if (idx === 0) {
+        minMaxString = `(min-width: ${curr}.1px)`
+      } else if (idx === mediaBreakpoints.length - 1) {
+        minMaxString = `(max-width: ${curr}px)`
       } else {
-        minMaxString = `(min-width: ${
-          mediaBreakpoints[breakpoint]
-        }.1px) and (max-width: ${mediaBreakpoints[breakpoint - 1]}px)`
+        minMaxString = `(min-width: ${curr}.1px) and (max-width: ${
+          mediaBreakpoints[idx - 1]
+        }px)`
       }
-      const mediaString = `${minMaxString} ${dprString}`
-      preloadTags.push(
+      acc.push(
         <link
           rel="preload"
           href={cld.url(filePath(publicId), sourceSettings)}
           as="image"
-          media={mediaString}
-          key={`${breakpoint}-${dpr}`}
+          media={`${minMaxString} ${dprString}`}
+          key={`${idx}-${dpr}`}
         />
       )
     })
-  }
+    return acc
+  }, [])
+
   return <>{preloadTags}</>
 }
 
