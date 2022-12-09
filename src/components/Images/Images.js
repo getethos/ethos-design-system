@@ -223,7 +223,7 @@ export const filePath = (publicId) => {
  */
 
 export const PreloadTags = ({ crop, publicId, height, width }) => {
-  const preloadTags = mobileFirstMediaBreakpoints.reduce((acc, curr, idx) => {
+  const generatedTags = mobileFirstMediaBreakpoints.reduce((acc, curr, idx) => {
     const imageSettings = {
       ...defaultImageSettings,
       crop,
@@ -259,7 +259,7 @@ export const PreloadTags = ({ crop, publicId, height, width }) => {
     return acc
   }, [])
 
-  return <>{preloadTags}</>
+  return <>{generatedTags}</>
 }
 
 CloudinaryImage.CROP_METHODS = {
