@@ -328,14 +328,7 @@ export declare const Button: {
   Unstyled: (downstreamProps: downstreamButtonProps) => any
   WhiteCTA: (downstreamProps: downstreamButtonProps) => any
 }
-export declare const PreloadTags: ({
-  crop, publicId, height, width,
-}: {
-  crop: string,
-  publicId: string,
-  height: number[],
-  width: number[]
-}) => JSX.Element
+
 export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
 export declare const CloudinaryImage: {
   ({
@@ -387,6 +380,15 @@ export declare const CloudinaryImage: {
   }
 }
 export declare const filePath: (publicId: any) => any
+export declare const PreloadTags: ({
+  crop, publicId, height, width,
+}: {
+  crop: keyof typeof CloudinaryImage.CROP_METHODS,
+  /* the cloudinary image resource URL */
+  publicId: string,
+  height: number[],
+  width: number[]
+}) => JSX.Element
 
 export declare const SearchInput: {
   ({
