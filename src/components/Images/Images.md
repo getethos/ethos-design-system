@@ -100,7 +100,7 @@ import {
  import { renderToString } from 'react-dom/server'
 
 ;<div>
-  {/* renderToString is only used to view the output here */}
+  {/* renderToString is only used to view the output in EDS storybook */}
   {renderToString(<PreloadTags
     crop={CloudinaryImage.CROP_METHODS.FIT}
     publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
