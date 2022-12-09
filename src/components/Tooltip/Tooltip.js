@@ -26,6 +26,7 @@ export const Tooltip = ({
   children,
   boundariesElement,
   softCorners,
+  trackingFunction,
 }) => {
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
@@ -44,6 +45,13 @@ export const Tooltip = ({
   }
 
   const modalStyle = [styles.mobileModal, softCorners ? styles.softCorners : '']
+
+  // Used for analytics event that indicates the Tooltip was displayed
+  useEffect(() => {
+    if (tooltipVisible || modalVisible) {
+      trackingFunction()
+    }
+  }, [modalVisible, tooltipVisible])
 
   const renderModal = (
     <div>
@@ -244,6 +252,8 @@ Tooltip.propTypes = {
   className: PropTypes.string,
   /** Indicates whether to use soft edges*/
   softCorners: PropTypes.bool,
+  /** Tracking function */
+  trackingFunction: PropTypes.func,
 }
 
 const PopperContent = ({
