@@ -43,12 +43,12 @@ describe('CloudinaryImage', () => {
 describe('PreloadImageTags', () => {
   describe('API', () => {
     test('exports properly', () => {
-      expect(PreloadTags).toBeDefined()
+      expect(PreloadImageTags).toBeDefined()
     })
   })
 
   describe('default rendering', () => {
-    test('PreloadTags', () => {
+    test('PreloadImageTags', () => {
       const tree = renderer
         .create(
           <PreloadImageTags

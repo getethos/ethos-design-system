@@ -27,7 +27,7 @@ exports[`CloudinaryImage default rendering CloudinaryImage 1`] = `
 </picture>
 `;
 
-exports[`PreloadTags default rendering PreloadTags 1`] = `
+exports[`PreloadImageTags default rendering PreloadImageTags 1`] = `
 Array [
   <link
     as="image"
