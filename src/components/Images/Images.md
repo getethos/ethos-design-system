@@ -113,5 +113,35 @@ import {
     height={[100,200,300,400]}
     width={[100,200,300,400]}
   />
+
+  <TitleSmall.Serif.Book500>Expected Use Case:</TitleSmall.Serif.Book500>
+  {const ImportantImage = ({
+    height,
+    width,
+    crop,
+    publicId,
+    alt,
+  }) => {
+    <>
+      {/* replace <head> with whichever tag you use to manage head tags */}
+      <head>
+        <PreloadTags
+          crop={crop}
+          publicId={publicId}
+          height={height}
+          width={width}
+        />
+      </head>
+      <CloudinaryImage
+        alt={alt}
+        publicId={publicId}
+        height={height}
+        width={width}
+        crop={crop}
+        lazyLoad={false}
+      />
+    </>
+  }}
+
   </div>
  ```

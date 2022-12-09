@@ -11,7 +11,11 @@ export { Button } from './Button'
 export { ButtonSelectGroup } from './ButtonSelectGroup/ButtonSelectGroup'
 export { CheckboxInput } from './CheckboxInput'
 export { CheckboxInput2 } from './CheckboxInput2'
-export { CloudinaryImage, CLOUDINARY_CLOUD_NAME, PreloadTags } from './Images'
+export {
+  CloudinaryImage,
+  CLOUDINARY_CLOUD_NAME,
+  PreloadImageTags,
+} from './Images'
 export { COLORS } from './Colors'
 export { DateInput } from './DateInput/index'
 export { Drawer } from './Drawer'

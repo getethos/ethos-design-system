@@ -219,10 +219,12 @@ export const filePath = (publicId) => {
  *  <link rel="preload" href="medium_cat.jpg" as="image" media="(min-width: 400.1px) and (max-width: 800px)" />
  *  <link rel="preload" href="large_cat.jpg" as="image" media="(min-width: 800.1px)" />
  *
- *  When Safari supports imagesrcset, this is unnecessary
+ *  When Safari supports imagesrcset, rendering the tags in this manner will be unnecessary.
+ *  We should just be able to drop the contents of a Cloudinary srcset into a tag
+ *  <link rel="preload" as="image" imagesrcet="{srcsetString}" />
  */
 
-export const PreloadTags = ({ crop, publicId, height, width }) => {
+export const PreloadImageTags = ({ crop, publicId, height, width }) => {
   const generatedTags = mobileFirstMediaBreakpoints.reduce((acc, curr, idx) => {
     const imageSettings = {
       ...defaultImageSettings,
@@ -284,7 +286,7 @@ CloudinaryImage.defaultProps = {
   lazyLoad: true,
 }
 
-PreloadTags.propTypes = {
+PreloadImageTags.propTypes = {
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
   publicId: PropTypes.string.isRequired,
   height: PropTypes.array,
