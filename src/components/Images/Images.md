@@ -26,6 +26,7 @@ import {
   InfoMessage,
   ZipInput,
   EmailInput,
+  CloudinaryImage
 } from '../index'
 
 ;<div style={{ width: 400 }}>
@@ -88,6 +89,29 @@ import {
     lazyLoad={false}
   />
   <Spacer.H24/>
-     
 </div>
 ```
+
+ ## PreloadTags:
+ Goal with this component is to generate a set of tags that can be injected in the header of a server side request to give the browser an idea of which images are important for the page and should be requested with the utmost priority! This is effectively the direct opposite of a lazily loaded cloudinary image.
+
+ ```jsx
+ import { PreloadTags, CloudinaryImage } from '../index'
+ import { renderToString } from 'react-dom/server'
+
+;<div>
+  {/* renderToString is only used to view the output here */}
+  {renderToString(<PreloadTags
+    crop={CloudinaryImage.CROP_METHODS.FIT}
+    publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
+    height={[100,200,300,400]}
+    width={[100,200,300,400]}
+  />)}
+  <PreloadTags
+    crop={CloudinaryImage.CROP_METHODS.FIT}
+    publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
+    height={[100,200,300,400]}
+    width={[100,200,300,400]}
+  />
+  </div>
+ ```
