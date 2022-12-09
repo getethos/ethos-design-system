@@ -48,7 +48,7 @@ export const Tooltip = ({
 
   // Used for analytics event that indicates the Tooltip was displayed
   useEffect(() => {
-    if (tooltipVisible || modalVisible) {
+    if (!!(tooltipVisible || modalVisible) && !!trackingFunction) {
       trackingFunction()
     }
   }, [modalVisible, tooltipVisible])
