@@ -1,1 +1,5 @@
-export { CloudinaryImage, CLOUDINARY_CLOUD_NAME } from './Images'
+export {
+  CloudinaryImage,
+  CLOUDINARY_CLOUD_NAME,
+  PreloadImageTags,
+} from './Images'

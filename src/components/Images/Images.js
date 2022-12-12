@@ -24,6 +24,22 @@ const mediaBreakpoints = [
   Media.BREAKPOINTS.PHONE_RANGE_END,
 ]
 
+const mobileFirstMediaBreakpoints = [
+  Media.BREAKPOINTS.PHONE_RANGE_END,
+  Media.BREAKPOINTS.TABLET_RANGE_END,
+  Media.BREAKPOINTS.LAPTOP_RANGE_END,
+  Media.BREAKPOINTS.DESKTOP_RANGE_START,
+]
+
+const dprSettings = ['1.0', '2.0', '3.0']
+
+const defaultImageSettings = {
+  quality: 'auto:eco',
+  secure: true,
+  fetchFormat: 'auto',
+  flags: ['progressive:semi'],
+}
+
 export const CloudinaryImage = ({
   publicId,
   className,
@@ -32,6 +48,7 @@ export const CloudinaryImage = ({
   height,
   crop,
   lazyLoad,
+  fetchpriority,
   ...rest
 }) => {
   // Verify that all required props were supplied
@@ -51,11 +68,8 @@ export const CloudinaryImage = ({
   includesInvalid(rest)
 
   const baseImageSettings = {
-    quality: 'auto:eco',
     crop,
-    secure: true,
-    fetchFormat: 'auto',
-    flags: ['progressive:semi'],
+    ...defaultImageSettings,
   }
   let imageClasses = [className]
   if (lazyLoad) {
@@ -99,12 +113,12 @@ export const CloudinaryImage = ({
         src={srcString}
         srcSet={srcSetString}
         alt={alt}
+        fetchpriority={fetchpriority}
       />
     )
   }
 
   const buildTags = () => {
-    const dprSettings = ['1.0', '2.0', '3.0']
     let tags = []
     let imageSrcSet = []
 
@@ -183,6 +197,7 @@ export const CloudinaryImage = ({
         data-src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
+        fetchpriority={fetchpriority}
       />
     )
   }
@@ -199,6 +214,59 @@ export const filePath = (publicId) => {
   return publicId.replace(publicIdBase, '')
 }
 
+/**
+ *  Sourced from here: https://web.dev/preload-responsive-images/#preload-and-lesspicturegreater
+ *
+ *  Output something like the below
+ *  <link rel="preload" href="small_cat.jpg" as="image" media="(max-width: 400px)" />
+ *  <link rel="preload" href="medium_cat.jpg" as="image" media="(min-width: 400.1px) and (max-width: 800px)" />
+ *  <link rel="preload" href="large_cat.jpg" as="image" media="(min-width: 800.1px)" />
+ *
+ *  When Safari supports imagesrcset, rendering the tags in this manner will be unnecessary.
+ *  We should just be able to drop the contents of a Cloudinary srcset into a tag
+ *  <link rel="preload" as="image" imagesrcet="{srcsetString}" />
+ */
+
+export const PreloadImageTags = ({ crop, publicId, height, width }) => {
+  const generatedTags = mobileFirstMediaBreakpoints.reduce((acc, curr, idx) => {
+    const imageSettings = {
+      ...defaultImageSettings,
+      crop,
+      ...(width && !!width[idx] && { width: width[idx] }),
+      ...(height && !!height[idx] && { height: height[idx] }),
+    }
+    dprSettings.forEach((dpr) => {
+      const sourceSettings = {
+        ...imageSettings,
+        dpr,
+      }
+      /* since we are going from 1.0 -> 3.0 here, use max */
+      const dprString = `and (-webkit-max-device-pixel-ratio: ${dpr})`
+      let minMaxString
+      if (idx === 0) {
+        minMaxString = `(max-width: ${curr}px)`
+      } else if (idx === mobileFirstMediaBreakpoints.length - 1) {
+        minMaxString = `(min-width: ${curr}px)`
+      } else {
+        minMaxString = `(min-width: ${mobileFirstMediaBreakpoints[idx - 1] +
+          1}px) and (max-width: ${curr}px)`
+      }
+      acc.push(
+        <link
+          rel="preload"
+          href={cld.url(filePath(publicId), sourceSettings)}
+          as="image"
+          media={`${minMaxString} ${dprString}`}
+          key={`${idx}-${dpr}`}
+        />
+      )
+    })
+    return acc
+  }, [])
+
+  return <>{generatedTags}</>
+}
+
 CloudinaryImage.CROP_METHODS = {
   FILL: 'fill',
   FIT: 'fit',
@@ -213,12 +281,21 @@ CloudinaryImage.PUBLIC_PROPS = {
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
   lazyLoad: PropTypes.bool,
+  fetchpriority: PropTypes.oneOf(['high', 'low', 'auto']),
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
   lazyLoad: true,
+  fetchpriority: 'auto',
+}
+
+PreloadImageTags.propTypes = {
+  crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
+  publicId: PropTypes.string.isRequired,
+  height: PropTypes.array,
+  width: PropTypes.array,
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS
