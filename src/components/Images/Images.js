@@ -48,6 +48,7 @@ export const CloudinaryImage = ({
   height,
   crop,
   lazyLoad,
+  fetchpriority,
   ...rest
 }) => {
   // Verify that all required props were supplied
@@ -112,6 +113,7 @@ export const CloudinaryImage = ({
         src={srcString}
         srcSet={srcSetString}
         alt={alt}
+        fetchpriority={fetchpriority}
       />
     )
   }
@@ -195,6 +197,7 @@ export const CloudinaryImage = ({
         data-src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
+        fetchpriority={fetchpriority}
       />
     )
   }
@@ -278,12 +281,14 @@ CloudinaryImage.PUBLIC_PROPS = {
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
   lazyLoad: PropTypes.bool,
+  fetchpriority: PropTypes.oneOf(['high', 'low', 'auto']),
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
   lazyLoad: true,
+  fetchpriority: 'auto',
 }
 
 PreloadImageTags.propTypes = {
