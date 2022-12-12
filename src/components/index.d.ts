@@ -815,6 +815,7 @@ interface TooltipProps {
   className?: string
   noLayout?: boolean
   softCorners?: boolean
+  trackingFunction?: ()=>void
 }
 
 export declare const Tooltip: {
@@ -827,6 +828,7 @@ export declare const Tooltip: {
     boundariesElement,
     children,
     softCorners,
+    trackingFunction,
   }: TooltipProps): JSX.Element
   propTypes: TooltipProps
 }
