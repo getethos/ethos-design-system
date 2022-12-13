@@ -92,7 +92,7 @@ import {
 </div>
 ```
 
- ## reloadImageTags:
+ ## preloadImageData:
  Goal with this function is to generate a set of objects that can be injected in the header of a server side request to give the browser an idea of which images are important for the page and should be requested with the utmost priority! This is effectively the direct opposite of a lazily loaded cloudinary image. This creates an object because `react-helmet` does not support fragments.
 
  ```jsx
