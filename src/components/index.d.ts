@@ -388,7 +388,13 @@ export declare const preloadImageData: ({
   publicId: string,
   height: number[],
   width: number[]
-}) => any
+}) => {
+  rel: string,
+  href: string,
+  as: string,
+  media: string,
+  key: string,
+}[]
 
 export declare const SearchInput: {
   ({
