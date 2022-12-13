@@ -34,7 +34,7 @@ export const Tooltip = ({
   const debouncedSetTooltipVisibility = debounce(
     (visibility) => {
       setTooltipVisibility(visibility)
-      if (visibility && !analyticsFired) {
+      if (trackingFunction && visibility && !analyticsFired) {
         trackingFunction()
         setAnalyticsFired(true)
       }
