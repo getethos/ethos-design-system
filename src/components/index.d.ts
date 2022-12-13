@@ -388,7 +388,7 @@ export declare const preloadImageData: ({
   publicId: string,
   height: number[],
   width: number[]
-}) => JSX.Element
+}) => any
 
 export declare const SearchInput: {
   ({
