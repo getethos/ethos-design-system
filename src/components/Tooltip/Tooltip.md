@@ -8,7 +8,7 @@ To use a placeholder in its most basic form and with all defaults: provide two p
 import styles from './TooltipExamples.module.scss'
 ;<>
   <div className={styles.basicExample}>
-    Basic Tooltip <Tooltip label="Flip" details="Hi!" />
+    Basic Tooltip <Tooltip label="Flip" details="Hi!" trackingFunction={() => console.log('Analytics event!')}/>
   </div>
 </>
 ```

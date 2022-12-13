@@ -28,10 +28,17 @@ export const Tooltip = ({
   softCorners,
   trackingFunction,
 }) => {
+  const [analyticsFired, setAnalyticsFired] = useState(false)
   const [tooltipVisible, setTooltipVisibility] = useState(false)
   const [modalVisible, setModalVisibility] = useState(false)
   const debouncedSetTooltipVisibility = debounce(
-    (visibility) => setTooltipVisibility(visibility),
+    (visibility) => {
+      setTooltipVisibility(visibility)
+      if (visibility && !analyticsFired) {
+        trackingFunction()
+        setAnalyticsFired(true)
+      }
+    },
     300,
     {
       trailing: true,
@@ -45,13 +52,6 @@ export const Tooltip = ({
   }
 
   const modalStyle = [styles.mobileModal, softCorners ? styles.softCorners : '']
-
-  // Used for analytics event that indicates the Tooltip was displayed
-  useEffect(() => {
-    if (!!(tooltipVisible || modalVisible) && !!trackingFunction) {
-      trackingFunction()
-    }
-  }, [modalVisible, tooltipVisible])
 
   const renderModal = (
     <div>
