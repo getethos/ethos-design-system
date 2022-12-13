@@ -14,7 +14,7 @@ export { CheckboxInput2 } from './CheckboxInput2'
 export {
   CloudinaryImage,
   CLOUDINARY_CLOUD_NAME,
-  PreloadImageTags,
+  preloadImageData,
 } from './Images'
 export { COLORS } from './Colors'
 export { DateInput } from './DateInput/index'

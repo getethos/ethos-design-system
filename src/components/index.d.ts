@@ -380,7 +380,7 @@ export declare const CloudinaryImage: {
   }
 }
 export declare const filePath: (publicId: any) => any
-export declare const PreloadImageTags: ({
+export declare const preloadImageData: ({
   crop, publicId, height, width,
 }: {
   crop: keyof typeof CloudinaryImage.CROP_METHODS,
@@ -388,7 +388,13 @@ export declare const PreloadImageTags: ({
   publicId: string,
   height: number[],
   width: number[]
-}) => JSX.Element
+}) => {
+  rel: 'preload',
+  href: string,
+  as: 'image',
+  media: string,
+  key: string,
+}[]
 
 export declare const SearchInput: {
   ({
