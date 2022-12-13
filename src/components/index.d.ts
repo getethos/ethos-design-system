@@ -389,9 +389,9 @@ export declare const preloadImageData: ({
   height: number[],
   width: number[]
 }) => {
-  rel: string,
+  rel: 'preload',
   href: string,
-  as: string,
+  as: 'image',
   media: string,
   key: string,
 }[]
