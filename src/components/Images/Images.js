@@ -241,8 +241,8 @@ export const preloadImageData = ({ crop, publicId, height, width }) => {
         dpr,
       }
       /* since we are going from 1.0 -> 3.0 here, use max */
-      const dprString = `and (-webkit-max-device-pixel-ratio: ${dpr})`
-      let minMaxString
+
+      let minMaxString, dprString
       if (idx === 0) {
         minMaxString = `(max-width: ${curr}px)`
       } else if (idx === mobileFirstMediaBreakpoints.length - 1) {
@@ -250,6 +250,14 @@ export const preloadImageData = ({ crop, publicId, height, width }) => {
       } else {
         minMaxString = `(min-width: ${mobileFirstMediaBreakpoints[idx - 1] +
           1}px) and (max-width: ${curr}px)`
+      }
+
+      if (dpr === '1.0') {
+        dprString = `and (-webkit-max-device-pixel-ratio: ${dpr})`
+      } else if (dpr === '2.0') {
+        dprString = `and (-webkit-min-device-pixel-ratio: 1.1) and (-webkit-max-device-pixel-ratio: ${dpr})`
+      } else {
+        dprString = `and (-webkit-min-device-pixel-ratio: 2.1) and (-webkit-max-device-pixel-ratio: ${dpr})`
       }
       acc.push({
         rel: 'preload',
