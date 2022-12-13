@@ -1,5 +1,5 @@
 import React from 'react'
-import { CloudinaryImage, PreloadImageTags } from './Images.js'
+import { CloudinaryImage, preloadImageData } from './Images.js'
 import * as Images from './Images'
 import renderer from 'react-test-renderer'
 
@@ -40,23 +40,23 @@ describe('CloudinaryImage', () => {
   })
 })
 
-describe('PreloadImageTags', () => {
+describe('preloadImageData', () => {
   describe('API', () => {
     test('exports properly', () => {
-      expect(PreloadImageTags).toBeDefined()
+      expect(preloadImageData).toBeDefined()
     })
   })
 
   describe('default rendering', () => {
-    test('PreloadImageTags', () => {
+    test('preloadImageData', () => {
       const tree = renderer
         .create(
-          <PreloadImageTags
-            publicId="something.com/otherthing.png"
-            crop={CloudinaryImage.CROP_METHODS.FILL}
-            width={[100, 200, 300, 400]}
-            height={[100, 200, 300, 400]}
-          />
+          preloadImageData({
+            publicId: 'something.com/otherthing.png',
+            crop: CloudinaryImage.CROP_METHODS.FILL,
+            width: [100, 200, 300, 400],
+            height: [100, 200, 300, 400],
+          })
         )
         .toJSON()
       expect(tree).toMatchSnapshot()

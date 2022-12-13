@@ -380,7 +380,7 @@ export declare const CloudinaryImage: {
   }
 }
 export declare const filePath: (publicId: any) => any
-export declare const PreloadImageTags: ({
+export declare const preloadImageData: ({
   crop, publicId, height, width,
 }: {
   crop: keyof typeof CloudinaryImage.CROP_METHODS,

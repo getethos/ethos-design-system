@@ -227,7 +227,7 @@ export const filePath = (publicId) => {
  *  <link rel="preload" as="image" imagesrcet="{srcsetString}" />
  */
 
-export const PreloadImageTags = ({ crop, publicId, height, width }) => {
+export const preloadImageData = ({ crop, publicId, height, width }) => {
   const generatedTags = mobileFirstMediaBreakpoints.reduce((acc, curr, idx) => {
     const imageSettings = {
       ...defaultImageSettings,
@@ -251,20 +251,18 @@ export const PreloadImageTags = ({ crop, publicId, height, width }) => {
         minMaxString = `(min-width: ${mobileFirstMediaBreakpoints[idx - 1] +
           1}px) and (max-width: ${curr}px)`
       }
-      acc.push(
-        <link
-          rel="preload"
-          href={cld.url(filePath(publicId), sourceSettings)}
-          as="image"
-          media={`${minMaxString} ${dprString}`}
-          key={`${idx}-${dpr}`}
-        />
-      )
+      acc.push({
+        rel: 'preload',
+        href: cld.url(filePath(publicId), sourceSettings),
+        as: 'image',
+        media: `${minMaxString} ${dprString}`,
+        key: `${idx}-${dpr}`,
+      })
     })
     return acc
   }, [])
 
-  return <>{generatedTags}</>
+  return generatedTags
 }
 
 CloudinaryImage.CROP_METHODS = {
@@ -289,13 +287,6 @@ CloudinaryImage.defaultProps = {
   alt: '',
   lazyLoad: true,
   fetchpriority: 'auto',
-}
-
-PreloadImageTags.propTypes = {
-  crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
-  publicId: PropTypes.string.isRequired,
-  height: PropTypes.array,
-  width: PropTypes.array,
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS

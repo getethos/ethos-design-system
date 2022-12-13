@@ -1,5 +1,5 @@
 export {
   CloudinaryImage,
   CLOUDINARY_CLOUD_NAME,
-  PreloadImageTags,
+  preloadImageData,
 } from './Images'

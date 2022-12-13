@@ -92,39 +92,41 @@ import {
 </div>
 ```
 
- ## PreloadImageTags:
- Goal with this component is to generate a set of tags that can be injected in the header of a server side request to give the browser an idea of which images are important for the page and should be requested with the utmost priority! This is effectively the direct opposite of a lazily loaded cloudinary image.
+ ## reloadImageTags:
+ Goal with this function is to generate a set of objects that can be injected in the header of a server side request to give the browser an idea of which images are important for the page and should be requested with the utmost priority! This is effectively the direct opposite of a lazily loaded cloudinary image. This creates an object because `react-helmet` does not support fragments.
 
  ```jsx
- import { PreloadImageTags, CloudinaryImage, TitleSmall } from '../index'
+ import { preloadImageData, CloudinaryImage, TitleSmall } from '../index'
  import { renderToString } from 'react-dom/server'
 
 ;<div>
-  {/* renderToString is only used to view the output in EDS storybook */}
-  {renderToString(<PreloadImageTags
-    crop={CloudinaryImage.CROP_METHODS.FIT}
-    publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
-    height={[100,200,300,400]}
-    width={[100,200,300,400]}
-  />)}
-  <PreloadImageTags
-    crop={CloudinaryImage.CROP_METHODS.FIT}
-    publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
-    height={[100,200,300,400]}
-    width={[100,200,300,400]}
-  />
+  {renderToString(preloadImageData({
+    crop: CloudinaryImage.CROP_METHODS.FIT,
+    publicId: "https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg",
+    height: [100,200,300,400],
+    width: [100,200,300,400]
+  }).map(tag => {
+        return (
+          <link {...tag} />
+        )
+      }))
+  }
 
   <TitleSmall.Serif.Book500>Expected Use Case:</TitleSmall.Serif.Book500>
   <br/>
   <>
     {/* replace <></> with whichever tag you use to manage head tags */}
     <>
-      <PreloadImageTags
-        crop={CloudinaryImage.CROP_METHODS.FIT}
-    publicId="https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg"
-    height={[100,200,300,400]}
-    width={[100,200,300,400]}
-      />
+      {preloadImageData({
+        crop: CloudinaryImage.CROP_METHODS.FIT,
+        publicId: "https://res.cloudinary.com/getethos/image/upload/v1565712179/01_NEW%20Lifestyle%20%28Rebrand%29/life-insurance-father-and-kids-playing.jpg",
+        height: [100,200,300,400],
+        width: [100,200,300,400]
+      }).map(tag => {
+        return (
+          <link {...tag} />
+        )
+      })}
     </>
     <CloudinaryImage
       alt="father and kids playing"
