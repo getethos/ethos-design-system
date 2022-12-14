@@ -4,7 +4,7 @@
 
 $z-index-navbar: 1;
 $z-index-middle: 2;
-$z-index-modal: 3;
-$z-index-backdrop: 1000;
+$z-index-backdrop: 99;
+$z-index-modal: 100;
 
 $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
