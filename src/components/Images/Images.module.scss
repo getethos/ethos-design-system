@@ -20,11 +20,11 @@ figure {
   height: auto;
 }
 
-.blurUp {
-  filter: blur(5px);
-  transition: filter 500ms;
+// .blurUp {
+//   filter: blur(5px);
+//   transition: filter 500ms;
 
-  &:global(.lazyloaded) {
-    filter: blur(0);
-  }
-}
+//   &:global(.lazyloaded) {
+//     filter: blur(0);
+//   }
+// }

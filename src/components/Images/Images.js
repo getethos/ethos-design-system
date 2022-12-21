@@ -5,8 +5,8 @@ import useInvalid from '../../hooks/useInvalid.js'
 
 import cloudinary from 'cloudinary-core'
 import { v4 as uuidv4 } from 'uuid'
-// eslint-disable-next-line
-import lazysizes from 'lazysizes'
+// // eslint-disable-next-line
+// import lazysizes from 'lazysizes'
 
 import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
@@ -72,9 +72,9 @@ export const CloudinaryImage = ({
     ...defaultImageSettings,
   }
   let imageClasses = [className]
-  if (lazyLoad) {
-    imageClasses.push('lazyload')
-  }
+  // if (lazyLoad) {
+  //   imageClasses.push('lazyload')
+  // }
 
   let reverseWidth, reverseHeight
 
@@ -102,9 +102,9 @@ export const CloudinaryImage = ({
       ...baseImageSettings,
     })
 
-    if (lazyLoad) {
-      imageClasses.push(styles['blurUp'])
-    }
+    // if (lazyLoad) {
+    //   imageClasses.push(styles['blurUp'])
+    // }
 
     return (
       <img
@@ -114,6 +114,7 @@ export const CloudinaryImage = ({
         srcSet={srcSetString}
         alt={alt}
         fetchpriority={fetchpriority}
+        loading="lazy"
       />
     )
   }
@@ -163,19 +164,19 @@ export const CloudinaryImage = ({
         .getParent()
         .getAttr('src')
 
-      const urlWithChainedLqipTransformation = cld
-        .imageTag(filePath(publicId), imageSettings)
-        .transformation()
-        .chain()
-        .transformation('lqip')
-        .getParent()
-        .getAttr('src')
+      // const urlWithChainedLqipTransformation = cld
+      //   .imageTag(filePath(publicId), imageSettings)
+      //   .transformation()
+      //   .chain()
+      //   .transformation('lqip')
+      //   .getParent()
+      //   .getAttr('src')
 
-      if (lazyLoad) {
-        imageSrcSet.push(urlWithChainedLqipTransformation)
-      } else {
-        imageSrcSet.push(urlWithChainedTransformation)
-      }
+      // if (lazyLoad) {
+      //   imageSrcSet.push(urlWithChainedLqipTransformation)
+      // } else {
+      imageSrcSet.push(urlWithChainedTransformation)
+      // }
     }
 
     tags.push(buildImageTag(imageSrcSet))
@@ -198,6 +199,7 @@ export const CloudinaryImage = ({
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
         fetchpriority={fetchpriority}
+        loading="lazy"
       />
     )
   }
