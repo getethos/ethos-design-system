@@ -5,6 +5,7 @@
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
   "license": "UNLICENSED",
+  "sideEffects": false,
   "scripts": {
     "xhr:build": "pushd src/xhr && yarn generate:posts && yarn build && popd",
     "xhr:api": "cd src/xhr && yarn api:posts",
