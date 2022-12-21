@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
 
-import cloudinary from 'cloudinary-core'
+import { createCloudinaryLegacyURL } from '@cloudinary/url-gen'
+
 import { v4 as uuidv4 } from 'uuid'
 // eslint-disable-next-line
 import lazysizes from 'lazysizes'
@@ -13,9 +14,6 @@ import styles from './Images.module.scss'
 
 // https://cloudinary.com/documentation/image_transformation_reference
 export const CLOUDINARY_CLOUD_NAME = 'getethos'
-const cld = new cloudinary.Cloudinary({
-  cloud_name: CLOUDINARY_CLOUD_NAME,
-})
 
 const mediaBreakpoints = [
   Media.BREAKPOINTS.DESKTOP_RANGE_START,
@@ -36,8 +34,9 @@ const dprSettings = ['1.0', '2.0', '3.0']
 const defaultImageSettings = {
   quality: 'auto:eco',
   secure: true,
-  fetchFormat: 'auto',
+  fetch_format: 'auto',
   flags: ['progressive:semi'],
+  cloud_name: CLOUDINARY_CLOUD_NAME,
 }
 
 export const CloudinaryImage = ({
@@ -96,8 +95,7 @@ export const CloudinaryImage = ({
 
     // srcSet is the LQIP image, src is the fallback image for older browsers
     // that do not support the 'srcSet' attribute (IE zero support)
-
-    const srcString = cld.url(filePath(publicId), {
+    const srcString = createCloudinaryLegacyURL(filePath(publicId), {
       transformation: 'unsupported',
       ...baseImageSettings,
     })
@@ -144,7 +142,10 @@ export const CloudinaryImage = ({
           ...imageSettings,
           dpr,
         }
-        return cld.url(filePath(publicId), sourceSettings) + ` ${indx + 1}x`
+        return (
+          createCloudinaryLegacyURL(filePath(publicId), sourceSettings) +
+          ` ${indx + 1}x`
+        )
       })
 
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
@@ -156,20 +157,18 @@ export const CloudinaryImage = ({
         />
       )
 
-      const urlWithChainedTransformation = cld
-        .imageTag(filePath(publicId), imageSettings)
-        .transformation()
-        .chain()
-        .getParent()
-        .getAttr('src')
+      const urlWithChainedTransformation = createCloudinaryLegacyURL(
+        filePath(publicId),
+        imageSettings
+      )
 
-      const urlWithChainedLqipTransformation = cld
-        .imageTag(filePath(publicId), imageSettings)
-        .transformation()
-        .chain()
-        .transformation('lqip')
-        .getParent()
-        .getAttr('src')
+      const urlWithChainedLqipTransformation = createCloudinaryLegacyURL(
+        filePath(publicId),
+        {
+          ...imageSettings,
+          transformation: 'lqip',
+        }
+      )
 
       if (lazyLoad) {
         imageSrcSet.push(urlWithChainedLqipTransformation)
@@ -189,9 +188,14 @@ export const CloudinaryImage = ({
   const renderSvg = () => {
     const baseSvgSettings = {
       secure: true,
+      cloud_name: CLOUDINARY_CLOUD_NAME,
     }
 
-    const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
+    const svgUrl = createCloudinaryLegacyURL(
+      filePath(publicId),
+      baseSvgSettings
+    )
+
     return (
       <img
         data-src={svgUrl}
@@ -261,7 +265,7 @@ export const preloadImageData = ({ crop, publicId, height, width }) => {
       }
       acc.push({
         rel: 'preload',
-        href: cld.url(filePath(publicId), sourceSettings),
+        href: createCloudinaryLegacyURL(filePath(publicId), sourceSettings),
         as: 'image',
         media: `${minMaxString} ${dprString}`,
         key: `${idx}-${dpr}`,
