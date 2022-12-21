@@ -195,7 +195,7 @@ export const CloudinaryImage = ({
     const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
     return (
       <img
-        data-src={svgUrl}
+        src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
         fetchpriority={fetchpriority}
