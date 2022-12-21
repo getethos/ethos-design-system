@@ -195,6 +195,7 @@ export const CloudinaryImage = ({
     const svgUrl = cld.url(filePath(publicId), baseSvgSettings)
     return (
       <img
+        key={`${uuidv4()}`}
         src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
