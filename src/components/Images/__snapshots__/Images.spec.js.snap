@@ -28,7 +28,7 @@ exports[`CloudinaryImage default rendering CloudinaryImage 1`] = `
 </picture>
 `;
 
-exports[`CloudinaryImage non-lazy rendering CloudinaryImage 1`] = `
+exports[`CloudinaryImage non-lazy rendering, no data-srcset CloudinaryImage 1`] = `
 <picture>
   <source
     media="(min-width: 1200px)"
