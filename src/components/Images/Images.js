@@ -149,13 +149,27 @@ export const CloudinaryImage = ({
       })
 
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
-      tags.push(
-        <source
-          key={`${uuidv4()}`}
-          media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
-          data-srcset={srcsetData.join(', ')}
-        />
-      )
+
+      const sourceAttrs = {
+        key: uuidv4(),
+        media: `(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`,
+      }
+
+      /**
+       * if we're lazy-loading, use data-srcset which lazysizes will transform
+       * to srcset, if not, just use srcset so we get the benefits of the <picture>
+       * tag and don't just fallback on <img> tag.
+       */
+      if (lazyLoad) {
+        Object.assign(sourceAttrs, {
+          ['data-srcset']: srcsetData.join(', '),
+        })
+      } else {
+        Object.assign(sourceAttrs, {
+          srcset: srcsetData.join(', '),
+        })
+      }
+      tags.push(<source {...sourceAttrs} />)
 
       const urlWithChainedTransformation = createCloudinaryLegacyURL(
         filePath(publicId),

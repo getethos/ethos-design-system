@@ -29,6 +29,24 @@ describe('CloudinaryImage', () => {
     })
   })
 
+  describe('non-lazy rendering, no data-srcset', () => {
+    test('CloudinaryImage', () => {
+      const tree = renderer
+        .create(
+          <CloudinaryImage
+            publicId="something.com/otherthing.png"
+            className="testImage"
+            alt="alt text"
+            width={[100, 200, 300, 400]}
+            height={[100, 200, 300, 400]}
+            lazyLoad={false}
+          />
+        )
+        .toJSON()
+      expect(tree).toMatchSnapshot()
+    })
+  })
+
   describe('methods', () => {
     test('filePath', () => {
       expect(Images.CLOUDINARY_CLOUD_NAME).toBe('getethos')
