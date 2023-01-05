@@ -84,6 +84,14 @@ export const CloudinaryImage = ({
     reverseHeight = height.slice().reverse()
   }
 
+  /**
+   * src is a fallback for extremely old browserss
+   * srcSet is a fallback for browsers that don't support <source>
+   *   It should be a list of "{url} {size}w,"
+   * sizes should map to sourceset
+   *   It should directly reference sizes in srcSet
+   *   "(max-width: {breakpoint}px) {size}px"
+   */
   const buildImageTag = (srcSet) => {
     const srcSetString = []
     const sizesString = []
