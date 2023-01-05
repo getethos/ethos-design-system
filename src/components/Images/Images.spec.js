@@ -29,6 +29,22 @@ describe('CloudinaryImage', () => {
     })
   })
 
+  describe('no height/width arrays', () => {
+    test('CloudinaryImage', () => {
+      const tree = renderer
+        .create(
+          <CloudinaryImage
+            publicId="something.com/otherthing.png"
+            className="testImage"
+            alt="alt text"
+            lazyLoad={false}
+          />
+        )
+        .toJSON()
+      expect(tree).toMatchSnapshot()
+    })
+  })
+
   describe('non-lazy rendering, no data-srcset', () => {
     test('CloudinaryImage', () => {
       const tree = renderer

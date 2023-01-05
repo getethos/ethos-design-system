@@ -85,14 +85,26 @@ export const CloudinaryImage = ({
   }
 
   const buildImageTag = (srcSet) => {
-    const srcSetString = srcSet
-      .map((url, index) => {
-        if (index === 0) return `${url} ${mediaBreakpoints[index] + 1}w`
-        return `${url} ${mediaBreakpoints[index - 1]}w`
-      })
-      .reverse()
-      .join(', ')
+    const srcSetString = []
+    const sizesString = []
 
+    if (width) {
+      srcSet.forEach((url, index) => {
+        if (!width[index]) return
+        srcSetString.push(`${url} ${width[index]}w`)
+      })
+
+      width.forEach((val, index) => {
+        if (!width[index]) return
+        if (index === width.length - 1) {
+          sizesString.push(`${val}px`)
+        } else {
+          sizesString.push(
+            `(max-width: ${mobileFirstMediaBreakpoints[index]}px) ${val}px`
+          )
+        }
+      })
+    }
     // srcSet is the LQIP image, src is the fallback image for older browsers
     // that do not support the 'srcSet' attribute (IE zero support)
     const srcString = createCloudinaryLegacyURL(filePath(publicId), {
@@ -109,7 +121,8 @@ export const CloudinaryImage = ({
         key={`${uuidv4()}`}
         className={[styles.Image, ...imageClasses].join(' ')}
         src={srcString}
-        srcSet={srcSetString}
+        srcSet={srcSetString.join(', ')}
+        sizes={sizesString.join(', ')}
         alt={alt}
         fetchpriority={fetchpriority}
       />
@@ -166,7 +179,7 @@ export const CloudinaryImage = ({
         })
       } else {
         Object.assign(sourceAttrs, {
-          srcset: srcsetData.join(', '),
+          srcSet: srcsetData.join(', '),
         })
       }
       tags.push(<source {...sourceAttrs} />)
