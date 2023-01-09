@@ -11,4 +11,10 @@ export const Footnote = {
     typeface: TypeBase.TYPEFACES.THEINHARDT,
     weight: TypeBase.WEIGHTS.MEDIUM_500,
   }),
+  HeadingH4: TypeFoundry({
+    subtype: TypeBase.SUBTYPES.FOOTNOTE,
+    typeface: TypeBase.TYPEFACES.THEINHARDT,
+    weight: TypeBase.WEIGHTS.MEDIUM_500,
+    element: TypeBase.ELEMENTS.H4,
+  }),
 }
