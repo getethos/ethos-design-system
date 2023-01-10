@@ -111,8 +111,6 @@ export const CloudinaryImage = ({
         src={srcString}
         srcSet={srcSetString}
         alt={alt}
-        width={width}
-        height={height}
         fetchpriority={fetchpriority}
         loading="lazy"
       />
@@ -205,8 +203,6 @@ export const CloudinaryImage = ({
         src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
-        width={width}
-        height={height}
         fetchpriority={fetchpriority}
         loading="lazy"
       />
