@@ -25,6 +25,13 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
+<Button.Medium.Cypress>Button.Medium.Cypress</Button.Medium.Cypress>
+<Button.Medium.Cypress disabled={true}>
+  Button.Medium.Cypress disabled
+</Button.Medium.Cypress>
+```
+
+```jsx
 <div style={{ backgroundColor: 'var(--BrandForest)', padding: 20 }}>
   <strong style={{ color: 'white' }}>
     Background supplied so the button is visible.
