@@ -316,6 +316,7 @@ export declare const Button: {
     Black: (downstreamProps: downstreamButtonProps) => any
     BlackOutline: (downstreamProps: downstreamButtonProps) => any
     Salamander: (downstreamProps: downstreamButtonProps) => any
+    Cypress: (downstreamProps: downstreamButtonProps) => any
     WhiteOutline: (downstreamProps: downstreamButtonProps) => any
     Stateful: {
       Default: (downstreamProps: downstreamButtonProps) => any
