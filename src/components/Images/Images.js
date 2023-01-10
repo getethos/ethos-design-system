@@ -2,13 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
-
 import { createCloudinaryLegacyURL } from '@cloudinary/url-gen'
-
-import { v4 as uuidv4 } from 'uuid'
-// eslint-disable-next-line
-import lazysizes from 'lazysizes'
-
 import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
 
@@ -46,7 +40,6 @@ export const CloudinaryImage = ({
   width,
   height,
   crop,
-  lazyLoad,
   fetchpriority,
   ...rest
 }) => {
@@ -71,10 +64,6 @@ export const CloudinaryImage = ({
     ...defaultImageSettings,
   }
   let imageClasses = [className]
-  if (lazyLoad) {
-    imageClasses.push('lazyload')
-  }
-
   let reverseWidth, reverseHeight
 
   if (width) {
@@ -100,18 +89,15 @@ export const CloudinaryImage = ({
       ...baseImageSettings,
     })
 
-    if (lazyLoad) {
-      imageClasses.push(styles['blurUp'])
-    }
-
     return (
       <img
-        key={`${uuidv4()}`}
+        key={publicId}
         className={[styles.Image, ...imageClasses].join(' ')}
         src={srcString}
         srcSet={srcSetString}
         alt={alt}
         fetchpriority={fetchpriority}
+        loading="lazy"
       />
     )
   }
@@ -151,9 +137,9 @@ export const CloudinaryImage = ({
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
       tags.push(
         <source
-          key={`${uuidv4()}`}
+          key={`key-${breakpoint}`}
           media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
-          data-srcset={srcsetData.join(', ')}
+          srcSet={srcsetData.join(', ')}
         />
       )
 
@@ -162,19 +148,7 @@ export const CloudinaryImage = ({
         imageSettings
       )
 
-      const urlWithChainedLqipTransformation = createCloudinaryLegacyURL(
-        filePath(publicId),
-        {
-          ...imageSettings,
-          transformation: 'lqip',
-        }
-      )
-
-      if (lazyLoad) {
-        imageSrcSet.push(urlWithChainedLqipTransformation)
-      } else {
-        imageSrcSet.push(urlWithChainedTransformation)
-      }
+      imageSrcSet.push(urlWithChainedTransformation)
     }
 
     tags.push(buildImageTag(imageSrcSet))
@@ -198,10 +172,12 @@ export const CloudinaryImage = ({
 
     return (
       <img
-        data-src={svgUrl}
+        key={publicId}
+        src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
         fetchpriority={fetchpriority}
+        loading="lazy"
       />
     )
   }
@@ -290,14 +266,12 @@ CloudinaryImage.PUBLIC_PROPS = {
   alt: PropTypes.string,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
-  lazyLoad: PropTypes.bool,
   fetchpriority: PropTypes.oneOf(['high', 'low', 'auto']),
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
-  lazyLoad: true,
   fetchpriority: 'auto',
 }
 
