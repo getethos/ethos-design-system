@@ -5,6 +5,8 @@
 @import '../Spacer/Spacer.scss';
 */
 
+@use "sass:math";
+
 .TextInputCommon {
   box-sizing: border-box;
   width: 100%;
@@ -14,7 +16,7 @@
   $font-size: 19;
   $line-height: 24;
   font-size: $font-size * 1px;
-  line-height: $line-height / $font-size;
+  line-height: math.div($line-height, $font-size);
   font-family: var(--Theinhardt-font-stack);
   transition: border-color 250ms ease;
 }

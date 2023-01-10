@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import '../Media/Media.scss';
 
 /* This is currently a one-off implementation for UniversalNavbar */
@@ -32,7 +34,7 @@
   $font-size: 19;
   $line-height: 24;
   font-size: $font-size * 1px;
-  line-height: $line-height / $font-size;
+  line-height: math.div($line-height, $font-size);
   padding: 17px var(--Space-16) 13px;
 }
 
