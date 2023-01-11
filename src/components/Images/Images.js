@@ -154,7 +154,7 @@ export const CloudinaryImage = ({
         <source
           key={`${uuidv4()}`}
           media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
-          data-srcset={srcsetData.join(', ')}
+          srcSet={srcsetData.join(', ')}
         />
       )
 
