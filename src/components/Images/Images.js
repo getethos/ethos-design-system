@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
 import { createCloudinaryLegacyURL } from '@cloudinary/url-gen'
-import { v4 as uuidv4 } from 'uuid'
 import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
 
