@@ -2,13 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
-
 import { createCloudinaryLegacyURL } from '@cloudinary/url-gen'
-
 import { v4 as uuidv4 } from 'uuid'
-// eslint-disable-next-line
-// import lazysizes from 'lazysizes'
-
 import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
 
@@ -46,7 +41,6 @@ export const CloudinaryImage = ({
   width,
   height,
   crop,
-  lazyLoad,
   fetchpriority,
   ...rest
 }) => {
@@ -71,10 +65,6 @@ export const CloudinaryImage = ({
     ...defaultImageSettings,
   }
   let imageClasses = [className]
-  // if (lazyLoad) {
-  //   imageClasses.push('lazyload')
-  // }
-
   let reverseWidth, reverseHeight
 
   if (width) {
@@ -99,10 +89,6 @@ export const CloudinaryImage = ({
       transformation: 'unsupported',
       ...baseImageSettings,
     })
-
-    // if (lazyLoad) {
-    //   imageClasses.push(styles['blurUp'])
-    // }
 
     return (
       <img
@@ -163,19 +149,7 @@ export const CloudinaryImage = ({
         imageSettings
       )
 
-      // const urlWithChainedLqipTransformation = createCloudinaryLegacyURL(
-      //   filePath(publicId),
-      //   {
-      //     ...imageSettings,
-      //     transformation: 'lqip',
-      //   }
-      // )
-
-      // if (lazyLoad) {
-      // imageSrcSet.push(urlWithChainedLqipTransformation)
-      // } else {
       imageSrcSet.push(urlWithChainedTransformation)
-      // }
     }
 
     tags.push(buildImageTag(imageSrcSet))
@@ -293,14 +267,12 @@ CloudinaryImage.PUBLIC_PROPS = {
   alt: PropTypes.string,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
-  lazyLoad: PropTypes.bool,
   fetchpriority: PropTypes.oneOf(['high', 'low', 'auto']),
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
-  lazyLoad: true,
   fetchpriority: 'auto',
 }
 
