@@ -158,23 +158,23 @@ export const CloudinaryImage = ({
         />
       )
 
-      // const urlWithChainedTransformation = createCloudinaryLegacyURL(
-      //   filePath(publicId),
-      //   imageSettings
-      // )
-
-      const urlWithChainedLqipTransformation = createCloudinaryLegacyURL(
+      const urlWithChainedTransformation = createCloudinaryLegacyURL(
         filePath(publicId),
-        {
-          ...imageSettings,
-          transformation: 'lqip',
-        }
+        imageSettings
       )
 
+      // const urlWithChainedLqipTransformation = createCloudinaryLegacyURL(
+      //   filePath(publicId),
+      //   {
+      //     ...imageSettings,
+      //     transformation: 'lqip',
+      //   }
+      // )
+
       // if (lazyLoad) {
-      imageSrcSet.push(urlWithChainedLqipTransformation)
+      // imageSrcSet.push(urlWithChainedLqipTransformation)
       // } else {
-      // imageSrcSet.push(urlWithChainedTransformation)
+      imageSrcSet.push(urlWithChainedTransformation)
       // }
     }
 
