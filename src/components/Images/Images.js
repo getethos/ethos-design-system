@@ -92,7 +92,7 @@ export const CloudinaryImage = ({
 
     return (
       <img
-        // key={`${uuidv4()}`}
+        key={`${uuidv4()}`}
         className={[styles.Image, ...imageClasses].join(' ')}
         src={srcString}
         srcSet={srcSetString}
@@ -138,7 +138,7 @@ export const CloudinaryImage = ({
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
       tags.push(
         <source
-          // key={`${uuidv4()}`}
+          key={`${uuidv4()}`}
           media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
           srcSet={srcsetData.join(', ')}
         />
@@ -173,7 +173,7 @@ export const CloudinaryImage = ({
 
     return (
       <img
-        // key={`${uuidv4()}`}
+        key={`${uuidv4()}`}
         src={svgUrl}
         className={[styles.Svg, ...imageClasses].join(' ')}
         alt={alt}
