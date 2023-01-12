@@ -2,13 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import useRequired from '../../hooks/useRequired.js'
 import useInvalid from '../../hooks/useInvalid.js'
-
 import { createCloudinaryLegacyURL } from '@cloudinary/url-gen'
-
-import { v4 as uuidv4 } from 'uuid'
-// eslint-disable-next-line
-import lazysizes from 'lazysizes'
-
 import { Media } from '../Media/Media'
 import styles from './Images.module.scss'
 
@@ -71,10 +65,6 @@ export const CloudinaryImage = ({
     ...defaultImageSettings,
   }
   let imageClasses = [className]
-  if (lazyLoad) {
-    imageClasses.push('lazyload')
-  }
-
   let reverseWidth, reverseHeight
 
   if (width) {
@@ -100,20 +90,19 @@ export const CloudinaryImage = ({
       ...baseImageSettings,
     })
 
-    if (lazyLoad) {
-      imageClasses.push(styles['blurUp'])
+    const imgProps = {
+      key: publicId,
+      className: [styles.Image, ...imageClasses].join(' '),
+      src: srcString,
+      srcSet: srcSetString,
+      fetchpriority: fetchpriority,
     }
 
-    return (
-      <img
-        key={`${uuidv4()}`}
-        className={[styles.Image, ...imageClasses].join(' ')}
-        src={srcString}
-        srcSet={srcSetString}
-        alt={alt}
-        fetchpriority={fetchpriority}
-      />
-    )
+    if (lazyLoad) {
+      Object.assign(imgProps, { loading: 'lazy' })
+    }
+
+    return <img alt={alt} {...imgProps} />
   }
 
   const buildTags = () => {
@@ -151,9 +140,9 @@ export const CloudinaryImage = ({
       const minMax = breakpoint < mediaBreakpoints.length - 1 ? `min` : `max`
       tags.push(
         <source
-          key={`${uuidv4()}`}
+          key={`key-${breakpoint}`}
           media={`(${minMax}-width: ${mediaBreakpoints[breakpoint]}px)`}
-          data-srcset={srcsetData.join(', ')}
+          srcSet={srcsetData.join(', ')}
         />
       )
 
@@ -162,19 +151,7 @@ export const CloudinaryImage = ({
         imageSettings
       )
 
-      const urlWithChainedLqipTransformation = createCloudinaryLegacyURL(
-        filePath(publicId),
-        {
-          ...imageSettings,
-          transformation: 'lqip',
-        }
-      )
-
-      if (lazyLoad) {
-        imageSrcSet.push(urlWithChainedLqipTransformation)
-      } else {
-        imageSrcSet.push(urlWithChainedTransformation)
-      }
+      imageSrcSet.push(urlWithChainedTransformation)
     }
 
     tags.push(buildImageTag(imageSrcSet))
@@ -196,14 +173,18 @@ export const CloudinaryImage = ({
       baseSvgSettings
     )
 
-    return (
-      <img
-        data-src={svgUrl}
-        className={[styles.Svg, ...imageClasses].join(' ')}
-        alt={alt}
-        fetchpriority={fetchpriority}
-      />
-    )
+    const imgProps = {
+      key: publicId,
+      src: svgUrl,
+      className: [styles.Svg, ...imageClasses].join(' '),
+      fetchpriority: fetchpriority,
+    }
+
+    if (lazyLoad) {
+      Object.assign(imgProps, { loading: 'lazy' })
+    }
+
+    return <img alt={alt} {...imgProps} />
   }
 
   // Serve a simpler version if resource is SVG
