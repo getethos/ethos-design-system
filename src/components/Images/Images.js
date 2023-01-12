@@ -40,6 +40,7 @@ export const CloudinaryImage = ({
   width,
   height,
   crop,
+  lazyLoad,
   fetchpriority,
   ...rest
 }) => {
@@ -89,17 +90,19 @@ export const CloudinaryImage = ({
       ...baseImageSettings,
     })
 
-    return (
-      <img
-        key={publicId}
-        className={[styles.Image, ...imageClasses].join(' ')}
-        src={srcString}
-        srcSet={srcSetString}
-        alt={alt}
-        fetchpriority={fetchpriority}
-        loading="lazy"
-      />
-    )
+    const imgProps = {
+      key: publicId,
+      className: [styles.Image, ...imageClasses].join(' '),
+      src: srcString,
+      srcSet: srcSetString,
+      fetchpriority: fetchpriority,
+    }
+
+    if (lazyLoad) {
+      Object.assign(imgProps, { loading: 'lazy' })
+    }
+
+    return <img alt={alt} {...imgProps} />
   }
 
   const buildTags = () => {
@@ -170,16 +173,18 @@ export const CloudinaryImage = ({
       baseSvgSettings
     )
 
-    return (
-      <img
-        key={publicId}
-        src={svgUrl}
-        className={[styles.Svg, ...imageClasses].join(' ')}
-        alt={alt}
-        fetchpriority={fetchpriority}
-        loading="lazy"
-      />
-    )
+    const imgProps = {
+      key: publicId,
+      src: svgUrl,
+      className: [styles.Svg, ...imageClasses].join(' '),
+      fetchpriority: fetchpriority,
+    }
+
+    if (lazyLoad) {
+      Object.assign(imgProps, { loading: 'lazy' })
+    }
+
+    return <img alt={alt} {...imgProps} />
   }
 
   // Serve a simpler version if resource is SVG
@@ -266,12 +271,14 @@ CloudinaryImage.PUBLIC_PROPS = {
   alt: PropTypes.string,
   publicId: PropTypes.string.isRequired,
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
+  lazyLoad: PropTypes.bool,
   fetchpriority: PropTypes.oneOf(['high', 'low', 'auto']),
 }
 
 CloudinaryImage.defaultProps = {
   crop: CloudinaryImage.CROP_METHODS.FILL,
   alt: '',
+  lazyLoad: true,
   fetchpriority: 'auto',
 }
 
