@@ -32,6 +32,13 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
+<Button.Medium.Lime>Button.Medium.Lime</Button.Medium.Lime>
+<Button.Medium.Lime disabled={true}>
+  Button.Medium.Lime disabled
+</Button.Medium.Lime>
+```
+
+```jsx
 <div style={{ backgroundColor: 'var(--BrandForest)', padding: 20 }}>
   <strong style={{ color: 'white' }}>
     Background supplied so the button is visible.

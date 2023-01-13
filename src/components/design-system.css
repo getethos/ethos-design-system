@@ -152,6 +152,8 @@ textarea {
   --SalamanderHover--translucent: rgba(250, 100, 10, 0.8);
   --BrandCypress: #056257;
   --CypressHover--translucent: #056257c4;
+  --BrandLime: #e7fd7f;
+  --LimeHover--translucent: #e7fd7fc4;
   --BrandPasty: #ffe0de;
   --BrandSunburn: #e11f13;
 }

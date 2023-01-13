@@ -211,6 +211,34 @@
   }
 }
 
+.Button.Lime {
+  background-color: var(--BrandLime);
+  color: var(--GrayPrimary--opaque);
+  path {
+    fill: var(--GrayPrimary--opaque);
+  }
+  @include light-on-dark-font-smoothing;
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--LimeHover--translucent);
+    }
+
+    &:active {
+      background-color: var(--LimeHover--translucent);
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--Transparent--white);
+    background-color: var(--BrandSand);
+    color: var(--GrayStrokeAndDisabled--translucent);
+    path {
+      fill: var(--GrayStrokeAndDisabled--translucent);
+    }
+  }
+}
+
 .Button.WhiteOutline {
   border-color: var(--White);
   background-color: var(--Transparent--white);
