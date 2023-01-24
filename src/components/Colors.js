@@ -9,6 +9,8 @@ export const COLORS = {
   BRAND_MOSS_TRANSLUSCENT: 'BrandMossTranslucent',
   BRAND_SALAMANDER: 'BrandSalamander',
   BRAND_SAND: 'BrandSand',
+  BRAND_CYPRESS: 'BrandCypress',
+  BRAND_LIME: 'BrandLime',
 
   // Grayscales
   GRAY_DARK_HOVER: 'GrayDarkHover',
