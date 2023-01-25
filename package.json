@@ -1,10 +1,13 @@
 {
   "name": "ethos-design-system",
-  "version": "1.3.12",
+  "version": "1.3.13",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
   "license": "UNLICENSED",
+  "sideEffects": [
+    ".src/components/fa.js"
+  ],
   "scripts": {
     "xhr:build": "pushd src/xhr && yarn generate:posts && yarn build && popd",
     "xhr:api": "cd src/xhr && yarn api:posts",
