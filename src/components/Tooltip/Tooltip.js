@@ -89,6 +89,8 @@ export const Tooltip = ({
     onMouseOver: () => debouncedSetTooltipVisibility(true),
     onMouseOut: () => debouncedSetTooltipVisibility(false),
     onClick: () => setModalVisibility(true),
+    onFocus: () => debouncedSetTooltipVisibility(true),
+    onBlur: () => debouncedSetTooltipVisibility(false),
   }
 
   const popperProps = {
