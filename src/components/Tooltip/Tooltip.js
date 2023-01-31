@@ -118,9 +118,11 @@ export const Tooltip = ({
               </div>
             ) : (
               <div
+                role="button"
                 className={styles.icon}
                 ref={ref}
-                tabIndex={1}
+                aria-labelledby="info-tooltip"
+                tabIndex={0}
                 {...referenceProps}
               >
                 {tooltipVisible ? Tooltip.SVGS.iconHover : Tooltip.SVGS.icon}
