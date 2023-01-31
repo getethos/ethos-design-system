@@ -89,8 +89,6 @@ export const Tooltip = ({
     onMouseOver: () => debouncedSetTooltipVisibility(true),
     onMouseOut: () => debouncedSetTooltipVisibility(false),
     onClick: () => setModalVisibility(true),
-    onFocus: () => debouncedSetTooltipVisibility(true),
-    onBlur: () => debouncedSetTooltipVisibility(false),
   }
 
   const popperProps = {
@@ -117,7 +115,13 @@ export const Tooltip = ({
                 {children}
               </div>
             ) : (
-              <div className={styles.icon} ref={ref} {...referenceProps}>
+              <div
+                className={styles.icon}
+                ref={ref}
+                onFocus={debouncedSetTooltipVisibility(true)}
+                onBlur={debouncedSetTooltipVisibility(false)}
+                {...referenceProps}
+              >
                 {tooltipVisible ? Tooltip.SVGS.iconHover : Tooltip.SVGS.icon}
               </div>
             )
