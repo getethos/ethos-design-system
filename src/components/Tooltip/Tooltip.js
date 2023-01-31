@@ -111,17 +111,16 @@ export const Tooltip = ({
         <Reference>
           {({ ref }) =>
             children ? (
-              <div ref={ref} {...referenceProps}>
-                {children}
-              </div>
-            ) : (
               <div
-                className={styles.icon}
                 ref={ref}
                 onFocus={debouncedSetTooltipVisibility(true)}
                 onBlur={debouncedSetTooltipVisibility(false)}
                 {...referenceProps}
               >
+                {children}
+              </div>
+            ) : (
+              <div className={styles.icon} ref={ref} {...referenceProps}>
                 {tooltipVisible ? Tooltip.SVGS.iconHover : Tooltip.SVGS.icon}
               </div>
             )
