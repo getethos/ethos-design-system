@@ -118,6 +118,7 @@ export const Tooltip = ({
               <div
                 className={styles.icon}
                 ref={ref}
+                tabIndex={1}
                 onFocus={debouncedSetTooltipVisibility(true)}
                 onBlur={debouncedSetTooltipVisibility(false)}
                 {...referenceProps}
