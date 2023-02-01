@@ -28,6 +28,7 @@
       transition-delay: 0s;
       transition-duration: 1s;
       transition-timing-function: cubic-bezier(0.38, 0.99, 0.39, 0.98);
+      transition-property: var(--transition-poperties);
     }
   }
   .fancyS {
