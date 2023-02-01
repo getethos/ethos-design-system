@@ -14,7 +14,7 @@ import styles from './Tooltip.module.scss'
 const BREAKPOINTS = Media.BREAKPOINTS
 const HEADER_ID = 'mobile-modal-heading'
 const DESC_ID = 'mobile-modal-description'
-const ACCESSIBILTY_ID = 'info-tooltip'
+const ACCESSIBILITY_ID = 'info-tooltip'
 
 export const Tooltip = ({
   label,
@@ -122,7 +122,7 @@ export const Tooltip = ({
                 role="button"
                 className={styles.icon}
                 ref={ref}
-                ariaLabelledBy={ACCESSIBILTY_ID}
+                ariaLabelledBy={ACCESSIBILITY_ID}
                 tabIndex={0}
                 {...referenceProps}
               >
