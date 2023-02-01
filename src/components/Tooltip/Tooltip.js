@@ -121,7 +121,7 @@ export const Tooltip = ({
                 role="button"
                 className={styles.icon}
                 ref={ref}
-                aria-labelledby="info-tooltip"
+                ariaLabelledBy="info-tooltip"
                 tabIndex={0}
                 {...referenceProps}
               >
