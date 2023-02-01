@@ -246,14 +246,16 @@ a:active,
 a:hover {
   text-decoration: none;
 }
-
 /**
    * Region:
    * Fancy animated scroll behavior
    */
 @media (max-width: 899px) {
+  .letter {
+    --transition-poperties: opacity, transform;
+  }
   .letter:not(.fancyO) {
-    transition-property: all;
+    transition-property: var(--transition-poperties);
     transition-timing-function: ease-in-out;
     transition-duration: 0.5s;
   }
@@ -312,7 +314,9 @@ a:hover {
     transition-delay: 0.15s;
   }
   .isScrolled .fancyO {
-    transition: cubic-bezier(0.76, 0.04, 0.69, 0.37) 1s all;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(0.76, 0.04, 0.69, 0.37);
+    transition-property: var(--transition-poperties);
     transform: translate(-57px) scale(1.5);
   }
   .isScrolled .fancyS {
