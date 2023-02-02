@@ -52,7 +52,8 @@
     width: var(--burger-width);
     height: var(--burger-thickness);
     background: var(--GrayPrimary--translucent);
-    transition: all 0.2s ease-out;
+    transition: 0.2s ease-out;
+    transition-property: transform;
 
     &::before,
     &::after {
@@ -63,6 +64,7 @@
       position: absolute;
       left: 0;
       transition: 0.2s ease;
+      transition-property: transform;
     }
 
     &::before {
