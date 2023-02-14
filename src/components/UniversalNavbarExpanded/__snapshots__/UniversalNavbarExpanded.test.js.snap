@@ -221,7 +221,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         singleCta={Object {}}
       />
       <div
-        className="laptopAndUp"
+        className="laptopAndUp bg"
       >
         <div
           className="laptopAndUpContainer"
@@ -684,7 +684,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         singleCta={Object {}}
       />
       <div
-        className="laptopAndUp"
+        className="laptopAndUp bg"
       >
         <div
           className="laptopAndUpContainer"
