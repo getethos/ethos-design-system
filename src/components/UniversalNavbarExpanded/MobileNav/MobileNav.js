@@ -106,6 +106,8 @@ const MobileNav = ({
     MobileNavClasses.push(styles.singleCta)
   }
 
+  MobileNavClasses.push(styles.navbarColor)
+
   const Hamburger = () => (
     <BaseHamburger
       className={styles.hamburger}

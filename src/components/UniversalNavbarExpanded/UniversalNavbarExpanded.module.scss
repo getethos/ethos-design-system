@@ -15,7 +15,6 @@ $laptop-range-small-end: 929px;
 
 .laptopAndUp {
   height: var(--Space-64);
-  background-color: var(--White);
   display: none;
   border-bottom: $navbar-border;
 
@@ -87,6 +86,18 @@ $laptop-range-small-end: 929px;
   width: 100%;
   height: var(--Space-64);
   z-index: $z-index-navbar;
+}
+
+.bgMoss {
+  background-color: var(--BrandMoss);
+  color: var(--BrandForest);
+}
+
+:global(.isScrolled) {
+  .laptopAndUp {
+    background-color: var(--White);
+    color: var(--GrayPrimary--translucent);
+  }
 }
 
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {

@@ -55,6 +55,7 @@ const UniversalNavbarExpanded = ({
   links,
   estimateExperiment,
   singleCta = {},
+  navbarColor,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -103,7 +104,18 @@ const UniversalNavbarExpanded = ({
   )
 
   const layoutClasses = [styles.flex, styles.itemsCenter]
-
+  // navbarColor = 'moss'
+  const CapitalizedBackgroundColor = navbarColor
+    ? navbarColor.charAt(0).toUpperCase() + navbarColor.slice(1)
+    : ''
+  console.log(navbarColor + ' ' + CapitalizedBackgroundColor)
+  const laptopAndUpClasses = [
+    styles.laptopAndUp,
+    styles[`bg${CapitalizedBackgroundColor}`],
+  ]
+  console.log(`laptopAndUp ${laptopAndUpClasses}`)
+  console.log(`UniversalNavBarExpanded ${JSON.stringify(singleCta)}`)
+  console.log(`hideDesktopCta ${hideDesktopCta}`)
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
@@ -120,7 +132,7 @@ const UniversalNavbarExpanded = ({
             LinkComponent={LinkComponent}
             singleCta={singleCta}
           />
-          <div className={styles.laptopAndUp}>
+          <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
               <div className={layoutClasses.join(' ')}>
                 <NavLink
@@ -267,6 +279,7 @@ UniversalNavbarExpanded.propTypes = {
     href: PropTypes.string,
     title: PropTypes.string,
   }),
+  navBarColor: PropTypes.string,
 }
 
 UniversalNavbarExpanded.defaultProps = {
