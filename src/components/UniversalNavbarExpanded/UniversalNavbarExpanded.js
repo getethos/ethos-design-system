@@ -280,7 +280,10 @@ UniversalNavbarExpanded.propTypes = {
     href: PropTypes.string,
     title: PropTypes.string,
   }),
+  /** Navigation bar color*/
   navBarColor: PropTypes.string,
+  /** Add animation to nav bar*/
+  animateNavbar: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
