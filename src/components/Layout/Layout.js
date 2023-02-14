@@ -54,7 +54,6 @@ class ScrollDetector extends React.Component {
     const Element = element
     const classNames = [className, isScrolled ? 'isScrolled' : 'isUnscrolled']
 
-    console.log(`ScrollDetector - classNames ${classNames}`)
     return <Element className={classNames.join('')} {...rest} />
   }
 }

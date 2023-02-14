@@ -104,18 +104,15 @@ const UniversalNavbarExpanded = ({
   )
 
   const layoutClasses = [styles.flex, styles.itemsCenter]
-  // navbarColor = 'moss'
+
   const CapitalizedBackgroundColor = navbarColor
     ? navbarColor.charAt(0).toUpperCase() + navbarColor.slice(1)
     : ''
-  console.log(navbarColor + ' ' + CapitalizedBackgroundColor)
   const laptopAndUpClasses = [
     styles.laptopAndUp,
     styles[`bg${CapitalizedBackgroundColor}`],
   ]
-  console.log(`laptopAndUp ${laptopAndUpClasses}`)
-  console.log(`UniversalNavBarExpanded ${JSON.stringify(singleCta)}`)
-  console.log(`hideDesktopCta ${hideDesktopCta}`)
+
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>

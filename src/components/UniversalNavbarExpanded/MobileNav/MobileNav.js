@@ -112,7 +112,6 @@ const MobileNav = ({
     : ''
   MobileNavClasses.push(styles[`bg${CapitalizedBackgroundColor}`])
 
-  console.log(`MobileNavClasses ${MobileNavClasses}`)
   const Hamburger = () => (
     <BaseHamburger
       className={styles.hamburger}
