@@ -121,6 +121,7 @@ const UniversalNavbarExpanded = ({
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
           <MobileNav
+            navbarColor={navbarColor}
             ctaButtonStyle={ctaButtonStyle}
             extraClass={'isFixedCta'}
             logoHref={logoHref}

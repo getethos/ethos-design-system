@@ -20,7 +20,6 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 .mobileNavbar {
   position: relative;
   height: var(--Space-64);
-  background-color: var(--BrandMoss);
   padding: var(--Space-24) var(--ContainerPadding--Phone);
   display: none;
   align-items: center;
@@ -60,6 +59,18 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
         }
       }
     }
+  }
+
+  &.bgMoss {
+    background-color: var(--BrandMoss);
+    color: var(--BrandForest);
+  }
+}
+
+:global(.isScrolled) {
+  .mobileNavbar {
+    background-color: var(--White);
+    color: var(--GrayPrimary--translucent);
   }
 }
 

@@ -74,6 +74,7 @@ BaseHamburger.propTypes = {
  * @return {JSX.Element}
  */
 const MobileNav = ({
+  navbarColor,
   ctaButtonStyle,
   extraClass,
   logoHref,
@@ -106,8 +107,12 @@ const MobileNav = ({
     MobileNavClasses.push(styles.singleCta)
   }
 
-  MobileNavClasses.push(styles.navbarColor)
+  const CapitalizedBackgroundColor = navbarColor
+    ? navbarColor.charAt(0).toUpperCase() + navbarColor.slice(1)
+    : ''
+  MobileNavClasses.push(styles[`bg${CapitalizedBackgroundColor}`])
 
+  console.log(`MobileNavClasses ${MobileNavClasses}`)
   const Hamburger = () => (
     <BaseHamburger
       className={styles.hamburger}
@@ -183,6 +188,7 @@ const MobileNav = ({
 }
 
 MobileNav.propTypes = {
+  navbarColor: PropTypes.string,
   ctaButtonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,
