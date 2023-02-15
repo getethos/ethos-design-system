@@ -203,7 +203,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
-        navbarColor=""
         secondaryLinksLinks={
           Array [
             Object {
@@ -223,7 +222,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         singleCta={Object {}}
       />
       <div
-        className="laptopAndUp bg"
+        className="laptopAndUp"
       >
         <div
           className="laptopAndUpContainer"
@@ -668,7 +667,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
-        navbarColor=""
         secondaryLinksLinks={
           Array [
             Object {
@@ -688,7 +686,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         singleCta={Object {}}
       />
       <div
-        className="laptopAndUp bg"
+        className="laptopAndUp"
       >
         <div
           className="laptopAndUpContainer"

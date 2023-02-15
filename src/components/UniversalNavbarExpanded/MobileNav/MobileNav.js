@@ -70,7 +70,6 @@ BaseHamburger.propTypes = {
  * @param {array} secondaryLinksLinks - List of links for static display below accordion
  * @param {boolean} hideMobileCta - Hide the cta
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
- * @param {string} navbarColor - navigation bar color
  * @param {boolean} animateNavbar - navigation bar animation
  *
  * @return {JSX.Element}
@@ -86,7 +85,6 @@ const MobileNav = ({
   itemTrackingFunction,
   LinkComponent,
   singleCta = {},
-  navbarColor,
   animateNavbar,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -109,11 +107,6 @@ const MobileNav = ({
   if (singleCta.href) {
     MobileNavClasses.push(styles.singleCta)
   }
-
-  const CapitalizedBackgroundColor = navbarColor
-    ? navbarColor.charAt(0).toUpperCase() + navbarColor.slice(1)
-    : ''
-  MobileNavClasses.push(styles[`bg${CapitalizedBackgroundColor}`])
 
   if (animateNavbar) {
     MobileNavClasses.push(styles.mobileNavbarScrolled)
@@ -207,7 +200,6 @@ MobileNav.propTypes = {
     href: PropTypes.string,
     title: PropTypes.string,
   }),
-  navbarColor: PropTypes.string,
   animateNavbar: PropTypes.bool,
 }
 

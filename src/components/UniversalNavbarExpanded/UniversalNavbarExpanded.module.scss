@@ -88,15 +88,11 @@ $laptop-range-small-end: 929px;
   z-index: $z-index-navbar;
 }
 
-.bgMoss {
-  background-color: var(--BrandMoss);
-  color: var(--BrandForest);
-}
-
 :global(.isScrolled) {
   .laptopAndUpScrolled {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
+    transition: background-color 1s ease-in-out;
   }
 }
 

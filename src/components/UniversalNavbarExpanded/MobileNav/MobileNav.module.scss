@@ -60,17 +60,13 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
       }
     }
   }
-
-  &.bgMoss {
-    background-color: var(--BrandMoss);
-    color: var(--BrandForest);
-  }
 }
 
 :global(.isScrolled) {
   .mobileNavbarScrolled {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
+    transition: background-color 1s ease-in-out;
   }
 }
 
