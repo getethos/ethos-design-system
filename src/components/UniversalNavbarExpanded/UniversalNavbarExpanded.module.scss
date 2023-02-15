@@ -94,7 +94,7 @@ $laptop-range-small-end: 929px;
 }
 
 :global(.isScrolled) {
-  .laptopAndUp {
+  .laptopAndUpScrolled {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
   }

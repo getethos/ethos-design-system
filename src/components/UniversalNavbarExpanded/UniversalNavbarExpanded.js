@@ -56,6 +56,7 @@ const UniversalNavbarExpanded = ({
   estimateExperiment,
   singleCta = {},
   navbarColor,
+  animateNavbar,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -113,12 +114,17 @@ const UniversalNavbarExpanded = ({
     styles[`bg${CapitalizedBackgroundColor}`],
   ]
 
+  if (animateNavbar) {
+    laptopAndUpClasses.push(styles.laptopAndUpScrolled)
+  }
+
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
           <MobileNav
             navbarColor={navbarColor}
+            animateNavbar={animateNavbar}
             ctaButtonStyle={ctaButtonStyle}
             extraClass={'isFixedCta'}
             logoHref={logoHref}
@@ -294,6 +300,8 @@ UniversalNavbarExpanded.defaultProps = {
   links: {},
   estimateExperiment: false,
   singleCta: {},
+  navBarColor: '',
+  animateNavbar: false,
 }
 
 export { UniversalNavbarExpanded }

@@ -75,6 +75,7 @@ BaseHamburger.propTypes = {
  */
 const MobileNav = ({
   navbarColor,
+  animateNavbar,
   ctaButtonStyle,
   extraClass,
   logoHref,
@@ -111,6 +112,10 @@ const MobileNav = ({
     ? navbarColor.charAt(0).toUpperCase() + navbarColor.slice(1)
     : ''
   MobileNavClasses.push(styles[`bg${CapitalizedBackgroundColor}`])
+
+  if (animateNavbar) {
+    MobileNavClasses.push(styles.mobileNavbarScrolled)
+  }
 
   const Hamburger = () => (
     <BaseHamburger
@@ -188,6 +193,7 @@ const MobileNav = ({
 
 MobileNav.propTypes = {
   navbarColor: PropTypes.string,
+  animateNavbar: PropTypes.bool,
   ctaButtonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,

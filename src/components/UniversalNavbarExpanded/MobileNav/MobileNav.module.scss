@@ -68,7 +68,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 }
 
 :global(.isScrolled) {
-  .mobileNavbar {
+  .mobileNavbarScrolled {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
   }
