@@ -12,6 +12,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
       offsetHeight={0}
     >
       <MobileNav
+        animateNavbar={false}
         ctaButtonStyle="Black"
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
@@ -475,6 +476,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
       offsetHeight={0}
     >
       <MobileNav
+        animateNavbar={false}
         ctaButtonStyle="Black"
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
