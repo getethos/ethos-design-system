@@ -70,6 +70,12 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
+:global(.isUnscrolled) {
+  .mobileNavbarScrolled {
+    transition: background-color 1s ease-in-out;
+  }
+}
+
 .logo {
   height: var(--Space-16);
   padding-right: var(--Space-40);

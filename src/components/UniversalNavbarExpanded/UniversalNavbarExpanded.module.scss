@@ -96,6 +96,12 @@ $laptop-range-small-end: 929px;
   }
 }
 
+:global(.isUnscrolled) {
+  .laptopAndUpScrolled {
+    transition: background-color 1s ease-in-out;
+  }
+}
+
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
   .accountIcon,
   .searchIcon {
