@@ -109,7 +109,7 @@ const MobileNav = ({
   }
 
   if (animateNavbar) {
-    MobileNavClasses.push(styles.mobileNavbarScrolled)
+    MobileNavClasses.push(styles.mobileNavbarAnimation)
   }
 
   const Hamburger = () => (

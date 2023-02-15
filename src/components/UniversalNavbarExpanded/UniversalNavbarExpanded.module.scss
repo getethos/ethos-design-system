@@ -89,7 +89,7 @@ $laptop-range-small-end: 929px;
 }
 
 :global(.isScrolled) {
-  .laptopAndUpScrolled {
+  .laptopAndUpAnimation {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
     transition: background-color 1s ease-in-out;
@@ -97,7 +97,7 @@ $laptop-range-small-end: 929px;
 }
 
 :global(.isUnscrolled) {
-  .laptopAndUpScrolled {
+  .laptopAndUpAnimation {
     transition: background-color 1s ease-in-out;
   }
 }

@@ -109,7 +109,7 @@ const UniversalNavbarExpanded = ({
   const laptopAndUpClasses = [styles.laptopAndUp]
 
   if (animateNavbar) {
-    laptopAndUpClasses.push(styles.laptopAndUpScrolled)
+    laptopAndUpClasses.push(styles.laptopAndUpAnimation)
   }
 
   return (
