@@ -70,12 +70,12 @@ BaseHamburger.propTypes = {
  * @param {array} secondaryLinksLinks - List of links for static display below accordion
  * @param {boolean} hideMobileCta - Hide the cta
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
+ * @param {string} navbarColor - navigation bar color
+ * @param {boolean} animateNavbar - navigation bar animation
  *
  * @return {JSX.Element}
  */
 const MobileNav = ({
-  navbarColor,
-  animateNavbar,
   ctaButtonStyle,
   extraClass,
   logoHref,
@@ -86,6 +86,8 @@ const MobileNav = ({
   itemTrackingFunction,
   LinkComponent,
   singleCta = {},
+  navbarColor,
+  animateNavbar,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -192,8 +194,6 @@ const MobileNav = ({
 }
 
 MobileNav.propTypes = {
-  navbarColor: PropTypes.string,
-  animateNavbar: PropTypes.bool,
   ctaButtonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   links: PropTypes.object.isRequired,
   extraClass: PropTypes.string,
@@ -207,6 +207,8 @@ MobileNav.propTypes = {
     href: PropTypes.string,
     title: PropTypes.string,
   }),
+  navbarColor: PropTypes.string,
+  animateNavbar: PropTypes.bool,
 }
 
 export default MobileNav

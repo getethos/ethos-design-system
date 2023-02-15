@@ -37,6 +37,8 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {object} links - URLs and text
  * @param {boolean} estimateExperiment - enable the estimate experiment button/copy
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
+ * @param {string} navbarColor - navigation bar color
+ * @param {boolean} animateNavbar - navigation bar animation
  *
  * @return {JSX.Element}
  */
@@ -283,8 +285,8 @@ UniversalNavbarExpanded.propTypes = {
     href: PropTypes.string,
     title: PropTypes.string,
   }),
-  /** Navigation bar color*/
-  navBarColor: PropTypes.string,
+  /** Add color to nav bar*/
+  navbarColor: PropTypes.string,
   /** Add animation to nav bar*/
   animateNavbar: PropTypes.bool,
 }
@@ -300,7 +302,7 @@ UniversalNavbarExpanded.defaultProps = {
   links: {},
   estimateExperiment: false,
   singleCta: {},
-  navBarColor: '',
+  navbarColor: '',
   animateNavbar: false,
 }
 
