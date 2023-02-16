@@ -102,6 +102,10 @@ $laptop-range-small-end: 929px;
   }
 }
 
+.laptopAndUpAnimation {
+  border-bottom: none;
+}
+
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
   .accountIcon,
   .searchIcon {
