@@ -20,6 +20,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 .mobileNavbar {
   position: relative;
   height: var(--Space-64);
+  background-color: var(--White);
   padding: var(--Space-24) var(--ContainerPadding--Phone);
   display: none;
   align-items: center;
@@ -74,6 +75,9 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   .mobileNavbarAnimation {
     transition: background-color 1s ease-in-out;
   }
+}
+.mobileNavbarAnimation {
+  background-color: transparent;
 }
 
 .logo {

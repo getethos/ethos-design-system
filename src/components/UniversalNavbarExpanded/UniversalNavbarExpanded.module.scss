@@ -17,6 +17,7 @@ $laptop-range-small-end: 929px;
   height: var(--Space-64);
   display: none;
   border-bottom: $navbar-border;
+  background-color: var(--White);
 
   @include for-laptop-and-up {
     display: block;
@@ -105,6 +106,7 @@ $laptop-range-small-end: 929px;
 
 .laptopAndUpAnimation {
   border-bottom: none;
+  background-color: transparent;
 }
 
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
