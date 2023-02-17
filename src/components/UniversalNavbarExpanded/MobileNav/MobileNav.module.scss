@@ -67,17 +67,12 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   .mobileNavbarAnimation {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
-    transition: background-color 1s ease-in-out;
   }
 }
 
-:global(.isUnscrolled) {
-  .mobileNavbarAnimation {
-    transition: background-color 1s ease-in-out;
-  }
-}
 .mobileNavbarAnimation {
   background-color: transparent;
+  transition: background-color 1s ease-in-out;
 }
 
 .logo {
