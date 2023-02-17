@@ -37,6 +37,7 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {object} links - URLs and text
  * @param {boolean} estimateExperiment - enable the estimate experiment button/copy
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
+ * @param {boolean} animateNavbar - navigation bar animation
  *
  * @return {JSX.Element}
  */
@@ -55,6 +56,7 @@ const UniversalNavbarExpanded = ({
   links,
   estimateExperiment,
   singleCta = {},
+  animateNavbar,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -104,11 +106,18 @@ const UniversalNavbarExpanded = ({
 
   const layoutClasses = [styles.flex, styles.itemsCenter]
 
+  const laptopAndUpClasses = [styles.laptopAndUp]
+
+  if (animateNavbar) {
+    laptopAndUpClasses.push(styles.laptopAndUpAnimation)
+  }
+
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
           <MobileNav
+            animateNavbar={animateNavbar}
             ctaButtonStyle={ctaButtonStyle}
             extraClass={'isFixedCta'}
             logoHref={logoHref}
@@ -120,7 +129,7 @@ const UniversalNavbarExpanded = ({
             LinkComponent={LinkComponent}
             singleCta={singleCta}
           />
-          <div className={styles.laptopAndUp}>
+          <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
               <div className={layoutClasses.join(' ')}>
                 <NavLink
@@ -267,6 +276,8 @@ UniversalNavbarExpanded.propTypes = {
     href: PropTypes.string,
     title: PropTypes.string,
   }),
+  /** Add animation to nav bar*/
+  animateNavbar: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -280,6 +291,7 @@ UniversalNavbarExpanded.defaultProps = {
   links: {},
   estimateExperiment: false,
   singleCta: {},
+  animateNavbar: false,
 }
 
 export { UniversalNavbarExpanded }

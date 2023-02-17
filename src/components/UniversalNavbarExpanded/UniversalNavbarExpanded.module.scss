@@ -15,9 +15,9 @@ $laptop-range-small-end: 929px;
 
 .laptopAndUp {
   height: var(--Space-64);
-  background-color: var(--White);
   display: none;
   border-bottom: $navbar-border;
+  background-color: var(--White);
 
   @include for-laptop-and-up {
     display: block;
@@ -87,6 +87,20 @@ $laptop-range-small-end: 929px;
   width: 100%;
   height: var(--Space-64);
   z-index: $z-index-navbar;
+}
+
+:global(.isScrolled) {
+  .laptopAndUpAnimation {
+    background-color: var(--White);
+    color: var(--GrayPrimary--translucent);
+    border-bottom: $navbar-border;
+  }
+}
+
+.laptopAndUpAnimation {
+  border-bottom: none;
+  background-color: transparent;
+  transition: 1s ease-in-out;
 }
 
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
