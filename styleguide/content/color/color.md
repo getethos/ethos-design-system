@@ -98,5 +98,11 @@ Simply import the colors and utilize [CSS custom properties](https://developer.m
     <span class="Caption Theinhardt Regular400 GraySecondary">BrandLime</span>
   </div>
 </div>
+<div class="flex-wrap">
+  <div class="swatch-brand-BrandDarkSalamander">
+    <span class="Caption Theinhardt Medium500">`#f26d00`</span>
+    <span class="Caption Theinhardt Regular400">BrandDarkSalamander</span>
+  </div>
+</div>
 
 
