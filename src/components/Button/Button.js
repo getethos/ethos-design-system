@@ -199,6 +199,7 @@ PrivateButton.STYLES = {
   BLACK: 'Black',
   BLACK_OUTLINE: 'BlackOutline',
   SALAMANDER: 'Salamander',
+  DARK_SALAMANDER: 'DarkSalamander',
   CYPRESS: 'Cypress',
   LIME: 'Lime',
   WHITE_OUTLINE: 'WhiteOutline',
@@ -242,6 +243,10 @@ export const Button = {
     Salamander: ButtonFactory({
       size: PrivateButton.SIZES.MEDIUM,
       style: PrivateButton.STYLES.SALAMANDER,
+    }),
+    DarkSalamander: ButtonFactory({
+      size: PrivateButton.SIZES.MEDIUM,
+      style: PrivateButton.STYLES.DARK_SALAMANDER,
     }),
     Cypress: ButtonFactory({
       size: PrivateButton.SIZES.MEDIUM,

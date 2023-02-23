@@ -183,6 +183,34 @@
   }
 }
 
+.Button.DarkSalamander {
+  background-color: var(--BrandDarkSalamander);
+  color: var(--White);
+  path {
+    fill: var(--White);
+  }
+  @include light-on-dark-font-smoothing;
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--SalamanderHover--translucent);
+    }
+
+    &:active {
+      background-color: var(--SalamanderHover--translucent);
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--Transparent--white);
+    background-color: var(--BrandSand);
+    color: var(--GrayStrokeAndDisabled--translucent);
+    path {
+      fill: var(--GrayStrokeAndDisabled--translucent);
+    }
+  }
+}
+
 .Button.Cypress {
   background-color: var(--BrandCypress);
   color: var(--White);

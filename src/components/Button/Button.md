@@ -25,6 +25,13 @@ Set of Design-approved public buttons.
 ```
 
 ```jsx
+<Button.Medium.DarkSalamander>Button.Medium.DarkSalamander</Button.Medium.DarkSalamander>
+<Button.Medium.DarkSalamander disabled={true}>
+  Button.Medium.DarkSalamander disabled
+</Button.Medium.DarkSalamander>
+```
+
+```jsx
 <Button.Medium.Cypress>Button.Medium.Cypress</Button.Medium.Cypress>
 <Button.Medium.Cypress disabled={true}>
   Button.Medium.Cypress disabled
