@@ -94,13 +94,17 @@ $laptop-range-small-end: 929px;
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
     border-bottom: $navbar-border;
+    transition: border-bottom 1s ease-in-out, background-color 1s ease-in-out;
   }
 }
 
 .laptopAndUpAnimation {
   border-bottom: none;
   background-color: transparent;
-  transition: 1s ease-in-out;
+
+  &:hover {
+    background-color: var(--White);
+  }
 }
 
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
