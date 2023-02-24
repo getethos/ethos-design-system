@@ -93,14 +93,20 @@ $laptop-range-small-end: 929px;
   .laptopAndUpAnimation {
     background-color: var(--White);
     color: var(--GrayPrimary--translucent);
-    border-bottom: $navbar-border;
+    border-color: var(--GrayStrokeAndDisabled--translucent);
+    transition: border-color 0.75s ease-in-out,
+      background-color 0.75s ease-in-out;
   }
 }
 
 .laptopAndUpAnimation {
-  border-bottom: none;
+  border-color: transparent;
   background-color: transparent;
-  transition: 1s ease-in-out;
+
+  &:hover {
+    background-color: var(--White);
+    border-color: var(--GrayStrokeAndDisabled--translucent);
+  }
 }
 
 @media (min-width: $laptop-range-start) and (max-width: $laptop-range-small-end) {
