@@ -30,30 +30,21 @@ class ScrollDetector extends React.Component {
   }
 
   addScrollListener() {
-    console.log('addScrollListener is called before if')
     if (typeof window === 'undefined') return
-    console.log('addScrollListener is called after if')
     // Note that this scroll event must be attached to the document
     // and not the element itself -- so onScroll does not work
     window.addEventListener('scroll', this.updateScrollState)
   }
 
   removeScrollListener() {
-    console.log('removeScrollListener is called before if')
     if (typeof window === 'undefined') return
-    console.log('removeScrollListener is called before if')
     // Okay since removing an unregistered event listener has no effect
     // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
     window.removeEventListener('scroll', this.updateScrollState)
   }
 
   updateScrollState = () => {
-    console.log('updateScrollState is called')
     const scrollTop = window.pageYOffset || window.document.scrollTop
-    console.log(`window.pageYOffset ${window.pageYOffset}`)
-    console.log(`window.document.scrollTop ${window.document.scrollTop}`)
-    console.log(`scrollTop ${scrollTop}`)
-    console.log(`this.props.offsetHeight ${this.props.offsetHeight}`)
     this.setState({ isScrolled: scrollTop > this.props.offsetHeight })
   }
 
