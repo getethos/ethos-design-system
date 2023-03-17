@@ -24,6 +24,42 @@ describe('<UniversalNavbarExpanded>', () => {
         )
       ).toMatchSnapshot()
     })
+    it('builds with sample links, hidden icons and secondary cta', () => {
+      expect(
+        shallowSnapshot(
+          <UniversalNavbarExpanded
+            logoHref={'/#/Components/UniversalNavbarExpanded'}
+            links={CMS_LINKS}
+            hideAccountIcon={true}
+            hideSearchIcon={true}
+            showSecondaryCta={true}
+          />
+        )
+      ).toMatchSnapshot()
+    })
+    it('builds with sample links and fully animated background', () => {
+      expect(
+        shallowSnapshot(
+          <UniversalNavbarExpanded
+            logoHref={'/#/Components/UniversalNavbarExpanded'}
+            links={CMS_LINKS}
+            animateMobileNavbar
+            animateDesktopNavbar
+          />
+        )
+      ).toMatchSnapshot()
+    })
+    it('builds with sample links and animated desktop only background', () => {
+      expect(
+        shallowSnapshot(
+          <UniversalNavbarExpanded
+            logoHref={'/#/Components/UniversalNavbarExpanded'}
+            links={CMS_LINKS}
+            animateDesktopNavbar
+          />
+        )
+      ).toMatchSnapshot()
+    })
   })
 })
 
