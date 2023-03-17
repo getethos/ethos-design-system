@@ -1,5 +1,933 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and animated desktop only background 1`] = `
+<div
+  className="navbarWrapper"
+>
+  <div
+    className="navbar"
+  >
+    <ScrollDetector
+      element="div"
+      offsetHeight={0}
+    >
+      <MobileNav
+        animateNavbar={false}
+        ctaButtonStyle="Black"
+        ctaButtonTrackingFunction={[Function]}
+        extraClass="isFixedCta"
+        hideMobileCta={false}
+        links={
+          Object {
+            "ACCOUNT": Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            "CTA": Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            "INDEX": Object {
+              "href": "/",
+            },
+            "NAVLINKS": Array [
+              Object {
+                "id": "NAVLINKS_MOCK_ID_1",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": [Function],
+                    "href": "/#/Components/UniversalNavbarExpanded",
+                    "id": "NAVLINKS_MOCK_ID_2",
+                    "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                    "title": "Watch the video",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/#/Components/UniversalNavbarExpanded",
+                      "id": "NAVLINKS_MOCK_ID_3",
+                      "title": "What is term life insurance and how much does it cost?",
+                    },
+                    Object {
+                      "href": "/how-it-works/",
+                      "id": "NAVLINKS_MOCK_ID_4",
+                      "title": "How our application process works",
+                    },
+                    Object {
+                      "href": "/life/who-needs-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_5",
+                      "title": "Do I need life insurance?",
+                    },
+                    Object {
+                      "href": "/life/how-choose-right-type-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_6",
+                      "title": "Choosing your coverage amount and term length",
+                    },
+                    Object {
+                      "href": "/app/needs/",
+                      "id": "NAVLINKS_MOCK_ID_7",
+                      "title": "Coverage calculator",
+                    },
+                  ],
+                },
+                "title": "What we offer",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_8",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/life/life-insurance-basics/",
+                    "id": "NAVLINKS_MOCK_ID_9",
+                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "title": "Life insurance 101",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/life/term-group-whole/",
+                      "id": "NAVLINKS_MOCK_ID_10",
+                      "title": "What are the main types of life insurance and how do they work?",
+                    },
+                    Object {
+                      "href": "/life/underwriting-explained/",
+                      "id": "NAVLINKS_MOCK_ID_11",
+                      "title": "What is underwriting and how long does it take?",
+                    },
+                    Object {
+                      "href": "/life/pick-beneficiary/",
+                      "id": "NAVLINKS_MOCK_ID_12",
+                      "title": "Choosing your beneficiary",
+                    },
+                    Object {
+                      "href": "/life/who-needs-sp/",
+                      "id": "NAVLINKS_MOCK_ID_13",
+                      "title": "What if I don't work?",
+                    },
+                    Object {
+                      "href": "/life/employer-sponsored-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_14",
+                      "title": "Is my life insurance through work enough?",
+                    },
+                  ],
+                },
+                "title": "Life insurance basics",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_15",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/why-ethos/",
+                    "id": "NAVLINKS_MOCK_ID_16",
+                    "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                    "title": "The Ethos Difference",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/about/",
+                      "id": "NAVLINKS_MOCK_ID_17",
+                      "title": "Our mission",
+                    },
+                    Object {
+                      "href": "/reviews/",
+                      "id": "NAVLINKS_MOCK_ID_18",
+                      "title": "Reviews",
+                    },
+                    Object {
+                      "href": "/life/customer-stories/",
+                      "id": "NAVLINKS_MOCK_ID_19",
+                      "title": "Customer stories",
+                    },
+                    Object {
+                      "href": "/life/ethosforgood/",
+                      "id": "NAVLINKS_MOCK_ID_20",
+                      "title": "Ethos for Good",
+                    },
+                    Object {
+                      "href": "/friends/",
+                      "id": "NAVLINKS_MOCK_ID_21",
+                      "title": "Refer a friend",
+                    },
+                  ],
+                },
+                "title": "Why Ethos",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_22",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/faq/",
+                    "id": "NAVLINKS_MOCK_ID_23",
+                    "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                    "title": "FAQ",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/faq/life-insurance-basics/",
+                      "id": "NAVLINKS_MOCK_ID_24",
+                      "title": "Questions about life insurance",
+                    },
+                    Object {
+                      "href": "/faq/ethos/",
+                      "id": "NAVLINKS_MOCK_ID_25",
+                      "title": "Questions about Ethos",
+                    },
+                    Object {
+                      "href": "/faq/application/",
+                      "id": "NAVLINKS_MOCK_ID_26",
+                      "title": "Questions about your application",
+                    },
+                    Object {
+                      "href": "/faq/policy/",
+                      "id": "NAVLINKS_MOCK_ID_27",
+                      "title": "Questions about your policy",
+                    },
+                    Object {
+                      "href": "/contact-us/",
+                      "id": "NAVLINKS_MOCK_ID_28",
+                      "title": "Contact us",
+                    },
+                  ],
+                },
+                "title": "Help Center",
+              },
+            ],
+            "SEARCH": Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+            "SECONDARY_CTA": Object {
+              "href": "/login",
+              "title": "Login",
+            },
+          }
+        }
+        logoHref="/#/Components/UniversalNavbarExpanded"
+        secondaryLinksLinks={
+          Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+          ]
+        }
+        singleCta={Object {}}
+      />
+      <div
+        className="laptopAndUp animatedBackground"
+      >
+        <div
+          className="laptopAndUpContainer"
+        >
+          <div
+            className="flex itemsCenter"
+          >
+            <NavLink
+              href="/#/Components/UniversalNavbarExpanded"
+              itemLabel="Logo"
+            >
+              <svg
+                className="logo"
+                viewBox="0 0 971.997 180.498"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Ethos Logo
+                </title>
+                <path
+                  d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                />
+                <path
+                  d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                />
+              </svg>
+            </NavLink>
+            <DropdownNav
+              links={
+                Object {
+                  "ACCOUNT": Object {
+                    "href": "/login/",
+                    "title": "Account",
+                  },
+                  "CTA": Object {
+                    "href": "/term",
+                    "title": "Check my price",
+                  },
+                  "INDEX": Object {
+                    "href": "/",
+                  },
+                  "NAVLINKS": Array [
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_1",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": [Function],
+                          "href": "/#/Components/UniversalNavbarExpanded",
+                          "id": "NAVLINKS_MOCK_ID_2",
+                          "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                          "title": "Watch the video",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/#/Components/UniversalNavbarExpanded",
+                            "id": "NAVLINKS_MOCK_ID_3",
+                            "title": "What is term life insurance and how much does it cost?",
+                          },
+                          Object {
+                            "href": "/how-it-works/",
+                            "id": "NAVLINKS_MOCK_ID_4",
+                            "title": "How our application process works",
+                          },
+                          Object {
+                            "href": "/life/who-needs-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_5",
+                            "title": "Do I need life insurance?",
+                          },
+                          Object {
+                            "href": "/life/how-choose-right-type-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_6",
+                            "title": "Choosing your coverage amount and term length",
+                          },
+                          Object {
+                            "href": "/app/needs/",
+                            "id": "NAVLINKS_MOCK_ID_7",
+                            "title": "Coverage calculator",
+                          },
+                        ],
+                      },
+                      "title": "What we offer",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_8",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/life/life-insurance-basics/",
+                          "id": "NAVLINKS_MOCK_ID_9",
+                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "title": "Life insurance 101",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/life/term-group-whole/",
+                            "id": "NAVLINKS_MOCK_ID_10",
+                            "title": "What are the main types of life insurance and how do they work?",
+                          },
+                          Object {
+                            "href": "/life/underwriting-explained/",
+                            "id": "NAVLINKS_MOCK_ID_11",
+                            "title": "What is underwriting and how long does it take?",
+                          },
+                          Object {
+                            "href": "/life/pick-beneficiary/",
+                            "id": "NAVLINKS_MOCK_ID_12",
+                            "title": "Choosing your beneficiary",
+                          },
+                          Object {
+                            "href": "/life/who-needs-sp/",
+                            "id": "NAVLINKS_MOCK_ID_13",
+                            "title": "What if I don't work?",
+                          },
+                          Object {
+                            "href": "/life/employer-sponsored-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_14",
+                            "title": "Is my life insurance through work enough?",
+                          },
+                        ],
+                      },
+                      "title": "Life insurance basics",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_15",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/why-ethos/",
+                          "id": "NAVLINKS_MOCK_ID_16",
+                          "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                          "title": "The Ethos Difference",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/about/",
+                            "id": "NAVLINKS_MOCK_ID_17",
+                            "title": "Our mission",
+                          },
+                          Object {
+                            "href": "/reviews/",
+                            "id": "NAVLINKS_MOCK_ID_18",
+                            "title": "Reviews",
+                          },
+                          Object {
+                            "href": "/life/customer-stories/",
+                            "id": "NAVLINKS_MOCK_ID_19",
+                            "title": "Customer stories",
+                          },
+                          Object {
+                            "href": "/life/ethosforgood/",
+                            "id": "NAVLINKS_MOCK_ID_20",
+                            "title": "Ethos for Good",
+                          },
+                          Object {
+                            "href": "/friends/",
+                            "id": "NAVLINKS_MOCK_ID_21",
+                            "title": "Refer a friend",
+                          },
+                        ],
+                      },
+                      "title": "Why Ethos",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_22",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/faq/",
+                          "id": "NAVLINKS_MOCK_ID_23",
+                          "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                          "title": "FAQ",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/faq/life-insurance-basics/",
+                            "id": "NAVLINKS_MOCK_ID_24",
+                            "title": "Questions about life insurance",
+                          },
+                          Object {
+                            "href": "/faq/ethos/",
+                            "id": "NAVLINKS_MOCK_ID_25",
+                            "title": "Questions about Ethos",
+                          },
+                          Object {
+                            "href": "/faq/application/",
+                            "id": "NAVLINKS_MOCK_ID_26",
+                            "title": "Questions about your application",
+                          },
+                          Object {
+                            "href": "/faq/policy/",
+                            "id": "NAVLINKS_MOCK_ID_27",
+                            "title": "Questions about your policy",
+                          },
+                          Object {
+                            "href": "/contact-us/",
+                            "id": "NAVLINKS_MOCK_ID_28",
+                            "title": "Contact us",
+                          },
+                        ],
+                      },
+                      "title": "Help Center",
+                    },
+                  ],
+                  "SEARCH": Object {
+                    "href": "/search/",
+                    "title": "Search",
+                  },
+                  "SECONDARY_CTA": Object {
+                    "href": "/login",
+                    "title": "Login",
+                  },
+                }
+              }
+            />
+          </div>
+          <div
+            className="flex itemsCenter"
+          >
+            <React.Fragment>
+              <SearchIconLink />
+              <AccountIconLink />
+            </React.Fragment>
+            <div
+              className="cta"
+            >
+              <CtaButton
+                buttonStyle="Black"
+                hideOnMobile={false}
+                href="/term"
+                title="Check my price"
+                trackingFunction={[Function]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </ScrollDetector>
+  </div>
+</div>
+`;
+
+exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and fully animated background 1`] = `
+<div
+  className="navbarWrapper"
+>
+  <div
+    className="navbar"
+  >
+    <ScrollDetector
+      element="div"
+      offsetHeight={0}
+    >
+      <MobileNav
+        animateNavbar={true}
+        ctaButtonStyle="Black"
+        ctaButtonTrackingFunction={[Function]}
+        extraClass="isFixedCta"
+        hideMobileCta={false}
+        links={
+          Object {
+            "ACCOUNT": Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            "CTA": Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            "INDEX": Object {
+              "href": "/",
+            },
+            "NAVLINKS": Array [
+              Object {
+                "id": "NAVLINKS_MOCK_ID_1",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": [Function],
+                    "href": "/#/Components/UniversalNavbarExpanded",
+                    "id": "NAVLINKS_MOCK_ID_2",
+                    "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                    "title": "Watch the video",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/#/Components/UniversalNavbarExpanded",
+                      "id": "NAVLINKS_MOCK_ID_3",
+                      "title": "What is term life insurance and how much does it cost?",
+                    },
+                    Object {
+                      "href": "/how-it-works/",
+                      "id": "NAVLINKS_MOCK_ID_4",
+                      "title": "How our application process works",
+                    },
+                    Object {
+                      "href": "/life/who-needs-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_5",
+                      "title": "Do I need life insurance?",
+                    },
+                    Object {
+                      "href": "/life/how-choose-right-type-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_6",
+                      "title": "Choosing your coverage amount and term length",
+                    },
+                    Object {
+                      "href": "/app/needs/",
+                      "id": "NAVLINKS_MOCK_ID_7",
+                      "title": "Coverage calculator",
+                    },
+                  ],
+                },
+                "title": "What we offer",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_8",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/life/life-insurance-basics/",
+                    "id": "NAVLINKS_MOCK_ID_9",
+                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "title": "Life insurance 101",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/life/term-group-whole/",
+                      "id": "NAVLINKS_MOCK_ID_10",
+                      "title": "What are the main types of life insurance and how do they work?",
+                    },
+                    Object {
+                      "href": "/life/underwriting-explained/",
+                      "id": "NAVLINKS_MOCK_ID_11",
+                      "title": "What is underwriting and how long does it take?",
+                    },
+                    Object {
+                      "href": "/life/pick-beneficiary/",
+                      "id": "NAVLINKS_MOCK_ID_12",
+                      "title": "Choosing your beneficiary",
+                    },
+                    Object {
+                      "href": "/life/who-needs-sp/",
+                      "id": "NAVLINKS_MOCK_ID_13",
+                      "title": "What if I don't work?",
+                    },
+                    Object {
+                      "href": "/life/employer-sponsored-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_14",
+                      "title": "Is my life insurance through work enough?",
+                    },
+                  ],
+                },
+                "title": "Life insurance basics",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_15",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/why-ethos/",
+                    "id": "NAVLINKS_MOCK_ID_16",
+                    "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                    "title": "The Ethos Difference",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/about/",
+                      "id": "NAVLINKS_MOCK_ID_17",
+                      "title": "Our mission",
+                    },
+                    Object {
+                      "href": "/reviews/",
+                      "id": "NAVLINKS_MOCK_ID_18",
+                      "title": "Reviews",
+                    },
+                    Object {
+                      "href": "/life/customer-stories/",
+                      "id": "NAVLINKS_MOCK_ID_19",
+                      "title": "Customer stories",
+                    },
+                    Object {
+                      "href": "/life/ethosforgood/",
+                      "id": "NAVLINKS_MOCK_ID_20",
+                      "title": "Ethos for Good",
+                    },
+                    Object {
+                      "href": "/friends/",
+                      "id": "NAVLINKS_MOCK_ID_21",
+                      "title": "Refer a friend",
+                    },
+                  ],
+                },
+                "title": "Why Ethos",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_22",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/faq/",
+                    "id": "NAVLINKS_MOCK_ID_23",
+                    "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                    "title": "FAQ",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/faq/life-insurance-basics/",
+                      "id": "NAVLINKS_MOCK_ID_24",
+                      "title": "Questions about life insurance",
+                    },
+                    Object {
+                      "href": "/faq/ethos/",
+                      "id": "NAVLINKS_MOCK_ID_25",
+                      "title": "Questions about Ethos",
+                    },
+                    Object {
+                      "href": "/faq/application/",
+                      "id": "NAVLINKS_MOCK_ID_26",
+                      "title": "Questions about your application",
+                    },
+                    Object {
+                      "href": "/faq/policy/",
+                      "id": "NAVLINKS_MOCK_ID_27",
+                      "title": "Questions about your policy",
+                    },
+                    Object {
+                      "href": "/contact-us/",
+                      "id": "NAVLINKS_MOCK_ID_28",
+                      "title": "Contact us",
+                    },
+                  ],
+                },
+                "title": "Help Center",
+              },
+            ],
+            "SEARCH": Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+            "SECONDARY_CTA": Object {
+              "href": "/login",
+              "title": "Login",
+            },
+          }
+        }
+        logoHref="/#/Components/UniversalNavbarExpanded"
+        secondaryLinksLinks={
+          Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+          ]
+        }
+        singleCta={Object {}}
+      />
+      <div
+        className="laptopAndUp animatedBackground"
+      >
+        <div
+          className="laptopAndUpContainer"
+        >
+          <div
+            className="flex itemsCenter"
+          >
+            <NavLink
+              href="/#/Components/UniversalNavbarExpanded"
+              itemLabel="Logo"
+            >
+              <svg
+                className="logo"
+                viewBox="0 0 971.997 180.498"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Ethos Logo
+                </title>
+                <path
+                  d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                />
+                <path
+                  d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                />
+              </svg>
+            </NavLink>
+            <DropdownNav
+              links={
+                Object {
+                  "ACCOUNT": Object {
+                    "href": "/login/",
+                    "title": "Account",
+                  },
+                  "CTA": Object {
+                    "href": "/term",
+                    "title": "Check my price",
+                  },
+                  "INDEX": Object {
+                    "href": "/",
+                  },
+                  "NAVLINKS": Array [
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_1",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": [Function],
+                          "href": "/#/Components/UniversalNavbarExpanded",
+                          "id": "NAVLINKS_MOCK_ID_2",
+                          "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                          "title": "Watch the video",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/#/Components/UniversalNavbarExpanded",
+                            "id": "NAVLINKS_MOCK_ID_3",
+                            "title": "What is term life insurance and how much does it cost?",
+                          },
+                          Object {
+                            "href": "/how-it-works/",
+                            "id": "NAVLINKS_MOCK_ID_4",
+                            "title": "How our application process works",
+                          },
+                          Object {
+                            "href": "/life/who-needs-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_5",
+                            "title": "Do I need life insurance?",
+                          },
+                          Object {
+                            "href": "/life/how-choose-right-type-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_6",
+                            "title": "Choosing your coverage amount and term length",
+                          },
+                          Object {
+                            "href": "/app/needs/",
+                            "id": "NAVLINKS_MOCK_ID_7",
+                            "title": "Coverage calculator",
+                          },
+                        ],
+                      },
+                      "title": "What we offer",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_8",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/life/life-insurance-basics/",
+                          "id": "NAVLINKS_MOCK_ID_9",
+                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "title": "Life insurance 101",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/life/term-group-whole/",
+                            "id": "NAVLINKS_MOCK_ID_10",
+                            "title": "What are the main types of life insurance and how do they work?",
+                          },
+                          Object {
+                            "href": "/life/underwriting-explained/",
+                            "id": "NAVLINKS_MOCK_ID_11",
+                            "title": "What is underwriting and how long does it take?",
+                          },
+                          Object {
+                            "href": "/life/pick-beneficiary/",
+                            "id": "NAVLINKS_MOCK_ID_12",
+                            "title": "Choosing your beneficiary",
+                          },
+                          Object {
+                            "href": "/life/who-needs-sp/",
+                            "id": "NAVLINKS_MOCK_ID_13",
+                            "title": "What if I don't work?",
+                          },
+                          Object {
+                            "href": "/life/employer-sponsored-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_14",
+                            "title": "Is my life insurance through work enough?",
+                          },
+                        ],
+                      },
+                      "title": "Life insurance basics",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_15",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/why-ethos/",
+                          "id": "NAVLINKS_MOCK_ID_16",
+                          "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                          "title": "The Ethos Difference",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/about/",
+                            "id": "NAVLINKS_MOCK_ID_17",
+                            "title": "Our mission",
+                          },
+                          Object {
+                            "href": "/reviews/",
+                            "id": "NAVLINKS_MOCK_ID_18",
+                            "title": "Reviews",
+                          },
+                          Object {
+                            "href": "/life/customer-stories/",
+                            "id": "NAVLINKS_MOCK_ID_19",
+                            "title": "Customer stories",
+                          },
+                          Object {
+                            "href": "/life/ethosforgood/",
+                            "id": "NAVLINKS_MOCK_ID_20",
+                            "title": "Ethos for Good",
+                          },
+                          Object {
+                            "href": "/friends/",
+                            "id": "NAVLINKS_MOCK_ID_21",
+                            "title": "Refer a friend",
+                          },
+                        ],
+                      },
+                      "title": "Why Ethos",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_22",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/faq/",
+                          "id": "NAVLINKS_MOCK_ID_23",
+                          "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                          "title": "FAQ",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/faq/life-insurance-basics/",
+                            "id": "NAVLINKS_MOCK_ID_24",
+                            "title": "Questions about life insurance",
+                          },
+                          Object {
+                            "href": "/faq/ethos/",
+                            "id": "NAVLINKS_MOCK_ID_25",
+                            "title": "Questions about Ethos",
+                          },
+                          Object {
+                            "href": "/faq/application/",
+                            "id": "NAVLINKS_MOCK_ID_26",
+                            "title": "Questions about your application",
+                          },
+                          Object {
+                            "href": "/faq/policy/",
+                            "id": "NAVLINKS_MOCK_ID_27",
+                            "title": "Questions about your policy",
+                          },
+                          Object {
+                            "href": "/contact-us/",
+                            "id": "NAVLINKS_MOCK_ID_28",
+                            "title": "Contact us",
+                          },
+                        ],
+                      },
+                      "title": "Help Center",
+                    },
+                  ],
+                  "SEARCH": Object {
+                    "href": "/search/",
+                    "title": "Search",
+                  },
+                  "SECONDARY_CTA": Object {
+                    "href": "/login",
+                    "title": "Login",
+                  },
+                }
+              }
+            />
+          </div>
+          <div
+            className="flex itemsCenter"
+          >
+            <React.Fragment>
+              <SearchIconLink />
+              <AccountIconLink />
+            </React.Fragment>
+            <div
+              className="cta"
+            >
+              <CtaButton
+                buttonStyle="Black"
+                hideOnMobile={false}
+                href="/term"
+                title="Check my price"
+                trackingFunction={[Function]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </ScrollDetector>
+  </div>
+</div>
+`;
+
 exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links provided 1`] = `
 <div
   className="navbarWrapper"
@@ -909,6 +1837,469 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
               <ExperimentCopy />
               <SearchIconLink />
               <AccountIconLink />
+            </React.Fragment>
+            <div
+              className="cta"
+            >
+              <CtaButton
+                buttonStyle="Black"
+                hideOnMobile={false}
+                href="/term"
+                title="Check my price"
+                trackingFunction={[Function]}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </ScrollDetector>
+  </div>
+</div>
+`;
+
+exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hidden icons and secondary cta 1`] = `
+<div
+  className="navbarWrapper"
+>
+  <div
+    className="navbar"
+  >
+    <ScrollDetector
+      element="div"
+      offsetHeight={0}
+    >
+      <MobileNav
+        animateNavbar={false}
+        ctaButtonStyle="Black"
+        ctaButtonTrackingFunction={[Function]}
+        extraClass="isFixedCta"
+        hideMobileCta={false}
+        links={
+          Object {
+            "ACCOUNT": Object {
+              "href": "/login/",
+              "title": "Account",
+            },
+            "CTA": Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            "INDEX": Object {
+              "href": "/",
+            },
+            "NAVLINKS": Array [
+              Object {
+                "id": "NAVLINKS_MOCK_ID_1",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": [Function],
+                    "href": "/#/Components/UniversalNavbarExpanded",
+                    "id": "NAVLINKS_MOCK_ID_2",
+                    "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                    "title": "Watch the video",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/#/Components/UniversalNavbarExpanded",
+                      "id": "NAVLINKS_MOCK_ID_3",
+                      "title": "What is term life insurance and how much does it cost?",
+                    },
+                    Object {
+                      "href": "/how-it-works/",
+                      "id": "NAVLINKS_MOCK_ID_4",
+                      "title": "How our application process works",
+                    },
+                    Object {
+                      "href": "/life/who-needs-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_5",
+                      "title": "Do I need life insurance?",
+                    },
+                    Object {
+                      "href": "/life/how-choose-right-type-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_6",
+                      "title": "Choosing your coverage amount and term length",
+                    },
+                    Object {
+                      "href": "/app/needs/",
+                      "id": "NAVLINKS_MOCK_ID_7",
+                      "title": "Coverage calculator",
+                    },
+                  ],
+                },
+                "title": "What we offer",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_8",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/life/life-insurance-basics/",
+                    "id": "NAVLINKS_MOCK_ID_9",
+                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "title": "Life insurance 101",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/life/term-group-whole/",
+                      "id": "NAVLINKS_MOCK_ID_10",
+                      "title": "What are the main types of life insurance and how do they work?",
+                    },
+                    Object {
+                      "href": "/life/underwriting-explained/",
+                      "id": "NAVLINKS_MOCK_ID_11",
+                      "title": "What is underwriting and how long does it take?",
+                    },
+                    Object {
+                      "href": "/life/pick-beneficiary/",
+                      "id": "NAVLINKS_MOCK_ID_12",
+                      "title": "Choosing your beneficiary",
+                    },
+                    Object {
+                      "href": "/life/who-needs-sp/",
+                      "id": "NAVLINKS_MOCK_ID_13",
+                      "title": "What if I don't work?",
+                    },
+                    Object {
+                      "href": "/life/employer-sponsored-life-insurance/",
+                      "id": "NAVLINKS_MOCK_ID_14",
+                      "title": "Is my life insurance through work enough?",
+                    },
+                  ],
+                },
+                "title": "Life insurance basics",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_15",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/why-ethos/",
+                    "id": "NAVLINKS_MOCK_ID_16",
+                    "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                    "title": "The Ethos Difference",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/about/",
+                      "id": "NAVLINKS_MOCK_ID_17",
+                      "title": "Our mission",
+                    },
+                    Object {
+                      "href": "/reviews/",
+                      "id": "NAVLINKS_MOCK_ID_18",
+                      "title": "Reviews",
+                    },
+                    Object {
+                      "href": "/life/customer-stories/",
+                      "id": "NAVLINKS_MOCK_ID_19",
+                      "title": "Customer stories",
+                    },
+                    Object {
+                      "href": "/life/ethosforgood/",
+                      "id": "NAVLINKS_MOCK_ID_20",
+                      "title": "Ethos for Good",
+                    },
+                    Object {
+                      "href": "/friends/",
+                      "id": "NAVLINKS_MOCK_ID_21",
+                      "title": "Refer a friend",
+                    },
+                  ],
+                },
+                "title": "Why Ethos",
+              },
+              Object {
+                "id": "NAVLINKS_MOCK_ID_22",
+                "subnav": Object {
+                  "cta": Object {
+                    "alternateIcon": false,
+                    "href": "/faq/",
+                    "id": "NAVLINKS_MOCK_ID_23",
+                    "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                    "title": "FAQ",
+                  },
+                  "items": Array [
+                    Object {
+                      "href": "/faq/life-insurance-basics/",
+                      "id": "NAVLINKS_MOCK_ID_24",
+                      "title": "Questions about life insurance",
+                    },
+                    Object {
+                      "href": "/faq/ethos/",
+                      "id": "NAVLINKS_MOCK_ID_25",
+                      "title": "Questions about Ethos",
+                    },
+                    Object {
+                      "href": "/faq/application/",
+                      "id": "NAVLINKS_MOCK_ID_26",
+                      "title": "Questions about your application",
+                    },
+                    Object {
+                      "href": "/faq/policy/",
+                      "id": "NAVLINKS_MOCK_ID_27",
+                      "title": "Questions about your policy",
+                    },
+                    Object {
+                      "href": "/contact-us/",
+                      "id": "NAVLINKS_MOCK_ID_28",
+                      "title": "Contact us",
+                    },
+                  ],
+                },
+                "title": "Help Center",
+              },
+            ],
+            "SEARCH": Object {
+              "href": "/search/",
+              "title": "Search",
+            },
+            "SECONDARY_CTA": Object {
+              "href": "/login",
+              "title": "Login",
+            },
+          }
+        }
+        logoHref="/#/Components/UniversalNavbarExpanded"
+        secondaryLinksLinks={
+          Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
+              "href": "/login",
+              "title": "Login",
+            },
+          ]
+        }
+        singleCta={Object {}}
+      />
+      <div
+        className="laptopAndUp"
+      >
+        <div
+          className="laptopAndUpContainer"
+        >
+          <div
+            className="flex itemsCenter"
+          >
+            <NavLink
+              href="/#/Components/UniversalNavbarExpanded"
+              itemLabel="Logo"
+            >
+              <svg
+                className="logo"
+                viewBox="0 0 971.997 180.498"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Ethos Logo
+                </title>
+                <path
+                  d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                />
+                <path
+                  d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                />
+              </svg>
+            </NavLink>
+            <DropdownNav
+              links={
+                Object {
+                  "ACCOUNT": Object {
+                    "href": "/login/",
+                    "title": "Account",
+                  },
+                  "CTA": Object {
+                    "href": "/term",
+                    "title": "Check my price",
+                  },
+                  "INDEX": Object {
+                    "href": "/",
+                  },
+                  "NAVLINKS": Array [
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_1",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": [Function],
+                          "href": "/#/Components/UniversalNavbarExpanded",
+                          "id": "NAVLINKS_MOCK_ID_2",
+                          "subcopy": "Learn more about term life insurance and the plans and options you have available.",
+                          "title": "Watch the video",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/#/Components/UniversalNavbarExpanded",
+                            "id": "NAVLINKS_MOCK_ID_3",
+                            "title": "What is term life insurance and how much does it cost?",
+                          },
+                          Object {
+                            "href": "/how-it-works/",
+                            "id": "NAVLINKS_MOCK_ID_4",
+                            "title": "How our application process works",
+                          },
+                          Object {
+                            "href": "/life/who-needs-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_5",
+                            "title": "Do I need life insurance?",
+                          },
+                          Object {
+                            "href": "/life/how-choose-right-type-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_6",
+                            "title": "Choosing your coverage amount and term length",
+                          },
+                          Object {
+                            "href": "/app/needs/",
+                            "id": "NAVLINKS_MOCK_ID_7",
+                            "title": "Coverage calculator",
+                          },
+                        ],
+                      },
+                      "title": "What we offer",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_8",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/life/life-insurance-basics/",
+                          "id": "NAVLINKS_MOCK_ID_9",
+                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "title": "Life insurance 101",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/life/term-group-whole/",
+                            "id": "NAVLINKS_MOCK_ID_10",
+                            "title": "What are the main types of life insurance and how do they work?",
+                          },
+                          Object {
+                            "href": "/life/underwriting-explained/",
+                            "id": "NAVLINKS_MOCK_ID_11",
+                            "title": "What is underwriting and how long does it take?",
+                          },
+                          Object {
+                            "href": "/life/pick-beneficiary/",
+                            "id": "NAVLINKS_MOCK_ID_12",
+                            "title": "Choosing your beneficiary",
+                          },
+                          Object {
+                            "href": "/life/who-needs-sp/",
+                            "id": "NAVLINKS_MOCK_ID_13",
+                            "title": "What if I don't work?",
+                          },
+                          Object {
+                            "href": "/life/employer-sponsored-life-insurance/",
+                            "id": "NAVLINKS_MOCK_ID_14",
+                            "title": "Is my life insurance through work enough?",
+                          },
+                        ],
+                      },
+                      "title": "Life insurance basics",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_15",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/why-ethos/",
+                          "id": "NAVLINKS_MOCK_ID_16",
+                          "subcopy": "We put people before profit. Find out how we bring our policyholders the best experience possible.",
+                          "title": "The Ethos Difference",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/about/",
+                            "id": "NAVLINKS_MOCK_ID_17",
+                            "title": "Our mission",
+                          },
+                          Object {
+                            "href": "/reviews/",
+                            "id": "NAVLINKS_MOCK_ID_18",
+                            "title": "Reviews",
+                          },
+                          Object {
+                            "href": "/life/customer-stories/",
+                            "id": "NAVLINKS_MOCK_ID_19",
+                            "title": "Customer stories",
+                          },
+                          Object {
+                            "href": "/life/ethosforgood/",
+                            "id": "NAVLINKS_MOCK_ID_20",
+                            "title": "Ethos for Good",
+                          },
+                          Object {
+                            "href": "/friends/",
+                            "id": "NAVLINKS_MOCK_ID_21",
+                            "title": "Refer a friend",
+                          },
+                        ],
+                      },
+                      "title": "Why Ethos",
+                    },
+                    Object {
+                      "id": "NAVLINKS_MOCK_ID_22",
+                      "subnav": Object {
+                        "cta": Object {
+                          "alternateIcon": false,
+                          "href": "/faq/",
+                          "id": "NAVLINKS_MOCK_ID_23",
+                          "subcopy": "Life insurance can be complicated, but don’t worry. We’re here to help answer your questions.",
+                          "title": "FAQ",
+                        },
+                        "items": Array [
+                          Object {
+                            "href": "/faq/life-insurance-basics/",
+                            "id": "NAVLINKS_MOCK_ID_24",
+                            "title": "Questions about life insurance",
+                          },
+                          Object {
+                            "href": "/faq/ethos/",
+                            "id": "NAVLINKS_MOCK_ID_25",
+                            "title": "Questions about Ethos",
+                          },
+                          Object {
+                            "href": "/faq/application/",
+                            "id": "NAVLINKS_MOCK_ID_26",
+                            "title": "Questions about your application",
+                          },
+                          Object {
+                            "href": "/faq/policy/",
+                            "id": "NAVLINKS_MOCK_ID_27",
+                            "title": "Questions about your policy",
+                          },
+                          Object {
+                            "href": "/contact-us/",
+                            "id": "NAVLINKS_MOCK_ID_28",
+                            "title": "Contact us",
+                          },
+                        ],
+                      },
+                      "title": "Help Center",
+                    },
+                  ],
+                  "SEARCH": Object {
+                    "href": "/search/",
+                    "title": "Search",
+                  },
+                  "SECONDARY_CTA": Object {
+                    "href": "/login",
+                    "title": "Login",
+                  },
+                }
+              }
+            />
+          </div>
+          <div
+            className="flex itemsCenter"
+          >
+            <React.Fragment>
+              <a
+                href="/login"
+              >
+                Login
+              </a>
             </React.Fragment>
             <div
               className="cta"

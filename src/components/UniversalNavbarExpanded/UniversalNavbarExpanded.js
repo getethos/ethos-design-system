@@ -37,7 +37,8 @@ import styles from './UniversalNavbarExpanded.module.scss'
  * @param {object} links - URLs and text
  * @param {boolean} estimateExperiment - enable the estimate experiment button/copy
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
- * @param {boolean} animateNavbar - navigation bar animation
+ * @param {boolean} animateDesktopNavbar - navigation bar animation on desktop
+ * @param {boolean} animateMobileNavbar - navigation bar animation on mobile
  *
  * @return {JSX.Element}
  */
@@ -56,7 +57,8 @@ const UniversalNavbarExpanded = ({
   links,
   estimateExperiment,
   singleCta = {},
-  animateNavbar,
+  animateDesktopNavbar,
+  animateMobileNavbar,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -108,8 +110,8 @@ const UniversalNavbarExpanded = ({
 
   const laptopAndUpClasses = [styles.laptopAndUp]
 
-  if (animateNavbar) {
-    laptopAndUpClasses.push(styles.laptopAndUpAnimation)
+  if (animateDesktopNavbar) {
+    laptopAndUpClasses.push(styles.animatedBackground)
   }
 
   return (
@@ -117,7 +119,7 @@ const UniversalNavbarExpanded = ({
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
           <MobileNav
-            animateNavbar={animateNavbar}
+            animateNavbar={animateMobileNavbar}
             ctaButtonStyle={ctaButtonStyle}
             extraClass={'isFixedCta'}
             logoHref={logoHref}
@@ -277,7 +279,8 @@ UniversalNavbarExpanded.propTypes = {
     title: PropTypes.string,
   }),
   /** Add animation to nav bar*/
-  animateNavbar: PropTypes.bool,
+  animateDesktopNavbar: PropTypes.bool,
+  animateMobileNavbar: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -291,7 +294,8 @@ UniversalNavbarExpanded.defaultProps = {
   links: {},
   estimateExperiment: false,
   singleCta: {},
-  animateNavbar: false,
+  animateDesktopNavbar: false,
+  animateMobileNavbar: false,
 }
 
 export { UniversalNavbarExpanded }

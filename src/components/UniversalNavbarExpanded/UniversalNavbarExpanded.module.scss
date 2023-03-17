@@ -89,23 +89,25 @@ $laptop-range-small-end: 929px;
   z-index: $z-index-navbar;
 }
 
-:global(.isScrolled) {
-  .laptopAndUpAnimation {
-    background-color: var(--White);
-    color: var(--GrayPrimary--translucent);
-    border-color: var(--GrayStrokeAndDisabled--translucent);
-    transition: border-color 0.75s ease-in-out,
-      background-color 0.75s ease-in-out;
+@include for-laptop-and-up {
+  :global(.isScrolled) {
+    .animatedBackground {
+      background-color: var(--White);
+      color: var(--GrayPrimary--translucent);
+      border-color: var(--GrayStrokeAndDisabled--translucent);
+      transition: border-color 0.75s ease-in-out,
+        background-color 0.75s ease-in-out;
+    }
   }
-}
 
-.laptopAndUpAnimation {
-  border-color: transparent;
-  background-color: transparent;
+  .animatedBackground {
+    border-color: transparent;
+    background-color: transparent;
 
-  &:hover {
-    background-color: var(--White);
-    border-color: var(--GrayStrokeAndDisabled--translucent);
+    &:hover {
+      background-color: var(--White);
+      border-color: var(--GrayStrokeAndDisabled--translucent);
+    }
   }
 }
 
