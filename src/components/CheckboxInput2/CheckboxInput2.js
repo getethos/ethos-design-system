@@ -167,7 +167,7 @@ CheckboxInput2.propTypes = {
   id: PropTypes.string.isRequired,
   /** Required data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string.isRequired,
-  /** data sent to formotiv used for behavioral analysis */
+  /** Data sent to formotiv used for behavioral analysis */
   dataFormotiv: PropTypes.string,
   /** Optionally sets a default value for the checkbox */
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
