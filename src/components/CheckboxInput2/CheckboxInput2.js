@@ -28,6 +28,7 @@ export const CheckboxInput2 = ({
   tooltip,
   variant = 'default',
   facadeRenderer,
+  dataFormotiv = '',
   ...rest
 }) => {
   const initialChecked = currentValue || initialValue || false
@@ -118,6 +119,7 @@ export const CheckboxInput2 = ({
               type="checkbox"
               onChange={onChange}
               data-tid={rest['data-tid']}
+              data-formotiv={dataFormotiv}
               onKeyPress={onKeyPress}
               disabled={disabled}
               checked={resolvedIsChecked}
@@ -165,6 +167,8 @@ CheckboxInput2.propTypes = {
   id: PropTypes.string.isRequired,
   /** Required data-tid used as a unique id for targeting test selectors */
   'data-tid': PropTypes.string.isRequired,
+  /** data sent to formotiv used for behavioral analysis */
+  dataFormotiv: PropTypes.string,
   /** Optionally sets a default value for the checkbox */
   initialValue: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   /** Allows for brute force setting of whether checked or not. Usually,
