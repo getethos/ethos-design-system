@@ -10,6 +10,7 @@ import { codes } from '../../helpers/constants.js'
 export const Accordion = ({
   children,
   expanded,
+  mobileAutoCollapse,
   onToggle,
   id,
   toggleChildIsTarget,
@@ -93,9 +94,13 @@ Accordion.propTypes = {
   /** Boolean prop that indicates that you'd like to use that as the toggle (not the entire
    * `AccordionSection` header bar). Defaults to `false` */
   toggleChildIsTarget: PropTypes.bool,
+  /** Boolean prop that indicates that you'd like to enable only one accordion item expanded
+   *  at once on mobile. Defaults to `false` */
+    mobileAutoCollapse: PropTypes.bool,
 }
 
 Accordion.defaultProps = {
   expanded: null,
   toggleChildIsTarget: false,
+  mobileAutoCollapse: false,
 }
