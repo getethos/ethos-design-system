@@ -141,3 +141,75 @@ const toggleChild = (expanded) => {
   </AccordionSection>
 </Accordion>
 ```
+
+There is some optional props, that can be set in useAccordionState. Second prop is for toggle on click that pass index, title and expanded value of current accordion item clicked. Third is for enabling mobile one item expanded at once only.
+
+```jsx
+import { AccordionSection } from './AccordionSection.js'
+import styles from './AccordionSectionExample.module.css'
+import { useAccordionState } from './useAccordionState'
+const { expanded, onToggle } = useAccordionState(
+  { 1: true },
+  (key, title, value) => console.log('Clicked', key, title, value), // onClick function
+  true // mobile Auto Collapse other tabs leaving only one expanded at a time
+)
+// The idea is you can use whatever you want for this. Just base your
+// two jsx elements on `expanded` callback boolean. Put differently,
+// Ethos doesn't use '▲' : '▼' so these are only for example's sake!
+const toggleChild = (expanded) => {
+  return <span aria-hidden={true}>{expanded ? '▲' : '▼'}</span>
+}
+
+;<Accordion mobileAutoCollapse={true} expanded={expanded} onToggle={onToggle}>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 1"
+    renderToggle={toggleChild}
+  >
+    Lorem ipsum dolor sit amet
+  </AccordionSection>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 2"
+    renderToggle={toggleChild}
+  >
+    <p>
+      Suspendisse lobortis diam quis magna faucibus Lorem ipsum dolor sit amet,
+      cum ei veniam volutpat, vim ne vide aliquid ocurreret, id eam agam
+      eripuit. Eu tota facilisi eam, affert ocurreret instructior eu qui. Ex per
+      clita essent dolorem, te everti blandit detraxit mea, at mea tacimates
+      sententiae. Vim ferri aperiam ad.
+    </p>
+    <p>
+      Mazim maiorum scripserit cu eum, id has veri mentitum deseruisse, mea ei
+      malis laoreet necessitatibus. No errem scaevola mel, ne doctus suscipit
+      neglegentur qui. Nam ne splendide dissentiet philosophia, dicant quaeque
+      accommodare ex vim, recusabo consulatu cum ei. Modus malorum eam ei,
+      bonorum deterruisset mel id. Qui eros vivendum ea, no tota senserit duo.
+      Latine aliquando ut per, vel at tritani scaevola.
+    </p>
+  </AccordionSection>
+  <AccordionSection
+    labelClassName={styles.Label}
+    panelClassName={styles.Panel}
+    toggleClassName={styles.Toggle}
+    title="Section 3"
+    renderToggle={toggleChild}
+  >
+    <p>
+      Mazim maiorum scripserit cu eum, id has veri mentitum deseruisse, mea ei
+      malis laoreet necessitatibus. No errem scaevola mel, ne doctus suscipit
+      neglegentur qui. Nam ne splendide dissentiet philosophia, dicant quaeque
+    </p>
+    <p>
+      Mazim maiorum scripserit cu eum, id has veri mentitum deseruisse, mea ei
+      malis laoreet necessitatibus. No errem scaevola mel, ne doctus suscipit
+      neglegentur qui. Nam ne splendide dissentiet philosophia, dicant quaeque
+    </p>
+  </AccordionSection>
+</Accordion>
+```

@@ -28,7 +28,7 @@ const HeaderBar = ({
       case codes.SPACE:
       case codes.RETURN:
         e.preventDefault()
-        onToggle && onToggle(index)
+        onToggle && onToggle(index, title, expanded)
         break
       case codes.DOWN:
         e.preventDefault()
@@ -59,7 +59,7 @@ const HeaderBar = ({
   }
 
   const onClick = () => {
-    onToggle && onToggle(index)
+    onToggle && onToggle(index, title, expanded)
   }
 
   /**

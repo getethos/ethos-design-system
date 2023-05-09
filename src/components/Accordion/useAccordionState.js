@@ -1,10 +1,17 @@
 import { useState } from 'react'
+import { Media } from '../Media/Media'
 
-export const useAccordionState = (initialState) => {
+export const useAccordionState = (initialState, onCLick, mobileAutoCollapse) => {
   const [expanded, setExpanded] = useState(initialState)
-  const onToggle = (id) => {
+  const isMobile = () => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`)
+      .matches
+  }
+  const onToggle = (id, itemText, itemValue) => {
+    onCLick && onCLick(id, itemText, !Boolean(itemValue))
     setExpanded({
-      ...expanded,
+      ...(!(mobileAutoCollapse && isMobile()) && expanded),
       [id]: !expanded[id],
     })
   }
