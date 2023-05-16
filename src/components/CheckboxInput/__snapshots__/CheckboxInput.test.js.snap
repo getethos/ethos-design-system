@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckboxInput checked takes precedence over initial and current values 1`] = `
-Array [
+<div
+  className="CheckboxWrapper"
+>
   <label
     className="root"
     htmlFor="le-check"
@@ -37,13 +39,15 @@ Array [
     >
       le children
     </div>
-  </label>,
-  "",
-]
+  </label>
+  
+</div>
 `;
 
 exports[`CheckboxInput default rendering 1`] = `
-Array [
+<div
+  className="CheckboxWrapper"
+>
   <label
     className="root"
     htmlFor="le-check"
@@ -86,7 +90,7 @@ Array [
         Agreement
       </a>
     </div>
-  </label>,
-  "",
-]
+  </label>
+  
+</div>
 `;
