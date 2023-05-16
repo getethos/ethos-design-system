@@ -15,7 +15,7 @@
 }
 
 .SearchInputCompact {
-  composes: CompactTextInputContainer from '/src/nora/components/NoraTextInput/NoraTextInput.module.scss';
+  composes: CompactTextInputContainer from '../../nora/components/NoraTextInput/NoraTextInput.module.scss';
   > input {
     padding-left: 36px;
   }
