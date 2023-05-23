@@ -32,7 +32,7 @@ export const NestedLinks = ({ link, trackingFunction, isNavVisible }) => {
 
   return (
     <div>
-      <Banner cta={subnav.cta} />
+      <Banner cta={subnav.cta} trackingFunction={trackingFunction} />
       {subnav.items.map((subNavItem, idx) => (
         <div
           className={idx === activeAccordionItem ? styles.active : ''}

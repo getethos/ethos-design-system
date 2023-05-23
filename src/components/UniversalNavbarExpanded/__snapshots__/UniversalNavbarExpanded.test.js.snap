@@ -72,40 +72,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                 "title": "What we offer",
               },
               Object {
+                "hasExpandedNav": true,
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
                     "alternateIcon": false,
+                    "ctaText": "Learn more",
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
-                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "subcopy": "A handy guide to life insurance",
                     "title": "Life insurance 101",
                   },
                   "items": Array [
                     Object {
-                      "href": "/life/term-group-whole/",
-                      "id": "NAVLINKS_MOCK_ID_10",
-                      "title": "What are the main types of life insurance and how do they work?",
+                      "category": "Life insurance",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "No medical exam life insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Rates by Age",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "$500K Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "$1 Million Life Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/underwriting-explained/",
-                      "id": "NAVLINKS_MOCK_ID_11",
-                      "title": "What is underwriting and how long does it take?",
+                      "category": "Term Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Term Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "Term Life Expires Options",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "Converting Term to Whole",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/pick-beneficiary/",
-                      "id": "NAVLINKS_MOCK_ID_12",
-                      "title": "Choosing your beneficiary",
+                      "category": "Whole Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Whole Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/who-needs-sp/",
-                      "id": "NAVLINKS_MOCK_ID_13",
-                      "title": "What if I don't work?",
+                      "category": "Final Expenses",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "End of Life Expenses",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Burial Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/employer-sponsored-life-insurance/",
-                      "id": "NAVLINKS_MOCK_ID_14",
-                      "title": "Is my life insurance through work enough?",
+                      "category": "Resources",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "How much life insurance do i need?",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "How is cost determined",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Coverage Calculator",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Blog",
+                        },
+                      ],
                     },
                   ],
                 },
@@ -206,10 +288,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         secondaryLinksLinks={
           Array [
             Object {
-              "href": "/term",
-              "title": "Check my price",
-            },
-            Object {
               "href": "/login/",
               "title": "Account",
             },
@@ -244,9 +322,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                 </title>
                 <path
                   d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                  fill="#054742"
                 />
                 <path
                   d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                  fill="#054742"
                 />
               </svg>
             </NavLink>
@@ -306,40 +386,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                       "title": "What we offer",
                     },
                     Object {
+                      "hasExpandedNav": true,
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
                           "alternateIcon": false,
+                          "ctaText": "Learn more",
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
-                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "subcopy": "A handy guide to life insurance",
                           "title": "Life insurance 101",
                         },
                         "items": Array [
                           Object {
-                            "href": "/life/term-group-whole/",
-                            "id": "NAVLINKS_MOCK_ID_10",
-                            "title": "What are the main types of life insurance and how do they work?",
+                            "category": "Life insurance",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "No medical exam life insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Rates by Age",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "$500K Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "$1 Million Life Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/underwriting-explained/",
-                            "id": "NAVLINKS_MOCK_ID_11",
-                            "title": "What is underwriting and how long does it take?",
+                            "category": "Term Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Term Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "Term Life Expires Options",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "Converting Term to Whole",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/pick-beneficiary/",
-                            "id": "NAVLINKS_MOCK_ID_12",
-                            "title": "Choosing your beneficiary",
+                            "category": "Whole Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Whole Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/who-needs-sp/",
-                            "id": "NAVLINKS_MOCK_ID_13",
-                            "title": "What if I don't work?",
+                            "category": "Final Expenses",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "End of Life Expenses",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Burial Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/employer-sponsored-life-insurance/",
-                            "id": "NAVLINKS_MOCK_ID_14",
-                            "title": "Is my life insurance through work enough?",
+                            "category": "Resources",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "How much life insurance do i need?",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "How is cost determined",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Coverage Calculator",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Blog",
+                              },
+                            ],
                           },
                         ],
                       },
@@ -536,40 +698,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                 "title": "What we offer",
               },
               Object {
+                "hasExpandedNav": true,
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
                     "alternateIcon": false,
+                    "ctaText": "Learn more",
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
-                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "subcopy": "A handy guide to life insurance",
                     "title": "Life insurance 101",
                   },
                   "items": Array [
                     Object {
-                      "href": "/life/term-group-whole/",
-                      "id": "NAVLINKS_MOCK_ID_10",
-                      "title": "What are the main types of life insurance and how do they work?",
+                      "category": "Life insurance",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "No medical exam life insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Rates by Age",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "$500K Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "$1 Million Life Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/underwriting-explained/",
-                      "id": "NAVLINKS_MOCK_ID_11",
-                      "title": "What is underwriting and how long does it take?",
+                      "category": "Term Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Term Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "Term Life Expires Options",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "Converting Term to Whole",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/pick-beneficiary/",
-                      "id": "NAVLINKS_MOCK_ID_12",
-                      "title": "Choosing your beneficiary",
+                      "category": "Whole Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Whole Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/who-needs-sp/",
-                      "id": "NAVLINKS_MOCK_ID_13",
-                      "title": "What if I don't work?",
+                      "category": "Final Expenses",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "End of Life Expenses",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Burial Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/employer-sponsored-life-insurance/",
-                      "id": "NAVLINKS_MOCK_ID_14",
-                      "title": "Is my life insurance through work enough?",
+                      "category": "Resources",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "How much life insurance do i need?",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "How is cost determined",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Coverage Calculator",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Blog",
+                        },
+                      ],
                     },
                   ],
                 },
@@ -670,10 +914,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         secondaryLinksLinks={
           Array [
             Object {
-              "href": "/term",
-              "title": "Check my price",
-            },
-            Object {
               "href": "/login/",
               "title": "Account",
             },
@@ -708,9 +948,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                 </title>
                 <path
                   d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                  fill="#054742"
                 />
                 <path
                   d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                  fill="#054742"
                 />
               </svg>
             </NavLink>
@@ -770,40 +1012,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                       "title": "What we offer",
                     },
                     Object {
+                      "hasExpandedNav": true,
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
                           "alternateIcon": false,
+                          "ctaText": "Learn more",
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
-                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "subcopy": "A handy guide to life insurance",
                           "title": "Life insurance 101",
                         },
                         "items": Array [
                           Object {
-                            "href": "/life/term-group-whole/",
-                            "id": "NAVLINKS_MOCK_ID_10",
-                            "title": "What are the main types of life insurance and how do they work?",
+                            "category": "Life insurance",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "No medical exam life insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Rates by Age",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "$500K Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "$1 Million Life Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/underwriting-explained/",
-                            "id": "NAVLINKS_MOCK_ID_11",
-                            "title": "What is underwriting and how long does it take?",
+                            "category": "Term Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Term Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "Term Life Expires Options",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "Converting Term to Whole",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/pick-beneficiary/",
-                            "id": "NAVLINKS_MOCK_ID_12",
-                            "title": "Choosing your beneficiary",
+                            "category": "Whole Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Whole Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/who-needs-sp/",
-                            "id": "NAVLINKS_MOCK_ID_13",
-                            "title": "What if I don't work?",
+                            "category": "Final Expenses",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "End of Life Expenses",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Burial Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/employer-sponsored-life-insurance/",
-                            "id": "NAVLINKS_MOCK_ID_14",
-                            "title": "Is my life insurance through work enough?",
+                            "category": "Resources",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "How much life insurance do i need?",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "How is cost determined",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Coverage Calculator",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Blog",
+                              },
+                            ],
                           },
                         ],
                       },
@@ -1000,40 +1324,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "title": "What we offer",
               },
               Object {
+                "hasExpandedNav": true,
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
                     "alternateIcon": false,
+                    "ctaText": "Learn more",
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
-                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "subcopy": "A handy guide to life insurance",
                     "title": "Life insurance 101",
                   },
                   "items": Array [
                     Object {
-                      "href": "/life/term-group-whole/",
-                      "id": "NAVLINKS_MOCK_ID_10",
-                      "title": "What are the main types of life insurance and how do they work?",
+                      "category": "Life insurance",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "No medical exam life insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Rates by Age",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "$500K Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "$1 Million Life Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/underwriting-explained/",
-                      "id": "NAVLINKS_MOCK_ID_11",
-                      "title": "What is underwriting and how long does it take?",
+                      "category": "Term Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Term Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "Term Life Expires Options",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "Converting Term to Whole",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/pick-beneficiary/",
-                      "id": "NAVLINKS_MOCK_ID_12",
-                      "title": "Choosing your beneficiary",
+                      "category": "Whole Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Whole Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/who-needs-sp/",
-                      "id": "NAVLINKS_MOCK_ID_13",
-                      "title": "What if I don't work?",
+                      "category": "Final Expenses",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "End of Life Expenses",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Burial Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/employer-sponsored-life-insurance/",
-                      "id": "NAVLINKS_MOCK_ID_14",
-                      "title": "Is my life insurance through work enough?",
+                      "category": "Resources",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "How much life insurance do i need?",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "How is cost determined",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Coverage Calculator",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Blog",
+                        },
+                      ],
                     },
                   ],
                 },
@@ -1134,10 +1540,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         secondaryLinksLinks={
           Array [
             Object {
-              "href": "/term",
-              "title": "Check my price",
-            },
-            Object {
               "href": "/login/",
               "title": "Account",
             },
@@ -1172,9 +1574,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 </title>
                 <path
                   d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                  fill="#054742"
                 />
                 <path
                   d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                  fill="#054742"
                 />
               </svg>
             </NavLink>
@@ -1234,40 +1638,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "title": "What we offer",
                     },
                     Object {
+                      "hasExpandedNav": true,
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
                           "alternateIcon": false,
+                          "ctaText": "Learn more",
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
-                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "subcopy": "A handy guide to life insurance",
                           "title": "Life insurance 101",
                         },
                         "items": Array [
                           Object {
-                            "href": "/life/term-group-whole/",
-                            "id": "NAVLINKS_MOCK_ID_10",
-                            "title": "What are the main types of life insurance and how do they work?",
+                            "category": "Life insurance",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "No medical exam life insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Rates by Age",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "$500K Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "$1 Million Life Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/underwriting-explained/",
-                            "id": "NAVLINKS_MOCK_ID_11",
-                            "title": "What is underwriting and how long does it take?",
+                            "category": "Term Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Term Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "Term Life Expires Options",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "Converting Term to Whole",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/pick-beneficiary/",
-                            "id": "NAVLINKS_MOCK_ID_12",
-                            "title": "Choosing your beneficiary",
+                            "category": "Whole Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Whole Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/who-needs-sp/",
-                            "id": "NAVLINKS_MOCK_ID_13",
-                            "title": "What if I don't work?",
+                            "category": "Final Expenses",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "End of Life Expenses",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Burial Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/employer-sponsored-life-insurance/",
-                            "id": "NAVLINKS_MOCK_ID_14",
-                            "title": "Is my life insurance through work enough?",
+                            "category": "Resources",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "How much life insurance do i need?",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "How is cost determined",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Coverage Calculator",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Blog",
+                              },
+                            ],
                           },
                         ],
                       },
@@ -1464,40 +1950,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 "title": "What we offer",
               },
               Object {
+                "hasExpandedNav": true,
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
                     "alternateIcon": false,
+                    "ctaText": "Learn more",
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
-                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "subcopy": "A handy guide to life insurance",
                     "title": "Life insurance 101",
                   },
                   "items": Array [
                     Object {
-                      "href": "/life/term-group-whole/",
-                      "id": "NAVLINKS_MOCK_ID_10",
-                      "title": "What are the main types of life insurance and how do they work?",
+                      "category": "Life insurance",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "No medical exam life insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Rates by Age",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "$500K Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "$1 Million Life Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/underwriting-explained/",
-                      "id": "NAVLINKS_MOCK_ID_11",
-                      "title": "What is underwriting and how long does it take?",
+                      "category": "Term Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Term Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "Term Life Expires Options",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "Converting Term to Whole",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/pick-beneficiary/",
-                      "id": "NAVLINKS_MOCK_ID_12",
-                      "title": "Choosing your beneficiary",
+                      "category": "Whole Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Whole Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/who-needs-sp/",
-                      "id": "NAVLINKS_MOCK_ID_13",
-                      "title": "What if I don't work?",
+                      "category": "Final Expenses",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "End of Life Expenses",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Burial Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/employer-sponsored-life-insurance/",
-                      "id": "NAVLINKS_MOCK_ID_14",
-                      "title": "Is my life insurance through work enough?",
+                      "category": "Resources",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "How much life insurance do i need?",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "How is cost determined",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Coverage Calculator",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Blog",
+                        },
+                      ],
                     },
                   ],
                 },
@@ -1598,10 +2166,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         secondaryLinksLinks={
           Array [
             Object {
-              "href": "/term",
-              "title": "Check my price",
-            },
-            Object {
               "href": "/login/",
               "title": "Account",
             },
@@ -1636,9 +2200,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 </title>
                 <path
                   d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                  fill="#054742"
                 />
                 <path
                   d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                  fill="#054742"
                 />
               </svg>
             </NavLink>
@@ -1698,40 +2264,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                       "title": "What we offer",
                     },
                     Object {
+                      "hasExpandedNav": true,
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
                           "alternateIcon": false,
+                          "ctaText": "Learn more",
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
-                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "subcopy": "A handy guide to life insurance",
                           "title": "Life insurance 101",
                         },
                         "items": Array [
                           Object {
-                            "href": "/life/term-group-whole/",
-                            "id": "NAVLINKS_MOCK_ID_10",
-                            "title": "What are the main types of life insurance and how do they work?",
+                            "category": "Life insurance",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "No medical exam life insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Rates by Age",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "$500K Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "$1 Million Life Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/underwriting-explained/",
-                            "id": "NAVLINKS_MOCK_ID_11",
-                            "title": "What is underwriting and how long does it take?",
+                            "category": "Term Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Term Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "Term Life Expires Options",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "Converting Term to Whole",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/pick-beneficiary/",
-                            "id": "NAVLINKS_MOCK_ID_12",
-                            "title": "Choosing your beneficiary",
+                            "category": "Whole Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Whole Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/who-needs-sp/",
-                            "id": "NAVLINKS_MOCK_ID_13",
-                            "title": "What if I don't work?",
+                            "category": "Final Expenses",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "End of Life Expenses",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Burial Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/employer-sponsored-life-insurance/",
-                            "id": "NAVLINKS_MOCK_ID_14",
-                            "title": "Is my life insurance through work enough?",
+                            "category": "Resources",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "How much life insurance do i need?",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "How is cost determined",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Coverage Calculator",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Blog",
+                              },
+                            ],
                           },
                         ],
                       },
@@ -1929,40 +2577,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
                 "title": "What we offer",
               },
               Object {
+                "hasExpandedNav": true,
                 "id": "NAVLINKS_MOCK_ID_8",
                 "subnav": Object {
                   "cta": Object {
                     "alternateIcon": false,
+                    "ctaText": "Learn more",
                     "href": "/life/life-insurance-basics/",
                     "id": "NAVLINKS_MOCK_ID_9",
-                    "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                    "subcopy": "A handy guide to life insurance",
                     "title": "Life insurance 101",
                   },
                   "items": Array [
                     Object {
-                      "href": "/life/term-group-whole/",
-                      "id": "NAVLINKS_MOCK_ID_10",
-                      "title": "What are the main types of life insurance and how do they work?",
+                      "category": "Life insurance",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "No medical exam life insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Rates by Age",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "$500K Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "$1 Million Life Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/underwriting-explained/",
-                      "id": "NAVLINKS_MOCK_ID_11",
-                      "title": "What is underwriting and how long does it take?",
+                      "category": "Term Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Term Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                        Object {
+                          "href": "/life/pick-beneficiary/",
+                          "id": "NAVLINKS_MOCK_ID_12",
+                          "title": "Term Life Expires Options",
+                        },
+                        Object {
+                          "href": "/life/who-needs-sp/",
+                          "id": "NAVLINKS_MOCK_ID_13",
+                          "title": "Converting Term to Whole",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/pick-beneficiary/",
-                      "id": "NAVLINKS_MOCK_ID_12",
-                      "title": "Choosing your beneficiary",
+                      "category": "Whole Life",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "Whole Life Insurance",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Term Insurance Lengths",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/who-needs-sp/",
-                      "id": "NAVLINKS_MOCK_ID_13",
-                      "title": "What if I don't work?",
+                      "category": "Final Expenses",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "End of Life Expenses",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Burial Insurance",
+                        },
+                      ],
                     },
                     Object {
-                      "href": "/life/employer-sponsored-life-insurance/",
-                      "id": "NAVLINKS_MOCK_ID_14",
-                      "title": "Is my life insurance through work enough?",
+                      "category": "Resources",
+                      "items": Array [
+                        Object {
+                          "href": "/life/term-group-whole/",
+                          "id": "NAVLINKS_MOCK_ID_10",
+                          "title": "How much life insurance do i need?",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "How is cost determined",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Coverage Calculator",
+                        },
+                        Object {
+                          "href": "/life/underwriting-explained/",
+                          "id": "NAVLINKS_MOCK_ID_11",
+                          "title": "Life insurance Blog",
+                        },
+                      ],
                     },
                   ],
                 },
@@ -2063,10 +2793,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
         secondaryLinksLinks={
           Array [
             Object {
-              "href": "/term",
-              "title": "Check my price",
-            },
-            Object {
               "href": "/login",
               "title": "Login",
             },
@@ -2097,9 +2823,11 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
                 </title>
                 <path
                   d="M184.573 2.845v29.202h58.416v146.028h29.202V32.047h58.41V2.845H184.573zM0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0zm505.833 0v73.014h-87.612V2.845h-29.208v175.23h29.208v-73.014h87.612v73.014h29.202V2.845h-29.202zm252.688 16.523a63.8 63.8 0 0 0-90.228 0c-3.6 3.606-11.1 12.036-13.662 16.188a63.725 63.725 0 0 1 87.894 87.378l.984-.984c4.272-2.592 11.322-8.664 15.012-12.354a63.8 63.8 0 0 0 0-90.228"
+                  fill="#054742"
                 />
                 <path
                   d="M650.356 127.535c-25.068-25.068-40.422-71.178-12.132-119.922L625 20.837a93.374 93.374 0 0 0 132.054 132.048l13.224-13.224c-46.422 26.988-92.616 15.18-119.922-12.126m251.813 53.175c42.42 0 69.828-21.018 69.828-53.55 0-30.5-21.438-41.532-56.034-49.428l-21.192-4.65c-19.08-4.218-29.424-9.12-29.424-22.944 0-14.094 13.134-23.2 33.462-23.2 18.966 0 35.658 7.044 45.942 19.362l22.008-17.69C954.645 15.51 933.273.21 899.583.21c-38.064 0-65.694 21.648-65.694 51.48 0 34.044 27.87 44.436 52.152 49.686l23.52 5.172c18.594 4.038 30.978 9.576 30.978 23.454 0 14.916-13.422 23.46-36.816 23.46-25.518 0-44.808-12.534-52.89-25.17l-24.15 17.388c12.438 17.046 38.64 35.028 75.486 35.028"
+                  fill="#054742"
                 />
               </svg>
             </NavLink>
@@ -2159,40 +2887,122 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
                       "title": "What we offer",
                     },
                     Object {
+                      "hasExpandedNav": true,
                       "id": "NAVLINKS_MOCK_ID_8",
                       "subnav": Object {
                         "cta": Object {
                           "alternateIcon": false,
+                          "ctaText": "Learn more",
                           "href": "/life/life-insurance-basics/",
                           "id": "NAVLINKS_MOCK_ID_9",
-                          "subcopy": "Wondering where to start? We’ve broken down the essentials for you.",
+                          "subcopy": "A handy guide to life insurance",
                           "title": "Life insurance 101",
                         },
                         "items": Array [
                           Object {
-                            "href": "/life/term-group-whole/",
-                            "id": "NAVLINKS_MOCK_ID_10",
-                            "title": "What are the main types of life insurance and how do they work?",
+                            "category": "Life insurance",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "No medical exam life insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Rates by Age",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "$500K Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "$1 Million Life Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/underwriting-explained/",
-                            "id": "NAVLINKS_MOCK_ID_11",
-                            "title": "What is underwriting and how long does it take?",
+                            "category": "Term Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Term Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                              Object {
+                                "href": "/life/pick-beneficiary/",
+                                "id": "NAVLINKS_MOCK_ID_12",
+                                "title": "Term Life Expires Options",
+                              },
+                              Object {
+                                "href": "/life/who-needs-sp/",
+                                "id": "NAVLINKS_MOCK_ID_13",
+                                "title": "Converting Term to Whole",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/pick-beneficiary/",
-                            "id": "NAVLINKS_MOCK_ID_12",
-                            "title": "Choosing your beneficiary",
+                            "category": "Whole Life",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "Whole Life Insurance",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Term Insurance Lengths",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/who-needs-sp/",
-                            "id": "NAVLINKS_MOCK_ID_13",
-                            "title": "What if I don't work?",
+                            "category": "Final Expenses",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "End of Life Expenses",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Burial Insurance",
+                              },
+                            ],
                           },
                           Object {
-                            "href": "/life/employer-sponsored-life-insurance/",
-                            "id": "NAVLINKS_MOCK_ID_14",
-                            "title": "Is my life insurance through work enough?",
+                            "category": "Resources",
+                            "items": Array [
+                              Object {
+                                "href": "/life/term-group-whole/",
+                                "id": "NAVLINKS_MOCK_ID_10",
+                                "title": "How much life insurance do i need?",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "How is cost determined",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Coverage Calculator",
+                              },
+                              Object {
+                                "href": "/life/underwriting-explained/",
+                                "id": "NAVLINKS_MOCK_ID_11",
+                                "title": "Life insurance Blog",
+                              },
+                            ],
                           },
                         ],
                       },

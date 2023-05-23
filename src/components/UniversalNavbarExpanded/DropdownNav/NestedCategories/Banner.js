@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button, TitleSmall2, TitleMedium2 } from '../../../index'
 import styles from './Banner.module.scss'
+import NavLink from '../../NavLink'
 
-export const Banner = ({ cta }) => {
+export const Banner = ({ cta, trackingFunction }) => {
   return (
     <div className={styles.bannerWrapper}>
       <div className={styles.bannerInner}>
@@ -17,7 +18,13 @@ export const Banner = ({ cta }) => {
           </div>
         </div>
         <div className={styles.bannerButton}>
-          <Button.Small.BlackOutline>Learn more</Button.Small.BlackOutline>
+          <NavLink
+            itemLabel={cta.ctaText}
+            href={cta.href}
+            trackingFunction={trackingFunction}
+          >
+            <Button.Small.BlackOutline>{cta.ctaText}</Button.Small.BlackOutline>
+          </NavLink>
         </div>
       </div>
     </div>
@@ -28,5 +35,8 @@ Banner.propTypes = {
   cta: PropTypes.shape({
     title: PropTypes.string,
     subcopy: PropTypes.string,
+    ctaText: PropTypes.string,
+    href: PropTypes.string,
   }),
+  trackingFunction: PropTypes.func,
 }
