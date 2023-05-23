@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // Reused assets from UniversalNavbar
 import FancyAnimatedLogo from '../../UniversalNavbar/FancyAnimatedLogo'
-import LogoWhite from '../../UniversalNavbar/assets/ethos-logo-white.js'
+import LogoGreen from '../../UniversalNavbar/assets/ethos-logo-green'
 import TransformingBurgerButton from '../../UniversalNavbar/TransformingBurgerButton/TransformingBurgerButton'
 
 // Parent component (UniversalNavbar) siblings
@@ -131,19 +131,21 @@ const MobileNav = ({
               showMobileMenu ? styles.mobileMenu : styles.hideMobileMenu
             }
           >
-            <NavLink
-              className={styles.phoneLogo}
-              href={logoHref}
-              currentPageAwareness={true}
-              currentPageFunction={(e) => toggleHamburger(e)}
-              currentPageCondition={showMobileMenu}
-              LinkComponent={LinkComponent}
-              trackingFunction={itemTrackingFunction}
-              itemLabel={'Logo'}
-            >
-              {LogoWhite({ className: styles.logo })}
-            </NavLink>
-            <Hamburger />
+            <div className={styles.mobileHeader}>
+              <NavLink
+                className={styles.phoneLogo}
+                href={logoHref}
+                currentPageAwareness={true}
+                currentPageFunction={(e) => toggleHamburger(e)}
+                currentPageCondition={showMobileMenu}
+                LinkComponent={LinkComponent}
+                trackingFunction={itemTrackingFunction}
+                itemLabel={'Logo'}
+              >
+                {LogoGreen({ className: styles.logo })}
+              </NavLink>
+              <Hamburger />
+            </div>
             <AccordionNav
               extraClass={styles.accordion}
               links={links}

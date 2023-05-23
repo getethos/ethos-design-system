@@ -83,6 +83,10 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
+.mobileHeader {
+  padding: var(--Space-24) var(--Space-24) 0;
+}
+
 .phoneLogo {
   margin-right: auto;
 }
@@ -102,20 +106,20 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 /** The expanded (toggled visible) mobile menu */
 .mobileMenu {
   position: fixed;
-  padding: var(--Space-24) var(--Space-24) 40px;
+  padding-bottom: var(--Space-40);
   height: 100vh;
   width: 100vw;
   top: 0;
   left: 0;
-  background-color: var(--BrandForest);
-  color: var(--White);
+  background-color: var(--White);
+  color: var(--Black);
   z-index: $z-index-navbar;
   overflow-y: scroll;
   & a,
   & a:visited,
   & a:hover {
     font-weight: 300;
-    color: var(--White);
+    color: var(--Black);
     text-decoration: unset;
   }
 }
