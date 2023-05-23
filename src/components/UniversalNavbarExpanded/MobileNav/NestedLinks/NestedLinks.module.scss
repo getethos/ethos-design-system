@@ -1,0 +1,34 @@
+@import '../../../Media/Media.scss';
+@import '../../../Variables.scss';
+@import '../../Attributes.css';
+
+.nestedCategoryParent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+  svg > path {
+    stroke: var(--GrayPrimary--opaque);
+  }
+  .categoryText {
+    font-size: 20px;
+  }
+}
+
+.active {
+  .nestedCategoryChild {
+    display: block;
+  }
+  .nestedCategoryParent > svg {
+    transform: scale(1, -1);
+  }
+}
+
+.nestedCategoryChild {
+  padding: 0 20px 20px;
+  display: none;
+  .linkText {
+    font-size: 19px;
+  }
+}
