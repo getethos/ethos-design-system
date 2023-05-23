@@ -1,8 +1,14 @@
 @import '../../Media/Media.scss';
+@import '../../Variables.scss';
 
 .secondaryLinks {
   display: flex;
   flex-direction: column;
+  padding: 0 var(--Space-24);
+  margin-bottom: var(--Space-40);
+  .secondaryLink {
+    font-size: 20px;
+  }
 }
 
 .secondaryLinksItem {
