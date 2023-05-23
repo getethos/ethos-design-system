@@ -85,6 +85,8 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 
 .mobileHeader {
   padding: var(--Space-24) var(--Space-24) 0;
+  display: flex;
+  align-items: center;
 }
 
 .phoneLogo {

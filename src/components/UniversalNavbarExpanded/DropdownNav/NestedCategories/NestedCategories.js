@@ -13,7 +13,7 @@ export const NestedCategories = ({ child, trackingFunction }) => {
       <div className={styles.categoriesWrapper}>
         {child.subnav.items.map((itemCategory) => (
           <div className={styles.category} key={itemCategory.id}>
-            <TitleSmall2.Serif.Book500>
+            <TitleSmall2.Serif.Book500 elementClasses={styles.categoryText}>
               {itemCategory.category}
             </TitleSmall2.Serif.Book500>
             <div className={styles.categoryDivider} />

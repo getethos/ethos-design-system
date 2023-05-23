@@ -27,6 +27,9 @@
 
 .nestedCategoryChild {
   padding: 0 20px 20px;
+  &:last-child {
+    padding-bottom: 0;
+  }
   display: none;
   .linkText {
     font-size: 19px;

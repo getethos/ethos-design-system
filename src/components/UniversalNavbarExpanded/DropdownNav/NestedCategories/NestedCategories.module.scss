@@ -14,12 +14,18 @@
   justify-content: space-between;
   max-width: 1376px;
   margin: 0 auto;
-  @include for-laptop-and-up {
+  @include for-desktop-only {
     padding: var(--Space-32) var(--Space-48);
   }
   .category {
-    max-width: 237px;
-    width: fit-content;
+    max-width: 300px;
+    flex: 1 1 0px;
+  }
+  .categoryText {
+    font-size: 17.5px;
+    @include for-laptop-mid-and-up {
+      font-size: 24px;
+    }
   }
   .categoryDivider {
     width: 100%;
