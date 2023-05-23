@@ -288,6 +288,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         secondaryLinksLinks={
           Array [
             Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
               "href": "/login/",
               "title": "Account",
             },
@@ -913,6 +917,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         logoHref="/#/Components/UniversalNavbarExpanded"
         secondaryLinksLinks={
           Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
             Object {
               "href": "/login/",
               "title": "Account",
@@ -1540,6 +1548,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         secondaryLinksLinks={
           Array [
             Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
+            Object {
               "href": "/login/",
               "title": "Account",
             },
@@ -2165,6 +2177,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         logoHref="/"
         secondaryLinksLinks={
           Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
             Object {
               "href": "/login/",
               "title": "Account",
@@ -2792,6 +2808,10 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
         logoHref="/#/Components/UniversalNavbarExpanded"
         secondaryLinksLinks={
           Array [
+            Object {
+              "href": "/term",
+              "title": "Check my price",
+            },
             Object {
               "href": "/login",
               "title": "Login",
