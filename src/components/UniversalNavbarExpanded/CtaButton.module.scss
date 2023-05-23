@@ -1,7 +1,12 @@
 @import '../Media/Media.scss';
+@import '../Variables.scss';
 
 @include for-phone-only {
   .hidden {
     display: none;
   }
+}
+
+.visible {
+  z-index: $z-index-navbar;
 }

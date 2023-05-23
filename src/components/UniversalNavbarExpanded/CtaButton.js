@@ -37,6 +37,8 @@ const CtaButton = ({
 
   if (hideOnMobile) {
     CtaButtonClasses.push(styles.hidden)
+  } else {
+    CtaButtonClasses.push(styles.visible)
   }
 
   const buttons = {
