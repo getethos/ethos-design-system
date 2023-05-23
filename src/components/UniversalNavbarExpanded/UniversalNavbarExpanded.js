@@ -60,7 +60,7 @@ const UniversalNavbarExpanded = ({
   animateDesktopNavbar,
   animateMobileNavbar,
 }) => {
-  let BELOW_ACCORDION_LINKS = []
+  let BELOW_ACCORDION_LINKS = [links.CTA]
 
   if (showSecondaryCta) {
     BELOW_ACCORDION_LINKS.push(links.SECONDARY_CTA)
