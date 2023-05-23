@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Reused assets from UniversalNavbar
-import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-black.js'
+import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-green.js'
 import { AccountIcon, SearchIcon } from '../UniversalNavbar/assets/icons.js'
 
 // EDS core components
@@ -60,7 +60,7 @@ const UniversalNavbarExpanded = ({
   animateDesktopNavbar,
   animateMobileNavbar,
 }) => {
-  let BELOW_ACCORDION_LINKS = [links.CTA]
+  let BELOW_ACCORDION_LINKS = []
 
   if (showSecondaryCta) {
     BELOW_ACCORDION_LINKS.push(links.SECONDARY_CTA)
@@ -247,27 +247,42 @@ UniversalNavbarExpanded.propTypes = {
      */
     NAVLINKS: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string,
-        id: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
         subnav: PropTypes.shape({
+          hasExpandedNav: PropTypes.bool.isRequired,
           cta: PropTypes.shape({
-            href: PropTypes.string,
-            title: PropTypes.string,
-            id: PropTypes.string,
-            subcopy: PropTypes.string,
+            href: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            subcopy: PropTypes.string.isRequired,
             alternateIcon: PropTypes.oneOfType([
               PropTypes.element,
               PropTypes.func,
               PropTypes.bool,
             ]),
           }),
-          items: PropTypes.arrayOf(
-            PropTypes.shape({
-              href: PropTypes.string,
-              title: PropTypes.string,
-              id: PropTypes.string,
-            })
-          ),
+          items: PropTypes.oneOfType([
+            PropTypes.arrayOf(
+              PropTypes.shape({
+                href: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
+              })
+            ),
+            PropTypes.arrayOf(
+              PropTypes.shape({
+                category: PropTypes.string.isRequired,
+                items: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    href: PropTypes.string.isRequired,
+                    title: PropTypes.string.isRequired,
+                    id: PropTypes.string.isRequired,
+                  })
+                ).isRequired,
+              })
+            ),
+          ]).isRequired,
         }),
       })
     ),

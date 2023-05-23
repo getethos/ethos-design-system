@@ -1,0 +1,61 @@
+@import '../../../Media/Media.scss';
+@import '../../../Variables.scss';
+@import '../../Attributes.css';
+
+.bannerWrapper {
+  background-color: rgba(219, 236, 228, 0.5);
+  padding: 20px 0;
+  @include for-laptop-and-up {
+    padding: 32.5px 0;
+  }
+}
+.categoryTextWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--Space-10);
+  @include for-phone-and-tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+.categoryDivider {
+  width: 20px;
+  height: auto;
+  opacity: 0.2;
+  border: 1px solid #000000;
+  transform: rotate(120deg);
+  @include for-phone-and-tablet {
+    display: none;
+  }
+}
+
+.bannerInner {
+  display: flex;
+  width: 100%;
+  max-width: 1376px;
+  margin: 0 auto;
+  padding: 0 var(--Space-48);
+  @include for-tablet-and-laptop {
+    padding: 0 var(--Space-24);
+  }
+  @include for-phone-and-tablet {
+    flex-direction: column;
+    padding: 0 var(--Space-24);
+  }
+}
+
+.bannerButton {
+  margin-left: auto;
+  @include for-phone-and-tablet {
+    margin: 20px 0 0;
+  }
+}
+
+.bannerSubText {
+  margin-top: var(--Space-8);
+  color: #27272750;
+  @include for-phone-and-tablet {
+    margin-top: 0;
+  }
+}

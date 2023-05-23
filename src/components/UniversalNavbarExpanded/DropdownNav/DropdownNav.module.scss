@@ -19,8 +19,12 @@
       left: 0;
       width: 100%;
       height: var(--Space-4);
-      border-bottom: var(--Space-4) solid var(--BrandForest);
+      border-bottom: 2px solid var(--BrandForest);
     }
+  }
+
+  .title {
+    color: var(--BrandForest);
   }
 
   &:hover {
@@ -29,8 +33,7 @@
         * in order to meet bolding spec without changing item width, design is OK
         * with this current implementation as of 03.03.2020
       **/
-      text-shadow: 0 0 0.25px var(--GrayPrimary--opaque),
-        0 0 0.25px var(--GrayPrimary--opaque);
+      font-weight: 500;
       &:after {
         display: block;
       }

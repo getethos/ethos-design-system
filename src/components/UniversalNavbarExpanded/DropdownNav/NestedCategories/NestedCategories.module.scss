@@ -1,0 +1,30 @@
+@import '../../../Media/Media.scss';
+@import '../../../Variables.scss';
+@import '../../Attributes.css';
+
+.childrenInner {
+  display: flex;
+  padding: var(--Space-32) 0 var(--Space-24);
+}
+
+.categoriesWrapper {
+  padding: var(--Space-32) var(--Space-24);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  max-width: 1376px;
+  margin: 0 auto;
+  @include for-laptop-and-up {
+    padding: var(--Space-32) var(--Space-48);
+  }
+  .category {
+    max-width: 237px;
+    width: fit-content;
+  }
+  .categoryDivider {
+    width: 100%;
+    height: 1px;
+    background-color: #e5e5e5;
+    margin: 20px 0;
+  }
+}

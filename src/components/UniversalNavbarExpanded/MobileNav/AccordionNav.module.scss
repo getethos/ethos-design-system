@@ -1,43 +1,37 @@
 @import '../../Media/Media.scss';
 
 .accordion {
-  padding: var(--Space-40) 0;
-  margin-bottom: var(--Space-40);
+  padding: 20px 0;
   border-bottom: solid 1px var(--White);
-
-  @include for-tablet-only {
-    padding-bottom: var(--Space-56);
-    margin-bottom: var(--Space-56);
-  }
 }
 
 .accordionItem {
-  &:not(:last-child) {
-    margin-bottom: var(--Space-24);
-
-    @include for-tablet-only {
-      margin-bottom: var(--Space-32);
-    }
-  }
-
   &.active {
     .accordionChildren {
       display: block;
     }
-
+    .accordionParent {
+      background-color: var(--BrandForest);
+      color: var(--White);
+    }
     .accordionParent svg {
       transform: scale(1, -1);
+      path {
+        stroke: var(--White);
+      }
+    }
+    .linkText {
+      font-weight: 500;
     }
   }
 
   .accordionParent > div:first-child,
   .accordionChild {
     max-width: calc(100% - 14px);
-    padding-right: var(--Space-64);
-
-    @include for-tablet-only {
-      padding-right: 120px;
-    }
+  }
+  .innerLink {
+    font-size: 19px;
+    font-weight: 400;
   }
 }
 
@@ -45,26 +39,31 @@
   position: relative;
   display: flex;
   justify-content: space-between;
+  transition: background-color 300ms ease-in-out;
   align-items: center;
   cursor: pointer;
+  border-top: 1px solid rgba(39, 39, 39, 0.16);
+  padding: 20px var(--Space-24);
 
   > svg {
     width: var(--Space-12);
     height: var(--Space-12);
-    margin-bottom: var(--Space-8);
+    path {
+      stroke: var(--GrayPrimary--opaque);
+    }
   }
-
-  &:focus {
-    text-decoration: underline;
-    outline: none;
+  .linkText {
+    font-size: 17.5px;
   }
 }
 
 .accordionChildren {
   display: none;
-  padding-bottom: var(--Space-8);
 }
 
 .accordionChild {
-  padding-top: var(--Space-24);
+  padding: 20px var(--Space-24) 0;
+  &:last-child {
+    padding-bottom: 20px;
+  }
 }
