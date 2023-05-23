@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 20px var(--Space-24) 20px;
   cursor: pointer;
   svg > path {
     stroke: var(--GrayPrimary--opaque);

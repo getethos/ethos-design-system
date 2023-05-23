@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 
 // Reused assets from UniversalNavbar
@@ -120,6 +120,14 @@ const MobileNav = ({
       keyPressHandler={(e) => handleHamburgerKeyPress(e)}
     />
   )
+  // disable scrolling when mobile menu is open
+  useEffect(() => {
+    if (showMobileMenu) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+  }, [showMobileMenu])
 
   return (
     <>

@@ -105,6 +105,10 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
+.accordion {
+  border-bottom: solid 1px var(--GrayPrimary--translucent);
+}
+
 /** The expanded (toggled visible) mobile menu */
 .mobileMenu {
   position: fixed;
