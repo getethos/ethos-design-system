@@ -33,7 +33,7 @@ $-cta-width: fit-content;
   button {
     width: fit-content;
     @include for-laptop-and-up {
-      width: var(--cta-width);
+      width: 'auto';
     }
   }
 }
