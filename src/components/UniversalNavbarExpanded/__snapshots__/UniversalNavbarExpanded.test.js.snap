@@ -618,6 +618,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
+                id="navbar-cta"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -1248,6 +1249,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
+                id="navbar-cta"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -1878,6 +1880,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
+                id="navbar-cta"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -2509,6 +2512,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
+                id="navbar-cta"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -3138,6 +3142,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
+                id="navbar-cta"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
