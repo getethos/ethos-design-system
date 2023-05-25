@@ -6,13 +6,17 @@ import NavLink from '../../NavLink'
 
 export const Banner = ({ cta, trackingFunction }) => {
   const [ctaWidth, setCtaWidth] = useState(0)
+
   // this is needed to make banner button the same width as the navbar button
   useEffect(() => {
     const updateCtaWidth = () => {
       const headerCta = document.querySelector('#navbar-cta')
-      const dimensions = headerCta.getBoundingClientRect()
       if (!headerCta) return
-      setCtaWidth(dimensions.width)
+      // ensure that they are executed in the next available event loop, allowing the browser to render the element correctly before measuring its width.
+      setTimeout(() => {
+        const dimensions = headerCta.getBoundingClientRect()
+        setCtaWidth(dimensions.width)
+      }, 0)
     }
 
     // Run the initial update
