@@ -7,6 +7,12 @@
   padding: var(--Space-32) 0 var(--Space-24);
 }
 
+.container {
+  box-shadow: 0px 146px 59px rgba(0, 0, 0, 0.01),
+    0px 82px 49px rgba(0, 0, 0, 0.02), 0px 37px 37px rgba(0, 0, 0, 0.03),
+    0px 9px 20px rgba(0, 0, 0, 0.04), 0px 0px 0px rgba(0, 0, 0, 0.04);
+}
+
 .categoriesWrapper {
   padding: var(--Space-32) var(--Space-24);
   display: flex;

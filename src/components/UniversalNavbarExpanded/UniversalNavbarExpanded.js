@@ -172,6 +172,7 @@ const UniversalNavbarExpanded = ({
                       buttonStyle={ctaButtonStyle}
                       href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
+                      id="navbar-cta"
                       title={
                         singleCta.title ? singleCta.title : links.CTA.title
                       }

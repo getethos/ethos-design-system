@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button, TitleSmall2, TitleMedium2 } from '../../../index'
 import styles from './Banner.module.scss'
 import NavLink from '../../NavLink'
 
 export const Banner = ({ cta, trackingFunction }) => {
+  const [ctaWidth, setCtaWidth] = useState(0)
+  // this is needed to make banner button the same width as the navbar button
+  useEffect(() => {
+    const updateCtaWidth = () => {
+      const headerCta = document.querySelector('#navbar-cta')
+      const dimensions = headerCta.getBoundingClientRect()
+      if (!headerCta) return
+      setCtaWidth(dimensions.width)
+    }
+
+    // Run the initial update
+    updateCtaWidth()
+
+    // Add event listener for window resize
+    window.addEventListener('resize', updateCtaWidth)
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateCtaWidth)
+    }
+  }, [])
   return (
     <div className={styles.bannerWrapper}>
       <div className={styles.bannerInner}>
@@ -23,7 +44,14 @@ export const Banner = ({ cta, trackingFunction }) => {
             href={cta.href}
             trackingFunction={trackingFunction}
           >
-            <Button.Small.BlackOutline>{cta.ctaText}</Button.Small.BlackOutline>
+            <div
+              className={styles.buttonWrapper}
+              style={{ '--cta-width': ctaWidth ? `${ctaWidth}px` : 'auto' }}
+            >
+              <Button.Small.BlackOutline>
+                {cta.ctaText}
+              </Button.Small.BlackOutline>
+            </div>
           </NavLink>
         </div>
       </div>

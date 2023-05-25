@@ -2,12 +2,11 @@
 @import '../../../Variables.scss';
 @import '../../Attributes.css';
 
+$-cta-width: fit-content;
+
 .bannerWrapper {
   background-color: rgba(219, 236, 228, 0.5);
   padding: 20px 0;
-  @include for-laptop-and-up {
-    padding: 32.5px 0;
-  }
 }
 .categoryTextWrapper {
   display: flex;
@@ -27,6 +26,15 @@
   transform: rotate(120deg);
   @include for-phone-and-tablet {
     display: none;
+  }
+}
+
+.bannerButton {
+  button {
+    width: fit-content;
+    @include for-laptop-and-up {
+      width: var(--cta-width);
+    }
   }
 }
 
@@ -55,7 +63,8 @@
 
 .bannerSubText {
   margin-top: var(--Space-8);
-  color: #27272750;
+  color: var(--GrayPrimary--opaque);
+  opacity: 0.5;
   @include for-phone-and-tablet {
     margin-top: 0;
   }
