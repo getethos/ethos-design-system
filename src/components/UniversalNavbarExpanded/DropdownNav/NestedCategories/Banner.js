@@ -5,29 +5,34 @@ import styles from './Banner.module.scss'
 import NavLink from '../../NavLink'
 
 export const Banner = ({ cta, trackingFunction }) => {
-  const [ctaWidth, setCtaWidth] = useState(0)
-
   // this is needed to make banner button the same width as the navbar button
+  const [ctaWidth, setCtaWidth] = useState(0)
   useEffect(() => {
     const updateCtaWidth = () => {
       const headerCta = document.querySelector('#navbar-cta')
       if (!headerCta) return
-      // ensure that they are executed in the next available event loop, allowing the browser to render the element correctly before measuring its width.
-      setTimeout(() => {
-        const dimensions = headerCta.getBoundingClientRect()
-        setCtaWidth(dimensions.width)
-      }, 0)
+
+      const dimensions = headerCta.getBoundingClientRect()
+      setCtaWidth(dimensions.width)
     }
 
-    // Run the initial update
     updateCtaWidth()
 
-    // Add event listener for window resize
     window.addEventListener('resize', updateCtaWidth)
 
-    // Clean up the event listener on component unmount
+    const observer = new MutationObserver(updateCtaWidth)
+    const targetNode = document.querySelector('#navbar-cta')
+
+    if (targetNode) {
+      observer.observe(targetNode, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+      })
+    }
     return () => {
       window.removeEventListener('resize', updateCtaWidth)
+      observer.disconnect()
     }
   }, [])
   return (
