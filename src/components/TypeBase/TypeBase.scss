@@ -22,24 +22,25 @@
   font-family: var(--Theinhardt-font-stack);
   color: var(--GrayPrimary--translucent);
   word-break: break-word;
-}
 
-b,
-strong {
-  font-weight: 500;
-}
 
-// TODO: come up with a comprehensive plan for links and link styles. This is
-// complicated by the number of design features we may need to support, plus
-// the complications from JS routers with <Link>s that are not standard <a>s.
-// See also ./TypeBase.module.scss.
-
-a {
-  &,
-  &:active,
-  &:hover {
-    text-decoration: none;
+  b,
+  strong {
+    font-weight: 500;
   }
 
-  color: var(--GrayPrimary--translucent);
+  // TODO: come up with a comprehensive plan for links and link styles. This is
+  // complicated by the number of design features we may need to support, plus
+  // the complications from JS routers with <Link>s that are not standard <a>s.
+  // See also ./TypeBase.module.scss.
+
+  a {
+    &,
+    &:active,
+    &:hover {
+      text-decoration: none;
+    }
+
+    color: var(--GrayPrimary--translucent);
+  }
 }
