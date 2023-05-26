@@ -613,12 +613,13 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
             </React.Fragment>
             <div
               className="cta"
+              id="universal-navbar-expanded-button-outer"
             >
               <CtaButton
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
-                id="navbar-cta"
+                id="universal-navbar-expanded-button-inner"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -1244,12 +1245,13 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
             </React.Fragment>
             <div
               className="cta"
+              id="universal-navbar-expanded-button-outer"
             >
               <CtaButton
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
-                id="navbar-cta"
+                id="universal-navbar-expanded-button-inner"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -1875,12 +1877,13 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             </React.Fragment>
             <div
               className="cta"
+              id="universal-navbar-expanded-button-outer"
             >
               <CtaButton
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
-                id="navbar-cta"
+                id="universal-navbar-expanded-button-inner"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -2507,12 +2510,13 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             </React.Fragment>
             <div
               className="cta"
+              id="universal-navbar-expanded-button-outer"
             >
               <CtaButton
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
-                id="navbar-cta"
+                id="universal-navbar-expanded-button-inner"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
@@ -3137,12 +3141,13 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
             </React.Fragment>
             <div
               className="cta"
+              id="universal-navbar-expanded-button-outer"
             >
               <CtaButton
                 buttonStyle="Black"
                 hideOnMobile={false}
                 href="/term"
-                id="navbar-cta"
+                id="universal-navbar-expanded-button-inner"
                 title="Check my price"
                 trackingFunction={[Function]}
               />
