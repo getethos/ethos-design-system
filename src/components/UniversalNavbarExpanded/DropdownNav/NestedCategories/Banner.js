@@ -3,20 +3,14 @@ import PropTypes from 'prop-types'
 import { Button, TitleSmall2, TitleMedium2 } from '../../../index'
 import styles from './Banner.module.scss'
 import NavLink from '../../NavLink'
-
-const observerOptions = {
-  attributes: true,
-  childList: true,
-  subtree: true,
-  characterData: true,
-}
+import { CTA_IDS } from '../../../UniversalNavbar/constants'
 
 export const Banner = ({ cta, trackingFunction }) => {
   // this is needed to make banner button the same width as the navbar button
   const [ctaWidth, setCtaWidth] = useState(0)
   useEffect(() => {
     const updateCtaWidth = () => {
-      const headerCta = document.querySelector('#navbar-cta')
+      const headerCta = document.querySelector(`#${CTA_IDS.BUTTON.INNER}`)
       if (!headerCta) return
 
       const dimensions = headerCta.getBoundingClientRect()
@@ -25,17 +19,15 @@ export const Banner = ({ cta, trackingFunction }) => {
 
     updateCtaWidth()
 
-    window.addEventListener('resize', updateCtaWidth)
-
-    const observer = new MutationObserver(updateCtaWidth)
-    const targetNode = document.querySelector('#navbar-cta')
+    const resizeObserver = new ResizeObserver(updateCtaWidth)
+    const targetNode = document.querySelector(`#${CTA_IDS.BUTTON.OUTER}`)
 
     if (targetNode) {
-      observer.observe(targetNode, observerOptions)
+      resizeObserver.observe(targetNode)
     }
+
     return () => {
-      window.removeEventListener('resize', updateCtaWidth)
-      observer.disconnect()
+      resizeObserver.disconnect()
     }
   }, [])
   return (

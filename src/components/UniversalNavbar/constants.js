@@ -1,5 +1,12 @@
 import { v4 as uuidv4 } from 'uuid'
 
+export const CTA_IDS = {
+  BUTTON: {
+    INNER: 'universal-navbar-expanded-button-inner',
+    OUTER: 'universal-navbar-expanded-button-outer',
+  },
+}
+
 export const LINKS = {
   // These are used e.g. in the logo and CTA button:
   INDEX: { href: '/' },

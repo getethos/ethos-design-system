@@ -18,6 +18,7 @@ import MobileNav from './MobileNav/MobileNav'
 
 // Styles
 import styles from './UniversalNavbarExpanded.module.scss'
+import { CTA_IDS } from '../UniversalNavbar/constants.js'
 
 /**
  * Top level website navigation, fixed to the top of the viewport while scrolling.
@@ -166,13 +167,13 @@ const UniversalNavbarExpanded = ({
                     )}
                   </>
                 )}
-                <div className={styles.cta}>
+                <div id={CTA_IDS.BUTTON.OUTER} className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
                       buttonStyle={ctaButtonStyle}
                       href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
-                      id="navbar-cta"
+                      id={CTA_IDS.BUTTON.INNER}
                       title={
                         singleCta.title ? singleCta.title : links.CTA.title
                       }
