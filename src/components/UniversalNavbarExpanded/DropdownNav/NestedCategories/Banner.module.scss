@@ -32,6 +32,7 @@ $-cta-width: fit-content;
 .bannerButton {
   button {
     width: fit-content;
+    min-width: max-content;
     @include for-laptop-and-up {
       width: var(--cta-width);
     }

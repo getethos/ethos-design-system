@@ -4,6 +4,13 @@ import { Button, TitleSmall2, TitleMedium2 } from '../../../index'
 import styles from './Banner.module.scss'
 import NavLink from '../../NavLink'
 
+const observerOptions = {
+  attributes: true,
+  childList: true,
+  subtree: true,
+  characterData: true,
+}
+
 export const Banner = ({ cta, trackingFunction }) => {
   // this is needed to make banner button the same width as the navbar button
   const [ctaWidth, setCtaWidth] = useState(0)
@@ -24,11 +31,7 @@ export const Banner = ({ cta, trackingFunction }) => {
     const targetNode = document.querySelector('#navbar-cta')
 
     if (targetNode) {
-      observer.observe(targetNode, {
-        attributes: true,
-        childList: true,
-        subtree: true,
-      })
+      observer.observe(targetNode, observerOptions)
     }
     return () => {
       window.removeEventListener('resize', updateCtaWidth)
