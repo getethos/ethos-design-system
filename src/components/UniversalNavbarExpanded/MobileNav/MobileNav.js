@@ -152,13 +152,14 @@ const MobileNav = ({
               >
                 {LogoGreen({ className: styles.logo })}
               </NavLink>
-              <CtaButton
-                buttonStyle={ctaButtonStyle}
-                href={singleCta.href ? singleCta.href : links.CTA.href}
-                trackingFunction={ctaButtonTrackingFunction}
-                hideOnMobile={hideMobileCta}
-                title={singleCta.title ? singleCta.title : links.CTA.title}
-              />
+              <div className={styles.mobileCta}>
+                <CtaButton
+                  href={singleCta.href ? singleCta.href : links.CTA.href}
+                  trackingFunction={ctaButtonTrackingFunction}
+                  hideOnMobile={hideMobileCta}
+                  title={singleCta.title ? singleCta.title : links.CTA.title}
+                />
+              </div>
               <Hamburger />
             </div>
             <AccordionNav

@@ -26,11 +26,11 @@
 }
 
 .nestedCategoryChild {
-  padding: 0 20px 20px;
+  padding: 0 24px 20px;
+  display: none;
   &:last-child {
     padding-bottom: 0;
   }
-  display: none;
   .linkText {
     font-size: 19px;
   }
