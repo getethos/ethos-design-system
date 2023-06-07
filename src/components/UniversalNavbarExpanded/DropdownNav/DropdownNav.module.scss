@@ -33,7 +33,7 @@
         * in order to meet bolding spec without changing item width, design is OK
         * with this current implementation as of 03.03.2020
       **/
-      font-weight: 500;
+      text-shadow: 0 0 0.4px var(--BrandForest), 0 0 0.4px var(--BrandForest);
       &:after {
         display: block;
       }
