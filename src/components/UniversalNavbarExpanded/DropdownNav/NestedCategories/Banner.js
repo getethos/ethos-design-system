@@ -49,7 +49,7 @@ export const Banner = ({ cta, trackingFunction }) => {
             trackingFunction={trackingFunction}
           >
             <div
-              className={styles.buttonWrapper}
+              className={styles.bannerButonWrapper}
               style={{ '--cta-width': ctaWidth ? `${ctaWidth}px` : 'auto' }}
             >
               <Button.Small.BlackOutline>
