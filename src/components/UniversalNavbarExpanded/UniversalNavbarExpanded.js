@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // Reused assets from UniversalNavbar
-import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-black.js'
+import LogoNotAnimated from '../UniversalNavbar/assets/ethos-logo-green.js'
 import { AccountIcon, SearchIcon } from '../UniversalNavbar/assets/icons.js'
 
 // EDS core components
@@ -18,6 +18,7 @@ import MobileNav from './MobileNav/MobileNav'
 
 // Styles
 import styles from './UniversalNavbarExpanded.module.scss'
+import { CTA_IDS } from '../UniversalNavbar/constants.js'
 
 /**
  * Top level website navigation, fixed to the top of the viewport while scrolling.
@@ -166,12 +167,13 @@ const UniversalNavbarExpanded = ({
                     )}
                   </>
                 )}
-                <div className={styles.cta}>
+                <div id={CTA_IDS.BUTTON.OUTER} className={styles.cta}>
                   {!hideDesktopCta && (
                     <CtaButton
                       buttonStyle={ctaButtonStyle}
                       href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
+                      id={CTA_IDS.BUTTON.INNER}
                       title={
                         singleCta.title ? singleCta.title : links.CTA.title
                       }
@@ -240,34 +242,49 @@ UniversalNavbarExpanded.propTypes = {
      *   title: string,
      *   id: string,
      *   subnav: {
-     *     cta: { href: string, title: string, id: string, subcopy: string },
-     *     items: array[{ href: string, title: string, id: string }]
+     *     cta: { href: string, title: string, id: string, subcopy: string, hasExpandedNav: boolean },
+     *     items: hasExpandedNav ? array([{ category: string, items: array([{ href: string, title: string, id: string }]) }]) : array([{ href: string, title: string, id: string }]
      *   }
      * }
      */
     NAVLINKS: PropTypes.arrayOf(
       PropTypes.shape({
-        title: PropTypes.string,
-        id: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
         subnav: PropTypes.shape({
+          hasExpandedNav: PropTypes.bool.isRequired,
           cta: PropTypes.shape({
-            href: PropTypes.string,
-            title: PropTypes.string,
-            id: PropTypes.string,
-            subcopy: PropTypes.string,
+            href: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            subcopy: PropTypes.string.isRequired,
             alternateIcon: PropTypes.oneOfType([
               PropTypes.element,
               PropTypes.func,
               PropTypes.bool,
             ]),
           }),
-          items: PropTypes.arrayOf(
-            PropTypes.shape({
-              href: PropTypes.string,
-              title: PropTypes.string,
-              id: PropTypes.string,
-            })
-          ),
+          items: PropTypes.oneOfType([
+            PropTypes.arrayOf(
+              PropTypes.shape({
+                href: PropTypes.string.isRequired,
+                title: PropTypes.string.isRequired,
+                id: PropTypes.string.isRequired,
+              })
+            ),
+            PropTypes.arrayOf(
+              PropTypes.shape({
+                category: PropTypes.string.isRequired,
+                items: PropTypes.arrayOf(
+                  PropTypes.shape({
+                    href: PropTypes.string.isRequired,
+                    title: PropTypes.string.isRequired,
+                    id: PropTypes.string.isRequired,
+                  })
+                ).isRequired,
+              })
+            ),
+          ]).isRequired,
         }),
       })
     ),

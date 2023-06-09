@@ -16,6 +16,7 @@ import DropdownCta from './DropdownCta'
 
 // Helpers
 import IconIntegratedTitle from './IconIntegratedTitle'
+import { NestedCategories } from './NestedCategories/NestedCategories.js'
 
 // Styles
 import styles from './DropdownChildren.module.scss'
@@ -46,11 +47,11 @@ const DropdownChildren = ({
   // 5 || 6
   const columns = [[], []]
   const childItems = get(child, 'subnav.items')
+  const hasNestedCategories = child.hasExpandedNav
   childItems.map((childItem, i) => {
     columns[i % 2 === 0 ? 0 : 1].push(childItems[i])
   })
   // ------------------------------------------------
-
   const classes = [styles.children]
   if (containerClasses) {
     classes.push(containerClasses)
@@ -58,65 +59,70 @@ const DropdownChildren = ({
 
   return (
     <div className={classes.join(' ')}>
-      <Layout.HorizontallyPaddedContainer>
-        <div className={styles.childrenInner}>
-          <div className={styles.childrenCta}>
-            {child.subnav &&
-              get(child, 'subnav.cta') &&
-              get(child, 'subnav.cta.href') && (
-                <NavLink
-                  href={get(child, 'subnav.cta.href')}
-                  LinkComponent={LinkComponent}
-                  trackingFunction={trackingFunction}
-                  itemLabel={child.subnav.cta.title}
+      {hasNestedCategories ? (
+        <NestedCategories trackingFunction={trackingFunction} child={child} />
+      ) : (
+        <Layout.HorizontallyPaddedContainer>
+          <div className={styles.childrenInner}>
+            <div className={styles.childrenCta}>
+              {child.subnav &&
+                get(child, 'subnav.cta') &&
+                get(child, 'subnav.cta.href') && (
+                  <NavLink
+                    href={get(child, 'subnav.cta.href')}
+                    LinkComponent={LinkComponent}
+                    trackingFunction={trackingFunction}
+                    itemLabel={child.subnav.cta.title}
+                  >
+                    <DropdownCta
+                      title={get(child, 'subnav.cta.title')}
+                      subcopy={get(child, 'subnav.cta.subcopy')}
+                      alternateIcon={get(
+                        child,
+                        'subnav.cta.alternateIcon',
+                        false
+                      )}
+                    />
+                  </NavLink>
+                )}
+            </div>
+            <div className={styles.childrenItems}>
+              {columns.map((column, idx) => (
+                <div
+                  className={styles.childrenColumn}
+                  key={`navChildColumn${idx}`}
                 >
-                  <DropdownCta
-                    title={get(child, 'subnav.cta.title')}
-                    subcopy={get(child, 'subnav.cta.subcopy')}
-                    alternateIcon={get(
-                      child,
-                      'subnav.cta.alternateIcon',
-                      false
-                    )}
-                  />
-                </NavLink>
-              )}
+                  {column.map((link) => (
+                    <div className={styles.child} key={link.id}>
+                      <Footnote.Regular400>
+                        <NavLink
+                          href={link.href}
+                          LinkComponent={LinkComponent}
+                          trackingFunction={trackingFunction}
+                          itemLabel={link.title}
+                        >
+                          <div className={styles.childLink}>
+                            <IconIntegratedTitle title={link.title}>
+                              <DropdownLinkIcon />
+                            </IconIntegratedTitle>
+                          </div>
+                        </NavLink>
+                      </Footnote.Regular400>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={styles.childrenItems}>
-            {columns.map((column, idx) => (
-              <div
-                className={styles.childrenColumn}
-                key={`navChildColumn${idx}`}
-              >
-                {column.map((link) => (
-                  <div className={styles.child} key={link.id}>
-                    <Footnote.Regular400>
-                      <NavLink
-                        href={link.href}
-                        LinkComponent={LinkComponent}
-                        trackingFunction={trackingFunction}
-                        itemLabel={link.title}
-                      >
-                        <div className={styles.childLink}>
-                          <IconIntegratedTitle title={link.title}>
-                            <DropdownLinkIcon />
-                          </IconIntegratedTitle>
-                        </div>
-                      </NavLink>
-                    </Footnote.Regular400>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Layout.HorizontallyPaddedContainer>
+        </Layout.HorizontallyPaddedContainer>
+      )}
     </div>
   )
 }
 
 DropdownChildren.propTypes = {
   containerClasses: PropTypes.string,
+  hasNestedCategories: PropTypes.bool,
   child: PropTypes.object,
   LinkComponent: PropTypes.object,
   trackingFunction: PropTypes.func,

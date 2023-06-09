@@ -11,7 +11,10 @@ const EthosLogoFancyE = (props) => (
     {...props}
   >
     <title>ethos-logo-E</title>
-    <path d="M0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0z" />
+    <path
+      d="M0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0z"
+      fill="#054742"
+    />
   </svg>
 )
 

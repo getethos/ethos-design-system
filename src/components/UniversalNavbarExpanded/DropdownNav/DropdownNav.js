@@ -28,7 +28,7 @@ const DropdownNav = ({ links, LinkComponent, trackingFunction }) => {
     <div className={styles.dropdownNav}>
       {links.NAVLINKS.map((link) => (
         <div className={styles.dropdownNavParent} key={link.id}>
-          <Footnote.Regular400>
+          <Footnote.Regular400 elementClasses={styles.title}>
             {link.title}
             <span className={styles.parentIcon}>
               <ParentIcon />

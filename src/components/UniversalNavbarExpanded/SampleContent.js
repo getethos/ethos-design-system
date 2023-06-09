@@ -90,41 +90,121 @@ export const CMS_LINKS = {
     {
       id: 'NAVLINKS_MOCK_ID_8',
       title: 'Life insurance basics',
+      hasExpandedNav: true,
       subnav: {
         cta: {
           href: '/life/life-insurance-basics/',
           title: 'Life insurance 101',
-          subcopy:
-            'Wondering where to start? We’ve broken down the essentials for you.',
+          ctaText: 'Learn more',
+          subcopy: 'A handy guide to life insurance',
           id: 'NAVLINKS_MOCK_ID_9',
           alternateIcon: false,
         },
         items: [
           {
-            id: 'NAVLINKS_MOCK_ID_10',
-            href: '/life/term-group-whole/',
-            title:
-              'What are the main types of life insurance and how do they work?',
+            category: 'Life insurance',
+            items: [
+              {
+                id: 'NAVLINKS_MOCK_ID_10',
+                href: '/life/term-group-whole/',
+                title: 'No medical exam life insurance',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'Life insurance Rates by Age',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_12',
+                href: '/life/pick-beneficiary/',
+                title: '$500K Life Insurance',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_13',
+                href: '/life/who-needs-sp/',
+                title: '$1 Million Life Insurance',
+              },
+            ],
           },
           {
-            id: 'NAVLINKS_MOCK_ID_11',
-            href: '/life/underwriting-explained/',
-            title: 'What is underwriting and how long does it take?',
+            category: 'Term Life',
+            items: [
+              {
+                id: 'NAVLINKS_MOCK_ID_10',
+                href: '/life/term-group-whole/',
+                title: 'Term Life Insurance',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'Term Insurance Lengths',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_12',
+                href: '/life/pick-beneficiary/',
+                title: 'Term Life Expires Options',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_13',
+                href: '/life/who-needs-sp/',
+                title: 'Converting Term to Whole',
+              },
+            ],
           },
           {
-            id: 'NAVLINKS_MOCK_ID_12',
-            href: '/life/pick-beneficiary/',
-            title: 'Choosing your beneficiary',
+            category: 'Whole Life',
+            items: [
+              {
+                id: 'NAVLINKS_MOCK_ID_10',
+                href: '/life/term-group-whole/',
+                title: 'Whole Life Insurance',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'Term Insurance Lengths',
+              },
+            ],
           },
           {
-            id: 'NAVLINKS_MOCK_ID_13',
-            href: '/life/who-needs-sp/',
-            title: "What if I don't work?",
+            category: 'Final Expenses',
+            items: [
+              {
+                id: 'NAVLINKS_MOCK_ID_10',
+                href: '/life/term-group-whole/',
+                title: 'End of Life Expenses',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'Burial Insurance',
+              },
+            ],
           },
           {
-            id: 'NAVLINKS_MOCK_ID_14',
-            href: '/life/employer-sponsored-life-insurance/',
-            title: 'Is my life insurance through work enough?',
+            category: 'Resources',
+            items: [
+              {
+                id: 'NAVLINKS_MOCK_ID_10',
+                href: '/life/term-group-whole/',
+                title: 'How much life insurance do i need?',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'How is cost determined',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'Coverage Calculator',
+              },
+              {
+                id: 'NAVLINKS_MOCK_ID_11',
+                href: '/life/underwriting-explained/',
+                title: 'Life insurance Blog',
+              },
+            ],
           },
         ],
       },
