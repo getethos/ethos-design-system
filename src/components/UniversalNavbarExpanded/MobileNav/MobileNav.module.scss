@@ -83,12 +83,21 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
+.mobileHeader {
+  padding: var(--Space-24) var(--Space-24) 0;
+  display: flex;
+  align-items: center;
+}
+
 .phoneLogo {
   margin-right: auto;
 }
 
 .phoneLogoFancy {
   margin-right: auto;
+}
+.mobileCta {
+  margin-top: -41px;
 }
 
 .accordion,
@@ -99,23 +108,27 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
+.accordion {
+  border-bottom: solid 1px var(--GrayPrimary--translucent);
+}
+
 /** The expanded (toggled visible) mobile menu */
 .mobileMenu {
   position: fixed;
-  padding: var(--Space-24) var(--Space-24) 40px;
+  padding-bottom: var(--Space-40);
   height: 100vh;
   width: 100vw;
   top: 0;
   left: 0;
-  background-color: var(--BrandForest);
-  color: var(--White);
+  background-color: var(--White);
+  color: var(--Black);
   z-index: $z-index-navbar;
   overflow-y: scroll;
   & a,
   & a:visited,
   & a:hover {
     font-weight: 300;
-    color: var(--White);
+    color: var(--Black);
     text-decoration: unset;
   }
 }

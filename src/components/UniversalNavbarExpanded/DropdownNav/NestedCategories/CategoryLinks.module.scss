@@ -1,0 +1,12 @@
+.linksWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.categoryLink {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}

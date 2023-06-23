@@ -51,7 +51,7 @@ const SecondaryLinks = ({
             trackingFunction={trackingFunction}
             itemLabel={link.title}
           >
-            <TitleMedium.Sans.Regular400>
+            <TitleMedium.Sans.Regular400 elementClasses={styles.secondaryLink}>
               {link.title}
             </TitleMedium.Sans.Regular400>
           </NavLink>

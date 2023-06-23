@@ -17,6 +17,7 @@ import styles from './CtaButton.module.scss'
  * @param {function} trackingFunction - Analytics function run when CTA Button is clicked
  * @param {boolean} hideOnMobile - Hide the CTA on phone only
  * @param {string} title - Title text for the button
+ * @param {string} id - ID for the button
  *
  * @return {JSX.Element}
  */
@@ -26,6 +27,7 @@ const CtaButton = ({
   trackingFunction,
   hideOnMobile,
   title,
+  id,
 }) => {
   // We still rely on some legacy UniversalNavbar styles from FancyAnimatedLogo.scss
   // TODO convert these to module.scss capable styles
@@ -50,6 +52,7 @@ const CtaButton = ({
     <a
       className={CtaButtonClasses.join(' ')}
       onClick={trackingFunction}
+      id={id}
       href={href}
     >
       <CTA>{title}</CTA>
@@ -63,6 +66,7 @@ CtaButton.propTypes = {
   href: PropTypes.string.isRequired,
   trackingFunction: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  id: PropTypes.string,
 }
 
 CtaButton.defaultProps = {

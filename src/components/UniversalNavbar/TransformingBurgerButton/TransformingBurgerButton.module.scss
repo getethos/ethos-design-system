@@ -19,13 +19,13 @@
       &::before {
         top: 0;
         transform: rotateZ(45deg);
-        background: white;
+        background: #444444;
       }
 
       &::after {
         bottom: 0;
         transform: rotateZ(-45deg);
-        background: white;
+        background: #444444;
       }
     }
   }

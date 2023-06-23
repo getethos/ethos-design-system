@@ -6,7 +6,7 @@ import get from 'lodash/get'
 import { AccordionToggleIcon } from '../../UniversalNavbar/assets/icons.js'
 
 // EDS core components
-import { TitleMedium, TitleSmall } from '../../index'
+import { Body2, TitleMedium } from '../../index'
 
 // Parent component (UniversalNavbar) siblings
 import NavLink from '../NavLink'
@@ -16,6 +16,7 @@ import { isEnterKeyPress } from '../../../helpers/isEnterKeyPress'
 
 // Styles
 import styles from './AccordionNav.module.scss'
+import { NestedLinks } from './NestedLinks/NestedLinks.js'
 
 /**
  * Interactive accordion menu, displays at top of Mobile Nav.
@@ -63,7 +64,6 @@ const AccordionNav = ({
   if (extraClass) {
     classes.push(extraClass)
   }
-
   return (
     <div className={classes.join(' ')}>
       {links.NAVLINKS.map((link, idx) => (
@@ -82,47 +82,59 @@ const AccordionNav = ({
             tabIndex={0}
             role="button"
           >
-            <TitleMedium.Sans.Regular400>
+            <TitleMedium.Sans.Regular400 elementClasses={styles.linkText}>
               {link.title}
             </TitleMedium.Sans.Regular400>
             <AccordionToggleIcon />
           </div>
           <div className={styles.accordionChildren}>
-            <div
-              key={get(link, 'subnav.cta.id')}
-              className={styles.accordionChild}
-            >
-              <TitleSmall.Sans.Light300>
-                <NavLink
-                  href={get(link, 'subnav.cta.href')}
-                  currentPageAwareness={true}
-                  currentPageFunction={(e) => currentPageFunction(e)}
-                  currentPageCondition={navVisible}
-                  LinkComponent={LinkComponent}
-                  trackingFunction={trackingFunction}
-                  itemLabel={link.subnav.cta.title}
-                >
-                  {get(link, 'subnav.cta.title')}
-                </NavLink>
-              </TitleSmall.Sans.Light300>
-            </div>
-            {get(link, 'subnav.items').map((link) => (
-              <div key={link.id} className={styles.accordionChild}>
-                <TitleSmall.Sans.Light300>
+            {!link.hasExpandedNav && (
+              <div
+                key={get(link, 'subnav.cta.id')}
+                className={styles.accordionChild}
+              >
+                <Body2.Regular400>
                   <NavLink
-                    href={link.href}
+                    href={get(link, 'subnav.cta.href')}
                     currentPageAwareness={true}
+                    className={styles.innerLink}
                     currentPageFunction={(e) => currentPageFunction(e)}
                     currentPageCondition={navVisible}
                     LinkComponent={LinkComponent}
                     trackingFunction={trackingFunction}
-                    itemLabel={link.title}
+                    itemLabel={link.subnav.cta.title}
                   >
-                    {link.title}
+                    {get(link, 'subnav.cta.title')}
                   </NavLink>
-                </TitleSmall.Sans.Light300>
+                </Body2.Regular400>
               </div>
-            ))}
+            )}
+            {link.hasExpandedNav ? (
+              <NestedLinks
+                isNavVisible={navVisible}
+                trackingFunction={trackingFunction}
+                link={link}
+              />
+            ) : (
+              get(link, 'subnav.items').map((link) => (
+                <div key={link.id} className={styles.accordionChild}>
+                  <Body2.Regular400>
+                    <NavLink
+                      href={link.href}
+                      className={styles.innerLink}
+                      currentPageAwareness={true}
+                      currentPageFunction={(e) => currentPageFunction(e)}
+                      currentPageCondition={navVisible}
+                      LinkComponent={LinkComponent}
+                      trackingFunction={trackingFunction}
+                      itemLabel={link.title}
+                    >
+                      {link.title}
+                    </NavLink>
+                  </Body2.Regular400>
+                </div>
+              ))
+            )}
           </div>
         </div>
       ))}
