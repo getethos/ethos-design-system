@@ -120,14 +120,14 @@
 
 .Caption {
   @include for-phone-only {
-    $font-size: 12;
+    $font-size: 14;
     $line-height: 15;
     font-size: $font-size * 1px;
     line-height: $line-height / $font-size;
   }
 
   @include for-tablet-and-up {
-    $font-size: 13.5;
+    $font-size: 16;
     $line-height: 16;
     font-size: $font-size * 1px;
     line-height: $line-height / $font-size;
@@ -466,7 +466,7 @@ h6,
 
 .Eyebrow2 {
   &.Theinhardt {
-    $font-size: 10.5;
+    $font-size: 14;
     $line-height: 16;
     font-size: $font-size * 1px;
     line-height: $line-height / $font-size;
