@@ -60,6 +60,7 @@ const UniversalNavbarExpanded = ({
   singleCta = {},
   animateDesktopNavbar,
   animateMobileNavbar,
+  isLoggedIn,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -80,6 +81,8 @@ const UniversalNavbarExpanded = ({
       href={links.SEARCH.href}
       trackingFunction={trackItemClick}
       itemLabel={'SearchIcon'}
+      title="Search"
+      alt="Search"
     >
       <SearchIcon />
     </NavLink>
@@ -91,6 +94,8 @@ const UniversalNavbarExpanded = ({
       href={links.ACCOUNT.href}
       trackingFunction={trackItemClick}
       itemLabel={'AccountIcon'}
+      title={isLoggedIn ? 'Account' : 'Log in'}
+      alt={isLoggedIn ? 'Account' : 'Log in'}
     >
       <AccountIcon />
     </NavLink>
@@ -298,6 +303,7 @@ UniversalNavbarExpanded.propTypes = {
   /** Add animation to nav bar*/
   animateDesktopNavbar: PropTypes.bool,
   animateMobileNavbar: PropTypes.bool,
+  isLoggedIn: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -313,6 +319,7 @@ UniversalNavbarExpanded.defaultProps = {
   singleCta: {},
   animateDesktopNavbar: false,
   animateMobileNavbar: false,
+  isLoggedIn: false,
 }
 
 export { UniversalNavbarExpanded }
