@@ -40,6 +40,7 @@ import { CTA_IDS } from '../UniversalNavbar/constants.js'
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  * @param {boolean} animateDesktopNavbar - navigation bar animation on desktop
  * @param {boolean} animateMobileNavbar - navigation bar animation on mobile
+ * @param {boolean} isLoggedIn - check if user is logged in
  *
  * @return {JSX.Element}
  */

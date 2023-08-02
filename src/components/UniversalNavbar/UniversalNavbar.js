@@ -178,6 +178,7 @@ UniversalNavbar.propTypes = {
   LinkComponent: PropTypes.object,
   /** Href for the logo */
   logoHref: PropTypes.string,
+  /** check if user is logged in */
   isLoggedIn: PropTypes.bool,
 }
 
