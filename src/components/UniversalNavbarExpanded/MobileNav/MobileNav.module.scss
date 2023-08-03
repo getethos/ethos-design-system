@@ -155,14 +155,44 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 
 .plus {
   margin-left: 10px;
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+  transition-delay: 0;
+
+  @include for-phone-and-tablet {
+    margin-top: 2px;
+  }
 }
 
 .forbesLogo {
   margin-left: 11px;
+  transition-timing-function: ease-in;
+  transition-duration: 0.2s;
+  transition-delay: 0;
+
+  @include for-phone-and-tablet {
+    margin-top: 2px;
+  }
 }
 
-.isForbesPartner {
-  & .mobileCta > a {
+.isPartner {
+  & > a {
     right: 0 !important;
+  }
+}
+
+.transitionLeft {
+  transition-duration: 0.6s;
+  transition-delay: 0.3s;
+  transform: translate(-60px);
+}
+
+:global(.isScrolled) {
+  .plus {
+    @extend .transitionLeft
+  }
+
+  .forbesLogo {
+    @extend .transitionLeft
   }
 }

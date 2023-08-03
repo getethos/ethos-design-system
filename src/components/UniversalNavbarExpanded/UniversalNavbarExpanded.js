@@ -348,7 +348,7 @@ UniversalNavbarExpanded.defaultProps = {
   animateDesktopNavbar: false,
   animateMobileNavbar: false,
   isLoggedIn: false,
-  isForbesPartner: true,
+  isForbesPartner: false,
 }
 
 export { UniversalNavbarExpanded }

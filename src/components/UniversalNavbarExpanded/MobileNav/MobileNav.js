@@ -114,7 +114,7 @@ const MobileNav = ({
   }
 
   if (isForbesPartner) {
-    MobileNavClasses.push(styles.isForbesPartner)
+    MobileNavClasses.push(styles.isPartner)
   }
 
   const Hamburger = () => (
