@@ -86,6 +86,7 @@ const MobileNav = ({
   LinkComponent,
   singleCta = {},
   animateNavbar,
+  isForbesPartner,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -112,6 +113,10 @@ const MobileNav = ({
     MobileNavClasses.push(styles.mobileNavbarAnimation)
   }
 
+  if (isForbesPartner) {
+    MobileNavClasses.push(styles.isForbesPartner)
+  }
+
   const Hamburger = () => (
     <BaseHamburger
       className={styles.hamburger}
@@ -131,7 +136,7 @@ const MobileNav = ({
 
   return (
     <>
-      {!singleCta.href && <Hamburger />}
+      {!isForbesPartner && !singleCta.href && <Hamburger />}
       <div className={MobileNavClasses.join(' ')}>
         {!singleCta.href && (
           <div
@@ -180,18 +185,38 @@ const MobileNav = ({
             />
           </div>
         )}
-        <NavLink
-          className={styles.phoneLogoFancy}
-          href={singleCta.href ? singleCta.href : logoHref}
-          currentPageAwareness={true}
-          currentPageFunction={(e) => toggleHamburger(e)}
-          currentPageCondition={showMobileMenu}
-          LinkComponent={LinkComponent}
-          trackingFunction={itemTrackingFunction}
-          itemLabel={'Logo'}
-        >
-          <FancyAnimatedLogo />
-        </NavLink>
+        <div className={styles.leftBar}>
+          <NavLink
+            className={styles.phoneLogoFancy}
+            href={singleCta.href ? singleCta.href : logoHref}
+            currentPageAwareness={true}
+            currentPageFunction={(e) => toggleHamburger(e)}
+            currentPageCondition={showMobileMenu}
+            LinkComponent={LinkComponent}
+            trackingFunction={itemTrackingFunction}
+            itemLabel={'Logo'}
+          >
+            <FancyAnimatedLogo />
+          </NavLink>
+          {isForbesPartner && (
+            <div className={styles.plus}>
+              <img
+                src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                title="Plus"
+                alt="Plus"
+              />
+            </div>
+          )}
+          {isForbesPartner && (
+            <div className={styles.forbesLogo}>
+              <img
+                src="https://res.cloudinary.com/getethos/image/upload/v1691063818/Forbes_hp6ojz.svg"
+                title="Forbes"
+                alt="Forbes"
+              />
+            </div>
+          )}
+        </div>
         <CtaButton
           buttonStyle={ctaButtonStyle}
           href={singleCta.href ? singleCta.href : links.CTA.href}
@@ -219,6 +244,7 @@ MobileNav.propTypes = {
     title: PropTypes.string,
   }),
   animateNavbar: PropTypes.bool,
+  isForbesPartner: PropTypes.bool,
 }
 
 export default MobileNav

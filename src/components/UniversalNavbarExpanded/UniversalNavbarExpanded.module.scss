@@ -46,6 +46,10 @@ $laptop-range-small-end: 929px;
   @media (min-width: $tablet-range-start) and (max-width: $tablet-range-small-end) {
     padding-right: var(--Space-24);
   }
+
+  &.combined {
+    padding-right: 0;
+  }
 }
 
 .cta {
@@ -127,4 +131,12 @@ $laptop-range-small-end: 929px;
   @include for-phone-only {
     display: none;
   }
+}
+
+.plus {
+  margin-left: 10px;
+}
+
+.forbesLogo {
+  margin-left: 11px;
 }

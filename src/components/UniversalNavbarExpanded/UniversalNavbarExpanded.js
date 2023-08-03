@@ -62,6 +62,7 @@ const UniversalNavbarExpanded = ({
   animateDesktopNavbar,
   animateMobileNavbar,
   isLoggedIn,
+  isForbesPartner,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -121,6 +122,12 @@ const UniversalNavbarExpanded = ({
     laptopAndUpClasses.push(styles.animatedBackground)
   }
 
+  const logoClasses = [styles.logo]
+
+  if(isForbesPartner) {
+    logoClasses.push(styles.combined)
+  }
+
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
@@ -137,6 +144,7 @@ const UniversalNavbarExpanded = ({
             itemTrackingFunction={trackItemClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
+            isForbesPartner={isForbesPartner}
           />
           <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
@@ -147,9 +155,27 @@ const UniversalNavbarExpanded = ({
                   trackingFunction={trackItemClick}
                   itemLabel={'Logo'}
                 >
-                  {LogoNotAnimated({ className: styles.logo })}
+                  {LogoNotAnimated({ className: logoClasses.join(' ') })}
                 </NavLink>
-                {!singleCta.href && (
+                {isForbesPartner && (
+                  <div className={styles.plus}>
+                    <img
+                      src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                      title="Plus"
+                      alt="Plus"
+                    />
+                  </div>
+                )}
+                {isForbesPartner && (
+                  <div className={styles.forbesLogo}>
+                    <img
+                      src="https://res.cloudinary.com/getethos/image/upload/v1691063818/Forbes_hp6ojz.svg"
+                      title="Forbes"
+                      alt="Forbes"
+                    />
+                  </div>
+                )}
+                {!isForbesPartner && !singleCta.href && (
                   <DropdownNav
                     links={links}
                     LinkComponent={LinkComponent}
@@ -305,6 +331,7 @@ UniversalNavbarExpanded.propTypes = {
   animateDesktopNavbar: PropTypes.bool,
   animateMobileNavbar: PropTypes.bool,
   isLoggedIn: PropTypes.bool,
+  isForbesPartner: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -321,6 +348,7 @@ UniversalNavbarExpanded.defaultProps = {
   animateDesktopNavbar: false,
   animateMobileNavbar: false,
   isLoggedIn: false,
+  isForbesPartner: true,
 }
 
 export { UniversalNavbarExpanded }

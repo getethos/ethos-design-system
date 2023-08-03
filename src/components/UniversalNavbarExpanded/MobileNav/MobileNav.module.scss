@@ -146,3 +146,23 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
     outline: none;
   }
 }
+
+.leftBar {
+  display: flex;
+  margin-right: auto;
+  align-items: center;
+}
+
+.plus {
+  margin-left: 10px;
+}
+
+.forbesLogo {
+  margin-left: 11px;
+}
+
+.isForbesPartner {
+  & .mobileCta > a {
+    right: 0 !important;
+  }
+}
