@@ -12,7 +12,7 @@ type UniversalNavbarProps = {
   /** Href for the logo */
   logoHref?: string
   /** State if use is logged in */
-  isLoggedIn: boolean
+  isLoggedIn?: boolean
 }
 
 export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
