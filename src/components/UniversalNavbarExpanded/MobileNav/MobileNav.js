@@ -86,7 +86,7 @@ const MobileNav = ({
   LinkComponent,
   singleCta = {},
   animateNavbar,
-  isForbesPartner,
+  partnerLogo,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -113,8 +113,8 @@ const MobileNav = ({
     MobileNavClasses.push(styles.mobileNavbarAnimation)
   }
 
-  if (isForbesPartner) {
-    MobileNavClasses.push(styles.isPartner)
+  if (partnerLogo) {
+    MobileNavClasses.push(styles.isPartnerLogo)
   }
 
   const Hamburger = () => (
@@ -136,7 +136,7 @@ const MobileNav = ({
 
   return (
     <>
-      {!isForbesPartner && !singleCta.href && <Hamburger />}
+      {!partnerLogo && !singleCta.href && <Hamburger />}
       <div className={MobileNavClasses.join(' ')}>
         {!singleCta.href && (
           <div
@@ -198,7 +198,7 @@ const MobileNav = ({
           >
             <FancyAnimatedLogo />
           </NavLink>
-          {isForbesPartner && (
+          {partnerLogo && (
             <div className={styles.plus}>
               <img
                 src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
@@ -207,13 +207,9 @@ const MobileNav = ({
               />
             </div>
           )}
-          {isForbesPartner && (
-            <div className={styles.forbesLogo}>
-              <img
-                src="https://res.cloudinary.com/getethos/image/upload/v1691063818/Forbes_hp6ojz.svg"
-                title="Forbes"
-                alt="Forbes"
-              />
+          {partnerLogo && (
+            <div className={styles.partnerLogo}>
+              {partnerLogo}
             </div>
           )}
         </div>
@@ -244,7 +240,7 @@ MobileNav.propTypes = {
     title: PropTypes.string,
   }),
   animateNavbar: PropTypes.bool,
-  isForbesPartner: PropTypes.bool,
+  partnerLogo: PropTypes.node,
 }
 
 export default MobileNav

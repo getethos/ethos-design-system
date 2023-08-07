@@ -164,7 +164,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-.forbesLogo {
+.partnerLogo {
   margin-left: 11px;
   transition-timing-function: ease-in;
   transition-duration: 0.2s;
@@ -175,7 +175,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
   }
 }
 
-.isPartner {
+.isPartnerLogo {
   & > a {
     right: 0 !important;
   }
@@ -192,7 +192,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
     @extend .transitionLeft
   }
 
-  .forbesLogo {
+  .partnerLogo {
     @extend .transitionLeft
   }
 }
