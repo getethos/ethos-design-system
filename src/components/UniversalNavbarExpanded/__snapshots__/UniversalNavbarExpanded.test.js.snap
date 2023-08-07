@@ -17,7 +17,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        isForbesPartner={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -286,6 +285,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
           }
         }
         logoHref="/#/Components/UniversalNavbarExpanded"
+        partnerLogo={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -650,7 +650,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        isForbesPartner={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -919,6 +918,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
           }
         }
         logoHref="/#/Components/UniversalNavbarExpanded"
+        partnerLogo={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -1283,7 +1283,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        isForbesPartner={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -1552,6 +1551,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
+        partnerLogo={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -1916,7 +1916,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        isForbesPartner={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -2185,6 +2184,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
+        partnerLogo={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -2550,7 +2550,6 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
-        isForbesPartner={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -2819,6 +2818,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
           }
         }
         logoHref="/#/Components/UniversalNavbarExpanded"
+        partnerLogo={null}
         secondaryLinksLinks={
           Array [
             Object {
