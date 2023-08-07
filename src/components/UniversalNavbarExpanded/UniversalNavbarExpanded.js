@@ -124,7 +124,7 @@ const UniversalNavbarExpanded = ({
 
   const logoClasses = [styles.logo]
 
-  if(partnerLogo) {
+  if (partnerLogo) {
     logoClasses.push(styles.combined)
   }
 
@@ -166,9 +166,7 @@ const UniversalNavbarExpanded = ({
                         alt="Plus"
                       />
                     </div>
-                    <div className={styles.partnerLogo}>
-                      {partnerLogo}
-                    </div>
+                    <div className={styles.partnerLogo}>{partnerLogo}</div>
                   </>
                 )}
                 {!partnerLogo && !singleCta.href && (

@@ -199,18 +199,16 @@ const MobileNav = ({
             <FancyAnimatedLogo />
           </NavLink>
           {partnerLogo && (
-            <div className={styles.plus}>
-              <img
-                src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
-                title="Plus"
-                alt="Plus"
-              />
-            </div>
-          )}
-          {partnerLogo && (
-            <div className={styles.partnerLogo}>
-              {partnerLogo}
-            </div>
+            <>
+              <div className={styles.plus}>
+                <img
+                  src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                  title="Plus"
+                  alt="Plus"
+                />
+              </div>
+              <div className={styles.partnerLogo}>{partnerLogo}</div>
+            </>
           )}
         </div>
         <CtaButton

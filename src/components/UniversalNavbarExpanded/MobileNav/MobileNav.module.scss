@@ -189,10 +189,10 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 
 :global(.isScrolled) {
   .plus {
-    @extend .transitionLeft
+    @extend .transitionLeft;
   }
 
   .partnerLogo {
-    @extend .transitionLeft
+    @extend .transitionLeft;
   }
 }
