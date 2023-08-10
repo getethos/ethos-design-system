@@ -71,7 +71,7 @@ BaseHamburger.propTypes = {
  * @param {boolean} hideMobileCta - Hide the cta
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  * @param {boolean} animateNavbar - navigation bar animation
- * @param {node} partnerLogo - image should be 24px height and width maximum 100px
+ * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
  *
  * @return {JSX.Element}
  */
