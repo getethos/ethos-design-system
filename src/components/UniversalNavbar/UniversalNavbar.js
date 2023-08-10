@@ -18,6 +18,7 @@ const UniversalNavbar = ({
   hideDesktopCta,
   logoHref,
   trackCtaClick,
+  isLoggedIn,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -56,6 +57,8 @@ const UniversalNavbar = ({
         key={link.id}
         href={link.href}
         LinkComponent={LinkComponent}
+        title="Search"
+        alt="Search"
       >
         <SearchIcon />
       </NavLink>
@@ -69,6 +72,8 @@ const UniversalNavbar = ({
         key={link.id}
         href={link.href}
         LinkComponent={LinkComponent}
+        title={isLoggedIn ? 'Account' : 'Log in'}
+        alt={isLoggedIn ? 'Account' : 'Log in'}
       >
         <AccountIcon />
       </NavLink>
@@ -173,6 +178,8 @@ UniversalNavbar.propTypes = {
   LinkComponent: PropTypes.object,
   /** Href for the logo */
   logoHref: PropTypes.string,
+  /** check if user is logged in */
+  isLoggedIn: PropTypes.bool,
 }
 
 UniversalNavbar.defaultProps = {
@@ -180,6 +187,7 @@ UniversalNavbar.defaultProps = {
   hideDesktopCta: false,
   logoHref: LINKS.INDEX.href,
   trackCtaClick: () => {},
+  isLoggedIn: false,
 }
 
 export { UniversalNavbar }
