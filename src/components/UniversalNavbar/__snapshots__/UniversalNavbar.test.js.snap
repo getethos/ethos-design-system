@@ -218,8 +218,10 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
           </PublicButtonComponent>
         </a>
         <NavLink
+          alt="Search"
           className="searchIcon"
           href="/search/"
+          title="Search"
         >
           <SearchIcon />
         </NavLink>
@@ -288,14 +290,18 @@ exports[`<UniversalNavbar> matches snapshot with no arguments 1`] = `
             className="flex itemsCenter"
           >
             <NavLink
+              alt="Search"
               className="searchIcon"
               href="/search/"
+              title="Search"
             >
               <SearchIcon />
             </NavLink>
             <NavLink
+              alt="Log in"
               className="accountIcon"
               href="/login/"
+              title="Log in"
             >
               <AccountIcon />
             </NavLink>

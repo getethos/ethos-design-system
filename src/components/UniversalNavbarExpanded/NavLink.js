@@ -36,6 +36,8 @@ const NavLink = ({
   trackingFunction,
   LinkComponent,
   children,
+  alt,
+  title,
 }) => {
   const onClickHandler = (event) => {
     if (currentPageAwareness) {
@@ -63,6 +65,8 @@ const NavLink = ({
       LinkComponent={LinkComponent}
       onClick={(event) => onClickHandler(event)}
       onKeyPress={(event) => onClickHandler(event)}
+      title={title}
+      alt={alt}
     >
       {children}
     </BaseNavLink>
@@ -82,4 +86,6 @@ NavLink.propTypes = {
   currentPageCondition: PropTypes.bool,
   LinkComponent: PropTypes.object,
   children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  alt: PropTypes.string,
 }
