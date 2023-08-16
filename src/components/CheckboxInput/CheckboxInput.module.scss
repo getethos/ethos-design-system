@@ -7,6 +7,11 @@
   display: flex;
   align-items: stretch;
   min-height: var(--Space-56);
+
+  &:focus-visible {
+    outline: 2px solid var(--BrandForest);
+    border-radius: 2px;
+  }
 }
 
 .label {
