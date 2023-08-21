@@ -178,7 +178,7 @@ textarea {
    ========================================================================== */
 .body {
   --ContainerMaxWidth: 1440px;
-  --ContainerPadding--Phone: var(--Space-24);
+  --ContainerPadding--Phone: var(--Space-16);
   --ContainerPadding--Tablet: var(--Space-48);
   --ContainerPadding--Laptop: var(--Space-72);
   --ContainerPadding--Desktop: var(--Space-80);
@@ -233,18 +233,16 @@ textarea {
   color: var(--GrayPrimary--translucent);
   word-break: break-word;
 }
-
-b,
-strong {
+.body b,
+.body strong {
   font-weight: 500;
 }
-
-a {
+.body a {
   color: var(--GrayPrimary--translucent);
 }
-a,
-a:active,
-a:hover {
+.body a,
+.body a:active,
+.body a:hover {
   text-decoration: none;
 }
 
