@@ -36,7 +36,7 @@ export const NestedLinks = ({ link, trackingFunction, isNavVisible }) => {
       {subnav.items.map((subNavItem, idx) => (
         <div
           className={idx === activeAccordionItem ? styles.active : ''}
-          key={subNavItem.category}
+          key={`${subNavItem.id}_${subNavItem.category}`}
         >
           <div
             onClick={() => toggleAccordionItem(idx)}
@@ -51,7 +51,10 @@ export const NestedLinks = ({ link, trackingFunction, isNavVisible }) => {
             <AccordionToggleIcon />
           </div>
           {subNavItem.items.map((subItem) => (
-            <div key={subItem.id} className={styles.nestedCategoryChild}>
+            <div
+              key={`${subItem.id}_${subItem.title}`}
+              className={styles.nestedCategoryChild}
+            >
               <NavLink
                 trackingFunction={trackingFunction}
                 itemLabel={subItem.title}
