@@ -145,6 +145,7 @@ const UniversalNavbarExpanded = ({
             itemTrackingFunction={trackItemClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
+            partnerLogo={partnerLogo}
           />
           <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
