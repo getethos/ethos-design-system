@@ -12,7 +12,10 @@ export const NestedCategories = ({ child, trackingFunction }) => {
       <Banner cta={child.subnav.cta} />
       <div className={styles.categoriesWrapper}>
         {child.subnav.items.map((itemCategory) => (
-          <div className={styles.category} key={itemCategory.id}>
+          <div
+            className={styles.category}
+            key={`${itemCategory.id}_${itemCategory.category}`}
+          >
             <TitleSmall2.Serif.Book500 elementClasses={styles.categoryText}>
               {itemCategory.category}
             </TitleSmall2.Serif.Book500>
