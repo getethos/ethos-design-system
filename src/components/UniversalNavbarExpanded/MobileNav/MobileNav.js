@@ -71,7 +71,7 @@ BaseHamburger.propTypes = {
  * @param {boolean} hideMobileCta - Hide the cta
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  * @param {boolean} animateNavbar - navigation bar animation
- * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
+ * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
  *
  * @return {JSX.Element}
  */
@@ -87,7 +87,7 @@ const MobileNav = ({
   LinkComponent,
   singleCta = {},
   animateNavbar,
-  partnerLogo,
+  partnerLogoMobile,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -114,7 +114,7 @@ const MobileNav = ({
     MobileNavClasses.push(styles.mobileNavbarAnimation)
   }
 
-  if (partnerLogo) {
+  if (partnerLogoMobile) {
     MobileNavClasses.push(styles.isPartnerLogo)
   }
 
@@ -137,7 +137,7 @@ const MobileNav = ({
 
   return (
     <>
-      {!partnerLogo && !singleCta.href && <Hamburger />}
+      {!partnerLogoMobile && !singleCta.href && <Hamburger />}
       <div className={MobileNavClasses.join(' ')}>
         {!singleCta.href && (
           <div
@@ -199,7 +199,7 @@ const MobileNav = ({
           >
             <FancyAnimatedLogo />
           </NavLink>
-          {partnerLogo && (
+          {partnerLogoMobile && (
             <>
               <div className={styles.plus}>
                 <img
@@ -208,7 +208,7 @@ const MobileNav = ({
                   alt="Plus"
                 />
               </div>
-              <div className={styles.partnerLogo}>{partnerLogo}</div>
+              <div className={styles.partnerLogo}>{partnerLogoMobile}</div>
             </>
           )}
         </div>
@@ -239,7 +239,7 @@ MobileNav.propTypes = {
     title: PropTypes.string,
   }),
   animateNavbar: PropTypes.bool,
-  partnerLogo: PropTypes.node,
+  partnerLogoMobile: PropTypes.node,
 }
 
 export default MobileNav
