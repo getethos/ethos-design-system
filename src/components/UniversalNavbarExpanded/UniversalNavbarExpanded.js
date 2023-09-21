@@ -42,6 +42,7 @@ import { CTA_IDS } from '../UniversalNavbar/constants.js'
  * @param {boolean} animateMobileNavbar - navigation bar animation on mobile
  * @param {boolean} isLoggedIn - check if user is logged in
  * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
+ * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
  *
  * @return {JSX.Element}
  */
@@ -64,6 +65,7 @@ const UniversalNavbarExpanded = ({
   animateMobileNavbar,
   isLoggedIn,
   partnerLogo,
+  partnerLogoMobile,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -145,7 +147,7 @@ const UniversalNavbarExpanded = ({
             itemTrackingFunction={trackItemClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
-            partnerLogo={partnerLogo}
+            partnerLogoMobile={partnerLogoMobile}
           />
           <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
@@ -327,6 +329,7 @@ UniversalNavbarExpanded.propTypes = {
   animateMobileNavbar: PropTypes.bool,
   isLoggedIn: PropTypes.bool,
   partnerLogo: PropTypes.node,
+  partnerLogoMobile: PropTypes.node,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -344,6 +347,7 @@ UniversalNavbarExpanded.defaultProps = {
   animateMobileNavbar: false,
   isLoggedIn: false,
   partnerLogo: null,
+  partnerLogoMobile: null,
 }
 
 export { UniversalNavbarExpanded }
