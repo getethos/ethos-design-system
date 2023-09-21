@@ -8,7 +8,7 @@ export const CategoryLinks = ({ links, trackingFunction }) => {
   return (
     <div className={styles.linksWrapper}>
       {links.map((link) => (
-        <div className={styles.categoryLink} key={link.id}>
+        <div className={styles.categoryLink} key={`${link.id}_${link.title}`}>
           <NavLink
             itemLabel={link.title}
             href={link.href}
