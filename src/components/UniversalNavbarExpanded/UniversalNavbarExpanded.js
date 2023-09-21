@@ -329,6 +329,7 @@ UniversalNavbarExpanded.propTypes = {
   animateMobileNavbar: PropTypes.bool,
   isLoggedIn: PropTypes.bool,
   partnerLogo: PropTypes.node,
+  partnerLogoMobile: PropTypes.node,
 }
 
 UniversalNavbarExpanded.defaultProps = {
