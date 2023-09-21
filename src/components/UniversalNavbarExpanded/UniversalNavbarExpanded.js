@@ -278,8 +278,8 @@ UniversalNavbarExpanded.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         id: PropTypes.string.isRequired,
+        hasExpandedNav: PropTypes.bool,
         subnav: PropTypes.shape({
-          hasExpandedNav: PropTypes.bool.isRequired,
           cta: PropTypes.shape({
             href: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
