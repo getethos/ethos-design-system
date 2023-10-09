@@ -285,6 +285,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
           }
         }
         logoHref="/#/Components/UniversalNavbarExpanded"
+        partnerLogoMobile={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -917,6 +918,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
           }
         }
         logoHref="/#/Components/UniversalNavbarExpanded"
+        partnerLogoMobile={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -1549,6 +1551,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
+        partnerLogoMobile={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -2181,6 +2184,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           }
         }
         logoHref="/"
+        partnerLogoMobile={null}
         secondaryLinksLinks={
           Array [
             Object {
@@ -2814,6 +2818,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
           }
         }
         logoHref="/#/Components/UniversalNavbarExpanded"
+        partnerLogoMobile={null}
         secondaryLinksLinks={
           Array [
             Object {

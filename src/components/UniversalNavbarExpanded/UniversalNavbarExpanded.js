@@ -41,6 +41,8 @@ import { CTA_IDS } from '../UniversalNavbar/constants.js'
  * @param {boolean} animateDesktopNavbar - navigation bar animation on desktop
  * @param {boolean} animateMobileNavbar - navigation bar animation on mobile
  * @param {boolean} isLoggedIn - check if user is logged in
+ * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
+ * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
  *
  * @return {JSX.Element}
  */
@@ -62,6 +64,8 @@ const UniversalNavbarExpanded = ({
   animateDesktopNavbar,
   animateMobileNavbar,
   isLoggedIn,
+  partnerLogo,
+  partnerLogoMobile,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -121,6 +125,12 @@ const UniversalNavbarExpanded = ({
     laptopAndUpClasses.push(styles.animatedBackground)
   }
 
+  const logoClasses = [styles.logo]
+
+  if (partnerLogo) {
+    logoClasses.push(styles.combined)
+  }
+
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
@@ -137,6 +147,7 @@ const UniversalNavbarExpanded = ({
             itemTrackingFunction={trackItemClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
+            partnerLogoMobile={partnerLogoMobile}
           />
           <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
@@ -147,9 +158,21 @@ const UniversalNavbarExpanded = ({
                   trackingFunction={trackItemClick}
                   itemLabel={'Logo'}
                 >
-                  {LogoNotAnimated({ className: styles.logo })}
+                  {LogoNotAnimated({ className: logoClasses.join(' ') })}
                 </NavLink>
-                {!singleCta.href && (
+                {partnerLogo && (
+                  <>
+                    <div className={styles.plus}>
+                      <img
+                        src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                        title="Plus"
+                        alt="Plus"
+                      />
+                    </div>
+                    <div className={styles.partnerLogo}>{partnerLogo}</div>
+                  </>
+                )}
+                {!partnerLogo && !singleCta.href && (
                   <DropdownNav
                     links={links}
                     LinkComponent={LinkComponent}
@@ -305,6 +328,8 @@ UniversalNavbarExpanded.propTypes = {
   animateDesktopNavbar: PropTypes.bool,
   animateMobileNavbar: PropTypes.bool,
   isLoggedIn: PropTypes.bool,
+  partnerLogo: PropTypes.node,
+  partnerLogoMobile: PropTypes.node,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -321,6 +346,8 @@ UniversalNavbarExpanded.defaultProps = {
   animateDesktopNavbar: false,
   animateMobileNavbar: false,
   isLoggedIn: false,
+  partnerLogo: null,
+  partnerLogoMobile: null,
 }
 
 export { UniversalNavbarExpanded }
