@@ -96,6 +96,7 @@ export const ZipInput = (props) => {
         classOverrides={classOverrides}
         labelWeight={props.labelWeight}
         labelColor={props.labelColor}
+        disabled={props.disabled}
       />
       {getError(currentError, touched)}
     </>
