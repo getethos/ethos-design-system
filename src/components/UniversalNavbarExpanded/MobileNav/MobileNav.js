@@ -71,6 +71,7 @@ BaseHamburger.propTypes = {
  * @param {boolean} hideMobileCta - Hide the cta
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  * @param {boolean} animateNavbar - navigation bar animation
+ * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
  *
  * @return {JSX.Element}
  */
@@ -86,6 +87,7 @@ const MobileNav = ({
   LinkComponent,
   singleCta = {},
   animateNavbar,
+  partnerLogoMobile,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -112,6 +114,10 @@ const MobileNav = ({
     MobileNavClasses.push(styles.mobileNavbarAnimation)
   }
 
+  if (partnerLogoMobile) {
+    MobileNavClasses.push(styles.isPartnerLogo)
+  }
+
   const Hamburger = () => (
     <BaseHamburger
       className={styles.hamburger}
@@ -131,7 +137,7 @@ const MobileNav = ({
 
   return (
     <>
-      {!singleCta.href && <Hamburger />}
+      {!partnerLogoMobile && !singleCta.href && <Hamburger />}
       <div className={MobileNavClasses.join(' ')}>
         {!singleCta.href && (
           <div
@@ -180,18 +186,32 @@ const MobileNav = ({
             />
           </div>
         )}
-        <NavLink
-          className={styles.phoneLogoFancy}
-          href={singleCta.href ? singleCta.href : logoHref}
-          currentPageAwareness={true}
-          currentPageFunction={(e) => toggleHamburger(e)}
-          currentPageCondition={showMobileMenu}
-          LinkComponent={LinkComponent}
-          trackingFunction={itemTrackingFunction}
-          itemLabel={'Logo'}
-        >
-          <FancyAnimatedLogo />
-        </NavLink>
+        <div className={styles.leftBar}>
+          <NavLink
+            className={styles.phoneLogoFancy}
+            href={singleCta.href ? singleCta.href : logoHref}
+            currentPageAwareness={true}
+            currentPageFunction={(e) => toggleHamburger(e)}
+            currentPageCondition={showMobileMenu}
+            LinkComponent={LinkComponent}
+            trackingFunction={itemTrackingFunction}
+            itemLabel={'Logo'}
+          >
+            <FancyAnimatedLogo />
+          </NavLink>
+          {partnerLogoMobile && (
+            <>
+              <div className={styles.plus}>
+                <img
+                  src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                  title="Plus"
+                  alt="Plus"
+                />
+              </div>
+              <div className={styles.partnerLogo}>{partnerLogoMobile}</div>
+            </>
+          )}
+        </div>
         <CtaButton
           buttonStyle={ctaButtonStyle}
           href={singleCta.href ? singleCta.href : links.CTA.href}
@@ -219,6 +239,7 @@ MobileNav.propTypes = {
     title: PropTypes.string,
   }),
   animateNavbar: PropTypes.bool,
+  partnerLogoMobile: PropTypes.node,
 }
 
 export default MobileNav
