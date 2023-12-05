@@ -22,27 +22,27 @@
 .label input {
   cursor: inherit;
 }
-[data-disabled='true'] * {
+.CheckboxWrapper [data-disabled='true'] * {
   cursor: default;
 }
 .label > *:nth-child(2) {
   padding: 17px 0px 13px 0px;
 }
-[data-variant='textonly'][data-checked='true'] .label {
+.CheckboxWrapper [data-variant='textonly'][data-checked='true'] .label {
   background-color: var(--BrandForest);
   color: var(--White);
 }
 
-[data-checked='true'] label,
-[data-checked='true'] .tooltip,
-label:focus-within,
-label:focus-within ~ .tooltip {
+.CheckboxWrapper [data-checked='true'] label,
+.CheckboxWrapper [data-checked='true'] .tooltip,
+.CheckboxWrapper label:focus-within,
+.CheckboxWrapper label:focus-within ~ .tooltip {
   border-color: var(--BrandForest);
 }
 
-[data-error='true'] label,
-[data-error='true'] .tooltip,
-[data-error='true'] label ~ .tooltip {
+.CheckboxWrapper [data-error='true'] label,
+.CheckboxWrapper [data-error='true'] .tooltip,
+.CheckboxWrapper [data-error='true'] label ~ .tooltip {
   border-color: var(--BrandSunburn);
 }
 
@@ -63,7 +63,7 @@ label:focus-within ~ .tooltip {
   position: relative;
   padding-right: var(--Space-16);
 }
-[data-variant='textonly'] .checkboxWrapper2 {
+.CheckboxWrapper [data-variant='textonly'] .checkboxWrapper2 {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
   height: 1px;
