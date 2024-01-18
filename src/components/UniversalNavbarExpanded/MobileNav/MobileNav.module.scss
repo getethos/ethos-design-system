@@ -73,6 +73,7 @@ $navbar-border: solid 1px var(--GrayStrokeAndDisabled--translucent);
 .mobileNavbarAnimation {
   background-color: transparent;
   transition: background-color 1s ease-in-out;
+  border-bottom: $navbar-border;
 }
 
 .logo {
