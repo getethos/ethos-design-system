@@ -212,13 +212,15 @@ const MobileNav = ({
             </>
           )}
         </div>
-        <CtaButton
-          buttonStyle={ctaButtonStyle}
-          href={singleCta.href ? singleCta.href : links.CTA.href}
-          trackingFunction={ctaButtonTrackingFunction}
-          hideOnMobile={hideMobileCta}
-          title={singleCta.title ? singleCta.title : links.CTA.title}
-        />
+        {!partnerLogoMobile && (
+          <CtaButton
+            buttonStyle={ctaButtonStyle}
+            href={singleCta.href ? singleCta.href : links.CTA.href}
+            trackingFunction={ctaButtonTrackingFunction}
+            hideOnMobile={hideMobileCta}
+            title={singleCta.title ? singleCta.title : links.CTA.title}
+          />
+        )}
       </div>
     </>
   )
