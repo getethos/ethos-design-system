@@ -16,6 +16,22 @@ const playIcon = () => (
   </svg>
 )
 
+export const ForbesLogo = () => (
+  <img
+    src="https://res.cloudinary.com/getethos/image/upload/v1695280191/Forbes_Advisor_Logo_White_Horizontal_hsrnjr.svg"
+    title="Forbes"
+    alt="Forbes"
+  />
+)
+
+export const ForbesLogoMobile = () => (
+  <img
+    src="https://res.cloudinary.com/getethos/image/upload/v1706224055/Forbes_Advisor_Logo_White_Horizontal_ugyzji.svg"
+    title="Forbes"
+    alt="Forbes"
+  />
+)
+
 /**
  * Sample of UniversalNavbarExpanded links.
  * For demonstration in styleguide & test files (.md/.test.js files) only!
