@@ -184,7 +184,7 @@ export const CloudinaryImage = ({
       Object.assign(imgProps, { loading: 'lazy' })
     }
 
-    return <img alt={alt} {...imgProps} />
+    return <img className={styles.figure} alt={alt} {...imgProps} />
   }
 
   // Serve a simpler version if resource is SVG

@@ -4,49 +4,53 @@ exports[`NoraCheckboxInput default rendering 1`] = `
 <div
   className="NoraCheckboxInput"
 >
-  <label
-    className="root"
-    htmlFor="le-check"
+  <div
+    className="CheckboxWrapper"
   >
-    <div
-      className="checkboxWrapper"
+    <label
+      className="root"
+      htmlFor="le-check"
     >
-      <input
-        checked={false}
-        className="CheckboxInput"
-        data-tid="le-tid"
-        id="le-check"
-        name="le-check"
-        onChange={[Function]}
-        onKeyPress={[Function]}
-        type="checkbox"
-      />
-      <svg
-        className="Facade FacadeDefaultBackground FacadeBorder"
-        fill="none"
-        height="18"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        className="checkboxWrapper"
       >
-        <path
-          d="M 5.25 9.433594 L 2.816406 7 L 1.988281 7.820312 L 5.25 11.082031 L 12.25 4.082031 L 11.429688 3.261719 Z M 5.25 9.433594 "
-          fill="#fff"
+        <input
+          checked={false}
+          className="CheckboxInput"
+          data-tid="le-tid"
+          id="le-check"
+          name="le-check"
+          onChange={[Function]}
+          onKeyPress={[Function]}
+          type="checkbox"
         />
-      </svg>
-    </div>
-    <div
-      className="Body Theinhardt Regular400 GrayPrimary"
-    >
-      I agree to the
-       
-      <a
-        href="/"
-        target="_blank"
+        <svg
+          className="Facade FacadeDefaultBackground FacadeBorder"
+          fill="none"
+          height="18"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 5.25 9.433594 L 2.816406 7 L 1.988281 7.820312 L 5.25 11.082031 L 12.25 4.082031 L 11.429688 3.261719 Z M 5.25 9.433594 "
+            fill="#fff"
+          />
+        </svg>
+      </div>
+      <div
+        className="Body Theinhardt Regular400 GrayPrimary"
       >
-        Agreement
-      </a>
-    </div>
-  </label>
-  
+        I agree to the
+         
+        <a
+          href="/"
+          target="_blank"
+        >
+          Agreement
+        </a>
+      </div>
+    </label>
+    
+  </div>
 </div>
 `;
