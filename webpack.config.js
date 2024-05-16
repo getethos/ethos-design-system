@@ -2,9 +2,9 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  // resolve: {
-  //   modules: [path.resolve(__dirname, 'src'), 'node_modules']
-  // },
+  resolve: {
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  },
   entry: './src/components/index.js',
   output: {
     filename: 'bundle.js',
@@ -28,13 +28,11 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
       },
       {
         test: /\.s?css$/,
-        // We need to ensure sass-loader doesn't try to load flexboxgrid!
         exclude: [/flexboxgrid/, /node_modules/],
-        // So foo.module.scss gets treated as a css module foo.css does not
         oneOf: [
           {
             test: /\.module\.s?css$/,
@@ -65,22 +63,25 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader',
+        use: ['style-loader', 'css-loader'],
         include: /flexboxgrid/,
       },
       {
         test: /\.svg$/,
-        loader: 'file-loader',
-        query: {
-          name: 'static/media/[name].[hash:8].[ext]',
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/media/[name].[hash:8][ext]',
         },
       },
       {
         test: /\.(woff|woff2|eot)$/,
-        use: {
-          loader: 'url-loader',
-        },
+        type: 'asset/inline',
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
+  ],
 }
