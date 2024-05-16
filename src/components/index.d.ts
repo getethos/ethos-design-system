@@ -1019,6 +1019,7 @@ interface DateInputProps {
   keepCharPositions?: boolean
   pipe?: any
   mask?: (string | RegExp)[]
+  fullstoryMask?: boolean
 }
 
 export declare const DateInput: {
@@ -1041,6 +1042,7 @@ export declare const DateInput: {
     keepCharPositions,
     pipe,
     mask,
+    fullstoryMask,
     ...rest
   }: DateInputProps): JSX.Element
   propTypes: DateInputProps
@@ -1062,6 +1064,7 @@ export declare const BirthdateInput: {
     setFieldTouched,
     currentError,
     formChangeHandler,
+    fullstoryMask,
     ...rest
   }: {
     optional?: boolean
@@ -1079,6 +1082,7 @@ export declare const BirthdateInput: {
     setFieldTouched?: (touched: boolean) => void
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    fullstoryMask?: boolean
   }): JSX.Element
   propTypes: {
     optional?: boolean
@@ -1096,6 +1100,7 @@ export declare const BirthdateInput: {
     setFieldTouched?: (touched: boolean) => void
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    fullstoryMask?: boolean
   }
 }
 
