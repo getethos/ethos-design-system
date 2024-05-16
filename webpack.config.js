@@ -1,10 +1,8 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-  },
   entry: './src/components/index.js',
   output: {
     filename: 'bundle.js',
@@ -80,6 +78,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      process: { env: {} },
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
