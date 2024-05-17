@@ -384,19 +384,22 @@ export declare const CloudinaryImage: {
 }
 export declare const filePath: (publicId: any) => any
 export declare const preloadImageData: ({
-  crop, publicId, height, width,
+  crop,
+  publicId,
+  height,
+  width,
 }: {
-  crop: string,
+  crop: string
   /* the cloudinary image resource URL */
-  publicId: string,
-  height: number[],
+  publicId: string
+  height: number[]
   width: number[]
 }) => {
-  rel: 'preload',
-  href: string,
-  as: 'image',
-  media: string,
-  key: string,
+  rel: 'preload'
+  href: string
+  as: 'image'
+  media: string
+  key: string
 }[]
 
 export declare const SearchInput: {
@@ -824,7 +827,7 @@ interface TooltipProps {
   className?: string
   noLayout?: boolean
   softCorners?: boolean
-  trackingFunction?: ()=>void
+  trackingFunction?: () => void
 }
 
 export declare const Tooltip: {

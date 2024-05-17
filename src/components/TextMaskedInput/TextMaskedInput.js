@@ -92,7 +92,9 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    const base = fullstoryMask ? `TextMaskedInput ${styles.TextInputCommon} fs-exclude` : `TextMaskedInput ${styles.TextInputCommon}`
+    const base = fullstoryMask
+      ? `TextMaskedInput ${styles.TextInputCommon} fs-exclude`
+      : `TextMaskedInput ${styles.TextInputCommon}`
     return getError(currentError, whichTouched)
       ? `${base} ${errorStyles.Error}`
       : classOverrides
@@ -123,7 +125,10 @@ export const TextMaskedInput = (props) => {
   }
 
   // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
-  const maskedInputClass = `${styles.TextInputCommon} ${styles.TextInputStylable} ${styles.hasIcon}`
+  let maskedInputClass = `${styles.TextInputCommon} ${styles.TextInputStylable} ${styles.hasIcon}`
+  if (fullstoryMask) {
+    maskedInputClass += ' fs-exclude'
+  }
 
   return (
     <>
