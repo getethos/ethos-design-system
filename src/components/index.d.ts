@@ -869,6 +869,7 @@ export declare const TextMaskedInput: {
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
     icon?: IconTypes
+    fullstoryMask?: boolean
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -892,6 +893,7 @@ export declare const TextMaskedInput: {
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
     icon?: IconTypes
+    fullstoryMask?: boolean
   }
   defaultProps: {
     placeholder: string
@@ -899,6 +901,7 @@ export declare const TextMaskedInput: {
     keepCharPositions: boolean
     disabled: boolean
     allCaps: boolean
+    fullstoryMask: boolean
   }
 }
 

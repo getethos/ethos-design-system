@@ -85,6 +85,7 @@ const PrivateDateInput = (props) => {
   })
 
   const getClasses = () => {
+    console.log({fullstoryMask})
     const base = fullstoryMask ? `DateInput ${styles.TextInputCommon} fs-exclude` : `DateInput ${styles.TextInputCommon}`
     if (getError(currentError, touched)) {
       return `${base} ${errorStyles.Error}`

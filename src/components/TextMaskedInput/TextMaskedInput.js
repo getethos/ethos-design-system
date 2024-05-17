@@ -33,6 +33,7 @@ export const TextMaskedInput = (props) => {
     classOverrides,
     maxLength,
     icon,
+    fullstoryMask,
     ...restProps
   } = props
 
@@ -91,7 +92,7 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    const base = `TextMaskedInput ${styles.TextInputCommon}`
+    const base = fullstoryMask ? `TextMaskedInput ${styles.TextInputCommon} fs-exclude` : `TextMaskedInput ${styles.TextInputCommon}`
     return getError(currentError, whichTouched)
       ? `${base} ${errorStyles.Error}`
       : classOverrides
@@ -183,6 +184,8 @@ TextMaskedInput.PUBLIC_PROPS = {
   maxLength: PropTypes.number,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
+  /** include fs-exclude class for FullStory masking */
+  fullstoryMask: PropTypes.bool,
 }
 
 TextMaskedInput.propTypes = {
@@ -199,4 +202,5 @@ TextMaskedInput.defaultProps = {
   keepCharPositions: true,
   disabled: false,
   allCaps: true,
+  fullstoryMask: false,
 }
