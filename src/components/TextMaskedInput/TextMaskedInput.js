@@ -134,8 +134,8 @@ export const TextMaskedInput = (props) => {
 
   console.log({maskedInputClass})
 
-  const fullstoryMaskClass = fullstoryMask ? 'fs-exclude' : ''
-  console.log({fullstoryMaskClass})
+  // const fullstoryMaskClass = fullstoryMask ? 'fs-exclude' : ''
+  // console.log({fullstoryMaskClass})
 
   return (
     <>
@@ -152,7 +152,7 @@ export const TextMaskedInput = (props) => {
         {icon ? (
           <MaskedInput {...maskedInputProps} className={maskedInputClass} />
         ) : (
-          <MaskedInput {...maskedInputProps} className={fullstoryMaskClass}/>
+          <MaskedInput {...maskedInputProps}/>
         )}
         {Object.keys(VALID_ICONS).includes(icon) && (
           <div className={styles.TextInputIconWrapper}>
