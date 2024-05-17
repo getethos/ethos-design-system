@@ -96,6 +96,7 @@ export const TextMaskedInput = (props) => {
     const base = fullstoryMask
       ? `TextMaskedInput ${styles.TextInputCommon} fs-exclude`
       : `TextMaskedInput ${styles.TextInputCommon}`
+    console.log({base})
     return getError(currentError, whichTouched)
       ? `${base} ${errorStyles.Error}`
       : classOverrides

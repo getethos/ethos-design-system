@@ -127,6 +127,7 @@ const PrivateDateInput = (props) => {
         disabled={disabled}
         autoComplete={autoComplete}
         classOverrides={classOverrides}
+        fullstoryMask={fullstoryMask}
       />
       {getError(currentError, touched)}
     </>
