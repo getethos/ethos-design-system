@@ -92,11 +92,9 @@ export const TextMaskedInput = (props) => {
   }
 
   const getClasses = () => {
-    console.log({fullstoryMask})
     const base = fullstoryMask
       ? `TextMaskedInput ${styles.TextInputCommon} fs-exclude`
       : `TextMaskedInput ${styles.TextInputCommon}`
-    console.log({base})
     return getError(currentError, whichTouched)
       ? `${base} ${errorStyles.Error}`
       : classOverrides
@@ -132,11 +130,6 @@ export const TextMaskedInput = (props) => {
     maskedInputClass += ' fs-exclude'
   }
 
-  console.log({maskedInputClass})
-
-  // const fullstoryMaskClass = fullstoryMask ? 'fs-exclude' : ''
-  // console.log({fullstoryMaskClass})
-
   return (
     <>
       <InputLabel
@@ -152,7 +145,7 @@ export const TextMaskedInput = (props) => {
         {icon ? (
           <MaskedInput {...maskedInputProps} className={maskedInputClass} />
         ) : (
-          <MaskedInput {...maskedInputProps}/>
+          <MaskedInput {...maskedInputProps} />
         )}
         {Object.keys(VALID_ICONS).includes(icon) && (
           <div className={styles.TextInputIconWrapper}>
