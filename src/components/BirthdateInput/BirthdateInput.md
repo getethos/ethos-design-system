@@ -133,6 +133,7 @@ import {
           return (
             <BirthdateInput
               initialValue='08/19/2019'
+              fullstoryMask={true}
               {...props}
             />
           )

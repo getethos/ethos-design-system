@@ -384,19 +384,22 @@ export declare const CloudinaryImage: {
 }
 export declare const filePath: (publicId: any) => any
 export declare const preloadImageData: ({
-  crop, publicId, height, width,
+  crop,
+  publicId,
+  height,
+  width,
 }: {
-  crop: string,
+  crop: string
   /* the cloudinary image resource URL */
-  publicId: string,
-  height: number[],
+  publicId: string
+  height: number[]
   width: number[]
 }) => {
-  rel: 'preload',
-  href: string,
-  as: 'image',
-  media: string,
-  key: string,
+  rel: 'preload'
+  href: string
+  as: 'image'
+  media: string
+  key: string
 }[]
 
 export declare const SearchInput: {
@@ -824,7 +827,7 @@ interface TooltipProps {
   className?: string
   noLayout?: boolean
   softCorners?: boolean
-  trackingFunction?: ()=>void
+  trackingFunction?: () => void
 }
 
 export declare const Tooltip: {
@@ -869,6 +872,7 @@ export declare const TextMaskedInput: {
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
     icon?: IconTypes
+    fullstoryMask?: boolean
   }
   propTypes: {
     mask: (mask: (string | RegExp)[]) => any
@@ -892,6 +896,7 @@ export declare const TextMaskedInput: {
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
     icon?: IconTypes
+    fullstoryMask?: boolean
   }
   defaultProps: {
     placeholder: string
@@ -899,6 +904,7 @@ export declare const TextMaskedInput: {
     keepCharPositions: boolean
     disabled: boolean
     allCaps: boolean
+    fullstoryMask: boolean
   }
 }
 
@@ -1019,6 +1025,7 @@ interface DateInputProps {
   keepCharPositions?: boolean
   pipe?: any
   mask?: (string | RegExp)[]
+  fullstoryMask?: boolean
 }
 
 export declare const DateInput: {
@@ -1041,6 +1048,7 @@ export declare const DateInput: {
     keepCharPositions,
     pipe,
     mask,
+    fullstoryMask,
     ...rest
   }: DateInputProps): JSX.Element
   propTypes: DateInputProps
@@ -1062,6 +1070,7 @@ export declare const BirthdateInput: {
     setFieldTouched,
     currentError,
     formChangeHandler,
+    fullstoryMask,
     ...rest
   }: {
     optional?: boolean
@@ -1079,6 +1088,7 @@ export declare const BirthdateInput: {
     setFieldTouched?: (touched: boolean) => void
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    fullstoryMask?: boolean
   }): JSX.Element
   propTypes: {
     optional?: boolean
@@ -1096,6 +1106,7 @@ export declare const BirthdateInput: {
     setFieldTouched?: (touched: boolean) => void
     currentError?: string
     formChangeHandler?: (value: string, errorValue: string) => void
+    fullstoryMask?: boolean
   }
 }
 
