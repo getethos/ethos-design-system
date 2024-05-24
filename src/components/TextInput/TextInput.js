@@ -156,6 +156,7 @@ function PrivateTextInput({
           onChange={onChange}
           onBlur={onBlur}
           value={value}
+          maxLength={rest.maxLength}
           data-tid={rest['data-tid']}
           aria-label={name} // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute
           autoComplete={autoComplete}
@@ -180,6 +181,7 @@ PrivateTextInput.PUBLIC_PROPS = {
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,
   allCaps: PropTypes.bool,
+  maxLength: PropTypes.number,
   /** text transform capitalize label */
   capitalize: PropTypes.bool,
   initialValue: PropTypes.string,
