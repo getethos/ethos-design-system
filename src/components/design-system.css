@@ -233,18 +233,16 @@ textarea {
   color: var(--GrayPrimary--translucent);
   word-break: break-word;
 }
-
-b,
-strong {
+.body b,
+.body strong {
   font-weight: 500;
 }
-
-a {
+.body a {
   color: var(--GrayPrimary--translucent);
 }
-a,
-a:active,
-a:hover {
+.body a,
+.body a:active,
+.body a:hover {
   text-decoration: none;
 }
 
