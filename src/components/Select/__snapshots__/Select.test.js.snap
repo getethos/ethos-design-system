@@ -10,58 +10,69 @@ Object {
         data-tid="my-select"
       >
         <div
-          class="foo Compact root css-2b097c-container"
+          class="foo Compact root css-b62m3t-container"
         >
+          <span
+            class="css-1f43avz-a11yText-A11yText"
+            id="react-select-3-live-region"
+          />
+          <span
+            aria-atomic="false"
+            aria-live="polite"
+            aria-relevant="additions text"
+            class="css-1f43avz-a11yText-A11yText"
+            role="log"
+          />
           <div
-            class="StyledReactSelect__control css-yk16xz-control"
+            class="StyledReactSelect__control css-13cymwt-control"
           >
             <div
-              class="StyledReactSelect__value-container css-g1d714-ValueContainer"
+              class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
             >
               <div
-                class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
+                class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
+                id="react-select-3-placeholder"
               >
                 Type to search
               </div>
               <div
-                class="css-b8ldur-Input"
+                class="StyledReactSelect__input-container css-qbdosj-Input"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-describedby="react-select-3-placeholder"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  aria-label="Hello World"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  autocorrect="off"
                   class="StyledReactSelect__input"
-                  style="display: inline-block;"
-                >
-                  <input
-                    aria-autocomplete="list"
-                    aria-label="Hello World"
-                    autocapitalize="none"
-                    autocomplete="off"
-                    autocorrect="off"
-                    id="react-select-3-input"
-                    spellcheck="false"
-                    style="box-sizing: content-box; width: 2px; border: 0px; font-size: inherit; opacity: 1; outline: 0; padding: 0px;"
-                    tabindex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: inherit; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-                  />
-                </div>
+                  id="react-select-3-input"
+                  role="combobox"
+                  spellcheck="false"
+                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                  tabindex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
             <div
               class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
             >
               <span
-                class="StyledReactSelect__indicator-separator css-1okebmr-indicatorSeparator"
+                class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
               />
               <div
                 aria-hidden="true"
-                class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-tlfecz-indicatorContainer"
+                class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-1xc3v61-indicatorContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="css-6q0nyr-Svg"
+                  class="css-tj5bde-Svg"
                   focusable="false"
                   height="20"
                   viewBox="0 0 20 20"
@@ -90,58 +101,69 @@ Object {
       data-tid="my-select"
     >
       <div
-        class="foo Compact root css-2b097c-container"
+        class="foo Compact root css-b62m3t-container"
       >
+        <span
+          class="css-1f43avz-a11yText-A11yText"
+          id="react-select-3-live-region"
+        />
+        <span
+          aria-atomic="false"
+          aria-live="polite"
+          aria-relevant="additions text"
+          class="css-1f43avz-a11yText-A11yText"
+          role="log"
+        />
         <div
-          class="StyledReactSelect__control css-yk16xz-control"
+          class="StyledReactSelect__control css-13cymwt-control"
         >
           <div
-            class="StyledReactSelect__value-container css-g1d714-ValueContainer"
+            class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
           >
             <div
-              class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
+              class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
+              id="react-select-3-placeholder"
             >
               Type to search
             </div>
             <div
-              class="css-b8ldur-Input"
+              class="StyledReactSelect__input-container css-qbdosj-Input"
+              data-value=""
             >
-              <div
+              <input
+                aria-activedescendant=""
+                aria-autocomplete="list"
+                aria-describedby="react-select-3-placeholder"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-label="Hello World"
+                autocapitalize="none"
+                autocomplete="off"
+                autocorrect="off"
                 class="StyledReactSelect__input"
-                style="display: inline-block;"
-              >
-                <input
-                  aria-autocomplete="list"
-                  aria-label="Hello World"
-                  autocapitalize="none"
-                  autocomplete="off"
-                  autocorrect="off"
-                  id="react-select-3-input"
-                  spellcheck="false"
-                  style="box-sizing: content-box; width: 2px; border: 0px; font-size: inherit; opacity: 1; outline: 0; padding: 0px;"
-                  tabindex="0"
-                  type="text"
-                  value=""
-                />
-                <div
-                  style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: inherit; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-                />
-              </div>
+                id="react-select-3-input"
+                role="combobox"
+                spellcheck="false"
+                style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
           </div>
           <div
             class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
           >
             <span
-              class="StyledReactSelect__indicator-separator css-1okebmr-indicatorSeparator"
+              class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
             />
             <div
               aria-hidden="true"
-              class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-tlfecz-indicatorContainer"
+              class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-1xc3v61-indicatorContainer"
             >
               <svg
                 aria-hidden="true"
-                class="css-6q0nyr-Svg"
+                class="css-tj5bde-Svg"
                 focusable="false"
                 height="20"
                 viewBox="0 0 20 20"
@@ -227,57 +249,68 @@ Object {
         data-tid="my-select"
       >
         <div
-          class="foo Compact root css-2b097c-container"
+          class="foo Compact root css-b62m3t-container"
         >
+          <span
+            class="css-1f43avz-a11yText-A11yText"
+            id="react-select-2-live-region"
+          />
+          <span
+            aria-atomic="false"
+            aria-live="polite"
+            aria-relevant="additions text"
+            class="css-1f43avz-a11yText-A11yText"
+            role="log"
+          />
           <div
-            class="StyledReactSelect__control css-yk16xz-control"
+            class="StyledReactSelect__control css-13cymwt-control"
           >
             <div
-              class="StyledReactSelect__value-container css-g1d714-ValueContainer"
+              class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
             >
               <div
-                class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
+                class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
+                id="react-select-2-placeholder"
               >
                 Type to search
               </div>
               <div
-                class="css-b8ldur-Input"
+                class="StyledReactSelect__input-container css-qbdosj-Input"
+                data-value=""
               >
-                <div
+                <input
+                  aria-activedescendant=""
+                  aria-autocomplete="list"
+                  aria-describedby="react-select-2-placeholder"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  autocapitalize="none"
+                  autocomplete="off"
+                  autocorrect="off"
                   class="StyledReactSelect__input"
-                  style="display: inline-block;"
-                >
-                  <input
-                    aria-autocomplete="list"
-                    autocapitalize="none"
-                    autocomplete="off"
-                    autocorrect="off"
-                    id="react-select-2-input"
-                    spellcheck="false"
-                    style="box-sizing: content-box; width: 2px; border: 0px; font-size: inherit; opacity: 1; outline: 0; padding: 0px;"
-                    tabindex="0"
-                    type="text"
-                    value=""
-                  />
-                  <div
-                    style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: inherit; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-                  />
-                </div>
+                  id="react-select-2-input"
+                  role="combobox"
+                  spellcheck="false"
+                  style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                  tabindex="0"
+                  type="text"
+                  value=""
+                />
               </div>
             </div>
             <div
               class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
             >
               <span
-                class="StyledReactSelect__indicator-separator css-1okebmr-indicatorSeparator"
+                class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
               />
               <div
                 aria-hidden="true"
-                class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-tlfecz-indicatorContainer"
+                class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-1xc3v61-indicatorContainer"
               >
                 <svg
                   aria-hidden="true"
-                  class="css-6q0nyr-Svg"
+                  class="css-tj5bde-Svg"
                   focusable="false"
                   height="20"
                   viewBox="0 0 20 20"
@@ -301,57 +334,68 @@ Object {
       data-tid="my-select"
     >
       <div
-        class="foo Compact root css-2b097c-container"
+        class="foo Compact root css-b62m3t-container"
       >
+        <span
+          class="css-1f43avz-a11yText-A11yText"
+          id="react-select-2-live-region"
+        />
+        <span
+          aria-atomic="false"
+          aria-live="polite"
+          aria-relevant="additions text"
+          class="css-1f43avz-a11yText-A11yText"
+          role="log"
+        />
         <div
-          class="StyledReactSelect__control css-yk16xz-control"
+          class="StyledReactSelect__control css-13cymwt-control"
         >
           <div
-            class="StyledReactSelect__value-container css-g1d714-ValueContainer"
+            class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
           >
             <div
-              class="StyledReactSelect__placeholder css-1wa3eu0-placeholder"
+              class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
+              id="react-select-2-placeholder"
             >
               Type to search
             </div>
             <div
-              class="css-b8ldur-Input"
+              class="StyledReactSelect__input-container css-qbdosj-Input"
+              data-value=""
             >
-              <div
+              <input
+                aria-activedescendant=""
+                aria-autocomplete="list"
+                aria-describedby="react-select-2-placeholder"
+                aria-expanded="false"
+                aria-haspopup="true"
+                autocapitalize="none"
+                autocomplete="off"
+                autocorrect="off"
                 class="StyledReactSelect__input"
-                style="display: inline-block;"
-              >
-                <input
-                  aria-autocomplete="list"
-                  autocapitalize="none"
-                  autocomplete="off"
-                  autocorrect="off"
-                  id="react-select-2-input"
-                  spellcheck="false"
-                  style="box-sizing: content-box; width: 2px; border: 0px; font-size: inherit; opacity: 1; outline: 0; padding: 0px;"
-                  tabindex="0"
-                  type="text"
-                  value=""
-                />
-                <div
-                  style="position: absolute; top: 0px; left: 0px; visibility: hidden; height: 0px; overflow: scroll; white-space: pre; font-size: inherit; font-family: -webkit-small-control; letter-spacing: normal; text-transform: none;"
-                />
-              </div>
+                id="react-select-2-input"
+                role="combobox"
+                spellcheck="false"
+                style="opacity: 1; width: 100%; grid-area: 1 / 2; min-width: 2px; border: 0px; margin: 0px; outline: 0; padding: 0px;"
+                tabindex="0"
+                type="text"
+                value=""
+              />
             </div>
           </div>
           <div
             class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
           >
             <span
-              class="StyledReactSelect__indicator-separator css-1okebmr-indicatorSeparator"
+              class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
             />
             <div
               aria-hidden="true"
-              class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-tlfecz-indicatorContainer"
+              class="StyledReactSelect__indicator StyledReactSelect__dropdown-indicator css-1xc3v61-indicatorContainer"
             >
               <svg
                 aria-hidden="true"
-                class="css-6q0nyr-Svg"
+                class="css-tj5bde-Svg"
                 focusable="false"
                 height="20"
                 viewBox="0 0 20 20"
