@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // Reused assets from UniversalNavbar
 import FancyAnimatedLogo from '../../UniversalNavbar/FancyAnimatedLogo'
 import LogoGreen from '../../UniversalNavbar/assets/ethos-logo-green'
+import { AccountIcon } from '../../UniversalNavbar/assets/icons'
 import TransformingBurgerButton from '../../UniversalNavbar/TransformingBurgerButton/TransformingBurgerButton'
 
 // Parent component (UniversalNavbar) siblings
@@ -75,7 +76,12 @@ BaseHamburger.propTypes = {
  *
  * @return {JSX.Element}
  */
+
+
+
 const MobileNav = ({
+  treatment,
+  isLoggedIn,
   ctaButtonStyle,
   extraClass,
   logoHref,
@@ -126,6 +132,20 @@ const MobileNav = ({
       keyPressHandler={(e) => handleHamburgerKeyPress(e)}
     />
   )
+
+  const AccountIconLink = () => (
+    <NavLink
+      className={styles.accountIcon}
+      href={links.ACCOUNT.href}
+      trackingFunction={itemTrackingFunction}
+      itemLabel={'AccountIcon'}
+      title={isLoggedIn ? 'Account' : 'Log in'}
+      alt={isLoggedIn ? 'Account' : 'Log in'}
+    >
+      <AccountIcon />
+    </NavLink>
+  )
+
   // disable scrolling when mobile menu is open
   useEffect(() => {
     if (showMobileMenu) {
@@ -160,10 +180,11 @@ const MobileNav = ({
               </NavLink>
               <div className={styles.mobileCta}>
                 <CtaButton
+                  buttonStyle={treatment ? "BtnRoundedBlack" : ctaButtonStyle}
                   href={singleCta.href ? singleCta.href : links.CTA.href}
                   trackingFunction={ctaButtonTrackingFunction}
                   hideOnMobile={hideMobileCta}
-                  title={singleCta.title ? singleCta.title : links.CTA.title}
+                  title={"Start Applying"}
                 />
               </div>
               <Hamburger />
@@ -212,7 +233,7 @@ const MobileNav = ({
             </>
           )}
         </div>
-        {!partnerLogoMobile && (
+        {!partnerLogoMobile && !treatment && (
           <CtaButton
             buttonStyle={ctaButtonStyle}
             href={singleCta.href ? singleCta.href : links.CTA.href}
@@ -221,6 +242,17 @@ const MobileNav = ({
             title={singleCta.title ? singleCta.title : links.CTA.title}
           />
         )}
+        {treatment && !isLoggedIn ?
+          (
+            <CtaButton
+              buttonStyle="BtnRoundedOutline"
+              href={links.ACCOUNT.href}
+              trackingFunction={ctaButtonTrackingFunction}
+              title="Log in"
+            />
+          ) : (
+            <AccountIconLink />
+          )}
       </div>
     </>
   )

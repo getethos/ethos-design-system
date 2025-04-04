@@ -53,6 +53,7 @@ const UniversalNavbarExpanded = ({
   hideDesktopCta,
   hideSearchIcon,
   hideAccountIcon,
+  treatment,
   showSecondaryCta,
   logoHref,
   trackCtaClick,
@@ -147,6 +148,8 @@ const UniversalNavbarExpanded = ({
             itemTrackingFunction={trackItemClick}
             LinkComponent={LinkComponent}
             singleCta={singleCta}
+            treatment={treatment}
+            isLoggedIn={isLoggedIn}
             partnerLogoMobile={partnerLogoMobile}
           />
           <div className={laptopAndUpClasses.join(' ')}>
@@ -185,7 +188,20 @@ const UniversalNavbarExpanded = ({
                   <>
                     {estimateExperiment && <ExperimentCopy />}
                     {!hideSearchIcon && <SearchIconLink />}
-                    {!hideAccountIcon && <AccountIconLink />}
+
+                    {treatment && !isLoggedIn ? (
+                      <CtaButton
+                        buttonStyle={treatment ? "BtnRoundedOutline" : "BlackOutline"}
+                        href={links.ACCOUNT.href}
+                        trackingFunction={trackCtaClick}
+                        title="Log in"
+                      />
+                    ) : (
+                      !hideAccountIcon && (
+                        <AccountIconLink />
+                      )
+                    )}
+
                     {showSecondaryCta && (
                       <a
                         href={links.SECONDARY_CTA.href}
@@ -197,9 +213,9 @@ const UniversalNavbarExpanded = ({
                   </>
                 )}
                 <div id={CTA_IDS.BUTTON.OUTER} className={styles.cta}>
-                  {!hideDesktopCta && (
+                  {!hideDesktopCta && (!treatment || (treatment && !isLoggedIn)) && (
                     <CtaButton
-                      buttonStyle={ctaButtonStyle}
+                      buttonStyle={treatment ? "BtnRoundedBlack" : ctaButtonStyle}
                       href={singleCta.href ? singleCta.href : links.CTA.href}
                       trackingFunction={trackCtaClick}
                       id={CTA_IDS.BUTTON.INNER}
@@ -228,6 +244,9 @@ UniversalNavbarExpanded.propTypes = {
   hideSearchIcon: PropTypes.bool,
   /** Hide account icon on desktop and link on mobile */
   hideAccountIcon: PropTypes.bool,
+  /** Hide account icon on desktop and link on mobile */
+  treatment: PropTypes.bool, // <--- Add this
+
   /** Show secondary CTA text link */
   showSecondaryCta: PropTypes.bool,
   /** Analytics function run when CTA Button is clicked */
@@ -338,8 +357,9 @@ UniversalNavbarExpanded.defaultProps = {
   hideDesktopCta: false,
   hideSearchIcon: false,
   hideAccountIcon: false,
+  treatment: false,
   logoHref: '/',
-  trackCtaClick: () => {},
+  trackCtaClick: () => { },
   links: {},
   estimateExperiment: false,
   singleCta: {},

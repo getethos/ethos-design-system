@@ -44,6 +44,8 @@ const CtaButton = ({
   const buttons = {
     Black: Button.Small.Black,
     BlackOutline: Button.Small.BlackOutline,
+    BtnRoundedOutline: Button.Small.BtnRoundedOutline,
+    BtnRoundedBlack: Button.Small.BtnRoundedBlack,
   }
 
   const CTA = buttons[buttonStyle] || buttons.Black
@@ -61,7 +63,7 @@ const CtaButton = ({
 }
 
 CtaButton.propTypes = {
-  buttonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
+  buttonStyle: PropTypes.oneOf(['Black', 'BlackOutline', 'BtnRoundedOutline', 'BtnRoundedBlack']),
   hideOnMobile: PropTypes.bool,
   href: PropTypes.string.isRequired,
   trackingFunction: PropTypes.func.isRequired,

@@ -117,11 +117,11 @@ export interface ColProps extends HTMLAttributes<HTMLDivElement> {
   readonly tagName?: string
 }
 
-export class FlexGrid extends Component<GridProps, {}> {}
+export class FlexGrid extends Component<GridProps, {}> { }
 
-export class FlexRow extends Component<RowProps, {}> {}
+export class FlexRow extends Component<RowProps, {}> { }
 
-export class FlexCol extends Component<ColProps, {}> {}
+export class FlexCol extends Component<ColProps, {}> { }
 
 type facadeRendererParams = {
   className: string
@@ -327,6 +327,8 @@ export declare const Button: {
   }
   Small: {
     BlackOutline: (downstreamProps: downstreamButtonProps) => any
+    BtnRoundedOutline: (downstreamProps: downstreamButtonProps) => any
+    BtnRoundedBlack: (downstreamProps: downstreamButtonProps) => any
   }
   Unstyled: (downstreamProps: downstreamButtonProps) => any
   WhiteCTA: (downstreamProps: downstreamButtonProps) => any
@@ -575,17 +577,17 @@ export declare namespace ValueProps {
   var defaultProps: {
     sections: (
       | {
-          iconUrl: string
-          header: string
-          subHeader: string
-          alt: string
-        }
+        iconUrl: string
+        header: string
+        subHeader: string
+        alt: string
+      }
       | {
-          iconUrl: string
-          header: string
-          subHeader: string
-          alt?: undefined
-        }
+        iconUrl: string
+        header: string
+        subHeader: string
+        alt?: undefined
+      }
     )[]
   }
 }

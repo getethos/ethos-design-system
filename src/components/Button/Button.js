@@ -212,6 +212,9 @@ PrivateButton.STYLES = {
 
   // Only used for CMS 'Check my price' CTA button on hero
   WHITE_CTA: 'WhiteCTA',
+  BTN_ROUNDED_OUTLINE: 'BtnRoundedOutline',
+  BTN_ROUNDED_BLACK: 'BtnRoundedBlack',
+
 }
 
 PrivateButton.propTypes = {
@@ -285,6 +288,14 @@ export const Button = {
       size: PrivateButton.SIZES.SMALL,
       style: PrivateButton.STYLES.BLACK,
     }),
+    BtnRoundedOutline: ButtonFactory({
+      size: PrivateButton.SIZES.SMALL,
+      style: PrivateButton.STYLES.BTN_ROUNDED_OUTLINE,
+    }),
+    BtnRoundedBlack: ButtonFactory({
+      size: PrivateButton.SIZES.SMALL,
+      style: PrivateButton.STYLES.BTN_ROUNDED_BLACK,
+    })
   },
   Unstyled: ButtonFactory({
     size: PrivateButton.SIZES.UNSIZED,

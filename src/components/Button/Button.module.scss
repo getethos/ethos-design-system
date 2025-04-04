@@ -80,6 +80,7 @@
   background: none;
   border: none;
   padding: 0;
+
   .arrowIconInline {
     margin-top: 1px;
   }
@@ -92,9 +93,11 @@
 .Button.Black {
   background-color: var(--GrayPrimary--translucent);
   color: var(--White);
+
   path {
     fill: var(--White);
   }
+
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
@@ -111,36 +114,66 @@
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+
     path {
       fill: var(--White);
     }
   }
 }
 
-.Button.BlackOutline {
-  border-color: var(--GrayPrimary--opaque);
+.Button.BtnRoundedBlack {
+  border-radius: 8px;
+  background-color: var(--GrayPrimary--translucent);
+  color: var(--White);
+
+  path {
+    fill: var(--White);
+  }
+
+  @include light-on-dark-font-smoothing;
+
+  &:not([disabled]) {
+    &:hover {
+      background-color: var(--GrayDarkHover--translucent);
+    }
+
+    &:active {
+      background-color: var(--GrayDarkHover--translucent);
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--Transparent--white);
+    background-color: var(--GrayStrokeAndDisabled--translucent);
+    color: var(--White);
+
+    path {
+      fill: var(--White);
+    }
+  }
+}
+
+.Button.BtnRoundedOutline {
+  border-radius: 8px;
+  border-color: #ccc;
+  font-weight: 500;
   background-color: var(--Transparent--white);
   color: var(--GrayPrimary--opaque);
+
   path {
     fill: var(--GrayPrimary--opaque);
   }
 
   &:not([disabled]) {
-    &:hover {
-      border-color: var(--GrayDarkHover--translucent);
-      background-color: var(--GrayDarkHover--translucent);
-      color: var(--White);
-      path {
-        fill: var(--White);
-      }
-    }
-
+    &:hover,
     &:active {
-      border-color: var(--GrayDarkHover--translucent);
-      background-color: var(--GrayDarkHover--translucent);
-      color: var(--White);
+      /* Keep same as default */
+      border-color: #ccc; // ✨ Fix here!
+      background-color: var(--Transparent--white);
+      color: var(--GrayPrimary--opaque);
+
       path {
-        fill: var(--White);
+        fill: var(--GrayPrimary--opaque);
       }
     }
   }
@@ -149,6 +182,41 @@
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+
+    path {
+      fill: var(--White);
+    }
+  }
+}
+
+.Button.BlackOutline {
+  border-color: #ccc;
+  background-color: var(--Transparent--white);
+  color: var(--GrayPrimary--opaque);
+  font-weight: 500;
+  path {
+    fill: var(--GrayPrimary--opaque);
+  }
+
+  &:not([disabled]) {
+    &:hover,
+    &:active {
+      /* Keep same as default */
+      border-color: #ccc; // ✨ Fix here!
+      background-color: var(--Transparent--white);
+      color: var(--GrayPrimary--opaque);
+
+      path {
+        fill: var(--GrayPrimary--opaque);
+      }
+    }
+  }
+
+  &[disabled] {
+    border-color: var(--Transparent--white);
+    background-color: var(--GrayStrokeAndDisabled--translucent);
+    color: var(--White);
+
     path {
       fill: var(--White);
     }
@@ -158,9 +226,11 @@
 .Button.Salamander {
   background-color: var(--BrandSalamander);
   color: var(--White);
+
   path {
     fill: var(--White);
   }
+
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
@@ -177,6 +247,7 @@
     border-color: var(--Transparent--white);
     background-color: var(--BrandSand);
     color: var(--GrayStrokeAndDisabled--translucent);
+
     path {
       fill: var(--GrayStrokeAndDisabled--translucent);
     }
@@ -186,9 +257,11 @@
 .Button.DarkSalamander {
   background-color: var(--BrandDarkSalamander);
   color: var(--White);
+
   path {
     fill: var(--White);
   }
+
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
@@ -205,6 +278,7 @@
     border-color: var(--Transparent--white);
     background-color: var(--BrandSand);
     color: var(--GrayStrokeAndDisabled--translucent);
+
     path {
       fill: var(--GrayStrokeAndDisabled--translucent);
     }
@@ -214,9 +288,11 @@
 .Button.Cypress {
   background-color: var(--BrandCypress);
   color: var(--White);
+
   path {
     fill: var(--White);
   }
+
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
@@ -233,6 +309,7 @@
     border-color: var(--Transparent--white);
     background-color: var(--BrandSand);
     color: var(--GrayStrokeAndDisabled--translucent);
+
     path {
       fill: var(--GrayStrokeAndDisabled--translucent);
     }
@@ -242,9 +319,11 @@
 .Button.Lime {
   background-color: var(--BrandLime);
   color: var(--GrayPrimary--opaque);
+
   path {
     fill: var(--GrayPrimary--opaque);
   }
+
   @include light-on-dark-font-smoothing;
 
   &:not([disabled]) {
@@ -261,6 +340,7 @@
     border-color: var(--Transparent--white);
     background-color: var(--BrandSand);
     color: var(--GrayStrokeAndDisabled--translucent);
+
     path {
       fill: var(--GrayStrokeAndDisabled--translucent);
     }
@@ -271,6 +351,7 @@
   border-color: var(--White);
   background-color: var(--Transparent--white);
   color: var(--White);
+
   path {
     fill: var(--White);
   }
@@ -280,6 +361,7 @@
       border-color: var(--White);
       background-color: var(--White);
       color: var(--GrayPrimary--translucent);
+
       path {
         fill: var(--GrayPrimary--translucent);
       }
@@ -289,6 +371,7 @@
       border-color: var(--White);
       background-color: var(--White);
       color: var(--GrayPrimary--translucent);
+
       path {
         fill: var(--GrayPrimary--translucent);
       }
@@ -299,6 +382,7 @@
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+
     path {
       fill: var(--White);
     }
@@ -310,12 +394,15 @@
 .Button.WhiteCTA {
   background: var(--White);
   padding: var(--Space-16) var(--Space-32);
+
   @include for-phone-only {
     width: 100%;
   }
+
   @include for-tablet-and-up {
     width: auto;
   }
+
   &:hover,
   &:active {
     background: var(--GrayStrokeAndDisabled--opaque);
@@ -351,6 +438,7 @@
     border-color: var(--BrandForest);
     background-color: var(--BrandForest);
     color: var(--White);
+
     path {
       fill: var(--White);
     }
@@ -359,6 +447,7 @@
   border-color: var(--GrayStrokeAndDisabled--translucent);
   background-color: var(--Transparent--white);
   color: var(--GrayPrimary--translucent);
+
   path {
     fill: var(--GrayPrimary--translucent);
   }
@@ -368,6 +457,7 @@
       border-color: var(--GrayStrokeAndDisabled--translucent);
       background-color: var(--GrayLightHover--translucent);
       color: var(--GrayPrimary--translucent);
+
       path {
         fill: var(--GrayPrimary--translucent);
       }
@@ -387,6 +477,7 @@
     border-color: var(--Transparent--white);
     background-color: var(--GrayStrokeAndDisabled--translucent);
     color: var(--White);
+
     path {
       fill: var(--White);
     }
