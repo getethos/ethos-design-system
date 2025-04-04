@@ -17,6 +17,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
+        isLoggedIn={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -303,6 +304,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
           ]
         }
         singleCta={Object {}}
+        treatment={false}
       />
       <div
         className="laptopAndUp animatedBackground"
@@ -650,6 +652,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
+        isLoggedIn={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -936,6 +939,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
           ]
         }
         singleCta={Object {}}
+        treatment={false}
       />
       <div
         className="laptopAndUp animatedBackground"
@@ -1283,6 +1287,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
+        isLoggedIn={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -1569,6 +1574,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           ]
         }
         singleCta={Object {}}
+        treatment={false}
       />
       <div
         className="laptopAndUp"
@@ -1916,6 +1922,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
+        isLoggedIn={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -2202,6 +2209,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
           ]
         }
         singleCta={Object {}}
+        treatment={false}
       />
       <div
         className="laptopAndUp"
@@ -2550,6 +2558,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
         ctaButtonTrackingFunction={[Function]}
         extraClass="isFixedCta"
         hideMobileCta={false}
+        isLoggedIn={false}
         links={
           Object {
             "ACCOUNT": Object {
@@ -2832,6 +2841,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
           ]
         }
         singleCta={Object {}}
+        treatment={false}
       />
       <div
         className="laptopAndUp"
