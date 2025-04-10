@@ -43,7 +43,7 @@ import { CTA_IDS } from '../UniversalNavbar/constants.js'
  * @param {boolean} isLoggedIn - check if user is logged in
  * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
  * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
- * @param {node} renderCtaButton - render additional CTA node button in the Outer CTA div
+ * @param {node} renderCtaButton - render CTA node button in the Outer CTA div, prioritized over singleCta
  *
  * @return {JSX.Element}
  */
@@ -338,7 +338,7 @@ UniversalNavbarExpanded.propTypes = {
   partnerLogo: PropTypes.node,
   partnerLogoMobile: PropTypes.node,
   /**
-   * Render props function to render additional CTA button in the Outer CTA div
+   * Render props function to render CTA button in the Outer CTA div
    * @param isMobile Boolean - Whether the CTA button is on mobile
    * @returns {React.ReactNode} - The rendered CTA button
    */
