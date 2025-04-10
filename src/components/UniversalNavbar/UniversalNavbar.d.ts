@@ -13,6 +13,8 @@ type UniversalNavbarProps = {
   logoHref?: string
   /** State if use is logged in */
   isLoggedIn?: boolean
+  /** Render props function to render additional CTA button in the Outer CTA div */
+  renderCtaButton?: (props: { isMobile: boolean }) => React.ReactNode
 }
 
 export declare const UniversalNavbar: React.FC<UniversalNavbarProps>

@@ -43,6 +43,7 @@ import { CTA_IDS } from '../UniversalNavbar/constants.js'
  * @param {boolean} isLoggedIn - check if user is logged in
  * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
  * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
+ * @param {node} renderCtaButton - render additional CTA node button in the Outer CTA div
  *
  * @return {JSX.Element}
  */
@@ -66,6 +67,7 @@ const UniversalNavbarExpanded = ({
   isLoggedIn,
   partnerLogo,
   partnerLogoMobile,
+  renderCtaButton,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -148,6 +150,7 @@ const UniversalNavbarExpanded = ({
             LinkComponent={LinkComponent}
             singleCta={singleCta}
             partnerLogoMobile={partnerLogoMobile}
+            renderCtaButton={renderCtaButton}
           />
           <div className={laptopAndUpClasses.join(' ')}>
             <div className={styles.laptopAndUpContainer}>
@@ -197,17 +200,21 @@ const UniversalNavbarExpanded = ({
                   </>
                 )}
                 <div id={CTA_IDS.BUTTON.OUTER} className={styles.cta}>
-                  {!hideDesktopCta && (
-                    <CtaButton
-                      buttonStyle={ctaButtonStyle}
-                      href={singleCta.href ? singleCta.href : links.CTA.href}
-                      trackingFunction={trackCtaClick}
-                      id={CTA_IDS.BUTTON.INNER}
-                      title={
-                        singleCta.title ? singleCta.title : links.CTA.title
-                      }
-                    />
-                  )}
+                  {renderCtaButton
+                    ? renderCtaButton({ isMobile: false })
+                    : !hideDesktopCta && (
+                        <CtaButton
+                          buttonStyle={ctaButtonStyle}
+                          href={
+                            singleCta.href ? singleCta.href : links.CTA.href
+                          }
+                          trackingFunction={trackCtaClick}
+                          id={CTA_IDS.BUTTON.INNER}
+                          title={
+                            singleCta.title ? singleCta.title : links.CTA.title
+                          }
+                        />
+                      )}
                 </div>
               </div>
             </div>
@@ -330,6 +337,12 @@ UniversalNavbarExpanded.propTypes = {
   isLoggedIn: PropTypes.bool,
   partnerLogo: PropTypes.node,
   partnerLogoMobile: PropTypes.node,
+  /**
+   * Render props function to render additional CTA button in the Outer CTA div
+   * @param isMobile Boolean - Whether the CTA button is on mobile
+   * @returns {React.ReactNode} - The rendered CTA button
+   */
+  renderCtaButton: PropTypes.func,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -339,6 +352,7 @@ UniversalNavbarExpanded.defaultProps = {
   hideSearchIcon: false,
   hideAccountIcon: false,
   logoHref: '/',
+  renderCtaButton: undefined,
   trackCtaClick: () => {},
   links: {},
   estimateExperiment: false,

@@ -72,6 +72,7 @@ BaseHamburger.propTypes = {
  * @param {object} singleCta = { href: string, title: string } - A single CTA Title/URL to link to in a reduced version of the navbar
  * @param {boolean} animateNavbar - navigation bar animation
  * @param {node} partnerLogoMobile - image should be 24px height and 24px width. Image format could be any.
+ * @param {node} renderCtaButton - render CTA node button in the Outer CTA div, prioritized over singleCta
  *
  * @return {JSX.Element}
  */
@@ -88,6 +89,7 @@ const MobileNav = ({
   singleCta = {},
   animateNavbar,
   partnerLogoMobile,
+  renderCtaButton,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const toggleHamburger = () => {
@@ -159,12 +161,16 @@ const MobileNav = ({
                 {LogoGreen({ className: styles.logo })}
               </NavLink>
               <div className={styles.mobileCta}>
-                <CtaButton
-                  href={singleCta.href ? singleCta.href : links.CTA.href}
-                  trackingFunction={ctaButtonTrackingFunction}
-                  hideOnMobile={hideMobileCta}
-                  title={singleCta.title ? singleCta.title : links.CTA.title}
-                />
+                {renderCtaButton ? (
+                  renderCtaButton({ isMobile: true })
+                ) : (
+                  <CtaButton
+                    href={singleCta.href ? singleCta.href : links.CTA.href}
+                    trackingFunction={ctaButtonTrackingFunction}
+                    hideOnMobile={hideMobileCta}
+                    title={singleCta.title ? singleCta.title : links.CTA.title}
+                  />
+                )}
               </div>
               <Hamburger />
             </div>
@@ -212,15 +218,17 @@ const MobileNav = ({
             </>
           )}
         </div>
-        {!partnerLogoMobile && (
-          <CtaButton
-            buttonStyle={ctaButtonStyle}
-            href={singleCta.href ? singleCta.href : links.CTA.href}
-            trackingFunction={ctaButtonTrackingFunction}
-            hideOnMobile={hideMobileCta}
-            title={singleCta.title ? singleCta.title : links.CTA.title}
-          />
-        )}
+        {renderCtaButton
+          ? renderCtaButton({ isMobile: true })
+          : !partnerLogoMobile && (
+              <CtaButton
+                buttonStyle={ctaButtonStyle}
+                href={singleCta.href ? singleCta.href : links.CTA.href}
+                trackingFunction={ctaButtonTrackingFunction}
+                hideOnMobile={hideMobileCta}
+                title={singleCta.title ? singleCta.title : links.CTA.title}
+              />
+            )}
       </div>
     </>
   )
@@ -232,6 +240,7 @@ MobileNav.propTypes = {
   extraClass: PropTypes.string,
   ctaButtonTrackingFunction: PropTypes.func,
   itemTrackingFunction: PropTypes.func,
+  renderCtaButton: PropTypes.func,
   LinkComponent: PropTypes.object,
   logoHref: PropTypes.string.isRequired,
   secondaryLinksLinks: PropTypes.array.isRequired,
@@ -242,6 +251,10 @@ MobileNav.propTypes = {
   }),
   animateNavbar: PropTypes.bool,
   partnerLogoMobile: PropTypes.node,
+}
+
+MobileNav.defaultProps = {
+  renderCtaButton: undefined,
 }
 
 export default MobileNav
