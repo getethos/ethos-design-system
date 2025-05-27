@@ -131,7 +131,7 @@ const UniversalNavbarExpanded = ({
 
   const logoClasses = [styles.logo]
 
-  if (partnerLogo && !isIndependentLogo) {
+  if (partnerLogo) {
     logoClasses.push(styles.combined)
   }
 
