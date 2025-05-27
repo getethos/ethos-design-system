@@ -165,21 +165,21 @@ const UniversalNavbarExpanded = ({
                 >
                   {!isIndependentLogo &&
                     LogoNotAnimated({ className: logoClasses.join(' ') })}
-                  {partnerLogo && (
-                    <>
-                      {!isIndependentLogo && (
-                        <div className={styles.plus}>
-                          <img
-                            src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
-                            title="Plus"
-                            alt="Plus"
-                          />
-                        </div>
-                      )}
-                      <div className={styles.partnerLogo}>{partnerLogo}</div>
-                    </>
-                  )}
                 </NavLink>
+                {partnerLogo && (
+                  <>
+                    {!isIndependentLogo && (
+                      <div className={styles.plus}>
+                        <img
+                          src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                          title="Plus"
+                          alt="Plus"
+                        />
+                      </div>
+                    )}
+                    <div className={styles.partnerLogo}>{partnerLogo}</div>
+                  </>
+                )}
                 {!partnerLogo && !singleCta.href && (
                   <DropdownNav
                     links={links}
