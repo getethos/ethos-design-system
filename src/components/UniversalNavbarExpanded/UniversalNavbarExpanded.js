@@ -44,6 +44,7 @@ import { CTA_IDS } from '../UniversalNavbar/constants.js'
  * @param {node} partnerLogo - image should be 24px height and width maximum 100px. Image format could be any.
  * @param {node} partnerLogoMobile - image should be 24px height and width maximum 100px. Image format could be any.
  * @param {node} renderCtaButton - render CTA node button in the Outer CTA div, prioritized over singleCta
+ * @param {boolean} isIndependentLogo - Whether to show only partner logo without Ethos logo
  *
  * @return {JSX.Element}
  */
@@ -68,6 +69,7 @@ const UniversalNavbarExpanded = ({
   partnerLogo,
   partnerLogoMobile,
   renderCtaButton,
+  isIndependentLogo = false,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -129,7 +131,7 @@ const UniversalNavbarExpanded = ({
 
   const logoClasses = [styles.logo]
 
-  if (partnerLogo) {
+  if (partnerLogo && !isIndependentLogo) {
     logoClasses.push(styles.combined)
   }
 
@@ -161,20 +163,23 @@ const UniversalNavbarExpanded = ({
                   trackingFunction={trackItemClick}
                   itemLabel={'Logo'}
                 >
-                  {LogoNotAnimated({ className: logoClasses.join(' ') })}
+                  {!isIndependentLogo &&
+                    LogoNotAnimated({ className: logoClasses.join(' ') })}
+                  {partnerLogo && (
+                    <>
+                      {!isIndependentLogo && (
+                        <div className={styles.plus}>
+                          <img
+                            src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                            title="Plus"
+                            alt="Plus"
+                          />
+                        </div>
+                      )}
+                      <div className={styles.partnerLogo}>{partnerLogo}</div>
+                    </>
+                  )}
                 </NavLink>
-                {partnerLogo && (
-                  <>
-                    <div className={styles.plus}>
-                      <img
-                        src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
-                        title="Plus"
-                        alt="Plus"
-                      />
-                    </div>
-                    <div className={styles.partnerLogo}>{partnerLogo}</div>
-                  </>
-                )}
                 {!partnerLogo && !singleCta.href && (
                   <DropdownNav
                     links={links}
@@ -343,6 +348,8 @@ UniversalNavbarExpanded.propTypes = {
    * @returns {React.ReactNode} - The rendered CTA button
    */
   renderCtaButton: PropTypes.func,
+  /** Whether to show only partner logo without Ethos logo */
+  isIndependentLogo: PropTypes.bool,
 }
 
 UniversalNavbarExpanded.defaultProps = {
@@ -362,6 +369,7 @@ UniversalNavbarExpanded.defaultProps = {
   isLoggedIn: false,
   partnerLogo: null,
   partnerLogoMobile: null,
+  isIndependentLogo: false,
 }
 
 export { UniversalNavbarExpanded }
