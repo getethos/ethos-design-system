@@ -7,14 +7,11 @@ import React from 'react'
 const EthosLogoFancyE = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 971.997 180.498"
+    viewBox="0 0 83 16"
     {...props}
   >
     <title>ethos-logo-E</title>
-    <path
-      d="M0 2.845v175.23h129.318v-29.208H29.202v-43.806h86.988V75.859H29.202V32.047h100.116V2.845H0z"
-      fill="#054742"
-    />
+    <path d="M11.6369 0.200348V3.32171H3.07416V6.44307H10.5316V9.53622H3.07416V12.6852H11.6369V15.7784H0V0.200348H11.6369Z" fill="#056257"/>
   </svg>
 )
 
