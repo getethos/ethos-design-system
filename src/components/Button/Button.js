@@ -63,6 +63,8 @@ function PrivateButton({
   backArrowIcon,
   refreshIcon,
   debounceDurationMs = DEFAULT_DEBOUNCE_DURATION_MS,
+  'data-track-button': dataTrackButton = true,
+  'data-properties': dataProperties,
   ...rest
 }) {
   const [isDebounced, debouncedOnClick] = useDebounce(
@@ -118,6 +120,8 @@ function PrivateButton({
       onClick={debouncedOnClick}
       data-tid={rest['data-tid']}
       role={role}
+      data-track-button={dataTrackButton}
+      data-properties={dataProperties}
     >
       {backArrowIcon && ArrowIconInline(true)}
       {ariaLabelId ? <span id={ariaLabelId}>{children}</span> : children}
@@ -176,6 +180,8 @@ PrivateButton.PUBLIC_PROPS = {
   role: PropTypes.string,
   children: PropTypes.node,
   'data-tid': PropTypes.string,
+  'data-track-button': PropTypes.bool,
+  'data-properties': PropTypes.string,
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
   name: PropTypes.string,
