@@ -120,7 +120,7 @@ function PrivateButton({
       onClick={debouncedOnClick}
       data-tid={rest['data-tid']}
       role={role}
-      data-track-button={dataTrackButton}Add commentMore actions
+      data-track-button={dataTrackButton}
       data-properties={dataProperties}
     >
       {backArrowIcon && ArrowIconInline(true)}
