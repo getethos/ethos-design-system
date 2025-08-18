@@ -6,7 +6,7 @@ const IntentOptions = [
   { value: NEXT_7_DAYS },
   { value: 'In 1 to 2 months' },
   { value: 'After 3 months' },
-]
+];
 
 <RadioButtonGroup2
   name='intent-to-apply'
@@ -31,7 +31,7 @@ const IntentOptions = [
   { value: NEXT_7_DAYS },
   { value: 'In 1 to 2 months' },
   { value: 'After 3 months' },
-]
+];
 
 <RadioButtonGroup2
   name='intent-to-apply'
@@ -58,7 +58,7 @@ const CoverageOptions = [
   { value: '15 years' },
   { value: '20 years' },
   { value: '30 years' },
-]
+];
 
 <RadioButtonGroup2
   name='intent-to-apply'
@@ -90,7 +90,7 @@ const CoverageOptions = [
   { value: '20 years' },
   { value: '30 years' },
   { value: 'lifetime' },
-]
+];
 
 <RadioButtonGroup2
   name='coverage-options'
