@@ -34,7 +34,7 @@ const IntentOptions = [
 ]
 
 <RadioButtonGroup2
-  name='intent-to-apply"
+  name='intent-to-apply'
   labelCopy='When would you like to apply?'
   onChange={({ value }) => console.log(value)}
   validator={(x) => (x === NEXT_7_DAYS ? 'This one is invalid.' : '')}
