@@ -8,9 +8,9 @@ const IntentOptions = [
   { value: 'After 3 months' },
 ]
 
-;<RadioButtonGroup2
-  name="intent-to-apply"
-  labelCopy="When would you like to apply?"
+<RadioButtonGroup2
+  name='intent-to-apply'
+  labelCopy='When would you like to apply?'
   onChange={({ value }) => console.log(value)}
   validator={(x) => (x === NEXT_7_DAYS ? 'This one is invalid.' : '')}
   options={IntentOptions.map((t) => ({
@@ -33,9 +33,9 @@ const IntentOptions = [
   { value: 'After 3 months' },
 ]
 
-;<RadioButtonGroup2
-  name="intent-to-apply"
-  labelCopy="When would you like to apply?"
+<RadioButtonGroup2
+  name='intent-to-apply"
+  labelCopy='When would you like to apply?'
   onChange={({ value }) => console.log(value)}
   validator={(x) => (x === NEXT_7_DAYS ? 'This one is invalid.' : '')}
   options={IntentOptions.map((t) => ({
@@ -60,9 +60,9 @@ const CoverageOptions = [
   { value: '30 years' },
 ]
 
-;<RadioButtonGroup2
-  name="intent-to-apply"
-  labelCopy=""
+<RadioButtonGroup2
+  name='intent-to-apply'
+  labelCopy=''
   onChange={({ value }) => console.log(value)}
   options={CoverageOptions.map((t) => ({
     name: t.value,
@@ -92,9 +92,9 @@ const CoverageOptions = [
   { value: 'lifetime' },
 ]
 
-;<RadioButtonGroup2
-  name="coverage-options"
-  labelCopy="Coverage Options"
+<RadioButtonGroup2
+  name='coverage-options'
+  labelCopy='Coverage Options'
   onChange={({ value }) => console.log(value)}
   options={CoverageOptions.map((t) => ({
     name: t.value,
