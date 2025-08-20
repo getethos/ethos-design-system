@@ -27,6 +27,7 @@ Array [
     >
       <button
         className="Button Medium Stateful"
+        data-track-button={true}
         disabled={false}
         onClick={[Function]}
         role="radio"
@@ -40,6 +41,7 @@ Array [
       </button>
       <button
         className="Button Medium Stateful"
+        data-track-button={true}
         disabled={false}
         onClick={[Function]}
         role="radio"
@@ -84,6 +86,7 @@ Array [
     >
       <button
         className="Button Medium Stateful"
+        data-track-button={true}
         disabled={false}
         onClick={[Function]}
         role="radio"
@@ -97,6 +100,7 @@ Array [
       </button>
       <button
         className="Button Medium Stateful"
+        data-track-button={true}
         disabled={false}
         onClick={[Function]}
         role="radio"
@@ -141,6 +145,7 @@ Array [
     >
       <button
         className="Button Medium Stateful White"
+        data-track-button={true}
         disabled={false}
         onClick={[Function]}
         role="radio"
@@ -154,6 +159,7 @@ Array [
       </button>
       <button
         className="Button Medium Stateful White"
+        data-track-button={true}
         disabled={false}
         onClick={[Function]}
         role="radio"
