@@ -19,7 +19,7 @@ jobs:
         run: echo "GITHUB_SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
       - name: Cache dependencies
         id: cache-dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: node_modules
           # Don't share with other workflows because we are using `--production=false`
