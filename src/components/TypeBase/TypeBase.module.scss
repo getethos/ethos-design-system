@@ -156,12 +156,12 @@
   line-height: calc(var(--base-line-height) / var(--base-font-size));
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+.body h1,
+.body h2,
+.body h3,
+.body h4,
+.body h5,
+.body h6,
 .TitleSmall,
 .TitleMedium,
 .TitleLarge,

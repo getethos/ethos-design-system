@@ -101,7 +101,7 @@ export const CheckboxInput = ({
   const resolvedIsChecked = typeof checked !== 'undefined' ? checked : isChecked
 
   return (
-    <>
+    <div className={styles.CheckboxWrapper}>
       <label htmlFor={name} className={styles.root}>
         <div className={styles.checkboxWrapper}>
           <input
@@ -122,7 +122,7 @@ export const CheckboxInput = ({
         </Body.Regular400>
       </label>
       {getError(currentError, touched)}
-    </>
+    </div>
   )
 }
 

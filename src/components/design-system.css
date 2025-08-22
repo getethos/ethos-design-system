@@ -18,7 +18,7 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-body {
+.body {
   margin: 0;
 }
 
@@ -129,7 +129,7 @@ textarea {
 
 /* @getethos/design-system/Colors.scss
    ========================================================================== */
-:root {
+.body {
   --BrandSand: #e5e0d9;
   --BrandDuckegg: #deebff;
   --BrandSalamander: #fa640a;
@@ -159,13 +159,13 @@ textarea {
   --BrandSunburn: #e11f13;
 }
 
-:root {
+.body {
   --BoxShadow-Outer-light: 0 0 var(--Space-12) var(--GrayLightHover--opaque);
 }
 
 /* @getethos/design-system/Animation.scss
    ========================================================================== */
-:root {
+.body {
   --transition-default: all 200ms cubic-bezier(0.21, 0.61, 0.35, 1);
   --transition-duration-short: 200ms;
   --transition-duration-medium: 500ms;
@@ -176,7 +176,7 @@ textarea {
 
 /* @getethos/design-system/Layout.scss
    ========================================================================== */
-:root {
+.body {
   --ContainerMaxWidth: 1440px;
   --ContainerPadding--Phone: var(--Space-24);
   --ContainerPadding--Tablet: var(--Space-48);
@@ -186,7 +186,7 @@ textarea {
 
 /* @getethos/design-system/Spacer.scss
    ========================================================================== */
-:root {
+.body {
   --Space-80: 80px;
   --Space-72: 72px;
   --Space-64: 64px;
@@ -217,7 +217,7 @@ textarea {
 
 /* @getethos/design-system/Type.scss
    ========================================================================== */
-:root {
+.body {
   --system-sans-font-stack: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     Helvetica, Arial, sans-serif;
   --system-serif-font-stack: Georgia, 'Times New Roman', serif;
@@ -228,7 +228,7 @@ textarea {
   --compact-font-size: 15;
 }
 
-body {
+.body {
   font-family: var(--Theinhardt-font-stack);
   color: var(--GrayPrimary--translucent);
   word-break: break-word;
