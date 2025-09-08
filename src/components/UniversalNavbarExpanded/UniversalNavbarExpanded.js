@@ -92,6 +92,7 @@ const UniversalNavbarExpanded = ({
       itemLabel={'SearchIcon'}
       title="Search"
       alt="Search"
+      rel="nofollow"
     >
       <SearchIcon />
     </NavLink>
@@ -105,6 +106,7 @@ const UniversalNavbarExpanded = ({
       itemLabel={'AccountIcon'}
       title={isLoggedIn ? 'Account' : 'Log in'}
       alt={isLoggedIn ? 'Account' : 'Log in'}
+      rel="nofollow"
     >
       <AccountIcon />
     </NavLink>

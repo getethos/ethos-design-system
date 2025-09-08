@@ -37,20 +37,15 @@ const DropdownChildren = ({
   LinkComponent,
   trackingFunction,
 }) => {
-  // ------------------------------------------------
-  // Split the links for the subnav into two columns.
-  // Related to the way design wanted spacing to work.
-  // Helps account for items of variable text length.
-  // The order of the links should be:
-  // 1 || 2
-  // 3 || 4
-  // 5 || 6
-  const columns = [[], []]
-  const childItems = get(child, 'subnav.items')
+  const childItems = get(child, 'subnav.items', [])
   const hasNestedCategories = child.hasExpandedNav
-  childItems.map((childItem, i) => {
-    columns[i % 2 === 0 ? 0 : 1].push(childItems[i])
-  })
+
+  // Split items into two columns - first column gets more items for odd numbers
+  const halfItemsCount = Math.ceil(childItems.length / 2)
+  const columns = [
+    childItems.slice(0, halfItemsCount),
+    childItems.slice(halfItemsCount),
+  ]
   // ------------------------------------------------
   const classes = [styles.children]
   if (containerClasses) {
