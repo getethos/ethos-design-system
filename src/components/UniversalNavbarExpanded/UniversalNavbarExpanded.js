@@ -141,11 +141,9 @@ const UniversalNavbarExpanded = ({
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
-    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`)
+    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`)
       .matches
   }
-
-  console.log('isMobile', isMobile())
 
   return (
     <div className={styles.navbarWrapper}>
