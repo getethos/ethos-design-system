@@ -137,95 +137,109 @@ const UniversalNavbarExpanded = ({
     logoClasses.push(styles.combined)
   }
 
+  const isMobile = () => {
+    if (typeof window === 'undefined') return false
+    return window.matchMedia(`(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px)`)
+      .matches
+  }
+
+  console.log('isMobile', isMobile())
+
   return (
     <div className={styles.navbarWrapper}>
       <div className={styles.navbar}>
         <Layout.ScrollDetector>
-          <MobileNav
-            animateNavbar={animateMobileNavbar}
-            ctaButtonStyle={ctaButtonStyle}
-            extraClass={'isFixedCta'}
-            logoHref={logoHref}
-            links={links}
-            secondaryLinksLinks={BELOW_ACCORDION_LINKS}
-            hideMobileCta={hideMobileCta}
-            ctaButtonTrackingFunction={trackCtaClick}
-            itemTrackingFunction={trackItemClick}
-            LinkComponent={LinkComponent}
-            singleCta={singleCta}
-            partnerLogoMobile={partnerLogoMobile}
-            renderCtaButton={renderCtaButton}
-          />
-          <div className={laptopAndUpClasses.join(' ')}>
-            <div className={styles.laptopAndUpContainer}>
-              <div className={layoutClasses.join(' ')}>
-                <NavLink
-                  href={singleCta.href ? singleCta.href : logoHref}
-                  LinkComponent={LinkComponent}
-                  trackingFunction={trackItemClick}
-                  itemLabel={'Logo'}
-                >
-                  {!isIndependentLogo &&
-                    LogoNotAnimated({ className: logoClasses.join(' ') })}
-                </NavLink>
-                {partnerLogo && (
-                  <>
-                    {!isIndependentLogo && (
-                      <div className={styles.plus}>
-                        <img
-                          src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
-                          title="Plus"
-                          alt="Plus"
-                        />
-                      </div>
-                    )}
-                    <div className={styles.partnerLogo}>{partnerLogo}</div>
-                  </>
-                )}
-                {!partnerLogo && !singleCta.href && (
-                  <DropdownNav
-                    links={links}
+          {isMobile() && (
+            <MobileNav
+              animateNavbar={animateMobileNavbar}
+              ctaButtonStyle={ctaButtonStyle}
+              extraClass={'isFixedCta'}
+              logoHref={logoHref}
+              links={links}
+              secondaryLinksLinks={BELOW_ACCORDION_LINKS}
+              hideMobileCta={hideMobileCta}
+              ctaButtonTrackingFunction={trackCtaClick}
+              itemTrackingFunction={trackItemClick}
+              LinkComponent={LinkComponent}
+              singleCta={singleCta}
+              partnerLogoMobile={partnerLogoMobile}
+              renderCtaButton={renderCtaButton}
+            />
+          )}
+          {!isMobile() && (
+            <div className={laptopAndUpClasses.join(' ')}>
+              <div className={styles.laptopAndUpContainer}>
+                <div className={layoutClasses.join(' ')}>
+                  <NavLink
+                    href={singleCta.href ? singleCta.href : logoHref}
                     LinkComponent={LinkComponent}
                     trackingFunction={trackItemClick}
-                  />
-                )}
-              </div>
-              <div className={layoutClasses.join(' ')}>
-                {!singleCta.href && (
-                  <>
-                    {estimateExperiment && <ExperimentCopy />}
-                    {!hideSearchIcon && <SearchIconLink />}
-                    {!hideAccountIcon && <AccountIconLink />}
-                    {showSecondaryCta && (
-                      <a
-                        href={links.SECONDARY_CTA.href}
-                        onClick={trackSecondaryCtaClick}
-                      >
-                        {links.SECONDARY_CTA.title}
-                      </a>
-                    )}
-                  </>
-                )}
-                <div id={CTA_IDS.BUTTON.OUTER} className={styles.cta}>
-                  {renderCtaButton
-                    ? renderCtaButton({ isMobile: false })
-                    : !hideDesktopCta && (
-                        <CtaButton
-                          buttonStyle={ctaButtonStyle}
-                          href={
-                            singleCta.href ? singleCta.href : links.CTA.href
-                          }
-                          trackingFunction={trackCtaClick}
-                          id={CTA_IDS.BUTTON.INNER}
-                          title={
-                            singleCta.title ? singleCta.title : links.CTA.title
-                          }
-                        />
+                    itemLabel={'Logo'}
+                  >
+                    {!isIndependentLogo &&
+                      LogoNotAnimated({ className: logoClasses.join(' ') })}
+                  </NavLink>
+                  {partnerLogo && (
+                    <>
+                      {!isIndependentLogo && (
+                        <div className={styles.plus}>
+                          <img
+                            src="https://res.cloudinary.com/getethos/image/upload/v1691063818/pluss_aizsda.svg"
+                            title="Plus"
+                            alt="Plus"
+                          />
+                        </div>
                       )}
+                      <div className={styles.partnerLogo}>{partnerLogo}</div>
+                    </>
+                  )}
+                  {!partnerLogo && !singleCta.href && (
+                    <DropdownNav
+                      links={links}
+                      LinkComponent={LinkComponent}
+                      trackingFunction={trackItemClick}
+                    />
+                  )}
+                </div>
+                <div className={layoutClasses.join(' ')}>
+                  {!singleCta.href && (
+                    <>
+                      {estimateExperiment && <ExperimentCopy />}
+                      {!hideSearchIcon && <SearchIconLink />}
+                      {!hideAccountIcon && <AccountIconLink />}
+                      {showSecondaryCta && (
+                        <a
+                          href={links.SECONDARY_CTA.href}
+                          onClick={trackSecondaryCtaClick}
+                        >
+                          {links.SECONDARY_CTA.title}
+                        </a>
+                      )}
+                    </>
+                  )}
+                  <div id={CTA_IDS.BUTTON.OUTER} className={styles.cta}>
+                    {renderCtaButton
+                      ? renderCtaButton({ isMobile: false })
+                      : !hideDesktopCta && (
+                          <CtaButton
+                            buttonStyle={ctaButtonStyle}
+                            href={
+                              singleCta.href ? singleCta.href : links.CTA.href
+                            }
+                            trackingFunction={trackCtaClick}
+                            id={CTA_IDS.BUTTON.INNER}
+                            title={
+                              singleCta.title
+                                ? singleCta.title
+                                : links.CTA.title
+                            }
+                          />
+                        )}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </Layout.ScrollDetector>
       </div>
     </div>
