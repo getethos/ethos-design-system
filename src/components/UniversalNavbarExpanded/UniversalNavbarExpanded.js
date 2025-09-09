@@ -20,6 +20,8 @@ import MobileNav from './MobileNav/MobileNav'
 import styles from './UniversalNavbarExpanded.module.scss'
 import { CTA_IDS } from '../UniversalNavbar/constants.js'
 
+import { Media } from '../Media/Media'
+
 /**
  * Top level website navigation, fixed to the top of the viewport while scrolling.
  * Consumers can provide a custom link and content structure.
@@ -139,7 +141,7 @@ const UniversalNavbarExpanded = ({
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
-    return window.matchMedia(`(max-width: ${BREAKPOINTS.PHONE_RANGE_END}px)`)
+    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.PHONE_RANGE_END}px)`)
       .matches
   }
 
