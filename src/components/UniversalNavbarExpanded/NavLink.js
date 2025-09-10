@@ -38,6 +38,7 @@ const NavLink = ({
   children,
   alt,
   title,
+  rel
 }) => {
   const onClickHandler = (event) => {
     if (currentPageAwareness) {
@@ -67,6 +68,7 @@ const NavLink = ({
       onKeyPress={(event) => onClickHandler(event)}
       title={title}
       alt={alt}
+      rel={rel}
     >
       {children}
     </BaseNavLink>
