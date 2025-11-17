@@ -12,30 +12,32 @@ import errorStyles from '../Errors.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { VALID_ICONS } from '../../helpers/constants.js'
 
-export const TextMaskedInput = (props) => {
-  const {
-    name,
-    mask,
-    labelCopy,
-    allCaps,
-    capitalize,
-    validator,
-    getTouched,
-    setTouched,
-    formChangeHandler,
-    initialValue,
-    currentValue,
-    currentError,
-    setFieldTouched,
-    doValidation,
-    placeholderChar,
-    autoComplete,
-    classOverrides,
-    maxLength,
-    icon,
-    ...restProps
-  } = props
-
+export const TextMaskedInput = ({
+  allCaps = true,
+  autoComplete,
+  capitalize,
+  classOverrides,
+  currentError,
+  currentValue,
+  disabled = false,
+  doValidation,
+  formChangeHandler,
+  getTouched,
+  guide = true,
+  icon,
+  initialValue,
+  keepCharPositions = true,
+  labelCopy,
+  mask,
+  maxLength,
+  name,
+  placeholder = '',
+  placeholderChar,
+  setFieldTouched,
+  setTouched,
+  validator,
+  ...props
+}) => {
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
   const [internalTouched, internalSetTouched] = useState(
@@ -102,23 +104,23 @@ export const TextMaskedInput = (props) => {
   const maskedInputProps = {
     value,
     mask,
-    type: restProps.type,
-    'data-tid': restProps['data-tid'],
+    type: props.type,
+    'data-tid': props['data-tid'],
     onChange,
     onBlur,
     name,
-    placeholder: restProps.placeholder,
+    placeholder,
     className: getClasses(),
-    disabled: restProps.disabled,
+    disabled,
     placeholderChar,
     autoComplete,
     maxLength,
   }
 
   if (typeof mask !== 'function') {
-    maskedInputProps.guide = restProps.guide
-    maskedInputProps.keepCharPositions = restProps.keepCharPositions
-    maskedInputProps.pipe = restProps.pipe
+    maskedInputProps.guide = guide
+    maskedInputProps.keepCharPositions = keepCharPositions
+    maskedInputProps.pipe = props.pipe
   }
 
   // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
@@ -137,7 +139,7 @@ export const TextMaskedInput = (props) => {
       />
       <div className={styles.TextInputWrapper}>
         {icon ? (
-          <MaskedInput {...maskedInputProps} className={maskedInputClass} />
+          <MaskedInput className={maskedInputClass} {...maskedInputProps} />
         ) : (
           <MaskedInput {...maskedInputProps} />
         )}
@@ -191,12 +193,4 @@ TextMaskedInput.propTypes = {
   capitalize: PropTypes.bool,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
-}
-
-TextMaskedInput.defaultProps = {
-  placeholder: '',
-  guide: true,
-  keepCharPositions: true,
-  disabled: false,
-  allCaps: true,
 }

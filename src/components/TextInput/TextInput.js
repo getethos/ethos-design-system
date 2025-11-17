@@ -35,25 +35,26 @@ import { VALID_ICONS } from '../../helpers/constants'
  */
 
 function PrivateTextInput({
-  type,
-  disabled,
-  name,
-  labelCopy,
   allCaps,
-  capitalize,
-  formChangeHandler,
-  validator,
-  initialValue,
-  currentValue,
-  currentError,
-  setFieldTouched,
-  restrictIllegal,
   autoComplete,
+  capitalize,
   classOverrides,
-  labelColor,
-  labelWeight,
-  labelClasses,
+  currentError,
+  currentValue,
+  disabled,
+  formChangeHandler,
   icon,
+  initialValue,
+  labelClasses,
+  labelColor,
+  labelCopy,
+  labelWeight,
+  name,
+  placeholder = '',
+  restrictIllegal = true,
+  setFieldTouched,
+  type = 'text',
+  validator,
   ...rest
 }) {
   // Verify that all required props were supplied
@@ -152,7 +153,7 @@ function PrivateTextInput({
           className={getClasses()}
           disabled={disabled}
           name={name}
-          placeholder={rest.placeholder}
+          placeholder={placeholder}
           onChange={onChange}
           onBlur={onBlur}
           value={value}
@@ -204,12 +205,6 @@ PrivateTextInput.propTypes = {
   capitalize: PropTypes.bool,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
-}
-
-PrivateTextInput.defaultProps = {
-  type: 'text',
-  placeholder: '',
-  restrictIllegal: true,
 }
 
 function TextInputFactory(privateProps) {

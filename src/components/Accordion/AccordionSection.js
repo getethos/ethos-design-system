@@ -135,9 +135,9 @@ export const AccordionSection = ({
   title,
   renderToggle,
   index,
-  labelClassName,
-  panelClassName,
-  toggleClassName,
+  labelClassName = '',
+  panelClassName = '',
+  toggleClassName = '',
 }) => {
   const {
     focusRef,
@@ -197,10 +197,4 @@ AccordionSection.propTypes = {
   labelClassName: PropTypes.string,
   panelClassName: PropTypes.string,
   toggleClassName: PropTypes.string,
-}
-
-AccordionSection.defaultProps = {
-  labelClassName: '',
-  panelClassName: '',
-  toggleClassName: '',
 }

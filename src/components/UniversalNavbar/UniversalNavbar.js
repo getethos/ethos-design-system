@@ -14,11 +14,11 @@ import styles from './UniversalNavbar.module.scss'
 
 const UniversalNavbar = ({
   LinkComponent,
-  hideMobileCta,
-  hideDesktopCta,
-  logoHref,
-  trackCtaClick,
-  isLoggedIn,
+  hideMobileCta = false,
+  hideDesktopCta = false,
+  logoHref = LINKS.INDEX.href,
+  trackCtaClick = () => {},
+  isLoggedIn = false,
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -180,14 +180,6 @@ UniversalNavbar.propTypes = {
   logoHref: PropTypes.string,
   /** check if user is logged in */
   isLoggedIn: PropTypes.bool,
-}
-
-UniversalNavbar.defaultProps = {
-  hideMobileCta: false,
-  hideDesktopCta: false,
-  logoHref: LINKS.INDEX.href,
-  trackCtaClick: () => {},
-  isLoggedIn: false,
 }
 
 export { UniversalNavbar }

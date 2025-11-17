@@ -24,7 +24,7 @@ export const NoraDrawer = ({
   closeCopy,
   floatingDrawerContentRenderer,
   ignoredSelectors,
-  drawerClasses,
+  drawerClasses = '',
 }) => {
   return (
     <Drawer
@@ -72,8 +72,4 @@ NoraDrawer.propTypes = {
   ignoredSelectors: PropTypes.arrayOf(PropTypes.string),
   /** data attribute for testing */
   'data-tid': PropTypes.string,
-}
-
-NoraDrawer.defaultProps = {
-  drawerClasses: '',
 }

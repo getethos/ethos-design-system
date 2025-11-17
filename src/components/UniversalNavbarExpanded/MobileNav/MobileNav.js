@@ -253,8 +253,4 @@ MobileNav.propTypes = {
   partnerLogoMobile: PropTypes.node,
 }
 
-MobileNav.defaultProps = {
-  renderCtaButton: undefined,
-}
-
 export default MobileNav

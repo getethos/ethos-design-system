@@ -15,10 +15,10 @@ const { DATE_FORMATS, dateMaskByFormat, dateStringMatchesFormat } = Validators
 const PrivateDateInput = (props) => {
   const {
     optional,
-    dateFormat,
+    dateFormat = 'mm/dd/yyyy',
     allCaps,
     capitalize,
-    labelCopy,
+    labelCopy = 'Date',
     validator,
     formChangeHandler,
     initialValue,
@@ -152,11 +152,6 @@ PrivateDateInput.PUBLIC_PROPS = {
 
 PrivateDateInput.propTypes = {
   ...PrivateDateInput.PUBLIC_PROPS,
-}
-
-PrivateDateInput.defaultProps = {
-  dateFormat: 'mm/dd/yyyy',
-  labelCopy: 'Date',
 }
 
 const DateInputFactory = (privateProps) => {

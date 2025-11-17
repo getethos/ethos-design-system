@@ -5,7 +5,7 @@ import { TitleLarge, TitleMedium, Body } from '../index'
 
 import styles from './Faq.module.scss'
 
-export const Faq = ({ questions, open }) => {
+export const Faq = ({ questions = [], open = true }) => {
   return (
     <div className={styles.root}>
       <div className={styles.leftColumn}>
@@ -29,11 +29,6 @@ export const Faq = ({ questions, open }) => {
   )
 }
 
-Faq.defaultProps = {
-  questions: [],
-  open: true,
-}
-
 Faq.propTypes = {
   questions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -45,7 +40,7 @@ Faq.propTypes = {
   open: PropTypes.bool,
 }
 
-const Details = ({ children, summary, open }) => {
+const Details = ({ children, summary, open = false }) => {
   const carrotSvg = (
     <svg viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -70,10 +65,6 @@ const Details = ({ children, summary, open }) => {
       </div>
     </details>
   )
-}
-
-Details.defaultProps = {
-  open: false,
 }
 
 Details.propTypes = {

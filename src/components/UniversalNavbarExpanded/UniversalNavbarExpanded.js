@@ -51,27 +51,27 @@ import { Media } from '../Media/Media'
  * @return {JSX.Element}
  */
 const UniversalNavbarExpanded = ({
-  ctaButtonStyle,
   LinkComponent,
-  hideMobileCta,
-  hideDesktopCta,
-  hideSearchIcon,
-  hideAccountIcon,
-  showSecondaryCta,
-  logoHref,
-  trackCtaClick,
-  trackSecondaryCtaClick,
-  trackItemClick,
-  links,
-  estimateExperiment,
-  singleCta = {},
-  animateDesktopNavbar,
-  animateMobileNavbar,
-  isLoggedIn,
-  partnerLogo,
-  partnerLogoMobile,
-  renderCtaButton,
+  animateDesktopNavbar = false,
+  animateMobileNavbar = false,
+  ctaButtonStyle = 'Black',
+  estimateExperiment = false,
+  hideAccountIcon = false,
+  hideDesktopCta = false,
+  hideMobileCta = false,
+  hideSearchIcon = false,
   isIndependentLogo = false,
+  isLoggedIn = false,
+  links = {},
+  logoHref = '/',
+  partnerLogo = null,
+  partnerLogoMobile = null,
+  renderCtaButton,
+  showSecondaryCta,
+  singleCta = {},
+  trackCtaClick = () => {},
+  trackItemClick,
+  trackSecondaryCtaClick,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -141,8 +141,9 @@ const UniversalNavbarExpanded = ({
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
-    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_END}px)`)
-      .matches
+    return window.matchMedia(
+      `(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_END}px)`
+    ).matches
   }
 
   return (
@@ -366,26 +367,6 @@ UniversalNavbarExpanded.propTypes = {
   renderCtaButton: PropTypes.func,
   /** Whether to show only partner logo without Ethos logo */
   isIndependentLogo: PropTypes.bool,
-}
-
-UniversalNavbarExpanded.defaultProps = {
-  ctaButtonStyle: 'Black',
-  hideMobileCta: false,
-  hideDesktopCta: false,
-  hideSearchIcon: false,
-  hideAccountIcon: false,
-  logoHref: '/',
-  renderCtaButton: undefined,
-  trackCtaClick: () => {},
-  links: {},
-  estimateExperiment: false,
-  singleCta: {},
-  animateDesktopNavbar: false,
-  animateMobileNavbar: false,
-  isLoggedIn: false,
-  partnerLogo: null,
-  partnerLogoMobile: null,
-  isIndependentLogo: false,
 }
 
 export { UniversalNavbarExpanded }

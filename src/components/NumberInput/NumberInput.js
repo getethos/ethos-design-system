@@ -13,34 +13,32 @@ export const integerMask = createNumberMask({
   prefix: '',
 })
 
-export const NumberInput = (props) => {
-  const {
-    name,
-    type,
-    mask,
-    disabled,
-    labelCopy,
-    allCaps,
-    capitalize,
-    validator,
-    formChangeHandler,
-    initialValue,
-    currentValue,
-    currentError,
-    placeholder,
-    setFieldTouched,
-    placeholderChar,
-    guide = true,
-    keepCharPositions = true,
-    autoComplete,
-    maxLength,
-    icon,
-    classOverrides,
-    labelWeight,
-    labelColor,
-    ...restProps
-  } = props
-
+export const NumberInput = ({
+  name,
+  type = 'tel',
+  mask = integerMask,
+  disabled,
+  labelCopy,
+  allCaps,
+  capitalize,
+  validator,
+  formChangeHandler,
+  initialValue,
+  currentValue,
+  currentError,
+  placeholder,
+  setFieldTouched,
+  placeholderChar,
+  guide = true,
+  keepCharPositions = true,
+  autoComplete,
+  maxLength,
+  icon,
+  classOverrides,
+  labelWeight,
+  labelColor,
+  ...restProps
+}) => {
   const internalMask = mask || integerMask
 
   return (
@@ -105,9 +103,4 @@ NumberInput.propTypes = {
   labelWeight: PropTypes.string,
   /** passed down through component to override label color */
   labelColor: PropTypes.string,
-}
-
-NumberInput.defaultProps = {
-  type: 'tel',
-  mask: integerMask,
 }

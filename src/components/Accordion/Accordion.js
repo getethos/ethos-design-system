@@ -9,10 +9,10 @@ import { codes } from '../../helpers/constants.js'
  */
 export const Accordion = ({
   children,
-  expanded,
+  expanded = null,
   onToggle,
   id,
-  toggleChildIsTarget,
+  toggleChildIsTarget = false,
   ...rest
 }) => {
   const focusRef = useRef(null)
@@ -93,9 +93,4 @@ Accordion.propTypes = {
   /** Boolean prop that indicates that you'd like to use that as the toggle (not the entire
    * `AccordionSection` header bar). Defaults to `false` */
   toggleChildIsTarget: PropTypes.bool,
-}
-
-Accordion.defaultProps = {
-  expanded: null,
-  toggleChildIsTarget: false,
 }

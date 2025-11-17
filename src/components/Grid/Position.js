@@ -26,7 +26,7 @@ import PropTypes from 'prop-types'
 import { codes } from '../../helpers/constants.js'
 import RefType from './ref'
 
-export const Position = (props) => {
+export const Position = ({ className, role = 'presentation', ...props }) => {
   const initialState = {
     positionX: -1,
     positionY: -1,
@@ -109,10 +109,10 @@ export const Position = (props) => {
 
   return (
     <div
-      className={props.className}
+      className={className}
       onClick={onClick}
       onKeyDown={onKeyDown}
-      role={props.role}
+      role={role}
       tabIndex={tabIndex}
     >
       {props.children(position.positionX, position.positionY)}
@@ -125,11 +125,6 @@ Position.propTypes = {
   className: PropTypes.string,
   refs: PropTypes.arrayOf(PropTypes.arrayOf(RefType)).isRequired,
   role: PropTypes.string,
-}
-
-Position.defaultProps = {
-  className: undefined,
-  role: 'presentation',
 }
 
 Position.displayName = 'Position'

@@ -34,14 +34,14 @@ const defaultImageSettings = {
 }
 
 export const CloudinaryImage = ({
-  publicId,
+  alt = '',
   className,
-  alt,
-  width,
+  crop = CloudinaryImage.CROP_METHODS.FILL,
+  fetchpriority = 'auto',
   height,
-  crop,
-  lazyLoad,
-  fetchpriority,
+  lazyLoad = true,
+  publicId,
+  width,
   ...rest
 }) => {
   // Verify that all required props were supplied
@@ -91,7 +91,6 @@ export const CloudinaryImage = ({
     })
 
     const imgProps = {
-      key: publicId,
       className: [styles.Image, ...imageClasses].join(' '),
       src: srcString,
       srcSet: srcSetString,
@@ -102,7 +101,7 @@ export const CloudinaryImage = ({
       Object.assign(imgProps, { loading: 'lazy' })
     }
 
-    return <img alt={alt} {...imgProps} />
+    return <img alt={alt} key={publicId} {...imgProps} />
   }
 
   const buildTags = () => {
@@ -273,13 +272,6 @@ CloudinaryImage.PUBLIC_PROPS = {
   crop: PropTypes.oneOf(Object.values(CloudinaryImage.CROP_METHODS)),
   lazyLoad: PropTypes.bool,
   fetchpriority: PropTypes.oneOf(['high', 'low', 'auto']),
-}
-
-CloudinaryImage.defaultProps = {
-  crop: CloudinaryImage.CROP_METHODS.FILL,
-  alt: '',
-  lazyLoad: true,
-  fetchpriority: 'auto',
 }
 
 CloudinaryImage.propTypes = CloudinaryImage.PUBLIC_PROPS

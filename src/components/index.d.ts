@@ -256,12 +256,6 @@ declare namespace LogoInline {
   var propTypes: {
     style: any
   }
-  var defaultProps: {
-    style: {
-      display: string
-      height: number
-    }
-  }
 }
 export declare const Logo: {
   Inline: typeof LogoInline
@@ -366,11 +360,6 @@ export declare const CloudinaryImage: {
     publicId: any
     crop: any
     lazyLoad: boolean
-  }
-  defaultProps: {
-    crop: string
-    alt: string
-    lazyLoad?: boolean
   }
   propTypes: {
     height: any
@@ -518,11 +507,6 @@ export declare const Select: {
     'data-tid'?: string
     allCaps?: boolean
   }
-  defaultProps: {
-    classNamePrefix?: string
-    className?: string
-    placeholder?: string
-  }
 }
 
 export declare const Spacer: {
@@ -568,22 +552,6 @@ export declare namespace ValueProps {
       subHeader: string | JSX.Element
       alt?: string
     }[]
-  }
-  var defaultProps: {
-    sections: (
-      | {
-          iconUrl: string
-          header: string
-          subHeader: string
-          alt: string
-        }
-      | {
-          iconUrl: string
-          header: string
-          subHeader: string
-          alt?: undefined
-        }
-    )[]
   }
 }
 
@@ -721,9 +689,6 @@ export declare const Grid: {
     rowRefs: any
     columnRefs: any
   }
-  defaultProps: {
-    className: string
-  }
   displayName: string
 }
 
@@ -796,10 +761,6 @@ export declare const EmailInput: {
     validator?: (value: string) => string
     initialValue?: string
     icon?: IconTypes
-  }
-  defaultProps: {
-    labelCopy: string
-    placeholder: string
   }
 }
 
@@ -892,13 +853,6 @@ export declare const TextMaskedInput: {
     formChangeHandler?: (value: string, errorValue: string) => void
     maxLength?: number
     icon?: IconTypes
-  }
-  defaultProps: {
-    placeholder: string
-    guide: boolean
-    keepCharPositions: boolean
-    disabled: boolean
-    allCaps: boolean
   }
 }
 
@@ -1309,18 +1263,10 @@ export declare const NumberInput: {
     labelColor?: string
     labelWeight?: string
   }
-  defaultProps: {
-    type: string
-    mask: (mask: (string | RegExp)[]) => any
-  }
 }
 
 export declare const Faq: {
   ({ questions, open }: { questions: any; open: any }): JSX.Element
-  defaultProps: {
-    questions: any[]
-    open: boolean
-  }
   propTypes: {
     questions: any
     /** Set to false for all questions to start collapsed. */
@@ -1391,10 +1337,6 @@ export declare const Header: {
     /** Optional children to render on right side of header */
     rightChildren: React.ReactNode
   }
-  defaultProps: {
-    leftChildren: any
-    rightChildren: any
-  }
 }
 
 type ButtonType = 'button' | 'submit'
@@ -1442,9 +1384,6 @@ export declare const Tag: {
   propTypes: {
     type: string
     children: React.ReactNode
-  }
-  defaultProps: {
-    type: any
   }
 }
 

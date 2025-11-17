@@ -49,7 +49,7 @@ class ScrollDetector extends React.Component {
   }
 
   render() {
-    const { className, element, offsetHeight, ...rest } = this.props // eslint-disable-line no-unused-vars
+    const { className, element = 'div', offsetHeight = 0, ...rest } = this.props // eslint-disable-line no-unused-vars
     const { isScrolled } = this.state
 
     const Element = element
@@ -65,12 +65,7 @@ ScrollDetector.propTypes = {
   offsetHeight: PropTypes.number,
 }
 
-ScrollDetector.defaultProps = {
-  element: 'div',
-  offsetHeight: 0,
-}
-
-function HorizontallyPaddedContainer({ className, element, ...rest }) {
+function HorizontallyPaddedContainer({ className, element = 'div', ...rest }) {
   const Element = element
   return (
     <Element
@@ -84,10 +79,6 @@ HorizontallyPaddedContainer.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   element: PropTypes.string,
-}
-
-HorizontallyPaddedContainer.defaultProps = {
-  element: 'div',
 }
 
 // Exports

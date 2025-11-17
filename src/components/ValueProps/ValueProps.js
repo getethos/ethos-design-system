@@ -5,7 +5,7 @@ import { TitleSmall, Body, CloudinaryImage } from '../index'
 
 import styles from './ValueProps.module.scss'
 
-export function ValueProps({ sections }) {
+export function ValueProps({ sections = defaultSections }) {
   return (
     <div className={`${styles.container} ${styles.root}`}>
       {sections.map((section) => (
@@ -66,10 +66,6 @@ ValueProps.propTypes = {
       alt: PropTypes.string,
     })
   ),
-}
-
-ValueProps.defaultProps = {
-  sections: defaultSections,
 }
 
 export default ValueProps

@@ -14,9 +14,6 @@ const Left = ({ children }) => {
 Left.propTypes = {
   children: PropTypes.node,
 }
-Left.defaultProps = {
-  children: undefined,
-}
 
 /**
  * @private
@@ -29,18 +26,12 @@ const Right = ({ children }) => {
 Right.propTypes = {
   children: PropTypes.node,
 }
-Right.defaultProps = {
-  children: undefined,
-}
 
 const Navbar = ({ children }) => {
   return <nav className={styles.Navbar}>{children}</nav>
 }
 Navbar.propTypes = {
   children: PropTypes.node,
-}
-Navbar.defaultProps = {
-  children: undefined,
 }
 
 /**
@@ -76,9 +67,4 @@ Header.propTypes = {
   leftChildren: PropTypes.node,
   /** Optional children to render on right side of header */
   rightChildren: PropTypes.node,
-}
-
-Header.defaultProps = {
-  leftChildren: undefined,
-  rightChildren: undefined,
 }

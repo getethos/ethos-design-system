@@ -22,23 +22,25 @@ export const ReactSelectComponents = components
  * So, a multi-select validator would likely want to loop and validate each items one by one.
  */
 export const Select = ({
+  allCaps = true,
   className,
+  classNamePrefix = 'StyledReactSelect',
   classOverrides,
-  title,
+  currentError,
+  formChangeHandler,
+  formTouched,
   isAsync,
   isCompact,
   isCreatable,
-  validator,
-  onChange,
-  formChangeHandler,
-  currentError,
-  formTouched,
-  labelCopy,
-  labelColor,
-  labelWeight,
   labelClasses,
-  allCaps = true,
+  labelColor,
+  labelCopy,
+  labelWeight,
   name,
+  onChange,
+  placeholder = 'Type to search',
+  title,
+  validator,
   ...rest
 }) => {
   const resolvedValidator = validator ? validator : () => ''
@@ -139,8 +141,10 @@ export const Select = ({
 
       <SelectTag
         className={getClasses()}
+        classNamePrefix={classNamePrefix}
         onChange={onChangeHandler}
         onBlur={onBlur}
+        placeholder={placeholder}
         aria-label={title} // https://react-select.com/props#select-props
         {...rest}
       />
@@ -185,10 +189,5 @@ Select.propTypes = {
   allCaps: PropTypes.bool,
   name: PropTypes.string,
   validator: PropTypes.func,
-}
-
-Select.defaultProps = {
-  classNamePrefix: 'StyledReactSelect', // for styling
-  className: undefined,
-  placeholder: 'Type to search',
+  placeholder: PropTypes.string,
 }
