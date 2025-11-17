@@ -34,7 +34,3 @@ Tag.propTypes = {
   type: PropTypes.oneOf(['red', 'orange', 'green', 'cyan', 'gray', 'neutral']),
   children: PropTypes.string.isRequired,
 }
-
-Tag.defaultProps = {
-  type: undefined,
-}

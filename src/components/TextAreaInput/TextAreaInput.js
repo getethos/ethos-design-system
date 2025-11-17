@@ -20,12 +20,12 @@ function PrivateTextAreaInput({
   capitalize,
   formChangeHandler,
   validator,
-  placeholder,
+  placeholder = '',
   initialValue,
   currentValue,
   currentError,
   setFieldTouched,
-  restrictIllegal,
+  restrictIllegal = true,
   rows,
   ...rest
 }) {
@@ -145,11 +145,6 @@ PrivateTextAreaInput.PUBLIC_PROPS = {
 
 PrivateTextAreaInput.propTypes = {
   ...PrivateTextAreaInput.PUBLIC_PROPS,
-}
-
-PrivateTextAreaInput.defaultProps = {
-  placeholder: '',
-  restrictIllegal: true,
 }
 
 function TextAreaInputFactory(privateProps) {

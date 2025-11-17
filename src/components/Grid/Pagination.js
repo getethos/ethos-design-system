@@ -19,7 +19,12 @@ const DEFAULT_DISPLAY_PAGES_COUNT = 6
  * @return {JSX.Element}
  */
 export const Pagination = memo(
-  ({ currentPage, pageCount, displayedPagesCount, fetchPageCallback }) => {
+  ({
+    currentPage,
+    displayedPagesCount = DEFAULT_DISPLAY_PAGES_COUNT,
+    fetchPageCallback,
+    pageCount,
+  }) => {
     if (
       typeof currentPage !== 'number' ||
       typeof pageCount !== 'number' ||
@@ -46,10 +51,6 @@ Pagination.propTypes = {
   currentPage: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   displayedPagesCount: PropTypes.number,
-}
-
-Pagination.defaultProps = {
-  displayedPagesCount: DEFAULT_DISPLAY_PAGES_COUNT,
 }
 
 Pagination.displayName = 'Pagination'

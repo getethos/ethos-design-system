@@ -54,7 +54,7 @@ function PrivateButton({
   role,
   ariaLabelId,
   name,
-  type,
+  type = PrivateButton.HTML_TYPES.BUTTON,
   size,
   style,
   onClick,
@@ -225,8 +225,6 @@ PrivateButton.propTypes = {
   size: PropTypes.oneOf(Object.values(PrivateButton.SIZES)),
   style: PropTypes.oneOf(Object.values(PrivateButton.STYLES)),
 }
-
-PrivateButton.defaultProps = { type: PrivateButton.HTML_TYPES.BUTTON }
 
 function ButtonFactory(privateProps) {
   const PublicButtonComponent = (downstreamProps) => {

@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function LogoInline(props) {
+function LogoInline({ style = { display: 'block', height: 14 }, ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 971.997 180.498"
+      style={style}
       {...props}
     >
       <title>Ethos Logo</title>
@@ -17,10 +18,6 @@ function LogoInline(props) {
 
 LogoInline.propTypes = {
   style: PropTypes.object,
-}
-
-LogoInline.defaultProps = {
-  style: { display: 'block', height: 14 },
 }
 
 export const Logo = {

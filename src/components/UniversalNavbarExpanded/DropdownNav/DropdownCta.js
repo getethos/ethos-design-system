@@ -30,15 +30,21 @@ const DropdownCta = ({ title, subcopy, alternateIcon }) => {
           <Icon />
         </IconIntegratedTitle>
       </TitleSmall.Serif.Book500>
-      <Spacer.H8 />
-      <Body.Regular400 color={COLORS.GRAY_SECONDARY}>{subcopy}</Body.Regular400>
+      {subcopy && (
+        <>
+          <Spacer.H8 />
+          <Body.Regular400 color={COLORS.GRAY_SECONDARY}>
+            {subcopy}
+          </Body.Regular400>
+        </>
+      )}
     </>
   )
 }
 
 DropdownCta.propTypes = {
   title: PropTypes.string.isRequired,
-  subcopy: PropTypes.string.isRequired,
+  subcopy: PropTypes.string,
   alternateIcon: PropTypes.oneOfType([PropTypes.element, PropTypes.bool]),
 }
 

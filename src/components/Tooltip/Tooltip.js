@@ -18,15 +18,15 @@ const ACCESSIBILITY_ID = 'info-tooltip'
 
 export const Tooltip = ({
   label,
-  placement,
+  placement = Tooltip.PLACEMENT_TYPES.TOP,
   popperBoxStyles = '',
   details,
-  inline,
+  inline = false,
   noLayout,
   className,
   children,
-  boundariesElement,
-  softCorners,
+  boundariesElement = Tooltip.BOUNDARIES_ELEMENT.SCROLL_PARENT,
+  softCorners = false,
   trackingFunction,
 }) => {
   const [analyticsFired, setAnalyticsFired] = useState(false)
@@ -231,13 +231,6 @@ Tooltip.BOUNDARIES_ELEMENT = {
   VIEWPORT: 'viewport',
   SCROLL_PARENT: 'scrollParent',
   WINDOW: 'window',
-}
-
-Tooltip.defaultProps = {
-  placement: Tooltip.PLACEMENT_TYPES.TOP,
-  inline: false,
-  boundariesElement: Tooltip.BOUNDARIES_ELEMENT.SCROLL_PARENT,
-  softCorners: false,
 }
 
 Tooltip.propTypes = {

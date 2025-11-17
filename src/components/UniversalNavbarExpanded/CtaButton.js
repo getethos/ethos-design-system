@@ -21,11 +21,12 @@ import styles from './CtaButton.module.scss'
  *
  * @return {JSX.Element}
  */
+
 const CtaButton = ({
-  buttonStyle,
+  buttonStyle = 'Black',
   href,
   trackingFunction,
-  hideOnMobile,
+  hideOnMobile = false,
   title,
   id,
 }) => {
@@ -67,11 +68,6 @@ CtaButton.propTypes = {
   trackingFunction: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string,
-}
-
-CtaButton.defaultProps = {
-  buttonStyle: 'Black',
-  hideOnMobile: false,
 }
 
 export default CtaButton
