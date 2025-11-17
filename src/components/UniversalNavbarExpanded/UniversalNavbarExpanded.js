@@ -141,7 +141,7 @@ const UniversalNavbarExpanded = ({
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
-    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.LAPTOP_RANGE_START}px)`)
+    return window.matchMedia(`(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_END}px)`)
       .matches
   }
 
