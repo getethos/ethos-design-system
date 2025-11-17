@@ -141,6 +141,8 @@ const UniversalNavbarExpanded = ({
 
   const isMobile = () => {
     if (typeof window === 'undefined') return false
+    if (!window.matchMedia) return false
+
     return window.matchMedia(
       `(max-width: ${Media.BREAKPOINTS.TABLET_RANGE_END}px)`
     ).matches
