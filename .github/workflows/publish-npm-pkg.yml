@@ -24,6 +24,16 @@ jobs:
         run: |
           yarn config set -H npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
           yarn config set -H npmScopes.fortawesome.npmAuthToken "${{ secrets.FONTAWESOME_TOKEN_GITHUB }}"
+      - name: Setup GitHub Packages authentication for npm
+        run: |
+          # Create .npmrc in project root for npm (yarn npm publish uses npm)
+          # Use NPM_TOKEN secret (GitHub PAT with write:packages scope)
+          cat > .npmrc <<EOF
+          @getethos:registry=https://npm.pkg.github.com
+          //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
+          EOF
+          # Verify .npmrc was created (without showing the token)
+          echo ".npmrc created for @getethos scope"
       - name: Install dependencies
         run: yarn install
       - name: Publish to GitHub Packages
