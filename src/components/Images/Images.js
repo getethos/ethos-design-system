@@ -173,7 +173,6 @@ export const CloudinaryImage = ({
     )
 
     const imgProps = {
-      key: publicId,
       src: svgUrl,
       className: [styles.Svg, ...imageClasses].join(' '),
       fetchpriority: fetchpriority,
@@ -183,7 +182,9 @@ export const CloudinaryImage = ({
       Object.assign(imgProps, { loading: 'lazy' })
     }
 
-    return <img className={styles.figure} alt={alt} {...imgProps} />
+    return (
+      <img className={styles.figure} alt={alt} key={publicId} {...imgProps} />
+    )
   }
 
   // Serve a simpler version if resource is SVG
