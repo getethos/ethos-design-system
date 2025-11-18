@@ -34,6 +34,7 @@ const PrivateDateInput = (props) => {
     mask = dateMaskByFormat[dateFormat],
     autoComplete,
     classOverrides,
+    fullstoryMask,
     ...restProps
   } = props
   const [getError, setError, , validate] = useErrorMessage(validator)
@@ -84,7 +85,9 @@ const PrivateDateInput = (props) => {
   })
 
   const getClasses = () => {
-    const base = `DateInput ${styles.TextInputCommon}`
+    const base = fullstoryMask
+      ? `DateInput ${styles.TextInputCommon} fs-exclude`
+      : `DateInput ${styles.TextInputCommon}`
     if (getError(currentError, touched)) {
       return `${base} ${errorStyles.Error}`
     }
@@ -123,6 +126,7 @@ const PrivateDateInput = (props) => {
         disabled={disabled}
         autoComplete={autoComplete}
         classOverrides={classOverrides}
+        fullstoryMask={fullstoryMask}
       />
       {getError(currentError, touched)}
     </>
@@ -148,6 +152,8 @@ PrivateDateInput.PUBLIC_PROPS = {
   labelColor: PropTypes.string,
   labelWeight: PropTypes.string,
   labelClasses: PropTypes.string,
+  /** include fs-exclude class for FullStory masking */
+  fullstoryMask: PropTypes.bool,
 }
 
 PrivateDateInput.propTypes = {

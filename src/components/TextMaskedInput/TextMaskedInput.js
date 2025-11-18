@@ -12,32 +12,31 @@ import errorStyles from '../Errors.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { VALID_ICONS } from '../../helpers/constants.js'
 
-export const TextMaskedInput = ({
-  allCaps = true,
-  autoComplete,
-  capitalize,
-  classOverrides,
-  currentError,
-  currentValue,
-  disabled = false,
-  doValidation,
-  formChangeHandler,
-  getTouched,
-  guide = true,
-  icon,
-  initialValue,
-  keepCharPositions = true,
-  labelCopy,
-  mask,
-  maxLength,
-  name,
-  placeholder = '',
-  placeholderChar,
-  setFieldTouched,
-  setTouched,
-  validator,
-  ...props
-}) => {
+export const TextMaskedInput = (props) => {
+  const {
+    name,
+    mask,
+    labelCopy,
+    allCaps,
+    capitalize,
+    validator,
+    getTouched,
+    setTouched,
+    formChangeHandler,
+    initialValue,
+    currentValue,
+    currentError,
+    setFieldTouched,
+    doValidation,
+    placeholderChar,
+    autoComplete,
+    classOverrides,
+    maxLength,
+    icon,
+    fullstoryMask,
+    ...restProps
+  } = props
+
   const val = currentValue || initialValue
   const [value, setValue] = useState(val || '')
   const [internalTouched, internalSetTouched] = useState(
@@ -93,7 +92,9 @@ export const TextMaskedInput = ({
   }
 
   const getClasses = () => {
-    const base = `TextMaskedInput ${styles.TextInputCommon}`
+    const base = fullstoryMask
+      ? `TextMaskedInput ${styles.TextInputCommon} fs-exclude`
+      : `TextMaskedInput ${styles.TextInputCommon}`
     return getError(currentError, whichTouched)
       ? `${base} ${errorStyles.Error}`
       : classOverrides
@@ -124,7 +125,10 @@ export const TextMaskedInput = ({
   }
 
   // hasIcon class indicates the text input has icon, to give more padding-right in stylings,to prevent overlapping between icon and long input
-  const maskedInputClass = `${styles.TextInputCommon} ${styles.TextInputStylable} ${styles.hasIcon}`
+  let maskedInputClass = `${styles.TextInputCommon} ${styles.TextInputStylable} ${styles.hasIcon}`
+  if (fullstoryMask) {
+    maskedInputClass += ' fs-exclude'
+  }
 
   return (
     <>
@@ -185,6 +189,8 @@ TextMaskedInput.PUBLIC_PROPS = {
   maxLength: PropTypes.number,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
+  /** include fs-exclude class for FullStory masking */
+  fullstoryMask: PropTypes.bool,
 }
 
 TextMaskedInput.propTypes = {
@@ -193,4 +199,13 @@ TextMaskedInput.propTypes = {
   capitalize: PropTypes.bool,
   /** iconPrefix and iconName work together to render icon in input. Please refer to https://fontawesome.com/v5/docs/apis/javascript/import-icons for more information about iconPrefix. Please refer to `fa.js` and https://fontawesome.com for more info about icon's name. Currently allowed icons are defined by VALID_ICONS at src/helpers/constants.js */
   icon: PropTypes.oneOf(Object.keys(VALID_ICONS)),
+}
+
+TextMaskedInput.defaultProps = {
+  placeholder: '',
+  guide: true,
+  keepCharPositions: true,
+  disabled: false,
+  allCaps: true,
+  fullstoryMask: false,
 }

@@ -14,26 +14,21 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '12.x'
+          node-version: '20.x'
       - name: Set short sha
         run: echo "GITHUB_SHORT_SHA=${GITHUB_SHA::8}" >> $GITHUB_ENV
       - name: Cache dependencies
         id: cache-dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v4
         with:
           path: node_modules
           # Don't share with other workflows because we are using `--production=false`
           key: dev-dependencies-${{ hashFiles('**/yarn.lock') }}
-      # We need to create a .npmrc with the fontawesome token
       - name: Setup fontawesome dependencies
-        run: |
-          cat > .npmrc <<EOF
-          @fortawesome:registry=https://npm.fontawesome.com/
-          //npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_TOKEN_GITHUB }}
-          EOF
+        run: yarn config set -H npmScopes.fortawesome.npmAuthToken ${{ secrets.FONTAWESOME_TOKEN_GITHUB }}
       - name: Install dependencies
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
-        run: yarn install --production=false
+        run: yarn install
       - name: Write .aws/config
         run: |
           mkdir -p ${GITHUB_WORKSPACE}/.aws

@@ -43,6 +43,8 @@ BirthdateInput.propTypes = {
   autoComplete: PropTypes.string,
   /** passed down through component to override Inputstyles */
   classOverrides: PropTypes.string,
+  /** include fs-exclude class for FullStory masking */
+  fullstoryMask: PropTypes.bool,
 }
 
 export const BirthdateInputValidators = Validators

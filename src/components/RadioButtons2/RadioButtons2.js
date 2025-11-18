@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -29,6 +29,7 @@ function RadioButton({
   onClick,
   onChange,
   rightAlignedLabel,
+  topLabel,
   ...rest
 }) {
   const [, includesKeysOrThrow] = useIncludes(['name', 'label'])
@@ -46,36 +47,41 @@ function RadioButton({
   }, [checked])
 
   return (
-    <label
-      className={styles.RadioButton}
-      data-checked={checked}
-      data-disabled={disabled}
-    >
-      <span
-        role="radio"
-        ref={spanRadio}
-        value={value}
-        aria-checked={checked}
-        tabIndex={tabIndex}
+    <Fragment>
+      {topLabel && <div>{topLabel}</div>}
+      <label
+        className={styles.RadioButton}
+        data-checked={checked}
+        data-disabled={disabled}
       >
-        <input
-          type="radio"
-          name={name}
+        <span
+          role="radio"
+          ref={spanRadio}
           value={value}
-          checked={checked}
-          onClick={onClick}
-          onChange={onChange}
-          required={required}
-          disabled={disabled}
-          data-tid={rest['data-tid']}
-        />
-        <aside />
-      </span>
-      <div className={styles.label}>
-        <Body2.Regular400 color={COLORS.GRAY_PRIMARY}>{label}</Body2.Regular400>
-      </div>
-      {rightAlignedLabel && <div>{rightAlignedLabel}</div>}
-    </label>
+          aria-checked={checked}
+          tabIndex={tabIndex}
+        >
+          <input
+            type="radio"
+            name={name}
+            value={value}
+            checked={checked}
+            onClick={onClick}
+            onChange={onChange}
+            required={required}
+            disabled={disabled}
+            data-tid={rest['data-tid']}
+          />
+          <aside />
+        </span>
+        <div className={styles.label}>
+          <Body2.Regular400 color={COLORS.GRAY_PRIMARY}>
+            {label}
+          </Body2.Regular400>
+        </div>
+        {rightAlignedLabel && <div>{rightAlignedLabel}</div>}
+      </label>
+    </Fragment>
   )
 }
 
@@ -89,6 +95,8 @@ RadioButton.propTypes = {
   label: PropTypes.node.isRequired,
   'data-tid': PropTypes.string,
   onClick: PropTypes.func,
+  rightAlignedLabel: PropTypes.node,
+  topLabel: PropTypes.node,
 
   // These will appear if RadioButtonGroup is used with redux-form:
   onBlur: PropTypes.func,
@@ -96,7 +104,6 @@ RadioButton.propTypes = {
   onDragStart: PropTypes.func,
   onDrop: PropTypes.func,
   onFocus: PropTypes.func,
-  rightAlignedLabel: PropTypes.node,
 }
 
 export function RadioButtonGroup2({
