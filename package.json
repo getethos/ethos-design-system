@@ -1,10 +1,17 @@
 {
-  "name": "ethos-design-system",
-  "version": "1.3.40",
+  "name": "@getethos/ethos-design-system",
+  "version": "1.3.41-test.0",
   "description": "Ethos Design System v1",
   "main": "./src/components/index.js",
   "types": "./src/components/index.d.ts",
   "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
   "sideEffects": [
     ".src/components/fa.js"
   ],
@@ -30,7 +37,8 @@
     "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand",
     "test:update": "jest --updateSnapshot",
     "test:scss": "./scss-test.sh",
-    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components"
+    "test:types": "tsc -t es2017 --lib \"DOM\" --jsx react --noEmit -p ./src/components",
+    "publish": "yarn build && yarn npm publish"
   },
   "jest": {
     "verbose": true,
