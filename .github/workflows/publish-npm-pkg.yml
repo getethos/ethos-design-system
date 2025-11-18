@@ -24,17 +24,26 @@ jobs:
         run: |
           yarn config set -H npmScopes.fortawesome.npmRegistryServer "https://npm.fontawesome.com"
           yarn config set -H npmScopes.fortawesome.npmAuthToken "${{ secrets.FONTAWESOME_TOKEN_GITHUB }}"
-      - name: Setup GitHub Packages authentication for npm
+      - name: Setup GitHub Packages authentication
         run: |
-          # Create .npmrc in project root for npm (yarn npm publish uses npm)
-          # Use NPM_TOKEN secret (GitHub PAT with write:packages scope)
+          # Configure both Yarn 4 and npm for GitHub Packages
+          TOKEN="${{ secrets.NPM_TOKEN }}"
+          if [ -z "$TOKEN" ]; then
+            TOKEN="${{ secrets.GITHUB_TOKEN }}"
+          fi
+          # Yarn 4 configuration
+          yarn config set -H npmScopes.getethos.npmRegistryServer "https://npm.pkg.github.com"
+          yarn config set -H npmScopes.getethos.npmAuthToken "${TOKEN}"
+          # npm configuration (for yarn npm publish)
           cat > .npmrc <<EOF
           @getethos:registry=https://npm.pkg.github.com
-          //npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}
+          //npm.pkg.github.com/:_authToken=${TOKEN}
           EOF
-          # Verify .npmrc was created (without showing the token)
-          echo ".npmrc created for @getethos scope"
+          echo "GitHub Packages authentication configured for Yarn 4 and npm"
       - name: Install dependencies
         run: yarn install
       - name: Publish to GitHub Packages
-        run: yarn publish
+        run: |
+          # Ensure npm uses the project root .npmrc
+          export NPM_CONFIG_USERCONFIG=$(pwd)/.npmrc
+          yarn publish
