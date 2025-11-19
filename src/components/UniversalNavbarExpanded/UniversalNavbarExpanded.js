@@ -317,7 +317,7 @@ UniversalNavbarExpanded.propTypes = {
             href: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             id: PropTypes.string.isRequired,
-            subcopy: PropTypes.string.isRequired,
+            subcopy: PropTypes.string,
             alternateIcon: PropTypes.oneOfType([
               PropTypes.element,
               PropTypes.func,
