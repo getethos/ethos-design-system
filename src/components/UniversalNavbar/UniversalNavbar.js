@@ -21,6 +21,7 @@ const UniversalNavbar = ({
   logoHref,
   trackCtaClick,
   isLoggedIn,
+  trackLoginCtaClick
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -76,6 +77,7 @@ const UniversalNavbar = ({
         LinkComponent={LinkComponent}
         title={isLoggedIn ? 'Account' : 'Log in'}
         alt={isLoggedIn ? 'Account' : 'Log in'}
+        onClick={trackLoginCtaClick}
       >
         <AccountIcon />
       </NavLink>
@@ -182,6 +184,8 @@ UniversalNavbar.propTypes = {
   logoHref: PropTypes.string,
   /** check if user is logged in */
   isLoggedIn: PropTypes.bool,
+  /** Analytics function run when Login CTA Button is clicked */
+  trackLoginCtaClick: PropTypes.func,
 }
 
 UniversalNavbar.defaultProps = {
@@ -190,6 +194,7 @@ UniversalNavbar.defaultProps = {
   logoHref: LINKS.INDEX.href,
   trackCtaClick: () => {},
   isLoggedIn: false,
+  trackLoginCtaClick: () => {},
 }
 
 export { UniversalNavbar }
