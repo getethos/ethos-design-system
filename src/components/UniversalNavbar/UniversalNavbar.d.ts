@@ -13,6 +13,8 @@ type UniversalNavbarProps = {
   logoHref?: string
   /** State if use is logged in */
   isLoggedIn?: boolean
+  /** Analytics function run when Login CTA Button is clicked */
+  trackLoginCtaClick?: () => void
 }
 
 export declare const UniversalNavbar: React.FC<UniversalNavbarProps>
