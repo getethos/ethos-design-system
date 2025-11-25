@@ -13,8 +13,10 @@ type UniversalNavbarProps = {
   logoHref?: string
   /** State if use is logged in */
   isLoggedIn?: boolean
+  
   /** render CTA node button in the Outer CTA div, prioritized over singleCta */
   renderCtaButton?: (props: { isMobile: boolean }) => React.ReactNode
+
   /** Analytics function run when Login CTA Button is clicked */
   trackLoginCtaClick?: () => void
 }
