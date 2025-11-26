@@ -121,9 +121,11 @@
  * Hack—this ensures that our Errors.module.scss does not get overriden by this rule
  * (normal focus causes dark gray, while the error still results in red border)
  */
+/* FIXME: This causes noisy CMS build
 .CheckboxInput:focus ~ .Facade:not(:global(.FacadeError)) {
   border-color: var(--GrayPrimary--opaque);
 }
+*/
 
 .tooltip,
 .tooltip * {
