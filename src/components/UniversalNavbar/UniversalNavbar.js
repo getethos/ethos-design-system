@@ -12,13 +12,16 @@ import NavLink from './NavLink'
 import { LINKS } from './constants'
 import styles from './UniversalNavbar.module.scss'
 
+// changes here
+
 const UniversalNavbar = ({
   LinkComponent,
-  hideMobileCta = false,
-  hideDesktopCta = false,
-  logoHref = LINKS.INDEX.href,
-  trackCtaClick = () => {},
-  isLoggedIn = false,
+  hideMobileCta,
+  hideDesktopCta,
+  logoHref,
+  trackCtaClick,
+  isLoggedIn,
+  trackLoginCtaClick
 }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
@@ -74,6 +77,7 @@ const UniversalNavbar = ({
         LinkComponent={LinkComponent}
         title={isLoggedIn ? 'Account' : 'Log in'}
         alt={isLoggedIn ? 'Account' : 'Log in'}
+        onClick={trackLoginCtaClick}
       >
         <AccountIcon />
       </NavLink>
@@ -180,6 +184,17 @@ UniversalNavbar.propTypes = {
   logoHref: PropTypes.string,
   /** check if user is logged in */
   isLoggedIn: PropTypes.bool,
+  /** Analytics function run when Login CTA Button is clicked */
+  trackLoginCtaClick: PropTypes.func,
+}
+
+UniversalNavbar.defaultProps = {
+  hideMobileCta: false,
+  hideDesktopCta: false,
+  logoHref: LINKS.INDEX.href,
+  trackCtaClick: () => {},
+  isLoggedIn: false,
+  trackLoginCtaClick: () => {},
 }
 
 export { UniversalNavbar }
