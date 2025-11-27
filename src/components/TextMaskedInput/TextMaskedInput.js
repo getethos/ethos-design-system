@@ -28,6 +28,7 @@ export const TextMaskedInput = (props) => {
     currentError,
     setFieldTouched,
     doValidation,
+    placeholder = '',
     placeholderChar,
     autoComplete,
     classOverrides,
