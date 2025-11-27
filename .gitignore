@@ -13,4 +13,6 @@ yarn-error.log
 
 src/fonts/
 
+.yarn/
+.yarnrc.yml
 

@@ -14,7 +14,7 @@
   $font-size: 19;
   $line-height: 24;
   font-size: $font-size * 1px;
-  line-height: $line-height / $font-size;
+  line-height: calc($line-height / $font-size);
   font-family: var(--Theinhardt-font-stack);
   transition: border-color 250ms ease;
 }
