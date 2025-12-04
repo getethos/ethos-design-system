@@ -14,6 +14,7 @@ import styles from './CtaButton.module.scss'
  *
  * @param {string} buttonStyle - 'Black' | 'BlackOutline'
  * @param {string} href - URL for the button to link to
+ * @param {function} onClick - event for the button
  * @param {function} trackingFunction - Analytics function run when CTA Button is clicked
  * @param {boolean} hideOnMobile - Hide the CTA on phone only
  * @param {string} title - Title text for the button
@@ -25,6 +26,7 @@ import styles from './CtaButton.module.scss'
 const CtaButton = ({
   buttonStyle = 'Black',
   href,
+  onClick,
   trackingFunction,
   hideOnMobile = false,
   title,
@@ -49,6 +51,19 @@ const CtaButton = ({
 
   const CTA = buttons[buttonStyle] || buttons.Black
 
+  const handleOnCtaClick = () => {
+    onClick?.()
+    trackingFunction?.()
+  }
+
+  if (onClick) {
+    return (
+      <div className={CtaButtonClasses.join(' ')} id={id}>
+        <CTA onClick={handleOnCtaClick}>{title}</CTA>
+      </div>
+    )
+  }
+
   return (
     <a
       className={CtaButtonClasses.join(' ')}
@@ -64,10 +79,16 @@ const CtaButton = ({
 CtaButton.propTypes = {
   buttonStyle: PropTypes.oneOf(['Black', 'BlackOutline']),
   hideOnMobile: PropTypes.bool,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
   trackingFunction: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.string,
+}
+
+CtaButton.defaultProps = {
+  buttonStyle: 'Black',
+  hideOnMobile: false,
 }
 
 export default CtaButton
