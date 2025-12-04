@@ -224,6 +224,9 @@ const MobileNav = ({
               <CtaButton
                 buttonStyle={ctaButtonStyle}
                 href={singleCta.href ? singleCta.href : links.CTA.href}
+                onClick={
+                  singleCta.onClick ? singleCta.onClick : links.CTA.onClick
+                }
                 trackingFunction={ctaButtonTrackingFunction}
                 hideOnMobile={hideMobileCta}
                 title={singleCta.title ? singleCta.title : links.CTA.title}
@@ -248,6 +251,7 @@ MobileNav.propTypes = {
   singleCta: PropTypes.shape({
     href: PropTypes.string,
     title: PropTypes.string,
+    onClick: PropTypes.func,
   }),
   animateNavbar: PropTypes.bool,
   partnerLogoMobile: PropTypes.node,
