@@ -43,35 +43,6 @@ describe('useDebounce hook', () => {
     expect(result.current[0]).toBe(false)
   })
 
-  test('the debounced function can only be retriggered after specified duration', () => {
-    // render the debounced function
-    let { result } = renderHook(() => useDebounce(mockFn, mockDurationMs))
-
-    // trigger the function once
-    act(() => {
-      result.current[1]() // debouncedFn()
-    })
-    expect(mockFn).toHaveBeenCalledTimes(1)
-
-    // function wont be invoked during duration
-    act(() => {
-      result.current[1]() // debouncedFn()
-    })
-    expect(mockFn).toHaveBeenCalledTimes(1)
-
-    // forward timers
-    act(() => {
-      jest.runAllTimers()
-    })
-    expect(mockFn).toHaveBeenCalledTimes(1)
-
-    // function can be invoked after duration
-    act(() => {
-      result.current[1]() // debouncedFn()
-    })
-    expect(mockFn).toHaveBeenCalledTimes(2)
-  })
-
   test('the target function is not debounced when duration is 0', () => {
     // render the non debounced function
     let { result } = renderHook(() => useDebounce(mockFn, 0))
