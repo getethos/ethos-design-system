@@ -27,7 +27,7 @@ Object {
             class="StyledReactSelect__control css-13cymwt-control"
           >
             <div
-              class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
+              class="StyledReactSelect__value-container css-hlgwow"
             >
               <div
                 class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
@@ -36,7 +36,7 @@ Object {
                 Type to search
               </div>
               <div
-                class="StyledReactSelect__input-container css-qbdosj-Input"
+                class="StyledReactSelect__input-container css-19bb58m"
                 data-value=""
               >
                 <input
@@ -61,7 +61,7 @@ Object {
               </div>
             </div>
             <div
-              class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
+              class="StyledReactSelect__indicators css-1wy0on6"
             >
               <span
                 class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
@@ -118,7 +118,7 @@ Object {
           class="StyledReactSelect__control css-13cymwt-control"
         >
           <div
-            class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
+            class="StyledReactSelect__value-container css-hlgwow"
           >
             <div
               class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
@@ -127,7 +127,7 @@ Object {
               Type to search
             </div>
             <div
-              class="StyledReactSelect__input-container css-qbdosj-Input"
+              class="StyledReactSelect__input-container css-19bb58m"
               data-value=""
             >
               <input
@@ -152,7 +152,7 @@ Object {
             </div>
           </div>
           <div
-            class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
+            class="StyledReactSelect__indicators css-1wy0on6"
           >
             <span
               class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
@@ -266,7 +266,7 @@ Object {
             class="StyledReactSelect__control css-13cymwt-control"
           >
             <div
-              class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
+              class="StyledReactSelect__value-container css-hlgwow"
             >
               <div
                 class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
@@ -275,7 +275,7 @@ Object {
                 Type to search
               </div>
               <div
-                class="StyledReactSelect__input-container css-qbdosj-Input"
+                class="StyledReactSelect__input-container css-19bb58m"
                 data-value=""
               >
                 <input
@@ -299,7 +299,7 @@ Object {
               </div>
             </div>
             <div
-              class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
+              class="StyledReactSelect__indicators css-1wy0on6"
             >
               <span
                 class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"
@@ -351,7 +351,7 @@ Object {
           class="StyledReactSelect__control css-13cymwt-control"
         >
           <div
-            class="StyledReactSelect__value-container css-1fdsijx-ValueContainer"
+            class="StyledReactSelect__value-container css-hlgwow"
           >
             <div
               class="StyledReactSelect__placeholder css-1jqq78o-placeholder"
@@ -360,7 +360,7 @@ Object {
               Type to search
             </div>
             <div
-              class="StyledReactSelect__input-container css-qbdosj-Input"
+              class="StyledReactSelect__input-container css-19bb58m"
               data-value=""
             >
               <input
@@ -384,7 +384,7 @@ Object {
             </div>
           </div>
           <div
-            class="StyledReactSelect__indicators css-1hb7zxy-IndicatorsContainer"
+            class="StyledReactSelect__indicators css-1wy0on6"
           >
             <span
               class="StyledReactSelect__indicator-separator css-1u9des2-indicatorSeparator"

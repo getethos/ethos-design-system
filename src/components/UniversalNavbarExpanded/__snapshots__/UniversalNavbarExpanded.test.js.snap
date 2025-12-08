@@ -338,6 +338,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
             >
               <CtaButton
                 buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 id="universal-navbar-expanded-button-inner"
                 title="Check my price"
@@ -690,6 +691,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links and
             >
               <CtaButton
                 buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 id="universal-navbar-expanded-button-inner"
                 title="Check my price"
@@ -1042,6 +1044,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             >
               <CtaButton
                 buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 id="universal-navbar-expanded-button-inner"
                 title="Check my price"
@@ -1395,6 +1398,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links pro
             >
               <CtaButton
                 buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 id="universal-navbar-expanded-button-inner"
                 title="Check my price"
@@ -1750,6 +1754,7 @@ exports[`<UniversalNavbarExpanded> matches snapshot builds with sample links, hi
             >
               <CtaButton
                 buttonStyle="Black"
+                hideOnMobile={false}
                 href="/term"
                 id="universal-navbar-expanded-button-inner"
                 title="Check my price"
