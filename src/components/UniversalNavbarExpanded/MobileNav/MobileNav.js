@@ -166,6 +166,9 @@ const MobileNav = ({
                 ) : (
                   <CtaButton
                     href={singleCta.href ? singleCta.href : links.CTA.href}
+                    onClick={
+                      singleCta.onClick ? singleCta.onClick : links.CTA.onClick
+                    }
                     trackingFunction={ctaButtonTrackingFunction}
                     hideOnMobile={hideMobileCta}
                     title={singleCta.title ? singleCta.title : links.CTA.title}
