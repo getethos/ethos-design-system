@@ -229,6 +229,11 @@ const UniversalNavbarExpanded = ({
                             href={
                               singleCta.href ? singleCta.href : links.CTA.href
                             }
+                            onClick={
+                              singleCta.onClick
+                                ? singleCta.onClick
+                                : links.CTA.onClick
+                            }
                             trackingFunction={trackCtaClick}
                             id={CTA_IDS.BUTTON.INNER}
                             title={
@@ -280,6 +285,7 @@ UniversalNavbarExpanded.propTypes = {
     /** CTA button link & text { href: string, title: string } */
     CTA: PropTypes.shape({
       href: PropTypes.string,
+      onClick: PropTypes.func,
       title: PropTypes.string,
     }),
     /** CTA text link { href: string, title: string } */
@@ -353,6 +359,7 @@ UniversalNavbarExpanded.propTypes = {
   estimateExperiment: PropTypes.bool,
   singleCta: PropTypes.shape({
     href: PropTypes.string,
+    onClick: PropTypes.func,
     title: PropTypes.string,
   }),
   /** Add animation to nav bar*/

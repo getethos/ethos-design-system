@@ -39,6 +39,7 @@ type UniversalNavbarExpandedProps = {
     }
     CTA: {
       href: string
+      onClick: () => void
       title: string
     }
     ACCOUNT: {
