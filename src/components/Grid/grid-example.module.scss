@@ -1,7 +1,7 @@
 @import '../../nora/components/Colors.css';
 @import '../../nora/components/Attributes.css';
 
-body {
+.body {
   /**
    * CSS Properites can take form of var(--possibly-set-var, --default-fallback-var)
    * allowing us to declaratively theme our grid!

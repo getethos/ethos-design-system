@@ -5,7 +5,7 @@
 
 // Typefaces
 
-body {
+.body {
   --system-sans-font-stack: -apple-system, BlinkMacSystemFont, 'Helvetica Neue',
     Helvetica, Arial, sans-serif;
   --system-serif-font-stack: Georgia, 'Times New Roman', serif;
@@ -18,7 +18,7 @@ body {
 
 // Global defaults
 
-body {
+.body {
   font-family: var(--Theinhardt-font-stack);
   color: var(--GrayPrimary--translucent);
   word-break: break-word;
