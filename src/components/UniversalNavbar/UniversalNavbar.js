@@ -12,8 +12,6 @@ import NavLink from './NavLink'
 import { LINKS } from './constants'
 import styles from './UniversalNavbar.module.scss'
 
-// changes here
-
 const UniversalNavbar = ({
   LinkComponent,
   hideMobileCta,

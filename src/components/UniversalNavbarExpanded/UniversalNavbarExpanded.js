@@ -66,6 +66,7 @@ const UniversalNavbarExpanded = ({
   isLoggedIn,
   partnerLogo,
   partnerLogoMobile,
+  trackLoginCtaClick,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -93,18 +94,27 @@ const UniversalNavbarExpanded = ({
     </NavLink>
   )
 
-  const AccountIconLink = () => (
+  const AccountIconLink = () => {
+    const handleAccountIconClick = (trackingData) => {
+      trackItemClick(trackingData)
+      if (trackLoginCtaClick) {
+        trackLoginCtaClick()
+      }
+    }
+
+    return (
     <NavLink
       className={styles.accountIcon}
       href={links.ACCOUNT.href}
-      trackingFunction={trackItemClick}
+      trackingFunction={handleAccountIconClick}
       itemLabel={'AccountIcon'}
       title={isLoggedIn ? 'Account' : 'Log in'}
       alt={isLoggedIn ? 'Account' : 'Log in'}
     >
       <AccountIcon />
     </NavLink>
-  )
+    )
+  }
 
   const ExperimentCopy = () => (
     <div
@@ -330,6 +340,8 @@ UniversalNavbarExpanded.propTypes = {
   isLoggedIn: PropTypes.bool,
   partnerLogo: PropTypes.node,
   partnerLogoMobile: PropTypes.node,
+  /** Analytics function run when Login CTA Button is clicked */
+  trackLoginCtaClick: PropTypes.func,
 }
 
 UniversalNavbarExpanded.defaultProps = {
