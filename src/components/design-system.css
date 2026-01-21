@@ -178,7 +178,7 @@ textarea {
    ========================================================================== */
 .body {
   --ContainerMaxWidth: 1440px;
-  --ContainerPadding--Phone: var(--Space-24);
+  --ContainerPadding--Phone: var(--Space-16);
   --ContainerPadding--Tablet: var(--Space-48);
   --ContainerPadding--Laptop: var(--Space-72);
   --ContainerPadding--Desktop: var(--Space-80);
