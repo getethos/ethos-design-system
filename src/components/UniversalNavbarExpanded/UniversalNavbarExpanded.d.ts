@@ -59,6 +59,9 @@ type UniversalNavbarExpandedProps = {
   singleCta?: { href: string; title: string }
 
   ctaButtonStyle?: 'BlackOutline' | 'Black'
+
+  /** Analytics function run when Login CTA Button is clicked */
+  trackLoginCtaClick?: () => void
 }
 
 export declare const UniversalNavbarExpanded: React.FC<UniversalNavbarExpandedProps>

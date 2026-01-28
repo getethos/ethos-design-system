@@ -72,6 +72,7 @@ const UniversalNavbarExpanded = ({
   trackCtaClick = () => {},
   trackItemClick,
   trackSecondaryCtaClick,
+  trackLoginCtaClick,
 }) => {
   let BELOW_ACCORDION_LINKS = [links.CTA]
 
@@ -100,11 +101,19 @@ const UniversalNavbarExpanded = ({
     </NavLink>
   )
 
-  const AccountIconLink = () => (
+  const AccountIconLink = () => {
+    const handleAccountIconClick = (trackingData) => {
+      trackItemClick(trackingData)
+      if (trackLoginCtaClick) {
+        trackLoginCtaClick()
+      }
+    }
+
+    return (
     <NavLink
       className={styles.accountIcon}
       href={links.ACCOUNT.href}
-      trackingFunction={trackItemClick}
+      trackingFunction={handleAccountIconClick}
       itemLabel={'AccountIcon'}
       title={isLoggedIn ? 'Account' : 'Log in'}
       alt={isLoggedIn ? 'Account' : 'Log in'}
@@ -112,7 +121,8 @@ const UniversalNavbarExpanded = ({
     >
       <AccountIcon />
     </NavLink>
-  )
+    )
+  }
 
   const ExperimentCopy = () => (
     <div
@@ -376,6 +386,8 @@ UniversalNavbarExpanded.propTypes = {
   renderCtaButton: PropTypes.func,
   /** Whether to show only partner logo without Ethos logo */
   isIndependentLogo: PropTypes.bool,
+  /** Analytics function run when Login CTA Button is clicked */
+  trackLoginCtaClick: PropTypes.func,
 }
 
 export { UniversalNavbarExpanded }
