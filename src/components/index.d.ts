@@ -128,44 +128,28 @@ type facadeRendererParams = {
   isChecked: boolean
 }
 
+export interface CheckboxInputProps {
+  formChangeHandler?: (value: string, errorValue: string) => void
+  validator?: (value: string) => string
+  children: React.ReactNode
+  disabled?: boolean
+  id?: string
+  name: string
+  'data-tid': string
+  initialValue?: string | boolean
+  checked?: boolean
+  currentValue?: string | boolean
+  currentError?: string
+  facadeRenderer?: ({
+    className,
+    isChecked,
+  }: facadeRendererParams) => ReactNode
+  setFieldTouched?: (touched: boolean) => void
+  formTouched?: boolean
+  useWhiteBackground?: boolean
+}
 export declare const CheckboxInput: {
-  ({
-    formChangeHandler,
-    validator,
-    children,
-    disabled,
-    id,
-    name,
-    initialValue,
-    checked,
-    currentValue,
-    currentError,
-    setFieldTouched,
-    facadeRenderer,
-    formTouched,
-    useWhiteBackground,
-    ...rest
-  }: {
-    [x: string]: any
-    formChangeHandler?: (value: string, errorValue: string) => void
-    validator?: (value: string) => string
-    children: React.ReactNode
-    disabled?: boolean
-    id?: string
-    name: string
-    'data-tid': string
-    initialValue?: string | boolean
-    checked?: boolean
-    currentValue?: string | boolean
-    currentError?: string
-    facadeRenderer?: ({
-      className,
-      isChecked,
-    }: facadeRendererParams) => ReactNode
-    setFieldTouched?: (touched: boolean) => void
-    formTouched?: boolean
-    useWhiteBackground?: boolean
-  }): JSX.Element
+  (props: CheckboxInputProps): JSX.Element
   propTypes: {
     formTouched?: boolean
     id?: string
@@ -188,46 +172,30 @@ export declare const CheckboxInput: {
   }
 }
 
+export interface CheckboxInput2Props {
+  formChangeHandler?: (value: string, errorValue: string) => void
+  validator?: (value: string) => string
+  children: React.ReactNode
+  disabled?: boolean
+  id: string
+  name: string
+  'data-tid': string
+  dataFormotiv?: string
+  initialValue?: string | boolean
+  checked?: boolean
+  currentValue?: string | boolean
+  currentError?: string
+  facadeRenderer?: ({
+    className,
+    isChecked,
+  }: facadeRendererParams) => ReactNode
+  setFieldTouched?: (touched: boolean) => void
+  formTouched?: boolean
+  tooltip?: TooltipProps
+  variant?: 'default' | 'textonly'
+}
 export declare const CheckboxInput2: {
-  ({
-    formChangeHandler,
-    validator,
-    children,
-    disabled,
-    name,
-    id,
-    initialValue,
-    checked,
-    currentValue,
-    currentError,
-    setFieldTouched,
-    facadeRenderer,
-    formTouched,
-    tooltip,
-    variant,
-    ...rest
-  }: {
-    [x: string]: any
-    formChangeHandler?: (value: string, errorValue: string) => void
-    validator?: (value: string) => string
-    children: React.ReactNode
-    disabled?: boolean
-    id?: string
-    name: string
-    'data-tid': string
-    initialValue?: string | boolean
-    checked?: boolean
-    currentValue?: string | boolean
-    currentError?: string
-    facadeRenderer?: ({
-      className,
-      isChecked,
-    }: facadeRendererParams) => ReactNode
-    setFieldTouched?: (touched: boolean) => void
-    formTouched?: boolean
-    tooltip?: TooltipProps
-    variant?: 'default' | 'textonly'
-  }): JSX.Element
+  (props: CheckboxInput2Props): JSX.Element
   propTypes: {
     formTouched?: boolean
     id?: string
@@ -327,26 +295,18 @@ export declare const Button: {
 }
 
 export declare const CLOUDINARY_CLOUD_NAME = 'getethos'
+export interface CloudinaryImageProps {
+  publicId: string
+  className?: string
+  alt: string
+  width?: number[]
+  height?: number[]
+  crop?: string
+  lazyLoad?: boolean
+  fetchpriority?: 'high' | 'low' | 'auto'
+}
 export declare const CloudinaryImage: {
-  ({
-    publicId,
-    className,
-    alt,
-    width,
-    height,
-    crop,
-    lazyLoad,
-    ...rest
-  }: {
-    [x: string]: any
-    publicId: any
-    className?: any
-    alt: any
-    width?: any
-    height?: any
-    crop?: any
-    lazyLoad?: boolean
-  }): JSX.Element
+  (props: CloudinaryImageProps): JSX.Element
   CROP_METHODS: {
     FILL: string
     FIT: string
@@ -391,32 +351,22 @@ export declare const preloadImageData: ({
   key: string
 }[]
 
+export interface SearchInputProps {
+  'data-tid': string
+  disabled?: boolean
+  compact?: boolean
+  name: string
+  onChange?: any
+  onFocus: (event: any) => void
+  onClick: (event: any) => void
+  onBlur: (event: any) => void
+  onKeyDown: (event: any) => void
+  placeholder?: string
+  value?: string
+  classOverrides?: string
+}
 export declare const SearchInput: {
-  ({
-    disabled,
-    compact,
-    name,
-    onChange,
-    onFocus,
-    onClick,
-    onBlur,
-    onKeyDown,
-    placeholder,
-    value,
-    ...rest
-  }: {
-    [x: string]: any
-    disabled?: boolean
-    compact?: boolean
-    name: string
-    onChange?: any
-    onFocus: any
-    onClick: any
-    onBlur: any
-    onKeyDown: any
-    placeholder?: string
-    value?: string
-  }): JSX.Element
+  (props: SearchInputProps): JSX.Element
   propTypes: {
     'data-tid': any
     disabled?: boolean
@@ -561,28 +511,12 @@ export declare namespace ValueProps {
 export declare const focusHelper: {
   focus: (elementRef: any) => void
 }
-export declare function RadioButtonGroup({
-  options,
-  onChange,
-  formChangeHandler,
-  allCaps,
-  capitalize,
-  name,
-  initialValue,
-  currentValue,
-  currentError,
-  formTouched,
-  disabled,
-  validator,
-  required,
-  labelCopy,
-  ...rest
-}: {
-  [x: string]: any
+export interface RadioButtonGroupProps {
   options: any
   onChange?: any
   formChangeHandler?: (value: string, errorValue: string) => void
   allCaps?: boolean
+  capitalize?: boolean
   name?: string
   initialValue?: string[] | boolean[]
   currentValue?: string
@@ -592,7 +526,9 @@ export declare function RadioButtonGroup({
   disabled?: boolean
   required?: boolean
   labelCopy: string
-}): JSX.Element
+  'data-tid'?: string
+}
+export declare function RadioButtonGroup(props: RadioButtonGroupProps): JSX.Element
 export declare namespace RadioButtonGroup {
   var PUBLIC_PROPS: {
     name?: string
@@ -627,28 +563,12 @@ export declare namespace RadioButtonGroup {
     required?: boolean
   }
 }
-export declare function RadioButtonGroup2({
-  options,
-  onChange,
-  formChangeHandler,
-  allCaps,
-  capitalize,
-  name,
-  initialValue,
-  currentValue,
-  currentError,
-  formTouched,
-  disabled,
-  validator,
-  required,
-  labelCopy,
-  ...rest
-}: {
-  [x: string]: any
+export interface RadioButtonGroup2Props {
   options: any
   onChange?: any
   formChangeHandler?: (value: string, errorValue: string) => void
   allCaps?: boolean
+  capitalize?: boolean
   name?: string
   initialValue?: string[] | boolean[]
   currentValue?: string
@@ -658,31 +578,27 @@ export declare function RadioButtonGroup2({
   disabled?: boolean
   required?: boolean
   labelCopy: string
-}): JSX.Element
+  'data-tid'?: string
+}
+export declare function RadioButtonGroup2(props: RadioButtonGroup2Props): JSX.Element
 
-export declare function RadioButton({
-  name,
-  value,
-  checked,
-  tabIndex,
-  required,
-  disabled,
-  label,
-  onClick,
-  onChange,
-  ...rest
-}: {
-  [x: string]: any
-  name?: string
-  value?: string | number
+export interface RadioButtonProps {
+  name: string
+  value: string | number
+  label: React.ReactNode
   checked?: boolean
   tabIndex?: number | string
   required?: boolean
   disabled?: boolean
-  label: string | React.ReactNode
   onClick?: (event: any) => void
   onChange?: any
-}): JSX.Element
+  onBlur?: () => void
+  onFocus?: () => void
+  onDragStart?: () => void
+  onDrop?: () => void
+  'data-tid'?: string
+}
+export declare function RadioButton(props: RadioButtonProps): JSX.Element
 
 export declare const Grid: {
   (props: any): JSX.Element
@@ -1099,42 +1015,29 @@ export declare const BirthdateInputValidators: typeof Validators
  *
  * @return {JSX.Element}
  */
+export interface ButtonSelectGroupProps {
+  children: React.ReactNode
+  labelCopy?: string
+  initialValue?: string | boolean
+  currentValue?: string | boolean
+  currentError?: string
+  formTouched?: boolean
+  onSelect?: any
+  column?: boolean
+  formChangeHandler?: (value: string, errorValue: string) => void
+  name?: string
+  allCaps?: boolean
+  capitalize?: boolean
+  buttonStyle?: string
+  validator?: (value: string) => string
+  fullWidth?: boolean
+  'data-tid'?: string
+  labelColor?: string
+  labelWeight?: string
+  labelClasses?: string
+}
 export declare const ButtonSelectGroup: {
-  ({
-    labelCopy,
-    children,
-    initialValue,
-    currentValue,
-    currentError,
-    formTouched,
-    onSelect,
-    column,
-    formChangeHandler,
-    name,
-    allCaps,
-    capitalize,
-    buttonStyle,
-    validator,
-    fullWidth,
-    ...rest
-  }: {
-    [x: string]: any
-    labelCopy: string
-    children: React.ReactNode
-    initialValue?: string | boolean
-    currentValue?: string | boolean
-    currentError?: string
-    formTouched?: boolean
-    onSelect?: any
-    column?: boolean
-    formChangeHandler?: (value: string, errorValue: string) => void
-    name?: string
-    allCaps?: boolean
-    capitalize?: boolean
-    buttonStyle?: string
-    validator?: (value: string) => string
-    fullWidth?: boolean
-  }): JSX.Element
+  (props: ButtonSelectGroupProps): JSX.Element
   propTypes: {
     formTouched?: boolean
     currentValue?: string | boolean
