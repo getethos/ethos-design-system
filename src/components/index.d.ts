@@ -140,10 +140,7 @@ export interface CheckboxInputProps {
   checked?: boolean
   currentValue?: string | boolean
   currentError?: string
-  facadeRenderer?: ({
-    className,
-    isChecked,
-  }: facadeRendererParams) => ReactNode
+  facadeRenderer?: ({ className, isChecked }: facadeRendererParams) => ReactNode
   setFieldTouched?: (touched: boolean) => void
   formTouched?: boolean
   useWhiteBackground?: boolean
@@ -177,7 +174,7 @@ export interface CheckboxInput2Props {
   validator?: (value: string) => string
   children: React.ReactNode
   disabled?: boolean
-  id: string
+  id?: string
   name: string
   'data-tid': string
   dataFormotiv?: string
@@ -185,10 +182,7 @@ export interface CheckboxInput2Props {
   checked?: boolean
   currentValue?: string | boolean
   currentError?: string
-  facadeRenderer?: ({
-    className,
-    isChecked,
-  }: facadeRendererParams) => ReactNode
+  facadeRenderer?: ({ className, isChecked }: facadeRendererParams) => ReactNode
   setFieldTouched?: (touched: boolean) => void
   formTouched?: boolean
   tooltip?: TooltipProps
@@ -299,8 +293,8 @@ export interface CloudinaryImageProps {
   publicId: string
   className?: string
   alt: string
-  width?: number[]
-  height?: number[]
+  width?: number[] | ReadonlyArray<number>
+  height?: number[] | ReadonlyArray<number>
   crop?: string
   lazyLoad?: boolean
   fetchpriority?: 'high' | 'low' | 'auto'
@@ -528,7 +522,9 @@ export interface RadioButtonGroupProps {
   labelCopy: string
   'data-tid'?: string
 }
-export declare function RadioButtonGroup(props: RadioButtonGroupProps): JSX.Element
+export declare function RadioButtonGroup(
+  props: RadioButtonGroupProps
+): JSX.Element
 export declare namespace RadioButtonGroup {
   var PUBLIC_PROPS: {
     name?: string
@@ -580,11 +576,13 @@ export interface RadioButtonGroup2Props {
   labelCopy: string
   'data-tid'?: string
 }
-export declare function RadioButtonGroup2(props: RadioButtonGroup2Props): JSX.Element
+export declare function RadioButtonGroup2(
+  props: RadioButtonGroup2Props
+): JSX.Element
 
 export interface RadioButtonProps {
   name: string
-  value: string | number
+  value?: string | number
   label: React.ReactNode
   checked?: boolean
   tabIndex?: number | string
@@ -1023,6 +1021,8 @@ export interface ButtonSelectGroupProps {
   currentError?: string
   formTouched?: boolean
   onSelect?: any
+  /** Alias used by some consumers; component uses onSelect. */
+  onChange?: (value: any) => void
   column?: boolean
   formChangeHandler?: (value: string, errorValue: string) => void
   name?: string
@@ -1035,6 +1035,7 @@ export interface ButtonSelectGroupProps {
   labelColor?: string
   labelWeight?: string
   labelClasses?: string
+  ref?: React.Ref<any>
 }
 export declare const ButtonSelectGroup: {
   (props: ButtonSelectGroupProps): JSX.Element
@@ -1067,7 +1068,7 @@ export declare const ButtonSelectGroup: {
     /** Optional, makes the group width 100%. Defaults to true */
     fullWidth?: boolean
   }
-  Option: any
+  Option: typeof OptionButton
 }
 
 export declare const OPTION_BUTTON_STYLES: {
@@ -1088,29 +1089,18 @@ export declare const OPTION_BUTTON_STYLES: {
  *
  * @return {JSX.Element}
  */
-export declare const OptionButton: {
-  ({
-    children: label,
-    isSelected,
-    onClick,
-    buttonStyle,
-  }: {
-    children: React.ReactNode
-    isSelected?: boolean
-    onClick?: any
-    buttonStyle?: string
-  }): JSX.Element
-  propTypes: {
-    children: React.ReactNode
-    buttonStyle?: string
-    /** Set's the caption of the button's label */
-    label?: string
-    /** When set to `true`, the button will display as `selected` */
-    isSelected?: boolean
-    /** An optional onClick handler that fires **after** an option has been selected */
-    onClick?: any
-  }
+export interface OptionButtonProps {
+  children: React.ReactNode
+  value?: string | boolean | number
+  isSelected?: boolean
+  onClick?: (event: any) => void
+  buttonStyle?: string
+  'data-tid'?: string
+  key?: any
+  disabled?: boolean
+  column?: boolean
 }
+export declare function OptionButton(props: OptionButtonProps): JSX.Element
 
 export declare const NoOptions: {
   ({ loadingText }: { loadingText: string }): JSX.Element
